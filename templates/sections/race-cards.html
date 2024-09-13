@@ -1,0 +1,21 @@
+<section class="section section-race-cards">
+  <h2 class="section-header section-header-race-cards">
+    <span id="race-cards-title">{{ section_race_card_header }}</span>
+    <span id="date-range"></span>
+  </h2>
+
+  <div class="race-cards-grid" id="race-cards-container">
+    {% for race in races %} {% include 'components/race-card.html' %} {% endfor
+    %}
+  </div>
+
+  <!-- Add pagination controls -->
+  <div class="pagination-info">
+    <span id="event-range"></span> of <span id="total-events"></span> Events
+  </div>
+  <div class="pagination">
+    <button id="prev-page">Previous</button>
+    <div id="page-numbers"></div>
+    <button id="next-page">Next</button>
+  </div>
+</section>

@@ -1,0 +1,73 @@
+<a
+  href="/race-pages/{{ race.image_partial_key }}.html"
+  class="race-card"
+  data-date="{{ race.date }}"
+  data-county="{{ county_mapping[race.county] }}"
+  data-category="{{ race.category }}"
+  data-race-type="{{ race_type[race.type] }}"
+  data-distance="{{ race.distance_m }}"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/race-pages/images/{{ race.image_partial_key }}_1.webp"
+        alt="{{ alt_prefix }}{{ race.name }}"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          {{ race.date | convert_date(month_mapping_short) }}
+        </div>
+        <div class="race-place">{{ county_mapping[race.county] }}</div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">{{ race.name }}</h3>
+        {% if race.place %}
+        <div class="race-place">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          {{ race.place }}
+        </div>
+        {% endif %}
+      </div>
+      <div class="right-container">
+        {% if race.distance_m %}
+        <div class="race-distances">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          {% set display_distances = race.distance_m |
+          get_display_values(race.type, category_mapping) %} {% for distance in
+          display_distances %}
+          <span class="race-distance">
+            {{ distance }} {% if not loop.last %} {% endif %}
+          </span>
+          {% endfor %}
+        </div>
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          {{ race_type[race.type] }}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    <div class="race-summary">
+      {{ race.summary[:140] }}{% if race.summary|length > 150 %}...{% endif %}
+    </div>
+  </div>
+  <div class="cta-button">
+    <div class="more-info-button">{{ race_card_cta_text }}</div>
+  </div>
+</a>

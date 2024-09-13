@@ -1,0 +1,207 @@
+.race-card {
+  margin: 1rem;
+  padding: 0 1rem 1rem 1rem;
+  color: black;
+  text-decoration: none;
+
+  .race-card-upper-box {
+    height: 19rem; // Smaller height
+    width: 100%; // Smaller width
+    /* Adjust as necessary */
+
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 4px;
+    overflow: hidden;
+
+    .race-card-content {
+      position: relative;
+      z-index: 2;
+      /* Ensure content is above the overlay */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1rem;
+
+      height: 100%;
+      font-size: 1.4rem; // Slightly smaller font size
+    }
+
+    .race-info-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+
+      .race-date {
+        background: var(--info-highlight-background);
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+      }
+
+      .race-place {
+        background: var(--info-highlight-background2);
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        color: black;
+
+        text-align: right;
+      }
+    }
+  }
+
+  .race-info-bottom {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 1.4rem;
+
+    @content-bottom-margin: 0.4rem;
+    .upper-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      margin-top: 0.7rem;
+      position: relative;
+      font-size: 1.4rem;
+
+      .left-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        max-width: calc(
+          100% - 120px
+        ); // Adjust this value based on the minimum width needed for the right container
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        .race-name {
+          height: 2rem;
+          margin-bottom: @content-bottom-margin;
+          font-size: 1.6rem;
+          display: flex;
+          align-items: center;
+        }
+
+        .race-place {
+          margin-bottom: @content-bottom-margin;
+        }
+      }
+
+      .right-container {
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        @left-container-padding: 0.8rem;
+        .race-distances {
+          display: flex;
+          margin-bottom: @content-bottom-margin;
+          align-items: center;
+          flex-wrap: wrap;
+          justify-content: flex-end;
+          background: var(--color-background);
+          z-index: 2;
+          padding-left: @left-container-padding;
+
+          .race-distance {
+            background: var(--info-highlight-background);
+            height: 2rem;
+            padding: 0 0.5rem;
+            border-radius: 5px;
+            margin-left: 0.5rem;
+            display: flex;
+            align-items: center;
+          }
+        }
+
+        .race-type {
+          margin-bottom: @content-bottom-margin;
+          padding-left: @left-container-padding;
+          background: var(--color-background);
+        }
+      }
+    }
+
+    .race-summary {
+      margin-bottom: 0.3rem;
+      line-height: 1.2;
+      align-self: flex-end;
+      font-size: 1.5rem;
+    }
+  }
+  .cta-button {
+    position: relative;
+    margin-top: 2rem;
+    height: 7rem;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  @margin-bottom: 0.5rem;
+
+  .more-info-button {
+    position: absolute;
+    top: 0;
+    left: 30%;
+    width: 70%;
+    bottom: 2rem;
+    padding: 1rem 0 1rem 1rem;
+    font-size: 1.6rem;
+    color: var(--color-primary-dark);
+    background-color: var(--color-background-shade);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    margin-bottom: @margin-bottom;
+    transition: background-color 0.3s, transform 0.3s;
+
+    /* Create a triangle cut-out in the upper right corner */
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 5rem 5rem 0;
+      border-color: transparent var(--color-background) transparent transparent;
+      z-index: 10;
+    }
+
+    /* Adding the right arrow */
+    &::after {
+      content: "→";
+      font-size: 2.5rem;
+      margin: 0 0 0.5rem 1%;
+      transition: margin-left 0.3s;
+    }
+  }
+
+  &:hover,
+  &:active {
+    background-color: var(--color-background-shade);
+    .race-type,
+    .race-distances {
+      background: var(--color-background-shade) !important;
+    }
+    .more-info-button {
+      background-color: var(--color-background);
+      border-bottom: 2px solid #000;
+      margin-bottom: ~"calc(@{margin-bottom} - 2px)";
+      &::before {
+        border-color: transparent var(--color-background-shade) transparent
+          transparent;
+      }
+      &::after {
+        margin-left: 2%;
+      }
+    }
+  }
+}

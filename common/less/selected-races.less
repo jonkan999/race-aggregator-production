@@ -1,0 +1,60 @@
+@import "_variables.less";
+.section-selected-races {
+  position: relative;
+}
+
+.race-card-big-container {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 1rem;
+  padding-bottom: 0.8rem;
+
+  @import "race-card-big.less";
+}
+
+.selected-races-button-container {
+  position: relative;
+  margin-top: 2rem;
+  height: 7rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+@margin-bottom: 0.5rem;
+
+.selected-races-button {
+  position: absolute;
+  top: 0;
+  left: 34%;
+  width: 75%;
+  bottom: 2rem;
+  padding: 1rem 1%;
+  font-size: 2rem;
+  color: var(--color-primary-dark);
+  background-color: var(--color-background-shade);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: @margin-bottom;
+  transition: background-color 0.3s, transform 0.3s;
+
+  /* Adding the right arrow */
+  &::after {
+    content: "→";
+    font-size: 3rem;
+    margin: 0 0 0.5rem 1%;
+    transition: margin-left 0.3s;
+  }
+
+  &:hover,
+  &:active {
+    background-color: var(--color-background);
+    border-bottom: 2px solid #000;
+    margin-bottom: ~"calc(@{margin-bottom} - 2px)";
+    &::after {
+      margin-left: 2%;
+    }
+  }
+}

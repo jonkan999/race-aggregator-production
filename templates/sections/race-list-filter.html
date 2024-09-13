@@ -1,0 +1,45 @@
+<section class="section-filters">
+  <div class="filter-date">
+    <label for="date-from">{{ filter_date_from }}:</label>
+    <input type="date" id="date-from" name="date-from" />
+
+    <label for="date-to">{{ filter_date_to }}:</label>
+    <input type="date" id="date-to" name="date-to" />
+  </div>
+
+  <div class="filter-months right-scroller">
+    {% for month_key, month_value in month_mapping.items() %}
+    <button class="month-button" data-month="{{ month_key }}">
+      {{ month_value }}
+    </button>
+    {% endfor %}
+  </div>
+
+  <div class="filter-categories right-scroller">
+    {% for category_key in category_mapping.keys() %}
+    <button class="category-button" data-category="{{ category_key }}">
+      {{ category_key }}
+    </button>
+    {% endfor %}
+  </div>
+
+  <div class="filter-dropdowns">
+    <div class="filter-county">
+      <select id="county" name="county">
+        <option value="">{{ filter_county }}</option>
+        {% for county_key, county_value in county_mapping.items() %}
+        <option value="{{ county_value }}">{{ county_value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="filter-race-type">
+      <select id="race-type" name="race-type">
+        <option value="">{{ filter_race_type }}</option>
+        {% for type_key, type_value in race_type.items() %}
+        <option value="{{ type_value }}">{{ type_value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,137 @@
+@import "_variables.less";
+
+.section-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  text-align: center;
+  color: black;
+  overflow: hidden; /* Ensure the overlay stays within the bounds */
+  padding-top: 23rem;
+  padding-left: 20rem;
+  border-bottom: none;
+
+  @media (max-width: @tablet) {
+    padding-left: 10rem;
+  }
+  @media (max-width: @small-tablet) {
+    padding-left: 3rem !important;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay and image */
+
+    .title-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.5rem; /* Optional: adjust as needed */
+      box-sizing: border-box;
+      @media (max-width: @phone) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .native-title,
+      .native-country {
+        margin: 0; /* Remove default margins */
+        display: inline-block;
+      }
+
+      .native-title {
+        font-size: 5rem;
+      }
+
+      .native-country {
+        font-size: 7rem;
+      }
+    }
+
+    .bullet-list {
+      margin-top: 10rem;
+      padding-left: 10rem;
+      list-style: none;
+
+      @margin-bottom: 3rem;
+      @margin-bottom-first: 2rem;
+
+      @media (max-width: @tablet) {
+        padding-left: 5rem;
+      }
+      @media (max-width: @phone) {
+        padding-left: 0rem;
+      }
+
+      li {
+        margin-bottom: @margin-bottom;
+        display: flex;
+        align-items: center;
+        background-color: var(--color-background);
+
+        &:nth-child(1) {
+          margin-bottom: @margin-bottom-first;
+
+          ion-icon {
+            color: var(--color-warning);
+          }
+        }
+
+        &:nth-child(2) {
+          padding-left: 3rem;
+        }
+
+        &:nth-child(3) ion-icon {
+          color: var(--color-success);
+        }
+
+        &:nth-child(4) ion-icon {
+          color: var(--color-secondary-highlight);
+        }
+
+        &:hover,
+        &:active {
+          background-color: var(--color-background-shade);
+          border-bottom: 2px solid #000;
+          margin-bottom: ~"calc(@{margin-bottom} - 2px)";
+          &:nth-child(1) {
+            margin-bottom: ~"calc(@{margin-bottom-first} - 2px)";
+          }
+        }
+
+        a {
+          text-decoration: none;
+          color: inherit;
+          font-size: 2.5rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          text-align: start;
+          width: 93%;
+
+          ion-icon {
+            font-size: 3rem;
+            margin-right: 0.5rem;
+            margin-left: 1rem;
+            width: 3rem;
+            flex-shrink: 0;
+          }
+          .arrow {
+            margin-left: 1rem;
+            margin-bottom: 0.8rem;
+            font-size: 4rem;
+            color: #000; // Example color for arrow
+          }
+
+          .plus {
+            margin-left: 1rem;
+            margin-bottom: 0.3rem;
+            font-size: 3.4rem;
+            color: #000; // Example color for plus sign
+          }
+        }
+      }
+    }
+  }
+}

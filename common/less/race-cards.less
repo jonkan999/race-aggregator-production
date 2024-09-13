@@ -1,0 +1,95 @@
+@import "_variables.less";
+
+.section-race-cards {
+  padding: 0 1.5rem;
+
+  .section-header-race-cards {
+    margin-bottom: 2rem;
+  }
+
+  .race-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+    /* Adjust the gap between cards */
+    margin: 0 auto;
+    /* Center the grid if there's extra space */
+    padding: 1rem;
+
+    /* Responsive Breakpoints */
+    @media (max-width: 75em) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: 59em) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 44em) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 34em) {
+      grid-template-columns: 1fr;
+
+      .race-card {
+        width: 100%;
+      }
+    }
+  }
+  .pagination-info {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 14px;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+  }
+
+  .pagination button {
+    margin: 0 5px 5px 5px;
+    padding: 8px 12px;
+    background-color: var(--color-background-shade);
+    cursor: pointer;
+    font-size: 1.5rem;
+    border: none;
+    transition: background-color 0.3s;
+  }
+
+  .pagination button:hover {
+    background-color: var(--color-background);
+    border-bottom: 2px solid #000;
+    margin-bottom: calc(5px - 2px);
+  }
+
+  .pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .pagination button.active {
+    background-color: var(--info-highlight-background2);
+
+    border-color: var(--info-highlight-background2);
+  }
+
+  .pagination .nav-button {
+    .pagination .nav-button {
+      font-weight: bold;
+    }
+
+    .pagination .ellipsis {
+      font-size: 2rem;
+      margin: 0 0.4rem 0.6rem 0.5rem;
+    }
+
+    #page-numbers {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

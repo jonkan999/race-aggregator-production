@@ -1,0 +1,21 @@
+<section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/index.html" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">{{ page_name }}</h2></a
+    >
+    <div class="login-container">
+      <ion-icon class="login-icon" name="person-circle-outline"></ion-icon>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    {% for key, value in navigation.items() %}
+    <a class="nav-container" href="/{{ value | slugify(country_code) }}.html"
+      ><span class="nav-item">{{ value }}</span></a
+    >
+    {% endfor %}
+  </nav>
+</section>

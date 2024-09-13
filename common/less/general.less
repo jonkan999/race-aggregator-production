@@ -1,0 +1,200 @@
+@import "_variables.less";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* font-size: 10px; */
+  /* 10 / 16 = 0,625 percentage of users browser font-size setting */
+  font-size: 62.5%;
+  @media (max-width: @landscape-tablet) {
+    font-size: 56.25%;
+  }
+  @media (max-width: @landscape-tablet) {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--color-black-text);
+  background-color: var(--color-background);
+}
+
+input:focus,
+select:focus {
+  outline: none;
+}
+
+@color-primary: #00492f;
+
+@color-primary-overlay: #e6edea;
+
+@color-primary-shade: #001a11;
+
+@color-primary-tint: rgb(208, 255, 239);
+
+/* Create a semi-transparent overlay color based on the primary color */
+@color-primary-overlay-hard: rgba(
+  red(@color-primary-overlay),
+  green(@color-primary-overlay),
+  blue(@color-primary-overlay),
+  1
+);
+
+@color-primary-overlay-medium: rgba(
+  red(@color-primary-overlay),
+  green(@color-primary-overlay),
+  blue(@color-primary-overlay),
+  0.5
+);
+
+@color-primary-overlay-soft: rgba(
+  red(@color-primary-overlay),
+  green(@color-primary-overlay),
+  blue(@color-primary-overlay),
+  0.3
+);
+
+/* Create a semi-transparent overlay color based on the primary color */
+@color-primary-shade-overlay: rgba(
+  red(@color-primary-shade),
+  green(@color-primary-shade),
+  blue(@color-primary-shade),
+  0.15
+);
+
+/* Create a semi-transparent overlay color based on the primary color */
+@color-primary-tint-overlay: rgba(
+  red(@color-primary-tint),
+  green(@color-primary-tint),
+  blue(@color-primary-tint),
+  0.15
+);
+
+:root {
+  --color-background: #fff;
+  --color-background-shade: #eee;
+
+  --color-primary: @color-primary;
+  --color-primary-shade: @color-primary-shade;
+  --color-primary-overlay-hard: @color-primary-overlay-hard;
+  --color-primary-overlay-medium: @color-primary-overlay-medium;
+  --color-primary-overlay-soft: @color-primary-overlay-soft;
+  --color-primary-shade-overlay: @color-primary-shade-overlay;
+  --color-primary-tint-overlay: @color-primary-tint-overlay;
+  --color-accent: #1db47f;
+  --color-highlight: #ffdf01;
+  --color-warning: #e2701b;
+  --color-success: #00925e;
+  --color-secondary-accent: #00a96d;
+  --color-secondary-highlight: #336ab9;
+  --info-highlight-background: #fee79d;
+  --info-highlight-background2: #34bc8c;
+
+  --color-section-separator: #e2e2e3;
+
+  --color-divider-grey: #d9d9d9;
+
+  --color-white-text: #f1f3f4;
+  --color-black-text: #18181b;
+
+  --header-size: 7rem;
+
+  --mobile-standard-box-width: 390px;
+}
+
+.section {
+  border-bottom: 20px solid var(--color-divider-grey);
+  padding-left: 1.5rem;
+  @media (max-width: @small-tablet) {
+    padding-left: 1.5rem !important;
+  }
+  margin-bottom: 6rem;
+}
+
+.section-header {
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.new-amsterdam {
+  font-family: "New Amsterdam", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.2rem;
+}
+
+.container {
+  /* 1140px */
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  &.medium {
+    background: var(--color-primary-overlay-medium);
+  }
+  &.soft {
+    background: var(--color-primary-overlay-soft);
+  }
+  &.gradient {
+    background: linear-gradient(
+      to bottom,
+      var(--color-primary-overlay-hard),
+      var(--color-primary-overlay-medium)
+    );
+  }
+  z-index: 1;
+  pointer-events: none; /* Allow interaction with content below the overlay */
+}
+
+.right-scroller {
+  display: flex;
+  justify-content: center;
+  overflow-y: hidden;
+  overflow-x: auto;
+  gap: 1.5rem;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+
+.background-container {
+  position: relative;
+
+  .background-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    z-index: 0;
+
+    filter: grayscale(0.9) contrast(150%) brightness(120%);
+    mix-blend-mode: multiply;
+  }
+}
+
+.section-separator-top {
+  border-top: 2px solid var(--color-section-separator);
+}
+
+.icon {
+  width: 1.5rem; /* Adjust this to your desired size */
+  height: 1.5rem;
+  display: inline-block;
+  vertical-align: middle;
+}

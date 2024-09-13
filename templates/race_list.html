@@ -1,0 +1,16 @@
+{% extends "race_list_layout.html" %} {% block content %} {% include
+'sections/ad-banner.html' %} {% include 'sections/header-menu.html' %}{% include
+'sections/race-list-filter.html' %} {% include 'sections/race-cards.html' %}{%
+endblock %}
+
+<div class="pagination-info">
+  <span id="event-range"></span> of <span id="total-events"></span> Events
+</div>
+<div class="pagination">
+  <button id="first-page" class="nav-button">&lt;</button>
+  <div id="page-numbers"></div>
+  <button id="last-page" class="nav-button">&gt;</button>
+</div>
+
+{# {% include 'sections/selected-races.html' %} gör en ny selected races som är
+dynamiskt baserad på det som är i listan och ranking #}

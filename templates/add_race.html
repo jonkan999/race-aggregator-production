@@ -1,0 +1,230 @@
+{% extends "add_race_layout.html" %} {% include 'sections/header-menu.html' %}{%
+block content %}
+<div class="section-separator-top"></div>
+<section class="section-add-race">
+  <h1 class="section-header">{{ add_race_title }}</h1>
+
+  <form id="add-race-form" enctype="multipart/form-data">
+    <!-- Basic Race Information -->
+    <div class="form-group">
+      <label for="race-name">{{ name_label }}</label>
+      <input
+        type="text"
+        id="race-name"
+        name="race-name"
+        placeholder="{{ name_placeholder }}"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="race-type">{{ type_text }}</label>
+      <select id="race-type" name="race-type" required>
+        <option value="">{{ type_select_placeholder }}</option>
+        {% for option in type_options %}
+        <option value="{{ option }}">{{ option }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <!-- Date and Time -->
+    <div class="form-group">
+      <label for="race-date">{{ date_text }}</label>
+      <input type="date" id="race-date" name="race-date" required />
+      <div class="multi-day-toggle">
+        <label for="multi-day-toggle">{{ multi_day_toggle }}</label>
+        <input type="checkbox" id="multi-day-toggle" name="multi-day-toggle" />
+      </div>
+      <div id="end-date-container" style="display: none">
+        <label for="race-end-date">{{ end_date_text }}</label>
+        <input type="date" id="race-end-date" name="race-end-date" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="race-start-time"
+        >{{ start_time_label }}
+        <span class="optional">({{ optional_label }})</span></label
+      >
+      <input
+        type="time"
+        id="race-start-time"
+        name="race-start-time"
+        placeholder="{{ start_time_placeholder }}"
+      />
+    </div>
+
+    <!-- Location -->
+    <div class="form-group map-container">
+      <label>{{ map_message }}</label>
+      <div
+        id="map-placeholder"
+        data-latitude="{{ mapbox_center.latitude }}"
+        data-longitude="{{ mapbox_center.longitude }}"
+        data-zoom="{{ mapbox_zoom }}"
+      >
+        <!-- Map will be inserted here -->
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="race-place">{{ place_label }}</label>
+      <input
+        type="text"
+        id="race-place"
+        name="race-place"
+        placeholder="{{ place_placeholder }}"
+        required
+      />
+    </div>
+
+    <!-- Distances -->
+    <div class="form-group">
+      <label>{{ distance_label }}</label>
+      <div class="distance-input-container">
+        <input
+          type="number"
+          id="distance-input"
+          placeholder="{{ distance_placeholder }}"
+          min="0"
+          step="0.1"
+        />
+        <button type="button" id="add-distance">
+          {{ add_distance_button }}
+        </button>
+      </div>
+      <div class="quick-distance-buttons">
+        <button type="button" class="quick-distance" data-distance="21.1">
+          {{ half_marathon_button }}
+        </button>
+        <button type="button" class="quick-distance" data-distance="42.2">
+          {{ marathon_button }}
+        </button>
+        <button type="button" class="quick-distance" data-distance="backyard">
+          {{ backyard_ultra_button }}
+        </button>
+        <button type="button" class="quick-distance" data-distance="80.5">
+          {{ fifty_miles_button }}
+        </button>
+        <button type="button" class="quick-distance" data-distance="160.9">
+          {{ hundred_miles_button }}
+        </button>
+      </div>
+      <div id="distances-container"></div>
+      <input type="hidden" id="race-distances" name="race-distances" />
+    </div>
+
+    <!-- Organizer Information -->
+    <div class="form-group">
+      <label for="race-organizer"
+        >{{ organizer_label }}
+        <span class="optional">({{ optional_label }})</span></label
+      >
+      <input
+        type="text"
+        id="race-organizer"
+        name="race-organizer"
+        placeholder="{{ organizer_contact_placeholder }}"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="race-contact">{{ organizer_contact_label }}</label>
+      <input
+        type="email"
+        id="race-contact"
+        name="race-contact"
+        placeholder="{{ organizer_mail_placeholder }}"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="race-website"
+        >{{ website_label }}
+        <span class="optional">({{ optional_label }})</span></label
+      >
+      <input
+        type="url"
+        id="race-website"
+        name="race-website"
+        placeholder="{{ website_placeholder }}"
+      />
+    </div>
+
+    <!-- Additional Details -->
+    <div class="form-group">
+      <label for="race-price-range"
+        >{{ price_range_label }}
+        <span class="optional">({{ optional_label }})</span></label
+      >
+      <input
+        type="text"
+        id="race-price-range"
+        name="race-price-range"
+        placeholder="{{ price_range_placeholder }}"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="race-summary">{{ summary_label }}</label>
+      <textarea
+        id="race-summary"
+        name="race-summary"
+        placeholder="{{ summary_placeholder }}"
+        required
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="race-additional"
+        >{{ additional_label }}
+        <span class="optional">({{ optional_label }})</span></label
+      >
+      <textarea
+        id="race-additional"
+        name="race-additional"
+        placeholder="{{ additional_placeholder }}"
+      ></textarea>
+    </div>
+
+    <!-- Images -->
+    <div class="form-group picture-upload-container">
+      <label for="race-images">{{ images_label }}</label>
+      <input
+        type="file"
+        id="race-images"
+        class="picture-upload-input"
+        multiple
+        accept="image/*"
+      />
+      <label for="race-images" class="picture-upload-button"
+        >{{ choose_pictures_button }}</label
+      >
+    </div>
+
+    <!-- Drag and Drop Image Upload -->
+    <div id="fileUploadStatus"></div>
+    <div class="image-container"></div>
+    <button type="button" id="clearImagesButton">
+      {{ clear_images_button }}
+    </button>
+
+    <!-- Form Actions -->
+    <div class="form-actions">
+      <button type="button" id="preview-button">{{ preview_button }}</button>
+      <button type="submit">{{ submit_button }}</button>
+    </div>
+  </form>
+
+  <button type="button" id="clear-form">{{ clear_form_button }}</button>
+</section>
+
+<div id="preview-modal" class="modal">
+  <div class="modal-content">
+    <h2>{{ preview_title }}</h2>
+    <div id="preview-content"></div>
+    <button id="close-preview">{{ preview_exit_button }}</button>
+  </div>
+</div>
+{% endblock %} {% block scripts %}{% endblock %}

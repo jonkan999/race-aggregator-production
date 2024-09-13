@@ -1,0 +1,30 @@
+{% extends "add_race_layout.html" %} {% include 'sections/header-menu.html' %}{%
+block content %}
+<div class="section-separator-top"></div>
+<section class="section-race-preview">
+  <h1 id="preview-name"></h1>
+  <div class="race-meta">
+    <p id="preview-date"></p>
+    <p id="preview-location"></p>
+  </div>
+  <div class="race-details">
+    <p id="preview-type"></p>
+    <p id="preview-distances"></p>
+    <p id="preview-organizer"></p>
+    <p id="preview-price-range"></p>
+    <a id="preview-website" target="_blank"></a>
+  </div>
+  <div class="race-description">
+    <h2>Om loppet</h2>
+    <p id="preview-summary"></p>
+    <h3>Ytterligare information</h3>
+    <p id="preview-additional"></p>
+  </div>
+  <div id="preview-map"></div>
+  <div id="preview-images"></div>
+  <div class="preview-actions">
+    <button id="edit-race">Redigera</button>
+    <button id="submit-race">Skicka in</button>
+  </div>
+</section>
+{% endblock %} {% block scripts %}{% endblock %}

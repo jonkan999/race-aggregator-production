@@ -1,0 +1,92 @@
+@font-size-filters: 1.4rem;
+
+.section-filters {
+  padding: 1.5rem 0 0 0.8rem;
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  width: 100%; // Ensure full width
+  overflow: hidden; // Hide overflow on the container
+}
+
+.filter-date {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding-right: 0.8rem;
+
+  label {
+    white-space: nowrap;
+    font-size: @font-size-filters;
+  }
+
+  input {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: @font-size-filters;
+  }
+}
+
+.filter-months,
+.filter-categories {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap; // Prevent wrapping
+  gap: 0.5rem;
+  overflow-x: auto; // Allow horizontal scrolling
+  -webkit-overflow-scrolling: touch; // Smooth scrolling on iOS
+  //padding-bottom: 1rem; // Add some padding to show scrollbar
+  //margin-bottom: -1rem; // Offset the padding
+
+  // Hide scrollbar for Chrome, Safari and Opera
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  // Hide scrollbar for IE, Edge and Firefox
+  -ms-overflow-style: none; // IE and Edge
+  scrollbar-width: none; // Firefox
+}
+
+.month-button,
+.category-button {
+  flex: 0 0 auto; // Prevent shrinking
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background-color: var(--color-background-shade);
+  cursor: pointer;
+  //transition: background-color 0.3s, color 0.3s;
+  font-size: @font-size-filters;
+}
+
+.month-button {
+  &:hover,
+  &.active {
+    background-color: var(--info-highlight-background);
+  }
+}
+
+.category-button {
+  &:hover,
+  &.active {
+    background-color: var(--info-highlight-background2);
+  }
+}
+
+.filter-dropdowns {
+  display: flex;
+  gap: 1rem;
+
+  select {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: @font-size-filters;
+  }
+}

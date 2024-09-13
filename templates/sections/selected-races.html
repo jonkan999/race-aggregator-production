@@ -1,0 +1,19 @@
+<section class="section section-selected-races">
+  <h2 class="section-header">{{ selected_races_title }}</h2>
+  <div class="race-card-big-container right-scroller">
+    {% for race in races %} {% include 'components/race-card-big.html' %} {%
+    endfor %}
+  </div>
+  <div class="selected-races-button-container">
+    <!-- eslint-disable-next-line -->
+    <button class="selected-races-button" id="selected-races-button">
+      {{ cta_all_races }}
+    </button>
+    <script>
+      // JavaScript logic to handle the button click
+      document.getElementById('selected-races-button').onclick = function() {
+        location.href = '/{{ navigation["race-list"] | slugify(country_code) }}.html';
+      };
+    </script>
+  </div>
+</section>

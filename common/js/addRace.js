@@ -11,12 +11,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const distancesContainer = document.getElementById("distances-container");
   const raceDistancesInput = document.getElementById("race-distances");
   const quickDistanceButtons = document.querySelectorAll(".quick-distance");
-  const fileInput = document.getElementById("race-images");
-  const tagsContainer = document.getElementById("picture-tags-container");
+  const imageUpload = document.getElementById("race-images");
+  const imageContainer = document.querySelector(".image-container");
+  const clearImagesButton = document.getElementById("clearImagesButton");
+  const clearFormButton = document.getElementById("clear-form");
 
   let distances = [];
+  let raceImagesData = JSON.parse(localStorage.getItem("raceImages")) || {
+    images: [],
+  };
 
-  // Add this function to save form data to local storage
   function saveFormToLocalStorage() {
     const formData = new FormData(form);
     const formObject = {};
@@ -24,19 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
       formObject[key] = value;
     }
     formObject.distances = distances;
-
-    // Save file information
-    const fileInfo = Array.from(fileInput.files).map((file) => ({
-      name: file.name,
-      size: file.size,
-      type: file.type,
-    }));
-    formObject.fileInfo = fileInfo;
-
     localStorage.setItem("raceFormData", JSON.stringify(formObject));
   }
 
-  // Add this function to load form data from local storage
   function loadFormFromLocalStorage() {
     const savedData = localStorage.getItem("raceFormData");
     if (savedData) {
@@ -45,19 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (key === "distances") {
           distances = value;
           updateDistancesDisplay();
-        } else if (key === "fileInfo") {
-          // Restore file information to the UI
-          tagsContainer.innerHTML = "";
-          value.forEach((file) => {
-            const tag = document.createElement("div");
-            tag.className = "picture-tag";
-            tag.innerHTML = `
-              <span class="picture-name">${file.name}</span>
-              <span class="remove-picture" data-file="${file.name}">×</span>
-            `;
-            tagsContainer.appendChild(tag);
-          });
-          addRemoveListeners();
         } else {
           const field = form.elements[key];
           if (field) {
@@ -72,10 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Call this function to load saved data when the page loads
   loadFormFromLocalStorage();
 
-  // Add event listeners to all form inputs and buttons
   form.querySelectorAll("input, select, textarea").forEach((element) => {
     element.addEventListener("change", saveFormToLocalStorage);
   });
@@ -176,10 +155,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     console.log(JSON.stringify(raceObject, null, 2));
-
-    // In a real scenario, you'd send this to the server
-    // For now, we'll just log it to the console
-    console.log("Race object:", raceObject);
     console.log("Processed images:", processedImages);
 
     alert("Race data logged to console. Check browser developer tools.");
@@ -189,195 +164,57 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("raceFormData");
   });
 
-  fileInput.addEventListener("change", function (e) {
-    tagsContainer.innerHTML = ""; // Clear existing tags
-    const files = e.target.files;
+  imageUpload.addEventListener("change", handleImageUpload);
 
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      const tag = document.createElement("div");
-      tag.className = "picture-tag";
-      tag.innerHTML = `
-        <span class="picture-name">${file.name}</span>
-        <span class="remove-picture" data-file="${file.name}">×</span>
-      `;
-      tagsContainer.appendChild(tag);
-    }
-
-    addRemoveListeners();
-    saveFormToLocalStorage();
-  });
-
-  function addRemoveListeners() {
-    const removeButtons = document.querySelectorAll(".remove-picture");
-    removeButtons.forEach((button) => {
-      button.addEventListener("click", function () {
-        const fileName = this.getAttribute("data-file");
-        this.parentElement.remove();
-        // Remove the file from the FileList
-        const dt = new DataTransfer();
-        const { files } = fileInput;
-        for (let i = 0; i < files.length; i++) {
-          const file = files[i];
-          if (file.name !== fileName) dt.items.add(file);
-        }
-        fileInput.files = dt.files;
-        saveFormToLocalStorage();
-      });
-    });
-  }
-
-  // Update this function to clear the form and local storage
-  function clearFormAndStorage() {
-    form.reset();
-
-    // Clear distances
-    distances = [];
-    updateDistancesDisplay();
-
-    // Clear image tags
-    tagsContainer.innerHTML = "";
-    fileInput.value = ""; // Clear the file input
-
-    // Remove data from local storage
-    localStorage.removeItem("raceFormData");
-
-    // Clear the map marker
-    if (window.globalMap && window.globalMarker) {
-      window.globalMap.removeLayer(window.globalMarker);
-      window.globalMarker = null;
-    }
-
-    // Update coordinates display
-    const coordinatesDisplay = document.getElementById("coordinates-display");
-    if (coordinatesDisplay) {
-      coordinatesDisplay.textContent = "Loppets koordinater: Inte valda";
-    }
-
-    // Clear latitude and longitude inputs if they exist
-    const latitudeInput = document.getElementById("latitude");
-    const longitudeInput = document.getElementById("longitude");
-    if (latitudeInput) latitudeInput.value = "";
-    if (longitudeInput) longitudeInput.value = "";
-  }
-
-  // Add event listener for the clear form button
-  const clearFormButton = document.getElementById("clear-form");
-  if (clearFormButton) {
-    clearFormButton.addEventListener("click", (e) => {
-      e.preventDefault();
-      clearFormAndStorage();
-    });
-  }
-
-  const imageUpload = document.getElementById("race-images");
-  const fileUploadStatus = document.getElementById("file-upload-status");
-  const imageContainer = document.querySelector(".image-container");
-  const clearImagesButton = document.getElementById("clear-images-button");
-
-  let raceImagesData = JSON.parse(localStorage.getItem("raceImages")) || {
-    images: [],
-  };
-
-  function updateFileUploadStatus() {
-    if (imageUpload.files.length > 0) {
-      const fileNames = Array.from(imageUpload.files).map(
-        (file) => `${file.name} (${formatFileSize(file.size)})`
-      );
-      fileUploadStatus.textContent = fileNames.join(", ");
-    } else {
-      fileUploadStatus.textContent = "Inga bilder valda";
-    }
-  }
-
-  function formatFileSize(size) {
-    if (size < 1024) return `${size} bytes`;
-    if (size < 1024 * 1024) return `${(size / 1024).toFixed(2)} KB`;
-    return `${(size / (1024 * 1024)).toFixed(2)} MB`;
-  }
-
-  async function handleImageUpload(event) {
-    showLoadingSpinner();
+  function handleImageUpload(event) {
     const files = event.target.files;
-    const promises = [];
     const maxNumImages = 8 - raceImagesData.images.length;
-    const maxFileSize = 1048576 / 8; // 1MB divided by 8
 
     if (files.length > maxNumImages) {
       alert(`Du kan bara ladda upp ${maxNumImages} bilder till.`);
-      hideLoadingSpinner();
       return;
     }
 
     for (let i = 0; i < files.length && i < maxNumImages; i++) {
       const file = files[i];
-      promises.push(processImage(file, maxFileSize));
-    }
-
-    await Promise.all(promises);
-    refreshImageDisplay();
-    hideLoadingSpinner();
-    updateFileUploadStatus();
-  }
-
-  async function processImage(file, maxFileSize) {
-    return new Promise((resolve) => {
       const reader = new FileReader();
-      reader.onload = async (e) => {
-        const image = new Image();
-        image.src = e.target.result;
-        image.onload = async () => {
-          const canvas = document.createElement("canvas");
-          const ctx = canvas.getContext("2d");
-          let { width, height } = image;
-          let quality = 0.9;
 
-          do {
-            canvas.width = width;
-            canvas.height = height;
-            ctx.drawImage(image, 0, 0, width, height);
-            const compressedImageData = canvas.toDataURL("image/webp", quality);
-
-            if (compressedImageData.length <= maxFileSize) {
-              raceImagesData.images.push(compressedImageData);
-              localStorage.setItem(
-                "raceImages",
-                JSON.stringify(raceImagesData)
-              );
-              resolve();
-              return;
-            }
-
-            quality -= 0.1;
-            width *= 0.9;
-            height *= 0.9;
-          } while (quality > 0.1);
-
-          alert(
-            `Kunde inte komprimera bilden ${file.name} tillräckligt. Försök med en mindre bild.`
-          );
-          resolve();
-        };
+      reader.onload = function (e) {
+        raceImagesData.images.push(e.target.result);
+        localStorage.setItem("raceImages", JSON.stringify(raceImagesData));
+        refreshImageDisplay();
       };
+
       reader.readAsDataURL(file);
-    });
+    }
   }
 
-  function displayImage(imageData, index) {
-    const imgContainer = document.createElement("div");
-    imgContainer.className = "uploaded-image-container";
+  function refreshImageDisplay() {
+    imageContainer.innerHTML = "";
+    raceImagesData.images.forEach((imageData, index) => {
+      const imgContainer = document.createElement("div");
+      imgContainer.className = "uploaded-image-container";
 
-    const img = document.createElement("img");
-    img.src = imageData;
+      const img = document.createElement("img");
+      img.src = imageData;
+      img.className = "uploaded-image";
 
-    const deleteIcon = document.createElement("span");
-    deleteIcon.className = "delete-icon";
-    deleteIcon.textContent = "×";
-    deleteIcon.addEventListener("click", () => removeImage(index));
+      const deleteIcon = document.createElement("span");
+      deleteIcon.className = "delete-icon";
+      deleteIcon.textContent = "×";
+      deleteIcon.addEventListener("click", () => removeImage(index));
 
-    imgContainer.appendChild(img);
-    imgContainer.appendChild(deleteIcon);
-    imageContainer.appendChild(imgContainer);
+      imgContainer.appendChild(img);
+      imgContainer.appendChild(deleteIcon);
+      imageContainer.appendChild(imgContainer);
+    });
+
+    // Show or hide clearImagesButton based on whether there are images
+    if (raceImagesData.images.length > 0) {
+      clearImagesButton.style.display = "block";
+    } else {
+      clearImagesButton.style.display = "none";
+    }
   }
 
   function removeImage(index) {
@@ -386,24 +223,6 @@ document.addEventListener("DOMContentLoaded", () => {
     refreshImageDisplay();
   }
 
-  function refreshImageDisplay() {
-    imageContainer.innerHTML = "";
-    raceImagesData.images.forEach((imageData, index) =>
-      displayImage(imageData, index)
-    );
-    updateFileUploadStatus();
-  }
-
-  function showLoadingSpinner() {
-    // Implement your loading spinner logic here
-  }
-
-  function hideLoadingSpinner() {
-    // Implement your loading spinner logic here
-  }
-
-  imageUpload.addEventListener("change", handleImageUpload);
-
   clearImagesButton.addEventListener("click", (e) => {
     e.preventDefault();
     localStorage.removeItem("raceImages");
@@ -411,10 +230,14 @@ document.addEventListener("DOMContentLoaded", () => {
     refreshImageDisplay();
   });
 
-  // Initial display of images
-  refreshImageDisplay();
+  // Add event listener for clear form button
+  if (clearFormButton) {
+    clearFormButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      clearFormAndStorage();
+    });
+  }
 
-  // Modify the clearFormAndStorage function
   function clearFormAndStorage() {
     form.reset();
 
@@ -422,45 +245,19 @@ document.addEventListener("DOMContentLoaded", () => {
     distances = [];
     updateDistancesDisplay();
 
-    // Clear image tags
-    tagsContainer.innerHTML = "";
-    fileInput.value = ""; // Clear the file input
-
-    // Remove data from local storage
-    localStorage.removeItem("raceFormData");
-
-    // Clear the map marker
-    if (window.globalMap && window.globalMarker) {
-      window.globalMap.removeLayer(window.globalMarker);
-      window.globalMarker = null;
-    }
-
-    // Update coordinates display
-    const coordinatesDisplay = document.getElementById("coordinates-display");
-    if (coordinatesDisplay) {
-      coordinatesDisplay.textContent = "Loppets koordinater: Inte valda";
-    }
-
-    // Clear latitude and longitude inputs if they exist
-    const latitudeInput = document.getElementById("latitude");
-    const longitudeInput = document.getElementById("longitude");
-    if (latitudeInput) latitudeInput.value = "";
-    if (longitudeInput) longitudeInput.value = "";
-
     // Clear race images
     localStorage.removeItem("raceImages");
     raceImagesData = { images: [] };
     refreshImageDisplay();
+
+    // Remove data from local storage
+    localStorage.removeItem("raceFormData");
+
+    // Clear any other form-specific elements if needed
   }
 
-  // Add event listener for the clear form button
-  const clearFormButton = document.getElementById("clear-form");
-  if (clearFormButton) {
-    clearFormButton.addEventListener("click", (e) => {
-      e.preventDefault();
-      clearFormAndStorage();
-    });
-  }
+  // Initial display of images
+  refreshImageDisplay();
 });
 
 function generateImagePartialKey(raceName) {

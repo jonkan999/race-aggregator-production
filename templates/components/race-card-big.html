@@ -1,0 +1,35 @@
+<a href="/race-pages/{{image_partial_key}}.html" class="race-card-big">
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="/race-pages/images/{{ race.image_partial_key }}_1.webp"
+        alt="{{ alt_prefix }}{{ race.name }}"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="overlay soft"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          {{ race.date | convert_date(month_mapping_short)}}
+        </div>
+        <div class="race-place">{{ race.place}}</div>
+      </div>
+
+      <div class="race-info-bottom">
+        <div class="race-type">{{ race.type }}</div>
+        <div class="race-distances">
+          {% set display_distances = race.distance_m |
+          get_display_values(race.type, category_mapping) %} {% for distance in
+          display_distances %}
+          <div class="race-distance">{{ distance }}</div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="race-name">{{ race.name }}</h3>
+</a>

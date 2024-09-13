@@ -1,0 +1,129 @@
+.section-selected-races {
+  position: relative;
+}
+.race-card-big-container {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 1rem;
+  padding-bottom: 0.8rem;
+}
+.race-card-big-container .race-card-big {
+  margin: 1rem;
+  padding: 0 2rem 2rem 0;
+  color: black;
+  text-decoration: none;
+}
+.race-card-big-container .race-card-big:hover,
+.race-card-big-container .race-card-big:active {
+  background-color: var(--color-background-shade);
+}
+.race-card-big-container .race-card-big .race-card-big-upper-box {
+  height: 18rem;
+  width: 35rem;
+  /* Adjust as necessary */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.race-card-big-container .race-card-big .race-card-big-upper-box .race-card-content {
+  position: relative;
+  z-index: 2;
+  /* Ensure content is above the overlay */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  height: 100%;
+  font-size: 1.4rem;
+}
+.race-card-big-container .race-card-big .race-card-big-upper-box .race-info-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.race-card-big-container .race-card-big .race-card-big-upper-box .race-info-top .race-date {
+  background: var(--info-highlight-background);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+.race-card-big-container .race-card-big .race-card-big-upper-box .race-info-top .race-place {
+  background: var(--info-highlight-background2);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: black;
+  text-align: right;
+}
+.race-card-big-container .race-card-big .race-card-big-upper-box .race-info-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.race-card-big-container .race-card-big .race-card-big-upper-box .race-info-bottom .race-type {
+  background: var(--info-highlight-background);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  text-align: right;
+  align-self: flex-end;
+}
+.race-card-big-container .race-card-big .race-card-big-upper-box .race-info-bottom .race-distances {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.race-card-big-container .race-card-big .race-card-big-upper-box .race-info-bottom .race-distances .race-distance {
+  background: var(--info-highlight-background);
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.race-card-big-container .race-card-big .race-name {
+  margin-top: 1rem;
+  font-size: 1.8rem;
+  color: black;
+  /* Adjust color as needed */
+}
+.selected-races-button-container {
+  position: relative;
+  margin-top: 2rem;
+  height: 7rem;
+  width: 100%;
+  overflow: hidden;
+}
+.selected-races-button {
+  position: absolute;
+  top: 0;
+  left: 34%;
+  width: 75%;
+  bottom: 2rem;
+  padding: 1rem 1%;
+  font-size: 2rem;
+  color: var(--color-primary-dark);
+  background-color: var(--color-background-shade);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 0.5rem;
+  transition: background-color 0.3s, transform 0.3s;
+  /* Adding the right arrow */
+}
+.selected-races-button::after {
+  content: "→";
+  font-size: 3rem;
+  margin: 0 0 0.5rem 1%;
+  transition: margin-left 0.3s;
+}
+.selected-races-button:hover,
+.selected-races-button:active {
+  background-color: var(--color-background);
+  border-bottom: 2px solid #000;
+  margin-bottom: calc(0.5rem - 2px);
+}
+.selected-races-button:hover::after,
+.selected-races-button:active::after {
+  margin-left: 2%;
+}

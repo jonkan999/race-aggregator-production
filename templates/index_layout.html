@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>{{ title }}</title>
+    <link rel="icon" href="/common_images/logo100px.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/hero.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/selected-forum-posts.css" />
+    <link rel="stylesheet" href="/css/selected-forum-post-card.css" />
+  </head>
+  <body>
+    <!-- Page content -->
+    <main>{% block content %}{% endblock %}</main>
+
+    {% include 'components/footer.html' %}
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="/js/index.js"></script>
+  </body>
+</html>
