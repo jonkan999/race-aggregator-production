@@ -107,7 +107,8 @@ def generate_country(country_code):
     # Add responsive image sizes from config
     content['sizes'] = config['responsive_image_widths']
 
-    for page in ['index','race-list','add-race']:
+    # Combine navigation and auxiliary pages
+    for page in ['index','race-list','add-race', 'race-page-preview']:
         # Render the index page template for the country
         page_template = env.get_template(f'{page.replace("-", "_")}.html')
         page_html = page_template.render(content)
@@ -116,7 +117,8 @@ def generate_country(country_code):
         country_output_dir = os.path.join(output_dir, country_code)
         os.makedirs(country_output_dir, exist_ok=True)
         if page != 'index':
-           local_page_name = slugify(content['navigation'][page], country_code)
+           all_pages = {**content['navigation'], **content['auxiliary_pages']}
+           local_page_name = slugify(all_pages[page], country_code)
         else:
            local_page_name = 'index'
         # Write the rendered HTML to the country-specific build directory

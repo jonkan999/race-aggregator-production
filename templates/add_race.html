@@ -1,5 +1,5 @@
-{% extends "add_race_layout.html" %} {% include 'sections/header-menu.html' %}{%
-block content %}
+{% extends "add_race_layout.html" %} {% block content %}{% include
+'sections/header-menu.html' %}
 <div class="section-separator-top"></div>
 <section class="section-add-race">
   <h1 class="section-header">{{ add_race_title }}</h1>
@@ -65,6 +65,9 @@ block content %}
       >
         <!-- Map will be inserted here -->
       </div>
+      <input type="hidden" id="latitude" name="latitude" />
+      <input type="hidden" id="longitude" name="longitude" />
+      <div id="coordinates-display"></div>
     </div>
 
     <div class="form-group">
@@ -167,30 +170,30 @@ block content %}
     </div>
 
     <div class="form-group">
-      <label for="race-summary">{{ summary_label }}</label>
+      <label for="race-summary">{{ add_race_summary_label }}</label>
       <textarea
         id="race-summary"
         name="race-summary"
-        placeholder="{{ summary_placeholder }}"
+        placeholder="{{ add_race_summary_placeholder }}"
         required
       ></textarea>
     </div>
 
     <div class="form-group">
       <label for="race-additional"
-        >{{ additional_label }}
+        >{{ add_race_additional_label }}
         <span class="optional">({{ optional_label }})</span></label
       >
       <textarea
         id="race-additional"
         name="race-additional"
-        placeholder="{{ additional_placeholder }}"
+        placeholder="{{ add_race_additional_placeholder }}"
       ></textarea>
     </div>
 
     <!-- Images -->
     <div class="form-group picture-upload-container">
-      <label for="race-images">{{ images_label }}</label>
+      <label for="race-images">{{ add_race_images_label }}</label>
       <input
         type="file"
         id="race-images"
@@ -212,7 +215,9 @@ block content %}
 
     <!-- Form Actions -->
     <div class="form-actions">
-      <button type="button" id="preview-button">{{ preview_button }}</button>
+      <button type="button" id="preview-button">
+        {{ auxiliary_pages['race-page-preview'] }}
+      </button>
       <button type="submit">{{ submit_button }}</button>
     </div>
   </form>
@@ -220,11 +225,4 @@ block content %}
   <button type="button" id="clear-form">{{ clear_form_button }}</button>
 </section>
 
-<div id="preview-modal" class="modal">
-  <div class="modal-content">
-    <h2>{{ preview_title }}</h2>
-    <div id="preview-content"></div>
-    <button id="close-preview">{{ preview_exit_button }}</button>
-  </div>
-</div>
 {% endblock %} {% block scripts %}{% endblock %}

@@ -1,95 +1,38 @@
 @import "_variables.less";
 
+.section-preview-actions {
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 2rem;
+  margin-bottom: 10rem;
+}
+
+.race-preview-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+}
+
 .race-page-preview {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  font-family: Arial, sans-serif;
 }
 
-.race-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.race-header h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
-}
-
-.race-meta {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.race-main-info {
-  display: flex;
-  gap: 30px;
-  margin-bottom: 30px;
-}
-
-.race-image {
-  flex: 1;
-  height: 300px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 8px;
-}
-
-.race-details {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.race-type-distance,
-.race-price {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-}
-
-.cta-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.2em;
+// New button styles to match add-race.less
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
   cursor: pointer;
-}
-
-section {
-  margin-bottom: 30px;
-}
-
-h2 {
-  border-bottom: 2px solid #4caf50;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-}
-
-.preview-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 30px;
-}
-
-.preview-actions button {
-  padding: 10px 20px;
-  font-size: 1em;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.primary-button {
-  background-color: #4caf50;
-  color: white;
+  background-color: var(--color-background-shade);
   border: none;
-}
+  border-radius: 0.4rem;
 
-.secondary-button {
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
+  &:hover {
+    background-color: var(--color-background-shade);
+  }
+
+  &:active {
+    transform: translateY(0.1rem);
+  }
 }

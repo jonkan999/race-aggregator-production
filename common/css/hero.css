@@ -72,7 +72,9 @@
   margin-bottom: 3rem;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   background-color: var(--color-background);
+  /* Adding the right arrow */
 }
 .section-hero .hero-content .bullet-list li:nth-child(1) {
   margin-bottom: 2rem;
@@ -89,15 +91,48 @@
 .section-hero .hero-content .bullet-list li:nth-child(4) ion-icon {
   color: var(--color-secondary-highlight);
 }
+.section-hero .hero-content .bullet-list li:nth-child(1)::after,
+.section-hero .hero-content .bullet-list li:nth-child(3)::after,
+.section-hero .hero-content .bullet-list li:nth-child(4)::after {
+  content: "→";
+  font-size: 3.4rem;
+  margin: 0 0 0.7rem 1%;
+  transition: margin-left 0.2s;
+}
+.section-hero .hero-content .bullet-list li:nth-child(2)::after {
+  content: "+";
+  font-size: 3rem;
+  margin: 0.2rem 0 0 1%;
+  transition: font-weight 0.2s;
+}
+.section-hero .hero-content .bullet-list li:hover,
+.section-hero .hero-content .bullet-list li:active {
+  background-color: var(--color-background);
+  border-bottom: 2px solid #000;
+  margin-bottom: calc(3rem - 2px);
+  cursor: pointer;
+}
+.section-hero .hero-content .bullet-list li:hover:nth-child(1)::after,
+.section-hero .hero-content .bullet-list li:active:nth-child(1)::after,
+.section-hero .hero-content .bullet-list li:hover:nth-child(3)::after,
+.section-hero .hero-content .bullet-list li:active:nth-child(3)::after,
+.section-hero .hero-content .bullet-list li:hover:nth-child(4)::after,
+.section-hero .hero-content .bullet-list li:active:nth-child(4)::after {
+  margin-left: 2%;
+}
+.section-hero .hero-content .bullet-list li:hover:nth-child(2)::after,
+.section-hero .hero-content .bullet-list li:active:nth-child(2)::after {
+  font-weight: bold;
+}
+.section-hero .hero-content .bullet-list li:hover:nth-child(1),
+.section-hero .hero-content .bullet-list li:active:nth-child(1) {
+  margin-bottom: calc(2rem - 2px);
+}
 .section-hero .hero-content .bullet-list li:hover,
 .section-hero .hero-content .bullet-list li:active {
   background-color: var(--color-background-shade);
   border-bottom: 2px solid #000;
   margin-bottom: calc(3rem - 2px);
-}
-.section-hero .hero-content .bullet-list li:hover:nth-child(1),
-.section-hero .hero-content .bullet-list li:active:nth-child(1) {
-  margin-bottom: calc(2rem - 2px);
 }
 .section-hero .hero-content .bullet-list li a {
   text-decoration: none;
@@ -107,7 +142,7 @@
   align-items: center;
   gap: 0.5rem;
   text-align: start;
-  width: 93%;
+  height: 4rem;
 }
 .section-hero .hero-content .bullet-list li a ion-icon {
   font-size: 3rem;
@@ -115,16 +150,4 @@
   margin-left: 1rem;
   width: 3rem;
   flex-shrink: 0;
-}
-.section-hero .hero-content .bullet-list li a .arrow {
-  margin-left: 1rem;
-  margin-bottom: 0.8rem;
-  font-size: 4rem;
-  color: #000;
-}
-.section-hero .hero-content .bullet-list li a .plus {
-  margin-left: 1rem;
-  margin-bottom: 0.3rem;
-  font-size: 3.4rem;
-  color: #000;
 }

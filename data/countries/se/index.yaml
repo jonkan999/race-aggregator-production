@@ -11,6 +11,15 @@ navigation:
   pace-calculator: "Fartomvandlare"
   racetime-estimator: "Uppskatta din sluttid"
 
+# Add this new section for auxiliary pages
+auxiliary_pages:
+  race-page-preview: "Förhandsgranska lopp"
+  terms-of-service: "Användarvillkor"
+  privacy-policy: "Integritetspolicy"
+  about-us: "Om oss"
+  contact: "Kontakta oss"
+  faq: "Vanliga frågor"
+
 page_name: "Loppkartan"
 title: "Allt om löpning i"
 country_native: "Sverige"
@@ -192,17 +201,17 @@ start_time_label: "Starttid:"
 start_time_placeholder: "09:00"
 price_range_label: "Prisintervall:"
 price_range_placeholder: "t.ex. 200-500 kr"
-summary_label: "Beskriv loppet"
-summary_placeholder: "KfS Kungsholmen Runt är en milbana med långa, flacka rakor ..."
-additional_label: "Övrig nödvändig information"
-additional_placeholder: "t.ex. start och målgång, startgrupper mm"
-images_label: "Ladda upp bilder (Gärna minst 4)"
+add_race_summary_label: "Beskriv loppet"
+add_race_summary_placeholder: "KfS Kungsholmen Runt är en milbana med långa, flacka rakor ..."
+add_race_additional_label: "Övrig nödvändig information"
+add_race_additional_placeholder: "t.ex. start och målgång, startgrupper mm"
+add_race_images_label: "Ladda upp bilder (Gärna minst 4)"
 choose_pictures_button: "Välj bilder"
 drag_drop_text: "Dra och släpp bilder här eller klicka för att välja"
 clear_images_button: "Rensa bilder"
 clear_form_button: "Rensa formulär"
 preview_button: "Förhandsgranska"
-submit_button: "Skicka"
+submit_button: "Skicka in"
 preview_title: "Förhandsgranskning"
 preview_exit_button: "Stäng förhandsgranskning"
 
@@ -211,3 +220,23 @@ optional_label: "Valfritt"
 #forum
 comments_suffix: "Kommentarer"
 cta_forum: "Visa Alla Inlägg"
+
+# Race Page Preview
+edit_race_button: "Redigera"
+race_page_summary_label: "Beskrivning av loppet"
+race_page_additional_label: "Övrig information"
+race_page_detailed_info_label: "Detaljerad information"
+
+# Race Page Details
+race_page_place_label: "Plats:"
+race_page_distances_label: "Distanser:"
+race_page_surface_label: "Underlag:"
+race_page_date_label: "Datum:"
+race_page_registration_link: "Länk till anmälan"
+
+disclaimer_text: |
+  All info på den här sidan är baserat på öppen källdata. Vi gör vårt bästa för att hålla den uppdaterad men
+  kan inte garantera att allt är korrekt. Ser du några felaktigheter, kontakta oss gärna 
+  <a href="/{{ auxilliary_pages.contact | slugify }}.html">kontakt</a> så rättar vi till det snarast.
+
+race_page_visit_organizer_website: "Besök arrangörens hemsida"

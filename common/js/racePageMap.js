@@ -29,49 +29,41 @@ function initializeMap() {
     }
   ).addTo(map);
 
-  // Add click event listener to the map
-  map.on("click", handleMapClick);
+  // Check for coordinates in local storage
+  const storedCoordinates = JSON.parse(localStorage.getItem("raceCoordinates"));
+  if (
+    storedCoordinates &&
+    storedCoordinates.latitude &&
+    storedCoordinates.longitude
+  ) {
+    console.log(storedCoordinates);
+    addMarker(storedCoordinates.latitude, storedCoordinates.longitude);
+    map.setView(
+      [storedCoordinates.latitude, storedCoordinates.longitude],
+      zoom
+    );
+  }
 }
 
-function handleMapClick(event) {
-  const latlng = event.latlng;
+function addMarker(lat, lng) {
+  const latlng = L.latLng(lat, lng);
 
-  if (marker) {
-    marker.setLatLng(latlng);
-  } else {
-    marker = L.marker(latlng, {
-      icon: new L.DivIcon({
-        className: "marker-default",
-        iconSize: [12, 12],
-      }),
-    }).addTo(map);
-  }
+  marker = L.marker(latlng, {
+    icon: new L.DivIcon({
+      className: "marker-default",
+      iconSize: [12, 12],
+    }),
+  }).addTo(map);
 
   updateCoordinates(latlng);
-  storeCoordinates(latlng);
 }
 
 function updateCoordinates(latlng) {
-  const latitudeInput = document.getElementById("latitude");
-  const longitudeInput = document.getElementById("longitude");
   const coordinatesDisplay = document.getElementById("coordinates-display");
-
-  if (latitudeInput && longitudeInput) {
-    latitudeInput.value = latlng.lat;
-    longitudeInput.value = latlng.lng;
-  }
 
   if (coordinatesDisplay) {
     coordinatesDisplay.textContent = `Loppets koordinater: ${latlng.lat.toFixed(
       4
     )}, ${latlng.lng.toFixed(4)}`;
   }
-}
-
-function storeCoordinates(latlng) {
-  const coordinates = {
-    latitude: latlng.lat,
-    longitude: latlng.lng,
-  };
-  localStorage.setItem("raceCoordinates", JSON.stringify(coordinates));
 }

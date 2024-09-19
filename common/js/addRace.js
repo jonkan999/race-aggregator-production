@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("add-race-form");
-  const previewButton = document.getElementById("preview-button");
-  const previewModal = document.getElementById("preview-modal");
-  const closePreview = document.getElementById("close-preview");
-  const previewContent = document.getElementById("preview-content");
   const multiDayToggle = document.getElementById("multi-day-toggle");
   const endDateContainer = document.getElementById("end-date-container");
   const distanceInput = document.getElementById("distance-input");
@@ -15,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const imageContainer = document.querySelector(".image-container");
   const clearImagesButton = document.getElementById("clearImagesButton");
   const clearFormButton = document.getElementById("clear-form");
+  const previewButton = document.getElementById("preview-button");
 
   let distances = [];
   let raceImagesData = JSON.parse(localStorage.getItem("raceImages")) || {
@@ -108,17 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  previewButton.addEventListener("click", () => {
-    const formData = new FormData(form);
-    const previewHtml = generatePreview(formData);
-    previewContent.innerHTML = previewHtml;
-    previewModal.style.display = "block";
-  });
-
-  closePreview.addEventListener("click", () => {
-    previewModal.style.display = "none";
-  });
-
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
@@ -209,7 +195,6 @@ document.addEventListener("DOMContentLoaded", () => {
       imageContainer.appendChild(imgContainer);
     });
 
-    // Show or hide clearImagesButton based on whether there are images
     if (raceImagesData.images.length > 0) {
       clearImagesButton.style.display = "block";
     } else {
@@ -230,7 +215,16 @@ document.addEventListener("DOMContentLoaded", () => {
     refreshImageDisplay();
   });
 
-  // Add event listener for clear form button
+  function clearFormAndStorage() {
+    form.reset();
+    distances = [];
+    updateDistancesDisplay();
+    localStorage.removeItem("raceImages");
+    raceImagesData = { images: [] };
+    refreshImageDisplay();
+    localStorage.removeItem("raceFormData");
+  }
+
   if (clearFormButton) {
     clearFormButton.addEventListener("click", (e) => {
       e.preventDefault();
@@ -238,26 +232,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function clearFormAndStorage() {
-    form.reset();
-
-    // Clear distances
-    distances = [];
-    updateDistancesDisplay();
-
-    // Clear race images
-    localStorage.removeItem("raceImages");
-    raceImagesData = { images: [] };
-    refreshImageDisplay();
-
-    // Remove data from local storage
-    localStorage.removeItem("raceFormData");
-
-    // Clear any other form-specific elements if needed
-  }
-
-  // Initial display of images
   refreshImageDisplay();
+
+  previewButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    saveFormToLocalStorage();
+    window.location.href = `/{{ auxiliary_pages['race-page-preview'] | slugify(country_code) }}.html`;
+  });
 });
 
 function generateImagePartialKey(raceName) {
@@ -344,20 +325,4 @@ async function compressImage(blob, maxSizeInBytes) {
   }
 
   return compressedBlob;
-}
-
-function generatePreview(formData) {
-  let html = "<h3>" + formData.get("race-name") + "</h3>";
-  html += "<p>Date: " + formData.get("race-date");
-  if (formData.get("multi-day-toggle") === "on") {
-    html += " to " + formData.get("race-end-date");
-  }
-  html += "</p>";
-  html += "<p>Type: " + formData.get("race-type") + "</p>";
-  html += "<p>Distances: " + formData.get("race-distances") + "</p>";
-  html += "<p>Place: " + formData.get("race-place") + "</p>";
-  html += "<p>Organizer: " + formData.get("race-organizer") + "</p>";
-  html += "<p>Price Range: " + formData.get("race-price-range") + "</p>";
-  html += "<p>Summary: " + formData.get("race-summary") + "</p>";
-  return html;
 }
