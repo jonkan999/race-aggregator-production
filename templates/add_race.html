@@ -213,12 +213,17 @@
       {{ clear_images_button }}
     </button>
 
+    <!-- New Info Disclaimer -->
+    <div class="info-disclaimer">
+      <p>{{ race_info_disclaimer | safe }}</p>
+    </div>
+
     <!-- Form Actions -->
     <div class="form-actions">
       <button type="button" id="preview-button">
         {{ auxiliary_pages['race-page-preview'] }}
       </button>
-      <button type="submit">{{ submit_button }}</button>
+      <button type="button" id="submit-race-button">{{ submit_button }}</button>
     </div>
   </form>
 

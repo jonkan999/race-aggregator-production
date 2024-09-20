@@ -1,3 +1,5 @@
+import { submitRace } from "./submitRace.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("add-race-form");
   const multiDayToggle = document.getElementById("multi-day-toggle");
@@ -12,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const clearImagesButton = document.getElementById("clearImagesButton");
   const clearFormButton = document.getElementById("clear-form");
   const previewButton = document.getElementById("preview-button");
+  const submitRaceButton = document.getElementById("submit-race-button");
 
   let distances = [];
   let raceImagesData = JSON.parse(localStorage.getItem("raceImages")) || {
@@ -239,6 +242,8 @@ document.addEventListener("DOMContentLoaded", () => {
     saveFormToLocalStorage();
     window.location.href = `/{{ auxiliary_pages['race-page-preview'] | slugify(country_code) }}.html`;
   });
+
+  submitRaceButton.addEventListener("click", submitRace);
 });
 
 function generateImagePartialKey(raceName) {

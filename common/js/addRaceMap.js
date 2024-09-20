@@ -31,10 +31,30 @@ function initializeMap() {
 
   // Add click event listener to the map
   map.on("click", handleMapClick);
+
+  // Check for coordinates in local storage
+  const storedCoordinates = JSON.parse(localStorage.getItem("raceCoordinates"));
+  if (
+    storedCoordinates &&
+    storedCoordinates.latitude &&
+    storedCoordinates.longitude
+  ) {
+    addMarker(storedCoordinates.latitude, storedCoordinates.longitude);
+    map.setView(
+      [storedCoordinates.latitude, storedCoordinates.longitude],
+      zoom
+    );
+  }
 }
 
 function handleMapClick(event) {
   const latlng = event.latlng;
+  addMarker(latlng.lat, latlng.lng);
+  storeCoordinates(latlng);
+}
+
+function addMarker(lat, lng) {
+  const latlng = L.latLng(lat, lng);
 
   if (marker) {
     marker.setLatLng(latlng);
@@ -48,7 +68,6 @@ function handleMapClick(event) {
   }
 
   updateCoordinates(latlng);
-  storeCoordinates(latlng);
 }
 
 function updateCoordinates(latlng) {

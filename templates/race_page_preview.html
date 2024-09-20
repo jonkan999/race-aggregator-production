@@ -1,11 +1,17 @@
 {% extends "race_page_preview_layout.html" %} {% block content %} {% include
-'sections/header-menu.html' %} {% include 'sections/race-page-content.html' %}
-
+'sections/header-menu.html' %}
+<div class="section-separator-top"></div>
+<div class="section-preview-title">
+  <h1>{{ race_page_preview_title }}</h1>
+</div>
+{% include 'sections/race-page-content.html' %}
 <div class="section-separator-top"></div>
 <section class="section-preview-actions">
   <div class="race-preview-actions">
     <button id="edit-race" class="btn-edit">{{ edit_race_button }}</button>
-    <button id="submit-race" class="btn-submit">{{ submit_button }}</button>
+    <button id="submit-race-button" class="btn-submit">
+      {{ submit_button }}
+    </button>
   </div>
 </section>
 {% endblock %} {% block scripts %} {% endblock %}
