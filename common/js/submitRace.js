@@ -31,6 +31,7 @@ export async function submitRace() {
       "race-date"
     ].replace(/-/g, "")}`,
     summary: formData["race-summary"],
+    additional_info: formData["race-additional"],
     website_organizer: formData["race-website"],
     price_range: formData["race-price-range"],
     new_version: true,

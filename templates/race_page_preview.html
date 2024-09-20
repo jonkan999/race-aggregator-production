@@ -4,7 +4,23 @@
 <div class="section-preview-title">
   <h1>{{ race_page_preview_title }}</h1>
 </div>
-{% include 'sections/race-page-content.html' %}
+
+<!-- Dummy race data this will get populated with actual data from the database -->
+{% set dummy_race = { 'name': 'Exempel Loppet', 'place': 'Exempelstad', 'type':
+'Landsväg', 'distance': '10 km, 21.1 km', 'date': '20240101', 'latitude':
+59.3293, 'longitude': 18.0686, 'organizer': 'Exempel Löparklubb', 'website':
+'https://www.exempellopp.se', 'county': 'Stockholms län', 'id':
+'exempel_loppet_20240101', 'summary': 'Detta är en exempelbeskrivning av loppet.
+Här kan du lägga till mer information om loppets karaktär, bana och andra
+intressanta detaljer.', 'additional_info': 'Här kan du lägga till ytterligare
+information om loppet, som t.ex. startgrupper, tidtagning, eller speciella
+regler.', 'website_organizer': 'https://www.exempelloparklubb.se',
+'price_range': '200-400 kr', 'start_time': '09:00', 'organizer_contact':
+'info@exempelloparklubb.se' } %} {% set dummy_images = [ ] %} {% with
+race=dummy_race, images=dummy_images,
+race_date=dummy_race.date|convert_date(month_mapping_short) %} {% include
+'sections/race-page-content.html' %} {% endwith %}
+
 <div class="section-separator-top"></div>
 <section class="section-preview-actions">
   <div class="race-preview-actions">
@@ -14,4 +30,10 @@
     </button>
   </div>
 </section>
-{% endblock %} {% block scripts %} {% endblock %}
+{% endblock %} {% block scripts %}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Your existing JavaScript for handling edit and submit buttons
+  });
+</script>
+{% endblock %}
