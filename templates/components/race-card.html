@@ -21,7 +21,7 @@
         <div class="race-date">
           {{ race.date | convert_date(month_mapping_short) }}
         </div>
-        <div class="race-place">{{ county_mapping[race.county] }}</div>
+        <div class="race-location">{{ county_mapping[race.county] }}</div>
       </div>
     </div>
     <div class="overlay soft"></div>
@@ -32,7 +32,7 @@
       <div class="left-container">
         <h3 class="race-name">{{ race.name }}</h3>
         {% if race.place %}
-        <div class="race-place">
+        <div class="race-location">
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>

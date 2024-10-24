@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
       distance_m: distances.map((d) =>
         d === "backyard" ? "backyard" : d * 1000
       ),
-      place: formData.get("race-place"),
+      place: formData.get("race-location"),
       latitude: 0, // Placeholder, replace with actual map data
       longitude: 0, // Placeholder, replace with actual map data
       organizer: formData.get("race-organizer"),

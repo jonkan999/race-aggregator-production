@@ -2,11 +2,12 @@ export function loadRacePageContent() {
   const formData = JSON.parse(localStorage.getItem("raceFormData"));
   if (formData) {
     document.getElementById("race-name").textContent = formData["race-name"];
-    document.getElementById("race-place").textContent = formData["race-place"];
-    document.getElementById("primary-highlight-race-place").textContent =
-      formData["race-place"];
-    document.getElementById("highlight-race-place").textContent =
-      formData["race-place"];
+    document.getElementById("race-location").textContent =
+      formData["race-location"];
+    document.getElementById("primary-highlight-race-location").textContent =
+      formData["race-location"];
+    document.getElementById("highlight-race-location").textContent =
+      formData["race-location"];
     document.getElementById("race-type").textContent = formData["race-type"];
     document.getElementById("highlight-race-type").textContent =
       formData["race-type"];
@@ -82,12 +83,12 @@ export function loadRacePageContent() {
     }
 
     // Initialize map (you'll need to implement this based on your mapping solution)
-    initializeMap(formData["race-place"]);
+    initializeMap(formData["race-location"]);
 
     // Populate race details
     const detailsMapping = {
       "race-name": "detail-race-name",
-      "race-place": "detail-race-place",
+      "race-location": "detail-race-location",
       distances: "detail-distances",
       "race-organizer": "detail-race-organizer",
       "race-organizer-contact": "detail-race-organizer-contact",

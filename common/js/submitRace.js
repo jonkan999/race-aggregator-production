@@ -19,7 +19,7 @@ export async function submitRace() {
     distance_m: formData.distances.map((d) =>
       d === "backyard" ? "backyard" : d * 1000
     ),
-    place: formData["race-place"],
+    place: formData["race-location"],
     latitude: mapCoordinates.latitude,
     longitude: mapCoordinates.longitude,
     organizer: formData["race-organizer"],

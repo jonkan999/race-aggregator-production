@@ -11,7 +11,7 @@
       <div class="race-card-content">
         <div class="race-info-top">
           <div id="race-date" class="race-date">{{ race_date }}</div>
-          <div id="race-place" class="race-place">{{ race.county }}</div>
+          <div id="race-location" class="race-location">{{ race.county }}</div>
         </div>
         <div class="race-info-bottom">
           <div id="race-type" class="race-type">{{ race.type }}</div>
@@ -48,7 +48,7 @@
       role="img"
       aria-label="location outline"
     ></ion-icon>
-    <p id="primary-highlight-race-place" class="highlight-place">
+    <p id="primary-highlight-race-location" class="highlight-place">
       {{ race.place }}
     </p>
   </div>
@@ -97,7 +97,7 @@
       ></ion-icon>
       <p>
         <span>{{ race_page_place_label }}</span>
-        <span id="highlight-race-place">{{ race.place }}</span>
+        <span id="highlight-race-location">{{ race.place }}</span>
       </p>
     </li>
 
