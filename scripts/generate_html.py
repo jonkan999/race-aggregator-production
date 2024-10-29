@@ -92,7 +92,7 @@ def generate_country(country_code):
         # Debug: Print the loaded content to ensure it's correct
     
     # Load country-specific race data
-    with open(os.path.join(country_dir, 'races.json')) as f:
+    with open(os.path.join(country_dir, 'final_races.json')) as f:
         races = json.load(f)
     
     # Load country-specific forum data
@@ -141,7 +141,7 @@ def generate_country(country_code):
     copy_common_files(country_output_dir)
 
     # Copy race_page images
-    copy_folder(Path(data_dir, country_code, 'race-pages'), Path(output_dir, country_code, 'race-pages'))
+    # copy_folder(Path(data_dir, country_code, 'race-pages'), Path(output_dir, country_code, 'race-pages'))
 
     print(f"Index page generated and common files copied for {country_code}!")
 

@@ -10,13 +10,13 @@ os.chdir(project_root)
 
 class GenerateHandler(FileSystemEventHandler):
     def on_modified(self, event):
-        print(f"Detected modification event: {event}")
+        #print(f"Detected modification event: {event}")
 
         if 'build/' in event.src_path:
-            print(f"Ignored modification in build directory: {event.src_path}")
+            #print(f"Ignored modification in build directory: {event.src_path}")
             return
 
-        print(f"File modified: {event.src_path}")
+        #print(f"File modified: {event.src_path}")
 
         if event.src_path.endswith(('.html', '.yaml', '.json', '.less', '.js')):
             print(f"{event.src_path} has been modified. Regenerating HTML for all countries...")

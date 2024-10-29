@@ -11,11 +11,11 @@ import io
 from jinja_functions import timeago, convert_date, slugify, get_display_values
 
 # Paths
-template_dir = 'project-root/templates'
-data_dir = 'project-root/data/countries'
-global_data_file = 'project-root/data/global.yaml'
-global_config_file = 'project-root/config/config.yaml'
-build_dir = 'project-root/build'
+template_dir = 'templates'
+data_dir = 'data/countries'
+global_data_file = 'data/global.yaml'
+global_config_file = 'config/config.yaml'
+build_dir = 'build'
 
 # Set up Jinja2 environment
 env = Environment(loader=FileSystemLoader(template_dir))
@@ -54,21 +54,21 @@ def generate_race_pages(country_code):
         index_content = yaml.safe_load(f)
     
     # Load country-specific race data
-    with open(os.path.join(country_dir, 'temporary_races.json')) as f:
+    with open(os.path.join(country_dir, 'final_races.json')) as f:
         races = json.load(f)
     
     # Load image data (assuming it exists)
     try:
-        with open(os.path.join(country_dir, 'temporary_images.json')) as f:
-            images = json.load(f)
+        with open(os.path.join(country_dir, 'final_images.json')) as f:
+            images_data = json.load(f)
     except FileNotFoundError:
-        images = []
+        images_data = {}
 
     # Merge global content with country-specific content
     content = {**global_content, **index_content}
 
     # Create build directory
-    country_build_dir = os.path.join(build_dir, country_code, 'loppsidor')
+    country_build_dir = os.path.join(build_dir, country_code, content['race_page_folder_name'])
     os.makedirs(country_build_dir, exist_ok=True)
 
     # Clean the build directory before generating new content
@@ -79,9 +79,9 @@ def generate_race_pages(country_code):
     race_page_content = env.get_template('sections/race-page-content.html')
 
     for race in races:
+        print(f"\n \n    ############ race: {race} \n \n")
         # Create race-specific directory
-        race_slug = slugify(race['name'], country_code)
-        race_dir = os.path.join(country_build_dir, race_slug)
+        race_dir = os.path.join(country_build_dir, race['domain_name'])
         os.makedirs(race_dir, exist_ok=True)
 
         # Clean the race-specific directory
@@ -89,20 +89,21 @@ def generate_race_pages(country_code):
 
         # Process and save images
         race_images = []
-        for i, image_data in enumerate(images):
-            if image_data['id'].startswith(race['id']):
-                image_filename = f"{race_slug}_{i+1}.webp"
+        if race['domain_name'] in images_data:
+            race_image_data = images_data[race['domain_name']]
+            for image_data in race_image_data['images'][:4]:
+                image_filename = f"{race['domain_name']}_{image_data['number']}.webp"
                 image_path = os.path.join(race_dir, image_filename)
                 
                 # Decode base64 image data
-                image_binary = base64.b64decode(image_data['data'].split(',')[1])
-                image = Image.open(io.BytesIO(image_binary))
+                image_binary = base64.b64decode(image_data['base64'])
+                img = Image.open(io.BytesIO(image_binary))
                 
                 # Save as WebP
-                image.save(image_path, 'WEBP')
+                img.save(image_path, 'WEBP')
                 race_images.append({
                     'filename': image_filename,
-                    'alt': f"{content['race_page_alt_prefix']} {race['name']} - Bild {i+1}"
+                    'alt': image_data['alt_text']
                 })
 
         # Prepare the context for rendering
@@ -112,7 +113,7 @@ def generate_race_pages(country_code):
             'images': race_images,
             'css_path': '/css',
             'js_path': '/js',
-            'race_date': convert_date(race['date'], content['month_mapping_short']),
+            'race_date': convert_date(race['race-date'], content['month_mapping_short']),
             'mapbox_zoom': content['mapbox_zoom'],
         }
 

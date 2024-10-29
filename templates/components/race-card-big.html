@@ -22,8 +22,8 @@
         <div class="race-type">{{ race.type }}</div>
         <div class="race-distances">
           {% set display_distances = race.distance_m |
-          get_display_values(race.type, category_mapping) %} {% for distance in
-          display_distances %}
+          get_display_values(race.type_local, category_mapping) %} {% for
+          distance in display_distances %}
           <div class="race-distance">{{ distance }}</div>
           {% endfor %}
         </div>

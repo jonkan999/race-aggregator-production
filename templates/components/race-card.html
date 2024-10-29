@@ -1,16 +1,16 @@
 <a
   href="/race-pages/{{ race.image_partial_key }}.html"
   class="race-card"
-  data-date="{{ race.date }}"
+  data-date="{{ race.race_date }}"
   data-county="{{ county_mapping[race.county] }}"
   data-category="{{ race.category }}"
-  data-race-type="{{ race_type[race.type] }}"
+  data-race-type="{{ race.type_local }}"
   data-distance="{{ race.distance_m }}"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/race-pages/images/{{ race.image_partial_key }}_1.webp"
+        src="/loppsidor/adventsjoggen/adventsjoggen_1.webp"
         alt="{{ alt_prefix }}{{ race.name }}"
         loading="lazy"
         class="background-img"
@@ -47,8 +47,8 @@
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
           </svg>
           {% set display_distances = race.distance_m |
-          get_display_values(race.type, category_mapping) %} {% for distance in
-          display_distances %}
+          get_display_values(race.race_type, category_mapping) %} {% for
+          distance in display_distances %}
           <span class="race-distance">
             {{ distance }} {% if not loop.last %} {% endif %}
           </span>
@@ -58,7 +58,7 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
           </svg>
-          {{ race_type[race.type] }}
+          {{ type_options[race.type] }}
         </div>
       </div>
     </div>

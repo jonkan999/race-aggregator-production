@@ -36,7 +36,7 @@
     <div class="filter-race-type">
       <select id="race-type" name="race-type">
         <option value="">{{ filter_race_type }}</option>
-        {% for type_key, type_value in race_type.items() %}
+        {% for type_key, type_value in type_options.items() %}
         <option value="{{ type_value }}">{{ type_value }}</option>
         {% endfor %}
       </select>
