@@ -113,7 +113,7 @@ def generate_race_pages(country_code):
             'images': race_images,
             'css_path': '/css',
             'js_path': '/js',
-            'race_date': convert_date(race['race-date'], content['month_mapping_short']),
+            'race_date': convert_date(race['date'], content['month_mapping_short']),
             'mapbox_zoom': content['mapbox_zoom'],
         }
 

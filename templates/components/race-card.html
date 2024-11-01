@@ -1,7 +1,7 @@
 <a
   href="/race-pages/{{ race.image_partial_key }}.html"
   class="race-card"
-  data-date="{{ race.race_date }}"
+  data-date="{{ race.date }}"
   data-county="{{ county_mapping[race.county] }}"
   data-category="{{ race.category }}"
   data-race-type="{{ race.type_local }}"
@@ -10,7 +10,7 @@
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/loppsidor/adventsjoggen/adventsjoggen_1.webp"
+        src="/{{ race_page_folder_name }}/{{ race.domain_name }}/{{ race.domain_name }}_1.webp"
         alt="{{ alt_prefix }}{{ race.name }}"
         loading="lazy"
         class="background-img"
@@ -63,8 +63,9 @@
       </div>
     </div>
     {% endif %}
-    <div class="race-summary">
-      {{ race.summary[:140] }}{% if race.summary|length > 150 %}...{% endif %}
+    <div class="race-description">
+      {{ race.description[:140] }}{% if race.description|length > 150 %}...{%
+      endif %}
     </div>
   </div>
   <div class="cta-button">

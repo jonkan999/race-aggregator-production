@@ -103,6 +103,8 @@ def generate_country(country_code):
     content = {**global_content, **index_content}
     content['races'] = races
     content['forum_posts'] = forum_posts
+    content['race_type'] = index_content.get('race_type', 'Other')
+    content['race_page_folder_name'] = index_content.get('race_page_folder_name')
 
     # Add responsive image sizes from config
     content['sizes'] = config['responsive_image_widths']
