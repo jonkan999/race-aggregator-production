@@ -14,14 +14,15 @@
           <div id="race-location" class="race-location">{{ race.county }}</div>
         </div>
         <div class="race-info-bottom">
-          <div id="race-type" class="race-type">{{ race.type }}</div>
+          <div id="race-type" class="race-type">{{ race.type_local }}</div>
           <div id="race-distances" class="race-distances">
-            {% if race.distance_m %} {% for distance in race.distance_m %}
+            {% if race.distance_verbose %} {% for distance in
+            race.distance_verbose.split(', ') %}
             <div class="race-distance">
-              {{ (distance / 1000) | round | int }} km{% if not loop.last %} {%
-              endif %}
+              {{ distance | map_verbose_distance(verbose_local_distance_mapping)
+              }}
             </div>
-            {% endfor %} {% else %} {{ race.distance }} {% endif %}
+            {% endfor %} {% endif %}
           </div>
         </div>
       </div>
@@ -49,7 +50,7 @@
       aria-label="location outline"
     ></ion-icon>
     <p id="primary-highlight-race-location" class="highlight-place">
-      {{ race.place }}
+      {{ race.location }}
     </p>
   </div>
 
@@ -70,9 +71,10 @@
       <p>
         <span>{{ race_page_distances_label }}</span>
         <span id="highlight-race-distances">
-          {% if race.distance_m %} {% for distance in race.distance_m %} {{
-          (distance / 1000) | round | int }} km{% if not loop.last %}, {% endif
-          %} {% endfor %} {% else %} {{ race.distance }} {% endif %}
+          {% if race.distance_verbose %} {% for distance in
+          race.distance_verbose.split(', ') %} {{- distance|
+          map_verbose_distance(verbose_local_distance_mapping) -}} {% if not
+          loop.last %}, {% endif %} {% endfor %} {% endif %}
         </span>
       </p>
     </li>
@@ -85,7 +87,7 @@
       ></ion-icon>
       <p>
         <span>{{ race_page_surface_label }}</span>
-        <span id="highlight-race-type">{{ race.type }}</span>
+        <span id="highlight-race-type">{{ race.type_local }}</span>
       </p>
     </li>
 
@@ -97,7 +99,7 @@
       ></ion-icon>
       <p>
         <span>{{ race_page_place_label }}</span>
-        <span id="highlight-race-location">{{ race.place }}</span>
+        <span id="highlight-race-location">{{ race.location }}</span>
       </p>
     </li>
 
@@ -117,20 +119,28 @@
     <div class="race-description">
       <h2>{{ race_page_description_label }}</h2>
       <!-- AI Disclaimer -->
-      <div
-        class="ai-disclaimer"
-        {%
-        if
-        not
-        race.ai_generated
-        %}style="display: none;"
-        {%
-        endif
-        %}
-      >
-        <p>{{ disclaimer_text | safe }}</p>
+      <div class="ai-disclaimer" {% if race.supplied_ids|length>
+        0 %}style="display: none;"{% endif %}>
+        <p>
+          {{ disclaimer_text_1 }}
+          <a href="/{{ auxiliary_pages.contact | slugify(country_code) }}.html"
+            >{{ disclaimer_link }}</a
+          >
+          {{ disclaimer_text_2 }}
+        </p>
       </div>
       <p id="race-description">{{ race.description }}</p>
+    </div>
+
+    {% if race.course_highlights and race.course_highlights|length > 0 %}
+    <div class="race-highlights-section">
+      <h2>{{ race_page_course_highlights_label }}</h2>
+      <ul class="race-info-list course-highlights">
+        {% for highlight in race.course_highlights[:3] %}
+        <li style="display: list-item">{{ highlight }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
     </div>
 
     <div class="race-auxiliary-info">
@@ -143,17 +153,19 @@
     <div class="race-details">
       <h2>{{ race_page_detailed_info_label }}</h2>
       <ul class="race-info-list">
-        {% for detail in [ ('name', name_label), ('place', place_label),
+        {% for detail in [ ('name', name_label), ('location', place_label),
         ('distance_m', distance_label), ('organizer', organizer_label),
         ('organizer_contact', organizer_contact_label), ('price_range',
         price_range_label), ('website', website_label), ('start_time',
-        start_time_label), ('type', type_text) ] %} {% if detail[0] ==
+        start_time_label), ('type_local', type_text) ] %} {% if detail[0] ==
         'distance_m' and race.distance_m %}
         <li id="detail-race-distance" style="display: list-item">
           <strong>{{ detail[1] }}</strong>
           <span>
-            {% for distance in race.distance_m %} {{ (distance / 1000) | round |
-            int }} km{% if not loop.last %}, {% endif %} {% endfor %}
+            {% if race.distance_verbose %} {% for distance in
+            race.distance_verbose.split(', ') %} {{- distance |
+            map_verbose_distance(verbose_local_distance_mapping) -}} {% if not
+            loop.last %}, {% endif %} {% endfor %} {% endif %}
           </span>
         </li>
         {% elif race[detail[0]] %}
@@ -170,6 +182,22 @@
         {% endif %} {% endfor %}
       </ul>
     </div>
+    {% if race.fb_link or race.ig_link %}
+    <div class="social-links">
+      <h2>{{ race_page_social_links_label }}</h2>
+      <div class="social-icons">
+        {% if race.fb_link %}
+        <a href="{{ race.fb_link }}" target="_blank" rel="noopener noreferrer">
+          <ion-icon name="logo-facebook" aria-label="Facebook"></ion-icon>
+        </a>
+        {% endif %} {% if race.ig_link %}
+        <a href="{{ race.ig_link }}" target="_blank" rel="noopener noreferrer">
+          <ion-icon name="logo-instagram" aria-label="Instagram"></ion-icon>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
 
     <div
       id="map-placeholder"
@@ -182,7 +210,7 @@
   <div class="organizer-website-button-container">
     <a
       id="organizer-website-button"
-      href="{{ race.website_organizer }}"
+      href="{{ race.website }}"
       target="_blank"
       rel="noopener noreferrer"
       class="organizer-website-button"

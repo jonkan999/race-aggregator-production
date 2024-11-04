@@ -27,7 +27,7 @@
   justify-content: space-between;
   padding: 1rem;
   height: 100%;
-  font-size: 1.55rem;
+  font-size: 1.6rem;
 }
 .section-race-page .race-images .main-image .race-card-content .race-info-top {
   display: flex;
@@ -78,7 +78,7 @@
   margin-top: 1rem;
   overflow-y: hidden;
   overflow-x: auto;
-  gap: 1.55rem;
+  gap: 1.6rem;
   white-space: nowrap;
   scroll-behavior: smooth;
   padding-bottom: 1rem;
@@ -106,12 +106,12 @@
 }
 .section-race-page .race-name {
   font-size: 2.8rem;
-  margin-bottom: 1.55rem;
+  margin-bottom: 1.6rem;
 }
 .section-race-page .highlight-place-div {
   display: flex;
   align-items: center;
-  margin-bottom: 1.55rem;
+  margin-bottom: 1.6rem;
   font-size: 1.7rem;
 }
 .section-race-page .highlight-place-div ion-icon {
@@ -179,7 +179,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
-  font-size: 1.55rem;
+  font-size: 1.6rem;
 }
 .section-race-page .race-details ul li::before {
   content: "•";
@@ -188,12 +188,14 @@
   margin-right: 0.5rem;
 }
 .section-race-page .race-description,
+.section-race-page .race-highlights-section,
 .section-race-page .race-auxiliary-info,
 .section-race-page .race-additional-fields,
 .section-race-page .race-organizer {
   margin-bottom: 2rem;
 }
 .section-race-page .race-description h2,
+.section-race-page .race-highlights-section h2,
 .section-race-page .race-auxiliary-info h2,
 .section-race-page .race-additional-fields h2,
 .section-race-page .race-organizer h2 {
@@ -201,15 +203,17 @@
   margin-bottom: 1rem;
 }
 .section-race-page .race-description p,
+.section-race-page .race-highlights-section p,
 .section-race-page .race-auxiliary-info p,
 .section-race-page .race-additional-fields p,
 .section-race-page .race-organizer p,
 .section-race-page .race-description ul,
+.section-race-page .race-highlights-section ul,
 .section-race-page .race-auxiliary-info ul,
 .section-race-page .race-additional-fields ul,
 .section-race-page .race-organizer ul {
-  font-size: 1.55rem;
-  line-height: 1.55;
+  font-size: 1.6rem;
+  line-height: 1.6;
 }
 .section-race-page .race-map {
   height: 30rem;
@@ -225,6 +229,62 @@
   width: 1rem;
   height: 1rem;
 }
+.section-race-page .race-description {
+  margin-bottom: 2rem;
+}
+.section-race-page .race-description h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.section-race-page .race-description p {
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+.section-race-page .race-description .course-highlights {
+  list-style-type: none;
+  padding-left: 0;
+}
+.section-race-page .race-description .course-highlights li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+}
+.section-race-page .race-description .course-highlights li::before {
+  content: "•";
+  color: var(--color-primary);
+  font-size: 1.8rem;
+  margin-right: 0.5rem;
+}
+.section-race-page .race-highlights-section {
+  margin-bottom: 2rem;
+}
+.section-race-page .race-highlights-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.section-race-page .race-highlights-section .race-info-list {
+  list-style-type: none;
+  padding: 0;
+}
+.section-race-page .race-highlights-section .race-info-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+.section-race-page .race-highlights-section .race-info-list li::before {
+  content: "•";
+  color: var(--color-primary);
+  font-size: 1.8rem;
+  margin-right: 0.7rem;
+  line-height: 1.3;
+  flex-shrink: 0;
+  min-width: 1.5rem;
+}
+.section-race-page .race-highlights-section .race-info-list li:last-child {
+  margin-bottom: 0;
+}
 @media (max-width: 44em) {
   .section-race-page .highlights-container {
     grid-template-columns: 1fr;
@@ -236,7 +296,7 @@
   border-radius: 4px;
   padding: 10px;
   margin-bottom: 20px;
-  font-size: 0.9em;
+  font-size: 1.6rem;
 }
 .ai-disclaimer p {
   margin: 0;
@@ -251,15 +311,39 @@
 .race-details h2 {
   margin-bottom: 1rem;
 }
-.race-details .race-info-list {
+.race-info-list {
   list-style-type: none;
   padding-left: 0;
 }
-.race-details .race-info-list li {
+.race-info-list li {
   margin-bottom: 0.5rem;
+  padding-left: 1.35rem;
+  font-size: 1.6rem;
 }
-.race-details .race-info-list li strong {
+.race-info-list li::before {
+  margin-left: -1.35rem;
+}
+.race-info-list li strong {
   margin-right: 0.5rem;
+  line-height: 1.8;
+}
+.social-links {
+  margin-bottom: 2rem;
+}
+.social-links h2 {
+  margin-bottom: 1rem;
+}
+.social-links .social-icons {
+  display: flex;
+  gap: 1rem;
+}
+.social-links .social-icons ion-icon {
+  font-size: 4rem;
+  color: var(--color-secondary-highlight);
+  transition: color 0.2s;
+}
+.social-links .social-icons ion-icon:hover {
+  color: var(--color-primary-dark);
 }
 .organizer-website-button-container {
   position: relative;
@@ -329,6 +413,7 @@
   .race-content-container .race-auxiliary-info,
   .race-content-container .race-additional-fields,
   .race-content-container .race-organizer,
+  .race-content-container .social-links,
   .race-content-container .organizer-website-button-container {
     grid-column: 1 / 2;
   }

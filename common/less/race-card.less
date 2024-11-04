@@ -25,7 +25,7 @@
       padding: 1rem;
 
       height: 100%;
-      font-size: 1.4rem; // Slightly smaller font size
+      font-size: 1.5rem; // Slightly smaller font size
     }
 
     .race-info-top {
@@ -54,16 +54,16 @@
     display: flex;
     flex-direction: column;
 
-    font-size: 1.4rem;
+    font-size: 1.5rem;
 
-    @content-bottom-margin: 0.4rem;
+    @content-bottom-margin: 0.6rem;
     .upper-container {
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
       margin-top: 0.7rem;
       position: relative;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
 
       .left-container {
         position: absolute;
@@ -72,7 +72,7 @@
         max-width: calc(
           100% - 120px
         ); // Adjust this value based on the minimum width needed for the right container
-        overflow: hidden;
+        /*         overflow: hidden; */
         white-space: nowrap;
         text-overflow: ellipsis;
 
@@ -86,6 +86,10 @@
 
         .race-location {
           margin-bottom: @content-bottom-margin;
+        }
+
+        .race-location.with-spacing {
+          margin-top: 2.7rem;
         }
       }
 
@@ -105,39 +109,71 @@
           background: var(--color-background);
           z-index: 2;
           padding-left: @left-container-padding;
+          gap: 0.5rem;
+
+          .distance-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: flex-end;
+          }
+
+          .distance-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
 
           .race-distance {
             background: var(--info-highlight-background);
-            height: 2rem;
-            padding: 0 0.5rem;
+
+            padding: 0.3rem 0.8rem;
             border-radius: 5px;
-            margin-left: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 3rem;
+            text-align: center;
+            line-height: 1;
+            padding-top: 1px;
+          }
+
+          .icon {
+            margin-right: 0.5rem;
+            flex-shrink: 0;
             display: flex;
             align-items: center;
           }
+        }
+        .race-distances.with-spacing {
+          margin-top: 2.2rem;
         }
 
         .race-type {
           margin-bottom: @content-bottom-margin;
           padding-left: @left-container-padding;
           background: var(--color-background);
+          z-index: 10;
         }
       }
     }
 
-    .race-summary {
+    .race-description {
       margin-bottom: 0.3rem;
-      line-height: 1.2;
+      line-height: 1.4;
       align-self: flex-end;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
     }
   }
   .cta-button {
     position: relative;
-    margin-top: 2rem;
+    margin-top: 4.2rem;
     height: 7rem;
     width: 100%;
     overflow: hidden;
+  }
+  .cta-button.with-spacing {
+    margin-top: 2rem;
   }
 
   @margin-bottom: 0.5rem;

@@ -8,7 +8,7 @@ import base64
 import io
 
 # Import the custom functions from jinja_functions.py
-from jinja_functions import timeago, convert_date, slugify, get_display_values
+from jinja_functions import timeago, convert_date, slugify, get_display_values, map_verbose_distance
 
 # Paths
 template_dir = 'templates'
@@ -24,6 +24,7 @@ env = Environment(loader=FileSystemLoader(template_dir))
 env.filters['timeago'] = timeago
 env.filters['convert_date'] = convert_date
 env.filters['slugify'] = slugify
+env.filters['map_verbose_distance'] = map_verbose_distance
 env.globals['get_display_values'] = get_display_values
 
 # Load global YAML content (used across all countries)
@@ -46,7 +47,100 @@ def clean_directory(directory):
         except Exception as e:
             print(f'Failed to delete {file_path}. Reason: {e}')
 
+def find_matching_categories(distance_str, category_mapping):
+    """Find all matching categories for a given distance."""
+    matching_categories = set()
+    try:
+        # Convert distance string to number (km)
+        if distance_str.lower() == "marathon":
+            distance_km = 42.2
+        elif distance_str.lower() == "half marathon":
+            distance_km = 21.1
+        else:
+            # Handle different formats (5km, 5,5km, etc)
+            num_str = distance_str.lower().replace('km', '').replace(',', '.')
+            distance_km = float(num_str)
+        
+        # Find all matching categories
+        for category, config in category_mapping.items():
+            if isinstance(config, dict) and 'range' in config:
+                min_dist, max_dist = config['range']
+                if min_dist <= distance_km <= max_dist:
+                    matching_categories.add(category)
+            elif config == "backyard" and distance_str.lower() == "backyard":
+                matching_categories.add(category)
+                
+        return list(matching_categories) if matching_categories else [distance_str]
+    except:
+        return [distance_str]  # fallback to original if parsing fails
+
+def generate_distance_mapping(races, verbose_mapping, category_mapping):
+    """Generate a complete distance mapping from all races."""
+    all_distances = set()
+    
+    # Collect all unique distances
+    for race in races:
+        if race.get('distance_verbose'):
+            distances = race['distance_verbose'].split(', ')
+            all_distances.update(distances)
+    
+    # Create the mapping dictionary
+    distance_mapping = {}
+    categories_used = set()
+    
+    for distance in sorted(all_distances):
+        # First check if it's in verbose_mapping
+        if distance in verbose_mapping:
+            mapped_distance = verbose_mapping[distance]
+        else:
+            mapped_distance = distance
+            
+        # Find all matching categories
+        categories = find_matching_categories(mapped_distance, category_mapping)
+        # Only include categories that are defined in category_mapping
+        valid_categories = [cat for cat in categories if cat in category_mapping]
+        
+        if valid_categories:  # Only add to mapping if there are valid categories
+            distance_mapping[distance] = valid_categories
+            categories_used.update(valid_categories)
+    
+    # Use category_mapping keys to maintain order
+    ordered_categories = [cat for cat in category_mapping.keys() if cat in categories_used]
+    
+    return {
+        'distance_mapping': distance_mapping,
+        'available_categories': ordered_categories
+    }
+
+def generate_distance_filter(country_code):
+    """Generate distance filter mapping for a specific country."""
+    country_dir = os.path.join(data_dir, country_code)
+    
+    # Load country-specific YAML content
+    with open(os.path.join(country_dir, 'index.yaml')) as f:
+        index_content = yaml.safe_load(f)
+    
+    # Load country-specific race data
+    with open(os.path.join(country_dir, 'final_races.json')) as f:
+        races = json.load(f)
+    
+    # Generate distance mapping
+    mapping_data = generate_distance_mapping(
+        races, 
+        index_content.get('verbose_local_distance_mapping', {}),
+        index_content.get('category_mapping', {})
+    )
+    
+    # Save distance mapping to a new file
+    with open(os.path.join(country_dir, 'distance_filter.yaml'), 'w', encoding='utf-8') as f:
+        yaml.dump(mapping_data, f, allow_unicode=True, sort_keys=False)
+    
+    print(f"Distance filter generated successfully for {country_code}!")
+
 def generate_race_pages(country_code):
+    # First generate the distance filter
+    generate_distance_filter(country_code)
+    
     country_dir = os.path.join(data_dir, country_code)
     
     # Load country-specific YAML content
@@ -130,8 +224,15 @@ def generate_race_pages(country_code):
     print(f"Race pages generated successfully for {country_code}!")
 
 if __name__ == "__main__":
-    # List of countries to generate
-    countries = ['se']
+    import sys
     
-    for country in countries:
-        generate_race_pages(country)
+    if len(sys.argv) > 1 and sys.argv[1] == "distance-filter":
+        # If running with "distance-filter" argument, only generate the filter
+        countries = sys.argv[2:] if len(sys.argv) > 2 else ['se']
+        for country in countries:
+            generate_distance_filter(country)
+    else:
+        # Default behavior: generate everything
+        countries = ['se']
+        for country in countries:
+            generate_race_pages(country)

@@ -1,8 +1,17 @@
-<a href="/race-pages/{{image_partial_key}}.html" class="race-card-big">
+<a
+  href="/race-pages/{{ race.domain_name|default('missing-domain') }}.html"
+  class="race-card-big"
+  data-name="{{ race.name|default('') }}"
+  data-date="{{ race.date|default('') }}"
+  data-county="{{ county_mapping[race.county] if race.county else country_native }}"
+  data-category="{{ race.category|default('') }}"
+  data-race-type="{{ race.type_local|default('') }}"
+  data-distance="{{ race.distance_verbose if race.distance_verbose else '' }}"
+>
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/race-pages/images/{{ race.image_partial_key }}_1.webp"
+        src="/{{ race_page_folder_name }}/{{ race.domain_name }}/{{ race.domain_name }}_1.webp"
         alt="{{ alt_prefix }}{{ race.name }}"
         loading="lazy"
         class="background-img"
@@ -13,23 +22,49 @@
     <div class="race-card-content">
       <div class="race-info-top">
         <div class="race-date">
-          {{ race.date | convert_date(month_mapping_short)}}
+          {{ race.date | convert_date(month_mapping_short) }}
         </div>
-        <div class="race-location">{{ race.place}}</div>
+        <div class="race-location">
+          {{ county_mapping[race.county] if race.county else country_native }}
+        </div>
       </div>
 
       <div class="race-info-bottom">
-        <div class="race-type">{{ race.type }}</div>
+        {% if race.type %}
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          {{ type_options[race.type]|default(race.type) }}
+        </div>
+        {% endif %}
         <div class="race-distances">
-          {% set display_distances = race.distance_m |
-          get_display_values(race.type_local, category_mapping) %} {% for
-          distance in display_distances %}
-          <div class="race-distance">{{ distance }}</div>
-          {% endfor %}
+          <div class="distance-container">
+            {% if race.distance_verbose %} {% set distances =
+            race.distance_verbose.split(', ') %} {% for distance in
+            distances[:5] %}
+            <div class="distance-item">
+              <span class="race-distance">
+                {{ distance |
+                map_verbose_distance(verbose_local_distance_mapping) }}
+              </span>
+            </div>
+            {% endfor %} {% if distances|length > 5 %}
+            <div class="distance-item">
+              <span class="race-distance">...</span>
+            </div>
+            {% endif %} {% else %}
+            <div class="distance-item">
+              <span class="race-distance">
+                {{ '' | map_verbose_distance(verbose_local_distance_mapping) }}
+              </span>
+            </div>
+            {% endif %}
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <h3 class="race-name">{{ race.name }}</h3>
+  <h3 class="race-name">{{ race.name|default('Unnamed Race') }}</h3>
 </a>

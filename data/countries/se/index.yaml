@@ -106,9 +106,9 @@ county_mapping:
   "Gotlands": "Gotland"
   "Blekinge": "Blekinge"
   "Skåne": "Skåne"
-  "Hallands": "Halland"
+  "Halland": "Halland"
   "Västra Götalands": "Västra Götaland"
-  "Värmlands": "Värmland"
+  "Värmland": "Värmland"
   "Örebro": "Örebro"
   "Västmanlands": "Västmanland"
   "Dalarnas": "Dalarna"
@@ -151,6 +151,10 @@ category_mapping:
     range: [10, 10]
 "Ultra Marathon":
   range: [42, 500]
+verbose_local_distance_mapping:
+  "half marathon": "Halvmarathon"
+  "marathon": "Marathon"
+  "fallback": "Blandad distans"
 
 # ADD RACE PAGE
 add_race_title: "Lägg till ett nytt lopp"
@@ -211,9 +215,6 @@ submit_button: "Skicka in"
 preview_title: "Förhandsgranskning"
 preview_exit_button: "Stäng förhandsgranskning"
 
-# Add this new entry at the end of the file
-race_info_disclaimer: |
-  Om du saknar fält för att lägga till all önskad information, tveka inte att <a href="/{{ auxilliary_pages.contact | slugify }}.html">kontakta oss</a>. Vi hjälper dig gärna att fylla i det så snart som möjligt.
 optional_label: "Valfritt"
 #forum
 comments_suffix: "Kommentarer"
@@ -223,9 +224,10 @@ cta_forum: "Visa Alla Inlägg"
 race_page_preview_title: "Så här kommer ditt lopp att se ut"
 edit_race_button: "Redigera"
 race_page_description_label: "Beskrivning av loppet"
+race_page_course_highlights_label: "Höjdpunkter"
 race_page_additional_label: "Övrig information"
 race_page_detailed_info_label: "Detaljerad information"
-
+race_page_social_links_label: "Följ loppet"
 # Race Page Details
 race_page_place_label: "Plats:"
 race_page_distances_label: "Distanser:"
@@ -233,12 +235,13 @@ race_page_surface_label: "Underlag:"
 race_page_date_label: "Datum:"
 race_page_registration_link: "Länk till anmälan"
 
-disclaimer_text: |
+disclaimer_text_1: |
   All info på den här sidan är baserat på öppen källdata. Vi gör vårt bästa för att hålla den uppdaterad men
-  kan inte garantera att allt är korrekt. Ser du några felaktigheter, kontakta oss gärna 
-  <a href="/{{ auxilliary_pages.contact | slugify }}.html">kontakt</a> så rättar vi till det snarast.
+  kan inte garantera att allt är korrekt. Ser du några felaktigheter,
+disclaimer_link: "kontakta oss"
+disclaimer_text_2: "så rättar vi till det snarast."
 
-race_page_visit_organizer_website: "Besök arrangörens hemsida"
+race_page_visit_organizer_website: "Besök arrangörens hemsida & anmälan"
 
 #race page layout
 race_page_folder_name: "loppsidor"

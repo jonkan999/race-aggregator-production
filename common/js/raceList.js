@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const distanceMapping = {{ distance_filter.distance_mapping | tojson | safe }};
   const raceCards = document.querySelectorAll(".race-card");
   const itemsPerPage = 20;
   let currentPage = 1;
@@ -237,15 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
     raceCards.forEach((card) => {
       const raceDate = card.getAttribute("data-date");
       const raceCounty = card.getAttribute("data-county");
-      const raceDistancesAttr = card.getAttribute("data-distance");
-      let raceDistances;
-      try {
-        raceDistances = JSON.parse(raceDistancesAttr);
-      } catch (e) {
-        console.error(`Error parsing data-distance: ${raceDistancesAttr}`, e);
-        raceDistances = [];
-      }
-
+      const raceDistances = card.getAttribute("data-distance");
       const raceTypeAttr = card.getAttribute("data-race-type");
 
       let show = true;
@@ -257,32 +250,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Category (distance) filtering
       if (activeCategories.size > 0) {
-        const matchesActiveCategory = Array.from(activeCategories).some(
-          (category) => {
-            const categoryInfo = categoryMapping[category];
-
-            if (categoryInfo === "backyard") {
-              return raceTypeAttr === "backyard";
-            }
-
-            if (typeof categoryInfo === "number") {
-              // Exact distance match
-              return raceDistances.some(
-                (distance) => distance / 1000 === categoryInfo
-              );
-            }
-
-            if (Array.isArray(categoryInfo.range)) {
-              const [min, max] = categoryInfo.range;
-              return raceDistances.some((distance) => {
-                const distanceKm = distance / 1000;
-                return distanceKm >= min && distanceKm < max;
-              });
-            }
-
-            console.warn(`Unknown category format for ${category}`);
-            return false;
-          }
+        const distances = raceDistances ? raceDistances.split(', ') : [];
+        
+        const matchesActiveCategory = Array.from(activeCategories).some(category => 
+          // Check if any of the race's distances map to the active category
+          distances.some(distance => 
+            distanceMapping[distance] && distanceMapping[distance].includes(category)
+          )
         );
 
         if (!matchesActiveCategory) {

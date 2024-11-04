@@ -1,0 +1,193 @@
+<section class="section-race-page">
+  <div class="race-images">
+    <div class="main-image background-container">
+      <img
+        id="race-main-image"
+        src="{{ images[0].filename if images else '' }}"
+        alt="{{ images[0].alt if images else 'Main race image' }}"
+        class="background-img-nofilter"
+      />
+      <div class="overlay soft"></div>
+      <div class="race-card-content">
+        <div class="race-info-top">
+          <div id="race-date" class="race-date">{{ race_date }}</div>
+          <div id="race-location" class="race-location">{{ race.county }}</div>
+        </div>
+        <div class="race-info-bottom">
+          <div id="race-type" class="race-type">{{ race.type }}</div>
+          <div id="race-distances" class="race-distances">
+            {% if race.distance_m %} {% for distance in race.distance_m %}
+            <div class="race-distance">
+              {{ (distance / 1000) | round | int }} km{% if not loop.last %} {%
+              endif %}
+            </div>
+            {% endfor %} {% else %} {{ race.distance }} {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="thumbnail-images" id="race-thumbnails">
+      {% for image in images[0:] %}
+      <div class="thumbnail-container">
+        <img
+          src="{{ image.filename }}"
+          alt="{{ image.alt }}"
+          class="thumbnail"
+        />
+        <div class="overlay soft"></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <h1 id="race-name" class="race-name">{{ race.name }}</h1>
+
+  <div class="highlight-place-div">
+    <ion-icon
+      name="location-outline"
+      role="img"
+      aria-label="location outline"
+    ></ion-icon>
+    <p id="primary-highlight-race-location" class="highlight-place">
+      {{ race.place }}
+    </p>
+  </div>
+
+  <ul class="highlights-container">
+    <div class="highlight-stars">
+      <ion-icon name="star" role="img" aria-label="star"></ion-icon>
+      <a id="race-website" href="{{ race.website }}" target="_blank"
+        >{{ race_page_registration_link }}</a
+      >
+    </div>
+
+    <li class="highlight-info">
+      <ion-icon
+        name="analytics-outline"
+        role="img"
+        aria-label="analytics outline"
+      ></ion-icon>
+      <p>
+        <span>{{ race_page_distances_label }}</span>
+        <span id="highlight-race-distances">
+          {% if race.distance_m %} {% for distance in race.distance_m %} {{
+          (distance / 1000) | round | int }} km{% if not loop.last %}, {% endif
+          %} {% endfor %} {% else %} {{ race.distance }} {% endif %}
+        </span>
+      </p>
+    </li>
+
+    <li class="highlight-info">
+      <ion-icon
+        name="shapes-outline"
+        role="img"
+        aria-label="shapes outline"
+      ></ion-icon>
+      <p>
+        <span>{{ race_page_surface_label }}</span>
+        <span id="highlight-race-type">{{ race.type }}</span>
+      </p>
+    </li>
+
+    <li class="highlight-info">
+      <ion-icon
+        name="navigate-circle-outline"
+        role="img"
+        aria-label="navigate circle outline"
+      ></ion-icon>
+      <p>
+        <span>{{ race_page_place_label }}</span>
+        <span id="highlight-race-location">{{ race.place }}</span>
+      </p>
+    </li>
+
+    <li class="highlight-info">
+      <ion-icon
+        name="calendar-clear-outline"
+        role="img"
+        aria-label="calendar clear outline"
+      ></ion-icon>
+      <p>
+        <span>{{ race_page_date_label }}</span>
+        <span id="highlight-race-date">{{ race_date }}</span>
+      </p>
+    </li>
+  </ul>
+  <div class="race-content-container">
+    <div class="race-description">
+      <h2>{{ race_page_description_label }}</h2>
+      <!-- AI Disclaimer -->
+      <div
+        class="ai-disclaimer"
+        {%
+        if
+        not
+        race.ai_generated
+        %}style="display: none;"
+        {%
+        endif
+        %}
+      >
+        <p>{{ disclaimer_text | safe }}</p>
+      </div>
+      <p id="race-description">{{ race.description }}</p>
+    </div>
+
+    <div class="race-auxiliary-info">
+      <h2>{{ race_page_additional_label }}</h2>
+      <p id="race-additional">
+        {{ race.additional_info if race.additional_info else '' }}
+      </p>
+    </div>
+
+    <div class="race-details">
+      <h2>{{ race_page_detailed_info_label }}</h2>
+      <ul class="race-info-list">
+        {% for detail in [ ('name', name_label), ('place', place_label),
+        ('distance_m', distance_label), ('organizer', organizer_label),
+        ('organizer_contact', organizer_contact_label), ('price_range',
+        price_range_label), ('website', website_label), ('start_time',
+        start_time_label), ('type', type_text) ] %} {% if detail[0] ==
+        'distance_m' and race.distance_m %}
+        <li id="detail-race-distance" style="display: list-item">
+          <strong>{{ detail[1] }}</strong>
+          <span>
+            {% for distance in race.distance_m %} {{ (distance / 1000) | round |
+            int }} km{% if not loop.last %}, {% endif %} {% endfor %}
+          </span>
+        </li>
+        {% elif race[detail[0]] %}
+        <li id="detail-race-{{ detail[0] }}" style="display: list-item">
+          <strong>{{ detail[1] }}</strong>
+          {% if detail[0] == 'website' %}
+          <a href="{{ race.website }}" target="_blank" rel="noopener noreferrer"
+            >{{ race.website }}</a
+          >
+          {% else %}
+          <span>{{ race[detail[0]] }}</span>
+          {% endif %}
+        </li>
+        {% endif %} {% endfor %}
+      </ul>
+    </div>
+
+    <div
+      id="map-placeholder"
+      data-latitude="{{ race.latitude }}"
+      data-longitude="{{ race.longitude }}"
+      data-zoom="{{ mapbox_zoom }}"
+      class="race-map"
+    ></div>
+  </div>
+  <div class="organizer-website-button-container">
+    <a
+      id="organizer-website-button"
+      href="{{ race.website_organizer }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="organizer-website-button"
+    >
+      {{ race_page_visit_organizer_website }}
+    </a>
+  </div>
+</section>

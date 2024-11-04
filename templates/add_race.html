@@ -215,7 +215,13 @@
 
     <!-- New Info Disclaimer -->
     <div class="info-disclaimer">
-      <p>{{ race_info_disclaimer | safe }}</p>
+      <p>
+        {{ disclaimer_text_1 }}
+        <a href="/{{ auxiliary_pages.contact | slugify(country_code) }}.html"
+          >{{ disclaimer_link }}</a
+        >
+        {{ disclaimer_text_2 }}
+      </p>
     </div>
 
     <!-- Form Actions -->

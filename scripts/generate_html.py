@@ -8,7 +8,7 @@ import subprocess
 from pathlib import Path
 
 # Import the custom timeago function from jinja_functions.py
-from jinja_functions import timeago, convert_date, slugify, get_display_values
+from jinja_functions import timeago, convert_date, slugify, get_display_values, map_verbose_distance
 
 # Paths
 template_dir = 'templates'
@@ -32,6 +32,9 @@ env.filters['timeago'] = timeago
 env.filters['convert_date'] = convert_date
 env.filters['slugify'] = slugify
 env.filters['get_display_values'] = get_display_values
+
+# Add custom filters to the Jinja2 environment
+env.filters['map_verbose_distance'] = map_verbose_distance
 
 # Load global YAML content (used across all countries)
 with open(global_data_file) as f:
@@ -89,7 +92,10 @@ def generate_country(country_code):
     # Load country-specific YAML content
     with open(os.path.join(country_dir, 'index.yaml')) as f:
         index_content = yaml.safe_load(f)
-        # Debug: Print the loaded content to ensure it's correct
+        
+    # Load distance filter data
+    with open(os.path.join(country_dir, 'distance_filter.yaml')) as f:
+        distance_filter = yaml.safe_load(f)
     
     # Load country-specific race data
     with open(os.path.join(country_dir, 'final_races.json')) as f:
@@ -100,11 +106,15 @@ def generate_country(country_code):
         forum_posts = json.load(f)
     
     # Merge global content with country-specific content
-    content = {**global_content, **index_content}
-    content['races'] = races
-    content['forum_posts'] = forum_posts
-    content['race_type'] = index_content.get('race_type', 'Other')
-    content['race_page_folder_name'] = index_content.get('race_page_folder_name')
+    content = {
+        **global_content, 
+        **index_content,
+        'races': races,
+        'forum_posts': forum_posts,
+        'race_type': index_content.get('race_type', 'Other'),
+        'race_page_folder_name': index_content.get('race_page_folder_name'),
+        'distance_filter': distance_filter
+    }
 
     # Add responsive image sizes from config
     content['sizes'] = config['responsive_image_widths']

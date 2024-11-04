@@ -16,9 +16,9 @@
   </div>
 
   <div class="filter-categories right-scroller">
-    {% for category_key in category_mapping.keys() %}
-    <button class="category-button" data-category="{{ category_key }}">
-      {{ category_key }}
+    {% for category in distance_filter.available_categories %}
+    <button class="category-button" data-category="{{ category }}">
+      {{ category }}
     </button>
     {% endfor %}
   </div>

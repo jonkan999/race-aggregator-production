@@ -1,16 +1,18 @@
 <a
-  href="/race-pages/{{ race.image_partial_key }}.html"
+  href="/{{ race_page_folder_name }}/{{ race.domain_name }}/index.html"
   class="race-card"
-  data-date="{{ race.date }}"
-  data-county="{{ county_mapping[race.county] }}"
-  data-category="{{ race.category }}"
-  data-race-type="{{ race.type_local }}"
-  data-distance="{{ race.distance_m }}"
+  data-name="{{ race.name|default('') }}"
+  data-date="{{ race.date|default('') }}"
+  data-county="{{ county_mapping[race.county] if race.county else country_native }}"
+  data-category="{{ race.category|default('') }}"
+  data-race-type="{{ race.type_local|default('') }}"
+  data-distance="{{ race.distance_verbose if race.distance_verbose else '' }}"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
         src="/{{ race_page_folder_name }}/{{ race.domain_name }}/{{ race.domain_name }}_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
         alt="{{ alt_prefix }}{{ race.name }}"
         loading="lazy"
         class="background-img"
@@ -21,7 +23,9 @@
         <div class="race-date">
           {{ race.date | convert_date(month_mapping_short) }}
         </div>
-        <div class="race-location">{{ county_mapping[race.county] }}</div>
+        <div class="race-location">
+          {{ county_mapping[race.county] if race.county else country_native }}
+        </div>
       </div>
     </div>
     <div class="overlay soft"></div>
@@ -30,45 +34,65 @@
   <div class="race-info-bottom">
     <div class="upper-container">
       <div class="left-container">
-        <h3 class="race-name">{{ race.name }}</h3>
-        {% if race.place %}
-        <div class="race-location">
+        <h3 class="race-name">{{ race.name|default('Unnamed Race') }}</h3>
+        <div
+          class="race-location {% if race.distance_verbose and race.distance_verbose.split(', ')|length > 2 %}with-spacing{% endif %}"
+        >
+          {% if race.location %}
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          {{ race.place }}
+          {{ race.location }} {% endif %}
         </div>
-        {% endif %}
       </div>
       <div class="right-container">
-        {% if race.distance_m %}
-        <div class="race-distances">
+        <div
+          class="race-distances {% if race.distance_verbose and race.distance_verbose.split(', ')|length > 2 %}with-spacing{% endif %}"
+        >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
           </svg>
-          {% set display_distances = race.distance_m |
-          get_display_values(race.race_type, category_mapping) %} {% for
-          distance in display_distances %}
-          <span class="race-distance">
-            {{ distance }} {% if not loop.last %} {% endif %}
-          </span>
-          {% endfor %}
+          <div class="distance-container">
+            {% if race.distance_verbose %} {% set distances =
+            race.distance_verbose.split(', ') %} {% for distance in
+            distances[:4] %}
+            <div class="distance-item">
+              <span class="race-distance">
+                {{ distance |
+                map_verbose_distance(verbose_local_distance_mapping) }}
+              </span>
+            </div>
+            {% endfor %} {% if distances|length > 4 %}
+            <div class="distance-item">
+              <span class="race-distance">...</span>
+            </div>
+            {% endif %} {% else %}
+            <div class="distance-item">
+              <span class="race-distance">
+                {{ '' | map_verbose_distance(verbose_local_distance_mapping) }}
+              </span>
+            </div>
+            {% endif %}
+          </div>
         </div>
+        {% if race.type %}
         <div class="race-type">
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
           </svg>
-          {{ type_options[race.type] }}
+          {{ type_options[race.type]|default(race.type) }}
         </div>
+        {% endif %}
       </div>
     </div>
-    {% endif %}
     <div class="race-description">
       {{ race.description[:140] }}{% if race.description|length > 150 %}...{%
       endif %}
     </div>
   </div>
-  <div class="cta-button">
+  <div
+    class="cta-button {% if race.distance_verbose and race.distance_verbose.split(', ')|length > 2 %}with-spacing{% endif %}"
+  >
     <div class="more-info-button">{{ race_card_cta_text }}</div>
   </div>
 </a>

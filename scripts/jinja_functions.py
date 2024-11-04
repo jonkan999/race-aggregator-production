@@ -103,4 +103,21 @@ def get_display_values(distances, race_type, category_mapping):
     
     return display_values
 
+def map_verbose_distance(distance_str, verbose_mapping):
+    """Maps verbose distance strings to their local equivalents and formats units"""
+    if not distance_str:
+        return verbose_mapping.get('fallback', '')
+    
+    # First check for verbose mappings
+    for eng, local in verbose_mapping.items():
+        if eng != 'fallback' and eng.lower() in distance_str.lower():
+            return local
+    
+    # Then handle unit spacing
+    distance_str = distance_str.replace('km', ' km')
+    distance_str = distance_str.replace('meter', ' meter')
+    
+    # Remove any double spaces that might have been created
+    return ' '.join(distance_str.split())
+
 
