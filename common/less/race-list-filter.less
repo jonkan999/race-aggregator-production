@@ -1,3 +1,5 @@
+@import '_variables.less';
+
 @font-size-filters: 1.4rem;
 
 .section-filters {
@@ -65,16 +67,24 @@
 }
 
 .month-button {
-  &:hover,
   &.active {
     background-color: var(--info-highlight-background);
+  }
+  @media (min-width: 69em) {
+    &:hover {
+      background-color: var(--info-highlight-background2);
+    }
   }
 }
 
 .category-button {
-  &:hover,
   &.active {
     background-color: var(--info-highlight-background2);
+  }
+  @media (min-width: 69em) {
+    &:hover {
+      background-color: var(--info-highlight-background2);
+    }
   }
 }
 
@@ -88,5 +98,15 @@
     border-radius: 5px;
     border: 1px solid #ddd;
     font-size: @font-size-filters;
+  }
+}
+
+/* Add this to your CSS file */
+
+/* Highlight color for the select element */
+select.highlight {
+  background-color: var(--info-highlight-background); /* Highlight color */
+  option {
+    background-color: var(--color-background-shade);
   }
 }

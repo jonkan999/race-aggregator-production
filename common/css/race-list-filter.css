@@ -49,13 +49,21 @@
   cursor: pointer;
   font-size: 1.4rem;
 }
-.month-button:hover,
 .month-button.active {
   background-color: var(--info-highlight-background);
 }
-.category-button:hover,
+@media (min-width: 69em) {
+  .month-button:hover {
+    background-color: var(--info-highlight-background2);
+  }
+}
 .category-button.active {
   background-color: var(--info-highlight-background2);
+}
+@media (min-width: 69em) {
+  .category-button:hover {
+    background-color: var(--info-highlight-background2);
+  }
 }
 .filter-dropdowns {
   display: flex;
@@ -67,4 +75,13 @@
   border-radius: 5px;
   border: 1px solid #ddd;
   font-size: 1.4rem;
+}
+/* Add this to your CSS file */
+/* Highlight color for the select element */
+select.highlight {
+  background-color: var(--info-highlight-background);
+  /* Highlight color */
+}
+select.highlight option {
+  background-color: var(--color-background-shade);
 }

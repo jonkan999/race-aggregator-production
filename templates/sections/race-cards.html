@@ -7,14 +7,12 @@
   <div
     class="race-cards-grid"
     id="race-cards-container"
-    {%
-    if
-    preselected_filters
-    %}
-    data-preselected-filters="{{ preselected_filters|tojson }}"
-    {%
-    endif
-    %}
+    {/*
+    prettier-ignore
+    */}
+    {% if preselected_filters %}
+    data-preselected-filters='{{ preselected_filters|tojson }}'
+    {% endif %}
   >
     {% for race in races %} {% include 'components/race-card.html' %} {% endfor
     %}

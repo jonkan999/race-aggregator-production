@@ -8,6 +8,7 @@ from jinja_functions import slugify, convert_date, map_verbose_distance  # Impor
 import yaml
 import json
 from datetime import datetime
+from generate_sitemap import generate_sitemap_for_country
 
 def generate_seo_content(county=None, race_type=None, category=None):
     """Generate SEO-friendly title and paragraph based on filters."""
@@ -75,19 +76,6 @@ def cleanup_empty_seo_pages(output_dir):
                 content = f.read()
                 if "Ingen information" in content:  # Adjust this condition based on your template
                     shutil.rmtree(root)
-
-def update_sitemap(valid_paths, sitemap_path):
-    """Generate sitemap with only valid URLs."""
-    sitemap = []
-    for path in valid_paths:
-        url = convert_path_to_url(path)  # Implement this function to convert path to URL
-        sitemap.append({
-            'loc': url,
-            'lastmod': datetime.now().strftime('%Y-%m-%d'),
-            'changefreq': 'weekly'
-        })
-    
-    generate_sitemap_xml(sitemap, sitemap_path)  # Implement this function to generate XML sitemap
 
 def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country_code):
     env = Environment(loader=FileSystemLoader(template_dir))
@@ -187,8 +175,7 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
     cleanup_empty_seo_pages(output_dir)
 
     # Update sitemap
-    sitemap_path = os.path.join(output_dir, 'sitemap.xml')  # Adjust the path as needed
-    update_sitemap(valid_paths, sitemap_path)
+    generate_sitemap_for_country(country_code)  # Call to generate the sitemap
 
 def main():
     # Example usage

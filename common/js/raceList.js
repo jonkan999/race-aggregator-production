@@ -26,6 +26,83 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const categoryMapping = {{ category_mapping | tojson | safe }};
 
+  // Retrieve pre-selected filters from data attribute
+  const preselectedFilters = JSON.parse(document.getElementById("race-cards-container").getAttribute("data-preselected-filters"));
+
+  // Function to check filters and redirect if necessary
+  function checkFilters() {
+    const currentFilters = {
+      category: null,
+      county: null,
+      race_type: null
+    };
+
+    // Get current filter values - handle multiple categories
+    const activeCategoryButtons = document.querySelectorAll(".category-button.active");
+    if (activeCategoryButtons.length > 0) {
+      currentFilters.category = Array.from(activeCategoryButtons)
+        .map(button => button.getAttribute("data-category"))
+        .join(", ");
+    } else {
+      currentFilters.category = "";
+    }
+    
+    currentFilters.county = countyFilter.value || "";
+    currentFilters.race_type = raceTypeFilter.value || "";
+
+    // Check only the filters that were initially preselected
+    let filtersChanged = false;
+
+    if (preselectedFilters.category) {
+      // Check if category was preselected and has changed
+      if (currentFilters.category !== preselectedFilters.category) {
+        filtersChanged = true;
+      }
+    }
+
+    if (preselectedFilters.county) {
+      // Check if county was preselected and has changed
+      if (currentFilters.county !== preselectedFilters.county) {
+        filtersChanged = true;
+      }
+    }
+
+    if (preselectedFilters.race_type) {
+      // Check if race_type was preselected and has changed
+      if (currentFilters.race_type !== preselectedFilters.race_type) {
+        filtersChanged = true;
+      }
+    }
+
+    if (filtersChanged) {
+      console.log("Preselected filters were changed, redirecting...");
+      
+      // Construct the redirect URL
+      const redirectUrl = `/{{ navigation['race-list'].lower() }}.html?category=${encodeURIComponent(currentFilters.category)}&county=${encodeURIComponent(currentFilters.county)}&race_type=${encodeURIComponent(currentFilters.race_type)}`;
+      
+      console.log(redirectUrl); // Log the redirect URL for debugging
+      window.location.href = redirectUrl; // Uncomment to enable redirect
+    }
+  }
+
+  // Set active selections based on preselected filters
+  if (preselectedFilters) {
+    if (preselectedFilters.category) {
+      const categoryButtons = document.querySelectorAll(".category-button");
+      categoryButtons.forEach((button) => {
+        if (button.getAttribute("data-category") === preselectedFilters.category) {
+          button.classList.add("active");
+        }
+      });
+    }
+    if (preselectedFilters.county) {
+      countyFilter.value = preselectedFilters.county;
+    }
+    if (preselectedFilters.race_type) {
+      raceTypeFilter.value = preselectedFilters.race_type;
+    }
+  }
+
   if (
     !prevButton ||
     !nextButton ||
@@ -64,6 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
         this.classList.add("active");
       }
       applyFilters();
+      if (preselectedFilters) checkFilters(); // Check filters after applying
     });
   });
 
@@ -297,10 +375,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Add event listeners to filters
-  dateFrom.addEventListener("change", applyFilters);
-  dateTo.addEventListener("change", applyFilters);
-  countyFilter.addEventListener("change", applyFilters);
-  raceTypeFilter.addEventListener("change", applyFilters);
+  dateFrom.addEventListener("change", function() {
+    applyFilters();
+  });
+  dateTo.addEventListener("change", function() {
+    applyFilters();
+  });
+  countyFilter.addEventListener("change", function() {
+    applyFilters();
+    if (preselectedFilters) checkFilters(); // Check filters after applying
+  });
+  raceTypeFilter.addEventListener("change", function() {
+    applyFilters();
+    if (preselectedFilters) checkFilters(); // Check filters after applying
+  });
 
   dateFrom.addEventListener("change", updateDateRange);
   dateTo.addEventListener("change", updateDateRange);
@@ -330,4 +418,64 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   `;
   document.head.appendChild(style);
+
+  // Read URL parameters and set initial filter values
+  //const urlParams = new URLSearchParams(window.location.search);
+  
+  // Set county filter
+  if (urlParams.get('county')) {
+    countyFilter.value = urlParams.get('county');
+  }
+
+  // Set race type filter
+  if (urlParams.get('race_type')) {
+    raceTypeFilter.value = urlParams.get('race_type');
+  }
+
+  // Set category filter - handle multiple categories
+  if (urlParams.get('category')) {
+    const urlCategories = urlParams.get('category').split(',').map(cat => cat.trim());
+    const categoryButtons = document.querySelectorAll(".category-button");
+    categoryButtons.forEach((button) => {
+      const buttonCategory = button.getAttribute("data-category");
+      if (urlCategories.includes(buttonCategory)) {
+        button.classList.add("active");
+        activeCategories.add(buttonCategory);
+      }
+    });
+  }
+
+  // Apply filters after setting initial values from URL
+  applyFilters();
+
+  // Function to update the highlight of the select element based on its value
+  function updateSelectHighlight(selectElement) {
+    if (selectElement.value === "" || selectElement.value === "Alla loppstyper") {
+      selectElement.classList.remove("highlight"); // Remove highlight class
+    } else {
+      selectElement.classList.add("highlight"); // Add highlight class
+    }
+  }
+
+  // Get the race type select element
+  const raceTypeSelect = document.getElementById("race-type");
+
+  // Add event listener to update highlight on change for race type
+  raceTypeSelect.addEventListener("change", function() {
+    updateSelectHighlight(this);
+  });
+
+  // Initial highlight check on page load for race type
+  updateSelectHighlight(raceTypeSelect);
+
+  // Get the county select element
+  const countySelect = document.getElementById("county");
+
+  // Add event listener to update highlight on change for county
+  countySelect.addEventListener("change", function() {
+    updateSelectHighlight(this);
+  });
+
+  // Initial highlight check on page load for county
+  updateSelectHighlight(countySelect);
 });
