@@ -10,6 +10,9 @@ import io
 # Import the custom functions from jinja_functions.py
 from jinja_functions import timeago, convert_date, slugify, get_display_values, map_verbose_distance
 
+# Import the generate_sitemap function from generate_sitemap.py
+from generate_sitemap import generate_sitemap_for_country
+
 # Paths
 template_dir = 'templates'
 data_dir = 'data/countries'
@@ -222,6 +225,9 @@ def generate_race_pages(country_code):
             f.write(full_page)
 
     print(f"Race pages generated successfully for {country_code}!")
+
+    # Generate sitemap after race pages are created
+    generate_sitemap_for_country(country_code)  # Call to generate the sitemap
 
 if __name__ == "__main__":
     import sys
