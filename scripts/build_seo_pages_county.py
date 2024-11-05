@@ -67,17 +67,27 @@ def get_valid_combinations(races, verbose_mapping):
 
     return valid_combinations
 
-def cleanup_empty_seo_pages(output_dir):
-    """Remove SEO pages that are no longer valid."""
-    for root, dirs, files in os.walk(output_dir):
-        if 'index.html' in files:
-            # Check if the page is empty or has less than 2 races
-            with open(os.path.join(root, 'index.html'), 'r', encoding='utf-8') as f:
-                content = f.read()
-                if "Ingen information" in content:  # Adjust this condition based on your template
-                    shutil.rmtree(root)
+def cleanup_empty_seo_pages(output_dir, navigation, country_code, seo_cities_folder_name):
+    """Remove all SEO pages except the cities directory."""
+    race_list_path = os.path.join(output_dir, slugify(navigation['race-list'], country_code))
+    
+    if os.path.exists(race_list_path):
+        # Get all items in the directory
+        items = os.listdir(race_list_path)
+        
+        # Remove everything except the cities folder
+        for item in items:
+            item_path = os.path.join(race_list_path, item)
+            if item != seo_cities_folder_name:  # Keep the cities folder
+                if os.path.isdir(item_path):
+                    shutil.rmtree(item_path)
+                else:
+                    os.remove(item_path)
+        
+        print(f"Cleaned up SEO pages directory (kept {seo_cities_folder_name})")
 
 def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country_code):
+
     env = Environment(loader=FileSystemLoader(template_dir))
     template = env.get_template('race_list_seo.html')
 
@@ -95,6 +105,10 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
     navigation = index_content.get('navigation', {})
     month_mapping = index_content.get('month_mapping', {})
     county_mapping = index_content.get('county_mapping', {})  # Load county mapping
+    
+    # Cleanup before generating
+    cleanup_empty_seo_pages(output_dir, navigation, country_code, index_content['seo_cities_folder_name'])
+
     # Get valid combinations
     valid_combinations = get_valid_combinations(races, verbose_mapping)
     
@@ -170,9 +184,6 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
         output_path = os.path.join(folder_path, 'index.html')
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write(output)
-
-    # Cleanup empty SEO pages
-    cleanup_empty_seo_pages(output_dir)
 
     # Update sitemap
     generate_sitemap_for_country(country_code)  # Call to generate the sitemap
