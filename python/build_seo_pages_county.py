@@ -18,8 +18,6 @@ import json
 from datetime import datetime
 from generate_sitemap import generate_sitemap_for_country
 
-import hashlib
-
 
 def get_valid_combinations(races, verbose_mapping):
     """Get all valid filter combinations that have races."""
@@ -64,11 +62,6 @@ def cleanup_empty_seo_pages(output_dir, navigation, country_code, seo_cities_fol
         print(f"Cleaned up SEO pages directory (kept {seo_cities_folder_name})")
 
 def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country_code):
-    # Initialize the SEO content generator
-    seo_generator = SEOContentGenerator(
-        country_code=country_code,
-        language='Swedish' if country_code == 'se' else 'English'
-    )
 
     env = Environment(loader=FileSystemLoader(template_dir))
     template = env.get_template('race_list_seo.html')
@@ -82,6 +75,12 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
     country_dir = os.path.join('data', 'countries', country_code)
     with open(os.path.join(country_dir, 'index.yaml'), 'r', encoding='utf-8') as f:
         index_content = yaml.safe_load(f)
+
+        # Initialize the SEO content generator
+    seo_generator = SEOContentGenerator(
+        country_code=country_code,
+        language=index_content['country_language']
+    )
 
     # Extract necessary data from index_content
     navigation = index_content.get('navigation', {})
@@ -138,20 +137,15 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
 
         # Generate SEO content
         seo_content = seo_generator.generate_seo_content(
+            index_content=index_content,
             county=county,
             race_type=race_type,
             category=category,
-            important_keywords=index_content.get('important_keywords', [])
+            important_keywords=index_content['important_keywords_racelist'],
+            county_options=index_content['county_mapping'],
+            type_options=index_content['type_options'],
+            available_categories=verbose_mapping['available_categories']
         )
-        
-        # Use the generated content
-        context = {
-            'seo_title': seo_content['title'],
-            'meta_description': seo_content['meta_description'],
-            'page_h1': seo_content['h1'],
-            'seo_paragraph': seo_content['paragraph'],
-            # ... rest of your context ...
-        }
         
         folder_path = os.path.join(output_dir, slugify(navigation['race-list'], country_code), *path_parts)
         os.makedirs(folder_path, exist_ok=True)
@@ -159,9 +153,9 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
 
         # Prepare context for rendering
         context = {
-            'seo_title': seo_content['title'],
+            'title_race_list': seo_content['title'],
             'meta_description': seo_content['meta_description'],
-            'page_h1': seo_content['h1'],
+            'seo_h1': seo_content['h1'],
             'seo_paragraph': seo_content['paragraph'],
             'races': filtered_races,
             'preselected_filters': {
@@ -169,7 +163,6 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
                 'race_type': race_type,
                 'category': category
             },
-            'title_race_list': seo_content['h1'],
             'distance_filter': verbose_mapping,
             'navigation': navigation,
             'month_mapping': month_mapping,
