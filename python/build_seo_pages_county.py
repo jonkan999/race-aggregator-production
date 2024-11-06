@@ -1,3 +1,11 @@
+import sys
+import os
+
+# Add the parent directory to the system path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from python.gemini_response import SEOContentGenerator
+
 from collections import defaultdict
 from itertools import product
 import os
@@ -10,39 +18,8 @@ import json
 from datetime import datetime
 from generate_sitemap import generate_sitemap_for_country
 
-def generate_seo_content(county=None, race_type=None, category=None):
-    """Generate SEO-friendly title and paragraph based on filters."""
-    # Title generation
-    parts = []
-    if category:
-        parts.append(f"{category} lopp")
-    if race_type:
-        parts.append(race_type.lower())
-    if county:
-        parts.append(f"i {county}")
-    
-    title = " ".join(parts).capitalize() if parts else "Alla lopp"
+import hashlib
 
-    # Paragraph generation
-    para_parts = []
-    if category and race_type and county:
-        para_parts.append(f"Hitta {category.lower()} {race_type.lower()}lopp i {county}.")
-    elif category and race_type:
-        para_parts.append(f"Utforska {category.lower()} {race_type.lower()}lopp i hela Sverige.")
-    elif category and county:
-        para_parts.append(f"Upptäck {category.lower()} lopp i {county}.")
-    elif race_type and county:
-        para_parts.append(f"Se alla {race_type.lower()}lopp i {county}.")
-    elif category:
-        para_parts.append(f"Hitta {category.lower()} lopp över hela Sverige.")
-    elif race_type:
-        para_parts.append(f"Utforska {race_type.lower()}lopp i alla regioner.")
-    elif county:
-        para_parts.append(f"Se alla typer av lopp i {county}.")
-    
-    para_parts.append("Här hittar du datum, distanser och all information du behöver för att planera ditt nästa lopp.")
-    
-    return title, " ".join(para_parts)
 
 def get_valid_combinations(races, verbose_mapping):
     """Get all valid filter combinations that have races."""
@@ -87,6 +64,11 @@ def cleanup_empty_seo_pages(output_dir, navigation, country_code, seo_cities_fol
         print(f"Cleaned up SEO pages directory (kept {seo_cities_folder_name})")
 
 def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country_code):
+    # Initialize the SEO content generator
+    seo_generator = SEOContentGenerator(
+        country_code=country_code,
+        language='Swedish' if country_code == 'se' else 'English'
+    )
 
     env = Environment(loader=FileSystemLoader(template_dir))
     template = env.get_template('race_list_seo.html')
@@ -155,7 +137,21 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
             path_parts.append(slugify(category, country_code))
 
         # Generate SEO content
-        seo_title, seo_paragraph = generate_seo_content(county, race_type, category)
+        seo_content = seo_generator.generate_seo_content(
+            county=county,
+            race_type=race_type,
+            category=category,
+            important_keywords=index_content.get('important_keywords', [])
+        )
+        
+        # Use the generated content
+        context = {
+            'seo_title': seo_content['title'],
+            'meta_description': seo_content['meta_description'],
+            'page_h1': seo_content['h1'],
+            'seo_paragraph': seo_content['paragraph'],
+            # ... rest of your context ...
+        }
         
         folder_path = os.path.join(output_dir, slugify(navigation['race-list'], country_code), *path_parts)
         os.makedirs(folder_path, exist_ok=True)
@@ -163,19 +159,21 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
 
         # Prepare context for rendering
         context = {
-            'seo_title': seo_title,
-            'seo_paragraph': seo_paragraph,
+            'seo_title': seo_content['title'],
+            'meta_description': seo_content['meta_description'],
+            'page_h1': seo_content['h1'],
+            'seo_paragraph': seo_content['paragraph'],
             'races': filtered_races,
             'preselected_filters': {
                 'county': county,
                 'race_type': race_type,
                 'category': category
             },
-            'title_race_list': seo_title,
+            'title_race_list': seo_content['h1'],
             'distance_filter': verbose_mapping,
-            'navigation': navigation,  # Add navigation to the context
-            'month_mapping': month_mapping,  # Add month_mapping to the context
-            **index_content  # Unpack the entire index_content into the context
+            'navigation': navigation,
+            'month_mapping': month_mapping,
+            **index_content
         }
         
         output = template.render(context)

@@ -22,7 +22,7 @@ class GenerateHandler(FileSystemEventHandler):
             print(f"{event.src_path} has been modified. Regenerating HTML for all countries...")
             try:
                 result = subprocess.run(
-                    ["python", "scripts/generate_html.py"],
+                    ["python", "python/generate_html.py"],
                     capture_output=True,
                     text=True
                 )

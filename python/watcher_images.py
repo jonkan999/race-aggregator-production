@@ -23,7 +23,7 @@ class ImageProcessHandler(FileSystemEventHandler):
         # Check if the modified or moved file is in the image directories
         if event.src_path.endswith(('.png', '.jpg', '.jpeg', '.webp')):
             print(f"{event.src_path} has been modified or moved. Running image processing script...")
-            subprocess.run(["python", "scripts/process_images.py"])
+            subprocess.run(["python", "python/process_images.py"])
 
 if __name__ == "__main__":
     # Define the paths to monitor
