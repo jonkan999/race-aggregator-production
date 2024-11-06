@@ -1,0 +1,57 @@
+{% extends "browse/browse_layout.html" %} {% block browse_content %}
+<div class="browse-cities">
+  <h1>{{ browse_cities.title }}</h1>
+  <p class="browse-description">{{ browse_cities.meta_description }}</p>
+
+  <div class="browse-grid">
+    {% for city, data in structure.cities|dictsort %}
+    <div class="city-card">
+      <div class="city-header">
+        <h2>
+          <a
+            href="/{{ race_list_name|slugify(country_code) }}/{{ city|slugify(country_code) }}"
+          >
+            {{ city }}
+          </a>
+          <span class="count"
+            >({{ data.count }} {{ local_name_for_race }})</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        {% for type, type_data in data.types|dictsort %} {% if type_data.count >
+        0 %}
+        <div class="type-group">
+          <h3>
+            <a
+              href="/{{ race_list_name|slugify(country_code) }}/{{ city|slugify(country_code) }}/{{ type|slugify(country_code) }}"
+            >
+              {{ type }}
+            </a>
+            <span class="count">({{ type_data.count }})</span>
+          </h3>
+
+          {% if type_data.categories %}
+          <ul class="category-list">
+            {% for category, cat_count in type_data.categories|dictsort %} {% if
+            cat_count > 0 %}
+            <li>
+              <a
+                href="/{{ race_list_name|slugify(country_code) }}/{{ city|slugify(country_code) }}/{{ type|slugify(country_code) }}/{{ category|slugify(country_code) }}"
+              >
+                {{ category }}
+              </a>
+              <span class="count">({{ cat_count }})</span>
+            </li>
+            {% endif %} {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+        {% endif %} {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -11,6 +11,8 @@ navigation:
   pace-calculator: 'Fartomvandlare'
   racetime-estimator: 'Uppskatta din sluttid'
 
+race_list_name: 'Loppkalender'
+
 # Add this new section for auxiliary pages
 auxiliary_pages:
   race-page-preview: 'Förhandsgranska lopp'
@@ -26,6 +28,7 @@ title: 'Allt om löpning i'
 country_native: 'Sverige'
 country_code: 'se'
 country_language: 'swedish'
+local_name_for_race: 'lopp'
 main_bullet_1: 'Hitta ditt nästa lopp'
 main_bullet_2: ' - Eller lägg till det här'
 main_bullet_3: 'Fynda på vår andrahandsmarknad'
@@ -39,15 +42,15 @@ cta_all_races: 'Visa Alla Lopp'
 alt_prefix: 'Bild till '
 
 #race_list
-race_list_title: 'Sveriges mest kompletta lista på maraton, halvmaraton, millopp och andra löpartävlingar'
-county_seo_title: 'Mest kompletta lista på maraton, halvmaraton, millopp och andra löpartävlingar i' # county
-race_list_h1: 'Sveriges mest kompletta loppkalender för löpare'
-county_seo_h1: 'Mest kompletta lista på maraton, halvmaraton, millopp och andra löpartävlingar i' # county
-race_card_cta_text: 'Mer info & anmälan'
-section_race_card_header: 'Alla lopp'
-section_race_card_header_date_range_from: ' från '
-section_race_card_header_date_range_to: ' till '
-section_race_card_header_date_range_single: ' i '
+#race_list_title: 'Sveriges mest kompletta lista på maraton, halvmaraton, millopp och andra löpartävlingar'
+#county_seo_title: 'Mest kompletta lista på maraton, halvmaraton, millopp och andra löpartävlingar i'
+#race_list_h1: 'Sveriges mest kompletta loppkalender för löpare'
+#county_seo_h1: 'Mest kompletta lista på maraton, halvmaraton, millopp och andra löpartävlingar i'
+#race_card_cta_text: 'Mer info & anmälan'
+#section_race_card_header: 'Alla lopp'
+#section_race_card_header_date_range_from: ' från '
+#section_race_card_header_date_range_to: ' till '
+#section_race_card_header_date_range_single: ' i '
 
 filter_date_from: 'Från'
 filter_date_to: 'Till'
@@ -251,7 +254,8 @@ race_page_layout_title: 'Loppsida för: '
 race_page_alt_prefix: 'Bild till '
 
 #SEO STUFF
-seo_cities_folder_name: 'narliggande-stader'
+seo_county_folder_name: 'Alla Län'
+seo_cities_folder_name: 'Städer'
 important_keywords_racelist:
   - 'loppkalender'
   - 'löparkalender'
@@ -259,3 +263,52 @@ important_keywords_racelist:
   - 'löplopp'
   - 'löpartävlingar'
   - 'lopplista'
+
+# ... existing content ...
+
+# SEO Content Templates
+seo_templates:
+  title_parts:
+    category: '{category} lopp'
+    race_type: '{race_type}'
+    location: 'i {location}'
+    default: 'Alla lopp'
+  paragraph_templates:
+    category_race_location: 'Hitta {category} {race_type}lopp i {location}.'
+    category_race: 'Utforska {category} {race_type}lopp i hela Sverige.'
+    category_location: 'Upptäck {category} lopp i {location}.'
+    race_location: 'Se alla {race_type}lopp i {location}.'
+    category_only: 'Hitta {category} lopp över hela Sverige.'
+    race_only: 'Utforska {race_type}lopp i alla regioner.'
+    location_only: 'Se alla typer av lopp i {location}.'
+    default_suffix: 'Här hittar du datum, distanser och all information du behöver för att planera ditt nästa lopp.'
+
+browse_by_category:
+  button: 'Bläddra efter kategori'
+  helper_text: 'Hitta lopp via fördefinierade filter och kombinationer'
+  overview: 'Översikt'
+  counties: 'Län'
+  cities: 'Städer'
+  types: 'Lopptyper'
+  categories: 'Kategorier'
+
+# Hardcoded values extracted from templates
+browse_overview:
+  title: 'Översikt'
+  meta_description: 'Hitta lopp i din översikt.'
+
+browse_types:
+  title: 'Bläddra efter lopptyp'
+  meta_description: 'Hitta lopp efter typ av lopp.'
+
+browse_counties:
+  title: 'Bläddra efter län'
+  meta_description: 'Hitta lopp i ditt län.'
+
+browse_cities:
+  title: 'Bläddra efter stad'
+  meta_description: 'Hitta lopp i din stad.'
+
+browse_categories:
+  title: 'Bläddra efter kategori'
+  meta_description: 'Hitta lopp efter distans och kategori.'

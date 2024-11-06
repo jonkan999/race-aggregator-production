@@ -42,7 +42,7 @@ def get_valid_combinations(races, verbose_mapping):
 
     return valid_combinations
 
-def cleanup_empty_seo_pages(output_dir, navigation, country_code, seo_cities_folder_name):
+def cleanup_empty_seo_pages(output_dir, navigation, country_code, seo_cities_folder_name, browse_categories_folder_name):
     """Remove all SEO pages except the cities directory."""
     race_list_path = os.path.join(output_dir, slugify(navigation['race-list'], country_code))
     
@@ -53,7 +53,7 @@ def cleanup_empty_seo_pages(output_dir, navigation, country_code, seo_cities_fol
         # Remove everything except the cities folder
         for item in items:
             item_path = os.path.join(race_list_path, item)
-            if item != seo_cities_folder_name:  # Keep the cities folder
+            if item != slugify(seo_cities_folder_name, country_code) and item != slugify(browse_categories_folder_name, country_code):  # Keep the cities folder
                 if os.path.isdir(item_path):
                     shutil.rmtree(item_path)
                 else:
@@ -88,7 +88,7 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
     county_mapping = index_content.get('county_mapping', {})  # Load county mapping
     
     # Cleanup before generating
-    cleanup_empty_seo_pages(output_dir, navigation, country_code, index_content['seo_cities_folder_name'])
+    cleanup_empty_seo_pages(output_dir, navigation, country_code, index_content['seo_cities_folder_name'], index_content['browse_by_category']['button'])
 
     # Get valid combinations
     valid_combinations = get_valid_combinations(races, verbose_mapping)
@@ -126,14 +126,12 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
         if len(filtered_races) < 2:  # Only create pages with at least 2 races
             continue
             
-        # Generate folder path
-        path_parts = []
-        if county:
-            path_parts.append(slugify(county, country_code))
-        if race_type:
-            path_parts.append(slugify(race_type, country_code))
-        if category:
-            path_parts.append(slugify(category, country_code))
+        # Initialize path_parts with the county, race_type, and category
+        path_parts = [
+            slugify(county if county else index_content['seo_county_folder_name'], country_code),
+            slugify(race_type if race_type else index_content['filter_race_type'], country_code),
+            slugify(category if category else index_content['filter_categories'], country_code)
+        ]
 
         # Generate SEO content
         seo_content = seo_generator.generate_seo_content(

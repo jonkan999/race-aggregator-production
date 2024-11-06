@@ -45,5 +45,14 @@
         {% endfor %}
       </select>
     </div>
+    <div class="browse-all-filters">
+      <a
+        href="/{{ race_list_name|slugify(country_code) }}/{{ browse_by_category.button|slugify(country_code) }}"
+        class="browse-link"
+      >
+        <ion-icon name="git-network-outline"></ion-icon>
+        {{ browse_by_category.button }}
+      </a>
+    </div>
   </div>
 </section>

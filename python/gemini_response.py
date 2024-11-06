@@ -7,6 +7,7 @@ import os
 
 import sys
 import os
+import time  # Add this import at the top
 
 # Add the parent directory to the system path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -145,8 +146,16 @@ class SEOContentGenerator:
         self.country_code = country_code
         self.language = language
         self.gemini = GeminiResponse()
+        print("""
+╔════════════════════════════════════════════════════════════════╗
+║                     RATE LIMITING ENABLED                       ║
+║ Waiting 4 seconds between requests due to Gemini free tier     ║
+║ limitation (15 requests/minute). Remove this delay when using  ║
+║ a paid account for faster generation.                          ║
+╚════════════════════════════════════════════════════════════════╝
+        """)
         
-    def get_cache_key(self, county=None, race_type=None, category=None, city=None):
+    def get_cache_key(self, county=None, race_type=None, category=None):
         """Generate a unique cache key for the combination of filters."""
         filters = []
         if county:
@@ -155,8 +164,6 @@ class SEOContentGenerator:
             filters.append(f"race_type:{race_type}")
         if category:
             filters.append(f"category:{category}")
-        if city:
-            filters.append(f"city:{city}")
             
         return "-".join(filter for filter in filters if filter)
     
@@ -175,37 +182,63 @@ class SEOContentGenerator:
         with cache_path.open('w', encoding='utf-8') as f:
             json.dump(cache, f, ensure_ascii=False, indent=2)
     
-    def generate_basic_seo_content(self, county=None, race_type=None, category=None, city=None):
+    def generate_basic_seo_content(self,index_content, county=None, race_type=None, category=None):
         """Fallback function for basic SEO content generation."""
         location = city or county
         
+        # Get templates from config
+        templates = index_content['seo_templates']
+        title_parts = templates['title_parts']
+        para_templates = templates['paragraph_templates']
+        
+        # Build title
         parts = []
         if category:
-            parts.append(f"{category} lopp")
+            parts.append(title_parts['category'].format(category=category))
         if race_type:
-            parts.append(race_type.lower())
+            parts.append(title_parts['race_type'].format(race_type=race_type.lower()))
         if location:
-            parts.append(f"i {location}")
+            parts.append(title_parts['location'].format(location=location))
         
-        title = " ".join(parts).capitalize() if parts else "Alla lopp"
+        title = " ".join(parts).capitalize() if parts else title_parts['default']
         
+        # Build paragraph
         para_parts = []
         if category and race_type and location:
-            para_parts.append(f"Hitta {category.lower()} {race_type.lower()}lopp i {location}.")
+            para_parts.append(para_templates['category_race_location'].format(
+                category=category.lower(),
+                race_type=race_type.lower(),
+                location=location
+            ))
         elif category and race_type:
-            para_parts.append(f"Utforska {category.lower()} {race_type.lower()}lopp i hela Sverige.")
+            para_parts.append(para_templates['category_race'].format(
+                category=category.lower(),
+                race_type=race_type.lower()
+            ))
         elif category and location:
-            para_parts.append(f"Upptäck {category.lower()} lopp i {location}.")
+            para_parts.append(para_templates['category_location'].format(
+                category=category.lower(),
+                location=location
+            ))
         elif race_type and location:
-            para_parts.append(f"Se alla {race_type.lower()}lopp i {location}.")
+            para_parts.append(para_templates['race_location'].format(
+                race_type=race_type.lower(),
+                location=location
+            ))
         elif category:
-            para_parts.append(f"Hitta {category.lower()} lopp över hela Sverige.")
+            para_parts.append(para_templates['category_only'].format(
+                category=category.lower()
+            ))
         elif race_type:
-            para_parts.append(f"Utforska {race_type.lower()}lopp i alla regioner.")
+            para_parts.append(para_templates['race_only'].format(
+                race_type=race_type.lower()
+            ))
         elif location:
-            para_parts.append(f"Se alla typer av lopp i {location}.")
+            para_parts.append(para_templates['location_only'].format(
+                location=location
+            ))
         
-        para_parts.append("Här hittar du datum, distanser och all information du behöver för att planera ditt nästa lopp.")
+        para_parts.append(para_templates['default_suffix'])
         
         return {
             'title': title,
@@ -214,50 +247,68 @@ class SEOContentGenerator:
             'paragraph': " ".join(para_parts)
         }
     
-    def generate_seo_content(self, county=None, race_type=None, category=None, city=None, important_keywords=None, 
-                           county_options=None, type_options=None, available_categories=None, 
-                           county_label='Alla län', race_type_label='Alla loppstyper'):
+    def generate_seo_content(self, index_content, county=None, race_type=None, category=None, 
+                           important_keywords=None, county_options=None, type_options=None, 
+                           available_categories=None):
         """Generate SEO-friendly content using Gemini AI with caching."""
-        # Create context for the AI
+        # Check cache first
+        cache_key = self.get_cache_key(county, race_type, category)
+        cache = self.load_seo_cache()
+        
+        if cache_key in cache:
+            print(f"Using cached content for: {cache_key}")
+            return cache[cache_key]
+            
+        # If not in cache, proceed with AI generation
+        print(f"Generating new content for: {cache_key}")
+        
+        active_filters = []
         filters = []
         if category:
             filters.append(f"category: {category}")
+            active_filters.append(category)
         else:
-            filters.append(f"category: {race_type_label} ({', '.join(available_categories)})")
+            filters.append(f"category (not yet specified): {index_content['filter_categories']} ({', '.join(available_categories)})")
             
         if race_type:
             filters.append(f"race type: {race_type}")
+            active_filters.append(race_type)
         else:
-            filters.append(f"race type: {race_type_label} ({', '.join(type_options.values())})")
+            filters.append(f"race type (not yet specified): {index_content['filter_race_type']} ({', '.join(type_options.values())})")
             
         if county:
             filters.append(f"location: {county}")
+            active_filters.append(county)
         else:
-            filters.append(f"location: {county_label} ({', '.join(county_options.values())})")
+            filters.append(f"location (not yet specified): {index_content['filter_county']} [{', '.join(county_options.values())}])")
         
         messages = [
             {
                 'role': 'user',
-                'content': f"""Create SEO content in {self.language} for a race listing page. Use the exact values provided - do not translate or modify them.
+                'content': f"""Create SEO content in {self.language} for a race listing page.
 
-Filters (use exact values, these are already in {self.language}): {', '.join(filters)}
-Keywords (use only if naturally relevant): {', '.join(important_keywords or [])}
+These are the filters and available options: {', '.join(filters)}. For the (not yet specified) filters, use the label text, first value, along with the option texts, provided in the brackets, in a naturally flowing way but don't list all options.
+Keywords (use only if naturally relevant to the context and use the exact terms provided): {', '.join(important_keywords or [])}
 
-Provide EXACTLY this format without any deviation or additional text:
+Return EXACTLY in this format (include the dash and space at the start of each line):
 - Title: [Your title here]
 - Meta description: [Your meta description here]
 - H1: [Your H1 here]
 - Paragraph: [Your paragraph here]
 
-Important:
-- When a filter shows all options (starts with 'Alla'), mention that it includes all available options
-- Use the exact terms provided in the filters
-- Keep content specific, concise, and informative without being promotional"""
+Rules:
+- In the title and h1, make sure to include the active filters: {', '.join(active_filters)}. In a natural way.
+- Keep the exact filter texts as provided, DO NOT translate or vary them: {', '.join(filters)}
+- Use the exact keywords provided, DO NOT translate or vary them: {', '.join(important_keywords or [])}
+- Keep content natural but concise
+- NO markdown, NO formatting, NO additional lines
+- Each line must start with "- " followed by the exact label"""
             }
         ]
 
         # Get AI response
         response = self.gemini.get_response(messages)
+        time.sleep(4)  # Wait 4 seconds between requests
         content = response['content']
 
         print(content)
@@ -277,7 +328,7 @@ Important:
             }
             
             # Save to cache
-            cache_key = self.get_cache_key(county, race_type, category, city)
+            cache_key = self.get_cache_key(county, race_type, category)
             cache = self.load_seo_cache()
             cache[cache_key] = result
             self.save_seo_cache(cache)
@@ -286,7 +337,7 @@ Important:
             
         except IndexError as e:
             print(f"Error parsing AI response: {e}")
-            return self.generate_basic_seo_content(county, race_type, category, city)
+            return self.generate_basic_seo_content(index_content, county, race_type, category)
 
 if __name__ == "__main__":
     # Create an instance of GeminiResponse

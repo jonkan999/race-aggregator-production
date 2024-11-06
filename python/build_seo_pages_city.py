@@ -1,10 +1,18 @@
+import sys
+import os
+
+# Add the parent directory to the system path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from python.gemini_response import SEOContentGenerator
+
 from collections import defaultdict
 from itertools import product
 import os
 import shutil
 from jinja2 import Environment, FileSystemLoader
 from pathlib import Path
-from jinja_functions import slugify, convert_date, map_verbose_distance
+from jinja_functions import slugify, convert_date, map_verbose_distance  # Import the function
 import yaml
 import json
 from datetime import datetime
@@ -26,33 +34,6 @@ def get_city_mapping(races):
             city_races[city].append(race)
     
     return city_races
-
-def generate_seo_content(city, race_type=None, category=None):
-    """Generate SEO-friendly title and paragraph based on filters."""
-    parts = []
-    if category:
-        parts.append(f"{category} lopp")
-    if race_type:
-        parts.append(race_type.lower())
-    if city:
-        parts.append(f"i {city}")
-    
-    title = " ".join(parts).capitalize() if parts else "Alla lopp"
-
-    # Paragraph generation
-    para_parts = []
-    if category and race_type:
-        para_parts.append(f"Hitta {category.lower()} {race_type.lower()}lopp i {city}.")
-    elif category:
-        para_parts.append(f"Upptäck {category.lower()} lopp i {city}.")
-    elif race_type:
-        para_parts.append(f"Se alla {race_type.lower()}lopp i {city}.")
-    else:
-        para_parts.append(f"Se alla typer av lopp i {city}.")
-    
-    para_parts.append("Här hittar du datum, distanser och all information du behöver för att planera ditt nästa lopp.")
-    
-    return title, " ".join(para_parts)
 
 def get_top_subcategories(city_races, key):
     """Get the top N subcategories based on number of races."""
@@ -95,6 +76,12 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
 
     navigation = index_content.get('navigation', {})
     month_mapping = index_content.get('month_mapping', {})
+
+    # Initialize the SEO content generator
+    seo_generator = SEOContentGenerator(
+        country_code=country_code,
+        language=index_content['country_language']
+    )
 
     # Clean up existing city pages
     cleanup_empty_seo_pages(
@@ -151,45 +138,58 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
                 print(f"Skipping {city} - {race_type} - {category}: insufficient filtered races ({len(filtered_races)} < {MIN_RACES_THRESHOLD})")
                 continue
 
-            # Generate folder path
-            path_parts = [
-                index_content['seo_cities_folder_name'],
-                slugify(city, country_code)
-            ]
-            if race_type:
-                path_parts.append(slugify(race_type, country_code))
-            if category:
-                path_parts.append(slugify(category, country_code))
+            # Check if there are cities to process
+            if city:  # Assuming 'city' is a variable that holds the current city being processed
+                # Generate folder path
+                path_parts = [
+                    slugify(index_content['seo_cities_folder_name'], country_code),
+                    slugify(city, country_code),  # Use the city name
+                    slugify(race_type if race_type else index_content['filter_race_type'], country_code),
+                    slugify(category if category else index_content['filter_categories'], country_code)
+                ]
 
-            # Generate SEO content
-            seo_title, seo_paragraph = generate_seo_content(city, race_type, category)
+                # Remove empty parts from path_parts if city is not provided
+                path_parts = [part for part in path_parts if part]  # Filter out empty strings
 
-            folder_path = os.path.join(output_dir, slugify(navigation['race-list'], country_code), *path_parts)
-            os.makedirs(folder_path, exist_ok=True)
+                folder_path = os.path.join(output_dir, slugify(navigation['race-list'], country_code), *path_parts)
 
-            # Prepare context
-            context = {
-                'seo_title': seo_title,
-                'seo_paragraph': seo_paragraph,
-                'races': filtered_races,
-                'preselected_filters': {
-                    'county': city,  # Use city as county for filtering
-                    'race_type': race_type,
-                    'category': category,
-                    'city': city
-                },
-                'title_race_list': seo_title,
-                'distance_filter': verbose_mapping,
-                'navigation': navigation,
-                'month_mapping': month_mapping,
-                **index_content
-            }
+                # Generate SEO content
+                seo_content = seo_generator.generate_seo_content(
+                    index_content=index_content,
+                    county=city, #use city instead of county
+                    race_type=race_type,
+                    category=category,
+                    important_keywords=index_content['important_keywords_racelist'],
+                    county_options=index_content['county_mapping'],
+                    type_options=index_content['type_options'],
+                    available_categories=verbose_mapping['available_categories']
+                )
+                os.makedirs(folder_path, exist_ok=True)
 
-            # Write file
-            output_path = os.path.join(folder_path, 'index.html')
-            with open(output_path, 'w', encoding='utf-8') as f:
-                f.write(template.render(context))
-            print(f"Generated page for {city} - {race_type} - {category}")
+                # Prepare context
+                context = {
+                'title_race_list': seo_content['title'],
+                'meta_description': seo_content['meta_description'],
+                'seo_h1': seo_content['h1'],
+                'seo_paragraph': seo_content['paragraph'],
+                    'races': filtered_races,
+                    'preselected_filters': {
+                        'county': city,  # Use city as county for filtering
+                        'race_type': race_type,
+                        'category': category,
+                        'city': city
+                    },
+                    'distance_filter': verbose_mapping,
+                    'navigation': navigation,
+                    'month_mapping': month_mapping,
+                    **index_content
+                }
+
+                # Write file
+                output_path = os.path.join(folder_path, 'index.html')
+                with open(output_path, 'w', encoding='utf-8') as f:
+                    f.write(template.render(context))
+                print(f"Generated page for {city} - {race_type} - {category}")
 
     generate_sitemap_for_country(country_code)
 
