@@ -421,7 +421,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Read URL parameters and set initial filter values
   //const urlParams = new URLSearchParams(window.location.search);
-  
+
   // Set county filter
   if (urlParams.get('county')) {
     countyFilter.value = urlParams.get('county');
@@ -447,6 +447,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Apply filters after setting initial values from URL
   applyFilters();
+
+  // Clear URL parameters after applying filters
+  if (window.location.search) {
+    const newUrl = window.location.pathname;
+    window.history.replaceState({}, '', newUrl);
+  }
 
   // Function to update the highlight of the select element based on its value
   function updateSelectHighlight(selectElement) {

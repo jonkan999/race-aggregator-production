@@ -4,15 +4,11 @@
   <p class="browse-description">{{ browse_categories.meta_description }}</p>
 
   <div class="browse-grid">
-    {% for category, count in structure.categories|dictsort %}
+    {% for category, data in structure.categories|dictsort %}
     <div class="category-card">
       <h2>
-        <a
-          href="/{{ race_list_name|slugify(country_code) }}/categories/{{ category|slugify(country_code) }}"
-        >
-          {{ category }}
-        </a>
-        <span class="count">({{ count }} {{ local_name_for_race }})</span>
+        <a href="{{ data.href }}"> {{ category }} </a>
+        <span class="count">({{ data.count }} {{ local_name_for_race }})</span>
       </h2>
 
       <div class="category-stats">
@@ -20,14 +16,14 @@
           <h3>Vanliga lopptyper</h3>
           <ul>
             {% for type, type_data in structure.types|dictsort %} {% if
-            type_data.categories[category] > 0 %}
+            type_data.categories[category].count > 0 %}
             <li>
-              <a
-                href="/{{ race_list_name|slugify(country_code) }}/types/{{ type|slugify(country_code) }}/{{ category|slugify(country_code) }}"
-              >
+              <a href="{{ type_data.categories[category].href }}">
                 {{ type }}
               </a>
-              <span class="count">({{ type_data.categories[category] }})</span>
+              <span class="count"
+                >({{ type_data.categories[category].count }})</span
+              >
             </li>
             {% endif %} {% endfor %}
           </ul>

@@ -8,11 +8,7 @@
     <div class="type-card">
       <div class="type-header">
         <h2>
-          <a
-            href="/{{ race_list_name|slugify(country_code) }}/{{ filter_race_type|slugify(country_code) }}/{{ type|slugify(country_code) }}"
-          >
-            {{ type }}
-          </a>
+          <a href="{{ data.href }}"> {{ type }} </a>
           <span class="count">({{ data.count }} lopp)</span>
         </h2>
       </div>
@@ -21,15 +17,11 @@
       <div class="categories">
         <h3>{{ browse_types.categories_title }}</h3>
         <ul class="category-list">
-          {% for category, count in data.categories|dictsort %} {% if count > 0
-          %}
+          {% for category, cat_data in data.categories|dictsort %} {% if
+          cat_data.count > 0 %}
           <li>
-            <a
-              href="/{{ race_list_name|slugify(country_code) }}/{{ filter_race_type|slugify(country_code) }}/{{ type|slugify(country_code) }}/{{ category|slugify(country_code) }}"
-            >
-              {{ category }}
-            </a>
-            <span class="count">({{ count }})</span>
+            <a href="{{ cat_data.href }}"> {{ category }} </a>
+            <span class="count">({{ cat_data.count }})</span>
           </li>
           {% endif %} {% endfor %}
         </ul>

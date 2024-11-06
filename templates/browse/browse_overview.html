@@ -7,10 +7,7 @@
     <h2>{{ browse_counties.title }}</h2>
     <div class="browse-grid">
       {% for county, data in structure.counties|dictsort %}
-      <a
-        href="/{{ race_list_name|slugify(country_code) }}/{{ county|slugify(country_code) }}"
-        class="browse-card"
-      >
+      <a href="{{ data.href }}" class="browse-card">
         <h3>{{ county }}</h3>
         <span class="count">{{ data.count }} {{ local_name_for_race }}</span>
       </a>
@@ -22,10 +19,7 @@
     <h2>{{ browse_cities.title }}</h2>
     <div class="browse-grid">
       {% for city, data in structure.cities|dictsort %}
-      <a
-        href="/{{ race_list_name|slugify(country_code) }}/{{ city|slugify(country_code) }}"
-        class="browse-card"
-      >
+      <a href="{{ data.href }}" class="browse-card">
         <h3>{{ city }}</h3>
         <span class="count">{{ data.count }} {{ local_name_for_race }}</span>
       </a>
@@ -37,10 +31,7 @@
     <h2>{{ browse_types.title }}</h2>
     <div class="browse-grid">
       {% for type, data in structure.types|dictsort %}
-      <a
-        href="/{{ race_list_name|slugify(country_code) }}/types/{{ type|slugify(country_code) }}"
-        class="browse-card"
-      >
+      <a href="{{ data.href }}" class="browse-card">
         <h3>{{ type }}</h3>
         <span class="count">{{ data.count }} {{ local_name_for_race }}</span>
       </a>
@@ -51,13 +42,10 @@
   <section class="browse-section">
     <h2>{{ browse_categories.title }}</h2>
     <div class="browse-grid">
-      {% for category, count in structure.categories|dictsort %}
-      <a
-        href="/{{ race_list_name|slugify(country_code) }}/categories/{{ category|slugify(country_code) }}"
-        class="browse-card"
-      >
+      {% for category, data in structure.categories|dictsort %}
+      <a href="{{ data.href }}" class="browse-card">
         <h3>{{ category }}</h3>
-        <span class="count">{{ count }} {{ local_name_for_race }}</span>
+        <span class="count">{{ data.count }} {{ local_name_for_race }}</span>
       </a>
       {% endfor %}
     </div>

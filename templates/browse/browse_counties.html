@@ -8,11 +8,7 @@
     <div class="county-card">
       <div class="county-header">
         <h2>
-          <a
-            href="/{{ race_list_name|slugify(country_code) }}/{{ county|slugify(country_code) }}"
-          >
-            {{ county }}
-          </a>
+          <a href="{{ data.href }}"> {{ county }} </a>
           <span class="count"
             >({{ data.count }} {{ local_name_for_race }})</span
           >
@@ -24,25 +20,17 @@
         0 %}
         <div class="type-group">
           <h3>
-            <a
-              href="/{{ race_list_name|slugify(country_code) }}/{{ county|slugify(country_code) }}/{{ type|slugify(country_code) }}"
-            >
-              {{ type }}
-            </a>
+            <a href="{{ type_data.href }}"> {{ type }} </a>
             <span class="count">({{ type_data.count }})</span>
           </h3>
 
           {% if type_data.categories %}
           <ul class="category-list">
-            {% for category, cat_count in type_data.categories|dictsort %} {% if
-            cat_count > 0 %}
+            {% for category, cat_data in type_data.categories|dictsort %} {% if
+            cat_data.count > 0 %}
             <li>
-              <a
-                href="/{{ race_list_name|slugify(country_code) }}/{{ county|slugify(country_code) }}/{{ type|slugify(country_code) }}/{{ category|slugify(country_code) }}"
-              >
-                {{ category }}
-              </a>
-              <span class="count">({{ cat_count }})</span>
+              <a href="{{ cat_data.href }}"> {{ category }} </a>
+              <span class="count">({{ cat_data.count }})</span>
             </li>
             {% endif %} {% endfor %}
           </ul>
