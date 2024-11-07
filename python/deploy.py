@@ -12,8 +12,7 @@ def get_site_name(country_code):
         config = yaml.safe_load(f)
     
     # Use first page_name to create site name
-    #return config.get('page_name') #change this when we are live with the domain
-    return "curious-queijadas-2762d5"
+    return f"{config.get('page_name')}-test" #change this when we are live with the domain
 
 
 def deploy_country(country_code):
@@ -26,6 +25,7 @@ def deploy_country(country_code):
     netlify_config = f"""
 [build]
   publish = "build/{country_code}"
+  functions = "netlify/functions"
   
 [build.environment]
   COUNTRY_CODE = "{country_code}"
@@ -33,6 +33,11 @@ def deploy_country(country_code):
 [[redirects]]
   from = "/*"
   to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/.netlify/functions/*"
+  to = "/.netlify/functions/:splat"
   status = 200
 """
     
@@ -42,8 +47,8 @@ def deploy_country(country_code):
     # Check if site exists
     result = subprocess.run(["netlify", "sites:list"], capture_output=True, text=True)
     site_exists = site_name in result.stdout
-    print(f"Site name: {site_name}")
-    print(f"Std output: {result.stdout}")
+    #print(f"Site name: {site_name}")
+    #print(f"Std output: {result.stdout}")
     if not site_exists:
         # Create new site
         subprocess.run(["netlify", "sites:create", "--name", site_name])
