@@ -12,7 +12,8 @@ def get_site_name(country_code):
         config = yaml.safe_load(f)
     
     # Use first page_name to create site name
-    return config.get('page_name')
+    #return config.get('page_name') #change this when we are live with the domain
+    return "curious-queijadas-2762d5"
 
 
 def deploy_country(country_code):
