@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>100 km Trail-lopp i Mölndal - Loppkalender & Löparkalendern</title>
+    <meta name="description" content="Hitta alla 100 km Trail-lopp i Mölndal. Utforska vår loppkalender och hitta ditt nästa löplopp eller löpartävling." />
+    <link rel="icon" href="/common_images/logo100px.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/race-list-filter.css" />
+    <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card-big.css" />
+    <link rel="stylesheet" href="/css/race-cards.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+
+    <script src="/js/raceList.js"></script>
+  </head>
+  <body>
+    <!-- Page content -->
+    <main> <section class="ad-banner">
+<span class="ad-banner-text">Ad banner</span>
+</section> <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/index.html" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Loppkartan</h2></a
+    >
+    <div class="login-container">
+      <ion-icon class="login-icon" name="person-circle-outline"></ion-icon>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    <a class="nav-container" href="/allt.html"
+      ><span class="nav-item">Allt</span></a
+    >
+    
+    <a class="nav-container" href="/loppkalender.html"
+      ><span class="nav-item">Loppkalender</span></a
+    >
+    
+    <a class="nav-container" href="/lagg-till-lopp.html"
+      ><span class="nav-item">Lägg till lopp</span></a
+    >
+    
+    <a class="nav-container" href="/forum.html"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    <a class="nav-container" href="/nyheter.html"
+      ><span class="nav-item">Nyheter</span></a
+    >
+    
+    <a class="nav-container" href="/marknadsplats.html"
+      ><span class="nav-item">Marknadsplats</span></a
+    >
+    
+    <a class="nav-container" href="/produkter.html"
+      ><span class="nav-item">Produkter</span></a
+    >
+    
+    <a class="nav-container" href="/mat-din-runda.html"
+      ><span class="nav-item">Mät din runda</span></a
+    >
+    
+    <a class="nav-container" href="/traningsprogram.html"
+      ><span class="nav-item">Träningsprogram</span></a
+    >
+    
+    <a class="nav-container" href="/fartomvandlare.html"
+      ><span class="nav-item">Fartomvandlare</span></a
+    >
+    
+    <a class="nav-container" href="/uppskatta-din-sluttid.html"
+      ><span class="nav-item">Uppskatta din sluttid</span></a
+    >
+    
+  </nav>
+</section>
+
+<h1 class="race-list-title">100 km Trail-lopp i Mölndal - Loppkalender & Löparkalendern</h1>
+<p class="race-list-paragraph">Letar du efter 100 km Trail-lopp i Mölndal? Här hittar du en lista över alla kommande löpartävlingar i Mölndal. Använd våra filter för att hitta det perfekta loppet för dig, oavsett om du är ute efter en utmaning eller bara vill ha en rolig dag ute i naturen. Utforska vår loppkalender och hitta ditt nästa löplopp eller löpartävling.</p>
+
+<section class="section-filters">
+  <div class="filter-date">
+    <label for="date-from">Från:</label>
+    <input type="date" id="date-from" name="date-from" />
+
+    <label for="date-to">Till:</label>
+    <input type="date" id="date-to" name="date-to" />
+  </div>
+
+  <div class="filter-months right-scroller">
+    
+    <button class="month-button" data-month="01">
+      Januari
+    </button>
+    
+    <button class="month-button" data-month="02">
+      Februari
+    </button>
+    
+    <button class="month-button" data-month="03">
+      Mars
+    </button>
+    
+    <button class="month-button" data-month="04">
+      April
+    </button>
+    
+    <button class="month-button" data-month="05">
+      Maj
+    </button>
+    
+    <button class="month-button" data-month="06">
+      Juni
+    </button>
+    
+    <button class="month-button" data-month="07">
+      Juli
+    </button>
+    
+    <button class="month-button" data-month="08">
+      Augusti
+    </button>
+    
+    <button class="month-button" data-month="09">
+      September
+    </button>
+    
+    <button class="month-button" data-month="10">
+      Oktober
+    </button>
+    
+    <button class="month-button" data-month="11">
+      November
+    </button>
+    
+    <button class="month-button" data-month="12">
+      December
+    </button>
+    
+  </div>
+
+  <div class="filter-categories right-scroller">
+    
+    <button class="category-button" data-category="5 km">
+      5 km
+    </button>
+    
+    <button class="category-button" data-category="10 km">
+      10 km
+    </button>
+    
+    <button class="category-button" data-category="Millopp">
+      Millopp
+    </button>
+    
+    <button class="category-button" data-category="Halvmarathon">
+      Halvmarathon
+    </button>
+    
+    <button class="category-button" data-category="Marathon">
+      Marathon
+    </button>
+    
+    <button class="category-button" data-category="50 miles">
+      50 miles
+    </button>
+    
+    <button class="category-button" data-category="100 miles">
+      100 miles
+    </button>
+    
+    <button class="category-button" data-category="50 km">
+      50 km
+    </button>
+    
+    <button class="category-button" data-category="100 km">
+      100 km
+    </button>
+    
+    <button class="category-button" data-category="1500 meter">
+      1500 meter
+    </button>
+    
+    <button class="category-button" data-category="3000 meter">
+      3000 meter
+    </button>
+    
+    <button class="category-button" data-category="5000 meter">
+      5000 meter
+    </button>
+    
+    <button class="category-button" data-category="10000 meter">
+      10000 meter
+    </button>
+    
+  </div>
+
+  <div class="filter-dropdowns">
+    <div class="filter-county">
+      <select id="county" name="county">
+        <option value="">Alla län</option>
+        
+        <option value="Mölndal">
+          Mölndal
+        </option>
+         
+        <option value="Stockholm">Stockholm</option>
+        
+        <option value="Uppsala">Uppsala</option>
+        
+        <option value="Södermanland">Södermanland</option>
+        
+        <option value="Östergötland">Östergötland</option>
+        
+        <option value="Jönköping">Jönköping</option>
+        
+        <option value="Kronoberg">Kronoberg</option>
+        
+        <option value="Kalmar">Kalmar</option>
+        
+        <option value="Gotland">Gotland</option>
+        
+        <option value="Blekinge">Blekinge</option>
+        
+        <option value="Skåne">Skåne</option>
+        
+        <option value="Halland">Halland</option>
+        
+        <option value="Västra Götaland">Västra Götaland</option>
+        
+        <option value="Värmland">Värmland</option>
+        
+        <option value="Örebro">Örebro</option>
+        
+        <option value="Västmanland">Västmanland</option>
+        
+        <option value="Dalarna">Dalarna</option>
+        
+        <option value="Gävleborg">Gävleborg</option>
+        
+        <option value="Västernorrland">Västernorrland</option>
+        
+        <option value="Jämtland">Jämtland</option>
+        
+        <option value="Västerbotten">Västerbotten</option>
+        
+        <option value="Norrbotten">Norrbotten</option>
+        
+      </select>
+    </div>
+
+    <div class="filter-race-type">
+      <select id="race-type" name="race-type">
+        <option value="">Alla loppstyper</option>
+        
+        <option value="Landsväg">Landsväg</option>
+        
+        <option value="Terräng">Terräng</option>
+        
+        <option value="Trail">Trail</option>
+        
+        <option value="Löparbana">Löparbana</option>
+        
+        <option value="Backyard Ultra">Backyard Ultra</option>
+        
+        <option value="Frontyard Ultra">Frontyard Ultra</option>
+        
+        <option value="Stafett">Stafett</option>
+        
+        <option value="Tidslopp">Tidslopp</option>
+        
+        <option value="Övrigt">Övrigt</option>
+        
+      </select>
+    </div>
+    <div class="browse-all-filters">
+      <a
+        href="/loppkalender/bladdra-efter-kategori"
+        class="browse-link"
+      >
+        <ion-icon name="git-network-outline"></ion-icon>
+        Bläddra efter kategori
+      </a>
+    </div>
+  </div>
+</section> <section class="section section-race-cards">
+  <h2 class="section-header section-header-race-cards">
+    Alla
+    <span id="race-cards-title-category"></span>
+    lopp
+    <span id="race-cards-title-separator">i</span>
+    <span id="race-cards-title-region">Sverige</span>
+    <span id="date-range"></span>
+  </h2>
+
+  <div
+    class="race-cards-grid"
+    id="race-cards-container"
+    {/*
+    prettier-ignore
+    */}
+    
+    data-preselected-filters='{"category": "100 km", "city": "M\u00f6lndal", "county": "M\u00f6lndal", "race_type": "Trail"}'
+    
+  >
+     <a
+  href="/loppsidor/rambo_moss_night_trail/index.html"
+  class="race-card"
+  data-name="Rambo Mosse Night Trail"
+  data-date="20241128"
+  data-county="Mölndal"
+  data-category=""
+  data-race-type="Trail"
+  data-distance="11km"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/loppsidor/rambo_moss_night_trail/rambo_moss_night_trail_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bild till Rambo Mosse Night Trail"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          28 nov.
+        </div>
+        <div class="race-location">
+          Västra Götaland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Rambo Mosse Night Trail</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Herkulesgården, Mölndal 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                11 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-description">
+      Nu hälsar FK Herkules välkommen till årets Rambo Mosse Night Trail. Den 28 november har du chansen att inleda vintern med en unik löpuppleve...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & anmälan</div>
+  </div>
+</a>  <a
+  href="/loppsidor/rambo_moss_night_trail/index.html"
+  class="race-card"
+  data-name="Rambo Mosse Night Trail"
+  data-date="20241128"
+  data-county="Mölndal"
+  data-category=""
+  data-race-type="Trail"
+  data-distance="11km"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/loppsidor/rambo_moss_night_trail/rambo_moss_night_trail_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bild till Rambo Mosse Night Trail"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          28 nov.
+        </div>
+        <div class="race-location">
+          Västra Götaland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Rambo Mosse Night Trail</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Herkulesgården, Mölndal 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                11 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-description">
+      Nu hälsar FK Herkules välkommen till årets Rambo Mosse Night Trail. Den 28 november har du chansen att inleda vintern med en unik löpuppleve...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & anmälan</div>
+  </div>
+</a>  <a
+  href="/loppsidor/becksvart_6_km/index.html"
+  class="race-card"
+  data-name="Becksvart 6 km"
+  data-date="20241206"
+  data-county="Mölndal"
+  data-category=""
+  data-race-type="Trail"
+  data-distance="6km, 12km"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/loppsidor/becksvart_6_km/becksvart_6_km_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bild till Becksvart 6 km"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          6 dec.
+        </div>
+        <div class="race-location">
+          Västra Götaland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Becksvart 6 km</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Gunnebo Slott & Trädgårdar 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                6 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                12 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-description">
+      Välkommen på ett äventyr i totalt mörker med Becksvart 6 km! Denna mörkerlöpning erbjuder en utmanande och varierad bana som är både rolig o...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & anmälan</div>
+  </div>
+</a>  <a
+  href="/loppsidor/becksvart_6_km/index.html"
+  class="race-card"
+  data-name="Becksvart 6 km"
+  data-date="20241206"
+  data-county="Mölndal"
+  data-category=""
+  data-race-type="Trail"
+  data-distance="6km, 12km"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/loppsidor/becksvart_6_km/becksvart_6_km_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bild till Becksvart 6 km"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          6 dec.
+        </div>
+        <div class="race-location">
+          Västra Götaland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Becksvart 6 km</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Gunnebo Slott & Trädgårdar 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                6 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                12 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-description">
+      Välkommen på ett äventyr i totalt mörker med Becksvart 6 km! Denna mörkerlöpning erbjuder en utmanande och varierad bana som är både rolig o...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & anmälan</div>
+  </div>
+</a>  <a
+  href="/loppsidor/sandsjobacka_trail/index.html"
+  class="race-card"
+  data-name="Sandsjöbacka Trail"
+  data-date="20250117"
+  data-county="Mölndal"
+  data-category=""
+  data-race-type="Trail"
+  data-distance="31km, 60km, 96km, 185km"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/loppsidor/sandsjobacka_trail/sandsjobacka_trail_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bild till Sandsjöbacka Trail"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          17 jan.
+        </div>
+        <div class="race-location">
+          Västra Götaland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Sandsjöbacka Trail</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Kållered 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                31 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                60 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                96 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                185 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-description">
+      Sandsjöbacka Trail är ett av de häftigaste och härligaste Trailloppen i Göteborg under vinterperioden. Vi erbjuder en utmaning som passar di...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mer info & anmälan</div>
+  </div>
+</a>  <a
+  href="/loppsidor/sandsjobacka_trail/index.html"
+  class="race-card"
+  data-name="Sandsjöbacka Trail"
+  data-date="20250117"
+  data-county="Mölndal"
+  data-category=""
+  data-race-type="Trail"
+  data-distance="31km, 60km, 96km, 185km"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/loppsidor/sandsjobacka_trail/sandsjobacka_trail_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bild till Sandsjöbacka Trail"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          17 jan.
+        </div>
+        <div class="race-location">
+          Västra Götaland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Sandsjöbacka Trail</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Kållered 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                31 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                60 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                96 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                185 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-description">
+      Sandsjöbacka Trail är ett av de häftigaste och härligaste Trailloppen i Göteborg under vinterperioden. Vi erbjuder en utmaning som passar di...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mer info & anmälan</div>
+  </div>
+</a> 
+  </div>
+
+  <!-- Add pagination controls -->
+  <div class="pagination-info">
+    <span id="event-range"></span> of <span id="total-events"></span> Events
+  </div>
+  <div class="pagination">
+    <button id="prev-page">Previous</button>
+    <div id="page-numbers"></div>
+    <button id="next-page">Next</button>
+  </div>
+</section> </main>
+
+    
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

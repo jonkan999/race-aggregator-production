@@ -1,0 +1,154 @@
+.section-filters {
+  padding: 1.5rem 0 0 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  overflow: hidden;
+}
+.filter-date {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding-right: 0.8rem;
+}
+.filter-date label {
+  white-space: nowrap;
+  font-size: 1.4rem;
+}
+.filter-date input {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1.4rem;
+}
+.filter-months,
+.filter-categories {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.filter-months::-webkit-scrollbar,
+.filter-categories::-webkit-scrollbar {
+  display: none;
+}
+.month-button,
+.category-button {
+  flex: 0 0 auto;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background-color: var(--color-background-shade);
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+.month-button.active {
+  background-color: var(--info-highlight-background);
+}
+@media (min-width: 69em) {
+  .month-button:hover {
+    background-color: var(--info-highlight-background2);
+  }
+}
+.category-button.active {
+  background-color: var(--info-highlight-background2);
+}
+@media (min-width: 69em) {
+  .category-button:hover {
+    background-color: var(--info-highlight-background2);
+  }
+}
+.filter-dropdowns {
+  display: flex;
+  gap: 1rem;
+}
+.filter-dropdowns select {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1.4rem;
+}
+/* Add this to your CSS file */
+/* Highlight color for the select element */
+select.highlight {
+  background-color: var(--info-highlight-background);
+  /* Highlight color */
+}
+select.highlight option {
+  background-color: var(--color-background-shade);
+}
+.browse-all-filters {
+  position: relative;
+  padding: 0;
+  background: transparent;
+}
+.browse-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  padding: 0.8rem 5rem 0.8rem 1rem;
+  background: var(--color-background-shade);
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 500;
+  /* Create a triangle cut-out in the upper right corner */
+}
+.browse-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 5rem 5rem 0;
+  border-color: transparent var(--color-background) transparent transparent;
+  z-index: 10;
+}
+.browse-link:hover {
+  background: var(--info-highlight-background2);
+}
+.browse-link ion-icon {
+  margin-right: 8px;
+  font-size: 2rem;
+}
+.helper-text {
+  display: block;
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  color: var(--color-grey-dark-2);
+  font-size: 1.5rem;
+}
+/* Browse pages styling */
+.browse-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.browse-nav {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--color-grey-light-2);
+  padding-bottom: 10px;
+}
+.browse-nav a {
+  padding: 8px 16px;
+  text-decoration: none;
+  color: var(--color-grey-dark-1);
+  border-radius: 4px;
+}
+.browse-nav a.active {
+  background: var(--color-primary);
+  color: white;
+}

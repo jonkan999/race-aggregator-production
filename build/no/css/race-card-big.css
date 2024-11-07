@@ -1,0 +1,82 @@
+.race-card-big {
+  margin: 1rem;
+  padding: 0 2rem 2rem 0;
+  color: black;
+  text-decoration: none;
+}
+.race-card-big:hover,
+.race-card-big:active {
+  background-color: var(--color-background-shade);
+}
+.race-card-big .race-card-big-upper-box {
+  height: 18rem;
+  width: 35rem;
+  /* Adjust as necessary */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.race-card-big .race-card-big-upper-box .race-card-content {
+  position: relative;
+  z-index: 2;
+  /* Ensure content is above the overlay */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  height: 100%;
+  font-size: 1.4rem;
+}
+.race-card-big .race-card-big-upper-box .race-info-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.race-card-big .race-card-big-upper-box .race-info-top .race-location {
+  background: var(--info-highlight-background);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+.race-card-big .race-card-big-upper-box .race-info-top .race-date {
+  background: var(--color-accent);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: black;
+  text-align: right;
+}
+.race-card-big .race-card-big-upper-box .race-info-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.race-card-big .race-card-big-upper-box .race-info-bottom .race-type {
+  background: var(--info-highlight-background);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  text-align: right;
+  align-self: flex-end;
+}
+.race-card-big .race-card-big-upper-box .race-info-bottom .race-distances {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.race-card-big
+  .race-card-big-upper-box
+  .race-info-bottom
+  .race-distances
+  .race-distance {
+  background: var(--info-highlight-background);
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.race-card-big .race-name {
+  margin-top: 1rem;
+  font-size: 1.8rem;
+  color: black;
+  /* Adjust color as needed */
+}

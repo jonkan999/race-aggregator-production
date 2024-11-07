@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title></title>
+    <link rel="icon" href="/common_images/logo100px.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/add-race.css" />
+    <link rel="stylesheet" href="/css/add-race-preview.css" />
+    <script type="module" src="/js/addRace.js"></script>
+    <script type="module" src="/js/addRaceMap.js"></script>
+  </head>
+  <body>
+    <!-- Page content -->
+    <main><section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/index.html" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Loppkartan</h2></a
+    >
+    <div class="login-container">
+      <ion-icon class="login-icon" name="person-circle-outline"></ion-icon>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    <a class="nav-container" href="/allt.html"
+      ><span class="nav-item">Allt</span></a
+    >
+    
+    <a class="nav-container" href="/loppkalender.html"
+      ><span class="nav-item">Loppkalender</span></a
+    >
+    
+    <a class="nav-container" href="/lagg-till-lopp.html"
+      ><span class="nav-item">Lägg till lopp</span></a
+    >
+    
+    <a class="nav-container" href="/forum.html"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    <a class="nav-container" href="/nyheter.html"
+      ><span class="nav-item">Nyheter</span></a
+    >
+    
+    <a class="nav-container" href="/marknadsplats.html"
+      ><span class="nav-item">Marknadsplats</span></a
+    >
+    
+    <a class="nav-container" href="/produkter.html"
+      ><span class="nav-item">Produkter</span></a
+    >
+    
+    <a class="nav-container" href="/mat-din-runda.html"
+      ><span class="nav-item">Mät din runda</span></a
+    >
+    
+    <a class="nav-container" href="/traningsprogram.html"
+      ><span class="nav-item">Träningsprogram</span></a
+    >
+    
+    <a class="nav-container" href="/fartomvandlare.html"
+      ><span class="nav-item">Fartomvandlare</span></a
+    >
+    
+    <a class="nav-container" href="/uppskatta-din-sluttid.html"
+      ><span class="nav-item">Uppskatta din sluttid</span></a
+    >
+    
+  </nav>
+</section>
+<div class="section-separator-top"></div>
+<section class="section-add-race">
+  <h1 class="section-header">Lägg till ett nytt lopp</h1>
+
+  <form id="add-race-form" enctype="multipart/form-data">
+    <!-- Basic Race Information -->
+    <div class="form-group">
+      <label for="race-name">Loppets namn:</label>
+      <input
+        type="text"
+        id="race-name"
+        name="race-name"
+        placeholder="t ex Kungsholmen runt"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="race-type">Typ av underlag / Typ av lopp</label>
+      <select id="race-type" name="race-type" required>
+        <option value="">Välj underlag / typ av lopp</option>
+        
+        <option value="road">road</option>
+        
+        <option value="terrain">terrain</option>
+        
+        <option value="trail">trail</option>
+        
+        <option value="track">track</option>
+        
+        <option value="backyard">backyard</option>
+        
+        <option value="frontyard">frontyard</option>
+        
+        <option value="relay">relay</option>
+        
+        <option value="time">time</option>
+        
+        <option value="other">other</option>
+        
+      </select>
+    </div>
+
+    <!-- Date and Time -->
+    <div class="form-group">
+      <label for="race-date">Datum</label>
+      <input type="date" id="race-date" name="race-date" required />
+      <div class="multi-day-toggle">
+        <label for="multi-day-toggle">Flerdagarslopp</label>
+        <input type="checkbox" id="multi-day-toggle" name="multi-day-toggle" />
+      </div>
+      <div id="end-date-container" style="display: none">
+        <label for="race-end-date">Slutdatum</label>
+        <input type="date" id="race-end-date" name="race-end-date" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="race-start-time"
+        >Starttid:
+        <span class="optional">(Valfritt)</span></label
+      >
+      <input
+        type="time"
+        id="race-start-time"
+        name="race-start-time"
+        placeholder="09:00"
+      />
+    </div>
+
+    <!-- Location -->
+    <div class="form-group map-container">
+      <label>Placera ut ditt lopp genom att klicka på kartan</label>
+      <div
+        id="map-placeholder"
+        data-latitude="59.346972"
+        data-longitude="15.027053"
+        data-zoom="6"
+      >
+        <!-- Map will be inserted here -->
+      </div>
+      <input type="hidden" id="latitude" name="latitude" />
+      <input type="hidden" id="longitude" name="longitude" />
+      <div id="coordinates-display"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="race-location">Namn på plats där loppet arrangeras:</label>
+      <input
+        type="text"
+        id="race-location"
+        name="race-location"
+        placeholder="t ex Rålambshovsparken, Stockholm"
+        required
+      />
+    </div>
+
+    <!-- Distances -->
+    <div class="form-group">
+      <label>Distanser:</label>
+      <div class="distance-input-container">
+        <input
+          type="number"
+          id="distance-input"
+          placeholder="Ange distans i km"
+          min="0"
+          step="0.1"
+        />
+        <button type="button" id="add-distance">
+          Lägg till
+        </button>
+      </div>
+      <div class="quick-distance-buttons">
+        <button type="button" class="quick-distance" data-distance="21.1">
+          Halvmarathon
+        </button>
+        <button type="button" class="quick-distance" data-distance="42.2">
+          Marathon
+        </button>
+        <button type="button" class="quick-distance" data-distance="backyard">
+          Backyard Ultra
+        </button>
+        <button type="button" class="quick-distance" data-distance="80.5">
+          50 miles
+        </button>
+        <button type="button" class="quick-distance" data-distance="160.9">
+          100 miles
+        </button>
+      </div>
+      <div id="distances-container"></div>
+      <input type="hidden" id="race-distances" name="race-distances" />
+    </div>
+
+    <!-- Organizer Information -->
+    <div class="form-group">
+      <label for="race-organizer"
+        >Arrangör:
+        <span class="optional">(Valfritt)</span></label
+      >
+      <input
+        type="text"
+        id="race-organizer"
+        name="race-organizer"
+        placeholder="FK Studenterna"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="race-contact">Mail till kontaktperson:</label>
+      <input
+        type="email"
+        id="race-contact"
+        name="race-contact"
+        placeholder="info@LoppKartan.se"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="race-website"
+        >Arrangörshemsida:
+        <span class="optional">(Valfritt)</span></label
+      >
+      <input
+        type="url"
+        id="race-website"
+        name="race-website"
+        placeholder="https://fkstudenterna.se/"
+      />
+    </div>
+
+    <!-- Additional Details -->
+    <div class="form-group">
+      <label for="race-price-range"
+        >Prisintervall:
+        <span class="optional">(Valfritt)</span></label
+      >
+      <input
+        type="text"
+        id="race-price-range"
+        name="race-price-range"
+        placeholder="t.ex. 200-500 kr"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="race-description">Beskriv loppet</label>
+      <textarea
+        id="race-description"
+        name="race-description"
+        placeholder="KfS Kungsholmen Runt är en milbana med långa, flacka rakor ..."
+        required
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="race-additional"
+        >Övrig nödvändig information
+        <span class="optional">(Valfritt)</span></label
+      >
+      <textarea
+        id="race-additional"
+        name="race-additional"
+        placeholder="t.ex. start och målgång, startgrupper mm"
+      ></textarea>
+    </div>
+
+    <!-- Images -->
+    <div class="form-group picture-upload-container">
+      <label for="race-images">Ladda upp bilder (Gärna minst 4)</label>
+      <input
+        type="file"
+        id="race-images"
+        class="picture-upload-input"
+        multiple
+        accept="image/*"
+      />
+      <label for="race-images" class="picture-upload-button"
+        >Välj bilder</label
+      >
+    </div>
+
+    <!-- Drag and Drop Image Upload -->
+    <div id="fileUploadStatus"></div>
+    <div class="image-container"></div>
+    <button type="button" id="clearImagesButton">
+      Rensa bilder
+    </button>
+
+    <!-- New Info Disclaimer -->
+    <div class="info-disclaimer">
+      <p>
+        All info på den här sidan är baserat på öppen källdata. Vi gör vårt bästa för att hålla den uppdaterad men
+kan inte garantera att allt är korrekt. Ser du några felaktigheter,
+
+        <a href="/kontakta-oss.html"
+          >kontakta oss</a
+        >
+        så rättar vi till det snarast.
+      </p>
+    </div>
+
+    <!-- Form Actions -->
+    <div class="form-actions">
+      <button type="button" id="preview-button">
+        Förhandsgranska lopp
+      </button>
+      <button type="button" id="submit-race-button">Skicka in</button>
+    </div>
+  </form>
+
+  <button type="button" id="clear-form">Rensa formulär</button>
+</section>
+
+</main>
+
+    
+  </body>
+</html>
