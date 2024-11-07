@@ -8,7 +8,7 @@
     <div class="city-card">
       <div class="city-header">
         <h2>
-          <a href="{{ data.href }}"> {{ city }} </a>
+          <a href="{{ data.href }}">{{ city }}</a>
           <span class="count"
             >({{ data.count }} {{ local_name_for_race }})</span
           >
@@ -16,11 +16,38 @@
       </div>
 
       <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="{{ data.href }}">{{ filter_race_type }}</a>
+            <span class="count">({{ data.count }})</span>
+          </h3>
+
+          {% if data.types %}
+          <ul class="category-list">
+            {% for category in distance_filter.available_categories %} {% set
+            cat_count = namespace(count=0) %} {% for type, type_data in
+            data.types.items() %} {% if type_data.categories[category] %} {% set
+            cat_count.count = cat_count.count +
+            type_data.categories[category].count %} {% endif %} {% endfor %} {%
+            if cat_count.count > 0 %}
+            <li>
+              <a
+                href="{{ data.href }}/{{ filter_race_type | slugify(country_code) }}/{{ category | slugify(country_code) }}"
+              >
+                {{ category }}
+              </a>
+              <span class="count">({{ cat_count.count }})</span>
+            </li>
+            {% endif %} {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+
         {% for type, type_data in data.types|dictsort %} {% if type_data.count >
         0 %}
         <div class="type-group">
           <h3>
-            <a href="{{ type_data.href }}"> {{ type }} </a>
+            <a href="{{ type_data.href }}">{{ type }}</a>
             <span class="count">({{ type_data.count }})</span>
           </h3>
 
@@ -29,7 +56,7 @@
             {% for category, cat_data in type_data.categories|dictsort %} {% if
             cat_data.count > 0 %}
             <li>
-              <a href="{{ cat_data.href }}"> {{ category }} </a>
+              <a href="{{ cat_data.href }}">{{ category }}</a>
               <span class="count">({{ cat_data.count }})</span>
             </li>
             {% endif %} {% endfor %}

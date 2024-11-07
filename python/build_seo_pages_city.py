@@ -140,16 +140,21 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
 
             # Check if there are cities to process
             if city:  # Assuming 'city' is a variable that holds the current city being processed
-                # Generate folder path
+                # Generate folder path with conditional parts
                 path_parts = [
                     slugify(index_content['seo_cities_folder_name'], country_code),
-                    slugify(city, country_code),  # Use the city name
-                    slugify(race_type if race_type else index_content['filter_race_type'], country_code),
-                    slugify(category if category else index_content['filter_categories'], country_code)
+                    slugify(city, country_code)
                 ]
-
-                # Remove empty parts from path_parts if city is not provided
-                path_parts = [part for part in path_parts if part]  # Filter out empty strings
+                
+                # Only add type and category if they are active
+                if race_type or category:
+                    path_parts.append(slugify(
+                        race_type if race_type else index_content['filter_race_type'],
+                        country_code
+                    ))
+                    
+                    if category:
+                        path_parts.append(slugify(category, country_code))
 
                 folder_path = os.path.join(output_dir, slugify(navigation['race-list'], country_code), *path_parts)
 

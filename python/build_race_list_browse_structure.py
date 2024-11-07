@@ -56,17 +56,20 @@ def build_href(race_list_name, country_code, county=None, city=False, race_type=
         # Default location for type/category pages: /loppkalender/alla-lan/...
         path_parts.append(slugify(index_content['seo_county_folder_name'], country_code))
     
-    # Handle type part
-    path_parts.append(slugify(
-        race_type if race_type else index_content['filter_race_type'],
-        country_code
-    ))
-    
-    # Handle category part
-    path_parts.append(slugify(
-        category if category else index_content['filter_categories'],
-        country_code
-    ))
+    # Handle type part only if type or category is active
+    if race_type or category:
+
+        path_parts.append(slugify(
+            race_type if race_type else index_content['filter_race_type'],
+            country_code
+        ))
+        
+        if category:
+            # Handle category part only if active
+            path_parts.append(slugify(
+                category,
+            country_code
+        ))
     
     return '/' + '/'.join(path_parts)
 
@@ -272,6 +275,7 @@ def generate_browse_pages(races, template_dir, output_dir, verbose_mapping, coun
         'title': 'Bläddra bland alla lopp',
         'meta_description': 'Hitta lopp efter län, typ eller kategori',
         'title_race_list': 'Bläddra bland alla lopp',
+        'distance_filter': verbose_mapping,
         **base_context
     }
     with open(browse_dir / 'index.html', 'w', encoding='utf-8') as f:
@@ -286,6 +290,7 @@ def generate_browse_pages(races, template_dir, output_dir, verbose_mapping, coun
         'title': 'Bläddra efter län',
         'meta_description': 'Hitta lopp i ditt län',
         'title_race_list': 'Bläddra efter län',
+        'distance_filter': verbose_mapping,
         **base_context
     }
     
@@ -301,6 +306,7 @@ def generate_browse_pages(races, template_dir, output_dir, verbose_mapping, coun
         'title': 'Bläddra efter stad',
         'meta_description': 'Hitta lopp i din stad',
         'title_race_list': 'Bläddra efter stad',
+        'distance_filter': verbose_mapping,
         **base_context
     }
     
@@ -316,6 +322,7 @@ def generate_browse_pages(races, template_dir, output_dir, verbose_mapping, coun
         'title': 'Bläddra efter lopptyp',
         'meta_description': 'Hitta lopp efter typ av lopp',
         'title_race_list': 'Bläddra bland alla lopp',
+        'distance_filter': verbose_mapping,
         **base_context
     }
     
@@ -331,6 +338,7 @@ def generate_browse_pages(races, template_dir, output_dir, verbose_mapping, coun
         'title': 'Bläddra efter kategori',
         'meta_description': 'Hitta lopp efter distans och kategori',
         'title_race_list': 'Bläddra bland alla lopp',
+        'distance_filter': verbose_mapping,
         **base_context
     }
     

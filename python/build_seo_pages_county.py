@@ -126,12 +126,22 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
         if len(filtered_races) < 2:  # Only create pages with at least 2 races
             continue
             
-        # Initialize path_parts with the county, race_type, and category
-        path_parts = [
-            slugify(county if county else index_content['seo_county_folder_name'], country_code),
-            slugify(race_type if race_type else index_content['filter_race_type'], country_code),
-            slugify(category if category else index_content['filter_categories'], country_code)
-        ]
+        # Initialize path_parts based on filters present
+        path_parts = [slugify(county if county else index_content['seo_county_folder_name'], country_code)]
+        
+        # Only add type and category parts if they are active
+        if race_type or category:
+            path_parts.append(slugify(
+                race_type if race_type else index_content['filter_race_type'],
+                country_code
+            ))
+            
+            if category:
+                path_parts.append(slugify(category, country_code))
+
+        folder_path = os.path.join(output_dir, slugify(navigation['race-list'], country_code), *path_parts)
+        os.makedirs(folder_path, exist_ok=True)
+        valid_paths.add(folder_path)  # Track valid paths
 
         # Generate SEO content
         seo_content = seo_generator.generate_seo_content(
@@ -145,10 +155,6 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
             available_categories=verbose_mapping['available_categories']
         )
         
-        folder_path = os.path.join(output_dir, slugify(navigation['race-list'], country_code), *path_parts)
-        os.makedirs(folder_path, exist_ok=True)
-        valid_paths.add(folder_path)  # Track valid paths
-
         # Prepare context for rendering
         context = {
             'title_race_list': seo_content['title'],
