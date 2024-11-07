@@ -2,16 +2,16 @@ name: Deploy to Netlify
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
-    branches: [main]
+    branches: [master]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        country: [se, no, dk]
+        country: [se]
 
     steps:
       - name: Checkout repository
