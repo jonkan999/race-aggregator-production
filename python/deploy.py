@@ -56,7 +56,7 @@ def deploy_country(country_code):
 
 def main():
     # Deploy each country
-    countries = ["se", "no", "dk"]  # Add your country codes
+    countries = ["se"]  # Add your country codes
     for country in countries:
         if os.path.exists(f"build/{country}"):
             print(f"Deploying {country}...")
