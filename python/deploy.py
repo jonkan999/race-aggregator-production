@@ -41,7 +41,8 @@ def deploy_country(country_code):
     # Check if site exists
     result = subprocess.run(["netlify", "sites:list"], capture_output=True, text=True)
     site_exists = site_name in result.stdout
-    
+    print(f"Site name: {site_name}")
+    print(f"Std output: {result.stdout}")
     if not site_exists:
         # Create new site
         subprocess.run(["netlify", "sites:create", "--name", site_name])
