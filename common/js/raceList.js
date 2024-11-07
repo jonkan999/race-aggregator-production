@@ -20,9 +20,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const dateRangeSpan = document.getElementById("date-range");
 
   // Jinja-inserted values
-  const dateRangeFrom = "{{ section_race_card_header_date_range_from }}";
-  const dateRangeTo = "{{ section_race_card_header_date_range_to }}";
-  const dateRangeSingle = "{{ section_race_card_header_date_range_single }}";
+  const dateRangeFrom = " {{ section_race_card_header_date_range_from }}";
+  const dateRangeTo = " {{ section_race_card_header_date_range_to }}";
+  const dateRangeSingle = " {{ section_race_card_header_date_range_single }}";
+
+  // Add these new elements
+  const raceTitleCategory = document.getElementById("race-cards-title-category");
+  const raceTitleRegion = document.getElementById("race-cards-title-region");
+  const defaultRegionText = "{{ section_race_card_header_region_default }}";
+  const defaultCountyText = "{{ filter_county }}";
 
   const categoryMapping = {{ category_mapping | tojson | safe }};
 
@@ -352,6 +358,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // After applying filters
     currentPage = 1;
     showPage(currentPage);
+
+    updateRaceCardsTitle();
   }
 
   function updateDateRange() {
@@ -484,4 +492,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initial highlight check on page load for county
   updateSelectHighlight(countySelect);
+
+  // Add this new function to update the title
+  function updateRaceCardsTitle() {
+    // Update category part
+    if (activeCategories.size > 0) {
+      raceTitleCategory.textContent = Array.from(activeCategories).join(", ");
+    } else {
+      raceTitleCategory.textContent = "";
+    }
+
+    // Update region part
+    if (countyFilter.value && countyFilter.value !== defaultCountyText) {
+      raceTitleRegion.textContent = countyFilter.value;
+    } else {
+      raceTitleRegion.textContent = defaultRegionText;
+    }
+  }
+
+  // Make sure to call updateRaceCardsTitle on initial load
+  updateRaceCardsTitle();
 });

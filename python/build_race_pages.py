@@ -176,7 +176,7 @@ def generate_race_pages(country_code):
     race_page_content = env.get_template('sections/race-page-content.html')
 
     for race in races:
-        print(f"\n \n    ############ race: {race} \n \n")
+        print(f"\n############ race: {race['name']} ############")
         # Create race-specific directory
         race_dir = os.path.join(country_build_dir, race['domain_name'])
         os.makedirs(race_dir, exist_ok=True)
