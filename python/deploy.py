@@ -12,7 +12,7 @@ def get_site_name(country_code):
         config = yaml.safe_load(f)
     
     # Use first page_name to create site name
-    return f"{config.get('page_name')}-test" #change this when we are live with the domain
+    return f"{config.get('page_name').lower()}-test" #change this when we are live with the domain
 
 
 def deploy_country(country_code):
@@ -33,11 +33,6 @@ def deploy_country(country_code):
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/.netlify/functions/*"
-  to = "/.netlify/functions/:splat"
   status = 200
 """
     
