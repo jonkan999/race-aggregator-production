@@ -13,16 +13,21 @@ exports.getApiKeys = onRequest({ region: 'europe-west3' }, (request, response) =
   response.set('Access-Control-Allow-Methods', 'GET');
   response.set('Access-Control-Allow-Headers', 'Content-Type');
   
-  // Handle preflight requests
   if (request.method === 'OPTIONS') {
     response.status(204).send('');
     return;
   }
 
+  // Get config values
+  const config = functions.config();
+  
+  // Log the config for debugging (remove in production)
+  console.log('Config:', config);
+
   response.set('Cache-Control', 'no-store');
   
-  // Return all configured API keys
+  // Return the API keys
   response.json({
-    MAPBOX_API_KEY: process.env.MAPBOX_API_KEY,
+    MAPBOX_API_KEY: config.mapbox.MAPBOX_API_KEY,
   });
 });

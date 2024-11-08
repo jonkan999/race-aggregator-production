@@ -11,7 +11,7 @@ async function fetchKeys() {
   try {
     const response = await fetch('https://getapikeys-bhro7jtuda-ey.a.run.app');
     const keys = await response.json();
-    console.log(keys);
+    console.log('Received keys:', keys);
     return keys;
   } catch (error) {
     console.error('Error fetching API keys:', error);
@@ -19,4 +19,7 @@ async function fetchKeys() {
   }
 }
 
-export const keyLoaded = fetchKeys().then((keys) => keys.MAPBOX_API_KEY);
+export const keyLoaded = fetchKeys().then((keys) => {
+  console.log('Processed keys:', keys);
+  return keys.MAPBOX_API_KEY;
+});
