@@ -1,7 +1,28 @@
+import { initializeFirebase } from './firebaseConfig.js';
+import {
+  collection,
+  addDoc,
+  query,
+  where,
+  getDocs,
+} from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+let db;
+
+export async function initializeDb() {
+  if (!db) {
+    db = await initializeFirebase();
+  }
+  return db;
+}
+
 export async function submitRace() {
-  const formData = JSON.parse(localStorage.getItem("raceFormData"));
-  const mapCoordinates = JSON.parse(localStorage.getItem("raceCoordinates"));
-  const raceImages = JSON.parse(localStorage.getItem("raceImages"));
+  // Initialize db if not already done
+  db = await initializeDb();
+
+  const formData = JSON.parse(localStorage.getItem('raceFormData'));
+  const mapCoordinates = JSON.parse(localStorage.getItem('raceCoordinates'));
+  const raceImages = JSON.parse(localStorage.getItem('raceImages'));
 
   if (!formData || !mapCoordinates || !raceImages) {
     alert(
@@ -10,66 +31,69 @@ export async function submitRace() {
     return;
   }
 
+  // Clean up form data by removing 'race-' prefix
+  const cleanFormData = {};
+  Object.entries(formData).forEach(([key, value]) => {
+    const cleanKey = key.replace('race-', '');
+    cleanFormData[cleanKey] = value;
+  });
+
   const raceObject = {
-    date: formData["race-date"].replace(/-/g, ""),
-    type: formData["race-type"].toLowerCase(),
-    name: formData["race-name"],
-    image_partial_key: generateImagePartialKey(formData["race-name"]),
-    distance: formData.distances.join(" "),
-    distance_m: formData.distances.map((d) =>
-      d === "backyard" ? "backyard" : d * 1000
-    ),
-    place: formData["race-location"],
+    date: cleanFormData.date.replace(/-/g, ''),
+    type: cleanFormData.type.toLowerCase(),
+    name: cleanFormData.name,
+    distances: JSON.stringify(cleanFormData.distances),
+    place: cleanFormData.location,
     latitude: mapCoordinates.latitude,
     longitude: mapCoordinates.longitude,
-    organizer: formData["race-organizer"],
-    website: `/race-pages/${generateImagePartialKey(
-      formData["race-name"]
-    )}.html`,
-    county: "", // You might want to add a function to derive this from the place
-    id: `${generateImagePartialKey(formData["race-name"])}_${formData[
-      "race-date"
-    ].replace(/-/g, "")}`,
-    summary: formData["race-summary"],
-    additional_info: formData["race-additional"],
-    website_organizer: formData["race-website"],
-    price_range: formData["race-price-range"],
-    new_version: true,
+    organizer: cleanFormData.organizer,
+    contact: cleanFormData.contact,
+    website: cleanFormData.website,
+    'price-range': cleanFormData['price-range'],
+    summary: cleanFormData.summary,
+    additional: cleanFormData.additional,
+    images: raceImages.images,
+    status: 'pending',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
   };
 
-  if (formData["multi-day-toggle"] === "on") {
-    raceObject.end_date = formData["race-end-date"].replace(/-/g, "");
+  if (cleanFormData['multi-day-toggle'] === 'on') {
+    raceObject['end-date'] = cleanFormData['end-date'].replace(/-/g, '');
   }
 
-  const imageData = raceImages.images.map((img, index) => ({
-    id: `${raceObject.id}_image_${index + 1}`,
-    data: img, // This is already the base64 encoded image data
-    name: `image_${index + 1}.webp`, // Assuming all images are WebP format
-  }));
+  try {
+    // Use country-specific collection (injected during build)
+    const racesRef = collection(db, 'race_submissions_se');
 
-  // Here you would typically send this data to your server
-  /*   console.log("Race object:", raceObject);
-  console.log("Image data:", imageData); */
-  console.log("Race object:", JSON.stringify(raceObject));
-  console.log("Image data:", JSON.stringify(imageData));
+    // Check for duplicates within this country's collection
+    const q = query(
+      racesRef,
+      where('name', '==', raceObject.name),
+      where('date', '==', raceObject.date)
+    );
 
-  // For now, we'll just show an alert
-  alert("Race submitted successfully! Check the console for details.");
+    const querySnapshot = await getDocs(q);
+    if (!querySnapshot.empty) {
+      alert('A race with this name and date already exists!');
+      return;
+    }
 
-  // Clear the form and local storage
-  clearFormAndStorage();
-}
+    // Add to country-specific collection
+    const docRef = await addDoc(racesRef, raceObject);
+    console.log('Race added with ID: ', docRef.id);
 
-function generateImagePartialKey(name) {
-  return name
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    clearFormAndStorage();
+    window.location.href =
+      '/loppkalender.html';
+  } catch (error) {
+    console.error('Error adding race: ', error);
+    alert('Failed to submit race. Please try again.');
+  }
 }
 
 function clearFormAndStorage() {
-  /*     localStorage.removeItem("raceFormData");
-    localStorage.removeItem("raceCoordinates");
-    localStorage.removeItem("raceImages"); */
-  // You might want to add code here to clear the form fields if necessary
+  localStorage.removeItem('raceFormData');
+  localStorage.removeItem('raceCoordinates');
+  localStorage.removeItem('raceImages');
 }

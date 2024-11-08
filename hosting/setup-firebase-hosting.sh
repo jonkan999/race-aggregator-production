@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# At the start of the script, define the countries array
+COUNTRIES=(se no)
+
 # Function to get site name from YAML
 get_site_name() {
     country_code=$1
@@ -34,14 +37,17 @@ get_api_keys() {
 import yaml
 with open('data/global.yaml', 'r', encoding='utf-8') as f:
     config = yaml.safe_load(f)
-for key in config.get('API_KEYS', {}).keys():
-    print(key)
+keys = config.get('API_KEYS', {}).keys()
+print('\n'.join(keys))
 "
 }
 
+# Get API keys as an array
+API_KEYS=($(get_api_keys))
+
 # Setup hosting for each country
 allowed_origins="['http://localhost:8080'"
-for country in se no; do
+for country in "${COUNTRIES[@]}"; do
     site_name=$(get_site_name $country)
     base_url=$(get_base_url $country)
     
@@ -74,13 +80,16 @@ npm init -y
 npm install firebase-functions@latest firebase-admin@latest
 cd ..
 
-# Create the function file
+# Create the function file with dynamic API keys
 echo "Creating API keys function..."
 cat > functions/index.js << EOF
 const { onRequest } = require("firebase-functions/v2/https");
 
 // Specify the region for the function
-exports.getApiKeys = onRequest({ region: 'europe-west3', secrets: ["MAPBOX_API_KEY"] }, (request, response) => {
+exports.getApiKeys = onRequest({ 
+  region: 'europe-west3', 
+  secrets: [$(printf '"%s",' "${API_KEYS[@]}" | sed 's/,$//')] 
+}, (request, response) => {
   try {
     // Add CORS headers for specific domains
     const allowedOrigins = ${allowed_origins};
@@ -102,8 +111,8 @@ exports.getApiKeys = onRequest({ region: 'europe-west3', secrets: ["MAPBOX_API_K
     
     // Return the API keys using process.env
     response.json({
-$(get_api_keys | while read key; do
-    echo "    ${key}: process.env.${key},"
+$(for key in "${API_KEYS[@]}"; do
+    echo "      ${key}: process.env.${key},"
 done)
     });
   } catch (error) {
@@ -116,7 +125,7 @@ done)
 });
 EOF
 
-# Create .firebaserc file
+# Create .firebaserc file with dynamic targets
 echo "Creating .firebaserc..."
 cat > .firebaserc << EOF
 {
@@ -126,13 +135,101 @@ cat > .firebaserc << EOF
   "targets": {
     "aggregatory-440306": {
       "hosting": {
-        "se": ["$(get_site_name se)"],
-        "no": ["$(get_site_name no)"]
+$(for country in "${COUNTRIES[@]}"; do
+    echo "        \"${country}\": [\"$(get_site_name ${country})\"]$([ "$country" != "${COUNTRIES[-1]}" ] && echo ",")"
+done)
       }
     }
   }
 }
 EOF
+
+# Create Firestore security rules dynamically
+echo "Creating Firestore security rules..."
+cat > firestore.rules << EOF
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+$(for country in "${COUNTRIES[@]}"; do
+cat << COUNTRYRULES
+    // Submissions collection for ${country}
+    match /submissions_${country}/{raceId} {
+      allow read: if true;
+      allow write: if true;  // Add auth later
+    }
+    
+    // Approved races collection for ${country}
+    match /races_${country}/{raceId} {
+      allow read: if true;
+      allow write: if false;  // Only admin can write
+    }
+COUNTRYRULES
+done)
+  }
+}
+EOF
+
+# Create Firestore indexes dynamically
+echo "Creating Firestore indexes..."
+cat > firestore.indexes.json << EOF
+{
+  "indexes": [
+$(for country in "${COUNTRIES[@]}"; do
+cat << COUNTRYINDEXES
+    {
+      "collectionGroup": "submissions_${country}",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "name", "order": "ASCENDING" },
+        { "fieldPath": "date", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "races_${country}",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "date", "order": "ASCENDING" }
+      ]
+    }$([ "$country" != "${COUNTRIES[-1]}" ] && echo ",")
+COUNTRYINDEXES
+done)
+  ]
+}
+EOF
+
+# Create firebase.json with dynamic hosting targets
+echo "Creating firebase.json..."
+cat > firebase.json << EOF
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": {
+    "source": "functions"
+  },
+  "hosting": [
+$(for country in "${COUNTRIES[@]}"; do
+cat << HOSTING
+    {
+      "target": "${country}",
+      "public": "build/${country}",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    }$([ "$country" != "${COUNTRIES[-1]}" ] && echo ",")
+HOSTING
+done)
+  ]
+}
+EOF
+
+# Deploy Firestore rules and indexes
+echo "Deploying Firestore rules and indexes..."
+firebase deploy --only firestore:rules
+firebase deploy --only firestore:indexes
 
 # Deploy the function
 echo "Deploying Firebase Function..."

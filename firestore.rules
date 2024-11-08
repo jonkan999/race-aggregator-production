@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Submissions collection for se
+    match /submissions_se/{raceId} {
+      allow read: if true;
+      allow write: if true;  // Add auth later
+    }
+    
+    // Approved races collection for se
+    match /races_se/{raceId} {
+      allow read: if true;
+      allow write: if false;  // Only admin can write
+    }
+    // Submissions collection for no
+    match /submissions_no/{raceId} {
+      allow read: if true;
+      allow write: if true;  // Add auth later
+    }
+    
+    // Approved races collection for no
+    match /races_no/{raceId} {
+      allow read: if true;
+      allow write: if false;  // Only admin can write
+    }
+  }
+}
