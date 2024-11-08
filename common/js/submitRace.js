@@ -88,8 +88,7 @@ export async function submitRace() {
     console.log('Race added with ID: ', docRef.id);
 
     clearFormAndStorage();
-    window.location.href =
-      '/{{ navigation["race-list"] | slugify(country_code) }}.html';
+    alert('Race submitted successfully!');
   } catch (error) {
     console.error('Error in submitRace:', error);
     console.error('Error details:', {
