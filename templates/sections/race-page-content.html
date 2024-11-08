@@ -116,7 +116,7 @@
     </li>
   </ul>
   <div class="race-content-container">
-    <div class="race-description">
+    <div class="race-summary">
       <h2>{{ race_page_description_label }}</h2>
       <!-- AI Disclaimer -->
       <div class="ai-disclaimer" {% if race.supplied_ids|length>
@@ -129,7 +129,7 @@
           {{ disclaimer_text_2 }}
         </p>
       </div>
-      <p id="race-description">{{ race.description }}</p>
+      <p id="race-summary">{{ race.description }}</p>
     </div>
 
     {% if race.course_highlights and race.course_highlights|length > 0 %}

@@ -1,4 +1,4 @@
-@import "_variables.less";
+@import '_variables.less';
 
 .section-race-page {
   max-width: 100rem;
@@ -111,7 +111,7 @@
         }
 
         &.active::after {
-          content: "";
+          content: '';
           position: absolute;
           bottom: 0;
           left: 0;
@@ -213,7 +213,7 @@
         font-size: 1.6rem;
 
         &::before {
-          content: "•";
+          content: '•';
           color: var(--color-primary);
           font-size: 1.8rem;
           margin-right: 0.5rem;
@@ -222,7 +222,7 @@
     }
   }
 
-  .race-description,
+  .race-summary,
   .race-highlights-section,
   .race-auxiliary-info,
   .race-additional-fields,
@@ -257,7 +257,7 @@
     height: 1rem;
   }
 
-  .race-description {
+  .race-summary {
     margin-bottom: 2rem;
 
     h2 {
@@ -281,7 +281,7 @@
         font-size: 1.6rem;
 
         &::before {
-          content: "•";
+          content: '•';
           color: var(--color-primary);
           font-size: 1.8rem;
           margin-right: 0.5rem;
@@ -309,7 +309,7 @@
         line-height: 1.6;
 
         &::before {
-          content: "•";
+          content: '•';
           color: var(--color-primary);
           font-size: 1.8rem;
           margin-right: 0.7rem;
@@ -429,7 +429,7 @@
 
   /* Create a triangle cut-out in the upper right corner */
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     right: 0;
@@ -443,7 +443,7 @@
 
   /* Adding the right arrow */
   &::after {
-    content: "→";
+    content: '→';
     font-size: 2.5rem;
     margin: 0 0 0.7rem 1%;
     transition: margin-left 0.3s;
@@ -469,7 +469,7 @@
     align-content: start; // Push all content to the top
 
     .race-details,
-    .race-description,
+    .race-summary,
     .race-auxiliary-info,
     .race-additional-fields,
     .race-organizer,
