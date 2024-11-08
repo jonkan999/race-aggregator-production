@@ -11,7 +11,6 @@ async function fetchKeys() {
   try {
     const response = await fetch('https://getapikeys-bhro7jtuda-ey.a.run.app');
     const keys = await response.json();
-    console.log('Received keys:', keys);
     return keys;
   } catch (error) {
     console.error('Error fetching API keys:', error);

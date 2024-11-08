@@ -80,37 +80,39 @@ cat > functions/index.js << EOF
 const { onRequest } = require("firebase-functions/v2/https");
 
 // Specify the region for the function
-exports.getApiKeys = onRequest({ region: 'europe-west3' }, (request, response) => {
-  // Add CORS headers for specific domains
-  const allowedOrigins = ${allowed_origins};
-  const origin = request.headers.origin;
-  
-  if (allowedOrigins.includes(origin)) {
-    response.set('Access-Control-Allow-Origin', origin);
-  }
-  
-  response.set('Access-Control-Allow-Methods', 'GET');
-  response.set('Access-Control-Allow-Headers', 'Content-Type');
-  
-  if (request.method === 'OPTIONS') {
-    response.status(204).send('');
-    return;
-  }
+exports.getApiKeys = onRequest({ region: 'europe-west3', secrets: ["MAPBOX_API_KEY"] }, (request, response) => {
+  try {
+    // Add CORS headers for specific domains
+    const allowedOrigins = ${allowed_origins};
+    const origin = request.headers.origin;
+    
+    if (allowedOrigins.includes(origin)) {
+      response.set('Access-Control-Allow-Origin', origin);
+    }
+    
+    response.set('Access-Control-Allow-Methods', 'GET');
+    response.set('Access-Control-Allow-Headers', 'Content-Type');
+    
+    if (request.method === 'OPTIONS') {
+      response.status(204).send('');
+      return;
+    }
 
-  // Get config values
-  const config = functions.config();
-  
-  // Log the config for debugging (remove in production)
-  console.log('Config:', config);
-
-  response.set('Cache-Control', 'no-store');
-  
-  // Return the API keys
-  response.json({
+    response.set('Cache-Control', 'no-store');
+    
+    // Return the API keys using process.env
+    response.json({
 $(get_api_keys | while read key; do
-    echo "    ${key}: config.mapbox.${key},"
+    echo "    ${key}: process.env.${key},"
 done)
-  });
+    });
+  } catch (error) {
+    console.error('Function error:', error);
+    response.status(500).json({
+      error: 'Internal server error',
+      message: error.message
+    });
+  }
 });
 EOF
 

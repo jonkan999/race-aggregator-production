@@ -35,18 +35,9 @@ function initializeMap(apiKey) {
     }
   ).addTo(map);
 
-  // Check for coordinates in local storage
-  const storedCoordinates = JSON.parse(localStorage.getItem('raceCoordinates'));
-  if (
-    storedCoordinates &&
-    storedCoordinates.latitude &&
-    storedCoordinates.longitude
-  ) {
-    addMarker(storedCoordinates.latitude, storedCoordinates.longitude);
-    map.setView(
-      [storedCoordinates.latitude, storedCoordinates.longitude],
-      zoom
-    );
+  // Add marker using the data attributes
+  if (latitude && longitude) {
+    addMarker(latitude, longitude);
   }
 }
 
