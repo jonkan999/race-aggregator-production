@@ -57,7 +57,7 @@ def deploy(country_code):
         return
     
     print(f"Generating Firebase config for {country_code}...")
-    generate_firebase_config(['se', 'no'])  # Include all countries in config
+    generate_firebase_config(['se'])  # Include all countries in config
     print(f"Firebase config generated successfully")
 
 def main():
