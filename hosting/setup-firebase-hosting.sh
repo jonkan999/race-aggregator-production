@@ -9,7 +9,7 @@ get_site_name() {
 import yaml
 with open('${yaml_file}', 'r', encoding='utf-8') as f:
     config = yaml.safe_load(f)
-print(f\"{config.get('page_name').lower()}-test\")
+print(f\"{config.get('page_name').lower()}-dev\")
 ")
     echo $site_name
 }
@@ -61,7 +61,7 @@ for country in se no; do
     firebase target:apply hosting $country $site_name
     
     # Add to allowed origins
-    allowed_origins="${allowed_origins}, 'https://${site_name}.web.app'"
+    allowed_origins="${allowed_origins}, 'https://${site_name}.web.app', 'https://${site_name}.firebaseapp.com'"
     [[ ! -z "$base_url" ]] && allowed_origins="${allowed_origins}, '${base_url}'"
 done
 allowed_origins="${allowed_origins}]"
@@ -79,7 +79,8 @@ echo "Creating API keys function..."
 cat > functions/index.js << EOF
 const { onRequest } = require("firebase-functions/v2/https");
 
-exports.getApiKeys = onRequest((request, response) => {
+// Specify the region for the function
+exports.getApiKeys = onRequest({ region: 'europe-west3' }, (request, response) => {
   // Add CORS headers for specific domains
   const allowedOrigins = ${allowed_origins};
   const origin = request.headers.origin;
@@ -113,10 +114,10 @@ echo "Creating .firebaserc..."
 cat > .firebaserc << EOF
 {
   "projects": {
-    "default": "aggregatory-fcb66"
+    "default": "aggregatory-440306"
   },
   "targets": {
-    "aggregatory-fcb66": {
+    "aggregatory-440306": {
       "hosting": {
         "se": ["$(get_site_name se)"],
         "no": ["$(get_site_name no)"]
