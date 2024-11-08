@@ -19,6 +19,5 @@ async function fetchKeys() {
 }
 
 export const keyLoaded = fetchKeys().then((keys) => {
-  console.log('Processed keys:', keys);
   return keys.MAPBOX_API_KEY;
 });
