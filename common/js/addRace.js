@@ -1,5 +1,4 @@
 import { submitRace } from './submitRace.js';
-import { generateId, generateImagePartialKey } from './utils.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('add-race-form');

@@ -3,7 +3,7 @@ const { onRequest } = require("firebase-functions/v2/https");
 // Specify the region for the function
 exports.getApiKeys = onRequest({ 
   region: 'europe-west3', 
-  secrets: ["MAPBOX_API_KEY"] 
+  secrets: ["MAPBOX_API_KEY","FIREBASE_API_KEY"] 
 }, (request, response) => {
   try {
     // Add CORS headers for specific domains
@@ -27,6 +27,7 @@ exports.getApiKeys = onRequest({
     // Return the API keys using process.env
     response.json({
       MAPBOX_API_KEY: process.env.MAPBOX_API_KEY,
+      FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
     });
   } catch (error) {
     console.error('Function error:', error);
