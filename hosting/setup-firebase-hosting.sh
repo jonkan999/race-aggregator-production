@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e  # Exit on any error
 
 # At the start of the script, define the countries array
 COUNTRIES=(se no)
@@ -7,7 +8,6 @@ COUNTRIES=(se no)
 get_site_name() {
     country_code=$1
     yaml_file="data/countries/${country_code}/index.yaml"
-    
     site_name=$(python3 -c "
 import yaml
 with open('${yaml_file}', 'r', encoding='utf-8') as f:
@@ -21,7 +21,6 @@ print(f\"{config.get('page_name').lower()}-dev\")
 get_base_url() {
     country_code=$1
     yaml_file="data/countries/${country_code}/index.yaml"
-    
     base_url=$(python3 -c "
 import yaml
 with open('${yaml_file}', 'r', encoding='utf-8') as f:
@@ -42,6 +41,19 @@ print('\n'.join(keys))
 "
 }
 
+# Initialize Firebase project
+echo "Initializing Firebase project..."
+firebase use aggregatory-440306
+
+# Create or verify Firestore database
+echo "Setting up Firestore database..."
+if ! gcloud firestore databases list --project=aggregatory-440306 | grep -q "default"; then
+    echo "Creating Firestore database..."
+    gcloud firestore databases create --project=aggregatory-440306 --location=europe-west3 --type=firestore-native
+    echo "Waiting for database creation to complete..."
+    sleep 30
+fi
+
 # Get API keys as an array
 API_KEYS=($(get_api_keys))
 
@@ -53,13 +65,10 @@ for country in "${COUNTRIES[@]}"; do
     
     echo "Setting up hosting for ${country}: ${site_name}"
     
-    # Check if the site already exists
-    if firebase hosting:sites:list | grep -q "$site_name"; then
-        echo "Site ${site_name} already exists."
-    else
-        # Create the site if it doesn't exist
+    # Create the site if it doesn't exist
+    if ! firebase hosting:sites:list | grep -q "$site_name"; then
         echo "Creating site ${site_name}..."
-        firebase hosting:sites:create $site_name || echo "Site already exists"
+        firebase hosting:sites:create $site_name
     fi
     
     # Apply the hosting target
@@ -80,53 +89,10 @@ npm init -y
 npm install firebase-functions@latest firebase-admin@latest
 cd ..
 
-# Create the function file with dynamic API keys
-echo "Creating API keys function..."
-cat > functions/index.js << EOF
-const { onRequest } = require("firebase-functions/v2/https");
+# Create configuration files
+echo "Creating configuration files..."
 
-// Specify the region for the function
-exports.getApiKeys = onRequest({ 
-  region: 'europe-west3', 
-  secrets: [$(printf '"%s",' "${API_KEYS[@]}" | sed 's/,$//')] 
-}, (request, response) => {
-  try {
-    // Add CORS headers for specific domains
-    const allowedOrigins = ${allowed_origins};
-    const origin = request.headers.origin;
-    
-    if (allowedOrigins.includes(origin)) {
-      response.set('Access-Control-Allow-Origin', origin);
-    }
-    
-    response.set('Access-Control-Allow-Methods', 'GET');
-    response.set('Access-Control-Allow-Headers', 'Content-Type');
-    
-    if (request.method === 'OPTIONS') {
-      response.status(204).send('');
-      return;
-    }
-
-    response.set('Cache-Control', 'no-store');
-    
-    // Return the API keys using process.env
-    response.json({
-$(for key in "${API_KEYS[@]}"; do
-    echo "      ${key}: process.env.${key},"
-done)
-    });
-  } catch (error) {
-    console.error('Function error:', error);
-    response.status(500).json({
-      error: 'Internal server error',
-      message: error.message
-    });
-  }
-});
-EOF
-
-# Create .firebaserc file with dynamic targets
-echo "Creating .firebaserc..."
+# Create .firebaserc
 cat > .firebaserc << EOF
 {
   "projects": {
@@ -144,24 +110,16 @@ done)
 }
 EOF
 
-# Create Firestore security rules dynamically
-echo "Creating Firestore security rules..."
+# Create Firestore security rules
 cat > firestore.rules << EOF
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 $(for country in "${COUNTRIES[@]}"; do
 cat << COUNTRYRULES
-    // Submissions collection for ${country}
     match /submissions_${country}/{raceId} {
       allow read: if true;
-      allow write: if true;  // Add auth later
-    }
-    
-    // Approved races collection for ${country}
-    match /races_${country}/{raceId} {
-      allow read: if true;
-      allow write: if false;  // Only admin can write
+      allow write: if true;
     }
 COUNTRYRULES
 done)
@@ -169,26 +127,26 @@ done)
 }
 EOF
 
-# Create Firestore indexes dynamically
+# Create Firestore indexes with force flag
 echo "Creating Firestore indexes..."
 cat > firestore.indexes.json << EOF
 {
-  "indexes": [
+  "indexes": [],
+  "fieldOverrides": [
 $(for country in "${COUNTRIES[@]}"; do
 cat << COUNTRYINDEXES
     {
       "collectionGroup": "submissions_${country}",
-      "queryScope": "COLLECTION",
-      "fields": [
-        { "fieldPath": "name", "order": "ASCENDING" },
-        { "fieldPath": "date", "order": "ASCENDING" }
+      "fieldPath": "date",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION" }
       ]
     },
     {
       "collectionGroup": "races_${country}",
-      "queryScope": "COLLECTION",
-      "fields": [
-        { "fieldPath": "date", "order": "ASCENDING" }
+      "fieldPath": "date",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION" }
       ]
     }$([ "$country" != "${COUNTRIES[-1]}" ] && echo ",")
 COUNTRYINDEXES
@@ -197,8 +155,7 @@ done)
 }
 EOF
 
-# Create firebase.json with dynamic hosting targets
-echo "Creating firebase.json..."
+# Create firebase.json
 cat > firebase.json << EOF
 {
   "firestore": {
@@ -226,13 +183,57 @@ done)
 }
 EOF
 
-# Deploy Firestore rules and indexes
-echo "Deploying Firestore rules and indexes..."
-firebase deploy --only firestore:rules
-firebase deploy --only firestore:indexes
+# Create the function file
+cat > functions/index.js << EOF
+const { onRequest } = require("firebase-functions/v2/https");
 
-# Deploy the function
-echo "Deploying Firebase Function..."
-firebase deploy --only functions
+exports.getApiKeys = onRequest({ 
+  region: 'europe-west3', 
+  secrets: [$(printf '"%s",' "${API_KEYS[@]}" | sed 's/,$//')] 
+}, (request, response) => {
+  try {
+    const allowedOrigins = ${allowed_origins};
+    const origin = request.headers.origin;
+    
+    if (allowedOrigins.includes(origin)) {
+      response.set('Access-Control-Allow-Origin', origin);
+    }
+    
+    response.set('Access-Control-Allow-Methods', 'GET');
+    response.set('Access-Control-Allow-Headers', 'Content-Type');
+    
+    if (request.method === 'OPTIONS') {
+      response.status(204).send('');
+      return;
+    }
+
+    response.set('Cache-Control', 'no-store');
+    
+    response.json({
+$(for key in "${API_KEYS[@]}"; do
+    echo "      ${key}: process.env.${key},"
+done)
+    });
+  } catch (error) {
+    console.error('Function error:', error);
+    response.status(500).json({ error: 'Internal server error', message: error.message });
+  }
+});
+EOF
+
+# Deploy everything with force flags
+echo "Deploying Firebase configuration..."
+
+echo "1. Deploying Firestore rules..."
+firebase deploy --only firestore:rules -f
+
+echo "2. Deploying Firestore indexes..."
+firebase deploy --only firestore:indexes -f
+
+echo "3. Deploying Functions..."
+firebase deploy --only functions -f
+
+echo "4. Deploying Hosting..."
+firebase deploy --only hosting -f
 
 echo "Firebase setup complete!"
