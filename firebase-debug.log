@@ -1,0 +1,22 @@
+[debug] [2024-11-08T09:08:37.954Z] ----------------------------------------------------------------------
+[debug] [2024-11-08T09:08:37.956Z] Command:       /home/jonkan/.nvm/versions/node/v20.16.0/bin/node /home/jonkan/.nvm/versions/node/v20.16.0/bin/firebase deploy --only functions
+[debug] [2024-11-08T09:08:37.956Z] CLI Version:   13.24.2
+[debug] [2024-11-08T09:08:37.956Z] Platform:      linux
+[debug] [2024-11-08T09:08:37.956Z] Node Version:  v20.16.0
+[debug] [2024-11-08T09:08:37.956Z] Time:          Fri Nov 08 2024 10:08:37 GMT+0100 (Central European Standard Time)
+[debug] [2024-11-08T09:08:37.956Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-11-08T09:08:38.003Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-08T09:08:38.003Z] > authorizing via signed-in user (joel.engstrom17@gmail.com)
+[debug] [2024-11-08T09:08:38.003Z] [iam] checking project aggregatory-fcb66 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-11-08T09:08:38.004Z] Checked if tokens are valid: true, expires at: 1731059253444
+[debug] [2024-11-08T09:08:38.004Z] Checked if tokens are valid: true, expires at: 1731059253444
+[debug] [2024-11-08T09:08:38.005Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/aggregatory-fcb66:testIamPermissions [none]
+[debug] [2024-11-08T09:08:38.005Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/aggregatory-fcb66:testIamPermissions x-goog-quota-user=projects/aggregatory-fcb66
+[debug] [2024-11-08T09:08:38.005Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/aggregatory-fcb66:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-11-08T09:08:38.821Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/aggregatory-fcb66:testIamPermissions 200
+[debug] [2024-11-08T09:08:38.821Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/aggregatory-fcb66:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-11-08T09:08:38.821Z] Checked if tokens are valid: true, expires at: 1731059253444
+[debug] [2024-11-08T09:08:38.821Z] Checked if tokens are valid: true, expires at: 1731059253444
+[debug] [2024-11-08T09:08:38.822Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/aggregatory-fcb66/serviceAccounts/aggregatory-fcb66@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-11-08T09:08:38.822Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/aggregatory-fcb66/serviceAccounts/aggregatory-fcb66@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
