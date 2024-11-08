@@ -1,4 +1,4 @@
-name: Deploy to Netlify
+name: Deploy to Firebase
 
 on:
   push:
@@ -27,10 +27,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Deploy to Netlify
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      - name: Deploy to Firebase
         env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: |
-          npm install netlify-cli -g
-          python python/deploy.py
+          python hosting/deploy.py
+          firebase deploy --token "$FIREBASE_TOKEN" --only hosting:${{ matrix.country }}

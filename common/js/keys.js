@@ -1,25 +1,21 @@
-// Check if we're in development (using live-server)
-const isDevelopment =
-  window.location.port === '8080' || window.location.hostname === 'localhost';
+const isLocalhost =
+  window.location.hostname === 'localhost' ||
+  window.location.hostname === '127.0.0.1';
 
-// Create a promise that resolves when the key is loaded
-export const keyLoaded = new Promise((resolve, reject) => {
-  if (isDevelopment) {
-    // For local development, import from keys_local.js
-    import('./keys_local.js')
-      .then((localKeys) => resolve(localKeys.MAPBOX_API_KEY))
-      .catch((error) => {
-        console.error('Error loading local keys:', error);
-        reject(error);
-      });
-  } else {
-    // In production, use Netlify function
-    fetch('/.netlify/functions/get-api-keys')
-      .then((response) => response.json())
-      .then((keys) => resolve(keys.MAPBOX_API_KEY))
-      .catch((error) => {
-        console.error('Error loading production keys:', error);
-        reject(error);
-      });
+async function fetchKeys() {
+  if (isLocalhost) {
+    const { MAPBOX_API_KEY } = await import('./keys_local.js');
+    return { MAPBOX_API_KEY };
   }
-});
+
+  try {
+    const response = await fetch('https://getapikeys-uw67axc3yq-uc.a.run.app');
+    const keys = await response.json();
+    return keys;
+  } catch (error) {
+    console.error('Error fetching API keys:', error);
+    throw new Error('Failed to load API keys: ' + error.message);
+  }
+}
+
+export const keyLoaded = fetchKeys().then((keys) => keys.MAPBOX_API_KEY);
