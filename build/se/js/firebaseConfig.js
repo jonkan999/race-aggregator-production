@@ -1,52 +1,42 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
 import {
   getFirestore,
-  collection,
-  addDoc,
-  query,
-  where,
-  getDocs,
+  enableIndexedDbPersistence,
 } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
 const firebaseConfig = {
+  apiKey: 'AIzaSyDJC1Lb7bLcSyVt6dhiqy_QA8W-f2dlcjk',
   authDomain: 'aggregatory-440306.firebaseapp.com',
   projectId: 'aggregatory-440306',
   storageBucket: 'aggregatory-440306.firebasestorage.app',
   messagingSenderId: '353622401342',
   appId: '1:353622401342:web:c5d687352018fc621ecc6f',
+  measurementId: 'G-E73LE6BWM9',
 };
 
 // Initialize Firebase and Firestore asynchronously
 export async function initializeFirebase() {
   try {
-    // Get API key using the same mechanism as Mapbox
-    const keys = await fetchKeys();
-    firebaseConfig.apiKey = keys.FIREBASE_API_KEY;
-
     const app = initializeApp(firebaseConfig);
-    return getFirestore(app);
+    const db = getFirestore(app);
+
+    // Enable offline persistence
+    try {
+      await enableIndexedDbPersistence(db);
+      console.log('Offline persistence enabled');
+    } catch (err) {
+      if (err.code == 'failed-precondition') {
+        console.warn(
+          'Multiple tabs open, persistence can only be enabled in one tab at a a time.'
+        );
+      } else if (err.code == 'unimplemented') {
+        console.warn("The current browser doesn't support persistence.");
+      }
+    }
+
+    return db;
   } catch (error) {
     console.error('Error initializing Firebase:', error);
     throw error;
-  }
-}
-
-// Helper function to get keys
-async function fetchKeys() {
-  const isLocalhost =
-    window.location.hostname === 'localhost' ||
-    window.location.hostname === '127.0.0.1';
-
-  if (isLocalhost) {
-    const { FIREBASE_API_KEY } = await import('./keys_local.js');
-    return { FIREBASE_API_KEY };
-  }
-
-  try {
-    const response = await fetch('https://getapikeys-bhro7jtuda-ey.a.run.app');
-    return await response.json();
-  } catch (error) {
-    console.error('Error fetching API keys:', error);
-    throw new Error('Failed to load API keys: ' + error.message);
   }
 }
