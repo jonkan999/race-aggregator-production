@@ -50,16 +50,4 @@ function addMarker(lat, lng) {
       iconSize: [12, 12],
     }),
   }).addTo(map);
-
-  updateCoordinates(latlng);
-}
-
-function updateCoordinates(latlng) {
-  const coordinatesDisplay = document.getElementById('coordinates-display');
-
-  if (coordinatesDisplay) {
-    coordinatesDisplay.textContent = `Loppets koordinater: ${latlng.lat.toFixed(
-      4
-    )}, ${latlng.lng.toFixed(4)}`;
-  }
 }
