@@ -5,29 +5,108 @@ get_site_name() {
     country_code=$1
     yaml_file="data/countries/${country_code}/index.yaml"
     
-    # Using Python to parse YAML and get site name
     site_name=$(python3 -c "
 import yaml
 with open('${yaml_file}', 'r', encoding='utf-8') as f:
     config = yaml.safe_load(f)
-print(f\"{config.get('page_name').lower()}-test\")  # Using -test for development
+print(f\"{config.get('page_name').lower()}-test\")
 ")
     echo $site_name
 }
 
+# Function to get base URL from YAML
+get_base_url() {
+    country_code=$1
+    yaml_file="data/countries/${country_code}/index.yaml"
+    
+    base_url=$(python3 -c "
+import yaml
+with open('${yaml_file}', 'r', encoding='utf-8') as f:
+    config = yaml.safe_load(f)
+print(config.get('base_url', ''))
+")
+    echo $base_url
+}
+
+# Function to get API keys from global.yaml
+get_api_keys() {
+    python3 -c "
+import yaml
+with open('data/global.yaml', 'r', encoding='utf-8') as f:
+    config = yaml.safe_load(f)
+for key in config.get('API_KEYS', {}).keys():
+    print(key)
+"
+}
+
 # Setup hosting for each country
+allowed_origins="['http://localhost:8080'"
 for country in se no; do
     site_name=$(get_site_name $country)
+    base_url=$(get_base_url $country)
+    
     echo "Setting up hosting for ${country}: ${site_name}"
     
-    # Create the site if it doesn't exist
-    echo "Creating site ${site_name}..."
-    firebase hosting:sites:create $site_name || echo "Site already exists"
+    # Check if the site already exists
+    if firebase hosting:sites:list | grep -q "$site_name"; then
+        echo "Site ${site_name} already exists."
+    else
+        # Create the site if it doesn't exist
+        echo "Creating site ${site_name}..."
+        firebase hosting:sites:create $site_name || echo "Site already exists"
+    fi
     
     # Apply the hosting target
     echo "Applying hosting target for ${country}..."
     firebase target:apply hosting $country $site_name
+    
+    # Add to allowed origins
+    allowed_origins="${allowed_origins}, 'https://${site_name}.web.app'"
+    [[ ! -z "$base_url" ]] && allowed_origins="${allowed_origins}, '${base_url}'"
 done
+allowed_origins="${allowed_origins}]"
+
+# Create functions directory and install dependencies
+echo "Setting up Firebase Functions..."
+mkdir -p functions
+cd functions
+npm init -y
+npm install firebase-functions@latest firebase-admin@latest
+cd ..
+
+# Create the function file
+echo "Creating API keys function..."
+cat > functions/index.js << EOF
+const { onRequest } = require("firebase-functions/v2/https");
+
+exports.getApiKeys = onRequest((request, response) => {
+  // Add CORS headers for specific domains
+  const allowedOrigins = ${allowed_origins};
+  const origin = request.headers.origin;
+  
+  if (allowedOrigins.includes(origin)) {
+    response.set('Access-Control-Allow-Origin', origin);
+  }
+  
+  response.set('Access-Control-Allow-Methods', 'GET');
+  response.set('Access-Control-Allow-Headers', 'Content-Type');
+  
+  // Handle preflight requests
+  if (request.method === 'OPTIONS') {
+    response.status(204).send('');
+    return;
+  }
+
+  response.set('Cache-Control', 'no-store');
+  
+  // Return all configured API keys
+  response.json({
+$(get_api_keys | while read key; do
+    echo "    ${key}: process.env.${key},"
+done)
+  });
+});
+EOF
 
 # Create .firebaserc file
 echo "Creating .firebaserc..."
@@ -47,4 +126,8 @@ cat > .firebaserc << EOF
 }
 EOF
 
-echo "Firebase hosting setup complete!"
+# Deploy the function
+echo "Deploying Firebase Function..."
+firebase deploy --only functions
+
+echo "Firebase setup complete!"
