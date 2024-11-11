@@ -56,10 +56,9 @@ export async function submitRace() {
       }
     } else {
       // Production: Redirect to Firebase Auth
-      const projectId = 'aggregatory-440306'; // Your Firebase project ID
-      const redirectUrl = `https://${projectId}.firebaseapp.com/__/auth/action?mode=signIn&apiKey=${
+      const redirectUrl = `/__/auth/action?mode=signIn&apiKey=${
         auth.app.options.apiKey
-      }&lang=en&email=${encodeURIComponent(
+      }&email=${encodeURIComponent(
         submitterEmail
       )}&continueUrl=${encodeURIComponent(window.location.href)}`;
       console.log('Redirecting to:', redirectUrl);
