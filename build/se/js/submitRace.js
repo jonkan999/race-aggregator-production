@@ -12,47 +12,60 @@ export async function submitRace() {
     const submitterEmail = formData['race-contact'];
     console.log('Attempting submission with:', submitterEmail);
 
-    // Case 1: Already logged in
+    // Case 2: Already logged in with correct email
+    if (auth.currentUser && auth.currentUser.email === submitterEmail) {
+      alert(`Logged in as organizer ${submitterEmail}, submitting new race`);
+      await processSubmission();
+      return;
+    }
+
+    // If logged in with wrong email, sign out
     if (auth.currentUser) {
-      if (auth.currentUser.email === submitterEmail) {
-        await processSubmission();
-        return;
-      } else {
-        console.log('Logging out current user');
-        await auth.signOut();
-      }
+      console.log('Logging out current user');
+      await auth.signOut();
     }
 
     // Store submission intent and email
     localStorage.setItem('pendingSubmission', 'true');
     localStorage.setItem('submitterEmail', submitterEmail);
 
+    // Check if email exists
+    const signInMethods = await fetchSignInMethodsForEmail(
+      auth,
+      submitterEmail
+    );
     const isLocal =
       window.location.hostname === 'localhost' ||
       window.location.hostname === '127.0.0.1';
 
     if (isLocal) {
-      // Local development: Use direct Firebase Auth
-      const password = prompt('Please enter your password:');
-      if (!password) return;
-
-      try {
+      // Local development flow
+      if (signInMethods.length === 0) {
+        // Case 1: New user
+        const tempPassword = Math.random().toString(36).slice(-8);
+        await createUserWithEmailAndPassword(
+          auth,
+          submitterEmail,
+          tempPassword
+        );
+        await sendPasswordResetEmail(auth, submitterEmail);
+        alert('Account created. Check your email to set your password.');
+        await processSubmission();
+      } else {
+        // Case 3: Existing user
+        const password = prompt('Enter your password:');
+        if (!password) return;
         await signInWithEmailAndPassword(auth, submitterEmail, password);
-      } catch (error) {
-        if (error.code === 'auth/user-not-found') {
-          await createUserWithEmailAndPassword(auth, submitterEmail, password);
-        } else {
-          throw error;
-        }
+        await processSubmission();
       }
-      await handleAuthRedirect();
     } else {
-      // Production: Use Firebase Auth UI with the correct mode
-      const authUrl = `/__/auth/handler?operation=signIn&email=${encodeURIComponent(
+      // Production: Redirect to Firebase Auth
+      const mode = signInMethods.length === 0 ? 'signup' : 'signin';
+      const redirectUrl = `/__/auth/handler?operation=${mode}&email=${encodeURIComponent(
         submitterEmail
       )}&continueUrl=${encodeURIComponent(window.location.href)}`;
-      console.log('Redirecting to:', authUrl);
-      window.location.href = authUrl;
+      console.log('Redirecting to:', redirectUrl);
+      window.location.href = redirectUrl;
     }
   } catch (error) {
     console.error('Submission error:', error);
@@ -69,7 +82,9 @@ export async function handleAuthRedirect() {
       console.log('User is signed in:', auth.currentUser.email);
       if (auth.currentUser.email === submitterEmail) {
         if (localStorage.getItem('pendingSubmission')) {
-          console.log('Processing submission after redirect');
+          alert(
+            `Logged in as organizer ${submitterEmail}, submitting new race`
+          );
           await processSubmission();
           localStorage.removeItem('pendingSubmission');
           localStorage.removeItem('submitterEmail');
