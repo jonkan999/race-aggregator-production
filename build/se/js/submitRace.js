@@ -3,6 +3,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
+  fetchSignInMethodsForEmail,
 } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js';
 
 export async function submitRace() {
@@ -29,11 +30,6 @@ export async function submitRace() {
     localStorage.setItem('pendingSubmission', 'true');
     localStorage.setItem('submitterEmail', submitterEmail);
 
-    // Check if email exists
-    const signInMethods = await fetchSignInMethodsForEmail(
-      auth,
-      submitterEmail
-    );
     const isLocal =
       window.location.hostname === 'localhost' ||
       window.location.hostname === '127.0.0.1';
@@ -60,8 +56,10 @@ export async function submitRace() {
       }
     } else {
       // Production: Redirect to Firebase Auth
-      const mode = signInMethods.length === 0 ? 'signup' : 'signin';
-      const redirectUrl = `/__/auth/handler?operation=${mode}&email=${encodeURIComponent(
+      const projectId = 'aggregatory-440306'; // Your Firebase project ID
+      const redirectUrl = `https://${projectId}.firebaseapp.com/__/auth/action?mode=signIn&apiKey=${
+        auth.app.options.apiKey
+      }&lang=en&email=${encodeURIComponent(
         submitterEmail
       )}&continueUrl=${encodeURIComponent(window.location.href)}`;
       console.log('Redirecting to:', redirectUrl);
@@ -112,9 +110,9 @@ async function processSubmission() {
 }
 
 function clearFormAndStorage() {
-  localStorage.removeItem('raceFormData');
+  /*   localStorage.removeItem('raceFormData');
   localStorage.removeItem('raceCoordinates');
   localStorage.removeItem('raceImages');
   localStorage.removeItem('pendingSubmission');
-  localStorage.removeItem('submitterEmail');
+  localStorage.removeItem('submitterEmail'); */
 }
