@@ -3,7 +3,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
-} from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+} from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js';
 
 export async function submitRace() {
   try {
@@ -27,10 +27,33 @@ export async function submitRace() {
     localStorage.setItem('pendingSubmission', 'true');
     localStorage.setItem('submitterEmail', submitterEmail);
 
-    // Redirect to Firebase Auth UI
-    window.location.href = `/__/auth/action?mode=signIn&email=${encodeURIComponent(
-      submitterEmail
-    )}&continueUrl=${encodeURIComponent(window.location.href)}`;
+    const isLocal =
+      window.location.hostname === 'localhost' ||
+      window.location.hostname === '127.0.0.1';
+
+    if (isLocal) {
+      // Local development: Use direct Firebase Auth
+      const password = prompt('Please enter your password:');
+      if (!password) return;
+
+      try {
+        await signInWithEmailAndPassword(auth, submitterEmail, password);
+      } catch (error) {
+        if (error.code === 'auth/user-not-found') {
+          await createUserWithEmailAndPassword(auth, submitterEmail, password);
+        } else {
+          throw error;
+        }
+      }
+      await handleAuthRedirect();
+    } else {
+      // Production: Use Firebase Auth UI with the correct mode
+      const authUrl = `/__/auth/handler?operation=signIn&email=${encodeURIComponent(
+        submitterEmail
+      )}&continueUrl=${encodeURIComponent(window.location.href)}`;
+      console.log('Redirecting to:', authUrl);
+      window.location.href = authUrl;
+    }
   } catch (error) {
     console.error('Submission error:', error);
     alert('Failed to process submission');
