@@ -1,107 +1,82 @@
-import { initializeFirebase } from './firebaseConfig.js';
+import { getFirebaseAuth } from './firebaseConfig.js';
 import {
-  collection,
-  addDoc,
-  query,
-  where,
-  getDocs,
-} from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
-
-let db;
-
-export async function initializeDb() {
-  if (!db) {
-    db = await initializeFirebase();
-  }
-  return db;
-}
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
+} from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
 
 export async function submitRace() {
   try {
-    db = await initializeDb();
-    console.log('Database initialized');
-
+    const { auth } = await getFirebaseAuth();
     const formData = JSON.parse(localStorage.getItem('raceFormData'));
-    const mapCoordinates = JSON.parse(localStorage.getItem('raceCoordinates'));
-    const raceImages = JSON.parse(localStorage.getItem('raceImages'));
+    const submitterEmail = formData['race-contact'];
+    console.log('Attempting submission with:', submitterEmail);
 
-    if (!formData || !mapCoordinates || !raceImages) {
-      alert(
-        "Missing data. Please make sure you've filled out the form and selected a location on the map."
-      );
-      return;
+    // Case 1: Already logged in
+    if (auth.currentUser) {
+      if (auth.currentUser.email === submitterEmail) {
+        await processSubmission();
+        return;
+      } else {
+        console.log('Logging out current user');
+        await auth.signOut();
+      }
     }
 
-    // Clean up form data by removing 'race-' prefix
-    const cleanFormData = {};
-    Object.entries(formData).forEach(([key, value]) => {
-      const cleanKey = key.replace('race-', '');
-      cleanFormData[cleanKey] = value;
-    });
+    // Store submission intent and email
+    localStorage.setItem('pendingSubmission', 'true');
+    localStorage.setItem('submitterEmail', submitterEmail);
 
-    const raceObject = {
-      date: cleanFormData.date.replace(/-/g, ''),
-      type: cleanFormData.type.toLowerCase(),
-      name: cleanFormData.name,
-      distances: JSON.stringify(cleanFormData.distances),
-      place: cleanFormData.location,
-      latitude: mapCoordinates.latitude,
-      longitude: mapCoordinates.longitude,
-      organizer: cleanFormData.organizer,
-      contact: cleanFormData.contact,
-      website: cleanFormData.website,
-      'price-range': cleanFormData['price-range'],
-      summary: cleanFormData.summary,
-      additional: cleanFormData.additional,
-      images: raceImages.images,
-      status: 'pending',
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    };
-
-    if (cleanFormData['multi-day-toggle'] === 'on') {
-      raceObject['end-date'] = cleanFormData['end-date'].replace(/-/g, '');
-    }
-
-    // Use country-specific collection (injected during build)
-    const racesRef = collection(db, 'submissions_se');
-    console.log('Collection reference created:', racesRef);
-
-    // Check for duplicates within this country's collection
-    const q = query(
-      racesRef,
-      where('name', '==', raceObject.name),
-      where('date', '==', raceObject.date)
-    );
-    console.log('Query created');
-
-    const querySnapshot = await getDocs(q);
-    console.log('Query executed');
-
-    if (!querySnapshot.empty) {
-      alert('A race with this name and date already exists!');
-      return;
-    }
-
-    // Add to country-specific collection
-    const docRef = await addDoc(racesRef, raceObject);
-    console.log('Race added with ID: ', docRef.id);
-
-    clearFormAndStorage();
-    alert('Race submitted successfully!');
+    // Redirect to Firebase Auth UI
+    window.location.href = `/__/auth/action?mode=signIn&email=${encodeURIComponent(
+      submitterEmail
+    )}&continueUrl=${encodeURIComponent(window.location.href)}`;
   } catch (error) {
-    console.error('Error in submitRace:', error);
-    console.error('Error details:', {
-      code: error.code,
-      message: error.message,
-      stack: error.stack,
-    });
-    alert(`Failed to submit race: ${error.message}`);
+    console.error('Submission error:', error);
+    alert('Failed to process submission');
   }
+}
+
+export async function handleAuthRedirect() {
+  try {
+    const { auth } = await getFirebaseAuth();
+    const submitterEmail = localStorage.getItem('submitterEmail');
+
+    if (auth.currentUser) {
+      console.log('User is signed in:', auth.currentUser.email);
+      if (auth.currentUser.email === submitterEmail) {
+        if (localStorage.getItem('pendingSubmission')) {
+          console.log('Processing submission after redirect');
+          await processSubmission();
+          localStorage.removeItem('pendingSubmission');
+          localStorage.removeItem('submitterEmail');
+        }
+      } else {
+        console.log('Email mismatch');
+        alert('The email in the form must match your account email');
+        await auth.signOut();
+        localStorage.removeItem('pendingSubmission');
+        localStorage.removeItem('submitterEmail');
+      }
+    }
+  } catch (error) {
+    console.error('Redirect handling error:', error);
+    alert('Authentication failed after redirect');
+    localStorage.removeItem('pendingSubmission');
+    localStorage.removeItem('submitterEmail');
+  }
+}
+
+async function processSubmission() {
+  console.log('Processing submission...');
+  alert('Race submitted successfully!');
+  clearFormAndStorage();
 }
 
 function clearFormAndStorage() {
   localStorage.removeItem('raceFormData');
   localStorage.removeItem('raceCoordinates');
   localStorage.removeItem('raceImages');
+  localStorage.removeItem('pendingSubmission');
+  localStorage.removeItem('submitterEmail');
 }

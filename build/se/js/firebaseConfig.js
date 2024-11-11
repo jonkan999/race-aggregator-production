@@ -1,42 +1,36 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
 import {
-  getFirestore,
-  enableIndexedDbPersistence,
-} from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+  getAuth,
+  signInWithRedirect,
+  getRedirectResult,
+} from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+import { firebaseKeyLoaded } from './keys.js';
 
-const firebaseConfig = {
-  apiKey: '',
-  authDomain: 'aggregatory-440306.firebaseapp.com',
-  projectId: 'aggregatory-440306',
-  storageBucket: 'aggregatory-440306.firebasestorage.app',
-  messagingSenderId: '353622401342',
-  appId: '1:353622401342:web:c5d687352018fc621ecc6f',
-  measurementId: 'G-E73LE6BWM9',
+// Wait for the API key to load before initializing Firebase
+const initFirebase = async () => {
+  const apiKey = await firebaseKeyLoaded;
+
+  const firebaseConfig = {
+    apiKey: apiKey,
+    authDomain: 'aggregatory-440306.firebaseapp.com',
+    projectId: 'aggregatory-440306',
+    storageBucket: 'aggregatory-440306.firebasestorage.app',
+    messagingSenderId: '353622401342',
+    appId: '1:353622401342:web:c5d687352018fc621ecc6f',
+    measurementId: 'G-E73LE6BWM9',
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  return { auth, signInWithRedirect, getRedirectResult };
 };
 
-// Initialize Firebase and Firestore asynchronously
-export async function initializeFirebase() {
-  try {
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+// Export the initialization promise
+export const firebaseInit = initFirebase();
 
-    // Enable offline persistence
-    try {
-      await enableIndexedDbPersistence(db);
-      console.log('Offline persistence enabled');
-    } catch (err) {
-      if (err.code == 'failed-precondition') {
-        console.warn(
-          'Multiple tabs open, persistence can only be enabled in one tab at a a time.'
-        );
-      } else if (err.code == 'unimplemented') {
-        console.warn("The current browser doesn't support persistence.");
-      }
-    }
-
-    return db;
-  } catch (error) {
-    console.error('Error initializing Firebase:', error);
-    throw error;
-  }
-}
+// Export a helper function to get the auth instance
+export const getFirebaseAuth = async () => {
+  const firebase = await firebaseInit;
+  return firebase;
+};
