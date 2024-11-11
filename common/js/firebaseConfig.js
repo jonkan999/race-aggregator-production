@@ -7,6 +7,7 @@ import {
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
 } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js';
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js';
 import { firebaseKeyLoaded } from './keys.js';
 
 // Wait for the API key to load before initializing Firebase
@@ -41,16 +42,9 @@ const initFirebase = async () => {
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
+  const db = getFirestore(app);
 
-  // Connect to auth emulator when running locally
-  if (
-    window.location.hostname === 'localhost' ||
-    window.location.hostname === '127.0.0.1'
-  ) {
-    connectAuthEmulator(auth, 'http://127.0.0.1:9099');
-  }
-
-  return { auth, signInWithRedirect, getRedirectResult };
+  return { app, auth, db, signInWithRedirect, getRedirectResult };
 };
 
 // Export the initialization promise

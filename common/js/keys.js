@@ -4,8 +4,11 @@ const isLocalhost =
 
 async function fetchKeys() {
   if (isLocalhost) {
-    const { MAPBOX_API_KEY } = await import('./keys_local.js');
-    return { MAPBOX_API_KEY };
+    const { MAPBOX_API_KEY, FIREBASE_API_KEY } = await import(
+      './keys_local.js'
+    );
+
+    return { MAPBOX_API_KEY, FIREBASE_API_KEY };
   }
 
   try {
@@ -20,4 +23,8 @@ async function fetchKeys() {
 
 export const keyLoaded = fetchKeys().then((keys) => {
   return keys.MAPBOX_API_KEY;
+});
+
+export const firebaseKeyLoaded = fetchKeys().then((keys) => {
+  return keys.FIREBASE_API_KEY;
 });
