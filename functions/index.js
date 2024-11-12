@@ -5,7 +5,7 @@ exports.getApiKeys = onRequest({
   secrets: ["MAPBOX_API_KEY","FIREBASE_API_KEY"] 
 }, (request, response) => {
   try {
-    const allowedOrigins = ['http://localhost:8080', 'https://loppkartan-dev.web.app', 'https://loppkartan-dev.firebaseapp.com', 'https://loppkartan.se/', 'https://lopskalender-dev.web.app', 'https://lopskalender-dev.firebaseapp.com'];
+    const allowedOrigins = [, 'https://loppkartan-dev.web.app', 'https://loppkartan-dev.firebaseapp.com', 'https://loppkartan.se/', 'https://lopskalender-dev.web.app', 'https://lopskalender-dev.firebaseapp.com'];
     const origin = request.headers.origin;
     
     if (allowedOrigins.includes(origin)) {
