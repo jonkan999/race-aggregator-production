@@ -10,6 +10,8 @@ import {
   query,
   where,
   getDocs,
+  doc,
+  setDoc,
 } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js';
 
 const messages = {
@@ -298,7 +300,7 @@ async function processSubmission(db, userId) {
     organizer: cleanFormData.organizer,
     contact: cleanFormData.contact,
     website: cleanFormData.website,
-    'price-range': cleanFormData['price-range'],
+    price_range: cleanFormData['price-range'],
     summary: cleanFormData.summary,
     additional: cleanFormData.additional,
     images: raceImages ? raceImages.images : [],
@@ -311,7 +313,7 @@ async function processSubmission(db, userId) {
   };
 
   if (cleanFormData['multi-day-toggle'] === 'on') {
-    raceObject['end-date'] = cleanFormData['end-date'].replace(/-/g, '');
+    raceObject['end_date'] = cleanFormData['end_date'].replace(/-/g, '');
   }
 
   // Check for duplicates
@@ -329,8 +331,15 @@ async function processSubmission(db, userId) {
       return;
     }
 
+    // Create the race document
     await addDoc(racesRef, raceObject);
     console.log('Race submitted successfully');
+
+    // Update the new_race_added document
+    const newRaceAddedRef = doc(racesRef, 'new_race_added');
+    await setDoc(newRaceAddedRef, { is_active: true }, { merge: true });
+    console.log('Updated new_race_added flag');
+
     alert(messages.submission.raceSubmitted);
     clearFormAndStorage();
   } catch (error) {
