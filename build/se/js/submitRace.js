@@ -291,6 +291,7 @@ async function processSubmission(db, userId) {
     type: cleanFormData.type.toLowerCase(),
     name: cleanFormData.name,
     distances: JSON.stringify(cleanFormData.distances),
+    start_time: cleanFormData['start-time'],
     place: cleanFormData.location,
     latitude: mapCoordinates.latitude,
     longitude: mapCoordinates.longitude,
