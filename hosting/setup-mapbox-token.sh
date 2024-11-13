@@ -108,20 +108,37 @@ echo "Username retrieved successfully: $MAPBOX_USERNAME"
 # Format the allowed URLs for Mapbox
 mapbox_allowed_urls=$(echo $allowed_origins | sed 's/\[//g' | sed 's/\]//g' | tr "'" '"')
 
-echo "Creating Mapbox token with allowed URLs..."
-curl_command="curl -v -X POST \
-  -H \"Content-Type: application/json\" \
-  -d '{
-    \"note\": \"Auto-generated token for ${COUNTRIES[*]} sites\",
-    \"scopes\": [\"styles:read\", \"styles:tiles\", \"fonts:read\", \"datasets:read\"],
-    \"allowedUrls\": [${mapbox_allowed_urls}]
-  }' \
-  \"https://api.mapbox.com/tokens/v2/${MAPBOX_USERNAME}?access_token=${MAPBOX_SECRET_TOKEN}\""
+# First, list and delete existing auto-generated tokens
+echo "1. Removing existing auto-generated tokens..."
+echo "Listing existing tokens..."
+EXISTING_TOKENS=$(curl -s -X GET \
+  "https://api.mapbox.com/tokens/v2/${MAPBOX_USERNAME}?access_token=${MAPBOX_SECRET_TOKEN}")
 
+echo "Finding and deleting auto-generated tokens..."
+echo "$EXISTING_TOKENS" | jq -c '.[]' | while read -r token; do
+    note=$(echo "$token" | jq -r '.note')
+    if [[ "$note" == "Auto-generated"* ]]; then
+        token_id=$(echo "$token" | jq -r '.id')
+        echo "Deleting token: $token_id"
+        curl -s -X DELETE \
+            "https://api.mapbox.com/tokens/v2/${MAPBOX_USERNAME}/${token_id}?access_token=${MAPBOX_SECRET_TOKEN}"
+    fi
+done
+
+# Add a small delay to ensure deletions are processed
+sleep 2
+
+# Now create new token
+echo "2. Creating new Mapbox token with allowed URLs..." 
+
+curl_command="curl -v -X POST \
+-H \"Content-Type: application/json\" \
+-d '{ \"note\": \"Auto-generated token for ${COUNTRIES[*]} sites\", \"scopes\": [\"styles:read\", \"styles:tiles\", \"fonts:read\", \"datasets:read\"], \"allowedUrls\": [${mapbox_allowed_urls}] }' \
+\"https://api.mapbox.com/tokens/v2/${MAPBOX_USERNAME}?access_token=${MAPBOX_SECRET_TOKEN}\""
 echo "Curl command:"
 echo "$curl_command"
 
-# Execute the curl command and capture response
+# Execute the curl command and capture response 
 MAPBOX_TOKEN_RESPONSE=$(eval "$curl_command")
 echo "Mapbox API Response: $MAPBOX_TOKEN_RESPONSE"
 
@@ -133,25 +150,26 @@ fi
 
 # Extract the token from the response
 NEW_MAPBOX_TOKEN=$(echo $MAPBOX_TOKEN_RESPONSE | jq -r '.token')
-
 if [ -n "$NEW_MAPBOX_TOKEN" ]; then
     echo "Successfully created new Mapbox token"
-    
     # Store the new token in Secret Manager
     echo "Storing token in Secret Manager..."
     echo -n "$NEW_MAPBOX_TOKEN" | gcloud secrets versions add MAPBOX_API_KEY --data-file=- || \
     (echo "Creating new secret..." && \
-     echo -n "$NEW_MAPBOX_TOKEN" | gcloud secrets create MAPBOX_API_KEY --data-file=-)
-
+    echo -n "$NEW_MAPBOX_TOKEN" | gcloud secrets create MAPBOX_API_KEY --data-file=-)
     # Grant access to the Cloud Functions service account
     echo "Granting access to Cloud Functions service account..."
     PROJECT_ID=$(gcloud config get-value project)
     gcloud secrets add-iam-policy-binding MAPBOX_API_KEY \
-      --member="serviceAccount:${PROJECT_ID}@appspot.gserviceaccount.com" \
-      --role="roles/secretmanager.secretAccessor"
-    
+    --member="serviceAccount:${PROJECT_ID}@appspot.gserviceaccount.com" \
+    --role="roles/secretmanager.secretAccessor"
     echo "Mapbox token successfully created and stored in Secret Manager"
 else
     echo "Failed to create Mapbox token. Response: $MAPBOX_TOKEN_RESPONSE"
     exit 1
 fi
+
+echo "3. Redeploying Functions to pick up new secret versions..."
+firebase deploy --only functions -f
+
+echo "Mapbox token setup complete!"

@@ -12,7 +12,9 @@ async function fetchKeys() {
   }
 
   try {
-    const response = await fetch('https://getapikeys-bhro7jtuda-ey.a.run.app');
+    const response = await fetch(
+      'https://api-getlocation-bhro7jtuda-ey.a.run.app'
+    );
     const keys = await response.json();
     return keys;
   } catch (error) {

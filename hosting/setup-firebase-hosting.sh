@@ -58,7 +58,8 @@ fi
 API_KEYS=($(get_api_keys))
 
 # Setup hosting for each country
-allowed_origins="['http://localhost:8080'"
+allowed_origins="["
+first=true
 for country in "${COUNTRIES[@]}"; do
     site_name=$(get_site_name $country)
     base_url=$(get_base_url $country)
@@ -76,19 +77,139 @@ for country in "${COUNTRIES[@]}"; do
     firebase target:apply hosting $country $site_name
     
     # Add to allowed origins
-    allowed_origins="${allowed_origins}, 'https://${site_name}.web.app', 'https://${site_name}.firebaseapp.com'"
+    if [ "$first" = true ]; then
+        allowed_origins="${allowed_origins}'https://${site_name}.web.app', 'https://${site_name}.firebaseapp.com'"
+        first=false
+    else
+        allowed_origins="${allowed_origins}, 'https://${site_name}.web.app', 'https://${site_name}.firebaseapp.com'"
+    fi
     [[ ! -z "$base_url" ]] && allowed_origins="${allowed_origins}, '${base_url}'"
 done
 allowed_origins="${allowed_origins}]"
 
-# Create functions directory and install dependencies
-echo "Setting up Firebase Functions..."
-mkdir -p functions
+# Create functions directory structure
+mkdir -p functions/src/api
 cd functions
-npm init -y
-npm install firebase-functions@latest firebase-admin@latest
-cd ..
 
+# Create package.json with node-fetch dependency
+cat > package.json << EOF
+{
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^11.11.1",
+    "firebase-functions": "^4.5.0",
+    "node-fetch": "^2.7.0"
+  },
+  "private": true,
+  "version": "1.0.0"
+}
+EOF
+
+# Create separate files for each function
+cat > src/api/getApiKeys.js << EOF
+const { onRequest } = require("firebase-functions/v2/https");
+
+const corsHandler = (request, response, allowedOrigins) => {
+  const origin = request.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    response.set('Access-Control-Allow-Origin', origin);
+  }
+  response.set('Access-Control-Allow-Methods', 'GET');
+  response.set('Access-Control-Allow-Headers', 'Content-Type');
+  
+  if (request.method === 'OPTIONS') {
+    response.status(204).send('');
+    return true;
+  }
+  return false;
+};
+
+exports.getApiKeys = onRequest({ 
+  region: 'europe-west3', 
+  secrets: [$(printf '"%s",' "${API_KEYS[@]}" | sed 's/,$//')] 
+}, (request, response) => {
+  try {
+    const allowedOrigins = ${allowed_origins};
+    if (corsHandler(request, response, allowedOrigins)) return;
+
+    response.set('Cache-Control', 'no-store');
+    response.json({
+$(for key in "${API_KEYS[@]}"; do
+    echo "      ${key}: process.env.${key},"
+done)
+    });
+  } catch (error) {
+    console.error('Function error:', error);
+    response.status(500).json({ error: 'Internal server error', message: error.message });
+  }
+});
+EOF
+
+cat > src/api/getLocation.js << EOF
+const { onRequest } = require("firebase-functions/v2/https");
+const fetch = require('node-fetch');
+
+const corsHandler = (request, response, allowedOrigins) => {
+  const origin = request.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    response.set('Access-Control-Allow-Origin', origin);
+  }
+  response.set('Access-Control-Allow-Methods', 'GET');
+  response.set('Access-Control-Allow-Headers', 'Content-Type');
+  
+  if (request.method === 'OPTIONS') {
+    response.status(204).send('');
+    return true;
+  }
+  return false;
+};
+
+exports.getLocation = onRequest({ 
+  region: 'europe-west3'
+}, async (request, response) => {
+  try {
+    const allowedOrigins = ${allowed_origins};
+    if (corsHandler(request, response, allowedOrigins)) return;
+
+    const ip = request.headers['x-forwarded-for'] || request.connection.remoteAddress;
+    const geoResponse = await fetch(\`https://ip-api.com/json/\${ip}\`);
+    const locationData = await geoResponse.json();
+    
+    response.json({
+      country: locationData.country,
+      city: locationData.city
+    });
+  } catch (error) {
+    console.error('Location error:', error);
+    response.status(500).json({ error: 'Location lookup failed', message: error.message });
+  }
+});
+EOF
+
+# Create src/api/index.js to export API functions
+cat > src/api/index.js << EOF
+exports.getApiKeys = require('./getApiKeys').getApiKeys;
+exports.getLocation = require('./getLocation').getLocation;
+EOF
+
+# Create main index.js that exports the api group
+cat > index.js << EOF
+exports.api = require('./src/api');
+EOF
+
+cd ..
 # Create configuration files
 echo "Creating configuration files..."
 
@@ -163,7 +284,8 @@ cat > firebase.json << EOF
     "indexes": "firestore.indexes.json"
   },
   "functions": {
-    "source": "functions"
+    "source": "functions",
+    "codebase": "api-functions"
   },
   "hosting": [
 $(for country in "${COUNTRIES[@]}"; do
@@ -181,44 +303,6 @@ HOSTING
 done)
   ]
 }
-EOF
-
-# Create the function file
-cat > functions/index.js << EOF
-const { onRequest } = require("firebase-functions/v2/https");
-
-exports.getApiKeys = onRequest({ 
-  region: 'europe-west3', 
-  secrets: [$(printf '"%s",' "${API_KEYS[@]}" | sed 's/,$//')] 
-}, (request, response) => {
-  try {
-    const allowedOrigins = ${allowed_origins};
-    const origin = request.headers.origin;
-    
-    if (allowedOrigins.includes(origin)) {
-      response.set('Access-Control-Allow-Origin', origin);
-    }
-    
-    response.set('Access-Control-Allow-Methods', 'GET');
-    response.set('Access-Control-Allow-Headers', 'Content-Type');
-    
-    if (request.method === 'OPTIONS') {
-      response.status(204).send('');
-      return;
-    }
-
-    response.set('Cache-Control', 'no-store');
-    
-    response.json({
-$(for key in "${API_KEYS[@]}"; do
-    echo "      ${key}: process.env.${key},"
-done)
-    });
-  } catch (error) {
-    console.error('Function error:', error);
-    response.status(500).json({ error: 'Internal server error', message: error.message });
-  }
-});
 EOF
 
 # Deploy everything with force flags
