@@ -185,14 +185,11 @@ class Analytics {
         totalTime: Math.round(totalTime) + 's',
       });
 
-      // Update the sessionData with new accumulated time
-      this.sessionData.timeOnPage = updateData.timeOnPage;
-      this.sessionData.lastActiveTime = now;
-
-      // Reset queue
+      // Reset queue and update times
       this.updateQueue = [];
       this.queueSize = 0;
       this.lastUpdate = now;
+      this.sessionData.lastActiveTime = now;
     } catch (error) {
       console.error('Error updating document:', error);
     }
@@ -295,10 +292,7 @@ class Analytics {
       try {
         await updateDoc(this.docRef, finalData);
         this.finalUpdateComplete = true;
-        console.log('Final update completed:', {
-          timeOnPage: Math.round(finalData.timeOnPage) + 's',
-          totalTime: Math.round(finalData.totalTime) + 's',
-        });
+        console.log('Final update completed: before_unload');
       } catch (error) {
         console.error('Error in final update:', error);
       }

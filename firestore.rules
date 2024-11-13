@@ -1,8 +1,14 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    match /pageViews_se/{docId} {
+      allow write: if true;
+    }
     match /submissions_se/{raceId} {
       allow read: if true;
+      allow write: if true;
+    }
+    match /pageViews_no/{docId} {
       allow write: if true;
     }
     match /submissions_no/{raceId} {

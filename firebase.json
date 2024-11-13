@@ -11,19 +11,23 @@
     {
       "target": "se",
       "public": "build/se",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "/log-analytics",
+          "function": "logAnalytics"
+        }
       ]
     },
     {
       "target": "no",
       "public": "build/no",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "/log-analytics",
+          "function": "logAnalytics"
+        }
       ]
     }
   ]

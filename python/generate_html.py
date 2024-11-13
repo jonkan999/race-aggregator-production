@@ -141,7 +141,6 @@ def generate_country(country_code):
     # Generate JavaScript files
     js_output_dir = os.path.join(country_output_dir, 'js')
     os.makedirs(js_output_dir, exist_ok=True)
-    
     for js_file in os.listdir(js_dir):
         if js_file.endswith('.js'):
             js_template = env.get_template(js_file)

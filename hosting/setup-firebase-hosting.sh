@@ -58,8 +58,7 @@ fi
 API_KEYS=($(get_api_keys))
 
 # Setup hosting for each country
-allowed_origins="["
-first=true
+allowed_origins="['http://127.0.0.1:8080'"
 for country in "${COUNTRIES[@]}"; do
     site_name=$(get_site_name $country)
     base_url=$(get_base_url $country)
@@ -77,12 +76,7 @@ for country in "${COUNTRIES[@]}"; do
     firebase target:apply hosting $country $site_name
     
     # Add to allowed origins
-    if [ "$first" = true ]; then
-        allowed_origins="${allowed_origins}'https://${site_name}.web.app', 'https://${site_name}.firebaseapp.com'"
-        first=false
-    else
-        allowed_origins="${allowed_origins}, 'https://${site_name}.web.app', 'https://${site_name}.firebaseapp.com'"
-    fi
+    allowed_origins="${allowed_origins}, 'https://${site_name}.web.app', 'https://${site_name}.firebaseapp.com'"
     [[ ! -z "$base_url" ]] && allowed_origins="${allowed_origins}, '${base_url}'"
 done
 allowed_origins="${allowed_origins}]"
@@ -157,51 +151,70 @@ done)
 });
 EOF
 
-cat > src/api/getLocation.js << EOF
+cat > src/api/logAnalytics.js << EOF
 const { onRequest } = require("firebase-functions/v2/https");
-const fetch = require('node-fetch');
+const admin = require('firebase-admin');
 
-const corsHandler = (request, response, allowedOrigins) => {
-  const origin = request.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    response.set('Access-Control-Allow-Origin', origin);
-  }
-  response.set('Access-Control-Allow-Methods', 'GET');
-  response.set('Access-Control-Allow-Headers', 'Content-Type');
-  
-  if (request.method === 'OPTIONS') {
-    response.status(204).send('');
-    return true;
-  }
-  return false;
-};
+if (!admin.apps.length) {
+    admin.initializeApp();
+}
 
-exports.getLocation = onRequest({ 
-  region: 'europe-west3'
-}, async (request, response) => {
-  try {
-    const allowedOrigins = ${allowed_origins};
-    if (corsHandler(request, response, allowedOrigins)) return;
-
-    const ip = request.headers['x-forwarded-for'] || request.connection.remoteAddress;
-    const geoResponse = await fetch(\`https://ip-api.com/json/\${ip}\`);
-    const locationData = await geoResponse.json();
+exports.logAnalytics = onRequest({
+    region: 'europe-west3',
+    cors: true,
+    maxInstances: 10
+}, async (req, res) => {
+    // CORS headers
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.set('Access-Control-Allow-Headers', 'Content-Type');
     
-    response.json({
-      country: locationData.country,
-      city: locationData.city
+    // Handle preflight request
+    if (req.method === 'OPTIONS') {
+        res.status(204).send('');
+        return;
+    }
+
+    console.log('Received analytics request:', {
+        method: req.method,
+        contentType: req.headers['content-type'],
+        bodySize: req.rawBody?.length || 0
     });
-  } catch (error) {
-    console.error('Location error:', error);
-    response.status(500).json({ error: 'Location lookup failed', message: error.message });
-  }
+
+    try {
+        const { collection, data } = req.body;
+        
+        if (!collection || !data) {
+            console.error('Missing required data:', { 
+                hasCollection: !!collection, 
+                hasData: !!data 
+            });
+            res.status(400).send('Missing required data');
+            return;
+        }
+
+        console.log('Writing to collection:', collection);
+        
+        const docRef = await admin.firestore()
+            .collection(collection)
+            .add({
+                ...data,
+                serverTimestamp: admin.firestore.FieldValue.serverTimestamp()
+            });
+
+        console.log('Document written with ID:', docRef.id);
+        res.status(200).send('Success');
+    } catch (error) {
+        console.error('Analytics update error:', error);
+        res.status(500).send('Error');
+    }
 });
 EOF
 
 # Create src/api/index.js to export API functions
 cat > src/api/index.js << EOF
 exports.getApiKeys = require('./getApiKeys').getApiKeys;
-exports.getLocation = require('./getLocation').getLocation;
+exports.logAnalytics = require('./logAnalytics').logAnalytics;
 EOF
 
 # Create main index.js that exports the api group
@@ -238,6 +251,9 @@ service cloud.firestore {
   match /databases/{database}/documents {
 $(for country in "${COUNTRIES[@]}"; do
 cat << COUNTRYRULES
+    match /pageViews_${country}/{docId} {
+      allow write: if true;
+    }
     match /submissions_${country}/{raceId} {
       allow read: if true;
       allow write: if true;
@@ -258,6 +274,13 @@ $(for country in "${COUNTRIES[@]}"; do
 cat << COUNTRYINDEXES
     {
       "collectionGroup": "submissions_${country}",
+      "fieldPath": "date",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION" }
+      ]
+    },
+        {
+      "collectionGroup": "pageViews_${country}",
       "fieldPath": "date",
       "indexes": [
         { "order": "ASCENDING", "queryScope": "COLLECTION" }
@@ -297,6 +320,12 @@ cat << HOSTING
         "firebase.json",
         "**/.*",
         "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "/log-analytics",
+          "function": "logAnalytics"
+        }
       ]
     }$([ "$country" != "${COUNTRIES[-1]}" ] && echo ",")
 HOSTING
