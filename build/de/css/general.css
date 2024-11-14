@@ -19,7 +19,7 @@ html {
   }
 }
 body {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   line-height: 1;
   font-weight: 400;
   color: #000;
@@ -36,6 +36,7 @@ select:focus {
   --color-background: #fff;
   --color-background-shade: #eee;
   --color-primary: #00492f;
+  --color-primary-tint: #006644;
   --color-primary-shade: #001a11;
   --color-primary-overlay-hard: #e6edea;
   --color-primary-overlay-medium: rgba(230, 237, 234, 0.5);
@@ -69,7 +70,7 @@ select:focus {
   margin-bottom: 4rem;
 }
 .new-amsterdam {
-  font-family: "New Amsterdam", sans-serif;
+  font-family: 'New Amsterdam', sans-serif;
   font-weight: 400;
   font-style: normal;
   letter-spacing: 0.2rem;
@@ -97,7 +98,11 @@ select:focus {
   background: var(--color-primary-overlay-soft);
 }
 .overlay.gradient {
-  background: linear-gradient(to bottom, var(--color-primary-overlay-hard), var(--color-primary-overlay-medium));
+  background: linear-gradient(
+    to bottom,
+    var(--color-primary-overlay-hard),
+    var(--color-primary-overlay-medium)
+  );
 }
 .right-scroller {
   display: flex;

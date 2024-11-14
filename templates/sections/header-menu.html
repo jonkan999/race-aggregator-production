@@ -8,7 +8,12 @@
       <h2 class="page-name new-amsterdam">{{ page_name }}</h2></a
     >
     <div class="login-container">
-      <ion-icon class="login-icon" name="person-circle-outline"></ion-icon>
+      <ion-icon
+        class="login-icon"
+        name="person-circle-outline"
+        title="Login"
+        id="login-icon"
+      ></ion-icon>
     </div>
   </div>
   <nav class="main-nav-container right-scroller">
@@ -18,4 +23,154 @@
     >
     {% endfor %}
   </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>{{ auth_modal.title_sign_in }}</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="{{ auth_modal.email_placeholder }}"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="{{ auth_modal.password_placeholder }}"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              {{ auth_modal.forgot_password }}
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              {{ auth_modal.create_account_prompt }}
+            </a>
+          </div>
+          <button type="submit">{{ auth_modal.submit_sign_in }}</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              {{ auth_modal.create_account }}
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              {{ auth_modal.forgot_password }}
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>{{ auth_modal.title_create_account }}</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="{{ auth_modal.name_placeholder }}"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="{{ auth_modal.email_placeholder }}"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="{{ auth_modal.password_placeholder }}"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">{{ auth_modal.submit_create_account }}</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              {{ auth_modal.back_to_login }}
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>{{ auth_modal.title_reset_password }}</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="{{ auth_modal.email_placeholder }}"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">{{ auth_modal.submit_reset_password }}</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              {{ auth_modal.back_to_login }}
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>{{ auth_modal.already_logged_in }}</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            {{ auth_modal.continue_as_user }}
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            {{ auth_modal.logout_and_switch }}
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>{{ auth_modal.account_created }}</h2>
+        <div class="logged-in-user-info">
+          <p>{{ auth_modal.account_created_details }}</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            {{ auth_modal.verification_email_sent }}
+          </p>
+          <p class="verification-notice">{{ auth_modal.please_verify }}</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          {{ auth_modal.continue_as_user }}
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
 </section>

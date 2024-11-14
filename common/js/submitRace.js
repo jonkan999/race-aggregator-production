@@ -16,10 +16,10 @@ import {
 
 const messages = {
   auth: {
-    titleNewUser: '{{ auth_modal.title_new_user }}',
+    titleNewUser: '{{ auth_modal.title_create_account }}',
     titleSignIn: '{{ auth_modal.title_sign_in }}',
     passwordPlaceholder: '{{ auth_modal.password_placeholder }}',
-    submitNewUser: '{{ auth_modal.submit_new_user }}',
+    submitNewUser: '{{ auth_modal.submit_create_account }}',
     submitSignIn: '{{ auth_modal.submit_sign_in }}',
     forgotPassword: '{{ auth_modal.forgot_password }}',
     errorWrongPassword: '{{ auth_modal.error_wrong_password }}',

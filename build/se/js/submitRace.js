@@ -22,7 +22,7 @@ const messages = {
     submitNewUser: 'Skapa konto',
     submitSignIn: 'Logga in',
     forgotPassword: 'Glömt lösenord?',
-    errorWrongPassword: 'Fel lösenord. Försök igen',
+    errorWrongPassword: 'Fel lösenord',
   },
   submission: {
     loggedInAs: 'Inloggad som arrangör',

@@ -1,4 +1,4 @@
-@import "_variables.less";
+@import '_variables.less';
 
 * {
   padding: 0;
@@ -19,7 +19,7 @@ html {
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   line-height: 1;
   font-weight: 400;
   color: var(--color-black-text);
@@ -37,7 +37,7 @@ select:focus {
 
 @color-primary-shade: #001a11;
 
-@color-primary-tint: rgb(208, 255, 239);
+@color-primary-tint: #006644;
 
 /* Create a semi-transparent overlay color based on the primary color */
 @color-primary-overlay-hard: rgba(
@@ -82,6 +82,7 @@ select:focus {
   --color-background-shade: #eee;
 
   --color-primary: @color-primary;
+  --color-primary-tint: @color-primary-tint;
   --color-primary-shade: @color-primary-shade;
   --color-primary-overlay-hard: @color-primary-overlay-hard;
   --color-primary-overlay-medium: @color-primary-overlay-medium;
@@ -125,7 +126,7 @@ select:focus {
 }
 
 .new-amsterdam {
-  font-family: "New Amsterdam", sans-serif;
+  font-family: 'New Amsterdam', sans-serif;
   font-weight: 400;
   font-style: normal;
   letter-spacing: 0.2rem;

@@ -184,7 +184,7 @@ class SEOContentGenerator:
     
     def generate_basic_seo_content(self,index_content, county=None, race_type=None, category=None):
         """Fallback function for basic SEO content generation."""
-        location = city or county
+        location = county #city or county
         
         # Get templates from config
         templates = index_content['seo_templates']
