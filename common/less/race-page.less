@@ -324,6 +324,71 @@
       }
     }
   }
+
+  .race-forum-section {
+    margin-top: 4rem;
+    padding: 2rem;
+    background: var(--color-background-light);
+    border-radius: var(--border-radius);
+
+    h2 {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .forum-posts {
+      margin-bottom: 2rem;
+
+      .forum-post {
+        padding: 1.5rem;
+        font-size: 1.6rem;
+        background: white;
+        border-radius: var(--border-radius);
+        margin-bottom: 1rem;
+
+        .post-header {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 1rem;
+          font-size: 0.9em;
+          color: var(--color-text-light);
+
+          .post-author {
+            font-weight: bold;
+          }
+        }
+
+        .post-content {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+
+    .forum-input-container {
+      position: relative;
+
+      textarea {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius);
+        resize: vertical;
+        margin-bottom: 1rem;
+      }
+
+      .login-prompt {
+        text-align: center;
+        color: var(--color-primary);
+        cursor: pointer;
+        margin-top: 1rem;
+        font-size: 1.6rem;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: @small-tablet) {

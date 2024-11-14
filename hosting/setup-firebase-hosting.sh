@@ -254,6 +254,11 @@ cat << COUNTRYRULES
       allow read: if true;
       allow write: if true;
     }
+    match /forum_posts_${country}/{postId} {
+      // Anyone can read posts
+      allow read: if true;
+      allow write: if true;
+    }
 COUNTRYRULES
 done)
   }

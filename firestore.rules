@@ -12,10 +12,20 @@ service cloud.firestore {
       allow read: if true;
       allow write: if true;
     }
+    match /forum_posts_se/{postId} {
+      // Anyone can read posts
+      allow read: if true;
+      allow write: if true;
+    }
     match /pageViews_no/{docId} {
       allow write: if true;
     }
     match /submissions_no/{raceId} {
+      allow read: if true;
+      allow write: if true;
+    }
+    match /forum_posts_no/{postId} {
+      // Anyone can read posts
       allow read: if true;
       allow write: if true;
     }
