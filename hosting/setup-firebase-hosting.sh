@@ -83,6 +83,7 @@ allowed_origins="${allowed_origins}]"
 
 # Create functions directory structure
 mkdir -p functions/src/api
+mkdir -p functions/src/scheduled
 cd functions
 
 # Create package.json with node-fetch dependency
@@ -98,12 +99,12 @@ cat > package.json << EOF
     "logs": "firebase functions:log"
   },
   "engines": {
-    "node": "18"
+    "node": "20"
   },
   "main": "index.js",
   "dependencies": {
-    "firebase-admin": "^11.11.1",
-    "firebase-functions": "^4.5.0",
+    "firebase-admin": "^12.0.0",
+    "firebase-functions": "^5.1.0",
     "node-fetch": "^2.7.0"
   },
   "private": true,
@@ -151,62 +152,53 @@ done)
 });
 EOF
 
-cat > src/api/logAnalytics.js << EOF
-const { onRequest } = require("firebase-functions/v2/https");
+
+# Create the daily salt manager function
+cat > src/scheduled/dailySaltManager.js << EOF
+const { onSchedule } = require("firebase-functions/v2/scheduler");
 const admin = require('firebase-admin');
+const { randomUUID } = require('crypto');
 
 if (!admin.apps.length) {
-    admin.initializeApp();
+  admin.initializeApp();
 }
 
-exports.logAnalytics = onRequest({
-    region: 'europe-west3',
-    cors: true,
-    maxInstances: 10
-}, async (req, res) => {
-    // CORS headers
-    res.set('Access-Control-Allow-Origin', '*');
-    res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
-    res.set('Access-Control-Allow-Headers', 'Content-Type');
+exports.manageDailySalts = onSchedule({
+  schedule: '0 0 * * *',  // Midnight UTC
+  timeZone: 'UTC',
+  region: 'europe-west3'
+}, async (event) => {
+    const db = admin.firestore();
     
-    // Handle preflight request
-    if (req.method === 'OPTIONS') {
-        res.status(204).send('');
-        return;
-    }
-
-    console.log('Received analytics request:', {
-        method: req.method,
-        contentType: req.headers['content-type'],
-        bodySize: req.rawBody?.length || 0
-    });
-
+    // Get UTC date string YYYY-MM-DD
+    const todayDate = new Date().toISOString().slice(0, 10);
+    
     try {
-        const { collection, data } = req.body;
-        
-        if (!collection || !data) {
-            console.error('Missing required data:', { 
-                hasCollection: !!collection, 
-                hasData: !!data 
-            });
-            res.status(400).send('Missing required data');
-            return;
-        }
+      // 1. Delete all existing salts
+      const saltsSnapshot = await db.collection('dailySalts').get();
+      const batch = db.batch();
+      
+      saltsSnapshot.docs.forEach((doc) => {
+        batch.delete(doc.ref);
+      });
+      
+      // 2. Create today's salt
+      const newSalt = {
+        salt: randomUUID(),
+        date: todayDate,
+        createdAt: new Date().toISOString()  // This will be UTC timestamp
+      };
+      
+      const saltDoc = db.collection('dailySalts').doc(todayDate);
+      batch.set(saltDoc, newSalt);
 
-        console.log('Writing to collection:', collection);
-        
-        const docRef = await admin.firestore()
-            .collection(collection)
-            .add({
-                ...data,
-                serverTimestamp: admin.firestore.FieldValue.serverTimestamp()
-            });
-
-        console.log('Document written with ID:', docRef.id);
-        res.status(200).send('Success');
+      await batch.commit();
+      
+      console.log(`Created new salt for ${todayDate} UTC`);
+      return { success: true };
     } catch (error) {
-        console.error('Analytics update error:', error);
-        res.status(500).send('Error');
+      console.error('Error managing daily salts:', error);
+      return { success: false, error: error.message };
     }
 });
 EOF
@@ -214,12 +206,12 @@ EOF
 # Create src/api/index.js to export API functions
 cat > src/api/index.js << EOF
 exports.getApiKeys = require('./getApiKeys').getApiKeys;
-exports.logAnalytics = require('./logAnalytics').logAnalytics;
 EOF
 
 # Create main index.js that exports the api group
 cat > index.js << EOF
 exports.api = require('./src/api');
+exports.scheduled = require('./src/scheduled/dailySaltManager');
 EOF
 
 cd ..
@@ -249,6 +241,10 @@ cat > firestore.rules << EOF
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    match /dailySalts/{saltId} {
+      allow read: if true;
+      allow write: if false;
+    }
 $(for country in "${COUNTRIES[@]}"; do
 cat << COUNTRYRULES
     match /pageViews_${country}/{docId} {
@@ -270,6 +266,13 @@ cat > firestore.indexes.json << EOF
 {
   "indexes": [],
   "fieldOverrides": [
+    {
+      "collectionGroup": "dailySalts",
+      "fieldPath": "expiresAt",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION" }
+      ]
+    },
 $(for country in "${COUNTRIES[@]}"; do
 cat << COUNTRYINDEXES
     {
@@ -279,7 +282,7 @@ cat << COUNTRYINDEXES
         { "order": "ASCENDING", "queryScope": "COLLECTION" }
       ]
     },
-        {
+    {
       "collectionGroup": "pageViews_${country}",
       "fieldPath": "date",
       "indexes": [
@@ -320,12 +323,6 @@ cat << HOSTING
         "firebase.json",
         "**/.*",
         "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-          "source": "/log-analytics",
-          "function": "logAnalytics"
-        }
       ]
     }$([ "$country" != "${COUNTRIES[-1]}" ] && echo ",")
 HOSTING

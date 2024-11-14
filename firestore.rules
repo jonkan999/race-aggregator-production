@@ -1,6 +1,10 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    match /dailySalts/{saltId} {
+      allow read: if true;
+      allow write: if false;
+    }
     match /pageViews_se/{docId} {
       allow write: if true;
     }
