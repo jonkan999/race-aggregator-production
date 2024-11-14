@@ -31,7 +31,8 @@
 
 .login-container {
   position: absolute; /* Position the login container absolutely within the header */
-  right: 1rem; /* Add margin to the right edge of the screen */
+  right: 0.8rem; /* Add margin to the right edge of the screen */
+  transform: translateY(-0.4rem);
 }
 
 .login-icon {
@@ -98,6 +99,9 @@
   h2 {
     margin-bottom: 0.2rem;
     font-size: 1.6rem;
+  }
+  @media (max-width: @phone) {
+    min-width: 35rem;
   }
 }
 
@@ -258,4 +262,27 @@
 
 .error-reset-link:hover {
   text-decoration: underline;
+}
+
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.login-icon {
+  font-size: 4rem;
+}
+
+.user-display-name {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  display: none;
+  white-space: nowrap;
+  text-align: center;
 }

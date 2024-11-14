@@ -6,6 +6,7 @@ import {
   updateProfile,
   signOut,
   sendEmailVerification,
+  fetchSignInMethodsForEmail,
 } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js';
 
 const messages = {
@@ -116,41 +117,51 @@ export function initializeHeaderLogin() {
     const errorResetLink = document.getElementById('errorResetLink');
     const errorCreateLink = document.getElementById('errorCreateLink');
 
+    // First check if the email exists by trying to create an account
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      modalContainer.style.display = 'none';
-      resetForms();
-    } catch (error) {
-      if (error.code === 'auth/wrong-password') {
-        errorDiv.textContent = messages.auth.errorWrongPassword;
-        errorResetLink.style.display = 'block';
-        errorCreateLink.style.display = 'none';
-        errorResetLink.onclick = (e) => {
-          e.preventDefault();
-          showForm('reset');
-          document.getElementById('resetEmail').value = email;
-        };
-      } else if (
-        error.code === 'auth/user-not-found' ||
-        error.code === 'auth/invalid-credential'
-      ) {
-        errorDiv.textContent = messages.auth.errorEmailNotFound;
-        errorResetLink.style.display = 'none';
-        errorCreateLink.style.display = 'block';
-        errorCreateLink.onclick = (e) => {
-          e.preventDefault();
-          showForm('create');
-          document.getElementById('signupEmail').value = email;
-        };
-      } else if (error.code === 'auth/too-many-requests') {
-        errorDiv.textContent = messages.auth.error_too_many_requests;
-        errorResetLink.style.display = 'block';
-        errorCreateLink.style.display = 'none';
-        errorResetLink.onclick = (e) => {
-          e.preventDefault();
-          showForm('reset');
-          document.getElementById('resetEmail').value = email;
-        };
+      await createUserWithEmailAndPassword(auth, email, 'dummy-password');
+      // If we get here, the email doesn't exist
+      errorDiv.textContent = messages.auth.errorEmailNotFound;
+      errorResetLink.style.display = 'none';
+      errorCreateLink.style.display = 'block';
+      errorCreateLink.onclick = (e) => {
+        e.preventDefault();
+        showForm('create');
+        document.getElementById('signupEmail').value = email;
+      };
+    } catch (createError) {
+      if (createError.code === 'auth/email-already-in-use') {
+        // Email exists, now try to sign in with provided password
+        try {
+          await signInWithEmailAndPassword(auth, email, password);
+          modalContainer.style.display = 'none';
+          resetForms();
+        } catch (signInError) {
+          if (signInError.code === 'auth/invalid-credential') {
+            // Wrong password for existing user
+            errorDiv.textContent = messages.auth.errorWrongPassword;
+            errorResetLink.style.display = 'block';
+            errorCreateLink.style.display = 'none';
+            errorResetLink.onclick = (e) => {
+              e.preventDefault();
+              showForm('reset');
+              document.getElementById('resetEmail').value = email;
+            };
+          } else if (signInError.code === 'auth/too-many-requests') {
+            errorDiv.textContent = messages.auth.error_too_many_requests;
+            errorResetLink.style.display = 'block';
+            errorCreateLink.style.display = 'none';
+            errorResetLink.onclick = (e) => {
+              e.preventDefault();
+              showForm('reset');
+              document.getElementById('resetEmail').value = email;
+            };
+          } else {
+            errorDiv.textContent = messages.auth.error_invalid_credential;
+            errorResetLink.style.display = 'none';
+            errorCreateLink.style.display = 'none';
+          }
+        }
       } else {
         errorDiv.textContent = messages.auth.error_invalid_credential;
         errorResetLink.style.display = 'none';
@@ -284,14 +295,21 @@ export function initializeHeaderLogin() {
 
 function updateLoginState(auth) {
   const loginIcon = document.querySelector('.login-icon');
-  if (!loginIcon) return;
+  const userDisplayName = document.getElementById('currentUserDisplayName');
+  if (!loginIcon || !userDisplayName) return;
 
   if (auth.currentUser) {
     console.log('User is logged in:', auth.currentUser.email);
     loginIcon.setAttribute('name', 'person-circle');
+    loginIcon.style.color = 'var(--color-primary)';
+    userDisplayName.textContent = auth.currentUser.displayName || 'User';
+    userDisplayName.style.display = 'block';
   } else {
     console.log('User is logged out');
     loginIcon.setAttribute('name', 'person-circle-outline');
+    loginIcon.style.color = 'var(--color-primary-shade)';
+    userDisplayName.style.display = 'none';
+    userDisplayName.textContent = '';
   }
 }
 
