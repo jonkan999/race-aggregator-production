@@ -117,51 +117,42 @@ export function initializeHeaderLogin() {
     const errorResetLink = document.getElementById('errorResetLink');
     const errorCreateLink = document.getElementById('errorCreateLink');
 
-    // First check if the email exists by trying to create an account
     try {
-      await createUserWithEmailAndPassword(auth, email, 'dummy-password');
-      // If we get here, the email doesn't exist
-      errorDiv.textContent = messages.auth.errorEmailNotFound;
-      errorResetLink.style.display = 'none';
-      errorCreateLink.style.display = 'block';
-      errorCreateLink.onclick = (e) => {
-        e.preventDefault();
-        showForm('create');
-        document.getElementById('signupEmail').value = email;
-      };
-    } catch (createError) {
-      if (createError.code === 'auth/email-already-in-use') {
-        // Email exists, now try to sign in with provided password
-        try {
-          await signInWithEmailAndPassword(auth, email, password);
-          modalContainer.style.display = 'none';
-          resetForms();
-        } catch (signInError) {
-          if (signInError.code === 'auth/invalid-credential') {
-            // Wrong password for existing user
-            errorDiv.textContent = messages.auth.errorWrongPassword;
-            errorResetLink.style.display = 'block';
-            errorCreateLink.style.display = 'none';
-            errorResetLink.onclick = (e) => {
-              e.preventDefault();
-              showForm('reset');
-              document.getElementById('resetEmail').value = email;
-            };
-          } else if (signInError.code === 'auth/too-many-requests') {
-            errorDiv.textContent = messages.auth.error_too_many_requests;
-            errorResetLink.style.display = 'block';
-            errorCreateLink.style.display = 'none';
-            errorResetLink.onclick = (e) => {
-              e.preventDefault();
-              showForm('reset');
-              document.getElementById('resetEmail').value = email;
-            };
-          } else {
-            errorDiv.textContent = messages.auth.error_invalid_credential;
-            errorResetLink.style.display = 'none';
-            errorCreateLink.style.display = 'none';
-          }
-        }
+      await signInWithEmailAndPassword(auth, email, password);
+      modalContainer.style.display = 'none';
+      resetForms();
+    } catch (error) {
+      console.log('error.code', error.code);
+
+      if (error.code === 'auth/invalid-credential') {
+        // Show wrong password error with reset link
+        errorDiv.textContent = messages.auth.errorWrongPassword;
+        errorResetLink.style.display = 'block';
+        errorCreateLink.style.display = 'none';
+        errorResetLink.onclick = (e) => {
+          e.preventDefault();
+          showForm('reset');
+          document.getElementById('resetEmail').value = email;
+        };
+      } else if (error.code === 'auth/user-not-found') {
+        // Show user not found error with create account link
+        errorDiv.textContent = messages.auth.errorEmailNotFound;
+        errorResetLink.style.display = 'none';
+        errorCreateLink.style.display = 'block';
+        errorCreateLink.onclick = (e) => {
+          e.preventDefault();
+          showForm('create');
+          document.getElementById('signupEmail').value = email;
+        };
+      } else if (error.code === 'auth/too-many-requests') {
+        errorDiv.textContent = messages.auth.error_too_many_requests;
+        errorResetLink.style.display = 'block';
+        errorCreateLink.style.display = 'none';
+        errorResetLink.onclick = (e) => {
+          e.preventDefault();
+          showForm('reset');
+          document.getElementById('resetEmail').value = email;
+        };
       } else {
         errorDiv.textContent = messages.auth.error_invalid_credential;
         errorResetLink.style.display = 'none';
