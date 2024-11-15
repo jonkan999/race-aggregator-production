@@ -1,5 +1,24 @@
 {
-  "indexes": [],
+  "indexes": [
+    {
+      "collectionGroup": "forum_posts_se",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "source_race", "mode": "ASCENDING" },
+        { "fieldPath": "createdAt", "mode": "DESCENDING" },
+        { "fieldPath": "__name__", "mode": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "forum_posts_no",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "source_race", "mode": "ASCENDING" },
+        { "fieldPath": "createdAt", "mode": "DESCENDING" },
+        { "fieldPath": "__name__", "mode": "DESCENDING" }
+      ]
+    }
+  ],
   "fieldOverrides": [
     {
       "collectionGroup": "dailySalts",
@@ -23,10 +42,10 @@
       ]
     },
     {
-      "collectionGroup": "races_se",
-      "fieldPath": "date",
+      "collectionGroup": "forum_posts_se",
+      "fieldPath": "createdAt",
       "indexes": [
-        { "order": "ASCENDING", "queryScope": "COLLECTION" }
+        { "order": "DESCENDING", "queryScope": "COLLECTION" }
       ]
     },
     {
@@ -44,10 +63,10 @@
       ]
     },
     {
-      "collectionGroup": "races_no",
-      "fieldPath": "date",
+      "collectionGroup": "forum_posts_no",
+      "fieldPath": "createdAt",
       "indexes": [
-        { "order": "ASCENDING", "queryScope": "COLLECTION" }
+        { "order": "DESCENDING", "queryScope": "COLLECTION" }
       ]
     }
   ]

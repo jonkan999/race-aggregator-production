@@ -1,6 +1,6 @@
 .section-header-menu {
   /* placeholder */
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.5rem;
 }
 .upper-header {
   display: flex;
@@ -15,12 +15,18 @@
   width: 100%;
   /* Make the header span the full width */
   color: var(--color-primary-shade);
-  margin-bottom: 0.5rem;
+  margin: 0 auto 1.5rem auto;
+  max-width: 70%;
+}
+@media (max-width: 34em) {
+  .upper-header {
+    max-width: 95%;
+  }
 }
 .logo-container {
   position: absolute;
   /* Position the login container absolutely within the header */
-  left: 1rem;
+  left: 0.5rem;
   /* Add margin to the right edge of the screen */
   height: 6rem;
   width: 6rem;
@@ -32,15 +38,24 @@
 }
 .login-container {
   position: absolute;
-  /* Position the login container absolutely within the header */
-  right: 0.8rem;
-  /* Add margin to the right edge of the screen */
-  transform: translateY(-0.4rem);
+  right: 0.3rem;
+  transform: translateY(0.8rem);
+  width: 7rem;
+  height: 6.4rem;
+  cursor: pointer;
+  z-index: 2;
+}
+.login-container:hover {
+  color: var(--color-primary-tint);
+}
+.login-container .user-display-name {
+  pointer-events: none;
 }
 .login-icon {
   font-size: 4rem;
 }
 .home-link {
+  padding-top: 0.5rem;
   color: var(--color-primary-shade);
   text-decoration: none;
 }
@@ -57,7 +72,7 @@
 }
 .main-nav-container {
   padding-left: 1rem;
-  padding-bottom: 0.8rem;
+  padding-bottom: 2rem;
 }
 @media (max-width: 59em) {
   .main-nav-container {
@@ -147,14 +162,11 @@
 }
 .auth-modal .error {
   color: var(--color-warning);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 .login-icon {
   cursor: pointer;
   transition: color 0.2s ease;
-}
-.login-icon:hover {
-  color: var(--color-primary-tint);
 }
 .auth-form-container {
   width: 100%;
@@ -170,7 +182,6 @@
   color: var(--color-primary);
   cursor: pointer;
   padding: 0;
-  font: inherit;
   text-decoration: underline;
 }
 .logged-in-user-info {
@@ -209,7 +220,7 @@
   font-size: 1.6rem;
 }
 .primary-button:hover {
-  background-color: var(--color-primary-dark);
+  background-color: var(--color-primary-tint);
 }
 .secondary-button:hover {
   background-color: var(--color-primary-light);
@@ -232,7 +243,7 @@
 .error-reset-link {
   color: var(--color-primary);
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   white-space: nowrap;
 }
 .error-reset-link:hover {
@@ -251,10 +262,14 @@
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.5rem;
+  transform: translate(-50%, 0.5rem);
+  font-size: 1.6rem;
+  font-weight: 500;
   color: var(--color-primary);
   display: none;
   white-space: nowrap;
   text-align: center;
+}
+.login-text {
+  display: block;
 }

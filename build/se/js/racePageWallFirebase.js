@@ -1,4 +1,4 @@
-import { getFirebaseAuth } from './firebaseConfig.js';
+import { authService } from './firebaseAuthService.js';
 import {
   collection,
   addDoc,
@@ -7,41 +7,47 @@ import {
 export function initializeRaceForum() {
   console.log('Starting forum initialization...');
 
+  const forumInputContainer = document.getElementById('forum-input-container');
   const forumInput = document.getElementById('forum-input');
   const submitButton = document.getElementById('forum-submit');
   const loginPrompt = document.getElementById('login-prompt');
   const country = 'se';
-
-  // Debug log elements
-  console.log('Forum elements found:', {
-    forumInput: !!forumInput,
-    submitButton: !!submitButton,
-    loginPrompt: !!loginPrompt,
-  });
-
-  // Add click handler immediately, don't wait for initialization
-  if (loginPrompt) {
-    console.log('Setting up login prompt click handler');
-    loginPrompt.addEventListener('click', () => {
-      console.log('Login prompt clicked');
-      const loginIcon = document.querySelector('.login-icon');
-      if (loginIcon) {
-        loginIcon.click();
-      } else {
-        console.error('Login icon not found');
-      }
-    });
-  }
+  const errorWrongPassword =
+    'Logga in eller skapa ett konto för att ställa en fråga';
 
   async function initialize() {
     console.log('Initializing race forum...');
-    const { auth, db } = await getFirebaseAuth();
+    const auth = await authService.getAuth();
+    const db = await authService.getDb();
     console.log('Firebase DB initialized:', !!db);
+
+    // Add click handler after we have auth
+    if (forumInputContainer) {
+      console.log('Setting up forum input click handler');
+      forumInputContainer.addEventListener('click', () => {
+        // Only trigger login if user is not authenticated
+        if (!auth.currentUser) {
+          console.log('Forum input clicked - user not logged in');
+          const loginContainer = document.querySelector('.login-container');
+          if (loginContainer) {
+            console.log('Login container found, clicking');
+            loginContainer.click();
+            const errorDiv = document.getElementById('loginError');
+            errorDiv.textContent = errorWrongPassword;
+          }
+        }
+      });
+    }
 
     // Listen for auth state changes
     auth.onAuthStateChanged((user) => {
       console.log('Auth state changed:', !!user);
       forumInput.disabled = !user;
+      forumInput.style.pointerEvents = user ? 'auto' : 'none';
+      forumInput.style.cursor = user ? 'auto' : 'pointer';
+      forumInput.style.borderColor = user
+        ? 'var(--color-primary-tint)'
+        : 'var(--color-divider-grey)';
       submitButton.style.display = user ? 'block' : 'none';
       loginPrompt.style.display = user ? 'none' : 'block';
     });
@@ -49,15 +55,23 @@ export function initializeRaceForum() {
     // Handle post submission
     submitButton?.addEventListener('click', async () => {
       const content = forumInput.value.trim();
-      if (!content || !auth.currentUser) return;
+      // Check for empty content
+      if (!content || content.length === 0) {
+        console.log('Empty content, not submitting');
+        return;
+      }
+      if (!auth.currentUser) return;
 
       try {
+        const postId = crypto.randomUUID();
         await addDoc(collection(db, `forum_posts_${country}`), {
           content,
+          source_race: forumInput.getAttribute('data-source'),
+          id: postId,
           authorId: auth.currentUser.uid,
           authorName: auth.currentUser.displayName || 'Anonymous',
           createdAt: new Date(),
-          type: 'question',
+          type: 'race_wall_post',
         });
         forumInput.value = '';
         console.log('Post submitted successfully');

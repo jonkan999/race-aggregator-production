@@ -7,7 +7,7 @@
     <a class="home-link" href="/">
       <h2 class="page-name new-amsterdam">{{ page_name }}</h2></a
     >
-    <div class="login-container">
+    <div class="login-container" id="login-container">
       <div class="login-wrapper">
         <ion-icon
           class="login-icon"
@@ -15,7 +15,12 @@
           title="Login"
           id="login-icon"
         ></ion-icon>
-        <span id="currentUserDisplayName" class="user-display-name"></span>
+        <span id="loginText" class="user-display-name login-text">
+          {{ auth_modal.title_sign_in }}
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
       </div>
     </div>
   </div>

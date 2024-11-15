@@ -4,6 +4,7 @@
       <img
         id="race-main-image"
         src="{{ images[0].filename if images else '' }}"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
         alt="{{ images[0].alt if images else 'Main race image' }}"
         class="background-img-nofilter"
       />
@@ -142,7 +143,70 @@
       </ul>
       {% endif %}
     </div>
+    <div class="race-forum-section">
+      <h2>{{ race_page.forum_section.title }}</h2>
 
+      <!-- Forum posts container -->
+      <div id="forum-posts" class="forum-posts">
+        {% for post in forum_posts %}
+        <div class="forum-post">
+          <div class="post-header">
+            <span class="post-author">{{ post.authorName }}</span>
+            <span class="post-date">{{ post.createdAt }}</span>
+          </div>
+          <div class="post-content">{{ post.content }}</div>
+        </div>
+        {% endfor %} {% if not forum_posts %}
+        <div class="empty-state">{{ race_page.forum_section.empty_state }}</div>
+        {% endif %}
+      </div>
+
+      <!-- Input area -->
+      <div class="forum-input-container" id="forum-input-container">
+        <textarea
+          id="forum-input"
+          data-source="{{ race.domain_name }}"
+          placeholder="{{ race_page.forum_section.placeholder }}"
+          rows="3"
+          {%
+          if
+          not
+          user
+          %}disabled{%
+          endif
+          %}
+        ></textarea>
+
+        <button
+          id="forum-submit"
+          class="primary-button"
+          {%
+          if
+          not
+          user
+          %}style="display: none;"
+          {%
+          endif
+          %}
+        >
+          {{ race_page.forum_section.submit_button }}
+        </button>
+
+        <div
+          id="login-prompt"
+          class="login-prompt"
+          {%
+          if
+          user
+          %}style="display: none;"
+          {%
+          endif
+          %}
+        >
+          {{ race_page.forum_section.login_prompt }}
+        </div>
+      </div>
+    </div>
     <div class="race-auxiliary-info">
       <h2>{{ race_page_additional_label }}</h2>
       <p id="race-additional">
@@ -217,69 +281,5 @@
     >
       {{ race_page_visit_organizer_website }}
     </a>
-  </div>
-
-  <div class="race-forum-section">
-    <h2>{{ race_page.forum_section.title }}</h2>
-
-    <!-- Forum posts container -->
-    <div id="forum-posts" class="forum-posts">
-      {% for post in forum_posts %}
-      <div class="forum-post">
-        <div class="post-header">
-          <span class="post-author">{{ post.authorName }}</span>
-          <span class="post-date">{{ post.createdAt }}</span>
-        </div>
-        <div class="post-content">{{ post.content }}</div>
-      </div>
-      {% endfor %} {% if not forum_posts %}
-      <div class="empty-state">{{ race_page.forum_section.empty_state }}</div>
-      {% endif %}
-    </div>
-
-    <!-- Input area -->
-    <div class="forum-input-container">
-      <textarea
-        id="forum-input"
-        placeholder="{{ race_page.forum_section.placeholder }}"
-        rows="3"
-        {%
-        if
-        not
-        user
-        %}disabled{%
-        endif
-        %}
-      ></textarea>
-
-      <button
-        id="forum-submit"
-        class="primary-button"
-        {%
-        if
-        not
-        user
-        %}style="display: none;"
-        {%
-        endif
-        %}
-      >
-        {{ race_page.forum_section.submit_button }}
-      </button>
-
-      <div
-        id="login-prompt"
-        class="login-prompt"
-        {%
-        if
-        user
-        %}style="display: none;"
-        {%
-        endif
-        %}
-      >
-        {{ race_page.forum_section.login_prompt }}
-      </div>
-    </div>
   </div>
 </section>

@@ -6,6 +6,10 @@ from jinja2 import Environment, FileSystemLoader
 from PIL import Image
 import base64
 import io
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
+from datetime import datetime
 
 # Import the custom functions from jinja_functions.py
 from jinja_functions import timeago, convert_date, slugify, get_display_values, map_verbose_distance
@@ -140,9 +144,40 @@ def generate_distance_filter(country_code):
     
     print(f"Distance filter generated successfully for {country_code}!")
 
-def generate_race_pages(country_code):
-    # First generate the distance filter
-    generate_distance_filter(country_code)
+def fetch_forum_posts(country_code, domain_name):
+    """Fetch forum posts for a specific race."""
+    # Initialize Firebase Admin if not already initialized
+    if not firebase_admin._apps:
+        cred = credentials.Certificate('python/keys/firestore_service_account.json')
+        firebase_admin.initialize_app(cred)
+    
+    db = firestore.client()
+    
+    # Query posts for this specific race
+    posts = (db.collection(f'forum_posts_{country_code}')
+             .where('source_race', '==', domain_name)
+             .order_by('createdAt', direction=firestore.Query.DESCENDING)
+             .get())
+    
+    # Convert to list of dicts and format dates
+    formatted_posts = []
+    for post in posts:
+        post_dict = post.to_dict()
+        # Convert Firestore Timestamp to string
+        if 'createdAt' in post_dict:
+            post_dict['createdAt'] = post_dict['createdAt'].strftime('%Y-%m-%d %H:%M')
+        formatted_posts.append(post_dict)
+    
+    return formatted_posts
+
+def generate_race_pages(country_code, domain_name=None):
+    """
+    Generate race pages for a country. If domain_name is provided,
+    only generate the page for that specific race.
+    """
+    # First generate the distance filter (only if building all races)
+    if not domain_name:
+        generate_distance_filter(country_code)
     
     country_dir = os.path.join(data_dir, country_code)
     
@@ -152,8 +187,15 @@ def generate_race_pages(country_code):
     
     # Load country-specific race data
     with open(os.path.join(country_dir, 'final_races.json')) as f:
-        races = json.load(f)
+        all_races = json.load(f)
+        
+    # Filter races if domain_name is provided
+    races = [race for race in all_races if race['domain_name'] == domain_name] if domain_name else all_races
     
+    if domain_name and not races:
+        print(f"No race found with domain name: {domain_name}")
+        return
+
     # Load image data (assuming it exists)
     try:
         with open(os.path.join(country_dir, 'final_images.json')) as f:
@@ -202,7 +244,10 @@ def generate_race_pages(country_code):
                     'filename': image_filename,
                     'alt': image_data['alt_text']
                 })
-
+        
+        # Fetch forum posts for this race
+        forum_posts = fetch_forum_posts(country_code, race['domain_name'])
+        
         # Prepare the context for rendering
         context = {
             **content,
@@ -212,6 +257,7 @@ def generate_race_pages(country_code):
             'js_path': '/js',
             'race_date': convert_date(race['date'], content['month_mapping_short']),
             'mapbox_zoom': content['mapbox_zoom'],
+            'forum_posts': forum_posts,  # Add forum posts to context
         }
 
         # Render the race page content
@@ -232,11 +278,18 @@ def generate_race_pages(country_code):
 if __name__ == "__main__":
     import sys
     
-    if len(sys.argv) > 1 and sys.argv[1] == "distance-filter":
-        # If running with "distance-filter" argument, only generate the filter
-        countries = sys.argv[2:] if len(sys.argv) > 2 else ['se']
-        for country in countries:
-            generate_distance_filter(country)
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "distance-filter":
+            # If running with "distance-filter" argument, only generate the filter
+            countries = sys.argv[2:] if len(sys.argv) > 2 else ['se']
+            for country in countries:
+                generate_distance_filter(country)
+        else:
+            # Assume first argument is domain_name
+            domain_name = sys.argv[1]
+            countries = ['se']  # or could be passed as additional argument
+            for country in countries:
+                generate_race_pages(country, domain_name)
     else:
         # Default behavior: generate everything
         countries = ['se']

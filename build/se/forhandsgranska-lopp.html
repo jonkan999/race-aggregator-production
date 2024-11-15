@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="/css/race-page.css" />
     <link rel="stylesheet" href="/css/add-race-preview.css" />
 
+    <script type="module" src="/js/commonFunctions.js"></script>
     <script type="module" src="/js/addRace.js"></script>
     <script type="module" src="/js/addRaceMap.js"></script>
     <script type="module" src="/js/racePageContent.js"></script>
@@ -59,7 +60,7 @@
     <a class="home-link" href="/">
       <h2 class="page-name new-amsterdam">Loppkartan</h2></a
     >
-    <div class="login-container">
+    <div class="login-container" id="login-container">
       <div class="login-wrapper">
         <ion-icon
           class="login-icon"
@@ -67,7 +68,12 @@
           title="Login"
           id="login-icon"
         ></ion-icon>
-        <span id="currentUserDisplayName" class="user-display-name"></span>
+        <span id="loginText" class="user-display-name login-text">
+          Logga in
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
       </div>
     </div>
   </div>
@@ -281,6 +287,7 @@
       <img
         id="race-main-image"
         src=""
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
         alt="Main race image"
         class="background-img-nofilter"
       />
@@ -396,7 +403,58 @@ andra intressanta detaljer.</p>
 
     
     </div>
+    <div class="race-forum-section">
+      <h2>Frågor &amp; Svar</h2>
 
+      <!-- Forum posts container -->
+      <div id="forum-posts" class="forum-posts">
+        
+        <div class="forum-post">
+          <div class="post-header">
+            <span class="post-author"></span>
+            <span class="post-date"></span>
+          </div>
+          <div class="post-content">Som rubriken lyder, jag har börjat få ont i hälen när jag springer. Tips på rehabövningar?</div>
+        </div>
+        
+        <div class="forum-post">
+          <div class="post-header">
+            <span class="post-author"></span>
+            <span class="post-date"></span>
+          </div>
+          <div class="post-content">Jag planerar en löp/vandringstur i Sverige och skulle gärna vilja höra era rekommendationer om de bästa lederna.</div>
+        </div>
+         
+      </div>
+
+      <!-- Input area -->
+      <div class="forum-input-container" id="forum-input-container">
+        <textarea
+          id="forum-input"
+          data-source=""
+          placeholder="Ställ en fråga till arrangören..."
+          rows="3"
+          disabled
+        ></textarea>
+
+        <button
+          id="forum-submit"
+          class="primary-button"
+          style="display: none;"
+          
+        >
+          Skicka fråga
+        </button>
+
+        <div
+          id="login-prompt"
+          class="login-prompt"
+          
+        >
+          Logga in för att ställa en fråga
+        </div>
+      </div>
+    </div>
     <div class="race-auxiliary-info">
       <h2>Övrig information</h2>
       <p id="race-additional">
@@ -476,58 +534,6 @@ speciella regler.
     >
       Till arrangörssidan &amp; anmälan
     </a>
-  </div>
-
-  <div class="race-forum-section">
-    <h2>Frågor &amp; Svar</h2>
-
-    <!-- Forum posts container -->
-    <div id="forum-posts" class="forum-posts">
-      
-      <div class="forum-post">
-        <div class="post-header">
-          <span class="post-author"></span>
-          <span class="post-date"></span>
-        </div>
-        <div class="post-content">Som rubriken lyder, jag har börjat få ont i hälen när jag springer. Tips på rehabövningar?</div>
-      </div>
-      
-      <div class="forum-post">
-        <div class="post-header">
-          <span class="post-author"></span>
-          <span class="post-date"></span>
-        </div>
-        <div class="post-content">Jag planerar en löp/vandringstur i Sverige och skulle gärna vilja höra era rekommendationer om de bästa lederna.</div>
-      </div>
-       
-    </div>
-
-    <!-- Input area -->
-    <div class="forum-input-container">
-      <textarea
-        id="forum-input"
-        placeholder="Ställ en fråga till arrangören..."
-        rows="3"
-        disabled
-      ></textarea>
-
-      <button
-        id="forum-submit"
-        class="primary-button"
-        style="display: none;"
-        
-      >
-        Skicka fråga
-      </button>
-
-      <div
-        id="login-prompt"
-        class="login-prompt"
-        
-      >
-        Logga in för att ställa en fråga
-      </div>
-    </div>
   </div>
 </section> 
 

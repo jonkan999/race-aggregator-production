@@ -1,4 +1,4 @@
-import { getFirebaseAuth } from './firebaseConfig.js';
+import { authService } from './firebaseAuthService.js';
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -44,7 +44,7 @@ console.log(messages.auth.forgotPassword);
 export function initializeHeaderLogin() {
   console.log('Initializing header login...');
   const modalContainer = document.querySelector('.auth-modal-container');
-  const loginIcon = document.querySelector('.login-icon');
+  const loginContainer = document.querySelector('.login-container');
 
   // Get all form containers
   const loginFormContainer = document.getElementById('loginForm');
@@ -64,14 +64,14 @@ export function initializeHeaderLogin() {
 
   // Initialize Firebase Auth
   let auth;
-  getFirebaseAuth().then(({ auth: firebaseAuth }) => {
+  authService.getAuth().then((firebaseAuth) => {
     auth = firebaseAuth;
     updateLoginState(auth);
     auth.onAuthStateChanged((user) => updateLoginState(auth));
   });
 
   // Show modal when login icon is clicked
-  loginIcon.addEventListener('click', async () => {
+  loginContainer.addEventListener('click', async () => {
     const user = auth.currentUser;
     modalContainer.style.display = 'block';
 
@@ -285,21 +285,24 @@ export function initializeHeaderLogin() {
 }
 
 function updateLoginState(auth) {
-  const loginIcon = document.querySelector('.login-icon');
+  const loginContainer = document.querySelector('.login-container');
   const userDisplayName = document.getElementById('currentUserDisplayName');
-  if (!loginIcon || !userDisplayName) return;
+  const loginText = document.getElementById('loginText');
+  if (!loginContainer || !userDisplayName) return;
 
   if (auth.currentUser) {
     console.log('User is logged in:', auth.currentUser.email);
-    loginIcon.setAttribute('name', 'person-circle');
-    loginIcon.style.color = 'var(--color-primary)';
+    loginContainer.setAttribute('name', 'person-circle');
+    loginContainer.style.color = 'var(--color-primary)';
     userDisplayName.textContent = auth.currentUser.displayName || 'User';
     userDisplayName.style.display = 'block';
+    loginText.style.display = 'none';
   } else {
     console.log('User is logged out');
-    loginIcon.setAttribute('name', 'person-circle-outline');
-    loginIcon.style.color = 'var(--color-primary-shade)';
+    loginContainer.setAttribute('name', 'person-circle-outline');
+    loginContainer.style.color = 'var(--color-primary-shade)';
     userDisplayName.style.display = 'none';
+    loginText.style.display = 'block';
     userDisplayName.textContent = '';
   }
 }

@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="/css/header-menu.css" />
     <link rel="stylesheet" href="/css/add-race.css" />
     <link rel="stylesheet" href="/css/add-race-preview.css" />
+
     <script type="module" src="/js/commonFunctions.js"></script>
     <script type="module" src="/js/addRace.js"></script>
     <script type="module" src="/js/addRaceMap.js"></script>
@@ -56,7 +57,7 @@
     <a class="home-link" href="/">
       <h2 class="page-name new-amsterdam">Loppkartan</h2></a
     >
-    <div class="login-container">
+    <div class="login-container" id="login-container">
       <div class="login-wrapper">
         <ion-icon
           class="login-icon"
@@ -64,7 +65,12 @@
           title="Login"
           id="login-icon"
         ></ion-icon>
-        <span id="currentUserDisplayName" class="user-display-name"></span>
+        <span id="loginText" class="user-display-name login-text">
+          Logga in
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
       </div>
     </div>
   </div>

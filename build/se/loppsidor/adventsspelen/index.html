@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="/css/header-menu.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-page.css" />
+
     <script type="module" src="/js/commonFunctions.js"></script>
     <script type="module" src="/js/racePageMap.js"></script>
     <script type="module" src="/js/racePageImageHandling.js"></script>
@@ -57,7 +58,7 @@
     <a class="home-link" href="/">
       <h2 class="page-name new-amsterdam">Loppkartan</h2></a
     >
-    <div class="login-container">
+    <div class="login-container" id="login-container">
       <div class="login-wrapper">
         <ion-icon
           class="login-icon"
@@ -65,7 +66,12 @@
           title="Login"
           id="login-icon"
         ></ion-icon>
-        <span id="currentUserDisplayName" class="user-display-name"></span>
+        <span id="loginText" class="user-display-name login-text">
+          Logga in
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
       </div>
     </div>
   </div>
@@ -272,6 +278,7 @@
       <img
         id="race-main-image"
         src="adventsspelen_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
         alt="Inomhus friidrotts tävling med höjdhopp."
         class="background-img-nofilter"
       />
@@ -433,7 +440,50 @@ kan inte garantera att allt är korrekt. Ser du några felaktigheter,
       </ul>
       
     </div>
+    <div class="race-forum-section">
+      <h2>Frågor & Svar</h2>
 
+      <!-- Forum posts container -->
+      <div id="forum-posts" class="forum-posts">
+        
+        <div class="forum-post">
+          <div class="post-header">
+            <span class="post-author">jonkan</span>
+            <span class="post-date">2024-11-15 11:26</span>
+          </div>
+          <div class="post-content">Hej! När börjar 3000 m herrar?</div>
+        </div>
+         
+      </div>
+
+      <!-- Input area -->
+      <div class="forum-input-container" id="forum-input-container">
+        <textarea
+          id="forum-input"
+          data-source="adventsspelen"
+          placeholder="Ställ en fråga till arrangören..."
+          rows="3"
+          disabled
+        ></textarea>
+
+        <button
+          id="forum-submit"
+          class="primary-button"
+          style="display: none;"
+          
+        >
+          Skicka fråga
+        </button>
+
+        <div
+          id="login-prompt"
+          class="login-prompt"
+          
+        >
+          Logga in för att ställa en fråga
+        </div>
+      </div>
+    </div>
     <div class="race-auxiliary-info">
       <h2>Övrig information</h2>
       <p id="race-additional">
@@ -497,44 +547,6 @@ kan inte garantera att allt är korrekt. Ser du några felaktigheter,
     >
       Till arrangörssidan & anmälan
     </a>
-  </div>
-
-  <div class="race-forum-section">
-    <h2>Frågor & Svar</h2>
-
-    <!-- Forum posts container -->
-    <div id="forum-posts" class="forum-posts">
-       
-      <div class="empty-state">Inga frågor än. Var först med att ställa en fråga!</div>
-      
-    </div>
-
-    <!-- Input area -->
-    <div class="forum-input-container">
-      <textarea
-        id="forum-input"
-        placeholder="Ställ en fråga till arrangören..."
-        rows="3"
-        disabled
-      ></textarea>
-
-      <button
-        id="forum-submit"
-        class="primary-button"
-        style="display: none;"
-        
-      >
-        Skicka fråga
-      </button>
-
-      <div
-        id="login-prompt"
-        class="login-prompt"
-        
-      >
-        Logga in för att ställa en fråga
-      </div>
-    </div>
   </div>
 </section> </main>
 

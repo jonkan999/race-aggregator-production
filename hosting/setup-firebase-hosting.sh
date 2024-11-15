@@ -269,7 +269,21 @@ EOF
 echo "Creating Firestore indexes..."
 cat > firestore.indexes.json << EOF
 {
-  "indexes": [],
+  "indexes": [
+$(for country in "${COUNTRIES[@]}"; do
+cat << COUNTRYINDEXES
+    {
+      "collectionGroup": "forum_posts_${country}",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "source_race", "mode": "ASCENDING" },
+        { "fieldPath": "createdAt", "mode": "DESCENDING" },
+        { "fieldPath": "__name__", "mode": "DESCENDING" }
+      ]
+    }$([ "$country" != "${COUNTRIES[-1]}" ] && echo ",")
+COUNTRYINDEXES
+done)
+  ],
   "fieldOverrides": [
     {
       "collectionGroup": "dailySalts",
@@ -295,10 +309,10 @@ cat << COUNTRYINDEXES
       ]
     },
     {
-      "collectionGroup": "races_${country}",
-      "fieldPath": "date",
+      "collectionGroup": "forum_posts_${country}",
+      "fieldPath": "createdAt",
       "indexes": [
-        { "order": "ASCENDING", "queryScope": "COLLECTION" }
+        { "order": "DESCENDING", "queryScope": "COLLECTION" }
       ]
     }$([ "$country" != "${COUNTRIES[-1]}" ] && echo ",")
 COUNTRYINDEXES
