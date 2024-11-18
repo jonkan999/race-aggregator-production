@@ -26,6 +26,7 @@ jobs:
           repository: jonkan999/race-aggregator
           token: ${{ secrets.PRODUCTION_PAT }}
           path: dev-repo
+          ref: master
 
       - name: Checkout production repository
         uses: actions/checkout@v2
@@ -33,6 +34,7 @@ jobs:
           repository: jonkan999/race-aggregator-production
           token: ${{ secrets.PRODUCTION_PAT }}
           path: prod-repo
+          ref: master
 
       - name: Sync production with development
         run: |
