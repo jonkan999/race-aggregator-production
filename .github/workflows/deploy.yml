@@ -1,9 +1,7 @@
-name: Deploy to Firebase
+name: Deploy to Development
 
 on:
   push:
-    branches: [master]
-  pull_request:
     branches: [master]
 
 jobs:
@@ -17,16 +15,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.10'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
@@ -35,7 +23,7 @@ jobs:
       - name: Install Firebase CLI
         run: npm install -g firebase-tools
 
-      - name: Deploy to Firebase
+      - name: Deploy to Firebase Dev
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
           COUNTRY: ${{ matrix.country }}
@@ -46,24 +34,5 @@ jobs:
             exit 1
           fi
 
-          # Deploy to Firebase
+          # Deploy to Firebase dev target
           firebase deploy --token "$FIREBASE_TOKEN" --only hosting:${COUNTRY}dev
-
-      - name: Trigger Production Deployment
-        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const workflow = 'deploy-production.yml';
-            const ref = 'master';
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: workflow,
-              ref: ref,
-              inputs: {
-                environment: 'production',
-                countries: 'se'
-              }
-            });
