@@ -42,8 +42,24 @@ with open(global_data_file) as f:
 with open(global_config_file) as f:
     config = yaml.safe_load(f)
 
-def clean_directory(directory):
-    """Remove all files and subdirectories in the given directory."""
+def clean_directory(directory, domain_name=None):
+    """
+    Remove files and subdirectories in the given directory.
+    If domain_name is provided, only clean that specific domain folder.
+    """
+    if domain_name:
+        # Only clean specific domain directory
+        domain_path = os.path.join(directory, domain_name)
+        if os.path.exists(domain_path):
+            try:
+                if os.path.isdir(domain_path):
+                    shutil.rmtree(domain_path)
+                print(f'Cleaned directory for domain: {domain_name}')
+            except Exception as e:
+                print(f'Failed to delete {domain_path}. Reason: {e}')
+        return
+
+    # Clean entire directory if no domain_name provided
     for filename in os.listdir(directory):
         file_path = os.path.join(directory, filename)
         try:
@@ -211,7 +227,7 @@ def generate_race_pages(country_code, domain_name=None):
     os.makedirs(country_build_dir, exist_ok=True)
 
     # Clean the build directory before generating new content
-    clean_directory(country_build_dir)
+    clean_directory(country_build_dir, domain_name)
 
     # Load templates
     race_page = env.get_template('race_page.html')
@@ -295,3 +311,15 @@ if __name__ == "__main__":
         countries = ['se']
         for country in countries:
             generate_race_pages(country)
+
+""" # Generate all race pages (no domain specified)
+python build_race_pages.py
+
+# Generate only one specific race page
+python build_race_pages.py ultravasan-90
+
+# Generate distance filter only
+python build_race_pages.py distance-filter
+
+# Generate distance filter for specific countries
+python build_race_pages.py distance-filter se no """
