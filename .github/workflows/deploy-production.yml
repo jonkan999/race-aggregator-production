@@ -74,6 +74,6 @@ jobs:
         run: |
           cd prod-repo
           for country in ${INPUTS_COUNTRIES//,/ }; do
-            # Update to use the correct prod target name
+            # Only deploy hosting, no setup
             firebase deploy --token "$FIREBASE_TOKEN" --only hosting:${country}prod
           done

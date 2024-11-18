@@ -36,9 +36,11 @@ fi
 
 # Function to get site name from YAML
 get_site_name() {
-    country_code=$1
+    environment=$1
+    country_code=$2
     yaml_file="data/countries/${country_code}/index.yaml"
-    if [[ "$ENVIRONMENT" == "prod" ]]; then
+    
+    if [[ "$environment" == "prod" ]]; then
         # For production, use the base_url from YAML but sanitize it
         site_name=$(python3 -c "
 import yaml
@@ -102,7 +104,7 @@ API_KEYS=($(get_api_keys))
 # Setup hosting for each country
 allowed_origins="['http://127.0.0.1:8080'"
 for country in "${COUNTRIES[@]}"; do
-    site_name=$(get_site_name $country)
+    site_name=$(get_site_name $ENVIRONMENT $country)
     base_url=$(get_base_url $country)
     
     echo "Setting up hosting for ${country}: ${site_name}"
@@ -275,8 +277,8 @@ cat > .firebaserc << EOF
     "aggregatory-440306": {
       "hosting": {
 $(for country in "${COUNTRIES[@]}"; do
-    echo "        \"${country}dev\": [\"$(get_site_name ${country})\"],"
-    echo "        \"${country}prod\": [\"$(get_site_name ${country})\"]$([ "$country" != "${COUNTRIES[-1]}" ] && echo ",")"
+    echo "        \"${country}dev\": [\"$(get_site_name dev ${country})\"],"
+    echo "        \"${country}prod\": [\"$(get_site_name prod ${country})\"]$([ "$country" != "${COUNTRIES[-1]}" ] && echo ",")"
 done)
       }
     }
