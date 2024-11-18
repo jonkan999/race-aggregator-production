@@ -24,16 +24,14 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: jonkan999/race-aggregator
-          token: ${{ secrets.PRODUCTION_PAT }}
-          path: dev-repo
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
           ref: master
 
       - name: Checkout production repository
         uses: actions/checkout@v3
         with:
           repository: jonkan999/race-aggregator-production
-          token: ${{ secrets.PRODUCTION_PAT }}
-          path: prod-repo
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
           ref: master
 
       - name: Deploy to Production
