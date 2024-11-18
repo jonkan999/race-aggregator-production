@@ -18,6 +18,18 @@ jobs:
           token: ${{ secrets.PRODUCTION_PAT }}
           ref: master
 
+      - name: Debug Files
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "\nListing root directory:"
+          ls -la
+          echo "\nListing build directory:"
+          ls -la build/
+          echo "\nFirebase config files:"
+          cat .firebaserc
+          cat firebase.json
+
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
@@ -31,11 +43,8 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
           COUNTRY: ${{ matrix.country }}
         run: |
-          # Verify build directory exists
-          if [ ! -d "build/$COUNTRY" ]; then
-            echo "No build directory found for $COUNTRY"
-            exit 1
-          fi
+          # Debug Firebase project
+          firebase projects:list --token "$FIREBASE_TOKEN"
 
           # Deploy to Firebase prod target
           firebase deploy --token "$FIREBASE_TOKEN" --only hosting:${COUNTRY}prod
