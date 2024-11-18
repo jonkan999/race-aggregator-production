@@ -1,0 +1,69 @@
+name: Deploy to Production
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deploy to environment'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+          - production
+      countries:
+        description: 'Countries to deploy (comma-separated)'
+        required: true
+        default: 'se'
+        type: string
+
+jobs:
+  sync-and-deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout development repository
+        uses: actions/checkout@v2
+        with:
+          path: dev-repo
+
+      - name: Checkout production repository
+        uses: actions/checkout@v2
+        with:
+          repository: your-username/race-aggregator-production
+          token: ${{ secrets.PRODUCTION_PAT }}
+          path: prod-repo
+
+      - name: Sync build folders
+        run: |
+          cd dev-repo
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          python python/build_race_pages.py
+
+          # Copy only the necessary files to production repo
+          for country in ${INPUTS_COUNTRIES//,/ }; do
+            mkdir -p ../prod-repo/build/$country
+            cp -r build/$country/* ../prod-repo/build/$country/
+          done
+          cp -r hosting ../prod-repo/
+          cp -r data ../prod-repo/
+          cp requirements.txt ../prod-repo/
+
+      - name: Commit and push to production
+        run: |
+          cd prod-repo
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git add .
+          git commit -m "Sync from master: ${GITHUB_SHA}" || echo "No changes to commit"
+          git push
+
+      - name: Deploy to Production
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          PRODUCTION_DEPLOY_KEY: ${{ secrets.PRODUCTION_DEPLOY_KEY }}
+        run: |
+          cd prod-repo
+          for country in ${INPUTS_COUNTRIES//,/ }; do
+            ./hosting/deploy-production.sh $country
+          done

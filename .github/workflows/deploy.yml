@@ -41,3 +41,22 @@ jobs:
         run: |
           python hosting/deploy.py
           firebase deploy --token "$FIREBASE_TOKEN" --only hosting:${{ matrix.country }}
+
+      - name: Trigger Production Deployment
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const workflow = 'deploy-production.yml';
+            const ref = 'master';
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: workflow,
+              ref: ref,
+              inputs: {
+                environment: 'production',
+                countries: 'se'
+              }
+            });

@@ -1,19 +1,61 @@
 #!/bin/bash
 set -e  # Exit on any error
 
+# Parse environment argument
+ENVIRONMENT="dev"
+while getopts "e:" opt; do
+  case $opt in
+    e) ENVIRONMENT="$OPTARG";;
+    *) echo "Invalid option: -$OPTARG" >&2; exit 1;;
+  esac
+done
+
+# Validate environment
+if [[ "$ENVIRONMENT" != "dev" && "$ENVIRONMENT" != "prod" ]]; then
+    echo "Environment must be either 'dev' or 'prod'"
+    exit 1
+fi
+
 # At the start of the script, define the countries array
 COUNTRIES=(se no)
+
+# At the start of your script, after the environment validation
+# Add authentication check/setup
+echo "Checking authentication..."
+if ! firebase login:list | grep -q "No users signed in"; then
+    echo "Firebase authentication OK"
+else
+    echo "Please authenticate with Firebase first:"
+    firebase login
+fi
+
+if ! gcloud auth list --filter=status:ACTIVE --format="value(account)" | grep -q "@"; then
+    echo "Please authenticate with Google Cloud first:"
+    gcloud auth login
+fi
 
 # Function to get site name from YAML
 get_site_name() {
     country_code=$1
     yaml_file="data/countries/${country_code}/index.yaml"
-    site_name=$(python3 -c "
+    if [[ "$ENVIRONMENT" == "prod" ]]; then
+        # For production, use the base_url from YAML but sanitize it
+        site_name=$(python3 -c "
+import yaml
+with open('${yaml_file}', 'r', encoding='utf-8') as f:
+    config = yaml.safe_load(f)
+domain = config.get('base_url').replace('https://', '').replace('http://', '').rstrip('/')
+print(domain.replace('.', '-').replace('/', '-'))
+")
+    else
+        # For development, use the -dev suffix
+        site_name=$(python3 -c "
 import yaml
 with open('${yaml_file}', 'r', encoding='utf-8') as f:
     config = yaml.safe_load(f)
 print(f\"{config.get('page_name').lower()}-dev\")
 ")
+    fi
     echo $site_name
 }
 
@@ -72,11 +114,16 @@ for country in "${COUNTRIES[@]}"; do
     fi
     
     # Apply the hosting target
-    echo "Applying hosting target for ${country}..."
-    firebase target:apply hosting $country $site_name
+    target_name="${country}${ENVIRONMENT}"
+    echo "Applying hosting target ${target_name}..."
+    firebase target:apply hosting $target_name $site_name
     
     # Add to allowed origins
-    allowed_origins="${allowed_origins}, 'https://${site_name}.web.app', 'https://${site_name}.firebaseapp.com'"
+    if [[ "$ENVIRONMENT" == "prod" ]]; then
+        allowed_origins="${allowed_origins}, 'https://${site_name}'"
+    else
+        allowed_origins="${allowed_origins}, 'https://${site_name}.web.app', 'https://${site_name}.firebaseapp.com'"
+    fi
     [[ ! -z "$base_url" ]] && allowed_origins="${allowed_origins}, '${base_url}'"
 done
 allowed_origins="${allowed_origins}]"
@@ -228,7 +275,8 @@ cat > .firebaserc << EOF
     "aggregatory-440306": {
       "hosting": {
 $(for country in "${COUNTRIES[@]}"; do
-    echo "        \"${country}\": [\"$(get_site_name ${country})\"]$([ "$country" != "${COUNTRIES[-1]}" ] && echo ",")"
+    echo "        \"${country}dev\": [\"$(get_site_name ${country})\"],"
+    echo "        \"${country}prod\": [\"$(get_site_name ${country})\"]$([ "$country" != "${COUNTRIES[-1]}" ] && echo ",")"
 done)
       }
     }
@@ -272,6 +320,14 @@ cat > firestore.indexes.json << EOF
   "indexes": [
 $(for country in "${COUNTRIES[@]}"; do
 cat << COUNTRYINDEXES
+    {
+      "collectionGroup": "forum_posts_${country}",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "source_race", "mode": "ASCENDING" },
+        { "fieldPath": "createdAt", "mode": "DESCENDING" }
+      ]
+    },
     {
       "collectionGroup": "forum_posts_${country}",
       "queryScope": "COLLECTION",
@@ -336,7 +392,16 @@ cat > firebase.json << EOF
 $(for country in "${COUNTRIES[@]}"; do
 cat << HOSTING
     {
-      "target": "${country}",
+      "target": "${country}dev",
+      "public": "build/${country}",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    },
+    {
+      "target": "${country}prod",
       "public": "build/${country}",
       "ignore": [
         "firebase.json",
@@ -357,7 +422,10 @@ echo "1. Deploying Firestore rules..."
 firebase deploy --only firestore:rules -f
 
 echo "2. Deploying Firestore indexes..."
-firebase deploy --only firestore:indexes -f
+# Simply deploy the indexes we created in firestore.indexes.json
+firebase deploy --only firestore:indexes || {
+    echo "Some indexes may require manual creation. Check the Firebase console if you see any errors."
+}
 
 echo "3. Deploying Functions..."
 firebase deploy --only functions -f

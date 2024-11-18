@@ -9,7 +9,7 @@
   },
   "hosting": [
     {
-      "target": "se",
+      "target": "sedev",
       "public": "build/se",
       "ignore": [
         "firebase.json",
@@ -18,7 +18,25 @@
       ]
     },
     {
-      "target": "no",
+      "target": "seprod",
+      "public": "build/se",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    },
+    {
+      "target": "nodev",
+      "public": "build/no",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    },
+    {
+      "target": "noprod",
       "public": "build/no",
       "ignore": [
         "firebase.json",
