@@ -17,11 +17,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        country: ${{ fromJSON(format('["%s"]', github.event.inputs.country)) }}
+        country: ${{ fromJSON('["' + github.event.inputs.country + '"]') }}
 
     steps:
       - name: Checkout development repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: jonkan999/race-aggregator
           token: ${{ secrets.PRODUCTION_PAT }}
@@ -29,51 +29,21 @@ jobs:
           ref: master
 
       - name: Checkout production repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: jonkan999/race-aggregator-production
           token: ${{ secrets.PRODUCTION_PAT }}
           path: prod-repo
           ref: master
 
-      - name: Sync production with development
-        run: |
-          cd prod-repo
-          git config user.name "GitHub Actions Bot"
-          git config user.email "actions@github.com"
-
-          # Copy all files from dev to prod (except .git directory)
-          cp -r ../dev-repo/* ./
-
-          # Add all changes
-          git add .
-
-          # Commit if there are changes
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "Sync production with development"
-            git push
-          fi
-
-      - name: Install Firebase CLI
-        run: npm install -g firebase-tools
-
       - name: Deploy to Production
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
           COUNTRY: ${{ matrix.country }}
         run: |
-          cd prod-repo
-
-          # Debug: Print the country value
-          echo "Deploying country: $COUNTRY"
-
-          # Verify build directory exists
-          if [ ! -d "build/$COUNTRY" ]; then
-            echo "No build directory found for $COUNTRY"
-            exit 1
-          fi
+          # Debug: Print current directory
+          pwd
+          ls -la
 
           # Deploy to Firebase prod target
           firebase deploy --token "$FIREBASE_TOKEN" --only hosting:${COUNTRY}prod
