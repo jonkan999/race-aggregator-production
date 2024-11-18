@@ -20,6 +20,11 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Build site
+        run: |
+          npm install
+          npm run build
+
       - name: Install Firebase CLI
         run: npm install -g firebase-tools
 
