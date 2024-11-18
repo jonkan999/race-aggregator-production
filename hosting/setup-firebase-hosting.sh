@@ -116,7 +116,7 @@ for country in "${COUNTRIES[@]}"; do
     fi
     
     # Apply the hosting target
-    target_name="${country}${ENVIRONMENT}"
+    target_name="${country}${ENVIRONMENT}" 
     echo "Applying hosting target ${target_name}..."
     firebase target:apply hosting $target_name $site_name
     
