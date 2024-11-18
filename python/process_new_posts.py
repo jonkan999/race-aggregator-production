@@ -37,6 +37,7 @@ def main():
     # Process each post
     for post in posts:
         post_data = post.to_dict()
+        print(post_data)
         source_race = post_data['source_race']
         
         if source_race not in processed_races:

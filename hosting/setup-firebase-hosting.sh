@@ -304,6 +304,11 @@ service cloud.firestore {
       allow read: if true;
       allow write: if false;
     }
+    match /new_posts/{postId} {
+      allow read: if true;
+      allow create, update, delete: if request.auth != null;
+      allow write: if request.auth != null;
+    }
 $(for country in "${COUNTRIES[@]}"; do
 cat << COUNTRYRULES
     match /pageViews_${country}/{docId} {

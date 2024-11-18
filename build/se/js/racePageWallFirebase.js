@@ -2,6 +2,8 @@ import { authService } from './firebaseAuthService.js';
 import {
   collection,
   addDoc,
+  doc,
+  writeBatch,
 } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js';
 
 export function initializeRaceForum() {
@@ -67,7 +69,7 @@ export function initializeRaceForum() {
         const timestamp = new Date();
 
         // Create batch for atomic operations
-        const batch = db.batch();
+        const batch = writeBatch(db);
 
         // Add main forum post
         const postRef = doc(collection(db, `forum_posts_${country}`));
