@@ -40,7 +40,7 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: |
           python hosting/deploy.py
-          firebase deploy --token "$FIREBASE_TOKEN" --only hosting:${{ matrix.country }}
+          firebase deploy --token "$FIREBASE_TOKEN" --only hosting:${{ matrix.country }}dev
 
       - name: Trigger Production Deployment
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
