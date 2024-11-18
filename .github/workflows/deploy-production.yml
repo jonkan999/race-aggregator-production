@@ -4,13 +4,16 @@ on:
   workflow_dispatch:
     inputs:
       country:
-        description: 'Country to deploy (se/no)'
+        description: 'Countries to deploy (se,no)'
         required: true
         default: 'se'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        country: ${{ fromJson('[' + join(split(github.event.inputs.country, ','), ',') + ']') }}
 
     steps:
       - name: Checkout repository
@@ -27,7 +30,7 @@ jobs:
       - name: Deploy to Firebase Prod
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          COUNTRY: ${{ github.event.inputs.country }}
+          COUNTRY: ${{ matrix.country }}
         run: |
           # Verify build directory exists
           if [ ! -d "build/$COUNTRY" ]; then
