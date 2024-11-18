@@ -104,28 +104,37 @@ API_KEYS=($(get_api_keys))
 # Setup hosting for each country
 allowed_origins="['http://127.0.0.1:8080'"
 for country in "${COUNTRIES[@]}"; do
-    site_name=$(get_site_name $ENVIRONMENT $country)
+    # Get both dev and prod site names
+    dev_site_name=$(get_site_name "dev" $country)
+    prod_site_name=$(get_site_name "prod" $country)
     base_url=$(get_base_url $country)
     
     echo "Setting up hosting for ${country}: ${site_name}"
     
-    # Create the site if it doesn't exist
-    if ! firebase hosting:sites:list | grep -q "$site_name"; then
-        echo "Creating site ${site_name}..."
-        firebase hosting:sites:create $site_name
+    # Create the sites if they don't exist
+    if ! firebase hosting:sites:list | grep -q "$dev_site_name"; then
+        echo "Creating dev site ${dev_site_name}..."
+        firebase hosting:sites:create $dev_site_name
     fi
     
-    # Apply the hosting target
+    if ! firebase hosting:sites:list | grep -q "$prod_site_name"; then
+        echo "Creating prod site ${prod_site_name}..."
+        firebase hosting:sites:create $prod_site_name
+    fi
+    
+    # Apply the hosting target for current environment
     target_name="${country}${ENVIRONMENT}" 
+    site_name=$(get_site_name $ENVIRONMENT $country)
     echo "Applying hosting target ${target_name}..."
     firebase target:apply hosting $target_name $site_name
     
-    # Add to allowed origins
-    if [[ "$ENVIRONMENT" == "prod" ]]; then
-        allowed_origins="${allowed_origins}, 'https://${site_name}'"
-    else
-        allowed_origins="${allowed_origins}, 'https://${site_name}.web.app', 'https://${site_name}.firebaseapp.com'"
-    fi
+    # Add all possible origins regardless of environment
+    allowed_origins="${allowed_origins}, \
+'https://${dev_site_name}.web.app', \
+'https://${dev_site_name}.firebaseapp.com', \
+'https://${prod_site_name}'"
+
+    # Add base URL if it exists
     [[ ! -z "$base_url" ]] && allowed_origins="${allowed_origins}, '${base_url}'"
 done
 allowed_origins="${allowed_origins}]"
@@ -295,10 +304,6 @@ service cloud.firestore {
       allow read: if true;
       allow write: if false;
     }
-    match /new_posts/{postId} {
-      allow read: if true;
-      allow write: if true;
-    }
 $(for country in "${COUNTRIES[@]}"; do
 cat << COUNTRYRULES
     match /pageViews_${country}/{docId} {
@@ -341,13 +346,6 @@ cat << COUNTRYINDEXES
         { "fieldPath": "source_race", "mode": "ASCENDING" },
         { "fieldPath": "createdAt", "mode": "DESCENDING" },
         { "fieldPath": "__name__", "mode": "DESCENDING" }
-      ]
-    },
-    {
-      "collectionGroup": "new_posts",
-      "queryScope": "COLLECTION",
-      "fields": [
-        { "fieldPath": "timestamp", "mode": "ASCENDING" }
       ]
     }$([ "$country" != "${COUNTRIES[-1]}" ] && echo ",")
 COUNTRYINDEXES
