@@ -6,14 +6,18 @@ on:
       country:
         description: 'Countries to deploy (se,no)'
         required: true
-        default: 'se'
+        type: choice
+        options:
+          - se
+          - no
+          - 'se,no'
 
 jobs:
   merge-and-deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        country: ${{ fromJSON(format('["%s"]', join(split(inputs.country, ','), '","'))) }}
+        country: ${{ fromJSON(format('["%s"]', github.event.inputs.country)) }}
 
     steps:
       - name: Checkout development repository
