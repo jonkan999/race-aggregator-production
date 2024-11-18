@@ -24,14 +24,14 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: jonkan999/race-aggregator
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          token: ${{ secrets.PRODUCTION_PAT }}
           path: dev-repo
 
       - name: Checkout production repository
         uses: actions/checkout@v2
         with:
           repository: jonkan999/race-aggregator-production
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          token: ${{ secrets.PRODUCTION_PAT }}
           path: prod-repo
 
       - name: Sync production with development
