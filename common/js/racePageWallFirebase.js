@@ -64,15 +64,32 @@ export function initializeRaceForum() {
 
       try {
         const postId = crypto.randomUUID();
-        await addDoc(collection(db, `forum_posts_${country}`), {
+        const timestamp = new Date();
+
+        // Create batch for atomic operations
+        const batch = db.batch();
+
+        // Add main forum post
+        const postRef = doc(collection(db, `forum_posts_${country}`));
+        batch.set(postRef, {
           content,
           source_race: forumInput.getAttribute('data-source'),
           id: postId,
           authorId: auth.currentUser.uid,
           authorName: auth.currentUser.displayName || 'Anonymous',
-          createdAt: new Date(),
+          createdAt: timestamp,
           type: 'race_wall_post',
         });
+
+        // Add to new_posts queue
+        const newPostRef = doc(collection(db, 'new_posts'));
+        batch.set(newPostRef, {
+          source_race: forumInput.getAttribute('data-source'),
+          country: country,
+          timestamp: timestamp,
+        });
+
+        await batch.commit();
         forumInput.value = '';
         console.log('Post submitted successfully');
       } catch (error) {
