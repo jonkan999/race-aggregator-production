@@ -2,37 +2,24 @@ name: Deploy to Production
 
 on:
   workflow_dispatch:
-    inputs:
-      country:
-        description: 'Countries to deploy (se,no)'
-        required: true
-        type: choice
-        options:
-          - se
-          - no
-          - 'se,no'
 
 jobs:
   merge-and-deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        country: ${{ fromJSON('["' + github.event.inputs.country + '"]') }}
+        country: [se, no]
 
     steps:
-      - name: Checkout development repository
-        uses: actions/checkout@v3
-        with:
-          repository: jonkan999/race-aggregator
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          ref: master
-
       - name: Checkout production repository
         uses: actions/checkout@v3
         with:
           repository: jonkan999/race-aggregator-production
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          token: ${{ secrets.PRODUCTION_PAT }}
           ref: master
+
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
 
       - name: Deploy to Production
         env:
