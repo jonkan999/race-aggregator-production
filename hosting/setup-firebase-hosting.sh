@@ -295,6 +295,10 @@ service cloud.firestore {
       allow read: if true;
       allow write: if false;
     }
+    match /new_posts/{postId} {
+      allow read: if true;
+      allow write: if true;
+    }
 $(for country in "${COUNTRIES[@]}"; do
 cat << COUNTRYRULES
     match /pageViews_${country}/{docId} {
@@ -337,6 +341,13 @@ cat << COUNTRYINDEXES
         { "fieldPath": "source_race", "mode": "ASCENDING" },
         { "fieldPath": "createdAt", "mode": "DESCENDING" },
         { "fieldPath": "__name__", "mode": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "new_posts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "timestamp", "mode": "ASCENDING" }
       ]
     }$([ "$country" != "${COUNTRIES[-1]}" ] && echo ",")
 COUNTRYINDEXES
