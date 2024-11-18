@@ -33,21 +33,23 @@ jobs:
           token: ${{ secrets.PRODUCTION_PAT }}
           path: prod-repo
 
-      - name: Sync build folders
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+
+      - name: Build and sync content
         run: |
           cd dev-repo
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           python python/build_race_pages.py
 
-          # Copy only the necessary files to production repo
+          # Copy only the build content to production repo
           for country in ${INPUTS_COUNTRIES//,/ }; do
             mkdir -p ../prod-repo/build/$country
             cp -r build/$country/* ../prod-repo/build/$country/
           done
-          cp -r hosting ../prod-repo/
-          cp -r data ../prod-repo/
-          cp requirements.txt ../prod-repo/
 
       - name: Commit and push to production
         run: |
@@ -55,8 +57,16 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
           git add .
-          git commit -m "Sync from master: ${GITHUB_SHA}" || echo "No changes to commit"
+          git commit -m "Sync content from master: ${GITHUB_SHA}" || echo "No changes to commit"
           git push
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
 
       - name: Deploy to Production
         env:
@@ -64,5 +74,6 @@ jobs:
         run: |
           cd prod-repo
           for country in ${INPUTS_COUNTRIES//,/ }; do
-            ./hosting/deploy-production.sh $country
+            # Only deploy hosting, no setup
+            firebase deploy --token "$FIREBASE_TOKEN" --only hosting:${country}prod
           done
