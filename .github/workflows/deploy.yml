@@ -38,15 +38,16 @@ jobs:
       - name: Deploy to Firebase
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          COUNTRY: ${{ matrix.country }}
         run: |
           # Verify build directory exists
-          if [ ! -d "build/${matrix.country}" ]; then
-            echo "No build directory found for ${matrix.country}"
+          if [ ! -d "build/$COUNTRY" ]; then
+            echo "No build directory found for $COUNTRY"
             exit 1
           fi
 
           # Deploy to Firebase
-          firebase deploy --token "$FIREBASE_TOKEN" --only hosting:${matrix.country}dev
+          firebase deploy --token "$FIREBASE_TOKEN" --only hosting:${COUNTRY}dev
 
       - name: Trigger Production Deployment
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
