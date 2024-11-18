@@ -66,6 +66,9 @@ jobs:
         run: |
           cd prod-repo
 
+          # Debug: Print the country value
+          echo "Deploying country: $COUNTRY"
+
           # Verify build directory exists
           if [ ! -d "build/$COUNTRY" ]; then
             echo "No build directory found for $COUNTRY"
