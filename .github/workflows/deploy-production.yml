@@ -29,7 +29,7 @@ jobs:
       - name: Checkout production repository
         uses: actions/checkout@v2
         with:
-          repository: your-username/race-aggregator-production
+          repository: jonkan999/race-aggregator-production
           token: ${{ secrets.PRODUCTION_PAT }}
           path: prod-repo
 
@@ -61,7 +61,6 @@ jobs:
       - name: Deploy to Production
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          PRODUCTION_DEPLOY_KEY: ${{ secrets.PRODUCTION_DEPLOY_KEY }}
         run: |
           cd prod-repo
           for country in ${INPUTS_COUNTRIES//,/ }; do
