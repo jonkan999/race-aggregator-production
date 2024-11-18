@@ -17,15 +17,21 @@ def generate_firebase_config(country_codes):
     config = {
         "hosting": [],
         "functions": {
-            "source": "functions"
+            "source": "functions",
+            "codebase": "api-functions"
+        },
+        "firestore": {
+            "rules": "firestore.rules",
+            "indexes": "firestore.indexes.json"
         }
     }
     
     for country_code in country_codes:
         race_list_name = get_race_list_name(country_code)
         
-        hosting_config = {
-            "target": country_code,
+        # Create dev target config
+        dev_hosting_config = {
+            "target": f"{country_code}dev",  # Changed to match .firebaserc
             "public": f"build/{country_code}",
             "ignore": [
                 "firebase.json",
@@ -44,7 +50,28 @@ def generate_firebase_config(country_codes):
             ]
         }
         
-        config["hosting"].append(hosting_config)
+        # Create prod target config
+        prod_hosting_config = {
+            "target": f"{country_code}prod",  # Changed to match .firebaserc
+            "public": f"build/{country_code}",
+            "ignore": [
+                "firebase.json",
+                "**/.*",
+                "**/node_modules/**"
+            ],
+            "rewrites": [
+                {
+                    "source": f"/{race_list_name}/**",
+                    "destination": f"/{race_list_name}/index.html"
+                },
+                {
+                    "source": "**",
+                    "destination": "/index.html"
+                }
+            ]
+        }
+        
+        config["hosting"].extend([dev_hosting_config, prod_hosting_config])
     
     # Write the config to firebase.json
     with open('firebase.json', 'w') as f:
