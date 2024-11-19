@@ -1,9 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js';
 import {
   getAuth,
-  connectAuthEmulator,
-  signInWithRedirect,
-  getRedirectResult,
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
 } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js';
@@ -44,7 +41,7 @@ const initFirebase = async () => {
   const auth = getAuth(app);
   const db = getFirestore(app);
 
-  return { app, auth, db, signInWithRedirect, getRedirectResult };
+  return { app, auth, db };
 };
 
 // Export the initialization promise

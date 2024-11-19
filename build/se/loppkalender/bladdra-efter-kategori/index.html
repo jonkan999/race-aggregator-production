@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
 
+    <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
   </head>
   <body>
@@ -39,8 +40,21 @@
     <a class="home-link" href="/">
       <h2 class="page-name new-amsterdam">Loppkartan</h2></a
     >
-    <div class="login-container">
-      <ion-icon class="login-icon" name="person-circle-outline"></ion-icon>
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Logga in
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
     </div>
   </div>
   <nav class="main-nav-container right-scroller">
@@ -90,6 +104,156 @@
     >
     
   </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Logga in</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Lösenord"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Glömt lösenord?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Skapa konto istället
+            </a>
+          </div>
+          <button type="submit">Logga in</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Skapa konto
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Glömt lösenord?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Skapa konto</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Ditt namn"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Lösenord"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Skapa konto</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Tillbaka till inloggning
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Återställ lösenord</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Skicka återställningslänk</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Tillbaka till inloggning
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Du är redan inloggad som</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Fortsätt som denna användare
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Logga ut och byt användare
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto skapat!</h2>
+        <div class="logged-in-user-info">
+          <p>Du är nu inloggad som</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            En verifieringslänk har skickats till din e-post
+          </p>
+          <p class="verification-notice">Vänligen verifiera din e-postadress</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Fortsätt som denna användare
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
 </section>
 
 <div class="browse-container">
@@ -135,90 +299,158 @@
     <h2>Bläddra efter län</h2>
     <div class="browse-grid">
       
-      <a href="/loppkalender/blekinge" class="browse-card">
-        <h3>Blekinge</h3>
-        <span class="count">5 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/blekinge" class="browse-card">
+          Blekinge
+          <span class="count"
+            >(4 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/dalarna" class="browse-card">
-        <h3>Dalarna</h3>
-        <span class="count">6 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/dalarna" class="browse-card">
+          Dalarna
+          <span class="count"
+            >(6 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/gotland" class="browse-card">
-        <h3>Gotland</h3>
-        <span class="count">1 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/gotland" class="browse-card">
+          Gotland
+          <span class="count"
+            >(1 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/halland" class="browse-card">
-        <h3>Halland</h3>
-        <span class="count">5 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/halland" class="browse-card">
+          Halland
+          <span class="count"
+            >(5 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/jamtland" class="browse-card">
-        <h3>Jämtland</h3>
-        <span class="count">4 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/jamtland" class="browse-card">
+          Jämtland
+          <span class="count"
+            >(4 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/kalmar" class="browse-card">
-        <h3>Kalmar</h3>
-        <span class="count">1 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/kalmar" class="browse-card">
+          Kalmar
+          <span class="count"
+            >(1 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/kronoberg" class="browse-card">
-        <h3>Kronoberg</h3>
-        <span class="count">2 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/kronoberg" class="browse-card">
+          Kronoberg
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/skane" class="browse-card">
-        <h3>Skåne</h3>
-        <span class="count">12 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/skane" class="browse-card">
+          Skåne
+          <span class="count"
+            >(11 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/stockholm" class="browse-card">
-        <h3>Stockholm</h3>
-        <span class="count">22 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/stockholm" class="browse-card">
+          Stockholm
+          <span class="count"
+            >(21 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/sodermanland" class="browse-card">
-        <h3>Södermanland</h3>
-        <span class="count">7 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/sodermanland" class="browse-card">
+          Södermanland
+          <span class="count"
+            >(7 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/uppsala" class="browse-card">
-        <h3>Uppsala</h3>
-        <span class="count">1 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/uppsala" class="browse-card">
+          Uppsala
+          <span class="count"
+            >(1 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/varmland" class="browse-card">
-        <h3>Värmland</h3>
-        <span class="count">3 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/varmland" class="browse-card">
+          Värmland
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/vasterbotten" class="browse-card">
-        <h3>Västerbotten</h3>
-        <span class="count">1 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/vasterbotten" class="browse-card">
+          Västerbotten
+          <span class="count"
+            >(1 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/vastmanland" class="browse-card">
-        <h3>Västmanland</h3>
-        <span class="count">2 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/vastmanland" class="browse-card">
+          Västmanland
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/vastra-gotaland" class="browse-card">
-        <h3>Västra Götaland</h3>
-        <span class="count">15 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/vastra-gotaland" class="browse-card">
+          Västra Götaland
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/orebro" class="browse-card">
-        <h3>Örebro</h3>
-        <span class="count">7 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/orebro" class="browse-card">
+          Örebro
+          <span class="count"
+            >(7 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/ostergotland" class="browse-card">
-        <h3>Östergötland</h3>
-        <span class="count">5 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/ostergotland" class="browse-card">
+          Östergötland
+          <span class="count"
+            >(6 lopp)</span
+          >
+        </a>
+      </h3>
       
     </div>
   </section>
@@ -227,590 +459,1049 @@
     <h2>Bläddra efter stad</h2>
     <div class="browse-grid">
       
-      <a href="/loppkalender/stader/alby" class="browse-card">
-        <h3>Alby</h3>
-        <span class="count">14 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/alingsas" class="browse-card">
-        <h3>Alingsås</h3>
-        <span class="count">13 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/arboga" class="browse-card">
-        <h3>Arboga</h3>
-        <span class="count">10 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/arvika" class="browse-card">
-        <h3>Arvika</h3>
-        <span class="count">3 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/avesta" class="browse-card">
-        <h3>Avesta</h3>
-        <span class="count">4 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/billdal" class="browse-card">
-        <h3>Billdal</h3>
-        <span class="count">11 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/bjuv" class="browse-card">
-        <h3>Bjuv</h3>
-        <span class="count">9 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/bjorlanda" class="browse-card">
-        <h3>Björlanda</h3>
-        <span class="count">11 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/boo" class="browse-card">
-        <h3>Boo</h3>
-        <span class="count">13 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/borlange" class="browse-card">
-        <h3>Borlänge</h3>
-        <span class="count">4 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/boras" class="browse-card">
-        <h3>Borås</h3>
-        <span class="count">8 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/bromma" class="browse-card">
-        <h3>Bromma</h3>
-        <span class="count">14 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/bunkeflostrand" class="browse-card">
-        <h3>Bunkeflostrand</h3>
-        <span class="count">7 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/balsta" class="browse-card">
-        <h3>Bålsta</h3>
-        <span class="count">16 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/ekero" class="browse-card">
-        <h3>Ekerö</h3>
-        <span class="count">14 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/enkoping" class="browse-card">
-        <h3>Enköping</h3>
-        <span class="count">7 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/eskilstuna" class="browse-card">
-        <h3>Eskilstuna</h3>
-        <span class="count">5 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/eslov" class="browse-card">
-        <h3>Eslöv</h3>
-        <span class="count">11 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/falkenberg" class="browse-card">
-        <h3>Falkenberg</h3>
-        <span class="count">6 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/falun" class="browse-card">
-        <h3>Falun</h3>
-        <span class="count">3 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/finspang" class="browse-card">
-        <h3>Finspång</h3>
-        <span class="count">6 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/gamla-uppsala" class="browse-card">
-        <h3>Gamla Uppsala</h3>
-        <span class="count">2 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/gislaved" class="browse-card">
-        <h3>Gislaved</h3>
-        <span class="count">2 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/gustavsberg" class="browse-card">
-        <h3>Gustavsberg</h3>
-        <span class="count">13 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/goteborg" class="browse-card">
-        <h3>Göteborg</h3>
-        <span class="count">13 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/hallstahammar" class="browse-card">
-        <h3>Hallstahammar</h3>
-        <span class="count">6 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/halmstad" class="browse-card">
-        <h3>Halmstad</h3>
-        <span class="count">6 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/handen" class="browse-card">
-        <h3>Handen</h3>
-        <span class="count">13 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/haninge" class="browse-card">
-        <h3>Haninge</h3>
-        <span class="count">13 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/helsingborg" class="browse-card">
-        <h3>Helsingborg</h3>
-        <span class="count">9 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/huddinge" class="browse-card">
-        <h3>Huddinge</h3>
-        <span class="count">14 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/hassleholm" class="browse-card">
-        <h3>Hässleholm</h3>
-        <span class="count">6 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/hoganas" class="browse-card">
-        <h3>Höganäs</h3>
-        <span class="count">6 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/hollviken" class="browse-card">
-        <h3>Höllviken</h3>
-        <span class="count">6 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/hoor" class="browse-card">
-        <h3>Höör</h3>
-        <span class="count">11 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/jakobsberg" class="browse-card">
-        <h3>Jakobsberg</h3>
-        <span class="count">15 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/jordbro" class="browse-card">
-        <h3>Jordbro</h3>
-        <span class="count">13 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/karlshamn" class="browse-card">
-        <h3>Karlshamn</h3>
-        <span class="count">5 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/karlskoga" class="browse-card">
-        <h3>Karlskoga</h3>
-        <span class="count">9 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/karlskrona" class="browse-card">
-        <h3>Karlskrona</h3>
-        <span class="count">3 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/karlstad" class="browse-card">
-        <h3>Karlstad</h3>
-        <span class="count">3 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/katrineholm" class="browse-card">
-        <h3>Katrineholm</h3>
-        <span class="count">8 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/kinna" class="browse-card">
-        <h3>Kinna</h3>
-        <span class="count">17 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/kista" class="browse-card">
-        <h3>Kista</h3>
-        <span class="count">15 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/kristianstad" class="browse-card">
-        <h3>Kristianstad</h3>
-        <span class="count">5 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/kristinehamn" class="browse-card">
-        <h3>Kristinehamn</h3>
-        <span class="count">3 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/kumla" class="browse-card">
-        <h3>Kumla</h3>
-        <span class="count">8 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/kungsbacka" class="browse-card">
-        <h3>Kungsbacka</h3>
-        <span class="count">17 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/kungsholmen" class="browse-card">
-        <h3>Kungsholmen</h3>
-        <span class="count">14 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/kungsangen" class="browse-card">
-        <h3>Kungsängen</h3>
-        <span class="count">15 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/kungalv" class="browse-card">
-        <h3>Kungälv</h3>
-        <span class="count">13 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/koping" class="browse-card">
-        <h3>Köping</h3>
-        <span class="count">11 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/landskrona" class="browse-card">
-        <h3>Landskrona</h3>
-        <span class="count">9 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/lerum" class="browse-card">
-        <h3>Lerum</h3>
-        <span class="count">13 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/lidingo" class="browse-card">
-        <h3>Lidingö</h3>
-        <span class="count">13 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/lindome" class="browse-card">
-        <h3>Lindome</h3>
-        <span class="count">13 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/linkoping" class="browse-card">
-        <h3>Linköping</h3>
-        <span class="count">5 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/ljungby" class="browse-card">
-        <h3>Ljungby</h3>
-        <span class="count">2 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/lomma" class="browse-card">
-        <h3>Lomma</h3>
-        <span class="count">10 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/ludvika" class="browse-card">
-        <h3>Ludvika</h3>
-        <span class="count">4 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/lund" class="browse-card">
-        <h3>Lund</h3>
-        <span class="count">10 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/majorna" class="browse-card">
-        <h3>Majorna</h3>
-        <span class="count">11 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/malmo" class="browse-card">
-        <h3>Malmö</h3>
-        <span class="count">9 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/mjolby" class="browse-card">
-        <h3>Mjölby</h3>
-        <span class="count">3 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/mora" class="browse-card">
-        <h3>Mora</h3>
-        <span class="count">3 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/motala" class="browse-card">
-        <h3>Motala</h3>
-        <span class="count">4 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/marsta" class="browse-card">
-        <h3>Märsta</h3>
-        <span class="count">15 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/molndal" class="browse-card">
-        <h3>Mölndal</h3>
-        <span class="count">26 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/nacka" class="browse-card">
-        <h3>Nacka</h3>
-        <span class="count">13 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/norrkoping" class="browse-card">
-        <h3>Norrköping</h3>
-        <span class="count">7 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/norrtalje" class="browse-card">
-        <h3>Norrtälje</h3>
-        <span class="count">12 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/nykoping" class="browse-card">
-        <h3>Nyköping</h3>
-        <span class="count">5 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/nynashamn" class="browse-card">
-        <h3>Nynäshamn</h3>
-        <span class="count">15 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/nodinge-nol" class="browse-card">
-        <h3>Nödinge-Nol</h3>
-        <span class="count">13 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/onsala" class="browse-card">
-        <h3>Onsala</h3>
-        <span class="count">15 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/oxelosund" class="browse-card">
-        <h3>Oxelösund</h3>
-        <span class="count">5 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/oxie" class="browse-card">
-        <h3>Oxie</h3>
-        <span class="count">8 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/partille" class="browse-card">
-        <h3>Partille</h3>
-        <span class="count">13 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/ronneby" class="browse-card">
-        <h3>Ronneby</h3>
-        <span class="count">5 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/rasunda" class="browse-card">
-        <h3>Råsunda</h3>
-        <span class="count">14 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/sala" class="browse-card">
-        <h3>Sala</h3>
-        <span class="count">3 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/segeltorp" class="browse-card">
-        <h3>Segeltorp</h3>
-        <span class="count">14 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/skoghall" class="browse-card">
-        <h3>Skoghall</h3>
-        <span class="count">3 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/sollentuna" class="browse-card">
-        <h3>Sollentuna</h3>
-        <span class="count">15 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/solna" class="browse-card">
-        <h3>Solna</h3>
-        <span class="count">14 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/staffanstorp" class="browse-card">
-        <h3>Staffanstorp</h3>
-        <span class="count">9 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/stenungsund" class="browse-card">
-        <h3>Stenungsund</h3>
-        <span class="count">10 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/stockholm" class="browse-card">
-        <h3>Stockholm</h3>
-        <span class="count">13 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/strangnas" class="browse-card">
-        <h3>Strängnäs</h3>
-        <span class="count">16 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/sundbyberg" class="browse-card">
-        <h3>Sundbyberg</h3>
-        <span class="count">14 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/svedala" class="browse-card">
-        <h3>Svedala</h3>
-        <span class="count">8 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/sodermalm" class="browse-card">
-        <h3>Södermalm</h3>
-        <span class="count">13 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/sodertalje" class="browse-card">
-        <h3>Södertälje</h3>
-        <span class="count">14 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/tensta" class="browse-card">
-        <h3>Tensta</h3>
-        <span class="count">15 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/torslanda" class="browse-card">
-        <h3>Torslanda</h3>
-        <span class="count">11 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/tranas" class="browse-card">
-        <h3>Tranås</h3>
-        <span class="count">2 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/trelleborg" class="browse-card">
-        <h3>Trelleborg</h3>
-        <span class="count">6 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/tullinge" class="browse-card">
-        <h3>Tullinge</h3>
-        <span class="count">14 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/tumba" class="browse-card">
-        <h3>Tumba</h3>
-        <span class="count">14 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/taby" class="browse-card">
-        <h3>Täby</h3>
-        <span class="count">14 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/uddevalla" class="browse-card">
-        <h3>Uddevalla</h3>
-        <span class="count">2 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/ulricehamn" class="browse-card">
-        <h3>Ulricehamn</h3>
-        <span class="count">2 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/upplands-vasby" class="browse-card">
-        <h3>Upplands Väsby</h3>
-        <span class="count">15 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/uppsala" class="browse-card">
-        <h3>Uppsala</h3>
-        <span class="count">2 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/vallentuna" class="browse-card">
-        <h3>Vallentuna</h3>
-        <span class="count">14 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/varberg" class="browse-card">
-        <h3>Varberg</h3>
-        <span class="count">6 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/vasastan" class="browse-card">
-        <h3>Vasastan</h3>
-        <span class="count">14 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/varnamo" class="browse-card">
-        <h3>Värnamo</h3>
-        <span class="count">2 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/vasteras" class="browse-card">
-        <h3>Västerås</h3>
-        <span class="count">5 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/vaxjo" class="browse-card">
-        <h3>Växjö</h3>
-        <span class="count">2 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/ystad" class="browse-card">
-        <h3>Ystad</h3>
-        <span class="count">6 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/angelholm" class="browse-card">
-        <h3>Ängelholm</h3>
-        <span class="count">6 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/akersberga" class="browse-card">
-        <h3>Åkersberga</h3>
-        <span class="count">14 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/arsta" class="browse-card">
-        <h3>Årsta</h3>
-        <span class="count">13 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/orebro" class="browse-card">
-        <h3>Örebro</h3>
-        <span class="count">8 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/ostermalm" class="browse-card">
-        <h3>Östermalm</h3>
-        <span class="count">13 lopp</span>
-      </a>
-      
-      <a href="/loppkalender/stader/ostersund" class="browse-card">
-        <h3>Östersund</h3>
-        <span class="count">4 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/stader/alby" class="browse-card">
+          Alby
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/alingsas" class="browse-card">
+          Alingsås
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/arboga" class="browse-card">
+          Arboga
+          <span class="count"
+            >(10 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/arvika" class="browse-card">
+          Arvika
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/avesta" class="browse-card">
+          Avesta
+          <span class="count"
+            >(4 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/billdal" class="browse-card">
+          Billdal
+          <span class="count"
+            >(11 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/bjuv" class="browse-card">
+          Bjuv
+          <span class="count"
+            >(8 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/bjorlanda" class="browse-card">
+          Björlanda
+          <span class="count"
+            >(11 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/boo" class="browse-card">
+          Boo
+          <span class="count"
+            >(12 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/borlange" class="browse-card">
+          Borlänge
+          <span class="count"
+            >(4 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/boras" class="browse-card">
+          Borås
+          <span class="count"
+            >(8 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/bromma" class="browse-card">
+          Bromma
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/bunkeflostrand" class="browse-card">
+          Bunkeflostrand
+          <span class="count"
+            >(7 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/balsta" class="browse-card">
+          Bålsta
+          <span class="count"
+            >(15 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/ekero" class="browse-card">
+          Ekerö
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/enkoping" class="browse-card">
+          Enköping
+          <span class="count"
+            >(7 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/eskilstuna" class="browse-card">
+          Eskilstuna
+          <span class="count"
+            >(5 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/eslov" class="browse-card">
+          Eslöv
+          <span class="count"
+            >(10 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/falkenberg" class="browse-card">
+          Falkenberg
+          <span class="count"
+            >(6 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/falun" class="browse-card">
+          Falun
+          <span class="count"
+            >(3 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/finspang" class="browse-card">
+          Finspång
+          <span class="count"
+            >(7 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/gamla-uppsala" class="browse-card">
+          Gamla Uppsala
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/gislaved" class="browse-card">
+          Gislaved
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/gustavsberg" class="browse-card">
+          Gustavsberg
+          <span class="count"
+            >(12 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/goteborg" class="browse-card">
+          Göteborg
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/hallstahammar" class="browse-card">
+          Hallstahammar
+          <span class="count"
+            >(6 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/halmstad" class="browse-card">
+          Halmstad
+          <span class="count"
+            >(6 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/handen" class="browse-card">
+          Handen
+          <span class="count"
+            >(12 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/haninge" class="browse-card">
+          Haninge
+          <span class="count"
+            >(12 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/helsingborg" class="browse-card">
+          Helsingborg
+          <span class="count"
+            >(8 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/huddinge" class="browse-card">
+          Huddinge
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/hassleholm" class="browse-card">
+          Hässleholm
+          <span class="count"
+            >(5 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/hoganas" class="browse-card">
+          Höganäs
+          <span class="count"
+            >(5 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/hollviken" class="browse-card">
+          Höllviken
+          <span class="count"
+            >(6 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/hoor" class="browse-card">
+          Höör
+          <span class="count"
+            >(10 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/jakobsberg" class="browse-card">
+          Jakobsberg
+          <span class="count"
+            >(14 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/jordbro" class="browse-card">
+          Jordbro
+          <span class="count"
+            >(12 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/karlshamn" class="browse-card">
+          Karlshamn
+          <span class="count"
+            >(5 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/karlskoga" class="browse-card">
+          Karlskoga
+          <span class="count"
+            >(9 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/karlskrona" class="browse-card">
+          Karlskrona
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/karlstad" class="browse-card">
+          Karlstad
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/katrineholm" class="browse-card">
+          Katrineholm
+          <span class="count"
+            >(9 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/kinna" class="browse-card">
+          Kinna
+          <span class="count"
+            >(17 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/kista" class="browse-card">
+          Kista
+          <span class="count"
+            >(14 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/kristianstad" class="browse-card">
+          Kristianstad
+          <span class="count"
+            >(5 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/kristinehamn" class="browse-card">
+          Kristinehamn
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/kumla" class="browse-card">
+          Kumla
+          <span class="count"
+            >(8 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/kungsbacka" class="browse-card">
+          Kungsbacka
+          <span class="count"
+            >(17 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/kungsholmen" class="browse-card">
+          Kungsholmen
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/kungsangen" class="browse-card">
+          Kungsängen
+          <span class="count"
+            >(14 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/kungalv" class="browse-card">
+          Kungälv
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/koping" class="browse-card">
+          Köping
+          <span class="count"
+            >(11 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/landskrona" class="browse-card">
+          Landskrona
+          <span class="count"
+            >(8 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/lerum" class="browse-card">
+          Lerum
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/lidingo" class="browse-card">
+          Lidingö
+          <span class="count"
+            >(12 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/lindome" class="browse-card">
+          Lindome
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/linkoping" class="browse-card">
+          Linköping
+          <span class="count"
+            >(6 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/ljungby" class="browse-card">
+          Ljungby
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/lomma" class="browse-card">
+          Lomma
+          <span class="count"
+            >(9 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/ludvika" class="browse-card">
+          Ludvika
+          <span class="count"
+            >(4 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/lund" class="browse-card">
+          Lund
+          <span class="count"
+            >(9 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/majorna" class="browse-card">
+          Majorna
+          <span class="count"
+            >(11 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/malmo" class="browse-card">
+          Malmö
+          <span class="count"
+            >(8 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/mjolby" class="browse-card">
+          Mjölby
+          <span class="count"
+            >(3 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/mora" class="browse-card">
+          Mora
+          <span class="count"
+            >(3 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/motala" class="browse-card">
+          Motala
+          <span class="count"
+            >(4 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/marsta" class="browse-card">
+          Märsta
+          <span class="count"
+            >(14 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/molndal" class="browse-card">
+          Mölndal
+          <span class="count"
+            >(26 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/nacka" class="browse-card">
+          Nacka
+          <span class="count"
+            >(12 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/norrkoping" class="browse-card">
+          Norrköping
+          <span class="count"
+            >(8 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/norrtalje" class="browse-card">
+          Norrtälje
+          <span class="count"
+            >(11 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/nykoping" class="browse-card">
+          Nyköping
+          <span class="count"
+            >(6 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/nynashamn" class="browse-card">
+          Nynäshamn
+          <span class="count"
+            >(14 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/nodinge-nol" class="browse-card">
+          Nödinge-Nol
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/onsala" class="browse-card">
+          Onsala
+          <span class="count"
+            >(15 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/oxelosund" class="browse-card">
+          Oxelösund
+          <span class="count"
+            >(6 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/oxie" class="browse-card">
+          Oxie
+          <span class="count"
+            >(8 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/partille" class="browse-card">
+          Partille
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/ronneby" class="browse-card">
+          Ronneby
+          <span class="count"
+            >(4 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/rasunda" class="browse-card">
+          Råsunda
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/sala" class="browse-card">
+          Sala
+          <span class="count"
+            >(3 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/segeltorp" class="browse-card">
+          Segeltorp
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/skoghall" class="browse-card">
+          Skoghall
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/sollentuna" class="browse-card">
+          Sollentuna
+          <span class="count"
+            >(14 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/solna" class="browse-card">
+          Solna
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/staffanstorp" class="browse-card">
+          Staffanstorp
+          <span class="count"
+            >(8 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/stenungsund" class="browse-card">
+          Stenungsund
+          <span class="count"
+            >(11 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/stockholm" class="browse-card">
+          Stockholm
+          <span class="count"
+            >(12 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/strangnas" class="browse-card">
+          Strängnäs
+          <span class="count"
+            >(15 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/sundbyberg" class="browse-card">
+          Sundbyberg
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/svedala" class="browse-card">
+          Svedala
+          <span class="count"
+            >(8 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/sodermalm" class="browse-card">
+          Södermalm
+          <span class="count"
+            >(12 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/sodertalje" class="browse-card">
+          Södertälje
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/tensta" class="browse-card">
+          Tensta
+          <span class="count"
+            >(14 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/torslanda" class="browse-card">
+          Torslanda
+          <span class="count"
+            >(11 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/tranas" class="browse-card">
+          Tranås
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/trelleborg" class="browse-card">
+          Trelleborg
+          <span class="count"
+            >(6 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/tullinge" class="browse-card">
+          Tullinge
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/tumba" class="browse-card">
+          Tumba
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/taby" class="browse-card">
+          Täby
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/ulricehamn" class="browse-card">
+          Ulricehamn
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/upplands-vasby" class="browse-card">
+          Upplands Väsby
+          <span class="count"
+            >(14 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/uppsala" class="browse-card">
+          Uppsala
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/vallentuna" class="browse-card">
+          Vallentuna
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/varberg" class="browse-card">
+          Varberg
+          <span class="count"
+            >(5 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/vasastan" class="browse-card">
+          Vasastan
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/varnamo" class="browse-card">
+          Värnamo
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/vasteras" class="browse-card">
+          Västerås
+          <span class="count"
+            >(5 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/vaxjo" class="browse-card">
+          Växjö
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/ystad" class="browse-card">
+          Ystad
+          <span class="count"
+            >(6 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/angelholm" class="browse-card">
+          Ängelholm
+          <span class="count"
+            >(5 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/akersberga" class="browse-card">
+          Åkersberga
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/arsta" class="browse-card">
+          Årsta
+          <span class="count"
+            >(12 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/orebro" class="browse-card">
+          Örebro
+          <span class="count"
+            >(8 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/ostermalm" class="browse-card">
+          Östermalm
+          <span class="count"
+            >(12 lopp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/loppkalender/stader/ostersund" class="browse-card">
+          Östersund
+          <span class="count"
+            >(4 lopp)</span
+          >
+        </a>
+      </h3>
       
     </div>
   </section>
@@ -819,50 +1510,86 @@
     <h2>Bläddra efter lopptyp</h2>
     <div class="browse-grid">
       
-      <a href="/loppkalender/alla-lan/backyard-ultra" class="browse-card">
-        <h3>Backyard Ultra</h3>
-        <span class="count">5 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/alla-lan/backyard-ultra" class="browse-card">
+          Backyard Ultra
+          <span class="count"
+            >(5 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/alla-lan/frontyard-ultra" class="browse-card">
-        <h3>Frontyard Ultra</h3>
-        <span class="count">1 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/alla-lan/frontyard-ultra" class="browse-card">
+          Frontyard Ultra
+          <span class="count"
+            >(1 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/alla-lan/landsvag" class="browse-card">
-        <h3>Landsväg</h3>
-        <span class="count">15 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/alla-lan/landsvag" class="browse-card">
+          Landsväg
+          <span class="count"
+            >(12 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/alla-lan/loparbana" class="browse-card">
-        <h3>Löparbana</h3>
-        <span class="count">34 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/alla-lan/loparbana" class="browse-card">
+          Löparbana
+          <span class="count"
+            >(34 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/alla-lan/stafett" class="browse-card">
-        <h3>Stafett</h3>
-        <span class="count">2 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/alla-lan/stafett" class="browse-card">
+          Stafett
+          <span class="count"
+            >(1 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/alla-lan/terrang" class="browse-card">
-        <h3>Terräng</h3>
-        <span class="count">14 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/alla-lan/terrang" class="browse-card">
+          Terräng
+          <span class="count"
+            >(11 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/alla-lan/tidslopp" class="browse-card">
-        <h3>Tidslopp</h3>
-        <span class="count">2 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/alla-lan/tidslopp" class="browse-card">
+          Tidslopp
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/alla-lan/trail" class="browse-card">
-        <h3>Trail</h3>
-        <span class="count">20 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/alla-lan/trail" class="browse-card">
+          Trail
+          <span class="count"
+            >(22 lopp)</span
+          >
+        </a>
+      </h3>
       
-      <a href="/loppkalender/alla-lan/ovrigt" class="browse-card">
-        <h3>Övrigt</h3>
-        <span class="count">6 lopp</span>
-      </a>
+      <h3>
+        <a href="/loppkalender/alla-lan/ovrigt" class="browse-card">
+          Övrigt
+          <span class="count"
+            >(6 lopp)</span
+          >
+        </a>
+      </h3>
       
     </div>
   </section>
@@ -872,68 +1599,120 @@
     <div class="browse-grid">
       
       <a href="/loppkalender/alla-lan/alla-loppstyper/10-km" class="browse-card">
-        <h3>10 km</h3>
-        <span class="count">25 lopp</span>
+        <h3>
+          10 km
+          <span class="count"
+            >(21 lopp)</span
+          >
+        </h3>
       </a>
       
       <a href="/loppkalender/alla-lan/alla-loppstyper/100-km" class="browse-card">
-        <h3>100 km</h3>
-        <span class="count">3 lopp</span>
+        <h3>
+          100 km
+          <span class="count"
+            >(3 lopp)</span
+          >
+        </h3>
       </a>
       
       <a href="/loppkalender/alla-lan/alla-loppstyper/100-miles" class="browse-card">
-        <h3>100 miles</h3>
-        <span class="count">1 lopp</span>
+        <h3>
+          100 miles
+          <span class="count"
+            >(1 lopp)</span
+          >
+        </h3>
       </a>
       
       <a href="/loppkalender/alla-lan/alla-loppstyper/10000-meter" class="browse-card">
-        <h3>10000 meter</h3>
-        <span class="count">16 lopp</span>
+        <h3>
+          10000 meter
+          <span class="count"
+            >(14 lopp)</span
+          >
+        </h3>
       </a>
       
       <a href="/loppkalender/alla-lan/alla-loppstyper/1500-meter" class="browse-card">
-        <h3>1500 meter</h3>
-        <span class="count">17 lopp</span>
+        <h3>
+          1500 meter
+          <span class="count"
+            >(17 lopp)</span
+          >
+        </h3>
       </a>
       
       <a href="/loppkalender/alla-lan/alla-loppstyper/3000-meter" class="browse-card">
-        <h3>3000 meter</h3>
-        <span class="count">15 lopp</span>
+        <h3>
+          3000 meter
+          <span class="count"
+            >(14 lopp)</span
+          >
+        </h3>
       </a>
       
       <a href="/loppkalender/alla-lan/alla-loppstyper/5-km" class="browse-card">
-        <h3>5 km</h3>
-        <span class="count">21 lopp</span>
+        <h3>
+          5 km
+          <span class="count"
+            >(19 lopp)</span
+          >
+        </h3>
       </a>
       
       <a href="/loppkalender/alla-lan/alla-loppstyper/50-km" class="browse-card">
-        <h3>50 km</h3>
-        <span class="count">5 lopp</span>
+        <h3>
+          50 km
+          <span class="count"
+            >(5 lopp)</span
+          >
+        </h3>
       </a>
       
       <a href="/loppkalender/alla-lan/alla-loppstyper/50-miles" class="browse-card">
-        <h3>50 miles</h3>
-        <span class="count">6 lopp</span>
+        <h3>
+          50 miles
+          <span class="count"
+            >(5 lopp)</span
+          >
+        </h3>
       </a>
       
       <a href="/loppkalender/alla-lan/alla-loppstyper/5000-meter" class="browse-card">
-        <h3>5000 meter</h3>
-        <span class="count">15 lopp</span>
+        <h3>
+          5000 meter
+          <span class="count"
+            >(14 lopp)</span
+          >
+        </h3>
       </a>
       
       <a href="/loppkalender/alla-lan/alla-loppstyper/halvmarathon" class="browse-card">
-        <h3>Halvmarathon</h3>
-        <span class="count">17 lopp</span>
+        <h3>
+          Halvmarathon
+          <span class="count"
+            >(15 lopp)</span
+          >
+        </h3>
       </a>
       
       <a href="/loppkalender/alla-lan/alla-loppstyper/marathon" class="browse-card">
-        <h3>Marathon</h3>
-        <span class="count">10 lopp</span>
+        <h3>
+          Marathon
+          <span class="count"
+            >(7 lopp)</span
+          >
+        </h3>
       </a>
       
       <a href="/loppkalender/alla-lan/alla-loppstyper/millopp" class="browse-card">
-        <h3>Millopp</h3>
-        <span class="count">25 lopp</span>
+        <h3>
+          Millopp
+          <span class="count"
+            >(21 lopp)</span
+          >
+        </h3>
       </a>
       
     </div>

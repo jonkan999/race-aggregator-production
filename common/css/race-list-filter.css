@@ -15,14 +15,14 @@
 }
 .filter-date label {
   white-space: nowrap;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 .filter-date input {
   flex: 1;
   padding: 0.5rem;
   border-radius: 5px;
   border: 1px solid #ddd;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 .filter-months,
 .filter-categories {
@@ -47,7 +47,7 @@
   border: 1px solid #ddd;
   background-color: var(--color-background-shade);
   cursor: pointer;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 .month-button.active {
   background-color: var(--info-highlight-background);
@@ -74,7 +74,7 @@
   padding: 0.5rem;
   border-radius: 5px;
   border: 1px solid #ddd;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 /* Add this to your CSS file */
 /* Highlight color for the select element */
@@ -86,41 +86,42 @@ select.highlight option {
   background-color: var(--color-background-shade);
 }
 .browse-all-filters {
-  position: relative;
-  padding: 0;
-  background: transparent;
+  display: flex;
+  align-items: center;
 }
 .browse-link {
   position: relative;
   display: flex;
   align-items: center;
   margin-left: 1rem;
-  padding: 0.8rem 5rem 0.8rem 1rem;
-  background: var(--color-background-shade);
+  padding: 0 1rem 0 0.5rem;
+  /*   background: var(--color-background-shade); */
   color: var(--color-primary-dark);
-  text-decoration: none;
+  text-decoration: underline;
   font-size: 1.6rem;
   font-weight: 500;
   /* Create a triangle cut-out in the upper right corner */
+  /*   &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 5rem 5rem 0;
+    border-color: transparent var(--color-background) transparent transparent;
+    z-index: 10;
+  } */
+  /*   &:hover {
+    background: var(--info-highlight-background2);
+  } */
 }
-.browse-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 5rem 5rem 0;
-  border-color: transparent var(--color-background) transparent transparent;
-  z-index: 10;
-}
-.browse-link:hover {
-  background: var(--info-highlight-background2);
-}
-.browse-link ion-icon {
+.browse-link .browse-link-icon {
   margin-right: 8px;
   font-size: 2rem;
+  width: 2rem;
+  height: 2rem;
 }
 .helper-text {
   display: block;
@@ -133,17 +134,25 @@ select.highlight option {
 .browse-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 1.5rem 2.5rem;
+}
+.browse-overview h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+.browse-overview .browse-grid {
+  margin-left: 2rem;
 }
 .browse-nav {
   display: flex;
   gap: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 1rem;
   border-bottom: 1px solid var(--color-grey-light-2);
-  padding-bottom: 10px;
+  padding-bottom: 1rem;
+  font-size: 1.6rem;
 }
 .browse-nav a {
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   text-decoration: none;
   color: var(--color-grey-dark-1);
   border-radius: 4px;
@@ -151,4 +160,41 @@ select.highlight option {
 .browse-nav a.active {
   background: var(--color-primary);
   color: white;
+}
+.browse-description {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+.browse-grid {
+  margin-bottom: 2rem;
+}
+.browse-grid h2,
+.browse-grid .city-header,
+.browse-grid .county-header {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+.browse-grid h2 a,
+.browse-grid .city-header a,
+.browse-grid .county-header a {
+  font-size: 1.6rem;
+}
+.browse-grid h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+.browse-grid a {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.browse-grid span {
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+}
+.browse-grid .categories,
+.browse-grid .popular-types,
+.browse-grid .category-list,
+.browse-grid .race-types {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
 }

@@ -135,6 +135,67 @@ def generate_distance_mapping(races, verbose_mapping, category_mapping):
         'available_categories': ordered_categories
     }
 
+def is_appropriate_content(post_dict):
+    """Check if post content is appropriate."""
+    content = post_dict.get('content', '')
+    
+    # Check content length (between 1 and 500 characters)
+    if not (1 <= len(content) <= 500):
+        return False
+    
+    # List of suspicious patterns to filter out
+    suspicious_patterns = [
+        'http://',  # Block non-secure links
+        'credit card',
+        'account',
+        'social security',
+        'ssn',
+        'paypal',
+        '.ru',  # Common spam domains
+        '.xyz',
+        # Add more patterns as needed
+    ]
+    
+    # Check for suspicious patterns
+    content_lower = content.lower()
+    for pattern in suspicious_patterns:
+        if pattern in content_lower:
+            return False
+    
+    return True
+
+def fetch_forum_posts(country_code, domain_name):
+    """Fetch forum posts for a specific race."""
+    # Initialize Firebase Admin if not already initialized
+    if not firebase_admin._apps:
+        cred = credentials.Certificate('python/keys/firestore_service_account.json')
+        firebase_admin.initialize_app(cred)
+    
+    db = firestore.client()
+    
+    # Query posts for this specific race
+    posts = (db.collection(f'forum_posts_{country_code}')
+             .where('source_race', '==', domain_name)
+             .order_by('createdAt', direction=firestore.Query.ASCENDING)
+             .get())
+    
+    # Convert to list of dicts and format dates, filtering out inappropriate content
+    formatted_posts = []
+    for post in posts:
+        post_dict = post.to_dict()
+        
+        # Skip posts that don't meet content guidelines
+        if not is_appropriate_content(post_dict):
+            continue
+            
+        # Convert Firestore Timestamp to string
+        if 'createdAt' in post_dict:
+            post_dict['createdAt'] = post_dict['createdAt'].strftime('%Y-%m-%d %H:%M')
+        
+        formatted_posts.append(post_dict)
+    
+    return formatted_posts
+
 def generate_distance_filter(country_code):
     """Generate distance filter mapping for a specific country."""
     country_dir = os.path.join(data_dir, country_code)
@@ -159,32 +220,6 @@ def generate_distance_filter(country_code):
         yaml.dump(mapping_data, f, allow_unicode=True, sort_keys=False)
     
     print(f"Distance filter generated successfully for {country_code}!")
-
-def fetch_forum_posts(country_code, domain_name):
-    """Fetch forum posts for a specific race."""
-    # Initialize Firebase Admin if not already initialized
-    if not firebase_admin._apps:
-        cred = credentials.Certificate('python/keys/firestore_service_account.json')
-        firebase_admin.initialize_app(cred)
-    
-    db = firestore.client()
-    
-    # Query posts for this specific race
-    posts = (db.collection(f'forum_posts_{country_code}')
-             .where('source_race', '==', domain_name)
-             .order_by('createdAt', direction=firestore.Query.DESCENDING)
-             .get())
-    
-    # Convert to list of dicts and format dates
-    formatted_posts = []
-    for post in posts:
-        post_dict = post.to_dict()
-        # Convert Firestore Timestamp to string
-        if 'createdAt' in post_dict:
-            post_dict['createdAt'] = post_dict['createdAt'].strftime('%Y-%m-%d %H:%M')
-        formatted_posts.append(post_dict)
-    
-    return formatted_posts
 
 def generate_race_pages(country_code, domain_name=None):
     """

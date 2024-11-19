@@ -54,10 +54,51 @@ export function initializeRaceForum() {
       loginPrompt.style.display = user ? 'none' : 'block';
     });
 
-    // Handle post submission
+    // Add template post element (hidden by default)
+    const forumPosts = document.getElementById('forum-posts');
+    const emptyPost = document.createElement('div');
+    emptyPost.className = 'forum-post template-post';
+    emptyPost.style.display = 'none';
+    emptyPost.innerHTML = `
+      <div class="post-header">
+        <span class="post-author"></span>
+        <span class="post-date"></span>
+      </div>
+      <div class="post-content"></div>
+    `;
+    forumPosts.appendChild(emptyPost);
+
+    // Function to add post to UI
+    function addPostToUI(content, authorName, timestamp) {
+      const newPost = emptyPost.cloneNode(true);
+      newPost.style.display = 'block';
+      newPost.classList.remove('template-post');
+
+      newPost.querySelector('.post-author').textContent = authorName;
+      newPost.querySelector('.post-date').textContent =
+        timestamp.toLocaleString();
+      newPost.querySelector('.post-content').textContent = content;
+
+      // Insert at the top of the posts list
+      const firstPost = forumPosts.querySelector(
+        '.forum-post:not(.template-post)'
+      );
+      if (firstPost) {
+        forumPosts.insertBefore(newPost, firstPost);
+      } else {
+        forumPosts.insertBefore(newPost, emptyPost);
+      }
+
+      // Remove empty state message if it exists
+      const emptyState = forumPosts.querySelector('.empty-state');
+      if (emptyState) {
+        emptyState.remove();
+      }
+    }
+
+    // Modify submit button handler
     submitButton?.addEventListener('click', async () => {
       const content = forumInput.value.trim();
-      // Check for empty content
       if (!content || content.length === 0) {
         console.log('Empty content, not submitting');
         return;
@@ -67,6 +108,13 @@ export function initializeRaceForum() {
       try {
         const postId = crypto.randomUUID();
         const timestamp = new Date();
+
+        // Add post to UI immediately
+        addPostToUI(
+          content,
+          auth.currentUser.displayName || 'Anonymous',
+          timestamp
+        );
 
         // Create batch for atomic operations
         const batch = writeBatch(db);
@@ -96,6 +144,7 @@ export function initializeRaceForum() {
         console.log('Post submitted successfully');
       } catch (error) {
         console.error('Error posting message:', error);
+        // Optionally: Remove the optimistically added post if submission fails
       }
     });
   }

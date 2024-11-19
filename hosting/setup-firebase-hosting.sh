@@ -132,7 +132,8 @@ for country in "${COUNTRIES[@]}"; do
     allowed_origins="${allowed_origins}, \
 'https://${dev_site_name}.web.app', \
 'https://${dev_site_name}.firebaseapp.com', \
-'https://${prod_site_name}'"
+'https://${prod_site_name}.web.app', \
+'https://${prod_site_name}.firebaseapp.com'"
 
     # Add base URL if it exists
     [[ ! -z "$base_url" ]] && allowed_origins="${allowed_origins}, '${base_url}'"
@@ -341,7 +342,7 @@ cat << COUNTRYINDEXES
       "queryScope": "COLLECTION",
       "fields": [
         { "fieldPath": "source_race", "mode": "ASCENDING" },
-        { "fieldPath": "createdAt", "mode": "DESCENDING" }
+        { "fieldPath": "createdAt", "mode": "ASCENDING" }
       ]
     },
     {
@@ -349,7 +350,7 @@ cat << COUNTRYINDEXES
       "queryScope": "COLLECTION",
       "fields": [
         { "fieldPath": "source_race", "mode": "ASCENDING" },
-        { "fieldPath": "createdAt", "mode": "DESCENDING" },
+        { "fieldPath": "createdAt", "mode": "ASCENDING" },
         { "fieldPath": "__name__", "mode": "DESCENDING" }
       ]
     }$([ "$country" != "${COUNTRIES[-1]}" ] && echo ",")

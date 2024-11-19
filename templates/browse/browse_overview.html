@@ -4,13 +4,17 @@
   <p class="browse-description">{{ browse_overview.meta_description }}</p>
 
   <section class="browse-section">
-    <h2>{{ browse_counties.title }}</h2>
+    <h2>{{browse_counties.title}}</h2>
     <div class="browse-grid">
       {% for county, data in structure.counties|dictsort %}
-      <a href="{{ data.href }}" class="browse-card">
-        <h3>{{ county }}</h3>
-        <span class="count">{{ data.count }} {{ local_name_for_race }}</span>
-      </a>
+      <h3>
+        <a href="{{ data.href }}" class="browse-card">
+          {{county}}
+          <span class="count"
+            >({{ data.count }} {{ local_name_for_race }})</span
+          >
+        </a>
+      </h3>
       {% endfor %}
     </div>
   </section>
@@ -19,10 +23,14 @@
     <h2>{{ browse_cities.title }}</h2>
     <div class="browse-grid">
       {% for city, data in structure.cities|dictsort %}
-      <a href="{{ data.href }}" class="browse-card">
-        <h3>{{ city }}</h3>
-        <span class="count">{{ data.count }} {{ local_name_for_race }}</span>
-      </a>
+      <h3>
+        <a href="{{ data.href }}" class="browse-card">
+          {{ city }}
+          <span class="count"
+            >({{ data.count }} {{ local_name_for_race }})</span
+          >
+        </a>
+      </h3>
       {% endfor %}
     </div>
   </section>
@@ -31,10 +39,14 @@
     <h2>{{ browse_types.title }}</h2>
     <div class="browse-grid">
       {% for type, data in structure.types|dictsort %}
-      <a href="{{ data.href }}" class="browse-card">
-        <h3>{{ type }}</h3>
-        <span class="count">{{ data.count }} {{ local_name_for_race }}</span>
-      </a>
+      <h3>
+        <a href="{{ data.href }}" class="browse-card">
+          {{ type }}
+          <span class="count"
+            >({{ data.count }} {{ local_name_for_race }})</span
+          >
+        </a>
+      </h3>
       {% endfor %}
     </div>
   </section>
@@ -44,8 +56,12 @@
     <div class="browse-grid">
       {% for category, data in structure.categories|dictsort %}
       <a href="{{ data.href }}" class="browse-card">
-        <h3>{{ category }}</h3>
-        <span class="count">{{ data.count }} {{ local_name_for_race }}</span>
+        <h3>
+          {{ category }}
+          <span class="count"
+            >({{ data.count }} {{ local_name_for_race }})</span
+          >
+        </h3>
       </a>
       {% endfor %}
     </div>

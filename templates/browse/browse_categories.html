@@ -13,17 +13,18 @@
 
       <div class="category-stats">
         <div class="popular-types">
-          <h3>Vanliga lopptyper</h3>
           <ul>
             {% for type, type_data in structure.types|dictsort %} {% if
             type_data.categories[category].count > 0 %}
             <li>
-              <a href="{{ type_data.categories[category].href }}">
-                {{ type }}
-              </a>
-              <span class="count"
-                >({{ type_data.categories[category].count }})</span
-              >
+              <h3>
+                <a href="{{ type_data.categories[category].href }}">
+                  {{ type }}
+                </a>
+                <span class="count"
+                  >({{ type_data.categories[category].count }})</span
+                >
+              </h3>
             </li>
             {% endif %} {% endfor %}
           </ul>

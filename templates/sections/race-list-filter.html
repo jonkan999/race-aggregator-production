@@ -50,8 +50,10 @@
         href="/{{ race_list_name|slugify(country_code) }}/{{ browse_by_category.button|slugify(country_code) }}"
         class="browse-link"
       >
-        <ion-icon name="git-network-outline"></ion-icon>
-        {{ browse_by_category.button }}
+        <div class="browse-link-icon">
+          <ion-icon name="git-network-outline"></ion-icon>
+        </div>
+        <div class="browse-link-text">{{ browse_by_category.button }}</div>
       </a>
     </div>
   </div>
