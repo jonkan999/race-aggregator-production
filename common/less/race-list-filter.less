@@ -29,7 +29,8 @@
 
   select,
   input,
-  option {
+  option,
+  button {
     color: var(--color-grey-dark-1);
     -webkit-text-fill-color: var(--color-grey-dark-1);
     opacity: 1;
@@ -53,6 +54,14 @@
         -webkit-text-fill-color: var(--color-grey-dark-1);
       }
     }
+  }
+
+  // Style buttons specifically
+  button {
+    color: var(--color-grey-dark-1);
+    -webkit-text-fill-color: var(--color-grey-dark-1);
+    -webkit-appearance: none; // Remove default button styling
+    appearance: none;
   }
 
   // Style the date inputs
