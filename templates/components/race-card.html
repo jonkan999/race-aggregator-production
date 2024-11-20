@@ -7,6 +7,8 @@
   data-category="{{ race.category|default('') }}"
   data-race-type="{{ race.type_local|default('') }}"
   data-distance="{{ race.distance_verbose if race.distance_verbose else '' }}"
+  data-latitude="{{ race.latitude|default('') }}"
+  data-longitude="{{ race.longitude|default('') }}"
 >
   <div class="race-card-upper-box background-container">
     <picture>

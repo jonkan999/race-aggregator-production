@@ -23,9 +23,17 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
     <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+    <script defer="" src="/js/raceListToggleButton.js"></script>
+    <script defer="" src="/js/raceListToggleMap.js"></script>
   </head>
   <body>
     <!-- Page content -->
@@ -456,6 +464,25 @@
         <div class="browse-link-text">Bläddra efter kategori</div>
       </a>
     </div>
+    <div class="toggle-button desktop" id="toggleMapButton">
+      <button>
+        <ion-icon
+          name="radio-button-on-outline"
+          id="onIcon"
+          role="img"
+          class="md hydrated"
+          aria-label="radio button on outline"
+        ></ion-icon>
+        <ion-icon
+          name="radio-button-off-outline"
+          id="offIcon"
+          role="img"
+          class="md hydrated"
+          aria-label="radio button off outline"
+        ></ion-icon>
+        Karta
+      </button>
+    </div>
   </div>
 </section> <section class="section section-race-cards">
   <h2 class="section-header section-header-race-cards">
@@ -467,15 +494,25 @@
     <span id="date-range"></span>
   </h2>
 
-  <div
-    class="race-cards-grid"
-    id="race-cards-container"
-    {/*
-    prettier-ignore
-    */}
-    
-  >
-     <a
+
+  <button class="toggle-button mobile" id="toggleMapButtonMobile">
+    <div class="icon-container">
+      <ion-icon name="map-outline" role="img" class="md hydrated" aria-label="map outline"></ion-icon>
+    </div>
+    <p>Karta</p>
+  </button>
+
+
+  <div class="race-cards-selector">
+    <div
+      class="race-cards-grid"
+        id="race-cards-container"
+        {/*
+        prettier-ignore
+        */}
+        
+      >
+         <a
   href="/loppsidor/forsta_chansen/index.html"
   class="race-card"
   data-name="Första Chansen"
@@ -484,6 +521,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="15km"
+  data-latitude="59.2316618"
+  data-longitude="17.98441"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -567,6 +606,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="10km, half marathon, marathon"
+  data-latitude="56.6743748"
+  data-longitude="12.8577884"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -662,6 +703,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance=""
+  data-latitude="57.6770083"
+  data-longitude="11.9366337"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -745,6 +788,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="half marathon"
+  data-latitude="59.3758773"
+  data-longitude="17.0056247"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -828,6 +873,8 @@
   data-category=""
   data-race-type="Terräng"
   data-distance="8km, 15km"
+  data-latitude="57.760616"
+  data-longitude="16.682995"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -917,6 +964,8 @@
   data-category=""
   data-race-type="Övrigt"
   data-distance="3km"
+  data-latitude="59.2752626"
+  data-longitude="15.2134105"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -1000,6 +1049,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="10km"
+  data-latitude="55.573333"
+  data-longitude="13.064167"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -1083,6 +1134,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="5km, 12km, 25km"
+  data-latitude="56.0293936"
+  data-longitude="14.1566778"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -1178,6 +1231,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="5km"
+  data-latitude="59.3419537"
+  data-longitude="17.9535361"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -1261,6 +1316,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="11km"
+  data-latitude="57.6533075"
+  data-longitude="12.0557909"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -1344,6 +1401,8 @@
   data-category=""
   data-race-type="Terräng"
   data-distance="2,5km, 9km"
+  data-latitude="57.75589999999999"
+  data-longitude="11.9342904"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -1433,6 +1492,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance=""
+  data-latitude="59.2752626"
+  data-longitude="15.2134105"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -1516,6 +1577,8 @@
   data-category=""
   data-race-type="Terräng"
   data-distance="7,5km"
+  data-latitude="59.30230510000001"
+  data-longitude="15.2674132"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -1599,6 +1662,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km"
+  data-latitude="57.6770083"
+  data-longitude="11.9366337"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -1682,6 +1747,8 @@
   data-category=""
   data-race-type="Terräng"
   data-distance="10km, 27km"
+  data-latitude="60.12816100000001"
+  data-longitude="18.643501"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -1771,6 +1838,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="5km, 10km, 15km"
+  data-latitude="56.1792958"
+  data-longitude="15.7688892"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -1866,6 +1935,8 @@
   data-category=""
   data-race-type="Terräng"
   data-distance="10km"
+  data-latitude="58.3421932"
+  data-longitude="15.8508167"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -1949,6 +2020,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="6km, 12km"
+  data-latitude="57.65797999999999"
+  data-longitude="12.058353"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2038,6 +2111,8 @@
   data-category=""
   data-race-type="Övrigt"
   data-distance="1,1km"
+  data-latitude="56.0960391"
+  data-longitude="12.6543367"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2121,6 +2196,8 @@
   data-category=""
   data-race-type="Övrigt"
   data-distance=""
+  data-latitude="59.3778823"
+  data-longitude="16.509156"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2204,6 +2281,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance=""
+  data-latitude="60.60646000000001"
+  data-longitude="15.6355"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2287,6 +2366,8 @@
   data-category=""
   data-race-type="Övrigt"
   data-distance="1,5km"
+  data-latitude="57.6770083"
+  data-longitude="11.9366337"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2370,6 +2451,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="4km"
+  data-latitude="59.2911076"
+  data-longitude="17.926497"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2453,6 +2536,8 @@
   data-category=""
   data-race-type="Frontyard Ultra"
   data-distance="1km"
+  data-latitude="55.6648168"
+  data-longitude="13.3475569"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2536,6 +2621,8 @@
   data-category=""
   data-race-type="Tidslopp"
   data-distance="6km, 12km, 24km"
+  data-latitude="56.8807082"
+  data-longitude="14.7751961"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2631,6 +2718,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance=""
+  data-latitude="60.12816100000001"
+  data-longitude="18.643501"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2714,6 +2803,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="10,5km"
+  data-latitude="56.277708"
+  data-longitude="14.530938"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2797,6 +2888,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="10km"
+  data-latitude="57.7044493"
+  data-longitude="11.985057"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2880,6 +2973,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="5km, 10km"
+  data-latitude="58.5746335"
+  data-longitude="16.1577369"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2969,6 +3064,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="3km"
+  data-latitude="58.58549670000001"
+  data-longitude="16.1397866"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -3052,6 +3149,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km, 3km"
+  data-latitude="59.23633"
+  data-longitude="17.9821561"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -3141,6 +3240,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km, 3km"
+  data-latitude="64.750244"
+  data-longitude="20.950917"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -3230,6 +3331,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1km, 1,5km, 2km, 3km, 5km"
+  data-latitude="59.25644020000001"
+  data-longitude="15.259925"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -3335,6 +3438,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km, 3km"
+  data-latitude="56.161224"
+  data-longitude="15.5869"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -3424,6 +3529,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km, 3km"
+  data-latitude="59.2896221"
+  data-longitude="17.9276601"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -3513,6 +3620,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km"
+  data-latitude="56.88245819999999"
+  data-longitude="14.773211"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -3596,6 +3705,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="31km, 60km, 96km, 185km"
+  data-latitude="57.608487"
+  data-longitude="12.0660077"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -3697,6 +3808,8 @@
   data-category=""
   data-race-type="Övrigt"
   data-distance="1,5km"
+  data-latitude="59.6104828"
+  data-longitude="16.5619558"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -3780,6 +3893,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km"
+  data-latitude="59.8813894"
+  data-longitude="17.656109"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -3863,6 +3978,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="3km"
+  data-latitude="63.24928629999999"
+  data-longitude="14.570264"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -3946,6 +4063,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance=""
+  data-latitude="57.72103500000001"
+  data-longitude="12.939819"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4029,6 +4148,8 @@
   data-category=""
   data-race-type="Backyard Ultra"
   data-distance="1,2km, 18km, 36km"
+  data-latitude="59.244121"
+  data-longitude="15.2190924"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4124,6 +4245,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="3km"
+  data-latitude="59.43735599999999"
+  data-longitude="17.9545313"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4207,6 +4330,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km"
+  data-latitude="59.399103"
+  data-longitude="13.4913499"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4290,6 +4415,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="3km"
+  data-latitude="57.6770083"
+  data-longitude="11.9366337"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4373,6 +4500,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km, 3km"
+  data-latitude="59.2896221"
+  data-longitude="17.9276601"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4462,6 +4591,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance=""
+  data-latitude="55.5842263"
+  data-longitude="12.9901974"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4545,6 +4676,8 @@
   data-category=""
   data-race-type="Terräng"
   data-distance="5km, 12km, 24km"
+  data-latitude="60.12816100000001"
+  data-longitude="18.643501"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4640,6 +4773,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="5km, 12km, 24km"
+  data-latitude="57.0687055"
+  data-longitude="12.5065709"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4735,6 +4870,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="5km, 12km, 24km"
+  data-latitude="57.0687055"
+  data-longitude="12.5065709"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4830,6 +4967,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="22km"
+  data-latitude="57.72103500000001"
+  data-longitude="12.939819"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4913,6 +5052,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="20km"
+  data-latitude="59.2911076"
+  data-longitude="17.926497"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4996,6 +5137,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="22km, marathon"
+  data-latitude="58.6304568"
+  data-longitude="16.7977532"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -5085,6 +5228,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance=""
+  data-latitude="59.399103"
+  data-longitude="13.4913499"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -5168,6 +5313,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="12km, 15km"
+  data-latitude="55.604981"
+  data-longitude="13.003822"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -5257,6 +5404,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="9km, 11km"
+  data-latitude="58.5380335"
+  data-longitude="15.0470936"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -5346,6 +5495,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="13km, 25km, 50km"
+  data-latitude="56.1333333"
+  data-longitude="14.5666667"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -5441,6 +5592,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km"
+  data-latitude="60.60646000000001"
+  data-longitude="15.6355"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -5524,6 +5677,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km"
+  data-latitude="60.12816100000001"
+  data-longitude="18.643501"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -5607,6 +5762,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="30km, 60km"
+  data-latitude="55.5969269"
+  data-longitude="13.417489"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -5696,6 +5853,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km"
+  data-latitude="58.41080700000001"
+  data-longitude="15.6213727"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -5779,6 +5938,8 @@
   data-category=""
   data-race-type="Terräng"
   data-distance="2,6km, 6,5km, 13km, half marathon"
+  data-latitude="55.7745991"
+  data-longitude="13.0752671"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -5880,6 +6041,8 @@
   data-category=""
   data-race-type="Övrigt"
   data-distance=""
+  data-latitude="58.75284389999999"
+  data-longitude="17.0091593"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -5963,6 +6126,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km, relay"
+  data-latitude="63.24928629999999"
+  data-longitude="14.570264"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -6052,6 +6217,8 @@
   data-category=""
   data-race-type="Terräng"
   data-distance="50km, 100km"
+  data-latitude="58.75284389999999"
+  data-longitude="17.0091593"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -6141,6 +6308,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="3km"
+  data-latitude="60.60646000000001"
+  data-longitude="15.6355"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -6224,6 +6393,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="36km, 50 miles, 100 miles"
+  data-latitude="57.3299188"
+  data-longitude="18.7083941"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -6319,6 +6490,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="10km"
+  data-latitude="60.12816100000001"
+  data-longitude="18.643501"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -6402,6 +6575,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="half marathon"
+  data-latitude="56.423635"
+  data-longitude="12.6273003"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -6485,6 +6660,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km, 3km"
+  data-latitude="58.88942679999999"
+  data-longitude="14.9109867"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -6574,6 +6751,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="5km, 10km"
+  data-latitude="57.681210685384066"
+  data-longitude="12.03532934188843"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -6663,6 +6842,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance=""
+  data-latitude="59.3778823"
+  data-longitude="16.509156"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -6746,6 +6927,8 @@
   data-category=""
   data-race-type="Backyard Ultra"
   data-distance="6,7km"
+  data-latitude="61.22730600000001"
+  data-longitude="14.0419871"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -6829,6 +7012,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="2km, 5km, 14km, half marathon, 22km, 30km, 60km, trail"
+  data-latitude="55.7067466"
+  data-longitude="13.9596983"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -6934,6 +7119,8 @@
   data-category=""
   data-race-type="Backyard Ultra"
   data-distance="6,7km"
+  data-latitude="59.31008800000001"
+  data-longitude="18.0256259"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -7017,6 +7204,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="1km, 2km, 2,4km, 3km, 8km, 15km, 30km"
+  data-latitude="60.12816100000001"
+  data-longitude="18.643501"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -7122,6 +7311,8 @@
   data-category=""
   data-race-type="Tidslopp"
   data-distance="2,6km, 26km"
+  data-latitude="59.2457673"
+  data-longitude="15.188047"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -7211,6 +7402,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="5km, 12km, 35km"
+  data-latitude="55.9623144"
+  data-longitude="13.3334583"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -7306,6 +7499,8 @@
   data-category=""
   data-race-type="Backyard Ultra"
   data-distance="6,7km"
+  data-latitude="59.333333"
+  data-longitude="15.95"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -7389,6 +7584,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="6km, 10km, half marathon"
+  data-latitude="58.66012016958148"
+  data-longitude="16.391103745554574"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -7484,6 +7681,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="1,4km, 2,4km, 4,3km, 8km, 11,5km, half marathon"
+  data-latitude="57.6973714"
+  data-longitude="11.979319"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -7589,6 +7788,8 @@
   data-category=""
   data-race-type="Backyard Ultra"
   data-distance=""
+  data-latitude="60.12816100000001"
+  data-longitude="18.643501"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -7672,6 +7873,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="marathon"
+  data-latitude="59.34533640000001"
+  data-longitude="18.0790178"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -7755,6 +7958,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="10km"
+  data-latitude="59.31023419999999"
+  data-longitude="18.0456304"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -7838,6 +8043,8 @@
   data-category=""
   data-race-type="Stafett"
   data-distance="9km, 10km, 15km, half marathon"
+  data-latitude="60.09608100000001"
+  data-longitude="18.8057521"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -7939,6 +8146,8 @@
   data-category=""
   data-race-type="Terräng"
   data-distance="9km, 10km, 15km, half marathon, 70km, relay"
+  data-latitude="60.09608100000001"
+  data-longitude="18.8057521"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -8044,6 +8253,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="27km, marathon"
+  data-latitude="63.31526299999999"
+  data-longitude="13.0852665"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -8133,6 +8344,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="5km, 12km, 23km, 24km, 46km"
+  data-latitude="57.0851784"
+  data-longitude="12.5507023"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -8238,6 +8451,8 @@
   data-category=""
   data-race-type="Terräng"
   data-distance="60km"
+  data-latitude="60.0654408"
+  data-longitude="15.9231621"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -8321,6 +8536,8 @@
   data-category=""
   data-race-type="Terräng"
   data-distance="5km, 8km, 12km, 27km, marathon, 45km, 100km"
+  data-latitude="63.14835660000001"
+  data-longitude="12.9663721"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -8426,6 +8643,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="8km, 18km, 28km, 45km, 84km"
+  data-latitude="61.8579343"
+  data-longitude="12.7258737"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -8531,6 +8750,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="10km, half marathon, marathon"
+  data-latitude="61.16037809999999"
+  data-longitude="13.1957967"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -8626,6 +8847,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="5km, 12km, 22km, 44km, ultra"
+  data-latitude="57.0687055"
+  data-longitude="12.5065709"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -8731,6 +8954,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="26km"
+  data-latitude="59.1542719"
+  data-longitude="18.02153"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -8806,17 +9031,28 @@
     <div class="more-info-button">Mer info &amp; anmälan</div>
   </div>
 </a> 
-  </div>
-
-  <!-- Add pagination controls -->
+        <!-- Add pagination controls -->
   <div class="pagination-info">
-    <span id="event-range"></span> of <span id="total-events"></span> Events
+    <span id="event-range">av</span> 
+    <span id="total-events">Lopp</span> 
   </div>
   <div class="pagination">
-    <button id="prev-page">Previous</button>
+    <button id="prev-page">Föregående</button>
     <div id="page-numbers"></div>
-    <button id="next-page">Next</button>
+      <button id="next-page">Nästa</button>
+    </div>
   </div>
+
+    
+    <div class="map-placeholder"   id="map-placeholder"    data-latitude="59.346972"
+    data-longitude="15.027053"
+      data-zoom="4"
+    >
+      <!-- Map will be inserted here -->
+    </div>
+  </div>
+
+
 </section></main>
 
     

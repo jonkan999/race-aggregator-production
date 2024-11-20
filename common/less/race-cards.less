@@ -1,61 +1,78 @@
-@import "_variables.less";
+@import '_variables.less';
 
 .section-race-cards {
-  padding: 0 1.5rem;
+  margin-top: calc(var(--header-size) + 19.5rem);
+  margin-bottom: 5rem;
+  height: calc(
+    100vh - (var(--header-size) + 18.5rem + var(--ad-banner-height))
+  );
+  @media (max-width: @small-tablet) {
+    margin-top: 0;
+  }
+  @media (max-width: @phone) {
+    padding: 0 1.5rem;
+  }
+
+  .race-cards-selector {
+    display: flex;
+  }
 
   .section-header-race-cards {
     margin-bottom: 2rem;
+    @media (max-width: @small-tablet) {
+      padding-top: calc(
+        1 * (4.5rem + 2.5rem) + 0.5rem + 2 * var(--header-size)
+      );
+    }
   }
 
   .race-cards-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: 1fr;
     gap: 2rem;
-    /* Adjust the gap between cards */
     margin: 0 auto;
-    /* Center the grid if there's extra space */
-    padding: 1rem;
+    width: 100%;
+    background-color: white;
 
-    /* Responsive Breakpoints */
-    @media (max-width: 105em) {
-      grid-template-columns: repeat(4, 1fr);
+    .race-card {
+      width: 100%;
     }
 
-    @media (max-width: 69em) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    @media (max-width: 54em) {
+    // Tablet and up
+    @media (min-width: 34em) {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (max-width: 34em) {
-      grid-template-columns: 1fr;
-
-      .race-card {
-        width: 100%;
-      }
+    // Desktop
+    @media (min-width: 69em) {
+      grid-template-columns: repeat(3, 1fr);
+      height: calc(
+        100vh - (var(--header-size) + 19.5rem + var(--ad-banner-height) + 5rem)
+      );
+      overflow-y: auto;
     }
   }
   .pagination-info {
+    grid-column: 1 / -1; // Span all columns
     text-align: center;
     margin-bottom: 1rem;
-    font-size: 14px;
+    font-size: 1.6rem;
   }
 
   .pagination {
+    grid-column: 1 / -1; // Span all columns
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2rem;
+    margin: 2rem 0 10rem 0;
   }
 
   .pagination button {
     margin: 0 5px 5px 5px;
-    padding: 8px 12px;
+    padding: 0.7rem 1rem;
     background-color: var(--color-background-shade);
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     border: none;
     transition: background-color 0.3s;
   }
@@ -92,4 +109,169 @@
       align-items: center;
     }
   }
+}
+
+.toggle-button.mobile {
+  display: none;
+  @media (max-width: @small-tablet) {
+    position: fixed;
+    bottom: 9.5rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: var(--color-primary-easy-shade);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    z-index: 11;
+  }
+  .icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.map-placeholder {
+  height: calc(
+    100vh - (var(--header-size) + 19.5rem + var(--ad-banner-height))
+  );
+  transform: translateY(-5rem);
+  width: 100%;
+  max-width: 50vw;
+} // Mobile styles
+@media (max-width: @small-tablet) {
+  .map-placeholder {
+    position: fixed;
+    top: calc(var(--header-size) + 19.5rem);
+    left: 0;
+    height: calc(
+      100vh - (1 * (4.5rem + 2.5rem) + 0.5rem + 2 * var(--header-size))
+    );
+    width: 100%;
+    max-width: none;
+    display: none;
+  }
+
+  .map-placeholder {
+    position: fixed;
+    top: calc(1 * (4.5rem + 2.5rem) + 2 * var(--header-size));
+    left: 0;
+    /* height: calc(100vh - (var(--header-size))); */
+    height: calc(
+      100vh - (1 * (4.5rem + 2.5rem) + 0.5rem + 2 * var(--header-size))
+    );
+    width: 100%;
+    max-width: none;
+    display: none;
+    /* z-index: -1; */
+  }
+  .mapboxgl-popup-content {
+    width: 28rem;
+  }
+  .popup-image {
+    height: 16rem;
+  }
+  .race-box-info-footer {
+    margin: auto 0 1rem 0;
+    display: flex;
+  }
+
+  .toggle-button.desktop {
+    display: none;
+  }
+}
+
+.mapboxgl-popup-content {
+  width: 32rem;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  border: none;
+}
+
+.mapboxgl-popup:focus {
+  outline: none;
+}
+.mapboxgl-popup-tip {
+  display: none;
+}
+
+.popup-container {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  color: var(--black-text-color);
+  border-radius: 0;
+}
+.popup-container:hover {
+  color: var(--box-hover-color);
+}
+.popup-image {
+  margin-bottom: 0.5rem;
+  width: 100%;
+  height: 19rem;
+  background-size: cover;
+  background-position: center 40%;
+  .background-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 60%;
+  }
+}
+
+.popup-container h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+.popup-footer {
+  margin: 0.5rem 0 0.5rem 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.6rem;
+}
+.popup-footer ion-icon {
+  font-size: 1.6rem;
+}
+.popup-footer p {
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+}
+
+.popup-stars {
+  margin-left: auto;
+  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.popup-stars p {
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+}
+.popup-stars ion-icon {
+  font-size: 1.6rem;
+}
+
+.mapboxgl-popup-close-button,
+.mapboxgl-popup-close-button:focus,
+.mapboxgl-popup-close-button:hover {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Hide the popup tip (the little arrow) if you want */
+.mapboxgl-popup-tip {
+  display: none;
 }

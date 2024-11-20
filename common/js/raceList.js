@@ -304,7 +304,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     const start = (currentPage - 1) * itemsPerPage + 1;
     const end = Math.min(currentPage * itemsPerPage, filteredCards.length);
-    eventRange.textContent = `${start}-${end} of ${filteredCards.length} Events`;
+    eventRange.textContent = `${start}-${end} {{ pagination.results_text }} ${filteredCards.length} `;
   }
 
   function updateURL(page) {

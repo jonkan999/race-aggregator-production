@@ -3,7 +3,13 @@
 @font-size-filters: 1.6rem;
 
 .section-filters {
-  padding: 0.2rem 0 0 0.8rem;
+  position: fixed;
+  top: 0;
+  margin-top: var(--header-size);
+  left: 0;
+  z-index: 11;
+  background-color: var(--color-background);
+  padding: 0.2rem 0 1rem 0.8rem;
   display: flex;
   flex-direction: column;
 
@@ -11,6 +17,15 @@
   margin-bottom: 1.5rem;
   width: 100%; // Ensure full width
   overflow: hidden; // Hide overflow on the container
+  /* 
+  @media (max-width: @phone) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    background-color: var(--color-background);
+    padding-bottom: 1rem;
+  } */
 }
 
 .filter-date {
@@ -236,4 +251,36 @@ select.highlight {
     margin-bottom: 1rem;
   }
   margin-bottom: 2rem;
+}
+
+.toggle-button {
+  padding-top: 1rem;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: 10rem;
+}
+
+.toggle-button button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.8rem;
+  color: var(--color-primary-easy-shade);
+}
+
+.toggle-button button ion-icon {
+  font-size: 2.9rem;
+}
+#offIcon {
+  display: none;
+}
+
+.toggle-button button ion-icon {
+  margin-right: 5px;
+}
+
+.toggle-button button:focus {
+  outline: none;
 }

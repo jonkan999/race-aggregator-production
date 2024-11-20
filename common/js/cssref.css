@@ -1,0 +1,426 @@
+.filters-section {
+    margin-top: var(--header-size); /* Increased from 5.7rem */
+    padding-left: 1rem;
+    width: 100%;
+    height: var(--header-size);
+    gap: 0.75rem;
+    border-bottom: 1px solid #ccc;
+    font-size: 1.65rem;
+    transition: all 0.2s ease-in-out;
+  }
+  .upper-filters {
+    padding-top: 1rem;
+    width: 100%;
+    margin: auto 0;
+    display: flex;
+  
+    gap: 1rem;
+  }
+  
+  .filter-box {
+    position: relative;
+    height: 4.5rem;
+    width: 20rem;
+    padding: 0.5rem 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    border: 1px solid #ccc;
+  }
+  .filter-box ion-icon {
+    position: absolute;
+    font-size: 1.5rem;
+    color: #333;
+    right: 3rem;
+  }
+  .filter-box select {
+  }
+  .filter-box:hover {
+    background-color: #f7f7f7;
+    cursor: pointer;
+  }
+  
+  .lower-filters {
+    margin: auto 0;
+    margin-top: 1rem;
+    display: grid;
+    width: calc(4 * 20rem + 3 * 1rem);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  .filter-checkbox {
+    display: none;
+    gap: 1.5rem;
+    align-items: center;
+    justify-items: center;
+    width: 20rem; /* Increased from 80% */
+    font-weight: 400;
+    font-size: 1.65rem;
+    padding: 1rem 0 0 1.4rem;
+    margin-left: auto;
+  }
+  .filter-checkbox span {
+    line-height: 1.65rem;
+  }
+  .filter-checkbox input {
+    appearance: auto;
+    width: 2rem;
+  }
+  /* .toggle-button {
+    margin-left: auto;
+    margin-right: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  
+    gap: 0.75rem;
+  } */
+  
+  .toggle-button {
+    padding-top: 1rem;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: 10rem;
+  }
+  
+  .toggle-button button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: #333;
+  }
+  
+  .toggle-button button ion-icon {
+    font-size: 2.9rem;
+  }
+  #onIcon {
+    display: none;
+  }
+  
+  .toggle-button button ion-icon {
+    margin-right: 5px;
+  }
+  
+  .toggle-button button:focus {
+    outline: none;
+  }
+  .venue-selector {
+    display: flex;
+  }
+  .mobile-margin{
+    display: none;
+    
+  }
+  .venues-section {
+    max-width: 100%;
+    /* .05 is enough to make x-scroll idssappear */
+    min-width: calc(3.17 * var(--venue-box-width));
+    height: calc(100vh - (2 * var(--header-size)));
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow-x: visible;
+    overflow-y: scroll;
+    grid-gap: 1rem;
+    padding: 1rem;
+  }
+  .map-section {
+    height: calc(100vh - (2 * var(--header-size)));
+    width: 100%;
+    max-width: 50vw;
+  }
+  
+  /* VENUE BOXES */
+  
+  /* Apply a general reset to eliminate default margins and paddings */
+  /* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  } */
+  
+  /* Style for the venue box container */
+  .venue-box-container {
+    position: relative;
+    width: var(--venue-box-width);
+    height: var(--venue-box-height);
+    margin-bottom: 1rem;
+  }
+  .venue-box {
+    width: var(--venue-box-width);
+    height: var(--venue-box-height);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .venue-box:hover {
+    cursor: pointer;
+    color: var(--box-hover-color);
+  }
+  
+  /* Style for the venue image */
+  /* .venue-box-image {
+    width: 100%;
+    position: relative;
+    height: 32rem;
+    margin-bottom: 1rem;
+    background-size: cover;
+    background-position: center 40%;
+  } */
+  /* Style for the venue image */
+  /* CSS for the carousel */
+  .image-carousel {
+    position: relative;
+  }
+  
+  .image-carousel-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .image-carousel-item {
+    width: 100%;
+    height: var(--venue-box-image-height); /* Adjust the height as needed */
+    /*   background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #333; */
+  
+    display: none;
+  }
+  
+  .image-inner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 60%;
+  }
+  
+  .image-carousel-item:first-child {
+    display: block; /* Initially show the first slide */
+  }
+  
+  /* CSS for the navigation buttons and counter */
+  .carousel-navigation {
+    position: absolute;
+    top: 19rem;
+    width: 3.2rem;
+    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem; /* Adjust the margin as needed */
+    padding: 0.45rem;
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .carousel-nav-icon {
+    height: calc(0.8 * var(--venue-box-image-height));
+    width: 4rem;
+    font-size: 2.5rem;
+    border-radius: 50rem;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+  
+    top: calc(0.1 * var(--venue-box-image-height));
+    position: absolute;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .nav-icon-container {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carousel-nav-icon.next {
+    right: 0;
+  }
+  .carousel-nav-icon.prev {
+    left: 0;
+  }
+  
+  #counter {
+    font-size: 1.2rem; /* Adjust font size as needed */
+    font-weight: bold;
+  }
+  /* Show navigation buttons on parent hover */
+  .venue-box-container:hover .carousel-nav-icon {
+    opacity: 1;
+  }
+  
+  .venue-box-price {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.75rem 1rem;
+    background-color: var(--black-background-color);
+    color: #fff;
+    font-size: 1.625rem;
+  
+    font-weight: 600;
+  }
+  
+  .venue-box-price .from {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-right: 0.5rem;
+  }
+  /* Style for the venue information section */
+  .venue-box-info {
+    height: 13.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  /* Style for the venue name and price header */
+  .venue-box-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.7rem;
+    margin-top: 0.5rem;
+  }
+  
+  .venue-box-info-header-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 1.15;
+  }
+  
+  .venue-box-info-body {
+    overflow: hidden;
+  }
+  
+  /* Style for the venue description */
+  .venue-box-info-short-text {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+  }
+  
+  /* Style for the location and "Läs mer" button section */
+  .venue-box-info-footer {
+    margin: auto 0 0 0;
+    display: flex;
+  }
+  
+  .venue-box-info-footer-capacity {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .venue-box-info-footer-capacity ion-icon {
+    font-size: 1.8rem;
+  }
+  .venue-box-info-footer-capacity p {
+    font-size: 1.4rem;
+  }
+  
+  .venue-box-info-footer-location-text {
+    font-size: 0.9rem;
+  }
+  
+  .highlight-stars {
+    margin: 0 1rem 0.2rem auto;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: 1.6rem;
+  }
+  
+  .mapboxgl-popup-content {
+    width: 32rem;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+  }
+  
+  .mapboxgl-popup:focus {
+    outline: none;
+  }
+  .mapboxgl-popup-tip {
+    display: none;
+  }
+  
+  .popup-container {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    color: var(--black-text-color);
+    border-radius: 0;
+  }
+  .popup-container:hover {
+    color: var(--box-hover-color);
+  }
+  .popup-image {
+    width: 100%;
+    height: 19rem;
+    background-size: cover;
+    background-position: center 40%;
+  }
+  
+  .popup-container h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+  }
+  
+  .popup-footer {
+    margin: 0.5rem 0 0.5rem 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.3rem;
+  }
+  .popup-footer ion-icon {
+    font-size: 1.3rem;
+  }
+  .popup-footer p {
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+  }
+  
+  .popup-stars {
+    margin-left: auto;
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .popup-stars p {
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+  }
+  .popup-stars ion-icon {
+    font-size: 1.3rem;
+  }
+  
+  .toggle-button.mobile {
+    display: none;
+  }
+  
