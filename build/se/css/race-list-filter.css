@@ -109,7 +109,12 @@
 }
 .filter-dropdowns {
   display: flex;
-  gap: 1rem;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
 }
 .filter-dropdowns select {
   flex: 1;
@@ -135,7 +140,7 @@ select.highlight option {
   position: relative;
   display: flex;
   align-items: center;
-  margin-left: 1rem;
+  margin-left: 0;
   padding: 0 1rem 0 0.5rem;
   /*   background: var(--color-background-shade); */
   color: var(--color-primary-dark);

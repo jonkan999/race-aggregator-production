@@ -143,7 +143,12 @@
 
 .filter-dropdowns {
   display: flex;
-  gap: 1rem;
+  justify-content: flex-start;
+  flex-wrap: nowrap; // Prevent wrapping
+  gap: 0.5rem;
+  overflow-x: auto; // Allow horizontal scrolling
+  -webkit-overflow-scrolling: touch; // Smooth scrolling on iOS  gap: 1rem;
+  padding-bottom: 1rem;
 
   select {
     flex: 1;
@@ -173,7 +178,7 @@ select.highlight {
   position: relative;
   display: flex;
   align-items: center;
-  margin-left: 1rem;
+  margin-left: 0;
   padding: 0 1rem 0 0.5rem;
   /*   background: var(--color-background-shade); */
   color: var(--color-primary-dark);
