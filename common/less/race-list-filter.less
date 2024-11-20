@@ -26,6 +26,44 @@
     background-color: var(--color-background);
     padding-bottom: 1rem;
   } */
+
+  select,
+  input,
+  option {
+    color: var(--color-grey-dark-1);
+    -webkit-text-fill-color: var(--color-grey-dark-1);
+    opacity: 1;
+    appearance: auto; // Changed from 'none' to 'auto' to show arrows
+    -webkit-appearance: menulist; // Shows arrows on iOS/Safari
+  }
+
+  // Style the select dropdowns
+  .filter-dropdowns {
+    select {
+      color: var(--color-grey-dark-1);
+      -webkit-text-fill-color: var(--color-grey-dark-1);
+
+      &:focus {
+        color: var(--color-grey-dark-1);
+        -webkit-text-fill-color: var(--color-grey-dark-1);
+      }
+
+      option {
+        color: var(--color-grey-dark-1);
+        -webkit-text-fill-color: var(--color-grey-dark-1);
+      }
+    }
+  }
+
+  // Style the date inputs
+  .filter-date {
+    input {
+      color: var(--color-grey-dark-1);
+      -webkit-text-fill-color: var(--color-grey-dark-1);
+      -webkit-appearance: none; // Keep this for date inputs only
+      appearance: none;
+    }
+  }
 }
 
 .filter-date {
