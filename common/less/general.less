@@ -9,12 +9,22 @@
 html {
   /* font-size: 10px; */
   /* 10 / 16 = 0,625 percentage of users browser font-size setting */
-  font-size: 62.5%;
+  /*   font-size: 62.5%;
   @media (max-width: @landscape-tablet) {
     font-size: 56.25%;
   }
   @media (max-width: @landscape-tablet) {
     font-size: 50%;
+  } */
+  //booosted font size for better accessibility
+  font-size: 62.5%; // Increased from 62.5%
+
+  @media (max-width: @landscape-tablet) {
+    font-size: 65%; // Increased from 56.25%
+  }
+
+  @media (max-width: @small-tablet) {
+    font-size: 60%; // Increased from 50%
   }
 }
 
