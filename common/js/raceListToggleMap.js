@@ -3,6 +3,7 @@ const toggleButtonMobile = document.getElementById('toggleMapButtonMobile');
 const raceCardsSection = document.querySelector('.race-cards-grid');
 const mapSection = document.querySelector('.map-placeholder');
 const pagination = document.querySelector('.pagination');
+const adBanner = document.querySelector('.ad-banner');
 
 // Set an initial state
 let isMapClose = true;
@@ -15,7 +16,7 @@ toggleButtonMobile.addEventListener('click', function () {
   if (isMapClose) {
     raceCardsSection.style.display = 'none';
     mapSection.style.display = 'block';
-    mapSection.style.position = 'fixed';
+    //mapSection.style.position = 'fixed';
     pagination.style.display = 'none';
     /* mapSection.style.zIndex = "1"; */
     toggleButtonMobile.innerHTML = `
@@ -24,6 +25,8 @@ toggleButtonMobile.addEventListener('click', function () {
       </div>
       <p>{{map_toggle_mobile_list}}</p>
     `;
+    toggleButtonMobile.style.bottom = '3.5rem';
+    adBanner.style.display = 'none';
     //reset filter style on map open
     if (isMobile) {
       //reset filter style on map open
@@ -51,6 +54,8 @@ toggleButtonMobile.addEventListener('click', function () {
       </div>
       <p>{{map_toggle_mobile}}</p>
     `;
+    toggleButtonMobile.style.bottom = '9.5rem';
+    adBanner.style.display = 'flex';
     isMapClose = true;
   }
 });
