@@ -130,6 +130,7 @@
     gap: 0.5rem;
     cursor: pointer;
     z-index: 11;
+    font-size: 1.6rem;
   }
   .icon-container {
     display: flex;
@@ -146,51 +147,10 @@
   width: 100%;
   max-width: 50vw;
 } // Mobile styles
-@media (max-width: @small-tablet) {
-  .map-placeholder {
-    position: fixed;
-    top: calc(var(--header-size) + 19.5rem);
-    left: 0;
-    height: calc(
-      100vh - (1 * (4.5rem + 2.5rem) + 0.5rem + 2 * var(--header-size))
-    );
-    width: 100%;
-    max-width: none;
-    display: none;
-  }
-
-  .map-placeholder {
-    position: fixed;
-    top: calc(1 * (4.5rem + 2.5rem) + 2 * var(--header-size));
-    left: 0;
-    /* height: calc(100vh - (var(--header-size))); */
-    height: calc(
-      100vh - (1 * (4.5rem + 2.5rem) + 0.5rem + 2 * var(--header-size))
-    );
-    width: 100%;
-    max-width: none;
-    display: none;
-    /* z-index: -1; */
-  }
-  .mapboxgl-popup-content {
-    width: 28rem;
-  }
-  .popup-image {
-    height: 16rem;
-  }
-  .race-box-info-footer {
-    margin: auto 0 1rem 0;
-    display: flex;
-  }
-
-  .toggle-button.desktop {
-    display: none;
-  }
-}
 
 .mapboxgl-popup-content {
   width: 32rem;
-  padding: 0;
+  padding: 0 !important;
   margin: 0;
   border-radius: 0;
   border: none;
@@ -275,4 +235,46 @@
 /* Hide the popup tip (the little arrow) if you want */
 .mapboxgl-popup-tip {
   display: none;
+}
+
+@media (max-width: @small-tablet) {
+  .map-placeholder {
+    position: fixed;
+    top: calc(var(--header-size) + 19.5rem);
+    left: 0;
+    height: calc(
+      100vh - (1 * (4.5rem + 2.5rem) + 0.5rem + 2 * var(--header-size))
+    );
+    width: 100%;
+    max-width: none;
+    display: none;
+  }
+
+  .map-placeholder {
+    position: fixed;
+    top: calc(1 * (4.5rem + 2.5rem) + 2 * var(--header-size));
+    left: 0;
+    /* height: calc(100vh - (var(--header-size))); */
+    height: calc(
+      100vh - (1 * (4.5rem + 2.5rem) + 0.5rem + 2 * var(--header-size))
+    );
+    width: 100%;
+    max-width: none;
+    display: none;
+    /* z-index: -1; */
+  }
+  .mapboxgl-popup-content {
+    width: 22rem !important;
+  }
+  .popup-image {
+    height: 13rem;
+  }
+  .race-box-info-footer {
+    margin: auto 0 1rem 0;
+    display: flex;
+  }
+
+  .toggle-button.desktop {
+    display: none;
+  }
 }
