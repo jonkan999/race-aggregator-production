@@ -13,11 +13,13 @@ GITHUB_TOKEN=$(cat $RACE_AGGREGATOR_PATH/project-root/credentials/github_token)
 # Change to work directory
 cd "$WORK_DIR"
 
-# Ensure we're on master and up to date
+# Ensure we're on master and fully up to date
+git fetch origin
 git checkout master
+git reset --hard origin/master
 git pull origin master
 
-# Create new branch
+# Create new branch from current master
 BRANCH_NAME="auto-build-$(date +%Y%m%d-%H%M%S)"
 git checkout -b "$BRANCH_NAME"
 

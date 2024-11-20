@@ -37,16 +37,22 @@ for country in "${COUNTRIES[@]}"; do
     site_name=$(get_site_name $country)
     base_url=$(get_base_url $country)
     
+    # Strip -dev and add both -dev and -country versions
+    base_site_name=${site_name%-dev}
+    dev_site_name="${base_site_name}-dev"
+    country_site_name="${base_site_name}-${country}"
+    
     echo "Processing country: $country"
-    echo "Site name: $site_name"
+    echo "Dev site name: $dev_site_name"
+    echo "Country site name: $country_site_name"
     echo "Base URL: $base_url"
     
     # Add to allowed origins with /* at the end
     if [ "$country" = "${COUNTRIES[0]}" ]; then
         # First item doesn't need a leading comma
-        allowed_origins="${allowed_origins}'https://${site_name}.web.app/*', 'https://${site_name}.firebaseapp.com/*'"
+        allowed_origins="${allowed_origins}'https://${dev_site_name}.web.app/*', 'https://${dev_site_name}.firebaseapp.com/*', 'https://${country_site_name}.web.app/*', 'https://${country_site_name}.firebaseapp.com/*'"
     else
-        allowed_origins="${allowed_origins}, 'https://${site_name}.web.app/*', 'https://${site_name}.firebaseapp.com/*'"
+        allowed_origins="${allowed_origins}, 'https://${dev_site_name}.web.app/*', 'https://${dev_site_name}.firebaseapp.com/*', 'https://${country_site_name}.web.app/*', 'https://${country_site_name}.firebaseapp.com/*'"
     fi
     [[ ! -z "$base_url" ]] && allowed_origins="${allowed_origins}, '${base_url}/*'"
 done
