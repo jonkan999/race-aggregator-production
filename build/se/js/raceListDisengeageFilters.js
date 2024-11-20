@@ -4,25 +4,30 @@ const disengageFiltersSection = document.querySelector('.section-filters');
 const disengageChildElements = disengageFiltersSection.children;
 const header = document.querySelector('.header');
 
-// Scroll position variables
+// Adjusted scroll position variables
 let lastScrollPosition = window.scrollY;
-const TopScrollThreshold = 33;
-const downScrollThreshold = 20;
+const minScrollBeforeHide = 150; // Minimum scroll position before hiding is allowed
+const topScrollThreshold = 20; // How far to scroll up to show filters
+const downScrollThreshold = 10; // How far to scroll down to hide filters (reduced for more sensitivity)
 
 function handleScroll() {
   const isMobile = window.innerWidth <= 768;
 
   if (isMobile) {
     const currentScrollPosition = window.scrollY;
+    const scrollDelta = currentScrollPosition - lastScrollPosition;
 
-    if (currentScrollPosition > lastScrollPosition + downScrollThreshold) {
-      // Scrolling down
-      hideFiltersSection();
-    } else if (
-      currentScrollPosition < lastScrollPosition - TopScrollThreshold ||
-      currentScrollPosition < 150
-    ) {
-      // Scrolling up or near top
+    // Only allow hiding if we're scrolled down enough
+    if (currentScrollPosition > minScrollBeforeHide) {
+      if (scrollDelta > downScrollThreshold) {
+        // Scrolling down - hide immediately
+        hideFiltersSection();
+      } else if (scrollDelta < -topScrollThreshold) {
+        // Scrolling up - show immediately
+        showFiltersSection();
+      }
+    } else {
+      // Always show filters when near the top
       showFiltersSection();
     }
 
@@ -50,6 +55,14 @@ function showFiltersSection() {
   });
 }
 
-// Add scroll event listener
-window.addEventListener('scroll', handleScroll);
-console.log('Scroll listener added to window');
+// Add scroll event listener with throttling for better performance
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      handleScroll();
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
