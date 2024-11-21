@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const imageContainer = document.querySelector('.image-container');
   const clearImagesButton = document.getElementById('clearImagesButton');
   const clearFormButton = document.getElementById('clear-form');
-  const previewButton = document.getElementById('preview-button');
+  /*   const previewButton = document.getElementById('preview-button'); */
   const submitRaceButton = document.getElementById('submit-race-button');
 
   let distances = [];
@@ -243,11 +243,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   refreshImageDisplay();
 
-  previewButton.addEventListener('click', (e) => {
+  /*   previewButton.addEventListener('click', (e) => {
     e.preventDefault();
     saveFormToLocalStorage();
     window.location.href = `/{{ auxiliary_pages['race-page-preview'] | slugify(country_code) }}.html`;
-  });
+  }); */
 
   submitRaceButton.addEventListener('click', (e) => {
     e.preventDefault();
