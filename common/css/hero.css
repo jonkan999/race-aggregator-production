@@ -21,6 +21,11 @@
     padding-left: 3rem !important;
   }
 }
+@media (max-width: 34em) {
+  .section-hero {
+    padding-left: 2rem !important;
+  }
+}
 .section-hero .hero-content {
   position: relative;
   z-index: 2;
@@ -39,6 +44,7 @@
   .section-hero .hero-content .title-container {
     flex-direction: column;
     align-items: flex-start;
+    padding-left: 0rem;
   }
 }
 .section-hero .hero-content .title-container .native-title,
@@ -94,16 +100,31 @@
 .section-hero .hero-content .bullet-list li:nth-child(1)::after,
 .section-hero .hero-content .bullet-list li:nth-child(3)::after,
 .section-hero .hero-content .bullet-list li:nth-child(4)::after {
-  content: "→";
+  content: '→';
   font-size: 3.4rem;
   margin: 0 0 0.7rem 1%;
   transition: margin-left 0.2s;
+  padding-right: 2rem;
+}
+@media (max-width: 34em) {
+  .section-hero .hero-content .bullet-list li:nth-child(1)::after,
+  .section-hero .hero-content .bullet-list li:nth-child(3)::after,
+  .section-hero .hero-content .bullet-list li:nth-child(4)::after {
+    margin-left: auto;
+    padding-right: 3rem;
+  }
 }
 .section-hero .hero-content .bullet-list li:nth-child(2)::after {
-  content: "+";
+  content: '+';
   font-size: 3rem;
   margin: 0.2rem 0 0 1%;
   transition: font-weight 0.2s;
+}
+@media (max-width: 34em) {
+  .section-hero .hero-content .bullet-list li:nth-child(2)::after {
+    margin-left: auto;
+    padding-right: 3.8rem;
+  }
 }
 .section-hero .hero-content .bullet-list li:hover,
 .section-hero .hero-content .bullet-list li:active {
