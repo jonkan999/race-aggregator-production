@@ -6,7 +6,8 @@
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
-    <title>Bläddra efter stad</title>
+    <title>Bläddra bland alla lopp</title>
+    <meta name="description" content="Hitta lopp efter län, typ eller kategori" />
     <link rel="icon" href="/common_images/logo100px.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,13 +24,22 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
     <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+    <script defer="" src="/js/raceListToggleButton.js"></script>
+    <script defer="" src="/js/raceListToggleMap.js"></script>
   </head>
   <body>
     <!-- Page content -->
-    <main><section class="ad-banner">
+    <main>
+       <section class="ad-banner">
 <span class="ad-banner-text">Ad banner</span>
 </section> <section class="section-header-menu">
   <div class="upper-header">
@@ -256,41 +266,41 @@
   </div>
 </section>
 
-<div class="browse-container">
-  <nav class="browse-nav">
-    <a
-      href="/loppkalender/bladdra-efter-kategori"
-      class=""
-    >
-      Översikt
-    </a>
-    <a
-      href="/loppkalender/bladdra-efter-kategori/counties.html"
-      class=""
-    >
-      Län
-    </a>
-    <a
-      href="/loppkalender/bladdra-efter-kategori/cities.html"
-      class="active"
-    >
-      Städer
-    </a>
-    <a
-      href="/loppkalender/bladdra-efter-kategori/types.html"
-      class=""
-    >
-      Lopptyper
-    </a>
-    <a
-      href="/loppkalender/bladdra-efter-kategori/categories.html"
-      class=""
-    >
-      Kategorier
-    </a>
-  </nav>
+      <div class="browse-container">
+        <nav class="browse-nav">
+          <a
+            href="/loppkalender/bladdra-efter-kategori"
+            class=""
+          >
+            Översikt
+          </a>
+          <a
+            href="/loppkalender/bladdra-efter-kategori/counties.html"
+            class=""
+          >
+            Län
+          </a>
+          <a
+            href="/loppkalender/bladdra-efter-kategori/cities.html"
+            class="active"
+          >
+            Städer
+          </a>
+          <a
+            href="/loppkalender/bladdra-efter-kategori/types.html"
+            class=""
+          >
+            Lopptyper
+          </a>
+          <a
+            href="/loppkalender/bladdra-efter-kategori/categories.html"
+            class=""
+          >
+            Kategorier
+          </a>
+        </nav>
 
-  
+        
 <div class="browse-cities">
   <h1>Bläddra efter stad</h1>
   <p class="browse-description">Hitta lopp i din stad.</p>
@@ -337,15 +347,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/alby/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/alby/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -362,6 +363,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/alby/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/alby/alla-loppstyper/1500-meter"
@@ -553,15 +563,6 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/alingsas/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(4)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/alingsas/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -585,6 +586,15 @@
                 100 km
               </a>
               <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/alingsas/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
             </li>
                                     
             <li>
@@ -1117,15 +1127,6 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/billdal/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(4)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/billdal/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -1149,6 +1150,15 @@
                 100 km
               </a>
               <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/billdal/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
             </li>
                                     
             <li>
@@ -1385,22 +1395,22 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/bjuv/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/bjuv/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
               </a>
               <span class="count">(2)</span>
             </li>
-                                                                                                                                                                                                            
+                                                                                                                                                            
+            <li>
+              <a
+                href="/loppkalender/stader/bjuv/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                    
             <li>
               <a
                 href="/loppkalender/stader/bjuv/alla-loppstyper/5000-meter"
@@ -1567,15 +1577,6 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/bjorlanda/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(4)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/bjorlanda/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -1599,6 +1600,15 @@
                 100 km
               </a>
               <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/bjorlanda/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
             </li>
                                     
             <li>
@@ -1835,15 +1845,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/boo/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/boo/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -1860,6 +1861,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/boo/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/boo/alla-loppstyper/1500-meter"
@@ -2128,15 +2138,6 @@
                             
             <li>
               <a
-                href="/loppkalender/stader/boras/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(3)</span>
-            </li>
-                            
-            <li>
-              <a
                 href="/loppkalender/stader/boras/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -2160,6 +2161,15 @@
                 100 km
               </a>
               <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/stader/boras/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(3)</span>
             </li>
                                                             
             <li>
@@ -2327,15 +2337,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/bromma/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/bromma/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -2352,6 +2353,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/bromma/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/bromma/alla-loppstyper/1500-meter"
@@ -2543,22 +2553,22 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/bunkeflostrand/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/bunkeflostrand/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
               </a>
               <span class="count">(1)</span>
             </li>
-                                                                                                                                                                            
+                                                                                                                                    
+            <li>
+              <a
+                href="/loppkalender/stader/bunkeflostrand/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                        
             <li>
               <a
                 href="/loppkalender/stader/bunkeflostrand/alla-loppstyper/5000-meter"
@@ -2707,15 +2717,6 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/balsta/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/balsta/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -2732,6 +2733,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                                     
+            <li>
+              <a
+                href="/loppkalender/stader/balsta/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                    
             <li>
               <a
                 href="/loppkalender/stader/balsta/alla-loppstyper/1500-meter"
@@ -2941,15 +2951,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/ekero/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/ekero/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -2966,6 +2967,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/ekero/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/ekero/alla-loppstyper/1500-meter"
@@ -3145,7 +3155,7 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                                                            
+                                            
             <li>
               <a
                 href="/loppkalender/stader/enkoping/alla-loppstyper/halvmarathon"
@@ -3154,7 +3164,7 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                                                                                                            
+                                                                                                                            
             <li>
               <a
                 href="/loppkalender/stader/enkoping/alla-loppstyper/1500-meter"
@@ -3278,7 +3288,7 @@
 
           
           <ul class="category-list">
-                                                                                           
+                                                                       
             <li>
               <a
                 href="/loppkalender/stader/eskilstuna/alla-loppstyper/halvmarathon"
@@ -3287,7 +3297,7 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                                                                                                                                    
+                                                                                                                                                        
             <li>
               <a
                 href="/loppkalender/stader/eskilstuna/alla-loppstyper/1500-meter"
@@ -3407,22 +3417,22 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/eslov/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/eslov/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
               </a>
               <span class="count">(3)</span>
             </li>
-                                                                                                                                                                                                            
+                                                                                                                                                            
+            <li>
+              <a
+                href="/loppkalender/stader/eslov/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                    
             <li>
               <a
                 href="/loppkalender/stader/eslov/alla-loppstyper/5000-meter"
@@ -3589,15 +3599,6 @@
                         
             <li>
               <a
-                href="/loppkalender/stader/falkenberg/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                        
-            <li>
-              <a
                 href="/loppkalender/stader/falkenberg/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -3622,7 +3623,16 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                                                            
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/falkenberg/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                
             <li>
               <a
                 href="/loppkalender/stader/falkenberg/alla-loppstyper/5000-meter"
@@ -3834,15 +3844,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/finspang/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(5)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/finspang/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -3850,6 +3851,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                                     
+            <li>
+              <a
+                href="/loppkalender/stader/finspang/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/finspang/alla-loppstyper/1500-meter"
@@ -4119,7 +4129,7 @@
 
           
           <ul class="category-list">
-                                                           
+                                               
             <li>
               <a
                 href="/loppkalender/stader/gislaved/alla-loppstyper/halvmarathon"
@@ -4128,7 +4138,7 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                                                                                                                         
+                                                                                                                                     
           </ul>
           
         </div>
@@ -4208,15 +4218,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/gustavsberg/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/gustavsberg/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -4233,6 +4234,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/gustavsberg/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/gustavsberg/alla-loppstyper/1500-meter"
@@ -4419,15 +4429,6 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/goteborg/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(4)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/goteborg/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -4451,6 +4452,15 @@
                 100 km
               </a>
               <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/goteborg/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
             </li>
                                     
             <li>
@@ -4666,7 +4676,7 @@
 
           
           <ul class="category-list">
-                                                                                                           
+                                                                                   
             <li>
               <a
                 href="/loppkalender/stader/hallstahammar/alla-loppstyper/halvmarathon"
@@ -4675,7 +4685,7 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                                                                                                                                                            
+                                                                                                                                                                                    
             <li>
               <a
                 href="/loppkalender/stader/hallstahammar/alla-loppstyper/1500-meter"
@@ -4808,15 +4818,6 @@
                         
             <li>
               <a
-                href="/loppkalender/stader/halmstad/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                        
-            <li>
-              <a
                 href="/loppkalender/stader/halmstad/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -4841,7 +4842,16 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                                                            
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/halmstad/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                
             <li>
               <a
                 href="/loppkalender/stader/halmstad/alla-loppstyper/5000-meter"
@@ -4984,15 +4994,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/handen/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/handen/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -5009,6 +5010,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/handen/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/handen/alla-loppstyper/1500-meter"
@@ -5195,15 +5205,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/haninge/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/haninge/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -5220,6 +5221,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/haninge/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/haninge/alla-loppstyper/1500-meter"
@@ -5406,22 +5416,22 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/helsingborg/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/helsingborg/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
               </a>
               <span class="count">(2)</span>
             </li>
-                                                                                                                                                                                                            
+                                                                                                                                                            
+            <li>
+              <a
+                href="/loppkalender/stader/helsingborg/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                    
             <li>
               <a
                 href="/loppkalender/stader/helsingborg/alla-loppstyper/5000-meter"
@@ -5588,15 +5598,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/huddinge/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/huddinge/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -5613,6 +5614,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/huddinge/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/huddinge/alla-loppstyper/1500-meter"
@@ -5804,15 +5814,6 @@
                         
             <li>
               <a
-                href="/loppkalender/stader/hassleholm/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                        
-            <li>
-              <a
                 href="/loppkalender/stader/hassleholm/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -5828,7 +5829,16 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                                                            
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/hassleholm/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                
             <li>
               <a
                 href="/loppkalender/stader/hassleholm/alla-loppstyper/5000-meter"
@@ -5942,15 +5952,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/hoganas/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/hoganas/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -5966,7 +5967,16 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                                                                                                                                                        
+                                                                                                                
+            <li>
+              <a
+                href="/loppkalender/stader/hoganas/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                        
             <li>
               <a
                 href="/loppkalender/stader/hoganas/alla-loppstyper/5000-meter"
@@ -6121,22 +6131,22 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/hollviken/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/hollviken/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
               </a>
               <span class="count">(1)</span>
             </li>
-                                                                                                                                                                                                
+                                                                                                                                    
+            <li>
+              <a
+                href="/loppkalender/stader/hollviken/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                            
             <li>
               <a
                 href="/loppkalender/stader/hollviken/alla-loppstyper/10000-meter"
@@ -6266,22 +6276,22 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/hoor/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/hoor/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
               </a>
               <span class="count">(3)</span>
             </li>
-                                                                                                                                                                                                            
+                                                                                                                                                            
+            <li>
+              <a
+                href="/loppkalender/stader/hoor/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                    
             <li>
               <a
                 href="/loppkalender/stader/hoor/alla-loppstyper/5000-meter"
@@ -6448,15 +6458,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/jakobsberg/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/jakobsberg/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -6473,6 +6474,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/jakobsberg/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/jakobsberg/alla-loppstyper/1500-meter"
@@ -6664,15 +6674,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/jordbro/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/jordbro/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -6689,6 +6690,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/jordbro/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/jordbro/alla-loppstyper/1500-meter"
@@ -6872,15 +6882,6 @@
               </a>
               <span class="count">(2)</span>
             </li>
-                            
-            <li>
-              <a
-                href="/loppkalender/stader/karlshamn/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(2)</span>
-            </li>
                                                                                             
             <li>
               <a
@@ -6891,6 +6892,15 @@
               <span class="count">(1)</span>
             </li>
                                             
+            <li>
+              <a
+                href="/loppkalender/stader/karlshamn/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                            
             <li>
               <a
                 href="/loppkalender/stader/karlshamn/alla-loppstyper/1500-meter"
@@ -7215,7 +7225,7 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                        
+                                                                                                
             <li>
               <a
                 href="/loppkalender/stader/karlskrona/alla-loppstyper/millopp"
@@ -7224,7 +7234,7 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                                                                                                
+                        
             <li>
               <a
                 href="/loppkalender/stader/karlskrona/alla-loppstyper/1500-meter"
@@ -7425,15 +7435,6 @@
                                         
             <li>
               <a
-                href="/loppkalender/stader/katrineholm/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(2)</span>
-            </li>
-                                        
-            <li>
-              <a
                 href="/loppkalender/stader/katrineholm/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -7475,6 +7476,15 @@
                 100 km
               </a>
               <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/stader/katrineholm/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(2)</span>
             </li>
                                                                     
             <li>
@@ -7705,15 +7715,6 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/kinna/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(4)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/kinna/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -7755,6 +7756,15 @@
                 100 km
               </a>
               <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/kinna/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
             </li>
                                     
             <li>
@@ -8006,15 +8016,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/kista/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/kista/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -8031,6 +8032,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/kista/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/kista/alla-loppstyper/1500-meter"
@@ -8222,15 +8232,6 @@
                         
             <li>
               <a
-                href="/loppkalender/stader/kristianstad/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                        
-            <li>
-              <a
                 href="/loppkalender/stader/kristianstad/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -8246,7 +8247,16 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                                                            
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/kristianstad/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                
             <li>
               <a
                 href="/loppkalender/stader/kristianstad/alla-loppstyper/5000-meter"
@@ -8569,15 +8579,6 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/kungsbacka/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(4)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/kungsbacka/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -8619,6 +8620,15 @@
                 100 km
               </a>
               <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/kungsbacka/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
             </li>
                                     
             <li>
@@ -8870,15 +8880,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/kungsholmen/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/kungsholmen/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -8895,6 +8896,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/kungsholmen/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/kungsholmen/alla-loppstyper/1500-meter"
@@ -9086,15 +9096,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/kungsangen/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/kungsangen/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -9111,6 +9112,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/kungsangen/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/kungsangen/alla-loppstyper/1500-meter"
@@ -9302,15 +9312,6 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/kungalv/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(4)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/kungalv/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -9334,6 +9335,15 @@
                 100 km
               </a>
               <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/kungalv/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
             </li>
                                     
             <li>
@@ -9558,7 +9568,7 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                                                                                                
+                                                                    
             <li>
               <a
                 href="/loppkalender/stader/koping/alla-loppstyper/halvmarathon"
@@ -9567,7 +9577,7 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                                                                                                                                                                                    
+                                                                                                                                                                                                                
             <li>
               <a
                 href="/loppkalender/stader/koping/alla-loppstyper/1500-meter"
@@ -9756,22 +9766,22 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/landskrona/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/landskrona/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
               </a>
               <span class="count">(1)</span>
             </li>
-                                                                                                                                                                                                            
+                                                                                                                                                            
+            <li>
+              <a
+                href="/loppkalender/stader/landskrona/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                    
             <li>
               <a
                 href="/loppkalender/stader/landskrona/alla-loppstyper/5000-meter"
@@ -9933,15 +9943,6 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/lerum/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(4)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/lerum/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -9965,6 +9966,15 @@
                 100 km
               </a>
               <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/lerum/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
             </li>
                                     
             <li>
@@ -10201,15 +10211,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/lidingo/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/lidingo/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -10226,6 +10227,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/lidingo/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/lidingo/alla-loppstyper/1500-meter"
@@ -10412,15 +10422,6 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/lindome/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(4)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/lindome/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -10444,6 +10445,15 @@
                 100 km
               </a>
               <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/lindome/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
             </li>
                                     
             <li>
@@ -10680,15 +10690,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/linkoping/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(5)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/linkoping/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -10696,6 +10697,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                                     
+            <li>
+              <a
+                href="/loppkalender/stader/linkoping/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/linkoping/alla-loppstyper/1500-meter"
@@ -10999,22 +11009,22 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/lomma/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/lomma/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
               </a>
               <span class="count">(3)</span>
             </li>
-                                                                                                                                                                                                            
+                                                                                                                                                            
+            <li>
+              <a
+                href="/loppkalender/stader/lomma/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                    
             <li>
               <a
                 href="/loppkalender/stader/lomma/alla-loppstyper/5000-meter"
@@ -11263,22 +11273,22 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/lund/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/lund/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
               </a>
               <span class="count">(3)</span>
             </li>
-                                                                                                                                                                                                            
+                                                                                                                                                            
+            <li>
+              <a
+                href="/loppkalender/stader/lund/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                    
             <li>
               <a
                 href="/loppkalender/stader/lund/alla-loppstyper/5000-meter"
@@ -11445,15 +11455,6 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/majorna/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(4)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/majorna/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -11477,6 +11478,15 @@
                 100 km
               </a>
               <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/majorna/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
             </li>
                                     
             <li>
@@ -11713,22 +11723,22 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/malmo/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/malmo/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
               </a>
               <span class="count">(1)</span>
             </li>
-                                                                                                                                                                                                            
+                                                                                                                                                            
+            <li>
+              <a
+                href="/loppkalender/stader/malmo/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                    
             <li>
               <a
                 href="/loppkalender/stader/malmo/alla-loppstyper/5000-meter"
@@ -11878,7 +11888,7 @@
               </a>
               <span class="count">(3)</span>
             </li>
-                        
+                                                                                                
             <li>
               <a
                 href="/loppkalender/stader/mjolby/alla-loppstyper/millopp"
@@ -11887,7 +11897,7 @@
               </a>
               <span class="count">(3)</span>
             </li>
-                                                                                                
+                        
             <li>
               <a
                 href="/loppkalender/stader/mjolby/alla-loppstyper/1500-meter"
@@ -12001,15 +12011,6 @@
                         
             <li>
               <a
-                href="/loppkalender/stader/mora/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                        
-            <li>
-              <a
                 href="/loppkalender/stader/mora/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -12043,7 +12044,16 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                                                                        
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/mora/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                            
             <li>
               <a
                 href="/loppkalender/stader/mora/alla-loppstyper/10000-meter"
@@ -12150,7 +12160,7 @@
               </a>
               <span class="count">(3)</span>
             </li>
-                        
+                                                                                                
             <li>
               <a
                 href="/loppkalender/stader/motala/alla-loppstyper/millopp"
@@ -12159,7 +12169,7 @@
               </a>
               <span class="count">(3)</span>
             </li>
-                                                                                                
+                        
             <li>
               <a
                 href="/loppkalender/stader/motala/alla-loppstyper/1500-meter"
@@ -12296,15 +12306,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/marsta/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/marsta/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -12321,6 +12322,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/marsta/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/marsta/alla-loppstyper/1500-meter"
@@ -12512,15 +12522,6 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/molndal/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(8)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/molndal/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -12544,6 +12545,15 @@
                 100 km
               </a>
               <span class="count">(2)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/molndal/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(8)</span>
             </li>
                                     
             <li>
@@ -12780,15 +12790,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/nacka/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/nacka/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -12805,6 +12806,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/nacka/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/nacka/alla-loppstyper/1500-meter"
@@ -12991,15 +13001,6 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/norrkoping/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(3)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/norrkoping/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -13041,6 +13042,15 @@
                 100 km
               </a>
               <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/norrkoping/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(3)</span>
             </li>
                                     
             <li>
@@ -13287,15 +13297,6 @@
                                         
             <li>
               <a
-                href="/loppkalender/stader/norrtalje/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(6)</span>
-            </li>
-                                        
-            <li>
-              <a
                 href="/loppkalender/stader/norrtalje/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -13312,6 +13313,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                                                         
+            <li>
+              <a
+                href="/loppkalender/stader/norrtalje/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(6)</span>
+            </li>
+                                        
             <li>
               <a
                 href="/loppkalender/stader/norrtalje/alla-loppstyper/1500-meter"
@@ -13559,15 +13569,6 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/nykoping/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(2)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/nykoping/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -13609,6 +13610,15 @@
                 100 km
               </a>
               <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/nykoping/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(2)</span>
             </li>
                                                             
             <li>
@@ -13826,15 +13836,6 @@
                                         
             <li>
               <a
-                href="/loppkalender/stader/nynashamn/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                        
-            <li>
-              <a
                 href="/loppkalender/stader/nynashamn/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -13874,6 +13875,15 @@
                 href="/loppkalender/stader/nynashamn/alla-loppstyper/100-km"
               >
                 100 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/stader/nynashamn/alla-loppstyper/millopp"
+              >
+                Millopp
               </a>
               <span class="count">(1)</span>
             </li>
@@ -14105,15 +14115,6 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/nodinge-nol/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(4)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/nodinge-nol/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -14137,6 +14138,15 @@
                 100 km
               </a>
               <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/nodinge-nol/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
             </li>
                                     
             <li>
@@ -14373,15 +14383,6 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/onsala/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(4)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/onsala/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -14423,6 +14424,15 @@
                 100 km
               </a>
               <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/onsala/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
             </li>
                                     
             <li>
@@ -14674,15 +14684,6 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/oxelosund/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(2)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/oxelosund/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -14724,6 +14725,15 @@
                 100 km
               </a>
               <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/oxelosund/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(2)</span>
             </li>
                                                             
             <li>
@@ -14941,22 +14951,22 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/oxie/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/oxie/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
               </a>
               <span class="count">(3)</span>
             </li>
-                                                                                                                                                                            
+                                                                                                                                    
+            <li>
+              <a
+                href="/loppkalender/stader/oxie/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                        
             <li>
               <a
                 href="/loppkalender/stader/oxie/alla-loppstyper/5000-meter"
@@ -15110,15 +15120,6 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/partille/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(4)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/partille/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -15142,6 +15143,15 @@
                 100 km
               </a>
               <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/partille/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
             </li>
                                     
             <li>
@@ -15375,15 +15385,6 @@
               </a>
               <span class="count">(2)</span>
             </li>
-                            
-            <li>
-              <a
-                href="/loppkalender/stader/ronneby/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(2)</span>
-            </li>
                                                                                             
             <li>
               <a
@@ -15394,6 +15395,15 @@
               <span class="count">(1)</span>
             </li>
                                             
+            <li>
+              <a
+                href="/loppkalender/stader/ronneby/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                            
             <li>
               <a
                 href="/loppkalender/stader/ronneby/alla-loppstyper/1500-meter"
@@ -15557,15 +15567,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/rasunda/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/rasunda/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -15582,6 +15583,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/rasunda/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/rasunda/alla-loppstyper/1500-meter"
@@ -15859,15 +15869,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/segeltorp/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/segeltorp/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -15884,6 +15885,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/segeltorp/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/segeltorp/alla-loppstyper/1500-meter"
@@ -16130,15 +16140,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/sollentuna/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/sollentuna/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -16155,6 +16156,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/sollentuna/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/sollentuna/alla-loppstyper/1500-meter"
@@ -16346,15 +16356,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/solna/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/solna/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -16371,6 +16372,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/solna/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/solna/alla-loppstyper/1500-meter"
@@ -16562,22 +16572,22 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/staffanstorp/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/staffanstorp/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
               </a>
               <span class="count">(3)</span>
             </li>
-                                                                                                                                                                            
+                                                                                                                                    
+            <li>
+              <a
+                href="/loppkalender/stader/staffanstorp/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                        
             <li>
               <a
                 href="/loppkalender/stader/staffanstorp/alla-loppstyper/5000-meter"
@@ -16731,15 +16741,6 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/stenungsund/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(4)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/stenungsund/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -16763,6 +16764,15 @@
                 100 km
               </a>
               <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/stenungsund/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
             </li>
                                     
             <li>
@@ -16999,15 +17009,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/stockholm/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/stockholm/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -17024,6 +17025,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/stockholm/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/stockholm/alla-loppstyper/1500-meter"
@@ -17210,15 +17220,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/strangnas/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/strangnas/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -17235,6 +17236,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/strangnas/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/strangnas/alla-loppstyper/1500-meter"
@@ -17431,15 +17441,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/sundbyberg/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/sundbyberg/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -17456,6 +17457,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/sundbyberg/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/sundbyberg/alla-loppstyper/1500-meter"
@@ -17647,22 +17657,22 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/svedala/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/svedala/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
               </a>
               <span class="count">(3)</span>
             </li>
-                                                                                                                                                                            
+                                                                                                                                    
+            <li>
+              <a
+                href="/loppkalender/stader/svedala/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                        
             <li>
               <a
                 href="/loppkalender/stader/svedala/alla-loppstyper/5000-meter"
@@ -17816,15 +17826,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/sodermalm/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/sodermalm/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -17841,6 +17842,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/sodermalm/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/sodermalm/alla-loppstyper/1500-meter"
@@ -18027,15 +18037,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/sodertalje/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/sodertalje/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -18052,6 +18053,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/sodertalje/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/sodertalje/alla-loppstyper/1500-meter"
@@ -18243,15 +18253,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/tensta/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/tensta/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -18268,6 +18269,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/tensta/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/tensta/alla-loppstyper/1500-meter"
@@ -18459,15 +18469,6 @@
                                     
             <li>
               <a
-                href="/loppkalender/stader/torslanda/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(4)</span>
-            </li>
-                                    
-            <li>
-              <a
                 href="/loppkalender/stader/torslanda/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -18491,6 +18492,15 @@
                 100 km
               </a>
               <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/stader/torslanda/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
             </li>
                                     
             <li>
@@ -18715,7 +18725,7 @@
               </a>
               <span class="count">(2)</span>
             </li>
-                    
+                                                                    
             <li>
               <a
                 href="/loppkalender/stader/tranas/alla-loppstyper/millopp"
@@ -18724,7 +18734,7 @@
               </a>
               <span class="count">(2)</span>
             </li>
-                                                                    
+                    
             <li>
               <a
                 href="/loppkalender/stader/tranas/alla-loppstyper/1500-meter"
@@ -18801,22 +18811,22 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/trelleborg/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/trelleborg/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
               </a>
               <span class="count">(1)</span>
             </li>
-                                                                                                                                                                                                
+                                                                                                                                    
+            <li>
+              <a
+                href="/loppkalender/stader/trelleborg/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                            
             <li>
               <a
                 href="/loppkalender/stader/trelleborg/alla-loppstyper/10000-meter"
@@ -18946,15 +18956,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/tullinge/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/tullinge/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -18971,6 +18972,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/tullinge/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/tullinge/alla-loppstyper/1500-meter"
@@ -19162,15 +19172,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/tumba/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/tumba/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -19187,6 +19188,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/tumba/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/tumba/alla-loppstyper/1500-meter"
@@ -19378,15 +19388,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/taby/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/taby/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -19403,6 +19404,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/taby/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/taby/alla-loppstyper/1500-meter"
@@ -19568,7 +19578,7 @@
 
           
           <ul class="category-list">
-                                                           
+                                               
             <li>
               <a
                 href="/loppkalender/stader/ulricehamn/alla-loppstyper/halvmarathon"
@@ -19577,7 +19587,7 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                                                                                                                         
+                                                                                                                                     
           </ul>
           
         </div>
@@ -19657,15 +19667,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/upplands-vasby/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/upplands-vasby/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -19682,6 +19683,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/upplands-vasby/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/upplands-vasby/alla-loppstyper/1500-meter"
@@ -19942,15 +19952,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/vallentuna/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/vallentuna/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -19967,6 +19968,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/vallentuna/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/vallentuna/alla-loppstyper/1500-meter"
@@ -20141,7 +20151,7 @@
               </a>
               <span class="count">(4)</span>
             </li>
-                                    
+                            
             <li>
               <a
                 href="/loppkalender/stader/varberg/alla-loppstyper/halvmarathon"
@@ -20186,7 +20196,7 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                                    
+                                            
             <li>
               <a
                 href="/loppkalender/stader/varberg/alla-loppstyper/5000-meter"
@@ -20292,15 +20302,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/vasastan/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/vasastan/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -20317,6 +20318,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/vasastan/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/vasastan/alla-loppstyper/1500-meter"
@@ -20569,7 +20579,7 @@
 
           
           <ul class="category-list">
-                                                                                           
+                                                                       
             <li>
               <a
                 href="/loppkalender/stader/vasteras/alla-loppstyper/halvmarathon"
@@ -20578,7 +20588,7 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                                                                                                                                    
+                                                                                                                                                        
             <li>
               <a
                 href="/loppkalender/stader/vasteras/alla-loppstyper/1500-meter"
@@ -20780,22 +20790,22 @@
                             
             <li>
               <a
-                href="/loppkalender/stader/ystad/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                            
-            <li>
-              <a
                 href="/loppkalender/stader/ystad/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
               </a>
               <span class="count">(2)</span>
             </li>
-                                                                                                                                            
+                                                                                                            
+            <li>
+              <a
+                href="/loppkalender/stader/ystad/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                            
             <li>
               <a
                 href="/loppkalender/stader/ystad/alla-loppstyper/5000-meter"
@@ -20931,15 +20941,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/angelholm/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/angelholm/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -20955,7 +20956,16 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                                                                                                                                                        
+                                                                                                                
+            <li>
+              <a
+                href="/loppkalender/stader/angelholm/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                        
             <li>
               <a
                 href="/loppkalender/stader/angelholm/alla-loppstyper/5000-meter"
@@ -21119,15 +21129,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/akersberga/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/akersberga/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -21144,6 +21145,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/akersberga/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/akersberga/alla-loppstyper/1500-meter"
@@ -21330,15 +21340,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/arsta/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/arsta/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -21355,6 +21356,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/arsta/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/arsta/alla-loppstyper/1500-meter"
@@ -21695,15 +21705,6 @@
                                 
             <li>
               <a
-                href="/loppkalender/stader/ostermalm/alla-loppstyper/millopp"
-              >
-                Millopp
-              </a>
-              <span class="count">(1)</span>
-            </li>
-                                
-            <li>
-              <a
                 href="/loppkalender/stader/ostermalm/alla-loppstyper/halvmarathon"
               >
                 Halvmarathon
@@ -21720,6 +21721,15 @@
               <span class="count">(1)</span>
             </li>
                                                                                                                 
+            <li>
+              <a
+                href="/loppkalender/stader/ostermalm/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
             <li>
               <a
                 href="/loppkalender/stader/ostermalm/alla-loppstyper/1500-meter"
@@ -21894,7 +21904,7 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                                                                            
+                                                            
             <li>
               <a
                 href="/loppkalender/stader/ostersund/alla-loppstyper/marathon"
@@ -21930,7 +21940,7 @@
               </a>
               <span class="count">(1)</span>
             </li>
-                            
+                                            
             <li>
               <a
                 href="/loppkalender/stader/ostersund/alla-loppstyper/1500-meter"
@@ -22053,11 +22063,10 @@
   </div>
 </div>
 
-</div>
+      </div>
 
- </main>
-
-    
+       
+    </main>
 
     <script
       type="module"

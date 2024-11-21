@@ -272,9 +272,9 @@ def generate_browse_pages(races, template_dir, output_dir, verbose_mapping, coun
     context = {
         'active_tab': 'all',
         'structure': structure,
-        'title': 'Bläddra bland alla lopp',
-        'meta_description': 'Hitta lopp efter län, typ eller kategori',
-        'title_race_list': 'Bläddra bland alla lopp',
+        'title': index_content['browse_overview']['title'],
+        'meta_description': index_content['browse_overview']['meta_description'],
+        'title_race_list': index_content['browse_overview']['title'],
         'distance_filter': verbose_mapping,
         **base_context
     }
@@ -287,9 +287,9 @@ def generate_browse_pages(races, template_dir, output_dir, verbose_mapping, coun
     context = {
         'active_tab': 'counties',
         'structure': structure,
-        'title': 'Bläddra efter län',
-        'meta_description': 'Hitta lopp i ditt län',
-        'title_race_list': 'Bläddra efter län',
+        'title': index_content['browse_counties']['title'],
+        'meta_description': index_content['browse_counties']['meta_description'],
+        'title_race_list': index_content['browse_counties']['title'],
         'distance_filter': verbose_mapping,
         **base_context
     }
@@ -303,9 +303,9 @@ def generate_browse_pages(races, template_dir, output_dir, verbose_mapping, coun
     context = {
         'active_tab': 'cities',
         'structure': structure,
-        'title': 'Bläddra efter stad',
-        'meta_description': 'Hitta lopp i din stad',
-        'title_race_list': 'Bläddra efter stad',
+        'title': index_content['browse_cities']['title'],
+        'meta_description': index_content['browse_cities']['meta_description'],
+        'title_race_list': index_content['browse_cities']['title'],
         'distance_filter': verbose_mapping,
         **base_context
     }
@@ -319,9 +319,9 @@ def generate_browse_pages(races, template_dir, output_dir, verbose_mapping, coun
     context = {
         'active_tab': 'types',
         'structure': structure,
-        'title': 'Bläddra efter lopptyp',
-        'meta_description': 'Hitta lopp efter typ av lopp',
-        'title_race_list': 'Bläddra bland alla lopp',
+        'title': index_content['browse_types']['title'],
+        'meta_description': index_content['browse_types']['meta_description'],
+        'title_race_list': index_content['browse_types']['title'],
         'distance_filter': verbose_mapping,
         **base_context
     }
@@ -335,9 +335,9 @@ def generate_browse_pages(races, template_dir, output_dir, verbose_mapping, coun
     context = {
         'active_tab': 'categories',
         'structure': structure,
-        'title': 'Bläddra efter kategori',
-        'meta_description': 'Hitta lopp efter distans och kategori',
-        'title_race_list': 'Bläddra bland alla lopp',
+        'title': index_content['browse_categories']['title'],
+        'meta_description': index_content['browse_categories']['meta_description'],
+        'title_race_list': index_content['browse_categories']['title'],
         'distance_filter': verbose_mapping,
         **base_context
     }

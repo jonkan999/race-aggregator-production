@@ -7,6 +7,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Bläddra bland alla lopp</title>
+    <meta name="description" content="Hitta lopp efter län, typ eller kategori" />
     <link rel="icon" href="/common_images/logo100px.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,13 +24,22 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
     <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+    <script defer="" src="/js/raceListToggleButton.js"></script>
+    <script defer="" src="/js/raceListToggleMap.js"></script>
   </head>
   <body>
     <!-- Page content -->
-    <main><section class="ad-banner">
+    <main>
+       <section class="ad-banner">
 <span class="ad-banner-text">Ad banner</span>
 </section> <section class="section-header-menu">
   <div class="upper-header">
@@ -256,41 +266,41 @@
   </div>
 </section>
 
-<div class="browse-container">
-  <nav class="browse-nav">
-    <a
-      href="/loppkalender/bladdra-efter-kategori"
-      class=""
-    >
-      Översikt
-    </a>
-    <a
-      href="/loppkalender/bladdra-efter-kategori/counties.html"
-      class=""
-    >
-      Län
-    </a>
-    <a
-      href="/loppkalender/bladdra-efter-kategori/cities.html"
-      class=""
-    >
-      Städer
-    </a>
-    <a
-      href="/loppkalender/bladdra-efter-kategori/types.html"
-      class=""
-    >
-      Lopptyper
-    </a>
-    <a
-      href="/loppkalender/bladdra-efter-kategori/categories.html"
-      class="active"
-    >
-      Kategorier
-    </a>
-  </nav>
+      <div class="browse-container">
+        <nav class="browse-nav">
+          <a
+            href="/loppkalender/bladdra-efter-kategori"
+            class=""
+          >
+            Översikt
+          </a>
+          <a
+            href="/loppkalender/bladdra-efter-kategori/counties.html"
+            class=""
+          >
+            Län
+          </a>
+          <a
+            href="/loppkalender/bladdra-efter-kategori/cities.html"
+            class=""
+          >
+            Städer
+          </a>
+          <a
+            href="/loppkalender/bladdra-efter-kategori/types.html"
+            class=""
+          >
+            Lopptyper
+          </a>
+          <a
+            href="/loppkalender/bladdra-efter-kategori/categories.html"
+            class="active"
+          >
+            Kategorier
+          </a>
+        </nav>
 
-  
+        
 <div class="browse-categories">
   <h1>Bläddra efter kategori</h1>
   <p class="browse-description">Hitta lopp efter distans och kategori.</p>
@@ -979,11 +989,10 @@
   </div>
 </div>
 
-</div>
+      </div>
 
- </main>
-
-    
+       
+    </main>
 
     <script
       type="module"

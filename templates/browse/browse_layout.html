@@ -1,41 +1,94 @@
-{% extends "race_list_layout.html" %} {% block content %}{% include
-'sections/ad-banner.html' %} {% include './sections/header-menu.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>{{ browse_overview.title }}</title>
+    <meta name="description" content="{{ browse_overview.meta_description }}" />
+    <link rel="icon" href="/common_images/logo100px.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/race-list-filter.css" />
+    <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card-big.css" />
+    <link rel="stylesheet" href="/css/race-cards.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script type="module" src="/js/commonFunctions.js"></script>
+    <script src="/js/raceList.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+    <script defer="" src="/js/raceListToggleButton.js"></script>
+    <script defer="" src="/js/raceListToggleMap.js"></script>
+  </head>
+  <body>
+    <!-- Page content -->
+    <main>
+      {% block content %} {% include 'sections/ad-banner.html' %} {% include
+      './sections/header-menu.html' %}
 
-<div class="browse-container">
-  <nav class="browse-nav">
-    <a
-      href="/{{ race_list_name|slugify(country_code) }}/{{ browse_by_category.button|slugify(country_code) }}"
-      class="{% if active_tab == 'all' %}active{% endif %}"
-    >
-      {{ browse_by_category.overview }}
-    </a>
-    <a
-      href="/{{ race_list_name|slugify(country_code) }}/{{ browse_by_category.button|slugify(country_code) }}/counties.html"
-      class="{% if active_tab == 'counties' %}active{% endif %}"
-    >
-      {{ browse_by_category.counties }}
-    </a>
-    <a
-      href="/{{ race_list_name|slugify(country_code) }}/{{ browse_by_category.button|slugify(country_code) }}/cities.html"
-      class="{% if active_tab == 'cities' %}active{% endif %}"
-    >
-      {{ browse_by_category.cities }}
-    </a>
-    <a
-      href="/{{ race_list_name|slugify(country_code) }}/{{ browse_by_category.button|slugify(country_code) }}/types.html"
-      class="{% if active_tab == 'types' %}active{% endif %}"
-    >
-      {{ browse_by_category.types }}
-    </a>
-    <a
-      href="/{{ race_list_name|slugify(country_code) }}/{{ browse_by_category.button|slugify(country_code) }}/categories.html"
-      class="{% if active_tab == 'categories' %}active{% endif %}"
-    >
-      {{ browse_by_category.categories }}
-    </a>
-  </nav>
+      <div class="browse-container">
+        <nav class="browse-nav">
+          <a
+            href="/{{ race_list_name|slugify(country_code) }}/{{ browse_by_category.button|slugify(country_code) }}"
+            class="{% if active_tab == 'all' %}active{% endif %}"
+          >
+            {{ browse_by_category.overview }}
+          </a>
+          <a
+            href="/{{ race_list_name|slugify(country_code) }}/{{ browse_by_category.button|slugify(country_code) }}/counties.html"
+            class="{% if active_tab == 'counties' %}active{% endif %}"
+          >
+            {{ browse_by_category.counties }}
+          </a>
+          <a
+            href="/{{ race_list_name|slugify(country_code) }}/{{ browse_by_category.button|slugify(country_code) }}/cities.html"
+            class="{% if active_tab == 'cities' %}active{% endif %}"
+          >
+            {{ browse_by_category.cities }}
+          </a>
+          <a
+            href="/{{ race_list_name|slugify(country_code) }}/{{ browse_by_category.button|slugify(country_code) }}/types.html"
+            class="{% if active_tab == 'types' %}active{% endif %}"
+          >
+            {{ browse_by_category.types }}
+          </a>
+          <a
+            href="/{{ race_list_name|slugify(country_code) }}/{{ browse_by_category.button|slugify(country_code) }}/categories.html"
+            class="{% if active_tab == 'categories' %}active{% endif %}"
+          >
+            {{ browse_by_category.categories }}
+          </a>
+        </nav>
 
-  {% block browse_content %}{% endblock %}
-</div>
+        {% block browse_content %}{% endblock %}
+      </div>
 
-{% include 'components/footer.html' %} {% endblock %}
+      {% include 'components/footer.html' %} {% endblock %}
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
