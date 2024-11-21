@@ -1,5 +1,6 @@
 {% extends "forum/forum_layout.html" %} {% block content %}
-<div class="forum-index">
+<div class="forum-container forum-section">
+  <h1>{{ forum.title }}</h1>
   {% for category in forum_categories %}
   <div class="category-card">
     <div class="category-main">

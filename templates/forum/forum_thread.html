@@ -1,23 +1,17 @@
 {% extends "forum/forum_layout.html" %} {% block content %}
-<div class="forum-thread">
+<div class="forum-container forum-section">
   <div class="thread-navigation">
-    <a
-      href="/{{ navigation.forum | slugify(country_code) }}/{{ category.slug }}/index.html"
-      class="back-link"
-    >
-      ← {{ forum.back_to_category }}
-    </a>
+    <a href="../" class="back-link">← {{ forum.back_to_category }}</a>
   </div>
 
   <div class="thread-header">
     <h1>{{ thread.title }}</h1>
     <div class="thread-meta">
-      <span class="thread-author">{{ thread.author }}</span>
-      <span class="thread-date">{{ thread.created_at }}</span>
+      {{ thread.authorName }} • {{ thread.createdAt }}
     </div>
   </div>
 
-  <div id="forum-posts" class="forum-posts">
+  <div class="forum-posts">
     {% for post in forum_posts %}
     <div class="forum-post">
       <div class="post-header">
@@ -31,19 +25,52 @@
     {% endif %}
   </div>
 
+  <!-- Reply Form -->
   <div class="forum-input-container" id="forum-input-container">
     <textarea
       id="forum-input"
-      data-category="{{ category.slug }}"
-      data-thread="{{ thread.slug }}"
+      data-thread-id="{{ thread.id }}"
       placeholder="{{ forum.reply_placeholder }}"
       rows="3"
-      disabled
+      {%
+      if
+      not
+      user
+      %}disabled{%
+      endif
+      %}
     ></textarea>
-    <button id="forum-submit" class="primary-button" style="display: none">
+
+    <button
+      id="forum-submit"
+      class="primary-button"
+      {%
+      if
+      not
+      user
+      %}style="display: none;"
+      {%
+      endif
+      %}
+    >
       {{ forum.submit_button }}
     </button>
-    <div id="login-prompt" class="login-prompt">{{ forum.login_prompt }}</div>
+
+    <div
+      id="login-prompt"
+      class="login-prompt"
+      {%
+      if
+      user
+      %}style="display: none;"
+      {%
+      endif
+      %}
+    >
+      {{ forum.login_prompt }}
+    </div>
   </div>
 </div>
+
+<script type="module" src="/js/forumFirebase.js"></script>
 {% endblock %}

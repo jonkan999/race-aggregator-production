@@ -26,14 +26,16 @@
       rel="stylesheet"
     />
     <script type="module" src="/js/commonFunctions.js"></script>
+    <script type="module" src="/js/forumFirebase.js"></script>
   </head>
   <body>
+    {% include 'sections/ad-banner.html' %} {% include
+    'sections/header-menu.html' %}
+
     <!-- Page content -->
-    <main>
-      {% block content %} {% include 'sections/ad-banner.html' %} {% include
-      './sections/header-menu.html' %} {% include 'components/footer.html' %} {%
-      endblock %}
-    </main>
+    <main>{% block content %}{% endblock %}</main>
+
+    {% include 'components/footer.html' %}
 
     <script
       type="module"

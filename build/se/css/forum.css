@@ -1,116 +1,158 @@
-.forum-index {
+.forum-section {
+  padding-top: calc(var(--header-size) + 1.5rem) !important;
+}
+.forum-container {
   max-width: 120rem;
   margin: 0 auto;
   padding: 2rem;
 }
-.forum-index .category-card {
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.category-header h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+.category-description {
+  font-size: 1.6rem;
+  color: var(--color-text-light);
+}
+.thread-list {
   background: var(--color-background-light);
   border-radius: var(--border-radius);
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  gap: 1.5rem;
+  padding: 2rem;
 }
-.forum-index .category-card:hover {
-  background: var(--color-background-hover);
+.thread-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--color-divider-grey);
 }
-.forum-index .category-card .category-main h2 {
-  margin: 0 0 0.5rem;
-  font-size: 2rem;
+.thread-item:last-child {
+  border-bottom: none;
+}
+.thread-info {
+  flex: 1;
+}
+.thread-info .date {
+  color: var(--color-text-light);
+  font-size: 1.4rem;
+  margin-right: 1rem;
+}
+.thread-info .title {
   color: var(--color-text);
-}
-.forum-index .category-card .category-main .category-description {
-  color: var(--color-text-light);
-  font-size: 1.6rem;
-  margin: 0;
-}
-.forum-index .category-card .category-stats {
-  text-align: center;
-  color: var(--color-text-light);
+  text-decoration: none;
   font-size: 1.6rem;
 }
-.forum-index .category-card .latest-activity .latest-thread {
-  font-weight: bold;
-  font-size: 1.6rem;
-}
-.forum-index .category-card .latest-activity .latest-thread a {
+.thread-info .title:hover {
   color: var(--color-primary);
+}
+.post-count {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  min-width: 8rem;
+  text-align: right;
+}
+.category-card {
+  margin-bottom: 1.5rem;
+}
+.category-card .category-title {
+  color: var(--color-primary-easiest-shade);
   text-decoration: none;
 }
-.forum-index .category-card .latest-activity .latest-thread a:hover {
-  text-decoration: underline;
+.category-card .category-title h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.2rem;
 }
-.forum-index .category-card .latest-activity .latest-meta {
-  color: var(--color-text-light);
-  font-size: 1.5rem;
+.category-card .category-title:visited {
+  color: var(--color-visited-links);
+}
+.category-card .category-description {
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--color-primary-shade);
+}
+.category-card .category-stats {
+  font-size: 1.6rem;
+}
+.category-card .view-all {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 1.6rem;
+}
+.category-card .view-all:hover {
+  text-decoration: underline;
 }
 .forum-thread {
   max-width: 90rem;
   margin: 0 auto;
   padding: 2rem;
 }
-.forum-thread .thread-navigation {
+.thread-navigation {
   margin-bottom: 2rem;
 }
-.forum-thread .thread-navigation .back-link {
+.thread-navigation .back-link {
   color: var(--color-primary);
   font-size: 1.6rem;
   text-decoration: none;
 }
-.forum-thread .thread-navigation .back-link:hover {
+.thread-navigation .back-link:hover {
   text-decoration: underline;
 }
-.forum-thread .thread-header {
+.thread-header {
   margin-bottom: 2rem;
 }
-.forum-thread .thread-header h1 {
+.thread-header h1 {
   margin: 0 0 0.5rem;
   font-size: 2.4rem;
 }
-.forum-thread .thread-header .thread-meta {
+.thread-header .thread-meta {
   color: var(--color-text-light);
   font-size: 1.6rem;
 }
-.forum-thread .forum-posts {
+.forum-posts {
   margin-bottom: 2rem;
 }
-.forum-thread .forum-posts .empty-state {
+.forum-posts .empty-state {
   padding: 0.5rem;
   font-size: 1.6rem;
 }
-.forum-thread .forum-posts .forum-post {
+.forum-post {
   padding: 0.5rem 1.5rem;
   font-size: 1.6rem;
   background: white;
   border-radius: var(--border-radius);
   margin-bottom: 1rem;
 }
-.forum-thread .forum-posts .forum-post .post-header {
+.forum-post .post-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
   color: var(--color-text-light);
 }
-.forum-thread .forum-posts .forum-post .post-header .post-author {
+.forum-post .post-header .post-author {
   font-weight: bold;
 }
-.forum-thread .forum-posts .forum-post .post-header .post-date {
+.forum-post .post-header .post-date {
   font-size: 1.5rem;
 }
-.forum-thread .forum-posts .forum-post .post-content {
+.forum-post .post-content {
   margin-bottom: 1rem;
   line-height: 1.6;
 }
-.forum-thread .forum-input-container {
+.forum-input-container {
   position: relative;
   cursor: pointer;
 }
-.forum-thread .forum-input-container:hover {
+.forum-input-container:hover {
   text-decoration: underline;
 }
-.forum-thread .forum-input-container textarea {
+.forum-input-container textarea {
   width: 100%;
   min-height: 8rem;
   padding: 1rem;
@@ -120,7 +162,7 @@
   margin-bottom: 1rem;
   pointer-events: none;
 }
-.forum-thread .forum-input-container .login-prompt {
+.forum-input-container .login-prompt {
   text-align: center;
   color: var(--color-primary);
   cursor: pointer;
@@ -128,8 +170,50 @@
   font-size: 1.6rem;
   pointer-events: none;
 }
-.forum-thread button {
+button {
   text-align: center;
   margin: 0 auto;
   padding: 1rem;
+}
+.thread-input-container {
+  margin-bottom: 2rem;
+  position: relative;
+}
+.thread-input-container input[type='text'] {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.6rem;
+  border: 1px solid var(--color-divider-grey);
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+.thread-input-container input[type='text']:disabled {
+  background: var(--color-background-light);
+  cursor: pointer;
+}
+.thread-input-container textarea {
+  width: 100%;
+  min-height: 8rem;
+  padding: 1rem;
+  font-size: 1.6rem;
+  border: 1px solid var(--color-divider-grey);
+  border-radius: 2px;
+  resize: vertical;
+  margin-bottom: 1rem;
+}
+.thread-input-container textarea:disabled {
+  background: var(--color-background-light);
+  cursor: pointer;
+}
+.thread-input-container .login-prompt {
+  text-align: center;
+  color: var(--color-primary);
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 1.6rem;
+}
+.thread-input-container button {
+  display: block;
+  margin: 0 auto;
+  padding: 1rem 2rem;
 }
