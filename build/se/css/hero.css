@@ -129,9 +129,14 @@
   .section-hero .hero-content .bullet-list li:nth-child(3)::after,
   .section-hero .hero-content .bullet-list li:nth-child(4)::after {
     margin-left: auto;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0;
     padding-right: 3rem;
     transition: none;
+  }
+}
+@media (max-width: 34em) {
+  .section-hero .hero-content .bullet-list li:nth-child(3)::after {
+    margin-top: 0.3rem;
   }
 }
 .section-hero .hero-content .bullet-list li:nth-child(2)::after {

@@ -122,9 +122,14 @@
           padding-right: 2rem;
           @media (max-width: @phone) {
             margin-left: auto;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0;
             padding-right: 3rem;
             transition: none;
+          }
+        }
+        &:nth-child(3)::after {
+          @media (max-width: @phone) {
+            margin-top: 0.3rem;
           }
         }
         &:nth-child(2)::after {
