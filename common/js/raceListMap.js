@@ -91,6 +91,12 @@ const defaultMarkerSVG = `
 console.log('DOMContentLoaded fired');
 const mapContainer = document.getElementById('map-placeholder');
 
+// Create a custom popup element
+const customPopup = document.createElement('div');
+customPopup.className = 'custom-map-popup';
+customPopup.style.display = 'none';
+mapContainer.appendChild(customPopup);
+
 // Get the map container and its data attributes
 const latitude = parseFloat(mapContainer.getAttribute('data-latitude'));
 const longitude = parseFloat(mapContainer.getAttribute('data-longitude'));
@@ -188,11 +194,10 @@ raceBoxes.forEach((raceBox, index) => {
 let isPopupOpen = false; // Initialize a flag to track popup state
 
 function handleMarkerClick(marker) {
-  const coordinates = marker.getLngLat(); // Get marker coordinates
-  console.log('Marker Clicked. Coordinates:', coordinates);
-  /* setMarkerSvg(marker, hoverMarkerSVG); */
+  event.stopPropagation();
 
-  // Find the corresponding venue-box
+  const coordinates = marker.getLngLat();
+
   const matchingRace = races.find((race) => {
     return (
       race.mapboxCenter[0] === coordinates.lng &&
@@ -201,76 +206,79 @@ function handleMarkerClick(marker) {
   });
 
   if (matchingRace) {
-    // Find the index of the clicked marker in the markers array
-    const markerIndex = markers.indexOf(marker);
-    // Find the corresponding .venue-box element
     const raceBox = raceBoxes[races.indexOf(matchingRace)];
-    const raceLink = raceBox ? raceBox.getAttribute('href') : ''; // Get the href attribute of the venue box element
-    // Extract information from .venue-box
-    // Select the first carousel-item within the venueBox
+    const raceLink = raceBox ? raceBox.getAttribute('href') : '';
     const imageElement = raceBox.querySelector('.background-img');
-
-    // Get the URL from the style attribute and replace double quotes with single quotes
     const imageUrl = imageElement ? imageElement.getAttribute('src') : '';
-
     const header = raceBox.querySelector('.race-name').textContent;
-    const footer = raceBox.querySelector('.race-date').textContent;
-    const distances = raceBox.querySelector('.race-distances').textContent;
+    const date = raceBox.querySelector('.race-date').textContent;
+    const location = raceBox.querySelector('.race-location').textContent;
+    const raceType = raceBox.querySelector('.race-type').textContent;
 
-    // Update the marker's SVG to hoverMarkerSVG
-    /* marker.getElement().innerHTML = hoverMarkerSVG; */
-    // Create and open a popup
+    // Get distances HTML structure
+    const distanceContainer = raceBox
+      .querySelector('.distance-container')
+      .cloneNode(true);
 
-    // Create and open a popup
-    const popup = new mapboxgl.Popup({
-      className: 'custom-popup',
-      closeButton: true,
-      closeOnClick: true,
-      focusAfterOpen: false,
-    }).setHTML(
-      `
-        <a href=${raceLink} class="popup-container">
-        <div class="popup-image" >
-          <img class="background-img" src=${imageUrl} alt="race image" />
-          </div>
-          <h3>${header}</h3>
-          <div class="popup-footer">
-            <ion-icon name="calendar-outline" aria-label="calendar"></ion-icon>
-            <p>${footer}</p>
-            <div class="popup-stars">
-              <ion-icon name="flag-outline" aria-label="flag distance"></ion-icon>
-              <p>${distances}  </p>
+    // Update popup content
+    customPopup.innerHTML = `
+      <div class="popup-content">
+        <button class="close-popup">&times;</button>
+        <a href="${raceLink}" class="popup-container">
+          <div class="popup-image">
+            <img src="${imageUrl}" alt="${header}">
+            <div class="overlay soft"></div>
+            <div class="popup-info">
+              <div class="popup-info-top">
+                <div class="popup-date">
+                  ${date}
+                </div>
+                <div class="popup-location">
+                  ${location}
+                </div>
+              </div>
+              <div class="popup-info-bottom">
+                <div class="race-type">
+                  <svg class="icon">
+                    <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+                  </svg>
+                  ${raceType}
+                </div>
+                <div class="popup-distances">
+                  ${distanceContainer.outerHTML}
+                </div>
+              </div>
+              <h3 class="popup-title">${header}</h3>
             </div>
           </div>
         </a>
-      `
-    );
-    // Get the SVG element of the marker
-    const markerElement = marker.getElement().querySelector('svg');
+      </div>
+    `;
 
-    marker
-      .setPopup(popup) // sets a popup on this marker
-      .addTo(map);
+    // Show popup
+    customPopup.style.display = 'block';
 
-    popup.on('open', () => {
-      if (!isPopupOpen) {
-        // On the first popup opening, change the marker's color
-        changeMarkerColor(markerElement, 'var(--color-success)');
-
-        isPopupOpen = true; // Set the flag to true when popup is open
-      }
+    // Add close button functionality
+    const closeButton = customPopup.querySelector('.close-popup');
+    closeButton.addEventListener('click', () => {
+      customPopup.style.display = 'none';
+      // Reset marker color if needed
+      const markerElement = marker.getElement().querySelector('svg');
+      changeMarkerColor(markerElement, 'var(--color-warning)');
     });
 
-    popup.on('close', () => {
-      if (isPopupOpen) {
-        // Reset the marker's color to the original color only when popup is open
-        changeMarkerColor(markerElement, 'var(--color-warning)');
-        isPopupOpen = false; // Set the flag to false when popup is closed
-      }
+    // Change marker color
+    const markerElement = marker.getElement().querySelector('svg');
+    changeMarkerColor(markerElement, 'var(--color-success)');
+
+    // Move map to new position
+    map.easeTo({
+      center: [coordinates.lng, coordinates.lat - 2.5],
+      duration: 1000,
     });
   }
-  // Listen for the popup close event
 }
+
 function changeMarkerColor(markerElement, newColor) {
   const pathElement = markerElement.querySelector('path');
   pathElement.setAttribute('fill', newColor);
@@ -324,3 +332,20 @@ raceBoxes.forEach((raceBox) => {
 
 // Initial visibility check
 updateMarkerVisibility();
+
+// Add this after map initialization
+map.on('click', () => {
+  if (customPopup.style.display === 'block') {
+    customPopup.style.display = 'none';
+    // Reset all markers to default color
+    markers.forEach((marker) => {
+      const markerElement = marker.getElement().querySelector('svg');
+      changeMarkerColor(markerElement, 'var(--color-warning)');
+    });
+  }
+});
+
+// Add click handler to popup to prevent closing when clicking inside it
+customPopup.addEventListener('click', (event) => {
+  event.stopPropagation();
+});
