@@ -319,6 +319,11 @@ cat << COUNTRYRULES
       allow read: if true;
       allow write: if true;
     }
+    match /race_wall_posts_${country}/{postId} {
+      // Anyone can read posts
+      allow read: if true;
+      allow write: if true;
+    }
     match /forum_posts_${country}/{postId} {
       // Anyone can read posts
       allow read: if true;
@@ -338,7 +343,7 @@ cat > firestore.indexes.json << EOF
 $(for country in "${COUNTRIES[@]}"; do
 cat << COUNTRYINDEXES
     {
-      "collectionGroup": "forum_posts_${country}",
+      "collectionGroup": "race_wall_posts_${country}",
       "queryScope": "COLLECTION",
       "fields": [
         { "fieldPath": "source_race", "mode": "ASCENDING" },
@@ -346,7 +351,7 @@ cat << COUNTRYINDEXES
       ]
     },
     {
-      "collectionGroup": "forum_posts_${country}",
+      "collectionGroup": "race_wall_posts_${country}",
       "queryScope": "COLLECTION",
       "fields": [
         { "fieldPath": "source_race", "mode": "ASCENDING" },
@@ -382,7 +387,7 @@ cat << COUNTRYINDEXES
       ]
     },
     {
-      "collectionGroup": "forum_posts_${country}",
+      "collectionGroup": "race_wall_posts_${country}",
       "fieldPath": "createdAt",
       "indexes": [
         { "order": "DESCENDING", "queryScope": "COLLECTION" }

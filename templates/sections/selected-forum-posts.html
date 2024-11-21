@@ -1,7 +1,7 @@
 <section class="section section-selected-forum-posts">
   <h2 class="section-header">{{navigation.forum}}</h2>
   <div class="selected-forum-posts-container">
-    {% for post in forum_posts %} {% include
+    {% for post in race_wall_posts %} {% include
     'components/selected-forum-post-card.html' %} {% endfor %}
   </div>
   <div class="selected-races-button-container">
@@ -10,8 +10,9 @@
     </button>
     <script>
       // JavaScript logic to handle the button click
-      document.getElementById('forum-button').onclick = function() {
-        location.href = '/{{ navigation["forum"] | slugify(country_code) }}.html';
+      document.getElementById('forum-button').onclick = function () {
+        location.href =
+          '/{{ navigation["forum"] | slugify(country_code) }}.html';
       };
     </script>
   </div>

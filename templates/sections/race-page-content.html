@@ -148,7 +148,7 @@
 
       <!-- Forum posts container -->
       <div id="forum-posts" class="forum-posts">
-        {% for post in forum_posts %}
+        {% for post in race_wall_posts %}
         <div class="forum-post">
           <div class="post-header">
             <span class="post-author">{{ post.authorName }}</span>
@@ -156,7 +156,7 @@
           </div>
           <div class="post-content">{{ post.content }}</div>
         </div>
-        {% endfor %} {% if not forum_posts %}
+        {% endfor %} {% if not race_wall_posts %}
         <div class="empty-state">{{ race_page.forum_section.empty_state }}</div>
         {% endif %}
       </div>

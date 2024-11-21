@@ -164,7 +164,7 @@ def is_appropriate_content(post_dict):
     
     return True
 
-def fetch_forum_posts(country_code, domain_name):
+def fetch_race_wall_posts(country_code, domain_name):
     """Fetch forum posts for a specific race."""
     # Initialize Firebase Admin if not already initialized
     if not firebase_admin._apps:
@@ -174,7 +174,7 @@ def fetch_forum_posts(country_code, domain_name):
     db = firestore.client()
     
     # Query posts for this specific race
-    posts = (db.collection(f'forum_posts_{country_code}')
+    posts = (db.collection(f'race_wall_posts_{country_code}')
              .where('source_race', '==', domain_name)
              .order_by('createdAt', direction=firestore.Query.ASCENDING)
              .get())
@@ -297,7 +297,7 @@ def generate_race_pages(country_code, domain_name=None):
                 })
         
         # Fetch forum posts for this race
-        forum_posts = fetch_forum_posts(country_code, race['domain_name'])
+        race_wall_posts = fetch_race_wall_posts(country_code, race['domain_name'])
         
         # Prepare the context for rendering
         context = {
@@ -308,7 +308,7 @@ def generate_race_pages(country_code, domain_name=None):
             'js_path': '/js',
             'race_date': convert_date(race['date'], content['month_mapping_short']),
             'mapbox_zoom': content['mapbox_zoom'],
-            'forum_posts': forum_posts,  # Add forum posts to context
+            'race_wall_posts': race_wall_posts,  # Add forum posts to context
         }
 
         # Render the race page content

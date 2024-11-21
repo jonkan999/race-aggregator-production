@@ -120,7 +120,7 @@ export function initializeRaceForum() {
         const batch = writeBatch(db);
 
         // Add main forum post
-        const postRef = doc(collection(db, `forum_posts_${country}`));
+        const postRef = doc(collection(db, `race_wall_posts_${country}`));
         batch.set(postRef, {
           content,
           source_race: forumInput.getAttribute('data-source'),
