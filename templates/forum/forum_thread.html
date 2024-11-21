@@ -1,0 +1,49 @@
+{% extends "forum/forum_layout.html" %} {% block content %}
+<div class="forum-thread">
+  <div class="thread-navigation">
+    <a
+      href="/{{ navigation.forum | slugify(country_code) }}/{{ category.slug }}/index.html"
+      class="back-link"
+    >
+      ← {{ forum.back_to_category }}
+    </a>
+  </div>
+
+  <div class="thread-header">
+    <h1>{{ thread.title }}</h1>
+    <div class="thread-meta">
+      <span class="thread-author">{{ thread.author }}</span>
+      <span class="thread-date">{{ thread.created_at }}</span>
+    </div>
+  </div>
+
+  <div id="forum-posts" class="forum-posts">
+    {% for post in forum_posts %}
+    <div class="forum-post">
+      <div class="post-header">
+        <span class="post-author">{{ post.authorName }}</span>
+        <span class="post-date">{{ post.createdAt }}</span>
+      </div>
+      <div class="post-content">{{ post.content }}</div>
+    </div>
+    {% endfor %} {% if not forum_posts %}
+    <div class="empty-state">{{ forum.empty_state }}</div>
+    {% endif %}
+  </div>
+
+  <div class="forum-input-container" id="forum-input-container">
+    <textarea
+      id="forum-input"
+      data-category="{{ category.slug }}"
+      data-thread="{{ thread.slug }}"
+      placeholder="{{ forum.reply_placeholder }}"
+      rows="3"
+      disabled
+    ></textarea>
+    <button id="forum-submit" class="primary-button" style="display: none">
+      {{ forum.submit_button }}
+    </button>
+    <div id="login-prompt" class="login-prompt">{{ forum.login_prompt }}</div>
+  </div>
+</div>
+{% endblock %}

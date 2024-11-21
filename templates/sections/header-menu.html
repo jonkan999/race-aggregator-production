@@ -1,6 +1,6 @@
 <section class="section-header-menu">
   <div class="upper-header">
-    <a href="/index.html" class="logo-container">
+    <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
     /></a>
 
@@ -26,9 +26,16 @@
   </div>
   <nav class="main-nav-container right-scroller">
     {% for key, value in navigation.items() %}
-    <a class="nav-container" href="/{{ value | slugify(country_code) }}.html"
+    {% if key != 'main' %}
+    <a class="nav-container" href="/{{ value | slugify(country_code) }}"
       ><span class="nav-item">{{ value }}</span></a
     >
+    {% endif %}
+    {% if key == 'main' %}
+    <a class="nav-container" href="/">
+      <span class="nav-item">{{ value }}</span>
+    </a>
+    {% endif %}
     {% endfor %}
   </nav>
 

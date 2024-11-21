@@ -1,0 +1,30 @@
+{% extends "forum/forum_layout.html" %} {% block content %}
+<div class="forum-category">
+  <div class="category-header">
+    <h2>{{ category.name }}</h2>
+    <p class="category-description">{{ category.description }}</p>
+  </div>
+
+  <div class="thread-list">
+    {% for thread in category.threads %}
+    <div class="thread-preview">
+      <div class="thread-main">
+        <a
+          href="/{{ navigation.forum | slugify(country_code) }}/{{ category.slug }}/{{ thread.slug }}/index.html"
+          class="thread-title"
+        >
+          {{ thread.title }}
+        </a>
+        <div class="thread-meta">
+          <span class="post-count">{{ thread.post_count }} inlägg</span>
+          <span class="last-post">Senaste: {{ thread.last_post_date }}</span>
+        </div>
+      </div>
+      <div class="thread-author">
+        <span class="author-name">{{ thread.author }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

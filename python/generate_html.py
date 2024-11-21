@@ -132,11 +132,15 @@ def generate_country(country_code):
         if page != 'index':
            all_pages = {**content['navigation'], **content['auxiliary_pages']}
            local_page_name = slugify(all_pages[page], country_code)
+           local_page_dir = os.path.join(country_output_dir, local_page_name)
+           os.makedirs(local_page_dir, exist_ok=True)
+           with open(Path(country_output_dir, f'{local_page_name}/index.html'),  'w', encoding='utf-8') as f:
+               f.write(page_html) 
         else:
            local_page_name = 'index'
-        # Write the rendered HTML to the country-specific build directory
-        with open(Path(country_output_dir, f'{local_page_name}.html'),  'w', encoding='utf-8') as f:
-           f.write(page_html) 
+           with open(Path(country_output_dir, f'index.html'),  'w', encoding='utf-8') as f:
+               f.write(page_html) 
+
 
     # Generate JavaScript files
     js_output_dir = os.path.join(country_output_dir, 'js')

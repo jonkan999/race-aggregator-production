@@ -1,50 +1,116 @@
-.race-forum-section {
-  margin-bottom: 3rem;
+.forum-index {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.forum-index .category-card {
   background: var(--color-background-light);
   border-radius: var(--border-radius);
-}
-.race-forum-section h2 {
+  padding: 1.5rem;
   margin-bottom: 1rem;
-  font-size: 2rem;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1.5rem;
 }
-.race-forum-section .forum-posts {
+.forum-index .category-card:hover {
+  background: var(--color-background-hover);
+}
+.forum-index .category-card .category-main h2 {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+  color: var(--color-text);
+}
+.forum-index .category-card .category-main .category-description {
+  color: var(--color-text-light);
+  font-size: 1.6rem;
+  margin: 0;
+}
+.forum-index .category-card .category-stats {
+  text-align: center;
+  color: var(--color-text-light);
+  font-size: 1.6rem;
+}
+.forum-index .category-card .latest-activity .latest-thread {
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+.forum-index .category-card .latest-activity .latest-thread a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.forum-index .category-card .latest-activity .latest-thread a:hover {
+  text-decoration: underline;
+}
+.forum-index .category-card .latest-activity .latest-meta {
+  color: var(--color-text-light);
+  font-size: 1.5rem;
+}
+.forum-thread {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.forum-thread .thread-navigation {
   margin-bottom: 2rem;
 }
-.race-forum-section .forum-posts .empty-state {
+.forum-thread .thread-navigation .back-link {
+  color: var(--color-primary);
+  font-size: 1.6rem;
+  text-decoration: none;
+}
+.forum-thread .thread-navigation .back-link:hover {
+  text-decoration: underline;
+}
+.forum-thread .thread-header {
+  margin-bottom: 2rem;
+}
+.forum-thread .thread-header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2.4rem;
+}
+.forum-thread .thread-header .thread-meta {
+  color: var(--color-text-light);
+  font-size: 1.6rem;
+}
+.forum-thread .forum-posts {
+  margin-bottom: 2rem;
+}
+.forum-thread .forum-posts .empty-state {
   padding: 0.5rem;
   font-size: 1.6rem;
 }
-.race-forum-section .forum-posts .forum-post {
+.forum-thread .forum-posts .forum-post {
   padding: 0.5rem 1.5rem;
   font-size: 1.6rem;
   background: white;
   border-radius: var(--border-radius);
   margin-bottom: 1rem;
 }
-.race-forum-section .forum-posts .forum-post .post-header {
+.forum-thread .forum-posts .forum-post .post-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
   color: var(--color-text-light);
 }
-.race-forum-section .forum-posts .forum-post .post-header .post-author {
+.forum-thread .forum-posts .forum-post .post-header .post-author {
   font-weight: bold;
 }
-.race-forum-section .forum-posts .forum-post .post-header .post-date {
+.forum-thread .forum-posts .forum-post .post-header .post-date {
   font-size: 1.5rem;
 }
-.race-forum-section .forum-posts .forum-post .post-content {
+.forum-thread .forum-posts .forum-post .post-content {
   margin-bottom: 1rem;
+  line-height: 1.6;
 }
-.race-forum-section .forum-input-container {
+.forum-thread .forum-input-container {
   position: relative;
   cursor: pointer;
 }
-.race-forum-section .forum-input-container:hover {
+.forum-thread .forum-input-container:hover {
   text-decoration: underline;
 }
-.race-forum-section .forum-input-container textarea {
+.forum-thread .forum-input-container textarea {
   width: 100%;
   min-height: 8rem;
   padding: 1rem;
@@ -54,7 +120,7 @@
   margin-bottom: 1rem;
   pointer-events: none;
 }
-.race-forum-section .forum-input-container .login-prompt {
+.forum-thread .forum-input-container .login-prompt {
   text-align: center;
   color: var(--color-primary);
   cursor: pointer;
@@ -62,7 +128,7 @@
   font-size: 1.6rem;
   pointer-events: none;
 }
-.race-forum-section button {
+.forum-thread button {
   text-align: center;
   margin: 0 auto;
   padding: 1rem;

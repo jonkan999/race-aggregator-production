@@ -6,8 +6,8 @@
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
-    <title>{{ forum.title }}</title>
-    <meta name="description" content="{{ forum.meta_description }}" />
+    <title>Forum - Prata om löpning och löparlivet med andra löpare i Sverige.</title>
+    <meta name="description" content="Prata om löpning och löparlivet med andra löpare i vårat forum. Allt om träning, tävlingar, skador, kost, kläder, prylar och mycket mer." />
     <link rel="icon" href="/common_images/logo100px.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,9 +30,15 @@
   <body>
     <!-- Page content -->
     <main>
-      {% block content %} {% include 'sections/ad-banner.html' %} {% include
-      './sections/header-menu.html' %} {% include 'components/footer.html' %} {%
-      endblock %}
+<div class="forum-category">
+  <div class="category-header">
+    <h2>Kost & Näring</h2>
+    <p class="category-description">Diskutera kost och näring</p>
+  </div>
+
+  <div class="thread-list">
+  </div>
+</div>
     </main>
 
     <script

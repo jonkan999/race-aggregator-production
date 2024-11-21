@@ -1,13 +1,100 @@
-.race-forum-section {
-  margin-bottom: 3rem;
-  background: var(--color-background-light);
-  border-radius: var(--border-radius);
+// FORUM INDEX PAGE
+.forum-index {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 2rem;
 
-  h2 {
+  .category-card {
+    background: var(--color-background-light);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
     margin-bottom: 1rem;
-    font-size: 2rem;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 1.5rem;
+
+    &:hover {
+      background: var(--color-background-hover);
+    }
+
+    .category-main {
+      h2 {
+        margin: 0 0 0.5rem;
+        font-size: 2rem;
+        color: var(--color-text);
+      }
+
+      .category-description {
+        color: var(--color-text-light);
+        font-size: 1.6rem;
+        margin: 0;
+      }
+    }
+
+    .category-stats {
+      text-align: center;
+      color: var(--color-text-light);
+      font-size: 1.6rem;
+    }
+
+    .latest-activity {
+      .latest-thread {
+        font-weight: bold;
+        font-size: 1.6rem;
+
+        a {
+          color: var(--color-primary);
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .latest-meta {
+        color: var(--color-text-light);
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+// FORUM THREAD PAGE
+.forum-thread {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 2rem;
+
+  .thread-navigation {
+    margin-bottom: 2rem;
+
+    .back-link {
+      color: var(--color-primary);
+      font-size: 1.6rem;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
+  .thread-header {
+    margin-bottom: 2rem;
+
+    h1 {
+      margin: 0 0 0.5rem;
+      font-size: 2.4rem;
+    }
+
+    .thread-meta {
+      color: var(--color-text-light);
+      font-size: 1.6rem;
+    }
+  }
+
+  // Reuse your existing forum posts styling
   .forum-posts {
     margin-bottom: 2rem;
 
@@ -15,6 +102,7 @@
       padding: 0.5rem;
       font-size: 1.6rem;
     }
+
     .forum-post {
       padding: 0.5rem 1.5rem;
       font-size: 1.6rem;
@@ -39,10 +127,12 @@
 
       .post-content {
         margin-bottom: 1rem;
+        line-height: 1.6;
       }
     }
   }
 
+  // Reuse your existing input container styling
   .forum-input-container {
     position: relative;
     cursor: pointer;
@@ -69,6 +159,7 @@
       pointer-events: none;
     }
   }
+
   button {
     text-align: center;
     margin: 0 auto;
