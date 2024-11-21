@@ -8,6 +8,9 @@
   </div>
 
   <div class="filter-months right-scroller">
+    <button class="month-button active" data-month="all">
+      {{ filter_months }}
+    </button>
     {% for month_key, month_value in month_mapping.items() %}
     <button class="month-button" data-month="{{ month_key }}">
       {{ month_value }}
@@ -16,6 +19,9 @@
   </div>
 
   <div class="filter-categories right-scroller">
+    <button class="category-button active" data-category="all">
+      {{ filter_distance }}
+    </button>
     {% for category in distance_filter.available_categories %}
     <button class="category-button" data-category="{{ category }}">
       {{ category }}

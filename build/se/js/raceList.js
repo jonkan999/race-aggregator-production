@@ -139,15 +139,32 @@ document.addEventListener("DOMContentLoaded", function () {
   categoryButtons.forEach((button) => {
     button.addEventListener("click", function () {
       const category = this.getAttribute("data-category");
-      if (activeCategories.has(category)) {
-        activeCategories.delete(category);
-        this.classList.remove("active");
-      } else {
-        activeCategories.add(category);
+      const allButton = document.querySelector('.category-button[data-category="all"]');
+      
+      if (category === "all") {
+        // If "all" is clicked, deactivate all other categories
+        activeCategories.clear();
+        categoryButtons.forEach((btn) => btn.classList.remove("active"));
         this.classList.add("active");
+      } else {
+        // If specific category is clicked, deactivate "all"
+        allButton.classList.remove("active");
+        
+        if (activeCategories.has(category)) {
+          activeCategories.delete(category);
+          this.classList.remove("active");
+          
+          // If no categories are selected, activate "all"
+          if (activeCategories.size === 0) {
+            allButton.classList.add("active");
+          }
+        } else {
+          activeCategories.add(category);
+          this.classList.add("active");
+        }
       }
       applyFilters();
-      if (preselectedFilters) checkFilters(); // Check filters after applying
+      if (preselectedFilters) checkFilters();
     });
   });
 
@@ -158,13 +175,16 @@ document.addEventListener("DOMContentLoaded", function () {
   monthButtons.forEach((button) => {
     button.addEventListener("click", function () {
       const month = this.getAttribute("data-month");
-      if (activeMonth === month) {
-        activeMonth = null;
-        this.classList.remove("active");
+      const allButton = document.querySelector('.month-button[data-category="all"]');
+      
+      if (month === "all") {
+        // If "all" is clicked, reset to default year view
+        monthButtons.forEach((btn) => btn.classList.remove("active"));
+        this.classList.add("active");
         resetDateRange();
       } else {
+        // If specific month is clicked
         monthButtons.forEach((btn) => btn.classList.remove("active"));
-        activeMonth = month;
         this.classList.add("active");
         updateDateRangeForMonth(month);
       }
@@ -333,11 +353,10 @@ document.addEventListener("DOMContentLoaded", function () {
       if (raceType && raceTypeAttr !== raceType) show = false;
 
       // Category (distance) filtering
-      if (activeCategories.size > 0) {
+      if (activeCategories.size > 0 && !activeCategories.has("all")) {
         const distances = raceDistances ? raceDistances.split(', ') : [];
         
         const matchesActiveCategory = Array.from(activeCategories).some(category => 
-          // Check if any of the race's distances map to the active category
           distances.some(distance => 
             distanceMapping[distance] && distanceMapping[distance].includes(category)
           )

@@ -42,6 +42,17 @@ textarea {
   font-size: 1.5rem;
   color: #666;
   cursor: pointer;
+  z-index: 1;
+  position: relative;
+}
+#map-placeholder .leaflet-pane,
+#map-placeholder .leaflet-control-container,
+#map-placeholder .leaflet-top,
+#map-placeholder .leaflet-bottom {
+  z-index: 1 !important;
+}
+#map-placeholder .leaflet-control {
+  z-index: 2 !important;
 }
 .marker-default {
   background-color: var(--info-highlight-background2);

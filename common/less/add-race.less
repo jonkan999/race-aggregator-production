@@ -50,6 +50,19 @@ textarea {
   font-size: 1.5rem;
   color: #666;
   cursor: pointer;
+  z-index: 1; // Lower z-index
+  position: relative;
+  .leaflet-pane,
+  .leaflet-control-container,
+  .leaflet-top,
+  .leaflet-bottom {
+    z-index: 1 !important; // Force lower z-index
+  }
+
+  // Ensure controls stay clickable
+  .leaflet-control {
+    z-index: 2 !important;
+  }
 }
 
 .marker-default {
