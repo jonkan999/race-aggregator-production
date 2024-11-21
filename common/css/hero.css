@@ -24,6 +24,7 @@
 @media (max-width: 34em) {
   .section-hero {
     padding-left: 2rem !important;
+    padding-top: 18rem !important;
   }
 }
 .section-hero .hero-content {
@@ -54,10 +55,16 @@
   display: inline-block;
 }
 .section-hero .hero-content .title-container .native-title {
-  font-size: 5rem;
+  font-size: 4.5rem;
 }
 .section-hero .hero-content .title-container .native-country {
-  font-size: 7rem;
+  font-size: 8rem;
+  margin-left: 1rem;
+}
+@media (max-width: 59em) {
+  .section-hero .hero-content .title-container .native-country {
+    margin-left: 0;
+  }
 }
 .section-hero .hero-content .bullet-list {
   margin-top: 10rem;
@@ -72,6 +79,7 @@
 @media (max-width: 34em) {
   .section-hero .hero-content .bullet-list {
     padding-left: 0rem;
+    margin-top: 7rem;
   }
 }
 .section-hero .hero-content .bullet-list li {
@@ -81,6 +89,15 @@
   justify-content: flex-start;
   background-color: var(--color-background);
   /* Adding the right arrow */
+}
+@media (max-width: 34em) {
+  .section-hero .hero-content .bullet-list li {
+    padding-left: 0.6rem;
+  }
+  .section-hero .hero-content .bullet-list li:nth-child(3),
+  .section-hero .hero-content .bullet-list li:nth-child(4) {
+    padding: 1rem 0 1rem 0.6rem;
+  }
 }
 .section-hero .hero-content .bullet-list li:nth-child(1) {
   margin-bottom: 2rem;
