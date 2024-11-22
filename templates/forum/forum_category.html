@@ -1,81 +1,100 @@
 {% extends "forum/forum_layout.html" %} {% block content %}
-<div class="forum-container forum-section">
-  <div class="category-header">
-    <h2>{{ category.name }}</h2>
+<div class="forum-container forum-section" data-category="{{ category.slug }}">
+  <div class="forum-header">
+    <a
+      href="/{{ navigation.forum | slugify(country_code) }}/index.html"
+      class="back-link"
+    >
+      {{ forum.back_to_forum }}
+    </a>
+    <h1>{{ category.name }}</h1>
     <p class="category-description">{{ category.description }}</p>
   </div>
 
-  <!-- New Thread Form -->
+  {% if threads %}
+  <div class="threads-container">
+    <div class="recent-threads">
+      {% for thread in threads[:3] %}
+      <div class="thread-card">
+        <div class="thread-main">
+          <a
+            href="/{{ navigation.forum | slugify(country_code) }}/{{ category.slug }}/{{ thread.slug }}/index.html"
+            class="thread-title"
+          >
+            <h2>{{ thread.title }}</h2>
+          </a>
+          <div class="thread-meta">
+            <span class="thread-author">{{ thread.authorName }}</span>
+            <span class="thread-date">{{ thread.createdAt }}</span>
+          </div>
+        </div>
+        <div class="thread-stats">
+          <div class="post-count">
+            {{ (thread.replyCount|int + 1)|string }} {{ forum.posts_label }}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% if threads|length > 3 %}
+    <div
+      class="thread-count-indicator"
+      data-showing-text="{{ forum.showing_threads_count }}"
+    >
+      {{ forum.showing_threads_count.replace('{x}', '3').replace('{y}',
+      threads|length) }}
+    </div>
+
+    <div class="threads-expanded hidden">
+      {% for thread in threads[3:] %}
+      <div class="thread-card">
+        <div class="thread-main">
+          <a
+            href="/{{ navigation.forum | slugify(country_code) }}/{{ category.slug }}/{{ thread.slug }}/index.html"
+            class="thread-title"
+          >
+            <h2>{{ thread.title }}</h2>
+          </a>
+          <div class="thread-meta">
+            <span class="thread-author">{{ thread.authorName }}</span>
+            <span class="thread-date">{{ thread.createdAt }}</span>
+          </div>
+        </div>
+        <div class="thread-stats">
+          <div class="post-count">
+            {{ (thread.replyCount|int + 1)|string }} {{ forum.posts_label }}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <button class="expand-threads-btn">
+      <span class="show-more">{{ forum.show_more_threads }}</span>
+      <span class="show-less hidden">{{ forum.show_less_threads }}</span>
+    </button>
+    {% endif %}
+  </div>
+  {% else %}
+  <div class="empty-state">{{ forum.empty_category_state }}</div>
+  {% endif %}
+
   <div class="thread-input-container" id="thread-input-container">
+    <h2>{{ forum.create_new_thread }}</h2>
     <input
       type="text"
       id="thread-title-input"
       placeholder="{{ forum.new_thread_title_placeholder }}"
-      {%
-      if
-      not
-      user
-      %}disabled{%
-      endif
-      %}
+      disabled
     />
     <textarea
       id="thread-input"
       placeholder="{{ forum.new_thread_content_placeholder }}"
-      rows="3"
-      {%
-      if
-      not
-      user
-      %}disabled{%
-      endif
-      %}
+      disabled
     ></textarea>
-
-    <button
-      id="thread-submit"
-      class="primary-button"
-      {%
-      if
-      not
-      user
-      %}style="display: none;"
-      {%
-      endif
-      %}
-    >
-      {{ forum.create_thread_button }}
-    </button>
-
-    <div
-      id="login-prompt"
-      class="login-prompt"
-      {%
-      if
-      user
-      %}style="display: none;"
-      {%
-      endif
-      %}
-    >
-      {{ forum.login_prompt }}
-    </div>
-  </div>
-
-  <div class="thread-list">
-    {% for thread in category.threads %}
-    <div class="thread-item">
-      <div class="thread-info">
-        <span class="date">{{ thread.created_at }}</span>
-        <a href="{{ thread.slug }}/" class="title">{{ thread.title }}</a>
-      </div>
-      <div class="post-count">
-        {{ thread.post_count }} {{ forum.posts_label }}
-      </div>
-    </div>
-    {% endfor %}
+    <button id="thread-submit">{{ forum.create_thread_button }}</button>
+    <div id="login-prompt" class="login-prompt">{{ forum.login_prompt }}</div>
   </div>
 </div>
-
-<script type="module" src="/js/forumFirebase.js"></script>
 {% endblock %}

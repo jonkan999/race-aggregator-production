@@ -1,18 +1,21 @@
 {% extends "forum/forum_layout.html" %} {% block content %}
-<div class="forum-container forum-section">
-  <div class="thread-navigation">
-    <a href="../" class="back-link">← {{ forum.back_to_category }}</a>
-  </div>
-
-  <div class="thread-header">
+<div
+  class="forum-container forum-section"
+  data-category="{{ category.slug }}"
+  data-thread-id="{{ thread.threadId }}"
+>
+  <div class="forum-header">
+    <a
+      href="/{{ navigation.forum | slugify(country_code) }}/{{ category.slug }}/index.html"
+      class="back-link"
+    >
+      {{ forum.back_to_category }}
+    </a>
     <h1>{{ thread.title }}</h1>
-    <div class="thread-meta">
-      {{ thread.authorName }} • {{ thread.createdAt }}
-    </div>
   </div>
 
   <div class="forum-posts">
-    {% for post in forum_posts %}
+    {% if posts %} {% for post in posts %}
     <div class="forum-post">
       <div class="post-header">
         <span class="post-author">{{ post.authorName }}</span>
@@ -20,57 +23,19 @@
       </div>
       <div class="post-content">{{ post.content }}</div>
     </div>
-    {% endfor %} {% if not forum_posts %}
-    <div class="empty-state">{{ forum.empty_state }}</div>
+    {% endfor %} {% else %}
+    <div class="empty-state">{{ forum.empty_thread_state }}</div>
     {% endif %}
   </div>
 
-  <!-- Reply Form -->
   <div class="forum-input-container" id="forum-input-container">
     <textarea
       id="forum-input"
-      data-thread-id="{{ thread.id }}"
       placeholder="{{ forum.reply_placeholder }}"
-      rows="3"
-      {%
-      if
-      not
-      user
-      %}disabled{%
-      endif
-      %}
+      disabled
     ></textarea>
-
-    <button
-      id="forum-submit"
-      class="primary-button"
-      {%
-      if
-      not
-      user
-      %}style="display: none;"
-      {%
-      endif
-      %}
-    >
-      {{ forum.submit_button }}
-    </button>
-
-    <div
-      id="login-prompt"
-      class="login-prompt"
-      {%
-      if
-      user
-      %}style="display: none;"
-      {%
-      endif
-      %}
-    >
-      {{ forum.login_prompt }}
-    </div>
+    <button id="forum-submit">{{ forum.submit_button }}</button>
+    <div id="login-prompt" class="login-prompt">{{ forum.login_prompt }}</div>
   </div>
 </div>
-
-<script type="module" src="/js/forumFirebase.js"></script>
 {% endblock %}

@@ -244,46 +244,60 @@
   </div>
 </section>
     <!-- Page content -->
-    <main><div class="forum-container forum-section">
-  <div class="category-header">
-    <h2>Skador & Rehab</h2>
+    <main><div class="forum-container forum-section" data-category="skador">
+  <div class="forum-header">
+    <a
+      href="/forum/index.html"
+      class="back-link"
+    >
+      ← Tillbaka till forumet
+    </a>
+    <h1>Skador & Rehab</h1>
     <p class="category-description">Hjälp med skador och återhämtning</p>
   </div>
 
-  <!-- New Thread Form -->
+  <div class="threads-container">
+    <div class="recent-threads">
+      <div class="thread-card">
+        <div class="thread-main">
+          <a
+            href="/forum/skador/0633a1c0-a26f-4235-813d-b555b479eac5/index.html"
+            class="thread-title"
+          >
+            <h2>Skadetrådt</h2>
+          </a>
+          <div class="thread-meta">
+            <span class="thread-author">jonkan</span>
+            <span class="thread-date">2024-11-22 10:44</span>
+          </div>
+        </div>
+        <div class="thread-stats">
+          <div class="post-count">
+            1 inlägg
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
   <div class="thread-input-container" id="thread-input-container">
+    <h2>Skapa ny tråd</h2>
     <input
       type="text"
       id="thread-title-input"
-      placeholder=""
-disabled    />
+      placeholder="Titel på din nya tråd"
+      disabled
+    />
     <textarea
       id="thread-input"
-      placeholder=""
-      rows="3"
-disabled    ></textarea>
-
-    <button
-      id="thread-submit"
-      class="primary-button"
-style="display: none;"
-    >
-      
-    </button>
-
-    <div
-      id="login-prompt"
-      class="login-prompt"
-    >
-      Logga in för att svara
-    </div>
-  </div>
-
-  <div class="thread-list">
+      placeholder="Skriv ditt första inlägg..."
+      disabled
+    ></textarea>
+    <button id="thread-submit">Skapa ny tråd</button>
+    <div id="login-prompt" class="login-prompt">Logga in för att delta i diskussionen</div>
   </div>
 </div>
-
-<script type="module" src="/js/forumFirebase.js"></script>
 </main>
 
 

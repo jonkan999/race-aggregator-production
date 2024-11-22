@@ -48,12 +48,19 @@ def build_forum_pages(country_code, output_dir, jinja_env):
         build_category_page(country_code, output_dir, jinja_env, category, base_context, db)
         build_thread_pages(country_code, output_dir, jinja_env, category, base_context, db)
 
+def format_timestamp(timestamp):
+    """Format timestamp to YYYY-MM-DD HH:mm"""
+    if isinstance(timestamp, datetime):
+        return timestamp.strftime('%Y-%m-%d %H:%M')
+    return timestamp  # Return as-is if not a datetime object
+
 def build_forum_index(country_code, output_dir, jinja_env, base_context, db):
     """Build the main forum index page."""
     
     # Enhance categories with Firebase data
     for category in base_context['forum']['categories']:
-        category_ref = db.collection(f'forum_posts_{country_code}').document(category['slug'])
+        # Query posts for this category
+        posts_ref = db.collection(f'forum_posts_{country_code}')
         
         # Initialize default values
         category['thread_count'] = 0
@@ -61,30 +68,35 @@ def build_forum_index(country_code, output_dir, jinja_env, base_context, db):
         category['latest_thread'] = None
         
         try:
-            # Get thread count
-            threads = category_ref.collections()
+            # Get threads for this category
+            thread_query = posts_ref.where('categorySlug', '==', category['slug']).where('type', '==', 'thread')
+            threads = thread_query.get()
+            category['thread_count'] = len(threads)
+            
+            # Get all posts (threads + replies) for this category
+            all_posts_query = posts_ref.where('categorySlug', '==', category['slug'])
+            all_posts = all_posts_query.get()
+            category['post_count'] = len(all_posts)
+            
+            # Find latest thread
+            latest_thread = None
+            latest_timestamp = None
             
             for thread in threads:
-                category['thread_count'] += 1
-                # Get post count and latest post
-                posts = thread.order_by('createdAt', direction=firestore.Query.DESCENDING).limit(1).get()
-                thread_posts = thread.get()
-                category['post_count'] += len(thread_posts)
-                
-                for post in posts:  # Will only run once due to limit(1)
-                    post_data = post.to_dict()
-                    if category['latest_thread'] is None or post_data['createdAt'] > category['latest_thread']['created_at']:
-                        thread_doc = thread.parent.get()
-                        thread_data = thread_doc.to_dict()
-                        category['latest_thread'] = {
-                            'title': thread_data['title'],
-                            'slug': thread_doc.id,
-                            'author': post_data['authorName'],
-                            'created_at': post_data['createdAt'].strftime('%Y-%m-%d %H:%M')
-                        }
+                thread_data = thread.to_dict()
+                if latest_timestamp is None or thread_data['createdAt'] > latest_timestamp:
+                    latest_timestamp = thread_data['createdAt']
+                    latest_thread = {
+                        'title': thread_data['title'],
+                        'slug': thread_data['threadId'],
+                        'author': thread_data['authorName'],
+                        'created_at': thread_data['createdAt'].strftime('%Y-%m-%d %H:%M')
+                    }
+            
+            category['latest_thread'] = latest_thread
+            
         except Exception as e:
             print(f"Error processing category {category['slug']}: {str(e)}")
-            # Continue with default values if there's an error
             continue
     
     # Render index template
@@ -101,85 +113,103 @@ def build_forum_index(country_code, output_dir, jinja_env, base_context, db):
         f.write(output)
 
 def build_category_page(country_code, output_dir, jinja_env, category, base_context, db):
-    """Build a category page with its threads."""
+    """Build a forum category page."""
     
-    category_ref = db.collection(f'forum_posts_{country_code}').document(category['slug'])
     threads = []
+    posts_ref = db.collection(f'forum_posts_{country_code}')
     
-    # Get all threads in category
-    for thread_ref in category_ref.collections():
-        thread_doc = thread_ref.document('thread_info').get()
-        if thread_doc.exists:
+    try:
+        # Get all threads for this category
+        thread_query = posts_ref.where('categorySlug', '==', category['slug']).where('type', '==', 'thread')
+        thread_docs = thread_query.get()
+        
+        for thread_doc in thread_docs:
             thread_data = thread_doc.to_dict()
+            thread_data['slug'] = thread_data['threadId']
             
-            # Get post count and latest post
-            posts = thread_ref.order_by('createdAt', direction=firestore.Query.DESCENDING).limit(1).get()
-            post_count = len(thread_ref.get())
+            # Get reply count for this thread
+            reply_query = posts_ref.where('threadId', '==', thread_data['threadId']).where('type', '==', 'reply')
+            replies = reply_query.get()
+            thread_data['replyCount'] = str(len(replies))  # Convert to string
             
-            for post in posts:  # Will only run once
-                post_data = post.to_dict()
-                thread_data.update({
-                    'slug': thread_ref.id,
-                    'post_count': post_count,
-                    'last_post_date': post_data['createdAt'].strftime('%Y-%m-%d %H:%M'),
-                    'last_post_author': post_data['authorName']
-                })
-                threads.append(thread_data)
-    
-    # Sort threads by latest post
-    threads.sort(key=lambda x: x['last_post_date'], reverse=True)
-    category['threads'] = threads
+            # Ensure createdAt is formatted as string
+            if 'createdAt' in thread_data:
+                thread_data['createdAt'] = thread_data['createdAt'].strftime('%Y-%m-%d %H:%M')
+            
+            threads.append(thread_data)
+        
+        # Sort threads by updatedAt (latest activity) in descending order
+        threads.sort(key=lambda x: x.get('updatedAt', x.get('createdAt')), reverse=True)
+        
+        # Add thread count information
+        thread_count = {
+            'visible': '3',
+            'total': str(len(threads))  # Convert to string
+        }
+        
+    except Exception as e:
+        print(f"Error getting threads for category {category['slug']}: {str(e)}")
+        thread_count = {'visible': '0', 'total': '0'}
     
     # Render category template
     template = jinja_env.get_template('forum/forum_category.html')
-    context = {
-        'category': category,
+    output = template.render(
+        category=category,
+        threads=threads,
+        thread_count=thread_count,
         **base_context
-    }
-    output = template.render(**context)
+    )
     
-    # Write to file in category directory
+    # Create output directory and write file
     category_dir = os.path.join(output_dir, 'forum', category['slug'])
     os.makedirs(category_dir, exist_ok=True)
     with open(os.path.join(category_dir, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(output)
 
 def build_thread_pages(country_code, output_dir, jinja_env, category, base_context, db):
-    """Build individual thread pages."""
+    """Build thread pages for a category."""
     
-    category_ref = db.collection(f'forum_posts_{country_code}').document(category['slug'])
+    posts_ref = db.collection(f'forum_posts_{country_code}')
     
-    for thread_ref in category_ref.collections():
-        thread_doc = thread_ref.document('thread_info').get()
-        if thread_doc.exists:
+    try:
+        # Get all threads for this category
+        thread_query = posts_ref.where('categorySlug', '==', category['slug']).where('type', '==', 'thread')
+        thread_docs = thread_query.get()
+        
+        for thread_doc in thread_docs:
             thread_data = thread_doc.to_dict()
-            thread_data['slug'] = thread_ref.id
+            thread_data['slug'] = thread_data['threadId']
             
-            # Get all posts in thread
-            posts = thread_ref.order_by('createdAt').get()
-            forum_posts = []
+            # Get all replies for this thread - simplified query
+            reply_query = posts_ref.where('threadId', '==', thread_data['threadId'])
+            replies = [post.to_dict() for post in reply_query.get() 
+                      if post.to_dict().get('type') == 'reply']
             
-            for post in posts:
-                if post.id != 'thread_info':  # Skip the thread info document
-                    post_data = post.to_dict()
-                    post_data['createdAt'] = post_data['createdAt'].strftime('%Y-%m-%d %H:%M')
-                    forum_posts.append(post_data)
+            # Sort replies in Python instead of Firestore
+            replies.sort(key=lambda x: x.get('createdAt', datetime.min))
+            
+            # Format timestamps for all posts
+            for post in [thread_data] + replies:
+                if 'createdAt' in post:
+                    post['createdAt'] = post['createdAt'].strftime('%Y-%m-%d %H:%M')
             
             # Render thread template
             template = jinja_env.get_template('forum/forum_thread.html')
-            context = {
-                'category': category,
-                'thread': thread_data,
-                'forum_posts': forum_posts,
+            output = template.render(
+                category=category,
+                thread=thread_data,
+                posts=[thread_data] + replies,
                 **base_context
-            }
-            output = template.render(**context)
+            )
             
-            # Write to file in thread directory
-            thread_dir = os.path.join(output_dir, 'forum', category['slug'], thread_data['slug'])
+            # Write to file
+            thread_dir = os.path.join(output_dir, 'forum', category['slug'], thread_data['threadId'])
             os.makedirs(thread_dir, exist_ok=True)
             with open(os.path.join(thread_dir, 'index.html'), 'w', encoding='utf-8') as f:
                 f.write(output)
+                
+    except Exception as e:
+        print(f"Error building thread pages for category {category['slug']}: {str(e)}")
 
 def main():
     """Main function to build forum pages."""

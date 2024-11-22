@@ -244,46 +244,37 @@
   </div>
 </section>
     <!-- Page content -->
-    <main><div class="forum-container forum-section">
-  <div class="category-header">
-    <h2>Kost & Näring</h2>
+    <main><div class="forum-container forum-section" data-category="kost">
+  <div class="forum-header">
+    <a
+      href="/forum/index.html"
+      class="back-link"
+    >
+      ← Tillbaka till forumet
+    </a>
+    <h1>Kost & Näring</h1>
     <p class="category-description">Diskutera kost och näring</p>
   </div>
 
-  <!-- New Thread Form -->
+  <div class="empty-state">Inga trådar än. Få igång diskussionen genom att skapa den första tråden!</div>
+
   <div class="thread-input-container" id="thread-input-container">
+    <h2>Skapa ny tråd</h2>
     <input
       type="text"
       id="thread-title-input"
-      placeholder=""
-disabled    />
+      placeholder="Titel på din nya tråd"
+      disabled
+    />
     <textarea
       id="thread-input"
-      placeholder=""
-      rows="3"
-disabled    ></textarea>
-
-    <button
-      id="thread-submit"
-      class="primary-button"
-style="display: none;"
-    >
-      
-    </button>
-
-    <div
-      id="login-prompt"
-      class="login-prompt"
-    >
-      Logga in för att svara
-    </div>
-  </div>
-
-  <div class="thread-list">
+      placeholder="Skriv ditt första inlägg..."
+      disabled
+    ></textarea>
+    <button id="thread-submit">Skapa ny tråd</button>
+    <div id="login-prompt" class="login-prompt">Logga in för att delta i diskussionen</div>
   </div>
 </div>
-
-<script type="module" src="/js/forumFirebase.js"></script>
 </main>
 
 
