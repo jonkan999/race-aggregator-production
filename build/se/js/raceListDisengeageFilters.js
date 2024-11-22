@@ -1,7 +1,7 @@
 // Get references to the elements
 const disengVenueSelector = document.querySelector('.section-race-cards');
 const disengageFiltersSection = document.querySelector('.section-filters');
-const disengageChildElements = disengageFiltersSection.children;
+const disengageChildElements = disengageFiltersSection?.children;
 const header = document.querySelector('.header');
 
 // Adjusted scroll position variables
@@ -33,24 +33,34 @@ function handleScroll() {
 
     lastScrollPosition = currentScrollPosition;
   }
+
+  // Add shadow based on scroll position
+  if (window.scrollY > 100) {
+    // You can adjust this threshold
+    disengageFiltersSection?.classList.add('scrolled');
+  } else {
+    disengageFiltersSection?.classList.remove('scrolled');
+  }
 }
 
 function hideFiltersSection() {
+  if (!disengageFiltersSection) return;
   disengageFiltersSection.style.opacity = '0';
   disengageFiltersSection.style.marginTop = '0';
   if (header) header.style.opacity = '0.4';
 
-  Array.from(disengageChildElements).forEach((element) => {
+  Array.from(disengageChildElements || []).forEach((element) => {
     element.style.display = 'none';
   });
 }
 
 function showFiltersSection() {
+  if (!disengageFiltersSection) return;
   disengageFiltersSection.style.opacity = '1';
   disengageFiltersSection.style.marginTop = 'var(--header-size)';
   if (header) header.style.opacity = '1';
 
-  Array.from(disengageChildElements).forEach((element) => {
+  Array.from(disengageChildElements || []).forEach((element) => {
     element.style.display = 'flex';
   });
 }

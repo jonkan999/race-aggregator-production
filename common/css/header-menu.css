@@ -1,5 +1,4 @@
 .section-header-menu {
-  /* placeholder */
   margin-bottom: 0.5rem;
   position: fixed;
   top: 0;
@@ -7,8 +6,13 @@
   right: 0;
   height: var(--header-size);
   width: 100%;
-  z-index: 11;
+  z-index: 9;
   background-color: var(--color-background);
+  box-shadow: none;
+  transition: box-shadow 0.3s ease;
+}
+.section-header-menu.scrolled {
+  box-shadow: rgba(0, 0, 0, 0.16) 0 0 6px;
 }
 .section-header-menu.with-banner {
   top: var(--ad-banner-height);
