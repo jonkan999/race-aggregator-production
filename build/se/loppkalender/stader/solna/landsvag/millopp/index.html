@@ -24,8 +24,18 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
 
+    <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+    <script defer="" src="/js/raceListToggleButton.js"></script>
+    <script defer="" src="/js/raceListToggleMap.js"></script>
   </head>
   <body>
     <!-- Page content -->
@@ -33,70 +43,261 @@
 <span class="ad-banner-text">Ad banner</span>
 </section> <section class="section-header-menu">
   <div class="upper-header">
-    <a href="/index.html" class="logo-container">
+    <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
     /></a>
 
     <a class="home-link" href="/">
       <h2 class="page-name new-amsterdam">Loppkartan</h2></a
     >
-    <div class="login-container">
-      <ion-icon class="login-icon" name="person-circle-outline"></ion-icon>
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Logga in
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
     </div>
   </div>
   <nav class="main-nav-container right-scroller">
     
-    <a class="nav-container" href="/allt.html"
-      ><span class="nav-item">Allt</span></a
-    >
     
-    <a class="nav-container" href="/loppkalender.html"
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Allt</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/loppkalender"
       ><span class="nav-item">Loppkalender</span></a
     >
     
-    <a class="nav-container" href="/lagg-till-lopp.html"
+    
+    
+    
+    <a class="nav-container" href="/lagg-till-lopp"
       ><span class="nav-item">Lägg till lopp</span></a
     >
     
-    <a class="nav-container" href="/forum.html"
+    
+    
+    
+    <a class="nav-container" href="/forum"
       ><span class="nav-item">Forum</span></a
     >
     
-    <a class="nav-container" href="/nyheter.html"
+    
+    
+    
+    <a class="nav-container" href="/nyheter"
       ><span class="nav-item">Nyheter</span></a
     >
     
-    <a class="nav-container" href="/marknadsplats.html"
+    
+    
+    
+    <a class="nav-container" href="/marknadsplats"
       ><span class="nav-item">Marknadsplats</span></a
     >
     
-    <a class="nav-container" href="/produkter.html"
+    
+    
+    
+    <a class="nav-container" href="/produkter"
       ><span class="nav-item">Produkter</span></a
     >
     
-    <a class="nav-container" href="/mat-din-runda.html"
+    
+    
+    
+    <a class="nav-container" href="/mat-din-runda"
       ><span class="nav-item">Mät din runda</span></a
     >
     
-    <a class="nav-container" href="/traningsprogram.html"
+    
+    
+    
+    <a class="nav-container" href="/traningsprogram"
       ><span class="nav-item">Träningsprogram</span></a
     >
     
-    <a class="nav-container" href="/fartomvandlare.html"
+    
+    
+    
+    <a class="nav-container" href="/fartomvandlare"
       ><span class="nav-item">Fartomvandlare</span></a
     >
     
-    <a class="nav-container" href="/uppskatta-din-sluttid.html"
+    
+    
+    
+    <a class="nav-container" href="/uppskatta-din-sluttid"
       ><span class="nav-item">Uppskatta din sluttid</span></a
     >
     
+    
+    
   </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Logga in</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Lösenord"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Glömt lösenord?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Skapa konto istället
+            </a>
+          </div>
+          <button type="submit">Logga in</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Skapa konto
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Glömt lösenord?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Skapa konto</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Ditt namn"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Lösenord"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Skapa konto</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Tillbaka till inloggning
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Återställ lösenord</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Skicka återställningslänk</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Tillbaka till inloggning
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Du är redan inloggad som</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Fortsätt som denna användare
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Logga ut och byt användare
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto skapat!</h2>
+        <div class="logged-in-user-info">
+          <p>Du är nu inloggad som</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            En verifieringslänk har skickats till din e-post
+          </p>
+          <p class="verification-notice">Vänligen verifiera din e-postadress</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Fortsätt som denna användare
+        </button>
+      </div>
+    </div>
+  </div>
 </section>
 
-<h1 class="race-list-title">Millopp Landsväg i Solna - Loppkalender för löpartävlingar</h1>
-<p class="race-list-paragraph">Letar du efter ett Millopp Landsväg i Solna? I vår loppkalender hittar du alla löpartävlingar i Solna, med fokus på Landsväg lopp. Bläddra bland lopplistan och hitta ditt nästa löplopp!</p>
-
-<section class="section-filters">
+      </div>
+    </div>
+  </div>
+</section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Från:</label>
     <input type="date" id="date-from" name="date-from" />
@@ -106,6 +307,9 @@
   </div>
 
   <div class="filter-months right-scroller">
+    <button class="month-button active" data-month="all">
+      Hela året
+    </button>
     
     <button class="month-button" data-month="01">
       Januari
@@ -158,6 +362,9 @@
   </div>
 
   <div class="filter-categories right-scroller">
+    <button class="category-button active" data-category="all">
+      Alla distanser
+    </button>
     
     <button class="category-button" data-category="5 km">
       5 km
@@ -165,10 +372,6 @@
     
     <button class="category-button" data-category="10 km">
       10 km
-    </button>
-    
-    <button class="category-button" data-category="Millopp">
-      Millopp
     </button>
     
     <button class="category-button" data-category="Halvmarathon">
@@ -195,6 +398,10 @@
       100 km
     </button>
     
+    <button class="category-button" data-category="Millopp">
+      Millopp
+    </button>
+    
     <button class="category-button" data-category="1500 meter">
       1500 meter
     </button>
@@ -213,7 +420,7 @@
     
   </div>
 
-  <div class="filter-dropdowns">
+  <div class="filter-dropdowns right-scroller">
     <div class="filter-county">
       <select id="county" name="county">
         <option value="">Alla län</option>
@@ -296,13 +503,38 @@
         href="/loppkalender/bladdra-efter-kategori"
         class="browse-link"
       >
-        <ion-icon name="git-network-outline"></ion-icon>
-        Bläddra efter kategori
+        <div class="browse-link-icon">
+          <ion-icon name="git-network-outline"></ion-icon>
+        </div>
+        <div class="browse-link-text">Bläddra efter kategori</div>
       </a>
+    </div>
+    <div class="toggle-button desktop" id="toggleMapButton">
+      <button>
+        <ion-icon
+          name="radio-button-on-outline"
+          id="onIcon"
+          role="img"
+          class="md hydrated"
+          aria-label="radio button on outline"
+        ></ion-icon>
+        <ion-icon
+          name="radio-button-off-outline"
+          id="offIcon"
+          role="img"
+          class="md hydrated"
+          aria-label="radio button off outline"
+        ></ion-icon>
+        Karta
+      </button>
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  <h2 class="section-header section-header-race-cards">
+
+  <h1 class="section-header section-header-race-cards race-list-title">Millopp Landsväg i Solna - Loppkalender för löpartävlingar</h1>
+  <p class="race-list-paragraph">Letar du efter ett Millopp Landsväg i Solna? I vår loppkalender hittar du alla löpartävlingar i Solna, med fokus på Landsväg lopp. Bläddra bland lopplistan och hitta ditt nästa löplopp!</p>
+
+  <h2 class="section-header">
     Alla
     <span id="race-cards-title-category"></span>
     lopp
@@ -311,106 +543,26 @@
     <span id="date-range"></span>
   </h2>
 
-  <div
-    class="race-cards-grid"
-    id="race-cards-container"
-    {/*
-    prettier-ignore
-    */}
-    
-    data-preselected-filters='{"category": "Millopp", "city": "Solna", "county": "Solna", "race_type": "Landsv\u00e4g"}'
-    
-  >
-     <a
-  href="/loppsidor/hostrusket/index.html"
-  class="race-card"
-  data-name="Höstrusket"
-  data-date="20241109"
-  data-county="Solna"
-  data-category=""
-  data-race-type="Landsväg"
-  data-distance="10km, marathon"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/loppsidor/hostrusket/hostrusket_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till Höstrusket"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          9 nov.
-        </div>
-        <div class="race-location">
-          Stockholm
-        </div>
-      </div>
+  <button class="toggle-button mobile" id="toggleMapButtonMobile">
+    <div class="icon-container">
+      <ion-icon name="map-outline" role="img" class="md hydrated" aria-label="map outline"></ion-icon>
     </div>
-    <div class="overlay soft"></div>
-  </div>
+    <p>Karta</p>
+  </button>
 
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Höstrusket</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Norra Djurgården 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Marathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
+
+  <div class="race-cards-selector">
+    <div
+      class="race-cards-grid"
+        id="race-cards-container"
+        {/*
+        prettier-ignore
+        */}
         
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Landsväg
-        </div>
+        data-preselected-filters='{"category": "Millopp", "city": "Solna", "county": "Solna", "race_type": "Landsv\u00e4g"}'
         
-      </div>
-    </div>
-    <div class="race-summary">
-      Välkommen till Höstrusket på Norra Djurgården! Det perfekta tillfället att testa formen med vårt 10 km-lopp eller utmana dig själv i Höstrus...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
-  </div>
-</a>  <a
+      >
+         <a
   href="/loppsidor/strangnas_halvmaraton/index.html"
   class="race-card"
   data-name="Strängnäs Halvmaraton"
@@ -419,6 +571,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="half marathon"
+  data-latitude="59.3758773"
+  data-longitude="17.0056247"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -502,6 +656,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="5km"
+  data-latitude="59.3419537"
+  data-longitude="17.9535361"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -585,6 +741,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="marathon"
+  data-latitude="59.34533640000001"
+  data-longitude="18.0790178"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -668,6 +826,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="10km"
+  data-latitude="59.31023419999999"
+  data-longitude="18.0456304"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -743,17 +903,28 @@
     <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a> 
-  </div>
-
-  <!-- Add pagination controls -->
+        <!-- Add pagination controls -->
   <div class="pagination-info">
-    <span id="event-range"></span> of <span id="total-events"></span> Events
+    <span id="event-range">av</span> 
+    <span id="total-events">Lopp</span> 
   </div>
   <div class="pagination">
-    <button id="prev-page">Previous</button>
+    <button id="prev-page">Föregående</button>
     <div id="page-numbers"></div>
-    <button id="next-page">Next</button>
+      <button id="next-page">Nästa</button>
+    </div>
   </div>
+
+    
+    <div class="map-placeholder"   id="map-placeholder"    data-latitude="59.346972"
+    data-longitude="15.027053"
+      data-zoom="4"
+    >
+      <!-- Map will be inserted here -->
+    </div>
+  </div>
+
+
 </section> </main>
 
     

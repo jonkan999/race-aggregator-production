@@ -24,8 +24,18 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
 
+    <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+    <script defer="" src="/js/raceListToggleButton.js"></script>
+    <script defer="" src="/js/raceListToggleMap.js"></script>
   </head>
   <body>
     <!-- Page content -->
@@ -33,70 +43,261 @@
 <span class="ad-banner-text">Ad banner</span>
 </section> <section class="section-header-menu">
   <div class="upper-header">
-    <a href="/index.html" class="logo-container">
+    <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
     /></a>
 
     <a class="home-link" href="/">
       <h2 class="page-name new-amsterdam">Loppkartan</h2></a
     >
-    <div class="login-container">
-      <ion-icon class="login-icon" name="person-circle-outline"></ion-icon>
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Logga in
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
     </div>
   </div>
   <nav class="main-nav-container right-scroller">
     
-    <a class="nav-container" href="/allt.html"
-      ><span class="nav-item">Allt</span></a
-    >
     
-    <a class="nav-container" href="/loppkalender.html"
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Allt</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/loppkalender"
       ><span class="nav-item">Loppkalender</span></a
     >
     
-    <a class="nav-container" href="/lagg-till-lopp.html"
+    
+    
+    
+    <a class="nav-container" href="/lagg-till-lopp"
       ><span class="nav-item">Lägg till lopp</span></a
     >
     
-    <a class="nav-container" href="/forum.html"
+    
+    
+    
+    <a class="nav-container" href="/forum"
       ><span class="nav-item">Forum</span></a
     >
     
-    <a class="nav-container" href="/nyheter.html"
+    
+    
+    
+    <a class="nav-container" href="/nyheter"
       ><span class="nav-item">Nyheter</span></a
     >
     
-    <a class="nav-container" href="/marknadsplats.html"
+    
+    
+    
+    <a class="nav-container" href="/marknadsplats"
       ><span class="nav-item">Marknadsplats</span></a
     >
     
-    <a class="nav-container" href="/produkter.html"
+    
+    
+    
+    <a class="nav-container" href="/produkter"
       ><span class="nav-item">Produkter</span></a
     >
     
-    <a class="nav-container" href="/mat-din-runda.html"
+    
+    
+    
+    <a class="nav-container" href="/mat-din-runda"
       ><span class="nav-item">Mät din runda</span></a
     >
     
-    <a class="nav-container" href="/traningsprogram.html"
+    
+    
+    
+    <a class="nav-container" href="/traningsprogram"
       ><span class="nav-item">Träningsprogram</span></a
     >
     
-    <a class="nav-container" href="/fartomvandlare.html"
+    
+    
+    
+    <a class="nav-container" href="/fartomvandlare"
       ><span class="nav-item">Fartomvandlare</span></a
     >
     
-    <a class="nav-container" href="/uppskatta-din-sluttid.html"
+    
+    
+    
+    <a class="nav-container" href="/uppskatta-din-sluttid"
       ><span class="nav-item">Uppskatta din sluttid</span></a
     >
     
+    
+    
   </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Logga in</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Lösenord"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Glömt lösenord?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Skapa konto istället
+            </a>
+          </div>
+          <button type="submit">Logga in</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Skapa konto
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Glömt lösenord?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Skapa konto</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Ditt namn"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Lösenord"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Skapa konto</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Tillbaka till inloggning
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Återställ lösenord</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Skicka återställningslänk</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Tillbaka till inloggning
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Du är redan inloggad som</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Fortsätt som denna användare
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Logga ut och byt användare
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto skapat!</h2>
+        <div class="logged-in-user-info">
+          <p>Du är nu inloggad som</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            En verifieringslänk har skickats till din e-post
+          </p>
+          <p class="verification-notice">Vänligen verifiera din e-postadress</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Fortsätt som denna användare
+        </button>
+      </div>
+    </div>
+  </div>
 </section>
 
-<h1 class="race-list-title">50 km Löplopp i Sverige - Löparkalender</h1>
-<p class="race-list-paragraph">Letar du efter ett 50 km lopp i Sverige? Här hittar du en komplett lista över alla 50 km lopp i Sverige, oavsett om du är intresserad av Landsväg, Terräng, Trail eller andra lopptyper. Välj bland alla län, inklusive Stockholm, Uppsala, Södermanland och mer, för att hitta det perfekta loppet för dig. Använd vår löparkalender för att hitta ditt nästa löplopp!</p>
-
-<section class="section-filters">
+      </div>
+    </div>
+  </div>
+</section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Från:</label>
     <input type="date" id="date-from" name="date-from" />
@@ -106,6 +307,9 @@
   </div>
 
   <div class="filter-months right-scroller">
+    <button class="month-button active" data-month="all">
+      Hela året
+    </button>
     
     <button class="month-button" data-month="01">
       Januari
@@ -158,6 +362,9 @@
   </div>
 
   <div class="filter-categories right-scroller">
+    <button class="category-button active" data-category="all">
+      Alla distanser
+    </button>
     
     <button class="category-button" data-category="5 km">
       5 km
@@ -165,10 +372,6 @@
     
     <button class="category-button" data-category="10 km">
       10 km
-    </button>
-    
-    <button class="category-button" data-category="Millopp">
-      Millopp
     </button>
     
     <button class="category-button" data-category="Halvmarathon">
@@ -195,6 +398,10 @@
       100 km
     </button>
     
+    <button class="category-button" data-category="Millopp">
+      Millopp
+    </button>
+    
     <button class="category-button" data-category="1500 meter">
       1500 meter
     </button>
@@ -213,7 +420,7 @@
     
   </div>
 
-  <div class="filter-dropdowns">
+  <div class="filter-dropdowns right-scroller">
     <div class="filter-county">
       <select id="county" name="county">
         <option value="">Alla län</option>
@@ -292,600 +499,66 @@
         href="/loppkalender/bladdra-efter-kategori"
         class="browse-link"
       >
-        <ion-icon name="git-network-outline"></ion-icon>
-        Bläddra efter kategori
+        <div class="browse-link-icon">
+          <ion-icon name="git-network-outline"></ion-icon>
+        </div>
+        <div class="browse-link-text">Bläddra efter kategori</div>
       </a>
+    </div>
+    <div class="toggle-button desktop" id="toggleMapButton">
+      <button>
+        <ion-icon
+          name="radio-button-on-outline"
+          id="onIcon"
+          role="img"
+          class="md hydrated"
+          aria-label="radio button on outline"
+        ></ion-icon>
+        <ion-icon
+          name="radio-button-off-outline"
+          id="offIcon"
+          role="img"
+          class="md hydrated"
+          aria-label="radio button off outline"
+        ></ion-icon>
+        Karta
+      </button>
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  <h2 class="section-header section-header-race-cards">
-    <span id="race-cards-title"></span>
+
+  <h1 class="section-header section-header-race-cards race-list-title">50 km Löplopp i Sverige - Löparkalender</h1>
+  <p class="race-list-paragraph">Letar du efter ett 50 km lopp i Sverige? Här hittar du en komplett lista över alla 50 km lopp i Sverige, oavsett om du är intresserad av Landsväg, Terräng, Trail eller andra lopptyper. Välj bland alla län, inklusive Stockholm, Uppsala, Södermanland och mer, för att hitta det perfekta loppet för dig. Använd vår löparkalender för att hitta ditt nästa löplopp!</p>
+
+  <h2 class="section-header">
+    Alla
+    <span id="race-cards-title-category"></span>
+    lopp
+    <span id="race-cards-title-separator">i</span>
+    <span id="race-cards-title-region">Sverige</span>
     <span id="date-range"></span>
   </h2>
 
-  <div
-    class="race-cards-grid"
-    id="race-cards-container"
-    {/*
-    prettier-ignore
-    */}
-    
-    data-preselected-filters='{"category": "50 km", "county": null, "race_type": null}'
-    
-  >
-     <a
-  href="/loppsidor/reflexcupen_varmland_4/index.html"
-  class="race-card"
-  data-name="Reflexcupen Värmland 4"
-  data-date="20241106"
-  data-county="Värmland"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="3km, 4,5km, 5,5km, 8km, 8,5km, 9km"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/loppsidor/reflexcupen_varmland_4/reflexcupen_varmland_4_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till Reflexcupen Värmland 4"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          6 nov.
-        </div>
-        <div class="race-location">
-          Värmland
-        </div>
-      </div>
+  <button class="toggle-button mobile" id="toggleMapButtonMobile">
+    <div class="icon-container">
+      <ion-icon name="map-outline" role="img" class="md hydrated" aria-label="map outline"></ion-icon>
     </div>
-    <div class="overlay soft"></div>
-  </div>
+    <p>Karta</p>
+  </button>
 
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Reflexcupen Värmland 4</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Kils OK, Frykstastugan Kil 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                3 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                4,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                8 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Terräng
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Reflexcupen är en löpartävling med fem deltävlingar som går på olika trailbanor i Värmland, uppmärkta med reflexer. Tävlingen äger rum i det...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button"></div>
-  </div>
-</a>  <a
-  href="/loppsidor/satila_trail/index.html"
-  class="race-card"
-  data-name="Sätila Trail"
-  data-date="20241109"
-  data-county="Västra Götaland"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="5km, 10km, 22km, marathon, 85km"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/loppsidor/satila_trail/satila_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till Sätila Trail"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          9 nov.
-        </div>
-        <div class="race-location">
-          Västra Götaland
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
 
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Sätila Trail</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Sätila 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                22 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Marathon
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
+  <div class="race-cards-selector">
+    <div
+      class="race-cards-grid"
+        id="race-cards-container"
+        {/*
+        prettier-ignore
+        */}
         
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Terräng
-        </div>
+        data-preselected-filters='{"category": "50 km", "county": null, "race_type": null}'
         
-      </div>
-    </div>
-    <div class="race-summary">
-      Sätila Trail är ett terränglopp med distanser från 5 km upp till 85 km. Det går runt den vackra sjön Lygnern med start och mål i Sätila.
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button"></div>
-  </div>
-</a>  <a
-  href="/loppsidor/kroppefjall_trailrun/index.html"
-  class="race-card"
-  data-name="Kroppefjäll Trailrun"
-  data-date="20241109"
-  data-county="Västra Götaland"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="10,5km, half marathon, marathon"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/loppsidor/kroppefjall_trailrun/kroppefjall_trailrun_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till Kroppefjäll Trailrun"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          9 nov.
-        </div>
-        <div class="race-location">
-          Västra Götaland
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Kroppefjäll Trailrun</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Kroppefjäll b&b område 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                10,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Halvmarathon
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Marathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Terräng
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Kroppefjäll Trailrun äger rum den 9 november 2024. Ta med en vän, partner eller syskon och upplev ett äventyr i Kroppefjälls vildmarksområde...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button"></div>
-  </div>
-</a>  <a
-  href="/loppsidor/novemberflaset/index.html"
-  class="race-card"
-  data-name="Novemberflåset"
-  data-date="20241109"
-  data-county="Västra Götaland"
-  data-category=""
-  data-race-type="Landsväg"
-  data-distance="10km"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/loppsidor/novemberflaset/novemberflaset_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till Novemberflåset"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          9 nov.
-        </div>
-        <div class="race-location">
-          Västra Götaland
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Novemberflåset</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Strömstad 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Landsväg
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Strömstad Löparklubb inbjuder till 26:e upplagan av novemberflåset, ett landsvägslopp som vänder sig till både elit och motionärer. Den 10 k...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button"></div>
-  </div>
-</a>  <a
-  href="/loppsidor/hostrusket/index.html"
-  class="race-card"
-  data-name="Höstrusket"
-  data-date="20241109"
-  data-county="Stockholm"
-  data-category=""
-  data-race-type="Landsväg"
-  data-distance="10km, marathon"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/loppsidor/hostrusket/hostrusket_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till Höstrusket"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          9 nov.
-        </div>
-        <div class="race-location">
-          Stockholm
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Höstrusket</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Norra Djurgården 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Marathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Landsväg
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Välkommen till Höstrusket på Norra Djurgården! Det perfekta tillfället att testa formen med vårt 10 km-lopp eller utmana dig själv i Höstrus...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button"></div>
-  </div>
-</a>  <a
-  href="/loppsidor/jamjohalvan_stafett/index.html"
-  class="race-card"
-  data-name="Jämjöhalvan Stafett"
-  data-date="20241109"
-  data-county="Blekinge"
-  data-category=""
-  data-race-type="Stafett"
-  data-distance="5km, 10km, half marathon"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/loppsidor/jamjohalvan_stafett/jamjohalvan_stafett_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till Jämjöhalvan Stafett"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          9 nov.
-        </div>
-        <div class="race-location">
-          Blekinge
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Jämjöhalvan Stafett</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Jändelskolan, Jämjö 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Halvmarathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Stafett
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Jämjöhalvan är ett breddlopp för alla med distanser från barnlopp till halvmara. Utmana dig själv och ditt pers på den lättlöpta och publikv...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button"></div>
-  </div>
-</a>  <a
+      >
+         <a
   href="/loppsidor/svenska_vintermaraton/index.html"
   class="race-card"
   data-name="Svenska Vintermaraton"
@@ -894,6 +567,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="10km, half marathon, marathon"
+  data-latitude="56.6743748"
+  data-longitude="12.8577884"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -978,7 +653,7 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/strangnas_halvmaraton/index.html"
@@ -989,6 +664,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="half marathon"
+  data-latitude="59.3758773"
+  data-longitude="17.0056247"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -1061,90 +738,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
-  </div>
-</a>  <a
-  href="/loppsidor/mustaschmilen_malmo/index.html"
-  class="race-card"
-  data-name="Mustaschmilen Malmö"
-  data-date="20241123"
-  data-county="Skåne"
-  data-category=""
-  data-race-type="Löparbana"
-  data-distance="10km"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/loppsidor/mustaschmilen_malmo/mustaschmilen_malmo_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till Mustaschmilen Malmö"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          23 nov.
-        </div>
-        <div class="race-location">
-          Skåne
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Mustaschmilen Malmö</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Jägersro travbana 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Löparbana
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Mustaschmilen Malmö arrangeras på Jägersro travbana. Nu är vi halvvägs in i november och många har redan genomfört sin distans, men det finn...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/vinterspelen/index.html"
@@ -1155,6 +749,8 @@
   data-category=""
   data-race-type="Övrigt"
   data-distance="3km"
+  data-latitude="59.2752626"
+  data-longitude="15.2134105"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -1227,7 +823,92 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
+  </div>
+</a>  <a
+  href="/loppsidor/mustaschmilen_malmo/index.html"
+  class="race-card"
+  data-name="Mustaschmilen Malmö"
+  data-date="20241123"
+  data-county="Skåne"
+  data-category=""
+  data-race-type="Löparbana"
+  data-distance="10km"
+  data-latitude="55.573333"
+  data-longitude="13.064167"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/loppsidor/mustaschmilen_malmo/mustaschmilen_malmo_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bild till Mustaschmilen Malmö"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          23 nov.
+        </div>
+        <div class="race-location">
+          Skåne
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Mustaschmilen Malmö</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Jägersro travbana 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Löparbana
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Mustaschmilen Malmö arrangeras på Jägersro travbana. Nu är vi halvvägs in i november och många har redan genomfört sin distans, men det finn...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/kristianstad_trail/index.html"
@@ -1238,6 +919,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="5km, 12km, 25km"
+  data-latitude="56.0293936"
+  data-longitude="14.1566778"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -1322,7 +1005,7 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/middagsloppet_lillsjon/index.html"
@@ -1333,6 +1016,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="5km"
+  data-latitude="59.3419537"
+  data-longitude="17.9535361"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -1405,7 +1090,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/rambo_moss_night_trail/index.html"
@@ -1416,6 +1101,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="11km"
+  data-latitude="57.6533075"
+  data-longitude="12.0557909"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -1488,7 +1175,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/black_friday_trail_run/index.html"
@@ -1499,6 +1186,8 @@
   data-category=""
   data-race-type="Terräng"
   data-distance="2,5km, 9km"
+  data-latitude="57.75589999999999"
+  data-longitude="11.9342904"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -1577,7 +1266,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/julklappsjakten/index.html"
@@ -1588,6 +1277,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km"
+  data-latitude="57.6770083"
+  data-longitude="11.9366337"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -1660,24 +1351,26 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
-  href="/loppsidor/fillinge_ultras_terranglopp/index.html"
+  href="/loppsidor/bergspring_sandared_27k_10k/index.html"
   class="race-card"
-  data-name="Fillinge Ultras Terränglopp"
+  data-name="Bergspring Sandared 27K & 10K"
   data-date="20241201"
-  data-county="Östergötland"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Terräng"
-  data-distance="10km"
+  data-distance="10km, 27km"
+  data-latitude="60.12816100000001"
+  data-longitude="18.643501"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/loppsidor/fillinge_ultras_terranglopp/fillinge_ultras_terranglopp_1.webp"
+        src="/loppsidor/bergspring_sandared_27k_10k/bergspring_sandared_27k_10k_1.webp"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till Fillinge Ultras Terränglopp"
+        alt="Bild till Bergspring Sandared 27K & 10K"
         loading="lazy"
         class="background-img"
       />
@@ -1688,7 +1381,7 @@
           1 dec.
         </div>
         <div class="race-location">
-          Östergötland
+          Stockholm
         </div>
       </div>
     </div>
@@ -1698,7 +1391,7 @@
   <div class="race-info-bottom">
     <div class="upper-container">
       <div class="left-container">
-        <h3 class="race-name">Fillinge Ultras Terränglopp</h3>
+        <h3 class="race-name">Bergspring Sandared 27K & 10K</h3>
         <div
           class="race-location "
         >
@@ -1706,7 +1399,7 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Fillinge 
+          Nordtorp 
         </div>
       </div>
       <div class="right-container">
@@ -1723,6 +1416,12 @@
                 10 km
               </span>
             </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                27 km
+              </span>
+            </div>
               
           </div>
         </div>
@@ -1737,13 +1436,13 @@
       </div>
     </div>
     <div class="race-summary">
-      Den första advent, 27/11 2022, är ni varmt välkomna till vårt härliga lilla terränglopp i den östgötska myllan. Ni kommer erbjudas underhåll...
+      Bergspring Sandared erbjuder både 27K och 10K lopp den 9 december 2023, med start kl. 09.30. Banan går i en slinga från Nordtorp ut på det g...
     </div>
   </div>
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/e22_loppet_5_10_15_km/index.html"
@@ -1754,6 +1453,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="5km, 10km, 15km"
+  data-latitude="56.1792958"
+  data-longitude="15.7688892"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -1838,24 +1539,26 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
-  href="/loppsidor/bergspring_sandared_27k_10k/index.html"
+  href="/loppsidor/fillinge_ultras_terranglopp/index.html"
   class="race-card"
-  data-name="Bergspring Sandared 27K & 10K"
+  data-name="Fillinge Ultras Terränglopp"
   data-date="20241201"
-  data-county="Stockholm"
+  data-county="Östergötland"
   data-category=""
   data-race-type="Terräng"
-  data-distance="10km, 27km"
+  data-distance="10km"
+  data-latitude="58.3421932"
+  data-longitude="15.8508167"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/loppsidor/bergspring_sandared_27k_10k/bergspring_sandared_27k_10k_1.webp"
+        src="/loppsidor/fillinge_ultras_terranglopp/fillinge_ultras_terranglopp_1.webp"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till Bergspring Sandared 27K & 10K"
+        alt="Bild till Fillinge Ultras Terränglopp"
         loading="lazy"
         class="background-img"
       />
@@ -1866,7 +1569,7 @@
           1 dec.
         </div>
         <div class="race-location">
-          Stockholm
+          Östergötland
         </div>
       </div>
     </div>
@@ -1876,7 +1579,7 @@
   <div class="race-info-bottom">
     <div class="upper-container">
       <div class="left-container">
-        <h3 class="race-name">Bergspring Sandared 27K & 10K</h3>
+        <h3 class="race-name">Fillinge Ultras Terränglopp</h3>
         <div
           class="race-location "
         >
@@ -1884,7 +1587,7 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Nordtorp 
+          Fillinge 
         </div>
       </div>
       <div class="right-container">
@@ -1901,12 +1604,6 @@
                 10 km
               </span>
             </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                27 km
-              </span>
-            </div>
               
           </div>
         </div>
@@ -1921,13 +1618,13 @@
       </div>
     </div>
     <div class="race-summary">
-      Bergspring Sandared erbjuder både 27K och 10K lopp den 9 december 2023, med start kl. 09.30. Banan går i en slinga från Nordtorp ut på det g...
+      Den första advent, 27/11 2022, är ni varmt välkomna till vårt härliga lilla terränglopp i den östgötska myllan. Ni kommer erbjudas underhåll...
     </div>
   </div>
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/becksvart_6_km/index.html"
@@ -1938,6 +1635,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="6km, 12km"
+  data-latitude="57.65797999999999"
+  data-longitude="12.058353"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2016,7 +1715,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/julruschen/index.html"
@@ -2027,6 +1726,8 @@
   data-category=""
   data-race-type="Övrigt"
   data-distance="1,5km"
+  data-latitude="57.6770083"
+  data-longitude="11.9366337"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2099,7 +1800,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/luciaspelen/index.html"
@@ -2110,6 +1811,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="4km"
+  data-latitude="59.2911076"
+  data-longitude="17.926497"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2182,7 +1885,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/prt_24h/index.html"
@@ -2193,6 +1896,8 @@
   data-category=""
   data-race-type="Tidslopp"
   data-distance="6km, 12km, 24km"
+  data-latitude="56.8807082"
+  data-longitude="14.7751961"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2277,7 +1982,177 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
+  </div>
+</a>  <a
+  href="/loppsidor/sylvesterloppet_olofstrom/index.html"
+  class="race-card"
+  data-name="Sylvesterloppet Olofström"
+  data-date="20241231"
+  data-county="Blekinge"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="10,5km"
+  data-latitude="56.277708"
+  data-longitude="14.530938"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/loppsidor/sylvesterloppet_olofstrom/sylvesterloppet_olofstrom_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bild till Sylvesterloppet Olofström"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          31 dec.
+        </div>
+        <div class="race-location">
+          Blekinge
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Sylvesterloppet Olofström</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Olofströms Idrottshall 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                10,5 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landsväg
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Sylvesterloppet Olofström är Sveriges äldsta Sylvesterlopp och äger rum den 31 december 2024. Loppet erbjuder en utmanande distans på 10,5 k...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & anmälan</div>
+  </div>
+</a>  <a
+  href="/loppsidor/sylvesterloppet_10_km/index.html"
+  class="race-card"
+  data-name="Sylvesterloppet 10 km"
+  data-date="20241231"
+  data-county="Västra Götaland"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="10km"
+  data-latitude="57.7044493"
+  data-longitude="11.985057"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/loppsidor/sylvesterloppet_10_km/sylvesterloppet_10_km_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bild till Sylvesterloppet 10 km"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          31 dec.
+        </div>
+        <div class="race-location">
+          Västra Götaland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Sylvesterloppet 10 km</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Heden 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landsväg
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Sylvesterloppet är ett festligt 10 km långt stadslopp i centrala Göteborg på självaste nyårsafton. Starten äger rum på anrika Heden och fort...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/nyarsloppet/index.html"
@@ -2288,6 +2163,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="5km, 10km"
+  data-latitude="58.5746335"
+  data-longitude="16.1577369"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2366,173 +2243,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
-  </div>
-</a>  <a
-  href="/loppsidor/sylvesterloppet_olofstrom/index.html"
-  class="race-card"
-  data-name="Sylvesterloppet Olofström"
-  data-date="20241231"
-  data-county="Blekinge"
-  data-category=""
-  data-race-type="Landsväg"
-  data-distance="10,5km"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/loppsidor/sylvesterloppet_olofstrom/sylvesterloppet_olofstrom_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till Sylvesterloppet Olofström"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          31 dec.
-        </div>
-        <div class="race-location">
-          Blekinge
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Sylvesterloppet Olofström</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Olofströms Idrottshall 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                10,5 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Landsväg
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Sylvesterloppet Olofström är Sveriges äldsta Sylvesterlopp och äger rum den 31 december 2024. Loppet erbjuder en utmanande distans på 10,5 k...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button"></div>
-  </div>
-</a>  <a
-  href="/loppsidor/sylvesterloppet_10_km/index.html"
-  class="race-card"
-  data-name="Sylvesterloppet 10 km"
-  data-date="20241231"
-  data-county="Västra Götaland"
-  data-category=""
-  data-race-type="Landsväg"
-  data-distance="10km"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/loppsidor/sylvesterloppet_10_km/sylvesterloppet_10_km_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till Sylvesterloppet 10 km"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          31 dec.
-        </div>
-        <div class="race-location">
-          Västra Götaland
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Sylvesterloppet 10 km</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Heden 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Landsväg
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Sylvesterloppet är ett festligt 10 km långt stadslopp i centrala Göteborg på självaste nyårsafton. Starten äger rum på anrika Heden och fort...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/tjalvespelen_indoor/index.html"
@@ -2543,6 +2254,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="3km"
+  data-latitude="58.58549670000001"
+  data-longitude="16.1397866"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2615,7 +2328,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/scandic_indoor_games/index.html"
@@ -2626,6 +2339,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km, 3km"
+  data-latitude="59.23633"
+  data-longitude="17.9821561"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2704,7 +2419,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/floraspelen/index.html"
@@ -2715,6 +2430,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km, 3km"
+  data-latitude="64.750244"
+  data-longitude="20.950917"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2793,96 +2510,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
-  </div>
-</a>  <a
-  href="/loppsidor/ka_2_spelen/index.html"
-  class="race-card"
-  data-name="KA 2-Spelen"
-  data-date="20250111"
-  data-county="Blekinge"
-  data-category=""
-  data-race-type="Löparbana"
-  data-distance="1,5km, 3km"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/loppsidor/ka_2_spelen/ka_2_spelen_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till KA 2-Spelen"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          11 jan.
-        </div>
-        <div class="race-location">
-          Blekinge
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">KA 2-Spelen</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Karlskrona 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                3 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Löparbana
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      KA 2-Spelen är en årlig tävling som samlar ungdomar och veteraner för att tävla i olika friidrottsgrenar. Tävlingen hålls i en vänlig och up...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/orebro_indoor_games/index.html"
@@ -2893,6 +2521,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1km, 1,5km, 2km, 3km, 5km"
+  data-latitude="59.25644020000001"
+  data-longitude="15.259925"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -2987,7 +2617,98 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
+  </div>
+</a>  <a
+  href="/loppsidor/ka_2_spelen/index.html"
+  class="race-card"
+  data-name="KA 2-Spelen"
+  data-date="20250111"
+  data-county="Blekinge"
+  data-category=""
+  data-race-type="Löparbana"
+  data-distance="1,5km, 3km"
+  data-latitude="56.161224"
+  data-longitude="15.5869"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/loppsidor/ka_2_spelen/ka_2_spelen_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bild till KA 2-Spelen"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          11 jan.
+        </div>
+        <div class="race-location">
+          Blekinge
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">KA 2-Spelen</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Karlskrona 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                1,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                3 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Löparbana
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      KA 2-Spelen är en årlig tävling som samlar ungdomar och veteraner för att tävla i olika friidrottsgrenar. Tävlingen hålls i en vänlig och up...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/taby_vinterspel/index.html"
@@ -2998,6 +2719,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km, 3km"
+  data-latitude="59.2896221"
+  data-longitude="17.9276601"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -3076,7 +2799,92 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
+  </div>
+</a>  <a
+  href="/loppsidor/quality_hotel_games/index.html"
+  class="race-card"
+  data-name="Quality Hotel Games"
+  data-date="20250117"
+  data-county="Kronoberg"
+  data-category=""
+  data-race-type="Löparbana"
+  data-distance="1,5km"
+  data-latitude="56.88245819999999"
+  data-longitude="14.773211"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/loppsidor/quality_hotel_games/quality_hotel_games_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bild till Quality Hotel Games"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          17 jan.
+        </div>
+        <div class="race-location">
+          Kronoberg
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Quality Hotel Games</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Telekonsult Arena, Hejaregatan 9 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                1,5 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Löparbana
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Quality Hotel Games 2024 äger rum den 19-21 januari i Telekonsult Arena i Växjö. Tävlingen smygstartar fredagen den 19 januari med en 200 me...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/sandsjobacka_trail/index.html"
@@ -3087,6 +2895,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="31km, 60km, 96km, 185km"
+  data-latitude="57.608487"
+  data-longitude="12.0660077"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -3177,90 +2987,7 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
-  </div>
-</a>  <a
-  href="/loppsidor/quality_hotel_games/index.html"
-  class="race-card"
-  data-name="Quality Hotel Games"
-  data-date="20250117"
-  data-county="Kronoberg"
-  data-category=""
-  data-race-type="Löparbana"
-  data-distance="1,5km"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/loppsidor/quality_hotel_games/quality_hotel_games_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till Quality Hotel Games"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          17 jan.
-        </div>
-        <div class="race-location">
-          Kronoberg
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Quality Hotel Games</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Telekonsult Arena, Hejaregatan 9 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,5 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Löparbana
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Quality Hotel Games 2024 äger rum den 19-21 januari i Telekonsult Arena i Växjö. Tävlingen smygstartar fredagen den 19 januari med en 200 me...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/westinghouse_gurkspel/index.html"
@@ -3271,6 +2998,8 @@
   data-category=""
   data-race-type="Övrigt"
   data-distance="1,5km"
+  data-latitude="59.6104828"
+  data-longitude="16.5619558"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -3343,7 +3072,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/mondo_indoor_games/index.html"
@@ -3354,6 +3083,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km"
+  data-latitude="59.8813894"
+  data-longitude="17.656109"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -3426,173 +3157,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
-  </div>
-</a>  <a
-  href="/loppsidor/vinthundsvintern/index.html"
-  class="race-card"
-  data-name="Vinthundsvintern"
-  data-date="20250125"
-  data-county="Stockholm"
-  data-category=""
-  data-race-type="Löparbana"
-  data-distance="3km"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/loppsidor/vinthundsvintern/vinthundsvintern_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till Vinthundsvintern"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          25 jan.
-        </div>
-        <div class="race-location">
-          Stockholm
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Vinthundsvintern</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Sollentuna Friidrottshall 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                3 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Löparbana
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Välkommen till Vinthundsvintern som äger rum lördag den 28 januari i Sollentuna Friidrottshall. Tävlingen omfattar en distans på 3000 m och ...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button"></div>
-  </div>
-</a>  <a
-  href="/loppsidor/gotas_ungdomsspel_inomhus/index.html"
-  class="race-card"
-  data-name="Götas Ungdomsspel Inomhus"
-  data-date="20250125"
-  data-county="Värmland"
-  data-category=""
-  data-race-type="Löparbana"
-  data-distance="1,5km"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/loppsidor/gotas_ungdomsspel_inomhus/gotas_ungdomsspel_inomhus_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till Götas Ungdomsspel Inomhus"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          25 jan.
-        </div>
-        <div class="race-location">
-          Värmland
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Götas Ungdomsspel Inomhus</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Eva Lisa Holtz arena 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,5 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Löparbana
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Götas Ungdomsspel är en tvådagars tävling som lockar deltagare i alla åldrar och från hela landet. Inomhusversionen avgörs vanligtvis i slut...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/hissmoforsspelen/index.html"
@@ -3603,6 +3168,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="3km"
+  data-latitude="63.24928629999999"
+  data-longitude="14.570264"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -3675,7 +3242,177 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
+  </div>
+</a>  <a
+  href="/loppsidor/vinthundsvintern/index.html"
+  class="race-card"
+  data-name="Vinthundsvintern"
+  data-date="20250125"
+  data-county="Stockholm"
+  data-category=""
+  data-race-type="Löparbana"
+  data-distance="3km"
+  data-latitude="59.43735599999999"
+  data-longitude="17.9545313"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/loppsidor/vinthundsvintern/vinthundsvintern_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bild till Vinthundsvintern"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          25 jan.
+        </div>
+        <div class="race-location">
+          Stockholm
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Vinthundsvintern</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Sollentuna Friidrottshall 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                3 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Löparbana
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Välkommen till Vinthundsvintern som äger rum lördag den 28 januari i Sollentuna Friidrottshall. Tävlingen omfattar en distans på 3000 m och ...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & anmälan</div>
+  </div>
+</a>  <a
+  href="/loppsidor/gotas_ungdomsspel_inomhus/index.html"
+  class="race-card"
+  data-name="Götas Ungdomsspel Inomhus"
+  data-date="20250125"
+  data-county="Värmland"
+  data-category=""
+  data-race-type="Löparbana"
+  data-distance="1,5km"
+  data-latitude="59.399103"
+  data-longitude="13.4913499"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/loppsidor/gotas_ungdomsspel_inomhus/gotas_ungdomsspel_inomhus_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bild till Götas Ungdomsspel Inomhus"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          25 jan.
+        </div>
+        <div class="race-location">
+          Värmland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Götas Ungdomsspel Inomhus</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Eva Lisa Holtz arena 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                1,5 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Löparbana
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Götas Ungdomsspel är en tvådagars tävling som lockar deltagare i alla åldrar och från hela landet. Inomhusversionen avgörs vanligtvis i slut...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/goteborgs_inomhus/index.html"
@@ -3686,6 +3423,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="3km"
+  data-latitude="57.6770083"
+  data-longitude="11.9366337"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -3758,24 +3497,26 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
-  href="/loppsidor/bocksten_winter_run/index.html"
+  href="/loppsidor/raka_sparet/index.html"
   class="race-card"
-  data-name="Bocksten Winter Run"
+  data-name="Raka Spåret"
   data-date="20250201"
-  data-county="Halland"
+  data-county="Stockholm"
   data-category=""
-  data-race-type="Trail"
-  data-distance="5km, 12km, 24km"
+  data-race-type="Löparbana"
+  data-distance="1,5km, 3km"
+  data-latitude="59.2896221"
+  data-longitude="17.9276601"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/loppsidor/bocksten_winter_run/bocksten_winter_run_1.webp"
+        src="/loppsidor/raka_sparet/raka_sparet_1.webp"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till Bocksten Winter Run"
+        alt="Bild till Raka Spåret"
         loading="lazy"
         class="background-img"
       />
@@ -3786,7 +3527,7 @@
           1 feb.
         </div>
         <div class="race-location">
-          Halland
+          Stockholm
         </div>
       </div>
     </div>
@@ -3796,20 +3537,20 @@
   <div class="race-info-bottom">
     <div class="upper-container">
       <div class="left-container">
-        <h3 class="race-name">Bocksten Winter Run</h3>
+        <h3 class="race-name">Raka Spåret</h3>
         <div
-          class="race-location with-spacing"
+          class="race-location "
         >
           
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Öströö Fårfarm 
+          Sätra Friidrottshall 
         </div>
       </div>
       <div class="right-container">
         <div
-          class="race-distances with-spacing"
+          class="race-distances "
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -3818,19 +3559,13 @@
               
             <div class="distance-item">
               <span class="race-distance">
-                5 km
+                1,5 km
               </span>
             </div>
             
             <div class="distance-item">
               <span class="race-distance">
-                12 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                24 km
+                3 km
               </span>
             </div>
               
@@ -3841,19 +3576,19 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
           </svg>
-          Trail
+          Löparbana
         </div>
         
       </div>
     </div>
     <div class="race-summary">
-      Välkommen till Bocksten TrailRun Winter! Den 1 februari 2025 kan du välja att springa 5, 12 eller 24 km i de vackra Åkulla bokskogarna. Enda...
+      Den 3 februari 2024 arrangeras den 31:a upplagan av Raka Spåret, som denna gång även fungerar som en förtävling till Folksam GP Stockholm In...
     </div>
   </div>
   <div
-    class="cta-button with-spacing"
+    class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/btr_winter_5_24_km/index.html"
@@ -3864,6 +3599,8 @@
   data-category=""
   data-race-type="Terräng"
   data-distance="5km, 12km, 24km"
+  data-latitude="60.12816100000001"
+  data-longitude="18.643501"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -3948,7 +3685,104 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
+  </div>
+</a>  <a
+  href="/loppsidor/bocksten_winter_run/index.html"
+  class="race-card"
+  data-name="Bocksten Winter Run"
+  data-date="20250201"
+  data-county="Halland"
+  data-category=""
+  data-race-type="Trail"
+  data-distance="5km, 12km, 24km"
+  data-latitude="57.0687055"
+  data-longitude="12.5065709"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/loppsidor/bocksten_winter_run/bocksten_winter_run_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bild till Bocksten Winter Run"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          1 feb.
+        </div>
+        <div class="race-location">
+          Halland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Bocksten Winter Run</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Öströö Fårfarm 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                12 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                24 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Välkommen till Bocksten TrailRun Winter! Den 1 februari 2025 kan du välja att springa 5, 12 eller 24 km i de vackra Åkulla bokskogarna. Enda...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/bocksten_winter_trailrun/index.html"
@@ -3959,6 +3793,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="5km, 12km, 24km"
+  data-latitude="57.0687055"
+  data-longitude="12.5065709"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4043,96 +3879,7 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
-  </div>
-</a>  <a
-  href="/loppsidor/raka_sparet/index.html"
-  class="race-card"
-  data-name="Raka Spåret"
-  data-date="20250201"
-  data-county="Stockholm"
-  data-category=""
-  data-race-type="Löparbana"
-  data-distance="1,5km, 3km"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/loppsidor/raka_sparet/raka_sparet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till Raka Spåret"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          1 feb.
-        </div>
-        <div class="race-location">
-          Stockholm
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Raka Spåret</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Sätra Friidrottshall 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                3 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Löparbana
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Den 3 februari 2024 arrangeras den 31:a upplagan av Raka Spåret, som denna gång även fungerar som en förtävling till Folksam GP Stockholm In...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/februarimaran/index.html"
@@ -4143,6 +3890,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="22km"
+  data-latitude="57.72103500000001"
+  data-longitude="12.939819"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4215,7 +3964,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/hammarbyspelen/index.html"
@@ -4226,6 +3975,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="20km"
+  data-latitude="59.2911076"
+  data-longitude="17.926497"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4298,7 +4049,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/sormlands_winter_trail/index.html"
@@ -4309,6 +4060,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="22km, marathon"
+  data-latitude="58.6304568"
+  data-longitude="16.7977532"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4387,7 +4140,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/sportia_indoor_games/index.html"
@@ -4398,6 +4151,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="9km, 11km"
+  data-latitude="58.5380335"
+  data-longitude="15.0470936"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4476,7 +4231,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/snapphanerace/index.html"
@@ -4487,6 +4242,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="13km, 25km, 50km"
+  data-latitude="56.1333333"
+  data-longitude="14.5666667"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4571,7 +4328,7 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/siljan_indoor_games/index.html"
@@ -4582,6 +4339,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km"
+  data-latitude="60.60646000000001"
+  data-longitude="15.6355"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4654,7 +4413,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/nordiska_ungdomsspelen/index.html"
@@ -4665,6 +4424,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km"
+  data-latitude="60.12816100000001"
+  data-longitude="18.643501"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4737,7 +4498,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/campuscampen/index.html"
@@ -4748,6 +4509,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km"
+  data-latitude="58.41080700000001"
+  data-longitude="15.6213727"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4820,7 +4583,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/stavie_trail/index.html"
@@ -4831,6 +4594,8 @@
   data-category=""
   data-race-type="Terräng"
   data-distance="2,6km, 6,5km, 13km, half marathon"
+  data-latitude="55.7745991"
+  data-longitude="13.0752671"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -4921,7 +4686,7 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/ogif_inne/index.html"
@@ -4932,6 +4697,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km, relay"
+  data-latitude="63.24928629999999"
+  data-longitude="14.570264"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -5010,90 +4777,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
-  </div>
-</a>  <a
-  href="/loppsidor/falu_ik_spelen/index.html"
-  class="race-card"
-  data-name="Falu IK Spelen"
-  data-date="20250322"
-  data-county="Dalarna"
-  data-category=""
-  data-race-type="Löparbana"
-  data-distance="3km"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/loppsidor/falu_ik_spelen/falu_ik_spelen_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till Falu IK Spelen"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          22 mars
-        </div>
-        <div class="race-location">
-          Dalarna
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Falu IK Spelen</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Falun 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                3 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Löparbana
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Välkomna till Falu IK spelen den 22 mars 2025! Tävlingen, som startade redan i mitten av 70-talet, genomförs nu för 51:a gången. Under 70- o...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/equinox_adventure_ultra/index.html"
@@ -5104,6 +4788,8 @@
   data-category=""
   data-race-type="Terräng"
   data-distance="50km, 100km"
+  data-latitude="58.75284389999999"
+  data-longitude="17.0091593"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -5182,7 +4868,92 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
+  </div>
+</a>  <a
+  href="/loppsidor/falu_ik_spelen/index.html"
+  class="race-card"
+  data-name="Falu IK Spelen"
+  data-date="20250322"
+  data-county="Dalarna"
+  data-category=""
+  data-race-type="Löparbana"
+  data-distance="3km"
+  data-latitude="60.60646000000001"
+  data-longitude="15.6355"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/loppsidor/falu_ik_spelen/falu_ik_spelen_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bild till Falu IK Spelen"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          22 mars
+        </div>
+        <div class="race-location">
+          Dalarna
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Falu IK Spelen</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Falun 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                3 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Löparbana
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Välkomna till Falu IK spelen den 22 mars 2025! Tävlingen, som startade redan i mitten av 70-talet, genomförs nu för 51:a gången. Under 70- o...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/gotrun_trail_fest/index.html"
@@ -5193,6 +4964,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="36km, 50 miles, 100 miles"
+  data-latitude="57.3299188"
+  data-longitude="18.7083941"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -5277,7 +5050,7 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/premiarmilen/index.html"
@@ -5288,6 +5061,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="10km"
+  data-latitude="60.12816100000001"
+  data-longitude="18.643501"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -5360,7 +5135,92 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
+  </div>
+</a>  <a
+  href="/loppsidor/hoka_torekov_bastad/index.html"
+  class="race-card"
+  data-name="Hoka Torekov-Båstad"
+  data-date="20250329"
+  data-county="Skåne"
+  data-category=""
+  data-race-type="Trail"
+  data-distance="half marathon"
+  data-latitude="56.423635"
+  data-longitude="12.6273003"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/loppsidor/hoka_torekov_bastad/hoka_torekov_bastad_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bild till Hoka Torekov-Båstad"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          29 mars
+        </div>
+        <div class="race-location">
+          Skåne
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Hoka Torekov-Båstad</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Torekov 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                Halvmarathon
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Hoka Torekov-Båstad är ett traillopp längs havet, med den salta vinden och de vida vyerna. Loppet sträcker sig över 21,4 kilometer mellan de...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/marsspelen/index.html"
@@ -5371,6 +5231,8 @@
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km, 3km"
+  data-latitude="58.88942679999999"
+  data-longitude="14.9109867"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -5449,24 +5311,26 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
-  href="/loppsidor/hoka_torekov_bastad/index.html"
+  href="/loppsidor/premiarloppet/index.html"
   class="race-card"
-  data-name="Hoka Torekov-Båstad"
-  data-date="20250329"
-  data-county="Skåne"
+  data-name="Premiärloppet"
+  data-date="20250405"
+  data-county="Västra Götaland"
   data-category=""
   data-race-type="Trail"
-  data-distance="half marathon"
+  data-distance="5km, 10km"
+  data-latitude="57.681210685384066"
+  data-longitude="12.03532934188843"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/loppsidor/hoka_torekov_bastad/hoka_torekov_bastad_1.webp"
+        src="/loppsidor/premiarloppet/premiarloppet_1.webp"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till Hoka Torekov-Båstad"
+        alt="Bild till Premiärloppet"
         loading="lazy"
         class="background-img"
       />
@@ -5474,10 +5338,10 @@
     <div class="race-card-content">
       <div class="race-info-top">
         <div class="race-date">
-          29 mars
+          5 apr.
         </div>
         <div class="race-location">
-          Skåne
+          Västra Götaland
         </div>
       </div>
     </div>
@@ -5487,7 +5351,7 @@
   <div class="race-info-bottom">
     <div class="upper-container">
       <div class="left-container">
-        <h3 class="race-name">Hoka Torekov-Båstad</h3>
+        <h3 class="race-name">Premiärloppet</h3>
         <div
           class="race-location "
         >
@@ -5495,7 +5359,7 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Torekov 
+          Skatås motionscentrum 
         </div>
       </div>
       <div class="right-container">
@@ -5509,7 +5373,13 @@
               
             <div class="distance-item">
               <span class="race-distance">
-                Halvmarathon
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
               </span>
             </div>
               
@@ -5526,13 +5396,13 @@
       </div>
     </div>
     <div class="race-summary">
-      Hoka Torekov-Båstad är ett traillopp längs havet, med den salta vinden och de vida vyerna. Loppet sträcker sig över 21,4 kilometer mellan de...
+      Detta lopp i Skatås erbjuder klasser för män, kvinnor och ungdomar (15 och 19 år) med distanser på 10 km och 5 km. Anmälningsavgiften varier...
     </div>
   </div>
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/osterlen_spring_trail/index.html"
@@ -5543,6 +5413,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="2km, 5km, 14km, half marathon, 22km, 30km, 60km, trail"
+  data-latitude="55.7067466"
+  data-longitude="13.9596983"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -5637,7 +5509,7 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/nordens_ark_trailrun/index.html"
@@ -5648,6 +5520,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="1km, 2km, 2,4km, 3km, 8km, 15km, 30km"
+  data-latitude="60.12816100000001"
+  data-longitude="18.643501"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -5742,7 +5616,7 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/billingen_xtrail_challenge/index.html"
@@ -5753,6 +5627,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="5km, 12km, 35km"
+  data-latitude="55.9623144"
+  data-longitude="13.3334583"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -5837,7 +5713,104 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
+  </div>
+</a>  <a
+  href="/loppsidor/kolmardstrailen/index.html"
+  class="race-card"
+  data-name="KolmårdsTrailen"
+  data-date="20250510"
+  data-county="Östergötland"
+  data-category=""
+  data-race-type="Trail"
+  data-distance="6km, 10km, half marathon"
+  data-latitude="58.66012016958148"
+  data-longitude="16.391103745554574"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/loppsidor/kolmardstrailen/kolmardstrailen_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bild till KolmårdsTrailen"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          10 maj
+        </div>
+        <div class="race-location">
+          Östergötland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">KolmårdsTrailen</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Kolmården 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                6 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Halvmarathon
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Trail-löpning i härlig Kolmårdsterräng. Här bjuds du på en utmanande och kuperad bana i naturskön terräng där vi lagt stor vikt på upplevels...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/goteborsvarvet/index.html"
@@ -5848,6 +5821,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="1,4km, 2,4km, 4,3km, 8km, 11,5km, half marathon"
+  data-latitude="57.6973714"
+  data-longitude="11.979319"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -5942,7 +5917,7 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/stockholm_marathon/index.html"
@@ -5953,6 +5928,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="marathon"
+  data-latitude="59.34533640000001"
+  data-longitude="18.0790178"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -6025,7 +6002,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/soder_runt/index.html"
@@ -6036,6 +6013,8 @@
   data-category=""
   data-race-type="Landsväg"
   data-distance="10km"
+  data-latitude="59.31023419999999"
+  data-longitude="18.0456304"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -6108,7 +6087,7 @@
   <div
     class="cta-button "
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/jattelangt_stafett/index.html"
@@ -6119,6 +6098,8 @@
   data-category=""
   data-race-type="Stafett"
   data-distance="9km, 10km, 15km, half marathon"
+  data-latitude="60.09608100000001"
+  data-longitude="18.8057521"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -6209,7 +6190,7 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/jattelangt_70k_ultra/index.html"
@@ -6220,6 +6201,8 @@
   data-category=""
   data-race-type="Terräng"
   data-distance="9km, 10km, 15km, half marathon, 70km, relay"
+  data-latitude="60.09608100000001"
+  data-longitude="18.8057521"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -6314,7 +6297,98 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
+  </div>
+</a>  <a
+  href="/loppsidor/fjallmaraton_gastronomi/index.html"
+  class="race-card"
+  data-name="Fjällmaraton Gastronomi"
+  data-date="20250628"
+  data-county="Jämtland"
+  data-category=""
+  data-race-type="Trail"
+  data-distance="27km, marathon"
+  data-latitude="63.31526299999999"
+  data-longitude="13.0852665"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/loppsidor/fjallmaraton_gastronomi/fjallmaraton_gastronomi_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bild till Fjällmaraton Gastronomi"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          28 juni
+        </div>
+        <div class="race-location">
+          Jämtland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Fjällmaraton Gastronomi</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Edsåsdalen 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                27 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Marathon
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Njut av lokalt mathantverk serverat på stationerna längs de klassiska Fjällmaratonlederna. Fjällmaraton Gastronomi riktar sig till dig som v...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/bocksten_trailrun/index.html"
@@ -6325,6 +6399,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="5km, 12km, 23km, 24km, 46km"
+  data-latitude="57.0851784"
+  data-longitude="12.5507023"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -6419,96 +6495,7 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
-  </div>
-</a>  <a
-  href="/loppsidor/fjallmaraton_gastronomi/index.html"
-  class="race-card"
-  data-name="Fjällmaraton Gastronomi"
-  data-date="20250628"
-  data-county="Jämtland"
-  data-category=""
-  data-race-type="Trail"
-  data-distance="27km, marathon"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/loppsidor/fjallmaraton_gastronomi/fjallmaraton_gastronomi_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bild till Fjällmaraton Gastronomi"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          28 juni
-        </div>
-        <div class="race-location">
-          Jämtland
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Fjällmaraton Gastronomi</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Edsåsdalen 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                27 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Marathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Trail
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Njut av lokalt mathantverk serverat på stationerna längs de klassiska Fjällmaratonlederna. Fjällmaraton Gastronomi riktar sig till dig som v...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/fjallmaraton_arefjallen/index.html"
@@ -6519,6 +6506,8 @@
   data-category=""
   data-race-type="Terräng"
   data-distance="5km, 8km, 12km, 27km, marathon, 45km, 100km"
+  data-latitude="63.14835660000001"
+  data-longitude="12.9663721"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -6613,7 +6602,7 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/idre_fjallmaraton/index.html"
@@ -6624,6 +6613,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="8km, 18km, 28km, 45km, 84km"
+  data-latitude="61.8579343"
+  data-longitude="12.7258737"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -6718,7 +6709,7 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/fjallmaraton_salen/index.html"
@@ -6729,6 +6720,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="10km, half marathon, marathon"
+  data-latitude="61.16037809999999"
+  data-longitude="13.1957967"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -6813,7 +6806,7 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
   href="/loppsidor/bocksten_vineyard_ultra/index.html"
@@ -6824,6 +6817,8 @@
   data-category=""
   data-race-type="Trail"
   data-distance="5km, 12km, 22km, 44km, ultra"
+  data-latitude="57.0687055"
+  data-longitude="12.5065709"
 >
   <div class="race-card-upper-box background-container">
     <picture>
@@ -6918,20 +6913,31 @@
   <div
     class="cta-button with-spacing"
   >
-    <div class="more-info-button"></div>
+    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a> 
-  </div>
-
-  <!-- Add pagination controls -->
+        <!-- Add pagination controls -->
   <div class="pagination-info">
-    <span id="event-range"></span> of <span id="total-events"></span> Events
+    <span id="event-range">av</span> 
+    <span id="total-events">Lopp</span> 
   </div>
   <div class="pagination">
-    <button id="prev-page">Previous</button>
+    <button id="prev-page">Föregående</button>
     <div id="page-numbers"></div>
-    <button id="next-page">Next</button>
+      <button id="next-page">Nästa</button>
+    </div>
   </div>
+
+    
+    <div class="map-placeholder"   id="map-placeholder"    data-latitude="59.346972"
+    data-longitude="15.027053"
+      data-zoom="4"
+    >
+      <!-- Map will be inserted here -->
+    </div>
+  </div>
+
+
 </section> </main>
 
     
