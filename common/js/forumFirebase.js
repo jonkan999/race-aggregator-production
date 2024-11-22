@@ -126,15 +126,18 @@ export function initializeForum() {
         showMoreText.classList.toggle('hidden');
         showLessText.classList.toggle('hidden');
 
-        // Update the count indicator text
+        // Get the translation template from the data attribute
+        const showingText = countIndicator.getAttribute('data-showing-text');
+
+        // Update the count indicator text using the template
         if (expandedThreads.classList.contains('hidden')) {
-          countIndicator.textContent = forum.showing_threads_count
+          countIndicator.textContent = showingText
             .replace('{x}', '3')
-            .replace('{y}', totalThreads);
+            .replace('{y}', totalThreads.toString());
         } else {
-          countIndicator.textContent = forum.showing_threads_count
-            .replace('{x}', totalThreads)
-            .replace('{y}', totalThreads);
+          countIndicator.textContent = showingText
+            .replace('{x}', totalThreads.toString())
+            .replace('{y}', totalThreads.toString());
         }
       });
     }
