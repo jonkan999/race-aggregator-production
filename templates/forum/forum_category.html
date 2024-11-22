@@ -17,20 +17,20 @@
       {% for thread in threads[:3] %}
       <div class="thread-card">
         <div class="thread-main">
+          <div class="thread-meta">
+            <span class="thread-author">{{ thread.authorName }}</span>
+            <span class="thread-date">{{ thread.createdAt }}</span>
+          </div>
           <a
             href="/{{ navigation.forum | slugify(country_code) }}/{{ category.slug }}/{{ thread.slug }}/index.html"
             class="thread-title"
           >
             <h2>{{ thread.title }}</h2>
           </a>
-          <div class="thread-meta">
-            <span class="thread-author">{{ thread.authorName }}</span>
-            <span class="thread-date">{{ thread.createdAt }}</span>
-          </div>
-        </div>
-        <div class="thread-stats">
-          <div class="post-count">
-            {{ (thread.replyCount|int + 1)|string }} {{ forum.posts_label }}
+          <div class="thread-stats">
+            <div class="post-count">
+              {{ (thread.replyCount|int + 1)|string }} {{ forum.posts_label }}
+            </div>
           </div>
         </div>
       </div>
@@ -38,42 +38,42 @@
     </div>
 
     {% if threads|length > 3 %}
-    <div
-      class="thread-count-indicator"
-      data-showing-text="{{ forum.showing_threads_count }}"
-    >
-      {{ forum.showing_threads_count.replace('{x}', '3').replace('{y}',
-      threads|length) }}
-    </div>
-
     <div class="threads-expanded hidden">
       {% for thread in threads[3:] %}
       <div class="thread-card">
         <div class="thread-main">
+          <div class="thread-meta">
+            <span class="thread-author">{{ thread.authorName }}</span>
+            <span class="thread-date">{{ thread.createdAt }}</span>
+          </div>
           <a
             href="/{{ navigation.forum | slugify(country_code) }}/{{ category.slug }}/{{ thread.slug }}/index.html"
             class="thread-title"
           >
             <h2>{{ thread.title }}</h2>
           </a>
-          <div class="thread-meta">
-            <span class="thread-author">{{ thread.authorName }}</span>
-            <span class="thread-date">{{ thread.createdAt }}</span>
-          </div>
-        </div>
-        <div class="thread-stats">
-          <div class="post-count">
-            {{ (thread.replyCount|int + 1)|string }} {{ forum.posts_label }}
+          <div class="thread-stats">
+            <div class="post-count">
+              {{ (thread.replyCount|int + 1)|string }} {{ forum.posts_label }}
+            </div>
           </div>
         </div>
       </div>
       {% endfor %}
     </div>
-
-    <button class="expand-threads-btn">
-      <span class="show-more">{{ forum.show_more_threads }}</span>
-      <span class="show-less hidden">{{ forum.show_less_threads }}</span>
-    </button>
+    <div class="thread-controls">
+      <div
+        class="thread-count-indicator"
+        data-showing-text="{{ forum.showing_threads_count }}"
+      >
+        {{ forum.showing_threads_count.replace('{x}', '3').replace('{y}',
+        threads|length|string) }}
+      </div>
+      <button class="expand-threads-btn">
+        <span class="show-more">{{ forum.show_more_threads }}</span>
+        <span class="show-less hidden">{{ forum.show_less_threads }}</span>
+      </button>
+    </div>
     {% endif %}
   </div>
   {% else %}

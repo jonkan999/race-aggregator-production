@@ -28,12 +28,11 @@
 }
 .category-description {
   font-size: 1.6rem;
-  color: var(--color-text-light);
+  color: black;
 }
 
 // THREAD LIST STYLES
 .thread-list {
-  background: var(--color-background-light);
   border-radius: var(--border-radius);
   padding: 2rem;
 }
@@ -54,13 +53,12 @@
   flex: 1;
 
   .date {
-    color: var(--color-text-light);
+    color: black;
     font-size: 1.4rem;
     margin-right: 1rem;
   }
 
   .title {
-    color: var(--color-text);
     text-decoration: none;
     font-size: 1.6rem;
 
@@ -117,34 +115,32 @@
   padding: 2rem;
 }
 
-.thread-navigation {
-  margin-bottom: 2rem;
+.back-link {
+  padding: 3rem 1rem;
+  color: var(--color-primary);
+  font-size: 1.6rem;
+  text-decoration: none;
 
-  .back-link {
-    color: var(--color-primary);
-    font-size: 1.6rem;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
+  &:hover {
+    text-decoration: underline;
   }
 }
+.thread-container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+h1 {
+  margin: 2rem 0.5rem;
+  font-size: 2.4rem;
+}
 
+.thread-meta {
+  color: black;
+  font-size: 1.6rem;
+}
 .thread-header {
-  margin-bottom: 2rem;
-
-  h1 {
-    margin: 0 0 0.5rem;
-    font-size: 2.4rem;
-  }
-
-  .thread-meta {
-    color: var(--color-text-light);
-    font-size: 1.6rem;
-  }
+  margin-left: 1.5rem;
 }
-
 .forum-posts {
   margin-bottom: 2rem;
 
@@ -166,7 +162,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
-    color: var(--color-text-light);
+    color: black;
 
     .post-author {
       font-weight: bold;
@@ -182,35 +178,6 @@
   }
 }
 
-.forum-input-container {
-  position: relative;
-  cursor: pointer;
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  textarea {
-    width: 100%;
-    min-height: 8rem;
-    padding: 1rem;
-    border: 1px solid var(--color-divider-grey);
-    border-radius: 2px;
-    resize: vertical;
-    margin-bottom: 1rem;
-    pointer-events: none;
-  }
-
-  .login-prompt {
-    text-align: center;
-    color: var(--color-primary);
-    cursor: pointer;
-    margin-top: 1rem;
-    font-size: 1.6rem;
-    pointer-events: none;
-  }
-}
-
 button {
   text-align: center;
   margin: 0 auto;
@@ -218,6 +185,7 @@ button {
 }
 
 // Thread creation form
+.forum-input-container,
 .thread-input-container {
   margin-bottom: 2rem;
   position: relative;
@@ -231,7 +199,6 @@ button {
     margin-bottom: 1rem;
 
     &:disabled {
-      background: var(--color-background-light);
       cursor: pointer;
     }
   }
@@ -247,7 +214,6 @@ button {
     margin-bottom: 1rem;
 
     &:disabled {
-      background: var(--color-background-light);
       cursor: pointer;
     }
   }
@@ -279,19 +245,23 @@ button {
 
 // THREAD CARD STYLES
 .thread-card {
-  background: var(--color-background-light);
-  padding: 2rem;
-  margin-bottom: 1.5rem;
+  border-top: 1px solid var(--color-divider-grey);
+
+  padding: 2rem 2rem 3rem 2rem;
 
   .thread-main {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     gap: 1rem;
   }
 
   .thread-title {
     color: var(--color-primary-easiest-shade);
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     h2 {
       font-size: 1.8rem;
@@ -306,23 +276,19 @@ button {
 
   .thread-meta {
     display: flex;
-    gap: 1.5rem;
-    color: var(--color-text-light);
+    gap: 1rem;
+    color: black;
     font-size: 1.4rem;
+    align-items: center;
 
     .thread-author {
-      font-weight: 500;
+      font-weight: 600;
     }
   }
 
   .thread-stats {
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--color-divider-grey);
-
     .post-count {
       display: inline-block;
-      background: var(--info-highlight-background);
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
       font-size: 1.4rem;
@@ -330,17 +296,17 @@ button {
   }
 
   @media (max-width: @small-tablet) {
-    padding: 1.5rem;
+    padding: 1rem 1rem 2rem 1rem;
   }
 }
 
 // THREAD INPUT STYLES
-.thread-input-container {
+.thread-input-container,
+.forum-input-container {
   background: white;
   border-radius: var(--border-radius);
   padding: 2rem;
   margin-bottom: 3rem;
-  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.05);
 
   input[type='text'],
   textarea {
@@ -385,20 +351,21 @@ button {
 
 // FORUM POST STYLES
 .forum-posts {
+  .forum-post:nth-child(1) {
+    background-color: var(--color-background-light);
+  }
   .forum-post {
     background: white;
     border-radius: var(--border-radius);
     padding: 2rem;
     margin-bottom: 1.5rem;
-    border: 1px solid var(--color-divider-grey);
-
+    background-color: #f9f9f9;
     .post-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 1.5rem;
       padding-bottom: 1rem;
-      border-bottom: 1px solid var(--color-divider-grey);
 
       .post-author {
         font-weight: 500;
@@ -407,7 +374,7 @@ button {
       }
 
       .post-date {
-        color: var(--color-text-light);
+        color: black;
         font-size: 1.4rem;
       }
     }
@@ -487,32 +454,34 @@ button {
   margin-bottom: 4rem;
 }
 
-.threads-expanded.hidden {
-  display: none;
+.threads-expanded {
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  max-height: 0;
+}
+.threads-expanded:not(.hidden) {
+  /* This will be set dynamically by JavaScript */
 }
 
 .expand-threads-btn {
-  width: 100%;
-  padding: 1.2rem;
-  background: var(--color-background-shade);
+  background: var(--color-primary);
+  color: white;
   border: none;
+  padding: 1.2rem 2.4rem;
   border-radius: 0.5rem;
   font-size: 1.6rem;
-  color: var(--color-primary);
   cursor: pointer;
   transition: background-color 0.2s ease;
-  margin: 2rem 0;
 
   &:hover {
-    background: var(--color-divider-grey);
+    background: var(--color-primary-tint);
   }
-
-  .show-less.hidden,
-  .show-more.hidden {
+  .hidden {
     display: none;
   }
 }
 
+.forum-input-container,
 .thread-input-container {
   h2 {
     font-size: 2rem;
@@ -522,11 +491,24 @@ button {
 }
 
 .thread-count-indicator {
-  text-align: center;
-  color: var(--color-grey-dark-1);
-  font-size: 1.4rem;
-  margin: 2rem 0 1rem 0;
-  padding: 1rem;
-  background: var(--color-background-shade);
-  border-radius: 0.5rem;
+  color: black;
+  font-size: 1.5rem;
+}
+
+.thread-cards-container {
+  margin-bottom: 1rem;
+}
+.thread-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.thread-count-indicator {
+  color: black;
+  font-size: 1.5rem;
+}
+.expand-threads-btn {
+  /* Your existing button styles */
 }

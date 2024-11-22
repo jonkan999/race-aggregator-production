@@ -13,14 +13,10 @@ import {
 
 const container = document.querySelector('.forum-container');
 const categorySlug = container.getAttribute('data-category');
-console.log('Category slug:', categorySlug);
 const threadId = container.getAttribute('data-thread-id');
-console.log('Thread ID:', threadId);
 const country = '{{country_code}}';
 
 export function initializeForum() {
-  console.log('Starting forum initialization...');
-
   const threadInputContainer = document.getElementById(
     'thread-input-container'
   );
@@ -30,7 +26,6 @@ export function initializeForum() {
   const loginPrompt = document.getElementById('login-prompt');
 
   async function initialize() {
-    console.log('Initializing forum...');
     const auth = await authService.getAuth();
     const db = await authService.getDb();
 
@@ -103,7 +98,6 @@ export function initializeForum() {
           </a>
         `;
 
-        // Replace the input container with the success message
         threadInputContainer.innerHTML = '';
         threadInputContainer.appendChild(successMessage);
       } catch (error) {
@@ -122,23 +116,47 @@ export function initializeForum() {
         );
         const totalThreads = document.querySelectorAll('.thread-card').length;
 
-        expandedThreads.classList.toggle('hidden');
+        // Toggle visibility state
+        const isExpanding = expandedThreads.classList.contains('hidden');
+
+        if (isExpanding) {
+          // Expanding
+          expandedThreads.classList.remove('hidden');
+          // Temporarily remove transition to measure height
+          expandedThreads.style.transition = 'none';
+          expandedThreads.style.maxHeight = 'none';
+          const naturalHeight = expandedThreads.offsetHeight;
+          expandedThreads.style.maxHeight = '0';
+
+          // Force browser reflow
+          expandedThreads.offsetHeight;
+
+          // Re-enable transition and set final height
+          expandedThreads.style.transition = 'max-height 0.3s ease-out';
+          expandedThreads.style.maxHeight = naturalHeight + 'px';
+        } else {
+          // Collapsing
+          expandedThreads.style.maxHeight = '0';
+          // Add hidden class after transition
+          expandedThreads.addEventListener(
+            'transitionend',
+            function handler() {
+              expandedThreads.classList.add('hidden');
+              expandedThreads.removeEventListener('transitionend', handler);
+            },
+            { once: true }
+          );
+        }
+
+        // Toggle button text
         showMoreText.classList.toggle('hidden');
         showLessText.classList.toggle('hidden');
 
-        // Get the translation template from the data attribute
-        const showingText = countIndicator.getAttribute('data-showing-text');
-
-        // Update the count indicator text using the template
-        if (expandedThreads.classList.contains('hidden')) {
-          countIndicator.textContent = showingText
-            .replace('{x}', '3')
-            .replace('{y}', totalThreads.toString());
-        } else {
-          countIndicator.textContent = showingText
-            .replace('{x}', totalThreads.toString())
-            .replace('{y}', totalThreads.toString());
-        }
+        // Update count text
+        const showingText = countIndicator.dataset.showingText;
+        countIndicator.textContent = showingText
+          .replace('{x}', isExpanding ? totalThreads.toString() : '3')
+          .replace('{y}', totalThreads.toString());
       });
     }
   }
@@ -147,15 +165,12 @@ export function initializeForum() {
 }
 
 export function initializeForumThread() {
-  console.log('Starting forum thread initialization...');
-
   const forumInputContainer = document.getElementById('forum-input-container');
   const forumInput = document.getElementById('forum-input');
   const submitButton = document.getElementById('forum-submit');
   const loginPrompt = document.getElementById('login-prompt');
 
   async function initialize() {
-    console.log('Initializing forum thread...');
     const auth = await authService.getAuth();
     const db = await authService.getDb();
 
@@ -261,7 +276,6 @@ export function initializeForumThread() {
         forumInput.value = '';
       } catch (error) {
         console.error('Error posting reply:', error);
-        // TODO: Handle error (remove optimistically added post)
       }
     });
   }
