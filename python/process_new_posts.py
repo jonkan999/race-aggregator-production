@@ -71,22 +71,19 @@ def process_new_forum_posts(db):
     new_forum_posts_ref = db.collection('new_forum_posts')
     posts = new_forum_posts_ref.order_by('timestamp').get()
     
-    processed_forums = set()
+    processed_countries = set()
     latest_timestamp = None
     
     for post in posts:
         post_data = post.to_dict()
         print(post_data)
-        source_forum = post_data['source_forum']
-        country_code = post_data.get('country', 'se')  # Default to 'se' if not specified
+        country_code = post_data['country']
         
-        if source_forum not in processed_forums:
-            if build_forum_page(source_forum):
-                processed_forums.add(source_forum)
-                latest_timestamp = post_data['timestamp']
-                # Trigger the build for the country associated with the new post
-                build_forum_pages(country_code)
-
+        if country_code not in processed_countries:
+            build_forum_pages(country_code)
+            processed_countries.add(country_code)
+            latest_timestamp = post_data['timestamp']
+    
     if latest_timestamp:
         # Delete old posts from new_forum_posts
         old_posts = new_forum_posts_ref.where('timestamp', '<=', latest_timestamp).get()
@@ -96,8 +93,8 @@ def process_new_forum_posts(db):
             batch.delete(post.reference)
         batch.commit()
     
-    for forum in sorted(processed_forums):
-        print(f"Processed forum: {forum}")
+    for country in sorted(processed_countries):
+        print(f"Processed forum pages for country: {country}")
 
 def build_forum_pages(country_code):
     """Build forum pages for a specific country."""
