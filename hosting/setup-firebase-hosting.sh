@@ -305,7 +305,12 @@ service cloud.firestore {
       allow read: if true;
       allow write: if false;
     }
-    match /new_posts/{postId} {
+    match /new_race_posts/{postId} {
+      allow read: if true;
+      allow create, update, delete: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+    match /new_forum_posts/{postId} {
       allow read: if true;
       allow create, update, delete: if request.auth != null;
       allow write: if request.auth != null;

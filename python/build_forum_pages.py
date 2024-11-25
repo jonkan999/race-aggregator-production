@@ -4,6 +4,7 @@ from firebase_admin import credentials, firestore
 from jinja_functions import slugify
 import yaml
 import os
+import sys
 from jinja2 import Environment, FileSystemLoader
 
 def create_base_context(index_content, country_code):
@@ -92,7 +93,7 @@ def build_forum_index(country_code, output_dir, jinja_env, base_context, db):
                     latest_timestamp = thread_data['createdAt']
                     latest_thread = {
                         'title': thread_data['title'],
-                        'slug': thread_data['threadId'],
+                        'threadId': thread_data['threadId'],
                         'authorName': thread_data['authorName'],  # Ensure this field is included
                         'createdAt': thread_data['createdAt'],  # Ensure this field is included
                         'content': thread_data['content'],  # Ensure this field is included
@@ -183,7 +184,7 @@ def build_thread_pages(country_code, output_dir, jinja_env, category, base_conte
         # Get all threads for this category
         thread_query = posts_ref.where('categorySlug', '==', category['slug']).where('type', '==', 'thread')
         thread_docs = thread_query.get()
-        
+
         for thread_doc in thread_docs:
             thread_data = thread_doc.to_dict()
             thread_data['slug'] = thread_data['threadId']
@@ -244,6 +245,14 @@ def main():
         
         print(f"Building forum pages for {len(countries)} countries")
         
+        # Check if a specific country code is provided
+        if len(sys.argv) > 1:
+            country_code = sys.argv[1]
+            if country_code not in countries:
+                print(f"Invalid country code: {country_code}. Available codes: {countries}")
+                return 1
+            countries = [country_code]  # Only process the specified country
+        
         # Process each country
         for country_code in countries:
             try:
@@ -275,5 +284,4 @@ def main():
         return 1
 
 if __name__ == "__main__":
-    import sys
     sys.exit(main())

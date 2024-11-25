@@ -1,10 +1,7 @@
 {% extends "forum/forum_layout.html" %} {% block content %}
 <div class="forum-container forum-section" data-category="{{ category.slug }}">
   <div class="forum-header">
-    <a
-      href="/{{ navigation.forum | slugify(country_code) }}/index.html"
-      class="back-link"
-    >
+    <a href="/{{ navigation.forum | slugify(country_code) }}" class="back-link">
       {{ forum.back_to_forum }}
     </a>
     <h1>{{ category.name }}</h1>
@@ -49,7 +46,7 @@
     <div class="threads-expanded hidden">
       {% for thread in threads[3:] %}
       <div class="forum-post-card">
-        <a href="/forum-posts/{{ thread.threadId }}.html">
+        <a href="/forum/{{ category.slug }}/{{ thread.threadId }}">
           <div class="forum-post-upper-box">
             <div class="forum-post-content">
               <div class="forum-info-top">

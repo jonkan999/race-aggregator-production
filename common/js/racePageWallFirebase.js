@@ -131,8 +131,8 @@ export function initializeRaceForum() {
           type: 'race_wall_post',
         });
 
-        // Add to new_posts queue
-        const newPostRef = doc(collection(db, 'new_posts'));
+        // Add to new_race_posts queue
+        const newPostRef = doc(collection(db, 'new_race_posts'));
         batch.set(newPostRef, {
           source_race: forumInput.getAttribute('data-source'),
           country: country,

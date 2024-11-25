@@ -16,6 +16,24 @@ const categorySlug = container.getAttribute('data-category');
 const threadId = container.getAttribute('data-thread-id');
 const country = 'se';
 
+async function logNewPostToTriggerTable(postId, sourceForum) {
+  const db = await authService.getDb();
+  const triggerRef = collection(db, 'new_forum_posts');
+  const timestamp = new Date();
+
+  try {
+    await addDoc(triggerRef, {
+      postId: postId,
+      country: country,
+      source_forum: sourceForum,
+      timestamp: timestamp,
+    });
+    console.log(`Logged new post to trigger table: ${postId}`);
+  } catch (error) {
+    console.error('Error logging new post to trigger table:', error);
+  }
+}
+
 export function initializeForum() {
   const threadInputContainer = document.getElementById(
     'thread-input-container'
@@ -68,7 +86,7 @@ export function initializeForum() {
 
         // Create thread post
         const forumRef = collection(db, `forum_posts_${country}`);
-        await addDoc(forumRef, {
+        const newThreadDoc = await addDoc(forumRef, {
           type: 'thread',
           threadId: threadId,
           categorySlug: categorySlug,
@@ -80,6 +98,9 @@ export function initializeForum() {
           updatedAt: timestamp,
           replyCount: 0,
         });
+
+        // Log the new thread to the trigger table
+        await logNewPostToTriggerTable(newThreadDoc.id, categorySlug);
 
         // Remove empty state if it exists
         const emptyState = document.querySelector('.empty-state');
@@ -189,14 +210,21 @@ export function initializeForumThread() {
     // Create template post element
     const forumPosts = document.querySelector('.forum-posts');
     const templatePost = document.createElement('div');
-    templatePost.className = 'forum-post template-post';
+    templatePost.className = 'forum-post-card template-post';
     templatePost.style.display = 'none';
     templatePost.innerHTML = `
-      <div class="post-header">
-        <span class="post-author"></span>
-        <span class="post-date"></span>
+      <div class="forum-post-upper-box">
+        <div class="forum-info-top">
+          <div class="icon-category-container primary-color">
+            <div class="forum-post-icon flex-center">
+              <ion-icon name="person-outline"></ion-icon>
+            </div>
+            <div class="forum-author"></div>
+          </div>
+          <div class="forum-time">• <span class="post-date"></span></div>
+        </div>
+        <p class="forum-info-middle post-content"></p>
       </div>
-      <div class="post-content"></div>
     `;
     forumPosts?.appendChild(templatePost);
 
@@ -217,9 +245,21 @@ export function initializeForumThread() {
       newPost.style.display = 'block';
       newPost.classList.remove('template-post');
 
-      newPost.querySelector('.post-author').textContent = authorName;
-      newPost.querySelector('.post-date').textContent =
-        timestamp.toLocaleString();
+      newPost.querySelector('.forum-author').textContent = authorName;
+      newPost.querySelector(
+        '.post-date'
+      ).textContent = `${timestamp.getFullYear()}-${(timestamp.getMonth() + 1)
+        .toString()
+        .padStart(2, '0')}-${timestamp
+        .getDate()
+        .toString()
+        .padStart(2, '0')} ${timestamp
+        .getHours()
+        .toString()
+        .padStart(2, '0')}:${timestamp
+        .getMinutes()
+        .toString()
+        .padStart(2, '0')}`;
       newPost.querySelector('.post-content').textContent = content;
 
       forumPosts.insertBefore(newPost, templatePost);
@@ -257,7 +297,7 @@ export function initializeForumThread() {
 
         // Create reply post
         const forumRef = collection(db, `forum_posts_${country}`);
-        await addDoc(forumRef, {
+        const newReplyDoc = await addDoc(forumRef, {
           type: 'reply',
           threadId: threadId,
           categorySlug: categorySlug,
@@ -266,6 +306,9 @@ export function initializeForumThread() {
           authorName: auth.currentUser.displayName || 'Anonymous',
           createdAt: timestamp,
         });
+
+        // Log the new reply to the trigger table
+        await logNewPostToTriggerTable(newReplyDoc.id, categorySlug);
 
         // Update thread's replyCount and updatedAt
         await updateDoc(threadDoc.ref, {

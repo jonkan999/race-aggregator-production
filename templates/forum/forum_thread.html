@@ -6,10 +6,10 @@
 >
   <div class="forum-header">
     <a
-      href="/{{ navigation.forum | slugify(country_code) }}/{{ category.slug }}/index.html"
+      href="/{{ navigation.forum | slugify(country_code) }}/{{ category.slug }}"
       class="back-link"
     >
-      {{ forum.back_to_category }}
+      {{ forum.back_to_category }} {{ category.name }}
     </a>
     <h1 class="thread-header primary-color">{{ thread.title }}</h1>
   </div>
@@ -27,7 +27,7 @@
           </div>
           <div class="forum-time">• {{ post.createdAt }}</div>
         </div>
-        <p class="forum-info-middle">{{ post.content }}</div>
+        <p class="forum-info-middle">{{ post.content }}</p>
       </div>
     </div>
     {% endfor %} {% else %}
