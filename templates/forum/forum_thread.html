@@ -11,17 +11,24 @@
     >
       {{ forum.back_to_category }}
     </a>
-    <h1 class="thread-header">{{ thread.title }}</h1>
+    <h1 class="thread-header primary-color">{{ thread.title }}</h1>
   </div>
 
   <div class="forum-posts">
     {% if posts %} {% for post in posts %}
-    <div class="forum-post">
-      <div class="post-header">
-        <span class="post-author">{{ post.authorName }}</span>
-        <span class="post-date">{{ post.createdAt }}</span>
+    <div class="forum-post-card">
+      <div class="forum-post-upper-box">
+        <div class="forum-info-top">
+          <div class="icon-category-container primary-color">
+            <div class="forum-post-icon flex-center">
+              <ion-icon name="person-outline"></ion-icon>
+            </div>
+            <div class="forum-category">/{{ post.authorName }}</div>
+          </div>
+          <div class="forum-time">• {{ post.createdAt }}</div>
+        </div>
+        <p class="forum-info-middle">{{ post.content }}</div>
       </div>
-      <div class="post-content">{{ post.content }}</div>
     </div>
     {% endfor %} {% else %}
     <div class="empty-state">{{ forum.empty_thread_state }}</div>

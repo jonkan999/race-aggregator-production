@@ -84,15 +84,20 @@ def build_forum_index(country_code, output_dir, jinja_env, base_context, db):
             
             for thread in threads:
                 thread_data = thread.to_dict()
+                # Format createdAt for the latest thread
+                if 'createdAt' in thread_data:
+                    thread_data['createdAt'] = thread_data['createdAt'].strftime('%Y-%m-%d %H:%M')
+                
                 if latest_timestamp is None or thread_data['createdAt'] > latest_timestamp:
                     latest_timestamp = thread_data['createdAt']
                     latest_thread = {
                         'title': thread_data['title'],
                         'slug': thread_data['threadId'],
-                        'author': thread_data['authorName'],
-                        'created_at': thread_data['createdAt'].strftime('%Y-%m-%d %H:%M')
+                        'authorName': thread_data['authorName'],  # Ensure this field is included
+                        'createdAt': thread_data['createdAt'],  # Ensure this field is included
+                        'content': thread_data['content'],  # Ensure this field is included
+                        'replyCount': str(thread_data.get('replyCount', 0))  # Ensure replyCount is included
                     }
-            
             category['latest_thread'] = latest_thread
             
         except Exception as e:
@@ -132,9 +137,12 @@ def build_category_page(country_code, output_dir, jinja_env, category, base_cont
             replies = reply_query.get()
             thread_data['replyCount'] = str(len(replies))  # Convert to string
             
-            # Ensure createdAt is formatted as string
+            # Ensure createdAt and updatedAt are formatted as strings
             if 'createdAt' in thread_data:
                 thread_data['createdAt'] = thread_data['createdAt'].strftime('%Y-%m-%d %H:%M')
+            
+            if 'updatedAt' in thread_data:
+                thread_data['updatedAt'] = thread_data['updatedAt'].strftime('%Y-%m-%d %H:%M')
             
             threads.append(thread_data)
         
@@ -151,11 +159,11 @@ def build_category_page(country_code, output_dir, jinja_env, category, base_cont
         print(f"Error getting threads for category {category['slug']}: {str(e)}")
         thread_count = {'visible': '0', 'total': '0'}
     
-    # Render category template
+    # Render category template with threads included in the context
     template = jinja_env.get_template('forum/forum_category.html')
     output = template.render(
         category=category,
-        threads=threads,
+        threads=threads,  # Pass the threads directly
         thread_count=thread_count,
         **base_context
     )

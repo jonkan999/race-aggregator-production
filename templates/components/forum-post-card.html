@@ -1,0 +1,21 @@
+<a href="/forum-posts/{{ post.id }}.html" class="forum-post-card">
+  <div class="forum-post-upper-box">
+    <div class="forum-post-content">
+      <div class="forum-info-top">
+        <div class="icon-category-container">
+          <div class="forum-post-icon">
+            <ion-icon name="chatbubbles-outline"></ion-icon>
+          </div>
+          <div class="forum-category">/{{ post.category }}</div>
+        </div>
+        <div class="forum-time">• {{ post.created_timestamp | timeago }}</div>
+      </div>
+
+      <div class="forum-info-middle">{{ post.content }}</div>
+    </div>
+  </div>
+
+  <div class="forum-comments">
+    {{ post.comments | length }} {{ comments_suffix }}
+  </div>
+</a>

@@ -8,30 +8,54 @@
         href="/{{ navigation.forum | slugify(country_code) }}/{{ category.slug }}/index.html"
         class="category-title"
       >
-        <h2>{{ category.name }}</h2>
+        <h2>/ {{ category.name }}</h2>
       </a>
       <p class="category-description">{{ category.description }}</p>
     </div>
     <div class="category-stats">
       <div class="thread-count">
-        {{ category.thread_count }} {{ forum.threads_label }}
-      </div>
-      <div class="post-count">
-        {{ category.post_count }} {{ forum.posts_label }}
+        {{ category.thread_count }} {{ forum.posts_label }}
       </div>
     </div>
     {% if category.latest_thread %}
     <div class="latest-activity">
-      <div class="latest-thread">
+      <div class="forum-post-card">
         <a
-          href="/{{ navigation.forum | slugify(country_code) }}/{{ category.slug }}/{{ category.latest_thread.slug }}/index.html"
+          href="/forum/{{ category.slug }}/{{ category.latest_thread.threadId }}"
         >
-          {{ category.latest_thread.title }}
+          <div class="forum-post-upper-box">
+            <div class="forum-post-content">
+              <div class="forum-info-top">
+                <div class="icon-category-container thread-info">
+                  <div class="forum-user">
+                    <div class="forum-post-icon">
+                      <ion-icon name="chatbubbles-outline"></ion-icon>
+                    </div>
+                    <div class="forum-user">
+                      /{{ category.latest_thread.authorName }}
+                    </div>
+                  </div>
+                  <div class="forum-user-title">
+                    {{ category.latest_thread.title }}
+                  </div>
+                </div>
+                <div class="forum-time">
+                  • {{ category.latest_thread.createdAt }}
+                </div>
+              </div>
+              <div class="forum-info-middle">
+                {{ category.latest_thread.content[:100] }}{% if
+                category.latest_thread.content|length > 100 %}...{% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="forum-comments">
+            {{ category.latest_thread.replyCount }} {{ forum.reply_label }}
+          </div>
         </a>
       </div>
       <div class="latest-meta">
         <span class="latest-author">{{ category.latest_thread.author }}</span>
-        <span class="latest-date">{{ category.latest_thread.created_at }}</span>
       </div>
     </div>
     {% endif %}
