@@ -26,7 +26,7 @@ def build_race_page(source_race):
 def process_race_posts(db):
     """Process new race posts and build race pages."""
     new_race_posts_ref = db.collection('new_race_posts')
-    posts = new_race_posts_ref.order_by('timestamp').get()
+    posts = new_race_posts_ref.order_by('timestamp', direction=firestore.Query.DESCENDING).get()
     
     processed_races = set()
     latest_timestamp = None
@@ -69,7 +69,7 @@ def build_forum_page(source_forum):
 def process_new_forum_posts(db):
     """Process new forum posts and trigger rebuilds."""
     new_forum_posts_ref = db.collection('new_forum_posts')
-    posts = new_forum_posts_ref.order_by('timestamp').get()
+    posts = new_forum_posts_ref.order_by('timestamp', direction=firestore.Query.DESCENDING).get()
     
     processed_countries = set()
     latest_timestamp = None
