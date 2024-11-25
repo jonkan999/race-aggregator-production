@@ -1,7 +1,6 @@
 import { keyLoaded } from './keys.js';
 
 const MAPBOX_API_KEY = await keyLoaded;
-console.log(MAPBOX_API_KEY);
 mapboxgl.accessToken = MAPBOX_API_KEY;
 function setMarkerSvg(marker, svgContent) {
   marker.getElement().innerHTML = svgContent;

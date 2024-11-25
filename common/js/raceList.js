@@ -35,6 +35,59 @@ document.addEventListener("DOMContentLoaded", function () {
   // Retrieve pre-selected filters from data attribute
   const preselectedFilters = JSON.parse(document.getElementById("race-cards-container").getAttribute("data-preselected-filters"));
 
+  // Add these constants at the top with your other constants
+  const DESKTOP_AD_TEMPLATE = `
+    <div class="race-card ad-card desktop-only">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+           crossorigin="anonymous"></script>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-format="fluid"
+           data-ad-layout-key="+2h+pb+48+1a-14"
+           data-ad-client="ca-pub-7076760775175370"
+           data-ad-slot="3457242356"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  `;
+
+  const MOBILE_AD_TEMPLATE = `
+    <div class="race-card ad-card mobile-only">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+           crossorigin="anonymous"></script>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-format="fluid"
+           data-ad-layout-key="-78+d4+5t-28-87"
+           data-ad-client="ca-pub-7076760775175370"
+           data-ad-slot="4511303722"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  `;
+
+  // Add this function to manage ad insertion
+  function insertAds() {
+    const raceCardsContainer = document.querySelector('.race-cards-container');
+    const visibleCards = Array.from(document.querySelectorAll('.race-card:not(.filtered-out):not(.paginated-out):not(.ad-card)'));
+    
+    // Remove existing ads
+    document.querySelectorAll('.ad-card').forEach(ad => ad.remove());
+    
+    // Insert new ads
+    visibleCards.forEach((card, index) => {
+      // Insert after first card and then every fourth card
+      if (index === 1 || (index > 1 && (index - 1) % 4 === 0)) {
+        const adElement = document.createElement('div');
+        adElement.innerHTML = DESKTOP_AD_TEMPLATE + MOBILE_AD_TEMPLATE;
+        card.after(adElement.firstElementChild);
+        card.after(adElement.firstElementChild);
+      }
+    });
+  }
+
   // Function to check filters and redirect if necessary
   function checkFilters() {
     const currentFilters = {
@@ -247,6 +300,7 @@ document.addEventListener("DOMContentLoaded", function () {
     updatePagination();
     updateEventRange();
     updateURL(page);
+    insertAds();
   }
 
   function updatePagination() {
@@ -377,6 +431,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // After applying filters
     currentPage = 1;
     showPage(currentPage);
+    insertAds();
 
     updateRaceCardsTitle();
   }
@@ -531,4 +586,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Make sure to call updateRaceCardsTitle on initial load
   updateRaceCardsTitle();
+
+  // Add these styles to your CSS
+  const styles = `
+    .ad-card {
+      min-height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .desktop-only {
+      display: none;
+    }
+
+    .mobile-only {
+      display: block;
+    }
+
+    @media (min-width: 768px) {
+      .desktop-only {
+        display: block;
+      }
+
+      .mobile-only {
+        display: none;
+      }
+    }
+  `;
+
+  // Insert styles
+  const styleSheet = document.createElement("style");
+  styleSheet.textContent = styles;
+  document.head.appendChild(styleSheet);
 });
