@@ -121,9 +121,9 @@ def generate_country(country_code):
     content['sizes'] = config['responsive_image_widths']
 
     # Combine navigation and auxiliary pages
-    for page in ['index','race-list','add-race', 'race-page-preview','pace-calculator','racetime-estimator', 'about-us', 'contact']:
+    for page in ['index','race-list','add-race', 'race-page-preview', 'measure-route', 'pace-calculator','racetime-estimator', 'about-us', 'contact', 'training-plans']:
         # Render the index page template for the country
-        page_template = env.get_template(f'{page.replace("-", "_")}.html')
+        page_template = env.get_template(f'{page.replace("-", "_")}.html') 
         page_html = page_template.render(content)
         
         # Output directory for the specific country

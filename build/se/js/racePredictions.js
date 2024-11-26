@@ -1,6 +1,6 @@
 import { predictRaceTime, formatTime } from './predictRaceTime.js';
 
-// Define common race distances
+// Define common race distances using config values
 const commonDistances = [
   { km: 1.60934, name: '1 Mile' },
   { km: 3.21868, name: '2 Mile' },
@@ -8,7 +8,10 @@ const commonDistances = [
   { km: 5, name: '5K' },
   { km: 10, name: '10K' },
   { km: 15, name: '15K' },
-  { km: 21.0975, name: 'Half Marathon' },
+  {
+    km: 21.0975,
+    name: 'Halvmarathon',
+  },
   { km: 42.195, name: 'Marathon' },
 ];
 

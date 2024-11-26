@@ -2,7 +2,8 @@
 <link rel="stylesheet" href="/css/race-time-estimator.css" />
 {% endblock %} {% block body_scripts %} {{ super() }}
 <script type="module" src="/js/racePredictions.js"></script>
-{% endblock %}{% include 'sections/header-menu.html' %} {% block content %}
+{% endblock %} {% include 'sections/ad-banner.html' %} {% include
+'sections/header-menu.html' %} {% block content %}
 <section class="section-race-estimator">
   <div class="container">
     <h1 class="heading-primary">{{ racetime_estimator_title }}</h1>
@@ -16,8 +17,12 @@
           <select id="known-distance" name="known-distance" class="form-select">
             <option value="5000" selected="selected">5 km</option>
             <option value="10000">10 km</option>
-            <option value="21097">Half marathon</option>
-            <option value="42194">Marathon</option>
+            <option value="21097">
+              {{ verbose_local_distance_mapping["half marathon"] }}
+            </option>
+            <option value="42194">
+              {{ verbose_local_distance_mapping["marathon"] }}
+            </option>
           </select>
         </div>
 

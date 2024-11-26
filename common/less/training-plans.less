@@ -1,0 +1,109 @@
+@import '_variables.less';
+@import 'race-time-estimator.less';
+
+.section-training-plans {
+  &:extend(.section-race-estimator all); // Use extend instead of mixin
+
+  // Additional styles specific to training plans
+  .plan-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 2.4rem 0;
+
+    .overview-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      padding: 1.6rem;
+      background: var(--color-background-light);
+      border-radius: var(--border-radius);
+
+      .label {
+        font-size: 1.4rem;
+        color: var(--color-grey-dark-2);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      span:not(.label) {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  #training-schedule {
+    margin-top: 2.4rem;
+
+    .week-container {
+      background: white;
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 3.2rem;
+
+      .week-header {
+        font-size: 2rem;
+        color: var(--color-primary);
+        padding-bottom: 1.6rem;
+        border-bottom: 2px solid var(--color-background-light);
+        margin-bottom: 2rem;
+      }
+
+      .training-day {
+        display: grid;
+        grid-template-columns: 12rem 1fr;
+        gap: 2rem;
+        padding: 1.6rem;
+        border-radius: var(--border-radius);
+        background: var(--color-background-light);
+        margin-bottom: 1.2rem;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: var(--color-background-shade);
+          transform: translateX(4px);
+        }
+
+        .day-label {
+          font-weight: 600;
+          color: var(--color-primary);
+        }
+
+        .workout-details {
+          .workout-type {
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+          }
+
+          .workout-description {
+            color: var(--color-grey-dark-2);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: @landscape-tablet) {
+  .section-training-plans {
+    #training-schedule {
+      .training-day {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+
+        .day-label {
+          border-bottom: 1px solid var(--color-divider-grey);
+          padding-bottom: 0.8rem;
+        }
+      }
+    }
+  }
+}

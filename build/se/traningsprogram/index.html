@@ -1,4 +1,38 @@
-<section class="ad-banner">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Allt om löpning i</title>
+    <link rel="icon" href="/common_images/logo100px.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+     
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/hero.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/selected-forum-posts.css" />
+    <link rel="stylesheet" href="/css/selected-forum-post-card.css" />
+    <link rel="stylesheet" href="/css/about-contact.css" />
+    
+<link rel="stylesheet" href="/css/training-plans.css" />
+ 
+    <script type="module" src="/js/commonFunctions.js"></script>
+    
+  </head>
+  <body>
+    <!-- Page content -->
+    <main> <section class="ad-banner">
   <div class="ad-banner-controls">
     <button class="minimize-button" aria-label="Minimize ad">
       <ion-icon name="chevron-down-outline"></ion-icon>
@@ -35,7 +69,7 @@
       (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   </div>
-</section><section class="section-header-menu">
+</section> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -284,64 +318,123 @@
       </div>
     </div>
   </div>
-</section><!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="initial-scale=1,maximum-scale=1,user-scalable=no"
-    />
-    <title>Allt om löpning i</title>
-    <link rel="icon" href="/common_images/logo100px.jpg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
-    />
-     
-    <link rel="stylesheet" href="/css/general.css" />
-    <link rel="stylesheet" href="/css/index.css" />
-    <link rel="stylesheet" href="/css/hero.css" />
-    <link rel="stylesheet" href="/css/ads.css" />
-    <link rel="stylesheet" href="/css/header-menu.css" />
-    <link rel="stylesheet" href="/css/selected-races.css" />
-    <link rel="stylesheet" href="/css/selected-forum-posts.css" />
-    <link rel="stylesheet" href="/css/selected-forum-post-card.css" />
-    <link rel="stylesheet" href="/css/about-contact.css" />
-    
-<link rel="stylesheet" href="/css/pace-calculator.css" />
- 
-    <script type="module" src="/js/commonFunctions.js"></script>
-    
-  </head>
-  <body>
-    <!-- Page content -->
-    <main>
-<section class="section-pace-calculator">
+</section>
+<section class="section-training-plans">
   <div class="container">
-    <h1 class="heading-primary">Fartomvandlare</h1>
-    <p class="description">Ett enkelt verktyg för att omvandla din löphastighet mellan olika enheter</p>
-    <p class="conversion-note">1 kilometer per timme (kph) = 0.621371192 mile per timme (mph)</p>
+    <h1 class="heading-primary">Träningsprogram</h1>
+    <p class="description">Skapa ett anpassat träningsprogram baserat på ditt mål</p>
 
-    <div class="pace-table-container">
-      <table class="pace-table">
-        <thead>
-          <tr>
-            <th>Kilometer per timme</th>
-            <th>Minuter per kilometer</th>
-            <th>Minuter per mile</th>
-            <th>5k</th>
-            <th>10k</th>
-            <th>Halvmaraton</th>
-            <th>Maraton</th>
-          </tr>
-        </thead>
-        <tbody id="pace-table-body">
-          <!-- Table will be populated by JavaScript -->
-        </tbody>
-      </table>
+    <div class="calculator-container">
+      <form class="calculator-form" id="training-calculator">
+        <!-- Target Race Date -->
+        <div class="form-group">
+          <label for="race-date">Tävlingsdatum</label>
+          <input
+            type="date"
+            id="race-date"
+            name="race-date"
+            class="form-select"
+            min=""
+            required
+          />
+        </div>
+
+        <!-- Target Race Distance -->
+        <div class="form-group">
+          <label for="target-distance">Måldistans</label>
+          <select
+            id="target-distance"
+            name="target-distance"
+            class="form-select"
+          >
+            <option value="5000">5 km</option>
+            <option value="10000">10 km</option>
+            <option value="21097">
+              Halvmarathon
+            </option>
+            <option value="42194">
+              Marathon
+            </option>
+          </select>
+        </div>
+
+        <!-- Target Finish Time -->
+        <div class="form-group">
+          <label for="target-time">Måltid</label>
+          <div class="time-inputs">
+            <div class="time-input">
+              <input
+                type="number"
+                id="hours"
+                class="form-input"
+                min="0"
+                value="0"
+              />
+              <span class="unit">h</span>
+            </div>
+            <div class="time-input">
+              <input
+                type="number"
+                id="minutes"
+                class="form-input"
+                min="0"
+                max="59"
+                value="30"
+              />
+              <span class="unit">m</span>
+            </div>
+            <div class="time-input">
+              <input
+                type="number"
+                id="seconds"
+                class="form-input"
+                min="0"
+                max="59"
+                value="0"
+              />
+              <span class="unit">s</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Training Days Per Week -->
+        <div class="form-group">
+          <label for="training-days">Träningsdagar per vecka</label>
+          <select id="training-days" name="training-days" class="form-select">
+            <option value="3">3 dagar/vecka</option>
+            <option value="4">4 dagar/vecka</option>
+            <option value="5">5 dagar/vecka</option>
+            <option value="6">6 dagar/vecka</option>
+          </select>
+        </div>
+
+        <!-- Hilly Course Checkbox -->
+        <div class="form-group">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="is-hilly" class="form-checkbox" />
+            <label for="is-hilly">Kuperad bana</label>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn--full" id="generate-plan">
+          Skapa träningsprogram
+        </button>
+      </form>
+    </div>
+
+    <div class="results-container hidden">
+      <h2 class="heading-secondary">Ditt träningsprogram</h2>
+      <div class="plan-overview">
+        <div class="overview-item">
+          <span class="label">Programlängd:</span>
+          <span id="plan-duration"></span>
+        </div>
+        <div class="overview-item">
+          <span class="label">Veckodistans:</span>
+          <span id="weekly-distance"></span>
+        </div>
+      </div>
+      <div id="training-schedule"></div>
     </div>
   </div>
 </section>
@@ -358,7 +451,7 @@
     ></script>
     <script src="/js/index.js"></script>
     
-<script type="module" src="/js/paceCalculator.js"></script>
+<script type="module" src="/js/trainingPlans.js"></script>
 
   </body>
 </html>
