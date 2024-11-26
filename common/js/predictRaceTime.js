@@ -1,3 +1,15 @@
+// Define target distances at the top of the file
+const targetDistances = [
+  { distance: 1.60934, name: '1 Mile' },
+  { distance: 3.0, name: '3K' },
+  { distance: 3.21868, name: '2 Mile' },
+  { distance: 5.0, name: '5K' },
+  { distance: 10.0, name: '10K' },
+  { distance: 15.0, name: '15K' },
+  { distance: 21.0975, name: 'Half Marathon' },
+  { distance: 42.195, name: 'Marathon' },
+];
+
 // Helper functions
 export function formatTime(seconds) {
   if (isNaN(seconds)) {
@@ -3238,6 +3250,7 @@ export function predictRaceTime(distance, time, isHilly = false) {
   ];
 
   // Find closest points in lookup table
+  // Find closest points in lookup table
   let closest = lookupTable
     .map((entry) => ({
       ...entry,
@@ -3248,43 +3261,66 @@ export function predictRaceTime(distance, time, isHilly = false) {
     .sort((a, b) => a.diff - b.diff)
     .slice(0, 4);
 
-  console.log('Closest matches:', closest);
+  // Get the two shortest distances from lookup table for extrapolation
+  const shortestPreds = lookupTable[0].predictions
+    .sort((a, b) => a.distance - b.distance)
+    .slice(0, 2);
 
-  // Get base prediction from closest match
-  const basePredictions = closest[0].predictions.map((pred) => {
+  // Calculate pace change per km for short distances
+  const paceChangePerKm =
+    (shortestPreds[1].pace - shortestPreds[0].pace) /
+    (shortestPreds[1].distance - shortestPreds[0].distance);
+
+  const predictions = targetDistances.map((target) => {
     // Calculate scaling factors
-    const distanceRatio = distance / closest[0].input_distance;
+    const distanceRatio = target.distance / closest[0].input_distance;
     const timeRatio = time / closest[0].input_time;
     const paceRatio = timeRatio / distanceRatio;
 
-    // Scale the pace based on the ratios
-    let adjustedPace = pred.pace * paceRatio;
+    let adjustedPace;
+
+    // Use extrapolation for distances shorter than lookup table minimum
+    if (target.distance < shortestPreds[0].distance) {
+      const distanceDiff = shortestPreds[0].distance - target.distance;
+      const basePace = shortestPreds[0].pace * paceRatio;
+      adjustedPace = basePace - paceChangePerKm * distanceDiff;
+      console.log('Extrapolating pace:', {
+        targetDistance: target.distance,
+        basePace,
+        paceChangePerKm,
+        distanceDiff,
+        adjustedPace,
+      });
+    } else {
+      // Use normal scaling for other distances
+      adjustedPace = closest[0].predictions[0].pace * paceRatio;
+    }
 
     if (isHilly) {
       const hillAdjustment = calculateHillAdjustment(adjustedPace);
       return {
-        distance: pred.distance,
-        distanceMiles: pred.distance / 1.60934,
+        distance: target.distance,
+        name: target.name,
         pace: adjustedPace + hillAdjustment,
         flatPace: adjustedPace,
         hillAdjustment: hillAdjustment,
-        time: formatTime((adjustedPace + hillAdjustment) * pred.distance),
-        flatTime: formatTime(adjustedPace * pred.distance),
+        time: formatTime((adjustedPace + hillAdjustment) * target.distance),
+        flatTime: formatTime(adjustedPace * target.distance),
       };
     }
 
     return {
-      distance: pred.distance,
-      distanceMiles: pred.distance / 1.60934,
+      distance: target.distance,
+      name: target.name,
       pace: adjustedPace,
-      time: formatTime(adjustedPace * pred.distance),
+      time: formatTime(adjustedPace * target.distance),
     };
   });
 
   // Add debug logging
-  console.log('Base predictions:', basePredictions);
+  console.log('Generated predictions:', predictions);
 
-  return basePredictions.filter((p) => {
+  return predictions.filter((p) => {
     const isValid = !isNaN(p.pace) && p.pace > 0;
     if (!isValid) {
       console.warn('Invalid prediction:', p);

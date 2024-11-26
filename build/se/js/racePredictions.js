@@ -77,9 +77,17 @@ function calculatePredictions(event) {
   // Add new results
   predictions
     .filter((pred) => {
+      // Debug log to see what's being filtered
+      console.log(
+        'Checking prediction:',
+        pred.distance,
+        commonDistances.some((d) => Math.abs(d.km - pred.distance) < 0.01)
+      );
       return commonDistances.some((d) => Math.abs(d.km - pred.distance) < 0.01);
     })
+    .sort((a, b) => a.distance - b.distance) // Sort by distance
     .forEach((pred) => {
+      console.log('Adding prediction:', pred.distance);
       const row = document.createElement('tr');
       if (isHilly) {
         row.innerHTML = `

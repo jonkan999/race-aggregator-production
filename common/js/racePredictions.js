@@ -87,6 +87,7 @@ function calculatePredictions(event) {
     })
     .sort((a, b) => a.distance - b.distance) // Sort by distance
     .forEach((pred) => {
+      console.log('Adding prediction:', pred.distance);
       const row = document.createElement('tr');
       if (isHilly) {
         row.innerHTML = `
