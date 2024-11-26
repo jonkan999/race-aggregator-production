@@ -142,16 +142,25 @@ def generate_country(country_code):
                f.write(page_html) 
 
 
-    # Generate JavaScript files
+    # Generate JavaScript and JSON files
     js_output_dir = os.path.join(country_output_dir, 'js')
     os.makedirs(js_output_dir, exist_ok=True)
     for js_file in os.listdir(js_dir):
-        if js_file.endswith('.js'):
-            js_template = env.get_template(js_file)
-            js_content = js_template.render(content)
+        if js_file.endswith(('.js', '.json')):  # Handle both .js and .json files
+            source_path = os.path.join(js_dir, js_file)
+            dest_path = os.path.join(js_output_dir, js_file)
             
-            with open(os.path.join(js_output_dir, js_file), 'w', encoding='utf-8') as f:
-                f.write(js_content)
+            if js_file.endswith('.js'):
+                # Process JS files through Jinja
+                js_template = env.get_template(js_file)
+                js_content = js_template.render(content)
+                
+                with open(dest_path, 'w', encoding='utf-8') as f:
+                    f.write(js_content)
+            else:
+                # Simply copy JSON files
+                shutil.copy2(source_path, dest_path)
+                print(f"Copied {js_file} to {dest_path}")
 
     # Copy common files to the country output directory
     copy_common_files(country_output_dir)

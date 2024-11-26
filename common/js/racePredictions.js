@@ -33,7 +33,7 @@ function formatPaceMile(paceSeconds) {
   return `${minutes}:${seconds.toString().padStart(2, '0')}`;
 }
 
-function calculatePredictions(event) {
+async function calculatePredictions(event) {
   if (event) {
     event.preventDefault();
   }
@@ -63,9 +63,9 @@ function calculatePredictions(event) {
     },
   });
 
-  // Get predictions
-  const predictions = predictRaceTime(distance, totalSeconds, isHilly);
-  console.log('Raw predictions:', predictions); // Debug log
+  // Get predictions - now with await
+  const predictions = await predictRaceTime(distance, totalSeconds, isHilly);
+  console.log('Raw predictions:', predictions);
 
   // Get results container and body
   const resultsContainer = document.querySelector('.results-container');
@@ -76,33 +76,25 @@ function calculatePredictions(event) {
 
   // Add new results
   predictions
-    .filter((pred) => {
-      // Debug log to see what's being filtered
-      console.log(
-        'Checking prediction:',
-        pred.distance,
-        commonDistances.some((d) => Math.abs(d.km - pred.distance) < 0.01)
-      );
-      return commonDistances.some((d) => Math.abs(d.km - pred.distance) < 0.01);
-    })
-    .sort((a, b) => a.distance - b.distance) // Sort by distance
+    .filter((pred) =>
+      commonDistances.some((d) => Math.abs(d.km - pred.distance) < 0.01)
+    )
     .forEach((pred) => {
-      console.log('Adding prediction:', pred.distance);
       const row = document.createElement('tr');
       if (isHilly) {
         row.innerHTML = `
-                <td>${formatDistance(pred.distance)}</td>
-                <td>${pred.time}</td>
-                <td>${formatPace(pred.pace)}</td>
-                <td>${formatPaceMile(pred.pace)}</td>
-            `;
+          <td>${pred.name}</td>
+          <td>${pred.time}</td>
+          <td>${formatPace(pred.pace)}</td>
+          <td>${formatPaceMile(pred.pace)}</td>
+        `;
       } else {
         row.innerHTML = `
-                <td>${formatDistance(pred.distance)}</td>
-                <td>${pred.time}</td>
-                <td>${formatPace(pred.pace)}</td>
-                <td>${formatPaceMile(pred.pace)}</td>
-            `;
+          <td>${pred.name}</td>
+          <td>${pred.time}</td>
+          <td>${formatPace(pred.pace)}</td>
+          <td>${formatPaceMile(pred.pace)}</td>
+        `;
       }
       resultsBody.appendChild(row);
     });
@@ -111,23 +103,19 @@ function calculatePredictions(event) {
   resultsContainer.classList.remove('hidden');
 }
 
-// Add event listener when DOM is loaded
+// Update event listeners
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOM loaded'); // Debug log
+  console.log('DOM loaded');
 
   const calculateButton = document.getElementById('calculate-button');
   const isHillyCheckbox = document.getElementById('is-hilly');
 
-  console.log('Button found:', calculateButton); // Debug log
-
   if (calculateButton) {
-    calculateButton.addEventListener('click', calculatePredictions);
-    console.log('Event listener added to button'); // Debug log
+    calculateButton.addEventListener('click', (e) => calculatePredictions(e));
   }
 
   if (isHillyCheckbox) {
-    isHillyCheckbox.addEventListener('change', calculatePredictions);
-    console.log('Event listener added to hilly checkbox');
+    isHillyCheckbox.addEventListener('change', (e) => calculatePredictions(e));
   }
 });
 

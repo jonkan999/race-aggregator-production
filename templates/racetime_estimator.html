@@ -72,23 +72,22 @@
           {{ calculate_button_text }}
         </button>
       </form>
-
-      <div class="results-container hidden">
-        <h2 class="heading-secondary">{{ predicted_times_title }}</h2>
-        <table class="results-table">
-          <thead>
-            <tr>
-              <th>{{ distance_header }}</th>
-              <th>{{ finish_time_header }}</th>
-              <th>{{ pace_per_km_header }}</th>
-              <th>{{ pace_per_mile_header }}</th>
-            </tr>
-          </thead>
-          <tbody id="results-body">
-            <!-- Results will be inserted here -->
-          </tbody>
-        </table>
-      </div>
+    </div>
+    <div class="results-container hidden">
+      <h2 class="heading-secondary">{{ predicted_times_title }}</h2>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>{{ distance_header }}</th>
+            <th>{{ finish_time_header }}</th>
+            <th>{{ pace_per_km_header }}</th>
+            <th>{{ pace_per_mile_header }}</th>
+          </tr>
+        </thead>
+        <tbody id="results-body">
+          <!-- Results will be inserted here -->
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
