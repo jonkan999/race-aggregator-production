@@ -1,5 +1,17 @@
 import { predictRaceTime, formatTime } from './predictRaceTime.js';
 
+// Define common race distances
+const commonDistances = [
+  { km: 1.60934, name: '1 Mile' },
+  { km: 3.21868, name: '2 Mile' },
+  { km: 3, name: '3K' },
+  { km: 5, name: '5K' },
+  { km: 10, name: '10K' },
+  { km: 15, name: '15K' },
+  { km: 21.0975, name: 'Half Marathon' },
+  { km: 42.195, name: 'Marathon' },
+];
+
 console.log('Imported functions:', { predictRaceTime, formatTime });
 
 function formatPace(paceSeconds) {
@@ -22,7 +34,9 @@ function formatPaceMile(paceSeconds) {
 }
 
 function calculatePredictions(event) {
-  event.preventDefault();
+  if (event) {
+    event.preventDefault();
+  }
   console.log('Calculating predictions...'); // Debug log
 
   // Get input values
@@ -63,7 +77,6 @@ function calculatePredictions(event) {
   // Add new results
   predictions
     .filter((pred) => {
-      // Only show predictions for our common distances
       return commonDistances.some((d) => Math.abs(d.km - pred.distance) < 0.01);
     })
     .forEach((pred) => {
@@ -74,10 +87,6 @@ function calculatePredictions(event) {
                 <td>${pred.time}</td>
                 <td>${formatPace(pred.pace)}</td>
                 <td>${formatPaceMile(pred.pace)}</td>
-                <td>${pred.flatTime}</td>
-                <td>${formatPace(pred.flatPace)}</td>
-                <td>${formatPaceMile(pred.flatPace)}</td>
-                <td>+${Math.round(pred.hillAdjustment)}s/km</td>
             `;
       } else {
         row.innerHTML = `
@@ -99,19 +108,23 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM loaded'); // Debug log
 
   const calculateButton = document.getElementById('calculate-button');
+  const isHillyCheckbox = document.getElementById('is-hilly');
+
   console.log('Button found:', calculateButton); // Debug log
 
   if (calculateButton) {
     calculateButton.addEventListener('click', calculatePredictions);
     console.log('Event listener added to button'); // Debug log
-  } else {
-    console.error('Calculate button not found');
+  }
+
+  if (isHillyCheckbox) {
+    isHillyCheckbox.addEventListener('change', calculatePredictions);
+    console.log('Event listener added to hilly checkbox');
   }
 });
 
 // Add a helper function to format distance
 function formatDistance(km) {
-  // Find matching common distance
   const commonDistance = commonDistances.find(
     (d) => Math.abs(d.km - km) < 0.01
   );
