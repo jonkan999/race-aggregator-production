@@ -61,11 +61,16 @@ function calculatePredictions(event) {
   resultsBody.innerHTML = '';
 
   // Add new results
-  predictions.forEach((pred) => {
-    const row = document.createElement('tr');
-    if (isHilly) {
-      row.innerHTML = `
-                <td>${pred.distance} km</td>
+  predictions
+    .filter((pred) => {
+      // Only show predictions for our common distances
+      return commonDistances.some((d) => Math.abs(d.km - pred.distance) < 0.01);
+    })
+    .forEach((pred) => {
+      const row = document.createElement('tr');
+      if (isHilly) {
+        row.innerHTML = `
+                <td>${formatDistance(pred.distance)}</td>
                 <td>${pred.time}</td>
                 <td>${formatPace(pred.pace)}</td>
                 <td>${formatPaceMile(pred.pace)}</td>
@@ -74,16 +79,16 @@ function calculatePredictions(event) {
                 <td>${formatPaceMile(pred.flatPace)}</td>
                 <td>+${Math.round(pred.hillAdjustment)}s/km</td>
             `;
-    } else {
-      row.innerHTML = `
-                <td>${pred.distance} km</td>
+      } else {
+        row.innerHTML = `
+                <td>${formatDistance(pred.distance)}</td>
                 <td>${pred.time}</td>
                 <td>${formatPace(pred.pace)}</td>
                 <td>${formatPaceMile(pred.pace)}</td>
             `;
-    }
-    resultsBody.appendChild(row);
-  });
+      }
+      resultsBody.appendChild(row);
+    });
 
   // Show results
   resultsContainer.classList.remove('hidden');
@@ -103,3 +108,15 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error('Calculate button not found');
   }
 });
+
+// Add a helper function to format distance
+function formatDistance(km) {
+  // Find matching common distance
+  const commonDistance = commonDistances.find(
+    (d) => Math.abs(d.km - km) < 0.01
+  );
+  if (commonDistance) {
+    return commonDistance.name;
+  }
+  return `${km.toFixed(1)}km`;
+}

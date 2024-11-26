@@ -18,7 +18,7 @@ export function formatTime(seconds) {
 }
 
 export function calculateHillAdjustment(basePaceSeconds) {
-  if (isNaN(basePaceSeconds)) {
+  if (isNaN(basePaceSeconds) || basePaceSeconds <= 0) {
     console.error('Invalid base pace:', basePaceSeconds);
     return 0;
   }
@@ -34,8 +34,20 @@ export function interpolate(x, x1, x2, y1, y2) {
   return y1 + ((x - x1) * (y2 - y1)) / (x2 - x1);
 }
 
+// Define common race distances (in km) and their display names
+const commonDistances = [
+  { km: 1.60934, name: '1 Mile' },
+  { km: 3.21868, name: '2 Mile' },
+  { km: 5, name: '5K' },
+  { km: 10, name: '10K' },
+  { km: 15, name: '15K' },
+  { km: 21.0975, name: 'Half Marathon' },
+  { km: 42.195, name: 'Marathon' },
+];
+
 export function predictRaceTime(distance, time, isHilly = false) {
   console.log('predictRaceTime called with:', { distance, time, isHilly });
+
   const lookupTable = [
     {
       input_distance: 5.0,
@@ -3225,133 +3237,78 @@ export function predictRaceTime(distance, time, isHilly = false) {
     },
   ];
 
-  // Find the closest input combinations
-  let bestDist1 = lookupTable[0].input_distance;
-  let bestDist2 = bestDist1;
-  let bestTime1 = lookupTable[0].input_time;
-  let bestTime2 = bestTime1;
+  // Find closest points in lookup table
+  let closest = lookupTable
+    .map((entry) => ({
+      ...entry,
+      diff:
+        Math.abs(entry.input_distance - distance) +
+        Math.abs(entry.input_time - time) / 3600,
+    }))
+    .sort((a, b) => a.diff - b.diff)
+    .slice(0, 4);
 
-  for (const entry of lookupTable) {
-    if (entry.input_distance <= distance && entry.input_distance > bestDist1) {
-      bestDist1 = entry.input_distance;
-    }
-    if (entry.input_distance >= distance && entry.input_distance < bestDist2) {
-      bestDist2 = entry.input_distance;
-    }
-    if (entry.input_time <= time && entry.input_time > bestTime1) {
-      bestTime1 = entry.input_time;
-    }
-    if (entry.input_time >= time && entry.input_time < bestTime2) {
-      bestTime2 = entry.input_time;
-    }
-  }
+  console.log('Closest matches:', closest);
 
-  // Get the four corner predictions
-  const q11 = lookupTable.find(
-    (e) => e.input_distance === bestDist1 && e.input_time === bestTime1
-  );
-  const q12 = lookupTable.find(
-    (e) => e.input_distance === bestDist1 && e.input_time === bestTime2
-  );
-  const q21 = lookupTable.find(
-    (e) => e.input_distance === bestDist2 && e.input_time === bestTime1
-  );
-  const q22 = lookupTable.find(
-    (e) => e.input_distance === bestDist2 && e.input_time === bestTime2
-  );
+  // Get base prediction from closest match
+  const basePredictions = closest[0].predictions.map((pred) => {
+    // Calculate scaling factors
+    const distanceRatio = distance / closest[0].input_distance;
+    const timeRatio = time / closest[0].input_time;
+    const paceRatio = timeRatio / distanceRatio;
 
-  // Get all unique prediction distances
-  const allDistances = new Set();
-  [q11, q12, q21, q22].forEach((q) => {
-    if (q) q.predictions.forEach((p) => allDistances.add(p.distance));
+    // Scale the pace based on the ratios
+    let adjustedPace = pred.pace * paceRatio;
+
+    if (isHilly) {
+      const hillAdjustment = calculateHillAdjustment(adjustedPace);
+      return {
+        distance: pred.distance,
+        distanceMiles: pred.distance / 1.60934,
+        pace: adjustedPace + hillAdjustment,
+        flatPace: adjustedPace,
+        hillAdjustment: hillAdjustment,
+        time: formatTime((adjustedPace + hillAdjustment) * pred.distance),
+        flatTime: formatTime(adjustedPace * pred.distance),
+      };
+    }
+
+    return {
+      distance: pred.distance,
+      distanceMiles: pred.distance / 1.60934,
+      pace: adjustedPace,
+      time: formatTime(adjustedPace * pred.distance),
+    };
   });
 
-  return Array.from(allDistances)
-    .sort((a, b) => a - b)
-    .map((predDist) => {
-      // Find pace at each corner
-      const getPace = (q, d) => {
-        if (!q) return null;
-        const pred = q.predictions.find((p) => p.distance === predDist);
-        return pred ? pred.pace : null;
-      };
+  // Add debug logging
+  console.log('Base predictions:', basePredictions);
 
-      const p11 = getPace(q11, predDist);
-      const p12 = getPace(q12, predDist);
-      const p21 = getPace(q21, predDist);
-      const p22 = getPace(q22, predDist);
-
-      if (!p11 || !p12 || !p21 || !p22) return null;
-
-      // Add this debug logging
-      console.log('Interpolation values:', {
-        bestDist1,
-        bestDist2,
-        bestTime1,
-        bestTime2,
-        t: (time - bestTime1) / (bestTime2 - bestTime1),
-        u: (distance - bestDist1) / (bestDist2 - bestDist1),
-      });
-
-      // Modify the interpolation logic to handle edge cases
-      const t =
-        bestTime2 === bestTime1
-          ? 0
-          : (time - bestTime1) / (bestTime2 - bestTime1);
-      const u =
-        bestDist2 === bestDist1
-          ? 0
-          : (distance - bestDist1) / (bestDist2 - bestDist1);
-
-      // Add validation before interpolation
-      if (isNaN(t) || isNaN(u)) {
-        console.error('Invalid interpolation parameters:', {
-          t,
-          u,
-          bestTime1,
-          bestTime2,
-          bestDist1,
-          bestDist2,
-        });
-        return null;
-      }
-
-      let pace =
-        (1 - t) * (1 - u) * p11 +
-        t * (1 - u) * p12 +
-        (1 - t) * u * p21 +
-        t * u * p22;
-
-      // Validate pace before returning
-      if (isNaN(pace)) {
-        console.error('Invalid pace calculation:', {
-          p11,
-          p12,
-          p21,
-          p22,
-          t,
-          u,
-        });
-        return null;
-      }
-
-      if (isHilly) {
-        const hillAdjustment = calculateHillAdjustment(pace);
-        return {
-          distance: predDist,
-          pace: pace + hillAdjustment,
-          flatPace: pace,
-          hillAdjustment: hillAdjustment,
-          time: formatTime((pace + hillAdjustment) * predDist),
-          flatTime: formatTime(pace * predDist),
-        };
-      }
-
+  // Special handling for the input distance
+  const predictions = basePredictions.map((pred) => {
+    // If this prediction is for the input distance, use the input time
+    if (Math.abs(pred.distance - distance) < 0.01) {
       return {
-        distance: predDist,
-        pace: pace,
-        time: formatTime(pace * predDist),
+        ...pred,
+        time: formatTime(time),
+        pace: time / distance,
+        flatPace: time / distance,
       };
-    })
-    .filter((p) => p !== null);
+    }
+    return pred;
+  });
+
+  return predictions;
+}
+
+// Update the formatDistance helper function
+function formatDistance(km) {
+  // Find matching common distance
+  const commonDistance = commonDistances.find(
+    (d) => Math.abs(d.km - km) < 0.01
+  );
+  if (commonDistance) {
+    return commonDistance.name;
+  }
+  return `${km.toFixed(1)}km`;
 }
