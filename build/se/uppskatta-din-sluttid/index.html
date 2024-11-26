@@ -338,6 +338,14 @@
           </div>
         </div>
 
+        <!-- Add this after the time inputs and before the button -->
+        <div class="form-group">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="is-hilly" class="form-checkbox" />
+            <label for="is-hilly">Kuperad bana</label>
+          </div>
+        </div>
+
         <button type="button" class="btn btn--full" id="calculate-button">
           Beräkna tider
         </button>
@@ -349,7 +357,10 @@
           <thead>
             <tr>
               <th>Distans</th>
-              <th>Uppskattad tid</th>
+              <th>Uppskattad sluttid</th>
+              <th>Min/km</th>
+              <th>Min/mile</th>
+              
             </tr>
           </thead>
           <tbody id="results-body">

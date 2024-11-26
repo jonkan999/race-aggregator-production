@@ -60,6 +60,14 @@
           </div>
         </div>
 
+        <!-- Add this after the time inputs and before the button -->
+        <div class="form-group">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="is-hilly" class="form-checkbox" />
+            <label for="is-hilly">{{ hilly_course_label }}</label>
+          </div>
+        </div>
+
         <button type="button" class="btn btn--full" id="calculate-button">
           {{ calculate_button_text }}
         </button>
@@ -71,7 +79,15 @@
           <thead>
             <tr>
               <th>{{ distance_header }}</th>
-              <th>{{ predicted_time_header }}</th>
+              <th>{{ finish_time_header }}</th>
+              <th>{{ pace_per_km_header }}</th>
+              <th>{{ pace_per_mile_header }}</th>
+              {% if is_hilly %}
+              <th>{{ flat_time_header }}</th>
+              <th>{{ flat_pace_per_km_header }}</th>
+              <th>{{ flat_pace_per_mile_header }}</th>
+              <th>{{ hill_adjustment_header }}</th>
+              {% endif %}
             </tr>
           </thead>
           <tbody id="results-body">
