@@ -86,6 +86,22 @@ def compile_less_to_css():
     except Exception as e:
         print(f"General error during LESS compilation: {e}")
 
+def copy_json_files(country_code, country_output_dir):
+    """Copy JSON files from country's json folder to build/country/json directory."""
+    source_json_dir = Path(data_dir, country_code, 'json')
+    dest_json_dir = Path(country_output_dir, 'json')
+    
+    if source_json_dir.exists():
+        # Create destination directory if it doesn't exist
+        os.makedirs(dest_json_dir, exist_ok=True)
+        
+        # Copy all JSON files
+        for json_file in source_json_dir.glob('*.json'):
+            shutil.copy2(json_file, dest_json_dir)
+            print(f"Copied {json_file} to {dest_json_dir}")
+    else:
+        print(f"JSON directory for {country_code} not found at {source_json_dir}")
+
 def generate_country(country_code):
     country_dir = os.path.join(data_dir, country_code)
     
@@ -164,6 +180,9 @@ def generate_country(country_code):
 
     # Copy common files to the country output directory
     copy_common_files(country_output_dir)
+
+    # Copy JSON files to the build directory
+    copy_json_files(country_code, country_output_dir)
 
     # Copy race_page images
     # copy_folder(Path(data_dir, country_code, 'race-pages'), Path(output_dir, country_code, 'race-pages'))

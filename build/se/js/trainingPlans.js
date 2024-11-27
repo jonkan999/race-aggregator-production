@@ -64,7 +64,9 @@ let trainingPlans = null;
 
 async function loadTrainingPlans() {
   try {
-    const response = await fetch('/js/training_plans_se.json');
+    const response = await fetch(
+      `/json/training_plans_se.json`
+    );
     trainingPlans = await response.json();
   } catch (error) {
     console.error(translations.errors.loading_plans, error);
@@ -131,13 +133,59 @@ function calculatePaces(targetTime, targetDistance) {
   const distanceInKm = targetDistance / 1000;
   const goalPace = totalMinutes / distanceInKm;
 
-  // Calculate training paces based on goal pace
+  // Define pace adjustments based on race distance
+  const paceAdjustments = {
+    5000: {
+      // 5K
+      EASY_PACE: 1.2, // 72s/km slower
+      LONG_PACE: 0.85, // 51s/km slower
+      TEMPO_PACE: 0, // Same as race pace
+      INTERVAL_PACE: 0.1, // 6s/km faster
+      RECOVERY_PACE: 1.0, // 60s/km slower
+    },
+    10000: {
+      // 10K
+      EASY_PACE: 1.1, // 66s/km slower
+      LONG_PACE: 0.75, // 45s/km slower
+      TEMPO_PACE: 0.1, // 6s/km faster
+      INTERVAL_PACE: 0.15, // 9s/km faster
+      RECOVERY_PACE: 1.25, // 75s/km slower
+    },
+    21097: {
+      // Half Marathon
+      EASY_PACE: 1, // 60s/km slower
+      LONG_PACE: 0.6, // 36s/km slower
+      TEMPO_PACE: 0.2, // 12s/km faster
+      INTERVAL_PACE: 0.4, // 24s/km faster
+      RECOVERY_PACE: 1.35, // 81s/km slower
+    },
+    42195: {
+      // Marathon
+      EASY_PACE: 0.9, // 54s/km slower
+      LONG_PACE: 0.5, // 30s/km slower
+      TEMPO_PACE: 0.25, // 15s/km faster
+      INTERVAL_PACE: 0.5, // 30s/km faster
+      RECOVERY_PACE: 1.5, // 90s/km slower
+    },
+  };
+
+  // Find the closest matching distance
+  const distances = Object.keys(paceAdjustments).map(Number);
+  const closestDistance = distances.reduce((prev, curr) => {
+    return Math.abs(curr - targetDistance) < Math.abs(prev - targetDistance)
+      ? curr
+      : prev;
+  });
+
+  const adjustments = paceAdjustments[closestDistance];
+
+  // Calculate training paces based on goal pace and distance-specific adjustments
   return {
-    EASY_PACE: formatPace(goalPace + 1.0), // 1:00 min/km slower than goal
-    LONG_PACE: formatPace(goalPace + 0.5), // 0:30 min/km slower than goal
-    TEMPO_PACE: formatPace(goalPace - 0.25), // 0:15 min/km faster than goal
-    INTERVAL_PACE: formatPace(goalPace - 0.5), // 0:30 min/km faster than goal
-    RECOVERY_PACE: formatPace(goalPace + 1.5), // 1:30 min/km slower than goal
+    EASY_PACE: formatPace(goalPace + adjustments.EASY_PACE),
+    LONG_PACE: formatPace(goalPace + adjustments.LONG_PACE),
+    TEMPO_PACE: formatPace(goalPace - adjustments.TEMPO_PACE),
+    INTERVAL_PACE: formatPace(goalPace - adjustments.INTERVAL_PACE),
+    RECOVERY_PACE: formatPace(goalPace + adjustments.RECOVERY_PACE),
   };
 }
 
