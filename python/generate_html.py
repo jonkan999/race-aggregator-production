@@ -103,14 +103,14 @@ def generate_country(country_code):
     
     # Load country-specific forum data
     with open(os.path.join(country_dir, 'forum_posts.json')) as f:
-        race_wall_posts = json.load(f)
+        dummy_forum_posts = json.load(f)
     
     # Merge global content with country-specific content
     content = {
         **global_content, 
         **index_content,
         'races': races,
-        'race_wall_posts': race_wall_posts,
+        'dummy_forum_posts': dummy_forum_posts,
         'race_type': index_content.get('race_type', 'Other'),
         'race_page_folder_name': index_content.get('race_page_folder_name'),
         'distance_filter': distance_filter,
