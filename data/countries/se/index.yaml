@@ -540,25 +540,174 @@ clear_route: 'Rensa rutt'
 total_distance: 'Total distans'
 
 # Training Plans Page
-training_plans_title: 'Träningsprogram'
-training_plans_description: 'Skapa ett anpassat träningsprogram baserat på ditt mål'
-target_distance_label: 'Måldistans'
-target_time_label: 'Måltid'
-training_days_label: 'Träningsdagar per vecka'
-days_per_week: 'dagar/vecka'
-hilly_course_label: 'Kuperad bana'
-generate_plan_button: 'Skapa träningsprogram'
-training_plan_title: 'Ditt träningsprogram'
-plan_duration_label: 'Programlängd'
-weekly_distance_label: 'Veckodistans'
-race_date_label: 'Tävlingsdatum'
-days_until_race: 'Dagar till tävling'  # For displaying countdown
-please_select_date: 'Vänligen välj ett datum'
+training_plans:
+  title: 'Träningsprogram'
+  description: 'Skapa ett anpassat träningsprogram baserat på ditt mål'
+  form:
+    race_date_label: 'Tävlingsdatum'
+    plan_type_label: 'Typ av plan'
+    target_distance_label: 'Måldistans'
+    target_time_label: 'Måltid'
+    training_days_label: 'Träningsdagar per vecka'
+    session_time_label: 'Tid tillgänglig per pass'
+    is_hilly_label: 'Kuperad terräng'
+    hours_placeholder: 'Timmar'
+    minutes_placeholder: 'Minuter'
+    seconds_placeholder: 'Sekunder'
+    submit_button: 'Generera träningsplan'
+    target_distance:
+      placeholder: 'Välj distans'
+      options:
+        '5000': '5 km'
+        '10000': '10 km'
+        '21097': 'Halvmaraton'
+        '42194': 'Maraton'
+    plan_type:
+      placeholder: 'Välj plantyp'
+      options:
+        maraton: 'Maraton'
+        fartfokus: 'Fartfokus'
+        uthallighetsfokus: 'Uthållighetsfokus'
+        balanserad: 'Balanserad'
+    training_days:
+      placeholder: 'Välj antal dagar'
+      options:
+        '3': '3 dagar'
+        '4': '4 dagar'
+        '5': '5 dagar'
+        '6': '6 dagar'
+    session_time:
+      placeholder: 'Välj tid per pass'
+      options:
+        '30-45': '30-45 minuter'
+        '45-60': '45-60 minuter'
+        '60-90': '60-90 minuter'
+        '90+': '90+ minuter'
 
-# Training types
-training_type:
-  easy_run: 'Lugnt pass'
-  tempo_run: 'Tempopass'
-  intervals: 'Intervaller'
-  long_run: 'Långpass'
-  rest_day: 'Vila'
+  results:
+    title: 'Ditt träningsprogram'
+    variations:
+      title: 'Välj en variant som passar dig:'
+    plan_details:
+      duration_label: 'Programlängd:'
+      weekly_distance_label: 'Veckodistans:'
+    regenerate_button: 'Visa andra varianter'
+
+  workout_types:
+    easy: 'Lugnt pass'
+    tempo: 'Tempopass'
+    intervals: 'Intervaller'
+    long: 'Långpass'
+    rest: 'Vila'
+
+  messages:
+    weeks: 'veckor'
+    week_label: 'Vecka'
+    hilly_terrain_note: 'anpassat för kuperad terräng'
+
+  plan_variation:
+    focus_label: 'Fokus'
+    weekly_structure_label: 'Veckostruktur'
+    distribution_label: 'Fördelning'
+    sessions_per_week: 'pass per vecka'
+    select_button: 'Välj denna plan'
+
+  errors:
+    loading_plans: 'Fel vid laddning av träningsprogram'
+    required_fields: 'Vänligen fyll i alla obligatoriska fält'
+    no_matching_plan: 'Ingen matchande träningsplan hittades'
+    no_matching_variations: 'Inga matchande variationer hittades'
+    invalid_training_days: 'Antalet träningsdagar matchar inte planens krav'
+
+  week: 'Vecka'
+  weeks: 'veckor'
+  hilly_terrain_note: 'anpassat för kuperad terräng'
+  plan_structure:
+    phases:
+      base:
+        duration_percent: 40
+        focus: 'Uppbyggnad av grundkondition'
+        weekly_template:
+          monday: { type: 'easy', description: 'Lugnt distanspass' }
+          wednesday: { type: 'tempo', description: 'Tempopass' }
+          saturday: { type: 'long', description: 'Långpass' }
+          sunday: { type: 'recovery', description: 'Återhämtning' }
+      
+      build:
+        duration_percent: 40
+        focus: 'Ökad intensitet och distans'
+        weekly_template:
+          monday: { type: 'easy', description: 'Lugnt distanspass' }
+          wednesday: { type: 'intervals', description: 'Intervaller' }
+          friday: { type: 'tempo', description: 'Tempopass' }
+          sunday: { type: 'long', description: 'Långpass' }
+      
+      peak:
+        duration_percent: 15
+        focus: 'Toppning och specifik träning'
+        weekly_template:
+          tuesday: { type: 'intervals', description: 'Kvalitetspass' }
+          thursday: { type: 'tempo', description: 'Tempopass' }
+          saturday: { type: 'long', description: 'Långpass' }
+          sunday: { type: 'recovery', description: 'Återhämtning' }
+      
+      taper:
+        duration_percent: 5
+        focus: 'Formtoppning'
+        weekly_template:
+          tuesday: { type: 'easy', description: 'Lugnt pass' }
+          thursday: { type: 'tempo', description: 'Kort tempopass' }
+          saturday: { type: 'easy', description: 'Mycket lugnt pass' }
+
+    session_types:
+      easy:
+        intensity_adjustment: 60  # seconds slower than goal pace
+        duration_range: { min: 30, max: 60 }
+        warmup: '10-15 min lugn jogg'
+        cooldown: '5-10 min lugn jogg'
+      
+      tempo:
+        intensity_adjustment: -20  # seconds faster than goal pace
+        duration_range: { min: 40, max: 70 }
+        warmup: '15-20 min progressiv uppvärmning'
+        cooldown: '10-15 min nedvarvning'
+      
+      intervals:
+        intensity_adjustment: -30
+        duration_range: { min: 45, max: 75 }
+        warmup: '20 min inkl. löpskolning och stegringslopp'
+        cooldown: '10-15 min lugn jogg'
+      
+      long:
+        intensity_adjustment: 30
+        duration_range: { min: 60, max: 180 }
+        warmup: '10-15 min mycket lugn jogg'
+        cooldown: '5-10 min gång/lätt jogg'
+      
+      recovery:
+        intensity_adjustment: 90
+        duration_range: { min: 30, max: 45 }
+        warmup: '5-10 min gång'
+        cooldown: '5-10 min gång'
+
+    terrain_adjustment: 15  # seconds added per km for hilly terrain
+
+  # Messages and labels
+  workout_components:
+    warmup_label: 'Uppvärmning'
+    main_workout_label: 'Passbeskrivning'
+    cooldown_label: 'Nedvarvning'
+    intensity_label: 'Tempo'
+    duration_label: 'Tid'
+    
+  regenerate:
+    button_text: 'Generera ny variant'
+    confirmation: 'Är du säker på att du vill generera en ny variant?'
+  weekdays:
+    monday: 'Måndag'
+    tuesday: 'Tisdag'
+    wednesday: 'Onsdag'
+    thursday: 'Torsdag'
+    friday: 'Fredag'
+    saturday: 'Lördag'
+    sunday: 'Söndag'

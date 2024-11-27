@@ -15,6 +15,16 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 2.4rem 0;
 
+    h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .plan-highlights {
+      ul {
+        padding-left: 2rem;
+      }
+    }
+
     .overview-item {
       display: flex;
       flex-direction: column;
@@ -24,7 +34,7 @@
       border-radius: var(--border-radius);
 
       .label {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         color: var(--color-grey-dark-2);
         text-transform: uppercase;
         letter-spacing: 0.5px;
@@ -40,6 +50,8 @@
 
   #training-schedule {
     margin-top: 2.4rem;
+    font-size: 1.6rem;
+    line-height: 1.5;
 
     .week-container {
       background: white;
@@ -55,7 +67,16 @@
         border-bottom: 2px solid var(--color-background-light);
         margin-bottom: 2rem;
       }
-
+      .training-session {
+        h4 {
+          margin-bottom: 0.5rem;
+        }
+        .workout-details {
+          color: var(--color-grey-dark-2);
+          padding-left: 1rem;
+          margin-bottom: 0.8rem;
+        }
+      }
       .training-day {
         display: grid;
         grid-template-columns: 12rem 1fr;
