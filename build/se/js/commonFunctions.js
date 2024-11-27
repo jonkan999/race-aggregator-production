@@ -76,6 +76,13 @@ function initActiveNavigation() {
       (href === '/' && currentPath === '/')
     ) {
       item.classList.add('active');
+      // Smoothly scroll the active item into view
+      setTimeout(() => {
+        item.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+        });
+      }, 100); // Small delay to ensure DOM is ready
     } else {
       item.classList.remove('active');
     }
