@@ -49,10 +49,45 @@
   <body>
     <!-- Page content -->
     <main> <section class="ad-banner">
-<span class="ad-banner-text">Ad banner</span>
+  <div class="ad-banner-controls">
+    <button class="minimize-button" aria-label="Minimize ad">
+      <ion-icon name="chevron-down-outline"></ion-icon>
+    </button>
+  </div>
+
+  <div class="ad-content">
+    <!-- Default content shown while ad loads -->
+    <div class="ad-placeholder">
+      <div class="ad-placeholder-content">
+        <span class="ad-placeholder-text">Annons</span>
+        <div class="ad-placeholder-fallback">
+          <!-- Add a test image or text for local development -->
+          <div class="test-ad-content">Test Ad Banner - Local Development</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AdSense ad -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <ins
+      class="adsbygoogle"
+      style="display: block"
+      data-ad-client="ca-pub-7076760775175370"
+      data-ad-slot="2240363608"
+      data-ad-format="auto"
+      data-full-width-responsive="true"
+    ></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 </section> <section class="section-header-menu">
   <div class="upper-header">
-    <a href="/index.html" class="logo-container">
+    <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
     /></a>
 
@@ -78,49 +113,75 @@
   </div>
   <nav class="main-nav-container right-scroller">
     
-    <a class="nav-container" href="/allt.html"
-      ><span class="nav-item">Allt</span></a
-    >
     
-    <a class="nav-container" href="/loppkalender.html"
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Allt</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/loppkalender"
       ><span class="nav-item">Loppkalender</span></a
     >
     
-    <a class="nav-container" href="/lagg-till-lopp.html"
+    
+    
+    
+    <a class="nav-container" href="/lagg-till-lopp"
       ><span class="nav-item">Lägg till lopp</span></a
     >
     
-    <a class="nav-container" href="/forum.html"
+    
+    
+    
+    <a class="nav-container" href="/forum"
       ><span class="nav-item">Forum</span></a
     >
     
-    <a class="nav-container" href="/nyheter.html"
-      ><span class="nav-item">Nyheter</span></a
-    >
     
-    <a class="nav-container" href="/marknadsplats.html"
-      ><span class="nav-item">Marknadsplats</span></a
-    >
     
-    <a class="nav-container" href="/produkter.html"
-      ><span class="nav-item">Produkter</span></a
-    >
     
-    <a class="nav-container" href="/mat-din-runda.html"
+    <a class="nav-container" href="/mat-din-runda"
       ><span class="nav-item">Mät din runda</span></a
     >
     
-    <a class="nav-container" href="/traningsprogram.html"
+    
+    
+    
+    <a class="nav-container" href="/traningsprogram"
       ><span class="nav-item">Träningsprogram</span></a
     >
     
-    <a class="nav-container" href="/fartomvandlare.html"
+    
+    
+    
+    <a class="nav-container" href="/fartomvandlare"
       ><span class="nav-item">Fartomvandlare</span></a
     >
     
-    <a class="nav-container" href="/uppskatta-din-sluttid.html"
+    
+    
+    
+    <a class="nav-container" href="/uppskatta-din-sluttid"
       ><span class="nav-item">Uppskatta din sluttid</span></a
     >
+    
+    
+    
+    
+    <a class="nav-container" href="/om-oss"
+      ><span class="nav-item">Om oss</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/kontakta-oss"
+      ><span class="nav-item">Kontakta oss</span></a
+    >
+    
+    
     
   </nav>
 
@@ -348,7 +409,7 @@
   <ul class="highlights-container">
     <div class="highlight-stars">
       <ion-icon name="star" role="img" aria-label="star"></ion-icon>
-      <a id="race-website" href="https://www.kolmardstrailen.se/" target="_blank"
+      <a id="race-website" href="https://www.kolmardsrundan.se/" target="_blank"
         >Länk till anmälan</a
       >
     </div>
@@ -428,11 +489,11 @@ För barn upp till 10 år finns också en 500 m lång bana.</p>
       <h2>Höjdpunkter</h2>
       <ul class="race-info-list course-highlights">
         
-        <li style="display: list-item">Utmanande banor i naturskön terräng där vi lagt stor vikt på upplevelsen.</li>
+        <li style="display: list-item">Tuff och teknisk löpning i mycket vacker och skön terräng som bjuder på det mesta i underlag förutom asfalt!</li>
         
-        <li style="display: list-item">Deltagare kan välja mellan distanserna 21 km, 10 km och 6 km.</li>
+        <li style="display: list-item">De sista 4-5 km följer man Kvarseboklints tekniska och tuffa bergsrygg, förbi mytomspunna "Skrevan".</li>
         
-        <li style="display: list-item">Loppet går på små stigar och i obanad terräng varje år i maj månad.</li>
+        <li style="display: list-item">Vid målgång serveras en härlig varm soppa!</li>
         
       </ul>
       
@@ -510,8 +571,8 @@ För barn upp till 10 år finns också en 500 m lång bana.</p>
         <li id="detail-race-website" style="display: list-item">
           <strong>Arrangörshemsida:</strong>
           
-          <a href="https://www.kolmardstrailen.se/" target="_blank" rel="noopener noreferrer"
-            >https://www.kolmardstrailen.se/</a
+          <a href="https://www.kolmardsrundan.se/" target="_blank" rel="noopener noreferrer"
+            >https://www.kolmardsrundan.se/</a
           >
           
         </li>
@@ -533,6 +594,17 @@ För barn upp till 10 år finns också en 500 m lång bana.</p>
       </ul>
     </div>
     
+    <div class="social-links">
+      <h2>Följ loppet</h2>
+      <div class="social-icons">
+         
+        <a href="https://www.instagram.com/explore/locations/896082481/kolmardsrundan/?next=%2Fbluegodzi%2Ftagged%2F&locale=%E5%9C%A8%E7%BA%BF%E5%AE%9A%E5%88%B6%E5%A1%94%E5%90%89%E5%85%8B%E6%96%AF%E5%9D%A6TEF%E8%AF%81%E4%B9%A6%E8%81%94%E7%B3%BB%7B%E5%A8%81%E4%BF%A1%2BTG%2F%E9%A3%9E%E6%9C%BA%3A%40buth2788%7DsjwNH%3F%3F%3F%3F%3F%3F%D1%A7%3F%3F%C6%BESwQuO" target="_blank" rel="noopener noreferrer">
+          <ion-icon name="logo-instagram" aria-label="Instagram"></ion-icon>
+        </a>
+        
+      </div>
+    </div>
+    
 
     <div
       id="map-placeholder"
@@ -545,7 +617,7 @@ För barn upp till 10 år finns också en 500 m lång bana.</p>
   <div class="organizer-website-button-container">
     <a
       id="organizer-website-button"
-      href="https://www.kolmardstrailen.se/"
+      href="https://www.kolmardsrundan.se/"
       target="_blank"
       rel="noopener noreferrer"
       class="organizer-website-button"

@@ -49,10 +49,45 @@
   <body>
     <!-- Page content -->
     <main> <section class="ad-banner">
-<span class="ad-banner-text">Ad banner</span>
+  <div class="ad-banner-controls">
+    <button class="minimize-button" aria-label="Minimize ad">
+      <ion-icon name="chevron-down-outline"></ion-icon>
+    </button>
+  </div>
+
+  <div class="ad-content">
+    <!-- Default content shown while ad loads -->
+    <div class="ad-placeholder">
+      <div class="ad-placeholder-content">
+        <span class="ad-placeholder-text">Annons</span>
+        <div class="ad-placeholder-fallback">
+          <!-- Add a test image or text for local development -->
+          <div class="test-ad-content">Test Ad Banner - Local Development</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AdSense ad -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <ins
+      class="adsbygoogle"
+      style="display: block"
+      data-ad-client="ca-pub-7076760775175370"
+      data-ad-slot="2240363608"
+      data-ad-format="auto"
+      data-full-width-responsive="true"
+    ></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 </section> <section class="section-header-menu">
   <div class="upper-header">
-    <a href="/index.html" class="logo-container">
+    <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
     /></a>
 
@@ -78,49 +113,75 @@
   </div>
   <nav class="main-nav-container right-scroller">
     
-    <a class="nav-container" href="/allt.html"
-      ><span class="nav-item">Allt</span></a
-    >
     
-    <a class="nav-container" href="/loppkalender.html"
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Allt</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/loppkalender"
       ><span class="nav-item">Loppkalender</span></a
     >
     
-    <a class="nav-container" href="/lagg-till-lopp.html"
+    
+    
+    
+    <a class="nav-container" href="/lagg-till-lopp"
       ><span class="nav-item">Lägg till lopp</span></a
     >
     
-    <a class="nav-container" href="/forum.html"
+    
+    
+    
+    <a class="nav-container" href="/forum"
       ><span class="nav-item">Forum</span></a
     >
     
-    <a class="nav-container" href="/nyheter.html"
-      ><span class="nav-item">Nyheter</span></a
-    >
     
-    <a class="nav-container" href="/marknadsplats.html"
-      ><span class="nav-item">Marknadsplats</span></a
-    >
     
-    <a class="nav-container" href="/produkter.html"
-      ><span class="nav-item">Produkter</span></a
-    >
     
-    <a class="nav-container" href="/mat-din-runda.html"
+    <a class="nav-container" href="/mat-din-runda"
       ><span class="nav-item">Mät din runda</span></a
     >
     
-    <a class="nav-container" href="/traningsprogram.html"
+    
+    
+    
+    <a class="nav-container" href="/traningsprogram"
       ><span class="nav-item">Träningsprogram</span></a
     >
     
-    <a class="nav-container" href="/fartomvandlare.html"
+    
+    
+    
+    <a class="nav-container" href="/fartomvandlare"
       ><span class="nav-item">Fartomvandlare</span></a
     >
     
-    <a class="nav-container" href="/uppskatta-din-sluttid.html"
+    
+    
+    
+    <a class="nav-container" href="/uppskatta-din-sluttid"
       ><span class="nav-item">Uppskatta din sluttid</span></a
     >
+    
+    
+    
+    
+    <a class="nav-container" href="/om-oss"
+      ><span class="nav-item">Om oss</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/kontakta-oss"
+      ><span class="nav-item">Kontakta oss</span></a
+    >
+    
+    
     
   </nav>
 
@@ -290,19 +351,19 @@
           <div id="race-location" class="race-location">Halland</div>
         </div>
         <div class="race-info-bottom">
-          <div id="race-type" class="race-type">Trail</div>
+          <div id="race-type" class="race-type">Backyard Ultra</div>
           <div id="race-distances" class="race-distances">
              
             <div class="race-distance">
-              5 km
+              1 km
             </div>
             
             <div class="race-distance">
-              12 km
+              Halvmarathon
             </div>
             
             <div class="race-distance">
-              22 km
+              Marathon
             </div>
             
             <div class="race-distance">
@@ -367,7 +428,7 @@
       aria-label="location outline"
     ></ion-icon>
     <p id="primary-highlight-race-location" class="highlight-place">
-      Öströö Fårfarm
+      Ästad Vingård
     </p>
   </div>
 
@@ -388,7 +449,7 @@
       <p>
         <span>Distanser:</span>
         <span id="highlight-race-distances">
-           5 km,  12 km,  22 km,  44 km,  ultra  
+           1 km,  Halvmarathon,  Marathon,  44 km,  ultra  
         </span>
       </p>
     </li>
@@ -401,7 +462,7 @@
       ></ion-icon>
       <p>
         <span>Underlag:</span>
-        <span id="highlight-race-type">Trail</span>
+        <span id="highlight-race-type">Backyard Ultra</span>
       </p>
     </li>
 
@@ -413,7 +474,7 @@
       ></ion-icon>
       <p>
         <span>Plats:</span>
-        <span id="highlight-race-location">Öströö Fårfarm</span>
+        <span id="highlight-race-location">Ästad Vingård</span>
       </p>
     </li>
 
@@ -444,7 +505,7 @@ kan inte garantera att allt är korrekt. Ser du några felaktigheter,
           så rättar vi till det snarast.
         </p>
       </div>
-      <p id="race-summary">Välkomna till de sju sjöarnas trailrace i magiska bokskogar, trolska granskogar och mytiska mossar! Vi bjuder på fantastiska stigar, offtrail, grusvägar och himmelsk bokskogslöpning där alla sinnen får sig en lustfylld resa. Välj mellan 5 km, 12 km, 22 km eller Ultra 44 km och njut av stigarna som Bockstensmannen en gång vandrade.</p>
+      <p id="race-summary">Bocksten Vineyard Backyard Ultra äger rum den 6 september 2025 kl. 09:00 och är ett "Last One Standing"-lopp som erbjuder distanser av mil, halvmara, mara eller Ultra (44 km). Loppet följer en 6.7 km lång rundbana i Ästad Vingårds vackra omgivningar med start varje hel timme. Första starten går kl. 09:00, och alla som hinner runt banan startar igen för nästa varv. Tävlingen fortsätter tills endast en deltagare är kvar, som springer ett avslutande eget varv.</p>
     </div>
 
     
@@ -452,11 +513,11 @@ kan inte garantera att allt är korrekt. Ser du några felaktigheter,
       <h2>Höjdpunkter</h2>
       <ul class="race-info-list course-highlights">
         
-        <li style="display: list-item">Fantastiska stigar, offtrail, grusvägar och himmelsk bokskogslöpning.</li>
+        <li style="display: list-item">Loppet följer en 6.7 km lång rundbana i Ästad Vingårds vackra omgivningar.</li>
         
-        <li style="display: list-item">Välj mellan 5 km, 12 km, 22 km eller Ultra 44 km!</li>
+        <li style="display: list-item">Njut av tekniska stigar, sjungande bokskogar, trolska granskogar, glittrande sjöar och många härliga höjdmeter!</li>
         
-        <li style="display: list-item">En lustfylld resa där alla sinnen får sig en upplevelse.</li>
+        <li style="display: list-item">Välkomna till Hallands vackraste Traillopp i historisk miljö!</li>
         
       </ul>
       
@@ -520,14 +581,14 @@ kan inte garantera att allt är korrekt. Ser du några felaktigheter,
         <li id="detail-race-location" style="display: list-item">
           <strong>Namn på plats där loppet arrangeras:</strong>
           
-          <span>Öströö Fårfarm</span>
+          <span>Ästad Vingård</span>
           
         </li>
           
         <li id="detail-race-distance" style="display: list-item">
           <strong>Distanser:</strong>
           <span>
-             5 km,  12 km,  22 km,  44 km,  ultra  
+             1 km,  Halvmarathon,  Marathon,  44 km,  ultra  
           </span>
         </li>
                 
@@ -543,7 +604,7 @@ kan inte garantera att allt är korrekt. Ser du några felaktigheter,
         <li id="detail-race-type_local" style="display: list-item">
           <strong>Typ av underlag / Typ av lopp</strong>
           
-          <span>Trail</span>
+          <span>Backyard Ultra</span>
           
         </li>
          
@@ -554,7 +615,7 @@ kan inte garantera att allt är korrekt. Ser du några felaktigheter,
       <h2>Följ loppet</h2>
       <div class="social-icons">
         
-        <a href="https://m.facebook.com/events/d41d8cd9/bocksten-vineyard-backyard-ultra/1674649376374215/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.facebook.com/events/d41d8cd9/bocksten-vineyard-backyard-ultra/1674649376374215/" target="_blank" rel="noopener noreferrer">
           <ion-icon name="logo-facebook" aria-label="Facebook"></ion-icon>
         </a>
          
@@ -564,8 +625,8 @@ kan inte garantera att allt är korrekt. Ser du några felaktigheter,
 
     <div
       id="map-placeholder"
-      data-latitude="57.0687055"
-      data-longitude="12.5065709"
+      data-latitude="57.0648899"
+      data-longitude="12.5573483"
       data-zoom="6"
       class="race-map"
     ></div>

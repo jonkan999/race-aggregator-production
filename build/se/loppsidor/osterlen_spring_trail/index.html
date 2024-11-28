@@ -49,10 +49,45 @@
   <body>
     <!-- Page content -->
     <main> <section class="ad-banner">
-<span class="ad-banner-text">Ad banner</span>
+  <div class="ad-banner-controls">
+    <button class="minimize-button" aria-label="Minimize ad">
+      <ion-icon name="chevron-down-outline"></ion-icon>
+    </button>
+  </div>
+
+  <div class="ad-content">
+    <!-- Default content shown while ad loads -->
+    <div class="ad-placeholder">
+      <div class="ad-placeholder-content">
+        <span class="ad-placeholder-text">Annons</span>
+        <div class="ad-placeholder-fallback">
+          <!-- Add a test image or text for local development -->
+          <div class="test-ad-content">Test Ad Banner - Local Development</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AdSense ad -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <ins
+      class="adsbygoogle"
+      style="display: block"
+      data-ad-client="ca-pub-7076760775175370"
+      data-ad-slot="2240363608"
+      data-ad-format="auto"
+      data-full-width-responsive="true"
+    ></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 </section> <section class="section-header-menu">
   <div class="upper-header">
-    <a href="/index.html" class="logo-container">
+    <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
     /></a>
 
@@ -78,49 +113,75 @@
   </div>
   <nav class="main-nav-container right-scroller">
     
-    <a class="nav-container" href="/allt.html"
-      ><span class="nav-item">Allt</span></a
-    >
     
-    <a class="nav-container" href="/loppkalender.html"
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Allt</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/loppkalender"
       ><span class="nav-item">Loppkalender</span></a
     >
     
-    <a class="nav-container" href="/lagg-till-lopp.html"
+    
+    
+    
+    <a class="nav-container" href="/lagg-till-lopp"
       ><span class="nav-item">Lägg till lopp</span></a
     >
     
-    <a class="nav-container" href="/forum.html"
+    
+    
+    
+    <a class="nav-container" href="/forum"
       ><span class="nav-item">Forum</span></a
     >
     
-    <a class="nav-container" href="/nyheter.html"
-      ><span class="nav-item">Nyheter</span></a
-    >
     
-    <a class="nav-container" href="/marknadsplats.html"
-      ><span class="nav-item">Marknadsplats</span></a
-    >
     
-    <a class="nav-container" href="/produkter.html"
-      ><span class="nav-item">Produkter</span></a
-    >
     
-    <a class="nav-container" href="/mat-din-runda.html"
+    <a class="nav-container" href="/mat-din-runda"
       ><span class="nav-item">Mät din runda</span></a
     >
     
-    <a class="nav-container" href="/traningsprogram.html"
+    
+    
+    
+    <a class="nav-container" href="/traningsprogram"
       ><span class="nav-item">Träningsprogram</span></a
     >
     
-    <a class="nav-container" href="/fartomvandlare.html"
+    
+    
+    
+    <a class="nav-container" href="/fartomvandlare"
       ><span class="nav-item">Fartomvandlare</span></a
     >
     
-    <a class="nav-container" href="/uppskatta-din-sluttid.html"
+    
+    
+    
+    <a class="nav-container" href="/uppskatta-din-sluttid"
       ><span class="nav-item">Uppskatta din sluttid</span></a
     >
+    
+    
+    
+    
+    <a class="nav-container" href="/om-oss"
+      ><span class="nav-item">Om oss</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/kontakta-oss"
+      ><span class="nav-item">Kontakta oss</span></a
+    >
+    
+    
     
   </nav>
 
@@ -294,22 +355,6 @@
           <div id="race-distances" class="race-distances">
              
             <div class="race-distance">
-              2 km
-            </div>
-            
-            <div class="race-distance">
-              5 km
-            </div>
-            
-            <div class="race-distance">
-              14 km
-            </div>
-            
-            <div class="race-distance">
-              Halvmarathon
-            </div>
-            
-            <div class="race-distance">
               22 km
             </div>
             
@@ -319,10 +364,6 @@
             
             <div class="race-distance">
               60 km
-            </div>
-            
-            <div class="race-distance">
-              trail
             </div>
              
           </div>
@@ -400,7 +441,7 @@
       <p>
         <span>Distanser:</span>
         <span id="highlight-race-distances">
-           2 km,  5 km,  14 km,  Halvmarathon,  22 km,  30 km,  60 km,  trail  
+           22 km,  30 km,  60 km  
         </span>
       </p>
     </li>
@@ -456,7 +497,7 @@ kan inte garantera att allt är korrekt. Ser du några felaktigheter,
           så rättar vi till det snarast.
         </p>
       </div>
-      <p id="race-summary">Österlen Spring Trail är en fantastisk möjlighet att upptäcka de vackra stigarna i Österlen. Loppet erbjuder en unik upplevelse av natur och utmaning, vilket gör det till ett populärt val bland löpare. Det inkluderar distanser för alla nivåer, från 60 km ultra till 5 km Naturloppet, samt ett duo trail-lopp som är en stafett över 60 km. Deltagarna får njuta av professionell sjukvård, energi längs banan och en finisher medalj tillverkad i Sverige.</p>
+      <p id="race-summary">Österlen Spring Trail startades 2015 och kan beskrivas som ett motionslopp där naturen, gemenskapen och upplevelsen är i fokus, medan prestationen och tiden är sekundär. Loppet erbjuder en fantastisk möjlighet för alla löpare, oavsett nivå, att delta i tre distanser: 60 km (Simris Alg Ultra), 30 km (Duo Trail) och 22 km (Teleservice trail). Det äger rum i den vackra naturen kring Christinehof slott i Andrarum, Skåne län, och har en höjdökning på 500 meter.</p>
     </div>
 
     
@@ -464,11 +505,11 @@ kan inte garantera att allt är korrekt. Ser du några felaktigheter,
       <h2>Höjdpunkter</h2>
       <ul class="race-info-list course-highlights">
         
-        <li style="display: list-item">Loppet erbjuder flera olika distanser för löpare av alla nivåer, inklusive 60 km ultra, 21 km Fogarolli trail och 14 km Ekopark trail.</li>
+        <li style="display: list-item">Österlen Spring Trail är ett trail lopp på riktigt som ger deltagarna möjlighet att upptäcka Österlens fina stigar.</li>
         
-        <li style="display: list-item">Deltagarna kan vinna priser genom lotteri och får en finisher medalj tillverkad i Sverige.</li>
+        <li style="display: list-item">Loppet arrangeras i den vackra naturen och erbjuder en fantastisk upplevelse för alla deltagare.</li>
         
-        <li style="display: list-item">Det finns professionell sjukvård på plats, energi och vätska längs banan samt alkoholfri öl vid målgången för de längre distanserna.</li>
+        <li style="display: list-item">Det är planerat att hållas i mitten av april 2025 och förväntar sig över 400 löpare i den senaste upplagan.</li>
         
       </ul>
       
@@ -539,7 +580,7 @@ kan inte garantera att allt är korrekt. Ser du några felaktigheter,
         <li id="detail-race-distance" style="display: list-item">
           <strong>Distanser:</strong>
           <span>
-             2 km,  5 km,  14 km,  Halvmarathon,  22 km,  30 km,  60 km,  trail  
+             22 km,  30 km,  60 km  
           </span>
         </li>
                 
@@ -565,6 +606,10 @@ kan inte garantera att allt är korrekt. Ser du några felaktigheter,
     <div class="social-links">
       <h2>Följ loppet</h2>
       <div class="social-icons">
+        
+        <a href="https://www.facebook.com/osterlen.spring.trail/?locale=sv_SE" target="_blank" rel="noopener noreferrer">
+          <ion-icon name="logo-facebook" aria-label="Facebook"></ion-icon>
+        </a>
          
         <a href="https://www.instagram.com/osterlentrail/" target="_blank" rel="noopener noreferrer">
           <ion-icon name="logo-instagram" aria-label="Instagram"></ion-icon>

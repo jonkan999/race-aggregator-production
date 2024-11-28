@@ -49,10 +49,45 @@
   <body>
     <!-- Page content -->
     <main> <section class="ad-banner">
-<span class="ad-banner-text">Ad banner</span>
+  <div class="ad-banner-controls">
+    <button class="minimize-button" aria-label="Minimize ad">
+      <ion-icon name="chevron-down-outline"></ion-icon>
+    </button>
+  </div>
+
+  <div class="ad-content">
+    <!-- Default content shown while ad loads -->
+    <div class="ad-placeholder">
+      <div class="ad-placeholder-content">
+        <span class="ad-placeholder-text">Annons</span>
+        <div class="ad-placeholder-fallback">
+          <!-- Add a test image or text for local development -->
+          <div class="test-ad-content">Test Ad Banner - Local Development</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AdSense ad -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <ins
+      class="adsbygoogle"
+      style="display: block"
+      data-ad-client="ca-pub-7076760775175370"
+      data-ad-slot="2240363608"
+      data-ad-format="auto"
+      data-full-width-responsive="true"
+    ></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 </section> <section class="section-header-menu">
   <div class="upper-header">
-    <a href="/index.html" class="logo-container">
+    <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
     /></a>
 
@@ -78,49 +113,75 @@
   </div>
   <nav class="main-nav-container right-scroller">
     
-    <a class="nav-container" href="/allt.html"
-      ><span class="nav-item">Allt</span></a
-    >
     
-    <a class="nav-container" href="/loppkalender.html"
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Allt</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/loppkalender"
       ><span class="nav-item">Loppkalender</span></a
     >
     
-    <a class="nav-container" href="/lagg-till-lopp.html"
+    
+    
+    
+    <a class="nav-container" href="/lagg-till-lopp"
       ><span class="nav-item">Lägg till lopp</span></a
     >
     
-    <a class="nav-container" href="/forum.html"
+    
+    
+    
+    <a class="nav-container" href="/forum"
       ><span class="nav-item">Forum</span></a
     >
     
-    <a class="nav-container" href="/nyheter.html"
-      ><span class="nav-item">Nyheter</span></a
-    >
     
-    <a class="nav-container" href="/marknadsplats.html"
-      ><span class="nav-item">Marknadsplats</span></a
-    >
     
-    <a class="nav-container" href="/produkter.html"
-      ><span class="nav-item">Produkter</span></a
-    >
     
-    <a class="nav-container" href="/mat-din-runda.html"
+    <a class="nav-container" href="/mat-din-runda"
       ><span class="nav-item">Mät din runda</span></a
     >
     
-    <a class="nav-container" href="/traningsprogram.html"
+    
+    
+    
+    <a class="nav-container" href="/traningsprogram"
       ><span class="nav-item">Träningsprogram</span></a
     >
     
-    <a class="nav-container" href="/fartomvandlare.html"
+    
+    
+    
+    <a class="nav-container" href="/fartomvandlare"
       ><span class="nav-item">Fartomvandlare</span></a
     >
     
-    <a class="nav-container" href="/uppskatta-din-sluttid.html"
+    
+    
+    
+    <a class="nav-container" href="/uppskatta-din-sluttid"
       ><span class="nav-item">Uppskatta din sluttid</span></a
     >
+    
+    
+    
+    
+    <a class="nav-container" href="/om-oss"
+      ><span class="nav-item">Om oss</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/kontakta-oss"
+      ><span class="nav-item">Kontakta oss</span></a
+    >
+    
+    
     
   </nav>
 
@@ -371,7 +432,7 @@
       aria-label="location outline"
     ></ion-icon>
     <p id="primary-highlight-race-location" class="highlight-place">
-      Götaplatsen
+      Göteborg
     </p>
   </div>
 
@@ -417,7 +478,7 @@
       ></ion-icon>
       <p>
         <span>Plats:</span>
-        <span id="highlight-race-location">Götaplatsen</span>
+        <span id="highlight-race-location">Göteborg</span>
       </p>
     </li>
 
@@ -448,7 +509,7 @@ kan inte garantera att allt är korrekt. Ser du några felaktigheter,
           så rättar vi till det snarast.
         </p>
       </div>
-      <p id="race-summary">Göteborgsvarvet är världens största halvmaraton som går genom ett pulserande Göteborg. Det är en 21 km lång folkfest med en publik på över 200 000 personer och fler än 50 musikstationer, vilket skapar en fantastisk atmosfär av glädje och gemenskap. Varje år samlas över 50 000 löpare för att delta i detta klassiska lopp, som är fenomenalt organiserat och präglat av svensk sportanda, tillgänglig för alla.</p>
+      <p id="race-summary">Göteborsvarvet är världens största halvmaraton och bjuder på en fantastisk folkfest genom ett pulserande Göteborg. Loppet sträcker sig över 21 km och lockar över 200 000 åskådare samt fler än 50 musikstationer längs vägen. Årligen deltar mer än 40 000 löpare i detta klassiska lopp.</p>
     </div>
 
     
@@ -456,11 +517,11 @@ kan inte garantera att allt är korrekt. Ser du några felaktigheter,
       <h2>Höjdpunkter</h2>
       <ul class="race-info-list course-highlights">
         
+        <li style="display: list-item">Världens största halvmaraton genom ett pulserande Göteborg.</li>
+        
         <li style="display: list-item">21 km folkfest med en publik på över 200 000 personer och fler än 50 musikstationer.</li>
         
-        <li style="display: list-item">Över 50 000 löpare deltar varje år i detta klassiska lopp.</li>
-        
-        <li style="display: list-item">Allt är fenomenalt organiserat, trots de stora folkmassorna.</li>
+        <li style="display: list-item">Fler än 40 000 löpare väntas delta varje år.</li>
         
       </ul>
       
@@ -524,7 +585,7 @@ kan inte garantera att allt är korrekt. Ser du några felaktigheter,
         <li id="detail-race-location" style="display: list-item">
           <strong>Namn på plats där loppet arrangeras:</strong>
           
-          <span>Götaplatsen</span>
+          <span>Göteborg</span>
           
         </li>
           
@@ -557,8 +618,12 @@ kan inte garantera att allt är korrekt. Ser du några felaktigheter,
     <div class="social-links">
       <h2>Följ loppet</h2>
       <div class="social-icons">
+        
+        <a href="https://www.facebook.com/photo.php?fbid=10154125280679530&id=362179749529&set=a.393197599529" target="_blank" rel="noopener noreferrer">
+          <ion-icon name="logo-facebook" aria-label="Facebook"></ion-icon>
+        </a>
          
-        <a href="https://www.instagram.com/taxjakt/p/C7HiY51toQC/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/truestoriesab/p/C7Q-LusC30b/" target="_blank" rel="noopener noreferrer">
           <ion-icon name="logo-instagram" aria-label="Instagram"></ion-icon>
         </a>
         
@@ -568,8 +633,8 @@ kan inte garantera att allt är korrekt. Ser du några felaktigheter,
 
     <div
       id="map-placeholder"
-      data-latitude="57.6973714"
-      data-longitude="11.979319"
+      data-latitude="57.6764983"
+      data-longitude="11.9367611"
       data-zoom="6"
       class="race-map"
     ></div>

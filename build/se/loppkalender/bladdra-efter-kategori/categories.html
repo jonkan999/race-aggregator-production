@@ -40,10 +40,45 @@
     <!-- Page content -->
     <main>
        <section class="ad-banner">
-<span class="ad-banner-text">Ad banner</span>
+  <div class="ad-banner-controls">
+    <button class="minimize-button" aria-label="Minimize ad">
+      <ion-icon name="chevron-down-outline"></ion-icon>
+    </button>
+  </div>
+
+  <div class="ad-content">
+    <!-- Default content shown while ad loads -->
+    <div class="ad-placeholder">
+      <div class="ad-placeholder-content">
+        <span class="ad-placeholder-text">Annons</span>
+        <div class="ad-placeholder-fallback">
+          <!-- Add a test image or text for local development -->
+          <div class="test-ad-content">Test Ad Banner - Local Development</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AdSense ad -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <ins
+      class="adsbygoogle"
+      style="display: block"
+      data-ad-client="ca-pub-7076760775175370"
+      data-ad-slot="2240363608"
+      data-ad-format="auto"
+      data-full-width-responsive="true"
+    ></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 </section> <section class="section-header-menu">
   <div class="upper-header">
-    <a href="/index.html" class="logo-container">
+    <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
     /></a>
 
@@ -69,49 +104,75 @@
   </div>
   <nav class="main-nav-container right-scroller">
     
-    <a class="nav-container" href="/allt.html"
-      ><span class="nav-item">Allt</span></a
-    >
     
-    <a class="nav-container" href="/loppkalender.html"
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Allt</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/loppkalender"
       ><span class="nav-item">Loppkalender</span></a
     >
     
-    <a class="nav-container" href="/lagg-till-lopp.html"
+    
+    
+    
+    <a class="nav-container" href="/lagg-till-lopp"
       ><span class="nav-item">Lägg till lopp</span></a
     >
     
-    <a class="nav-container" href="/forum.html"
+    
+    
+    
+    <a class="nav-container" href="/forum"
       ><span class="nav-item">Forum</span></a
     >
     
-    <a class="nav-container" href="/nyheter.html"
-      ><span class="nav-item">Nyheter</span></a
-    >
     
-    <a class="nav-container" href="/marknadsplats.html"
-      ><span class="nav-item">Marknadsplats</span></a
-    >
     
-    <a class="nav-container" href="/produkter.html"
-      ><span class="nav-item">Produkter</span></a
-    >
     
-    <a class="nav-container" href="/mat-din-runda.html"
+    <a class="nav-container" href="/mat-din-runda"
       ><span class="nav-item">Mät din runda</span></a
     >
     
-    <a class="nav-container" href="/traningsprogram.html"
+    
+    
+    
+    <a class="nav-container" href="/traningsprogram"
       ><span class="nav-item">Träningsprogram</span></a
     >
     
-    <a class="nav-container" href="/fartomvandlare.html"
+    
+    
+    
+    <a class="nav-container" href="/fartomvandlare"
       ><span class="nav-item">Fartomvandlare</span></a
     >
     
-    <a class="nav-container" href="/uppskatta-din-sluttid.html"
+    
+    
+    
+    <a class="nav-container" href="/uppskatta-din-sluttid"
       ><span class="nav-item">Uppskatta din sluttid</span></a
     >
+    
+    
+    
+    
+    <a class="nav-container" href="/om-oss"
+      ><span class="nav-item">Om oss</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/kontakta-oss"
+      ><span class="nav-item">Kontakta oss</span></a
+    >
+    
+    
     
   </nav>
 
@@ -310,7 +371,7 @@
     <div class="category-card">
       <h2>
         <a href="/loppkalender/alla-lan/alla-loppstyper/10-km"> 10 km </a>
-        <span class="count">(21 lopp)</span>
+        <span class="count">(38 lopp)</span>
       </h2>
 
       <div class="category-stats">
@@ -323,7 +384,7 @@
                   Landsväg
                 </a>
                 <span class="count"
-                  >(7)</span
+                  >(13)</span
                 >
               </h3>
             </li>
@@ -334,7 +395,7 @@
                   Löparbana
                 </a>
                 <span class="count"
-                  >(3)</span
+                  >(2)</span
                 >
               </h3>
             </li>
@@ -356,7 +417,7 @@
                   Terräng
                 </a>
                 <span class="count"
-                  >(5)</span
+                  >(12)</span
                 >
               </h3>
             </li>
@@ -364,6 +425,80 @@
             <li>
               <h3>
                 <a href="/loppkalender/alla-lan/trail/10-km">
+                  Trail
+                </a>
+                <span class="count"
+                  >(9)</span
+                >
+              </h3>
+            </li>
+               
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h2>
+        <a href="/loppkalender/alla-lan/alla-loppstyper/100-km"> 100 km </a>
+        <span class="count">(6 lopp)</span>
+      </h2>
+
+      <div class="category-stats">
+        <div class="popular-types">
+          <ul>
+                       
+            <li>
+              <h3>
+                <a href="/loppkalender/alla-lan/terrang/100-km">
+                  Terräng
+                </a>
+                <span class="count"
+                  >(3)</span
+                >
+              </h3>
+            </li>
+                
+            <li>
+              <h3>
+                <a href="/loppkalender/alla-lan/trail/100-km">
+                  Trail
+                </a>
+                <span class="count"
+                  >(3)</span
+                >
+              </h3>
+            </li>
+               
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h2>
+        <a href="/loppkalender/alla-lan/alla-loppstyper/100-miles"> 100 miles </a>
+        <span class="count">(5 lopp)</span>
+      </h2>
+
+      <div class="category-stats">
+        <div class="popular-types">
+          <ul>
+                       
+            <li>
+              <h3>
+                <a href="/loppkalender/alla-lan/terrang/100-miles">
+                  Terräng
+                </a>
+                <span class="count"
+                  >(1)</span
+                >
+              </h3>
+            </li>
+                
+            <li>
+              <h3>
+                <a href="/loppkalender/alla-lan/trail/100-miles">
                   Trail
                 </a>
                 <span class="count"
@@ -379,71 +514,8 @@
     
     <div class="category-card">
       <h2>
-        <a href="/loppkalender/alla-lan/alla-loppstyper/100-km"> 100 km </a>
-        <span class="count">(3 lopp)</span>
-      </h2>
-
-      <div class="category-stats">
-        <div class="popular-types">
-          <ul>
-                       
-            <li>
-              <h3>
-                <a href="/loppkalender/alla-lan/terrang/100-km">
-                  Terräng
-                </a>
-                <span class="count"
-                  >(2)</span
-                >
-              </h3>
-            </li>
-                
-            <li>
-              <h3>
-                <a href="/loppkalender/alla-lan/trail/100-km">
-                  Trail
-                </a>
-                <span class="count"
-                  >(1)</span
-                >
-              </h3>
-            </li>
-               
-          </ul>
-        </div>
-      </div>
-    </div>
-    
-    <div class="category-card">
-      <h2>
-        <a href="/loppkalender/alla-lan/alla-loppstyper/100-miles"> 100 miles </a>
-        <span class="count">(1 lopp)</span>
-      </h2>
-
-      <div class="category-stats">
-        <div class="popular-types">
-          <ul>
-                           
-            <li>
-              <h3>
-                <a href="/loppkalender/alla-lan/trail/100-miles">
-                  Trail
-                </a>
-                <span class="count"
-                  >(1)</span
-                >
-              </h3>
-            </li>
-               
-          </ul>
-        </div>
-      </div>
-    </div>
-    
-    <div class="category-card">
-      <h2>
         <a href="/loppkalender/alla-lan/alla-loppstyper/10000-meter"> 10000 meter </a>
-        <span class="count">(14 lopp)</span>
+        <span class="count">(30 lopp)</span>
       </h2>
 
       <div class="category-stats">
@@ -456,22 +528,11 @@
                   Landsväg
                 </a>
                 <span class="count"
-                  >(6)</span
+                  >(12)</span
                 >
               </h3>
             </li>
-              
-            <li>
-              <h3>
-                <a href="/loppkalender/alla-lan/loparbana/10000-meter">
-                  Löparbana
-                </a>
-                <span class="count"
-                  >(1)</span
-                >
-              </h3>
-            </li>
-              
+                
             <li>
               <h3>
                 <a href="/loppkalender/alla-lan/stafett/10000-meter">
@@ -489,7 +550,7 @@
                   Terräng
                 </a>
                 <span class="count"
-                  >(3)</span
+                  >(9)</span
                 >
               </h3>
             </li>
@@ -500,7 +561,7 @@
                   Trail
                 </a>
                 <span class="count"
-                  >(3)</span
+                  >(8)</span
                 >
               </h3>
             </li>
@@ -513,24 +574,46 @@
     <div class="category-card">
       <h2>
         <a href="/loppkalender/alla-lan/alla-loppstyper/1500-meter"> 1500 meter </a>
-        <span class="count">(17 lopp)</span>
+        <span class="count">(21 lopp)</span>
       </h2>
 
       <div class="category-stats">
         <div class="popular-types">
           <ul>
-                   
+                 
+            <li>
+              <h3>
+                <a href="/loppkalender/alla-lan/landsvag/1500-meter">
+                  Landsväg
+                </a>
+                <span class="count"
+                  >(1)</span
+                >
+              </h3>
+            </li>
+              
             <li>
               <h3>
                 <a href="/loppkalender/alla-lan/loparbana/1500-meter">
                   Löparbana
                 </a>
                 <span class="count"
-                  >(15)</span
+                  >(17)</span
                 >
               </h3>
             </li>
-                      
+                
+            <li>
+              <h3>
+                <a href="/loppkalender/alla-lan/terrang/1500-meter">
+                  Terräng
+                </a>
+                <span class="count"
+                  >(1)</span
+                >
+              </h3>
+            </li>
+                  
             <li>
               <h3>
                 <a href="/loppkalender/alla-lan/ovrigt/1500-meter">
@@ -549,21 +632,58 @@
     
     <div class="category-card">
       <h2>
-        <a href="/loppkalender/alla-lan/alla-loppstyper/3000-meter"> 3000 meter </a>
-        <span class="count">(14 lopp)</span>
+        <a href="/loppkalender/alla-lan/alla-loppstyper/200-miles"> 200 miles </a>
+        <span class="count">(1 lopp)</span>
       </h2>
 
       <div class="category-stats">
         <div class="popular-types">
           <ul>
-                   
+                           
+            <li>
+              <h3>
+                <a href="/loppkalender/alla-lan/trail/200-miles">
+                  Trail
+                </a>
+                <span class="count"
+                  >(1)</span
+                >
+              </h3>
+            </li>
+               
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="category-card">
+      <h2>
+        <a href="/loppkalender/alla-lan/alla-loppstyper/3000-meter"> 3000 meter </a>
+        <span class="count">(16 lopp)</span>
+      </h2>
+
+      <div class="category-stats">
+        <div class="popular-types">
+          <ul>
+                 
+            <li>
+              <h3>
+                <a href="/loppkalender/alla-lan/landsvag/3000-meter">
+                  Landsväg
+                </a>
+                <span class="count"
+                  >(1)</span
+                >
+              </h3>
+            </li>
+              
             <li>
               <h3>
                 <a href="/loppkalender/alla-lan/loparbana/3000-meter">
                   Löparbana
                 </a>
                 <span class="count"
-                  >(12)</span
+                  >(13)</span
                 >
               </h3>
             </li>
@@ -574,22 +694,11 @@
                   Trail
                 </a>
                 <span class="count"
-                  >(1)</span
+                  >(2)</span
                 >
               </h3>
             </li>
-              
-            <li>
-              <h3>
-                <a href="/loppkalender/alla-lan/ovrigt/3000-meter">
-                  Övrigt
-                </a>
-                <span class="count"
-                  >(1)</span
-                >
-              </h3>
-            </li>
-             
+               
           </ul>
         </div>
       </div>
@@ -598,20 +707,31 @@
     <div class="category-card">
       <h2>
         <a href="/loppkalender/alla-lan/alla-loppstyper/5-km"> 5 km </a>
-        <span class="count">(19 lopp)</span>
+        <span class="count">(40 lopp)</span>
       </h2>
 
       <div class="category-stats">
         <div class="popular-types">
           <ul>
-                 
+             
+            <li>
+              <h3>
+                <a href="/loppkalender/alla-lan/backyard-ultra/5-km">
+                  Backyard Ultra
+                </a>
+                <span class="count"
+                  >(2)</span
+                >
+              </h3>
+            </li>
+                
             <li>
               <h3>
                 <a href="/loppkalender/alla-lan/landsvag/5-km">
                   Landsväg
                 </a>
                 <span class="count"
-                  >(4)</span
+                  >(11)</span
                 >
               </h3>
             </li>
@@ -633,7 +753,7 @@
                   Terräng
                 </a>
                 <span class="count"
-                  >(2)</span
+                  >(12)</span
                 >
               </h3>
             </li>
@@ -655,11 +775,22 @@
                   Trail
                 </a>
                 <span class="count"
-                  >(10)</span
+                  >(11)</span
                 >
               </h3>
             </li>
-               
+              
+            <li>
+              <h3>
+                <a href="/loppkalender/alla-lan/ovrigt/5-km">
+                  Övrigt
+                </a>
+                <span class="count"
+                  >(1)</span
+                >
+              </h3>
+            </li>
+             
           </ul>
         </div>
       </div>
@@ -668,20 +799,31 @@
     <div class="category-card">
       <h2>
         <a href="/loppkalender/alla-lan/alla-loppstyper/50-km"> 50 km </a>
-        <span class="count">(5 lopp)</span>
+        <span class="count">(15 lopp)</span>
       </h2>
 
       <div class="category-stats">
         <div class="popular-types">
           <ul>
-                       
+                 
+            <li>
+              <h3>
+                <a href="/loppkalender/alla-lan/landsvag/50-km">
+                  Landsväg
+                </a>
+                <span class="count"
+                  >(1)</span
+                >
+              </h3>
+            </li>
+                  
             <li>
               <h3>
                 <a href="/loppkalender/alla-lan/terrang/50-km">
                   Terräng
                 </a>
                 <span class="count"
-                  >(2)</span
+                  >(6)</span
                 >
               </h3>
             </li>
@@ -692,7 +834,7 @@
                   Trail
                 </a>
                 <span class="count"
-                  >(3)</span
+                  >(8)</span
                 >
               </h3>
             </li>
@@ -705,7 +847,7 @@
     <div class="category-card">
       <h2>
         <a href="/loppkalender/alla-lan/alla-loppstyper/50-miles"> 50 miles </a>
-        <span class="count">(5 lopp)</span>
+        <span class="count">(16 lopp)</span>
       </h2>
 
       <div class="category-stats">
@@ -718,7 +860,7 @@
                   Terräng
                 </a>
                 <span class="count"
-                  >(2)</span
+                  >(7)</span
                 >
               </h3>
             </li>
@@ -729,7 +871,7 @@
                   Trail
                 </a>
                 <span class="count"
-                  >(3)</span
+                  >(9)</span
                 >
               </h3>
             </li>
@@ -742,7 +884,7 @@
     <div class="category-card">
       <h2>
         <a href="/loppkalender/alla-lan/alla-loppstyper/5000-meter"> 5000 meter </a>
-        <span class="count">(14 lopp)</span>
+        <span class="count">(25 lopp)</span>
       </h2>
 
       <div class="category-stats">
@@ -755,7 +897,7 @@
                   Landsväg
                 </a>
                 <span class="count"
-                  >(3)</span
+                  >(7)</span
                 >
               </h3>
             </li>
@@ -777,7 +919,7 @@
                   Terräng
                 </a>
                 <span class="count"
-                  >(2)</span
+                  >(7)</span
                 >
               </h3>
             </li>
@@ -788,11 +930,22 @@
                   Trail
                 </a>
                 <span class="count"
-                  >(8)</span
+                  >(9)</span
                 >
               </h3>
             </li>
-               
+              
+            <li>
+              <h3>
+                <a href="/loppkalender/alla-lan/ovrigt/5000-meter">
+                  Övrigt
+                </a>
+                <span class="count"
+                  >(1)</span
+                >
+              </h3>
+            </li>
+             
           </ul>
         </div>
       </div>
@@ -801,20 +954,31 @@
     <div class="category-card">
       <h2>
         <a href="/loppkalender/alla-lan/alla-loppstyper/halvmarathon"> Halvmarathon </a>
-        <span class="count">(15 lopp)</span>
+        <span class="count">(23 lopp)</span>
       </h2>
 
       <div class="category-stats">
         <div class="popular-types">
           <ul>
-                 
+             
+            <li>
+              <h3>
+                <a href="/loppkalender/alla-lan/backyard-ultra/halvmarathon">
+                  Backyard Ultra
+                </a>
+                <span class="count"
+                  >(1)</span
+                >
+              </h3>
+            </li>
+                
             <li>
               <h3>
                 <a href="/loppkalender/alla-lan/landsvag/halvmarathon">
                   Landsväg
                 </a>
                 <span class="count"
-                  >(4)</span
+                  >(5)</span
                 >
               </h3>
             </li>
@@ -847,7 +1011,7 @@
                   Terräng
                 </a>
                 <span class="count"
-                  >(2)</span
+                  >(5)</span
                 >
               </h3>
             </li>
@@ -858,11 +1022,22 @@
                   Trail
                 </a>
                 <span class="count"
-                  >(7)</span
+                  >(9)</span
                 >
               </h3>
             </li>
-               
+              
+            <li>
+              <h3>
+                <a href="/loppkalender/alla-lan/ovrigt/halvmarathon">
+                  Övrigt
+                </a>
+                <span class="count"
+                  >(1)</span
+                >
+              </h3>
+            </li>
+             
           </ul>
         </div>
       </div>
@@ -871,20 +1046,31 @@
     <div class="category-card">
       <h2>
         <a href="/loppkalender/alla-lan/alla-loppstyper/marathon"> Marathon </a>
-        <span class="count">(7 lopp)</span>
+        <span class="count">(13 lopp)</span>
       </h2>
 
       <div class="category-stats">
         <div class="popular-types">
           <ul>
-                 
+             
+            <li>
+              <h3>
+                <a href="/loppkalender/alla-lan/backyard-ultra/marathon">
+                  Backyard Ultra
+                </a>
+                <span class="count"
+                  >(2)</span
+                >
+              </h3>
+            </li>
+                
             <li>
               <h3>
                 <a href="/loppkalender/alla-lan/landsvag/marathon">
                   Landsväg
                 </a>
                 <span class="count"
-                  >(2)</span
+                  >(3)</span
                 >
               </h3>
             </li>
@@ -895,7 +1081,7 @@
                   Terräng
                 </a>
                 <span class="count"
-                  >(1)</span
+                  >(4)</span
                 >
               </h3>
             </li>
@@ -919,7 +1105,7 @@
     <div class="category-card">
       <h2>
         <a href="/loppkalender/alla-lan/alla-loppstyper/millopp"> Millopp </a>
-        <span class="count">(21 lopp)</span>
+        <span class="count">(38 lopp)</span>
       </h2>
 
       <div class="category-stats">
@@ -932,7 +1118,7 @@
                   Landsväg
                 </a>
                 <span class="count"
-                  >(7)</span
+                  >(13)</span
                 >
               </h3>
             </li>
@@ -943,7 +1129,7 @@
                   Löparbana
                 </a>
                 <span class="count"
-                  >(3)</span
+                  >(2)</span
                 >
               </h3>
             </li>
@@ -965,7 +1151,7 @@
                   Terräng
                 </a>
                 <span class="count"
-                  >(5)</span
+                  >(12)</span
                 >
               </h3>
             </li>
@@ -976,7 +1162,7 @@
                   Trail
                 </a>
                 <span class="count"
-                  >(4)</span
+                  >(9)</span
                 >
               </h3>
             </li>
