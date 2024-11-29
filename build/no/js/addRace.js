@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /*   previewButton.addEventListener('click', (e) => {
     e.preventDefault();
     saveFormToLocalStorage();
-    window.location.href = `/forhandsvis-lp.html`;
+    window.location.href = `/forhandsvis-lop.html`;
   }); */
 
   submitRaceButton.addEventListener('click', (e) => {

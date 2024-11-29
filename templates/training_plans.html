@@ -113,7 +113,7 @@ include 'sections/header-menu.html' %}
         <!-- Training Days Per Week -->
         <div class="form-group">
           <label for="training-days"
-            >{{ training_plans.form.training_days.label }}</label
+            >{{ training_plans.form.training_days_label }}</label
           >
           <select
             id="training-days"
@@ -131,7 +131,7 @@ include 'sections/header-menu.html' %}
         <!-- Time Available Per Session -->
         <div class="form-group">
           <label for="session-time"
-            >{{ training_plans.form.session_time.label }}</label
+            >{{ training_plans.form.session_time_label }}</label
           >
           <select
             id="session-time"
@@ -171,10 +171,15 @@ include 'sections/header-menu.html' %}
         <div id="training-schedule"></div>
       </div>
 
-      <!-- Regenerate Button -->
-      <button type="button" class="btn btn--outline" id="regenerate-plan">
-        {{ training_plans.results.regenerate_button }}
-      </button>
+      <!-- Action Buttons -->
+      <div class="plan-actions">
+        <button type="button" class="btn btn--outline" id="regenerate-plan">
+          {{ training_plans.results.regenerate_button }}
+        </button>
+        <button type="button" class="btn btn--outline" id="export-pdf">
+          {{ training_plans.results.export_button }}
+        </button>
+      </div>
     </div>
   </div>
 </section>

@@ -1,31 +1,14 @@
 import google.generativeai as genai
 from typing import Dict, Any, List, Tuple, Optional
 import PIL.Image
+from python.base_ai_response import BaseAIResponse
 from pathlib import Path
 import json
-import os
-import yaml
-
-import sys
-import os
-import time  # Add this import at the top
-
-# Add the parent directory to the system path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from python.base_ai_response import BaseAIResponse
 
 class GeminiResponse(BaseAIResponse):
     def _initialize_client(self):
         genai.configure(api_key=self.api_key)
-        # Make sure config is loaded before accessing it
-        if not hasattr(self, 'config'):
-            self.config = self.load_config()
-        model_config = self.config.get('cheap', {
-            'model': 'gemini-1.5-flash',  # fallback to default model
-            'temperature': 0.7,
-            'max_output_tokens': 1000
-        })
-        self.model = genai.GenerativeModel(model_config['model'])
+        self.model = genai.GenerativeModel(self.config['model'])
 
     def _get_config_filename(self) -> str:
         return 'gemini_config.yaml'
@@ -58,28 +41,6 @@ class GeminiResponse(BaseAIResponse):
                 
         return prompt.strip()
 
-    def __init__(self):
-        # Load config first
-        self.config = self.load_config()
-        # Then initialize the rest
-        super().__init__()
-        self.is_free_tier = self.config.get('free_tier', True)
-        self.model_config = self.config.get('cheap', {
-            'model': 'gemini-1.5-flash',
-            'temperature': 0.7,
-            'max_output_tokens': 1000
-        })
-        
-        if self.is_free_tier:
-            print("""
-╔════════════════════════════════════════════════════════════════╗
-║                     RATE LIMITING ENABLED                       ║
-║ Waiting 4 seconds between requests due to Gemini free tier     ║
-║ limitation (15 requests/minute). Set free_tier: false in       ║
-║ config when using a paid account for faster generation.        ║
-╚════════════════════════════════════════════════════════════════╝
-            """)
-
     def get_response(self, messages: List[Dict[str, str]], max_output_tokens: int = None) -> Dict[str, Any]:
         if max_output_tokens is None:
             max_output_tokens = self.config.get('max_output_tokens', 1000)
@@ -110,10 +71,6 @@ class GeminiResponse(BaseAIResponse):
             total_tokens = prompt_tokens + completion_tokens
 
         cost = self.calculate_cost(prompt_tokens, completion_tokens)
-
-        # Only sleep if using free tier
-        if self.is_free_tier:
-            time.sleep(4)  # Wait 4 seconds between requests
 
         return {
             'content': response.text,
@@ -175,12 +132,6 @@ class GeminiResponse(BaseAIResponse):
                     'error': 'safety_filtered'
                 }
             raise  # Re-raise other types of errors
-
-    def load_config(self, config_type=None):
-        """Override the base class method to load config without using config_type"""
-        config_path = os.path.join('python', 'config', self._get_config_filename())
-        with open(config_path, 'r') as f:
-            return yaml.safe_load(f)
 
 class SEOContentGenerator:
     def __init__(self, country_code: str, language: str, free_tier: bool = True):
@@ -381,37 +332,3 @@ Rules:
         except IndexError as e:
             print(f"Error parsing AI response: {e}")
             return self.generate_basic_seo_content(index_content, county, race_type, category)
-
-if __name__ == "__main__":
-    # Create an instance of GeminiResponse
-    gemini = GeminiResponse()
-
-    # Mock configuration for testing
-    gemini.api_key = "your_api_key_here"  # Replace with your actual API key
-    gemini.config = {
-        'model': 'your_model_name_here',  # Replace with your actual model name
-        'max_output_tokens': 1000,
-        'temperature': 0.7
-    }
-
-    # Sample messages to test the get_response method
-    messages = [
-        {
-            'role': 'system',
-            'content': "You are a helpful assistant."
-        },
-        {
-            'role': 'user',
-            'content': "Can you provide a summary of the latest running events?"
-        }
-    ]
-
-    # Get a response from the model
-    try:
-        response = gemini.get_response(messages)
-        print("Response Content:", response['content'])
-        print("Input Tokens:", response['input_tokens'])
-        print("Output Tokens:", response['output_tokens'])
-        print("Cost:", response['cost'])
-    except Exception as e:
-        print("An error occurred:", str(e))

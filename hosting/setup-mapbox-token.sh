@@ -14,6 +14,20 @@ print(f\"{config.get('page_name').lower()}-dev\")
     echo $site_name
 }
 
+# New function to get domain suffix from YAML
+get_domain_suffix() {
+    country_code=$1
+    yaml_file="data/countries/${country_code}/index.yaml"
+    domain_suffix=$(python3 -c "
+import yaml
+with open('${yaml_file}', 'r', encoding='utf-8') as f:
+    config = yaml.safe_load(f)
+domain = config.get('base_url', '').rstrip('/').split('.')[-1]  # Remove trailing slash before splitting
+print(domain)
+")
+    echo $domain_suffix
+}
+
 # Function to get base URL from YAML
 get_base_url() {
     country_code=$1
@@ -36,23 +50,23 @@ allowed_origins="["
 for country in "${COUNTRIES[@]}"; do
     site_name=$(get_site_name $country)
     base_url=$(get_base_url $country)
+    domain_suffix=$(get_domain_suffix $country)
     
-    # Strip -dev and add both -dev and -country versions
+    # Strip -dev and add both -dev and -domain versions
     base_site_name=${site_name%-dev}
     dev_site_name="${base_site_name}-dev"
-    country_site_name="${base_site_name}-${country}"
+    domain_site_name="${base_site_name}-${domain_suffix}"
     
     echo "Processing country: $country"
     echo "Dev site name: $dev_site_name"
-    echo "Country site name: $country_site_name"
+    echo "Domain site name: $domain_site_name"
     echo "Base URL: $base_url"
     
     # Add to allowed origins with /* at the end
     if [ "$country" = "${COUNTRIES[0]}" ]; then
-        # First item doesn't need a leading comma
-        allowed_origins="${allowed_origins}'https://${dev_site_name}.web.app/*', 'https://${dev_site_name}.firebaseapp.com/*', 'https://${country_site_name}.web.app/*', 'https://${country_site_name}.firebaseapp.com/*'"
+        allowed_origins="${allowed_origins}'https://${dev_site_name}.web.app/*', 'https://${dev_site_name}.firebaseapp.com/*', 'https://${domain_site_name}.web.app/*', 'https://${domain_site_name}.firebaseapp.com/*'"
     else
-        allowed_origins="${allowed_origins}, 'https://${dev_site_name}.web.app/*', 'https://${dev_site_name}.firebaseapp.com/*', 'https://${country_site_name}.web.app/*', 'https://${country_site_name}.firebaseapp.com/*'"
+        allowed_origins="${allowed_origins}, 'https://${dev_site_name}.web.app/*', 'https://${dev_site_name}.firebaseapp.com/*', 'https://${domain_site_name}.web.app/*', 'https://${domain_site_name}.firebaseapp.com/*'"
     fi
     [[ ! -z "$base_url" ]] && allowed_origins="${allowed_origins}, '${base_url}/*'"
 done

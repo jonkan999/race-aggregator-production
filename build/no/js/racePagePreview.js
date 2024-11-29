@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadRacePageContent();
 
   editRaceButton.addEventListener('click', () => {
-    window.location.href = `/legg-til-lp.html`;
+    window.location.href = `/legg-til-lop.html`;
   });
 
   submitRaceButton.addEventListener('click', (e) => {
