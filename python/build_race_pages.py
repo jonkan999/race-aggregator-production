@@ -327,34 +327,42 @@ def generate_race_pages(country_code, domain_name=None):
     generate_sitemap_for_country(country_code)  # Call to generate the sitemap
 
 if __name__ == "__main__":
-    import sys
+    import argparse
     
-    if len(sys.argv) > 1:
-        if sys.argv[1] == "distance-filter":
-            # If running with "distance-filter" argument, only generate the filter
-            countries = sys.argv[2:] if len(sys.argv) > 2 else ['se']
-            for country in countries:
-                generate_distance_filter(country)
-        else:
-            # Assume first argument is domain_name
-            domain_name = sys.argv[1]
-            countries = ['se']  # or could be passed as additional argument
-            for country in countries:
-                generate_race_pages(country, domain_name)
+    parser = argparse.ArgumentParser(description='Generate race pages')
+    parser.add_argument('--country', '-c', type=str, default='se', help='Country code (default: se)')
+    parser.add_argument('domain', nargs='?', help='Specific domain name to generate (optional)')
+    parser.add_argument('--filter', '-f', action='store_true', help='Generate distance filter only')
+    
+    args = parser.parse_args()
+    country_code = args.country.lower()
+    
+    if args.filter:
+        # Generate distance filter only
+        generate_distance_filter(country_code)
+    elif args.domain:
+        # Generate specific race page
+        generate_race_pages(country_code, args.domain)
     else:
-        # Default behavior: generate everything
-        countries = ['se']
-        for country in countries:
-            generate_race_pages(country)
+        # Generate all race pages
+        generate_race_pages(country_code)
 
-""" # Generate all race pages (no domain specified)
+""" # Examples of usage:
+# Generate all race pages for Sweden (default)
 python build_race_pages.py
 
-# Generate only one specific race page
+# Generate all race pages for Norway
+python build_race_pages.py --country no
+
+# Generate specific race page for Sweden
 python build_race_pages.py ultravasan-90
 
-# Generate distance filter only
-python build_race_pages.py distance-filter
+# Generate specific race page for Norway
+python build_race_pages.py --country no holmenkollmarsjen
 
-# Generate distance filter for specific countries
-python build_race_pages.py distance-filter se no """
+# Generate distance filter for Sweden
+python build_race_pages.py --filter
+
+# Generate distance filter for Norway
+python build_race_pages.py --country no --filter
+"""

@@ -79,6 +79,88 @@ function calculatePace(targetTime, distance) {
   return totalMinutes / (distance / 1000);
 }
 
+function calculateExperienceLevel(inputs) {
+  // Calculate experience level based on target time and previous experience
+  const targetPaceMinKm = calculatePace(
+    inputs.targetTime,
+    inputs.targetDistance
+  );
+
+  // Pace thresholds in minutes per kilometer for different distances
+  const paceThresholds = {
+    5000: {
+      // 5K
+      beginner: 7.0,
+      intermediate: 5.5,
+    },
+    10000: {
+      // 10K
+      beginner: 7.5,
+      intermediate: 6.0,
+    },
+    21097: {
+      // Half Marathon
+      beginner: 8.0,
+      intermediate: 6.5,
+    },
+    42195: {
+      // Marathon
+      beginner: 8.5,
+      intermediate: 7.0,
+    },
+  };
+
+  // Find closest distance threshold
+  const distances = Object.keys(paceThresholds).map(Number);
+  const closestDistance = distances.reduce((prev, curr) => {
+    return Math.abs(curr - inputs.targetDistance) <
+      Math.abs(prev - inputs.targetDistance)
+      ? curr
+      : prev;
+  });
+
+  const thresholds = paceThresholds[closestDistance];
+
+  if (targetPaceMinKm > thresholds.beginner) {
+    return 'beginner';
+  } else if (targetPaceMinKm > thresholds.intermediate) {
+    return 'intermediate';
+  } else {
+    return 'advanced';
+  }
+}
+
+function getPlanType(experienceLevel, targetDistance) {
+  const distanceMap = {
+    42195: 'maraton',
+    21097: 'halvmaraton',
+    10000: '10k',
+    5000: '5k',
+  };
+
+  // Find closest matching distance
+  const distances = Object.keys(distanceMap).map(Number);
+  const closestDistance = distances.reduce((prev, curr) => {
+    return Math.abs(curr - targetDistance) < Math.abs(prev - targetDistance)
+      ? curr
+      : prev;
+  });
+
+  // Changed to match your JSON structure (e.g., "maraton_nybörjare")
+  return `${distanceMap[closestDistance]}_${translateExperienceLevel(
+    experienceLevel
+  )}`;
+}
+
+// New helper function to translate experience levels to Swedish
+function translateExperienceLevel(level) {
+  const translations = {
+    beginner: 'nybörjare',
+    intermediate: 'erfaren', // Changed from 'intermediate'
+    advanced: 'avancerad', // Changed from 'advanced'
+  };
+  return translations[level] || level;
+}
 async function generateTrainingPlan() {
   // Validate required fields
   const requiredFields = ['race-date', 'plan-type', 'target-distance'];
@@ -106,26 +188,64 @@ async function generateTrainingPlan() {
     raceDate: document.getElementById('race-date').value,
   };
 
-  // Calculate paces based on target time and distance
-  const paces = calculatePaces(inputs.targetTime, inputs.targetDistance);
+  const experienceLevel = calculateExperienceLevel(inputs);
+  const planType = getPlanType(experienceLevel, inputs.targetDistance);
 
-  // Find matching plan and variation
-  const plan = trainingPlans.plans[inputs.planType];
+  // Add debug logging
+  console.log('Calculated experience level:', experienceLevel);
+  console.log('Generated plan type:', planType);
+  console.log('Available plans:', Object.keys(trainingPlans.plans));
+
+  // Calculate weeks until race
+  const weeksUntilRace = Math.floor(
+    calculateDaysUntilRace(inputs.raceDate) / 7
+  );
+
+  // Find matching plan
+  const plan = trainingPlans.plans[planType];
   if (!plan) {
+    console.error('No matching plan found for type:', planType);
     alert(translations.errors.no_matching_plan);
     return;
   }
 
+  // Get first variation
   const variation = plan.variations[0];
   if (!variation) {
     alert(translations.errors.no_matching_variations);
     return;
   }
 
-  // Generate the specific plan with paces
+  // Adjust weeks based on time until race
+  let weeks = variation.variation.main_weeks;
+  if (weeksUntilRace < 8) {
+    // Keep weeks 1, 2, 3 and 8, remove others
+    weeks = [weeks[0], weeks[1], weeks[2], weeks[7]];
+  } else if (weeksUntilRace > 8) {
+    // Interpolate middle weeks (4 and 5) until desired length
+    const middleWeeks = [weeks[3], weeks[4]];
+    const extraWeeksNeeded = weeksUntilRace - 8;
+    const interpolatedWeeks = [];
+
+    for (let i = 0; i < extraWeeksNeeded; i++) {
+      interpolatedWeeks.push({
+        ...middleWeeks[i % 2],
+        week: i + 4, // Adjust week number
+      });
+    }
+
+    weeks = [...weeks.slice(0, 3), ...interpolatedWeeks, ...weeks.slice(5)];
+  }
+
+  // Update variation with adjusted weeks
+  variation.variation.main_weeks = weeks;
+
+  // Calculate paces based on target time and distance
+  const paces = calculatePaces(inputs.targetTime, inputs.targetDistance);
+
+  // Generate the specific plan
   generateSpecificPlan(variation, inputs, paces);
 }
-
 function calculatePaces(targetTime, targetDistance) {
   // Calculate goal pace in min/km
   const totalMinutes =
@@ -199,7 +319,6 @@ function adjustForTerrain(pace, isHilly) {
   if (!isHilly) return pace;
   return pace + 15; // Add 15 sec/km for hills
 }
-
 // Define training phases
 const phases = {
   base: {
@@ -230,36 +349,19 @@ const phases = {
 
 function generateSpecificPlan(variation, inputs, paces) {
   const variationData = variation.variation;
-  const totalWeeks = Math.floor(calculateDaysUntilRace(inputs.raceDate) / 7);
-  const weeklyDistance = calculateWeeklyDistance(variation, paces);
+  const scheduleContainer = document.getElementById('training-schedule');
+  scheduleContainer.innerHTML = '';
 
-  // Show results and selected plan
-  document.querySelector('.results-container').classList.remove('hidden');
-  document.querySelector('.selected-plan').classList.remove('hidden');
-
-  // Create plan overview section
+  // Create plan overview
   const overviewContainer = document.createElement('div');
   overviewContainer.className = 'plan-overview';
   overviewContainer.innerHTML = `
     <h2>${variationData.title}</h2>
-    <div class="overview-metrics">
-      <div class="overview-item">
-        <span class="label">Programlängd:</span>
-        <span id="plan-duration">${totalWeeks} ${
-    translations.messages.weeks
-  }</span>
-      </div>
-      <div class="overview-item">
-        <span class="label">Veckodistans:</span>
-        <span id="weekly-distance">~${weeklyDistance} km</span>
-      </div>
-    </div>
     <div class="plan-focus">
       <h3>Fokus</h3>
       <p>${variationData.focus}</p>
     </div>
     <div class="plan-description">
-      <h3>Beskrivning</h3>
       <p>${variationData.description}</p>
     </div>
     <div class="plan-highlights">
@@ -270,130 +372,46 @@ function generateSpecificPlan(variation, inputs, paces) {
           .join('')}
       </ul>
     </div>
-    <div class="session-types">
-      <h3>Passtyper</h3>
-      ${Object.entries(variationData.weekly_structure.session_types)
-        .map(
-          ([type, details]) => `
-          <div class="session-type">
-            <h4>${workoutTypes[type] || type}</h4>
-            <p>${details.description}</p>
-            <p>Intensitet: ${
-              paces[details.intensity.split(' ')[0]] || details.intensity
-            }</p>
-            <p>Tid: ${details.duration_range.min}-${
-            details.duration_range.max
-          } ${details.duration_range.unit}</p>
-          </div>
-        `
-        )
-        .join('')}
-    </div>
   `;
-
-  // Insert overview at the top of the schedule container
-  const scheduleContainer = document.getElementById('training-schedule');
-  scheduleContainer.innerHTML = '';
   scheduleContainer.appendChild(overviewContainer);
 
-  // Rest of the existing code remains unchanged...
-  let currentWeek = 1;
-  const phases = variationData.phases;
-  if (!phases || !Array.isArray(phases)) {
-    console.error('Invalid phases data:', phases);
-    return;
-  }
+  // Generate weekly schedule
+  variationData.main_weeks.forEach((week) => {
+    const weekContainer = createWeekContainer(week.week);
 
-  phases.forEach((phase) => {
-    const phaseWeeks = parseInt(phase.duration_weeks.split('-')[0]);
+    week.sessions.forEach((session) => {
+      const sessionElement = createSessionElement(session.day, session, paces);
+      weekContainer.appendChild(sessionElement);
+    });
 
-    for (let week = 0; week < phaseWeeks; week++) {
-      const weekContainer = createWeekContainer(currentWeek);
-
-      Object.entries(phase.weekly_template).forEach(([day, session]) => {
-        const sessionElement = createSessionElement(
-          day,
-          session,
-          variationData.weekly_structure.session_types,
-          variationData,
-          paces
-        );
-        weekContainer.appendChild(sessionElement);
-      });
-
-      scheduleContainer.appendChild(weekContainer);
-      currentWeek++;
-    }
+    scheduleContainer.appendChild(weekContainer);
   });
 }
-function createSessionElement(
-  day,
-  session,
-  sessionTypes,
-  variationData,
-  paces
-) {
-  const sessionType = sessionTypes[session.type];
+
+function createSessionElement(day, session, paces) {
   const element = document.createElement('div');
   element.className = 'training-session';
-
-  // Get the detailed instructions for this session type
-  const instructions =
-    variationData.weekly_structure.instructions[session.type];
-
-  // Get the appropriate pace for this session type
-  const pace =
-    paces[`${session.type.toUpperCase()}_PACE`] ||
-    paces[session.intensity] ||
-    'Anpassat tempo';
 
   element.innerHTML = `
     <h4>${translations.weekdays[day.toLowerCase()]}</h4>
     <div class="workout-details">
-      <div class="workout-type">${workoutTypes[session.type] || 'Löpning'}</div>
-      <div class="workout-structure">
-        <div class="warmup">
-          <span class="label">${
-            translations.workout_components.warmup_label
-          }:</span>
-          ${
-            session.type === 'recovery'
-              ? '10-15 min lugn jogg'
-              : session.type === 'tempo' || session.type === 'intervals'
-              ? '15-20 min progressiv uppvärmning'
-              : '10-15 min lugn jogg'
-          }
-        </div>
-        <div class="main-workout">
-          <span class="label">${
-            translations.workout_components.main_workout_label
-          }:</span>
-          ${instructions}
-        </div>
-        <div class="cooldown">
-          <span class="label">${
-            translations.workout_components.cooldown_label
-          }:</span>
-          ${
-            session.type === 'recovery'
-              ? '5-10 min lugn jogg'
-              : session.type === 'tempo' || session.type === 'intervals'
-              ? '10-15 min lugn jogg'
-              : '5-10 min lugn jogg'
-          }
-        </div>
-      </div>
+      <div class="workout-type">${session.workout}</div>
+      <div class="workout-description">${session.description}</div>
       <div class="workout-intensity">
-        ${translations.workout_components.intensity_label}: ${pace}
+        Intensitet: ${paces[session.intensity] || session.intensity}
       </div>
       <div class="workout-duration">
-        ${translations.workout_components.duration_label}: ${session.duration}
+        Tid: ${session.duration} ${session.duration_unit}
+      </div>
+      <div class="workout-priority">
+        Prioritet: ${session.priority}
       </div>
     </div>
   `;
 
   return element;
 }
+
 function createVariationElement(variation, index) {
   const variationData = variation.variation;
   const element = document.createElement('div');
@@ -432,6 +450,7 @@ function createVariationElement(variation, index) {
 
   return element;
 }
+
 function createWeekContainer(weekNum) {
   const container = document.createElement('div');
   container.className = 'week-container';
@@ -495,6 +514,7 @@ function createDayElement(day, session) {
 
   return element;
 }
+
 function updatePlanOverview(totalWeeks) {
   document.getElementById(
     'plan-duration'
@@ -615,4 +635,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // You can also run it manually from console:
+// setupTestEnvironment();
+
 // setupTestEnvironment();

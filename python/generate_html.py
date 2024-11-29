@@ -224,7 +224,7 @@ if __name__ == "__main__":
 
     # List of countries to generate
     #countries = ['se', 'no', 'de']
-    countries = ['se']
+    countries = ['se', 'no']
     
     for country in countries:
         generate_country(country)

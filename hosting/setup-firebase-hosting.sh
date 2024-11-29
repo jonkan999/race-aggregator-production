@@ -136,7 +136,11 @@ for country in "${COUNTRIES[@]}"; do
 'https://${prod_site_name}.firebaseapp.com'"
 
     # Add base URL if it exists
-    [[ ! -z "$base_url" ]] && allowed_origins="${allowed_origins}, '${base_url}'"
+    if [[ ! -z "$base_url" ]]; then
+        # Remove https:// and any trailing slash
+        clean_url=$(echo "$base_url" | sed 's|https://||' | sed 's|/\+$||')
+        allowed_origins="${allowed_origins}, 'https://${clean_url}', 'https://www.${clean_url}'"
+    fi
 done
 allowed_origins="${allowed_origins}]"
 

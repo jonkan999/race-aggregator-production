@@ -49,6 +49,19 @@ class GeminiResponse(BaseAIResponse):
                 
         return prompt.strip()
 
+    def __init__(self):
+        super().__init__()
+        self.is_free_tier = self.config.get('free_tier', True)  # Add this config option
+        if self.is_free_tier:
+            print("""
+╔════════════════════════════════════════════════════════════════╗
+║                     RATE LIMITING ENABLED                       ║
+║ Waiting 4 seconds between requests due to Gemini free tier     ║
+║ limitation (15 requests/minute). Set free_tier: false in       ║
+║ config when using a paid account for faster generation.        ║
+╚════════════════════════════════════════════════════════════════╝
+            """)
+
     def get_response(self, messages: List[Dict[str, str]], max_output_tokens: int = None) -> Dict[str, Any]:
         if max_output_tokens is None:
             max_output_tokens = self.config.get('max_output_tokens', 1000)
@@ -79,6 +92,10 @@ class GeminiResponse(BaseAIResponse):
             total_tokens = prompt_tokens + completion_tokens
 
         cost = self.calculate_cost(prompt_tokens, completion_tokens)
+
+        # Only sleep if using free tier
+        if self.is_free_tier:
+            time.sleep(4)  # Wait 4 seconds between requests
 
         return {
             'content': response.text,

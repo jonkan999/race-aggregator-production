@@ -1,5 +1,6 @@
 import sys
 import os
+import argparse
 
 # Add the parent directory to the system path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -60,7 +61,7 @@ def cleanup_empty_seo_pages(output_dir, navigation, country_code, seo_cities_fol
         shutil.rmtree(city_pages_path)
         print(f"Cleaned up city pages directory: {city_pages_path}")
 
-def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country_code):
+def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country_code, free_tier=True):
     env = Environment(loader=FileSystemLoader(template_dir))
     template = env.get_template('race_list_seo.html')
 
@@ -80,7 +81,8 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
     # Initialize the SEO content generator
     seo_generator = SEOContentGenerator(
         country_code=country_code,
-        language=index_content['country_language']
+        language=index_content['country_language'],
+        free_tier=free_tier
     )
 
     # Clean up existing city pages
@@ -199,17 +201,27 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
     generate_sitemap_for_country(country_code)
 
 def main():
-    with open('data/countries/se/final_races.json', 'r', encoding='utf-8') as f:
+    parser = argparse.ArgumentParser(description='Generate SEO pages for cities')
+    parser.add_argument('--country', '-c', type=str, default='se', help='Country code (default: se)')
+    parser.add_argument('--free-tier', '-f', action='store_true', default=True, help='Use free tier rate limiting (default: True)')
+    parser.add_argument('--paid', '-p', action='store_true', help='Disable rate limiting for paid tier')
+    
+    args = parser.parse_args()
+    
+    # If --paid is specified, override free_tier to False
+    free_tier = False if args.paid else args.free_tier
+    country_code = args.country.lower()
+    
+    with open(f'data/countries/{country_code}/final_races.json', 'r', encoding='utf-8') as f:
         races = json.load(f)
     
-    with open('data/countries/se/distance_filter.yaml', 'r', encoding='utf-8') as f:
+    with open(f'data/countries/{country_code}/distance_filter.yaml', 'r', encoding='utf-8') as f:
         verbose_mapping = yaml.safe_load(f)
     
     template_dir = 'templates'
-    output_dir = 'build/se'
-    country_code = 'se'
+    output_dir = f'build/{country_code}'
     
-    generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country_code)
+    generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country_code, free_tier=free_tier)
 
 if __name__ == "__main__":
     main()
