@@ -356,59 +356,78 @@ class Analytics {
   async getLocationData() {
     try {
       console.log('Fetching location data...');
+      let ip = 'unknown';
+      let locationData = null;
 
-      // Get IP first using ipify
-      const ipPromise = new Promise((resolve) => {
-        window._getIPCallback = (json) => {
-          resolve(json.ip);
-          delete window._getIPCallback; // Cleanup
-        };
+      // Try to get IP first
+      try {
+        ip = await new Promise((resolve, reject) => {
+          window._getIPCallback = (json) => {
+            if (json && json.ip) {
+              resolve(json.ip);
+            } else {
+              reject(new Error('Invalid IP response'));
+            }
+            delete window._getIPCallback; // Cleanup
+          };
 
-        const script = document.createElement('script');
-        script.src =
-          'https://api.ipify.org?format=jsonp&callback=_getIPCallback';
-        document.head.appendChild(script);
-        script.onload = () => document.head.removeChild(script); // Cleanup
-      });
+          const script = document.createElement('script');
+          script.onerror = () => reject(new Error('Failed to load IP script'));
+          script.src =
+            'https://api.ipify.org?format=jsonp&callback=_getIPCallback';
+          document.head.appendChild(script);
+          script.onload = () => document.head.removeChild(script);
 
-      // Get location data
-      const endpoint =
-        'http://ip-api.com/json/?fields=status,message,country,countryCode,region,regionName';
-      const [ip, locationResponse] = await Promise.all([
-        ipPromise,
-        fetch(endpoint),
-      ]);
+          // Timeout after 5 seconds
+          setTimeout(() => reject(new Error('IP fetch timeout')), 5000);
+        });
+      } catch (ipError) {
+        console.warn('Failed to fetch IP:', ipError);
+      }
 
-      const locationData = await locationResponse.json();
-      console.log('Location data received:', locationData);
+      // Try to get location data
+      try {
+        const endpoint =
+          'http://ip-api.com/json/?fields=status,message,country,countryCode,region,regionName';
+        const response = await fetch(endpoint);
+        if (!response.ok)
+          throw new Error(`HTTP error! status: ${response.status}`);
+        locationData = await response.json();
+      } catch (locationError) {
+        console.warn('Failed to fetch location:', locationError);
+      }
 
-      if (locationData.status === 'success') {
-        // Store location data (without IP)
+      // Set session data based on what we got
+      if (locationData && locationData.status === 'success') {
         this.sessionData.location = {
           country: locationData.country,
           countryCode: locationData.countryCode,
           region: locationData.regionName,
         };
-        // Store IP temporarily for visitor ID generation
         this._tempIP = ip;
         console.log('Location data set:', this.sessionData.location);
       } else {
-        console.warn('Location API error:', locationData.message);
+        console.warn('Using fallback location data');
         this.sessionData.location = {
           country: 'unknown',
           countryCode: 'unknown',
           region: 'unknown',
         };
-        this._tempIP = 'unknown';
+        this._tempIP = ip; // Still use IP if we got it
       }
     } catch (error) {
-      console.error('Error fetching location:', error);
+      console.error('Error in getLocationData:', error);
       this.sessionData.location = {
         country: 'unknown',
         countryCode: 'unknown',
         region: 'unknown',
       };
       this._tempIP = 'unknown';
+    } finally {
+      // Clean up any remaining callback
+      if (window._getIPCallback) {
+        delete window._getIPCallback;
+      }
     }
   }
 

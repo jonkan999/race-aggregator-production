@@ -540,6 +540,12 @@ document.addEventListener('DOMContentLoaded', () => {
       generateTrainingPlan();
     });
   }
+
+  // Add export button handler
+  const exportButton = document.getElementById('export-pdf');
+  if (exportButton) {
+    exportButton.addEventListener('click', exportToPDF);
+  }
 });
 
 // Helper function to calculate days until race
@@ -638,3 +644,53 @@ document.addEventListener('DOMContentLoaded', () => {
 // setupTestEnvironment();
 
 // setupTestEnvironment();
+
+// Add to imports at top
+import { jsPDF } from 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+import html2canvas from 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.esm.min.js';
+
+// Add new function for PDF export
+async function exportToPDF() {
+  try {
+    const schedule = document.getElementById('training-schedule');
+    if (!schedule) return;
+
+    // Create PDF
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const margin = 15; // margins in mm
+    let verticalOffset = margin;
+
+    // Add title
+    pdf.setFontSize(20);
+    pdf.text('Training Plan', margin, verticalOffset);
+    verticalOffset += 10;
+
+    // Convert each week container to canvas and add to PDF
+    const weekContainers = schedule.querySelectorAll('.week-container');
+    for (const weekContainer of weekContainers) {
+      const canvas = await html2canvas(weekContainer);
+      const imgData = canvas.toDataURL('image/png');
+
+      // Check if new page is needed
+      if (verticalOffset > 270) {
+        // A4 height minus margin
+        pdf.addPage();
+        verticalOffset = margin;
+      }
+
+      // Calculate dimensions to fit within page width
+      const imgWidth = 210 - 2 * margin; // A4 width minus margins
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+      pdf.addImage(imgData, 'PNG', margin, verticalOffset, imgWidth, imgHeight);
+      verticalOffset += imgHeight + 10;
+    }
+
+    // Save the PDF
+    const today = new Date().toISOString().split('T')[0];
+    pdf.save(`training-plan-${today}.pdf`);
+  } catch (error) {
+    console.error('Error generating PDF:', error);
+    alert(translations.errors.pdf_generation);
+  }
+}
