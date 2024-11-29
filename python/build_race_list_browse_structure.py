@@ -8,6 +8,7 @@ import yaml
 import json
 from pathlib import Path
 from jinja_functions import slugify
+import argparse
 
 def create_base_context(index_content, country_code):
     """Create the base context for rendering templates."""
@@ -346,17 +347,22 @@ def generate_browse_pages(races, template_dir, output_dir, verbose_mapping, coun
         f.write(template.render(context))
 
 def main():
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(description='Generate race list browse pages.')
+    parser.add_argument('--country', type=str, default='se', help='Country code for the races')
+    args = parser.parse_args()
+
     # Load races
-    with open('data/countries/se/final_races.json', 'r', encoding='utf-8') as f:
+    with open(f'data/countries/{args.country}/final_races.json', 'r', encoding='utf-8') as f:
         races = json.load(f)
     
     # Load verbose mapping
-    with open('data/countries/se/distance_filter.yaml', 'r', encoding='utf-8') as f:
+    with open(f'data/countries/{args.country}/distance_filter.yaml', 'r', encoding='utf-8') as f:
         verbose_mapping = yaml.safe_load(f)
     
     template_dir = 'templates'
-    output_dir = 'build/se'
-    country_code = 'se'
+    output_dir = f'build/{args.country}'
+    country_code = args.country
     
     generate_browse_pages(races, template_dir, output_dir, verbose_mapping, country_code)
 
