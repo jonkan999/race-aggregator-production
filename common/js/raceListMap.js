@@ -142,10 +142,13 @@ map.on('load', () => {
   }
 });
 
-// Create a function to add a marker for a venue
-// Create a function to add a marker for a venue
-function addMarker(race, index) {
-  const raceBox = raceBoxes[index];
+// Add this function at the top with other utility functions
+function generateRaceHash(latitude, longitude, name) {
+  return `${latitude}_${longitude}_${name}`.replace(/\s+/g, '_');
+}
+
+// Modify the addMarker function
+function addMarker(race, raceBox) {
   if (raceBox) {
     const marker = new mapboxgl.Marker()
       .setLngLat(race.mapboxCenter)
@@ -153,11 +156,21 @@ function addMarker(race, index) {
     setMarkerSvg(marker, defaultMarkerSVG);
 
     const dataNameValue = raceBox.getAttribute('data-name');
+    const hash = generateRaceHash(
+      raceBox.getAttribute('data-latitude'),
+      raceBox.getAttribute('data-longitude'),
+      dataNameValue
+    );
+
     marker.getElement().setAttribute('data-name', dataNameValue);
+    marker.getElement().setAttribute('data-race-hash', hash);
 
     markers.push(marker);
+    race.hash = hash; // Store hash in race object
 
     const markerElement = marker.getElement();
+
+    raceBox.setAttribute('data-race-hash', hash); // Add hash to raceBox
 
     raceBox.addEventListener('mouseenter', () => {
       changeMarkerColor(markerElement, 'var(--color-success)');
@@ -173,40 +186,49 @@ function addMarker(race, index) {
   }
 }
 
-// Collect race-card elements and extract coordinates
-const markers = []; // Array to store marker references
+// Modify the race collection section
+const markers = [];
 const races = [];
 const raceBoxes = document.querySelectorAll('.race-cards-grid .race-card');
-raceBoxes.forEach((raceBox, index) => {
+raceBoxes.forEach((raceBox) => {
   const latitude = parseFloat(raceBox.getAttribute('data-latitude'));
   const longitude = parseFloat(raceBox.getAttribute('data-longitude'));
+  const name = raceBox.getAttribute('data-name');
 
   if (!isNaN(latitude) && !isNaN(longitude)) {
-    const coordinates = [longitude, latitude]; // Mapbox uses [lng, lat]
-    races.push({ mapboxCenter: coordinates });
-    // Call addMarker with the race and index
-    addMarker({ mapboxCenter: coordinates }, index);
+    const coordinates = [longitude, latitude];
+    const race = {
+      mapboxCenter: coordinates,
+      element: raceBox,
+      name: name,
+    };
+    races.push(race);
+    addMarker(race, raceBox);
   }
 });
 
-// Create a function to handle marker click events
-let isPopupOpen = false; // Initialize a flag to track popup state
+// Add this helper function to calculate dynamic offset
+function calculateMapOffset(currentZoom) {
+  // Base offset at zoom level 11 (default) is 2.5
+  const baseOffset = 3.5;
+  const baseZoom = zoom;
 
+  // Calculate relative offset based on current zoom
+  // As we zoom in (higher zoom), we need smaller offset
+  const zoomFactor = Math.pow(2, baseZoom - currentZoom);
+  console.log(zoomFactor);
+  return baseOffset * zoomFactor;
+}
+
+// Modify the handleMarkerClick function
 function handleMarkerClick(marker) {
   event.stopPropagation();
-
-  const coordinates = marker.getLngLat();
-
-  const matchingRace = races.find((race) => {
-    return (
-      race.mapboxCenter[0] === coordinates.lng &&
-      race.mapboxCenter[1] === coordinates.lat
-    );
-  });
+  const hash = marker.getElement().getAttribute('data-race-hash');
+  const matchingRace = races.find((race) => race.hash === hash);
 
   if (matchingRace) {
-    const raceBox = raceBoxes[races.indexOf(matchingRace)];
-    const raceLink = raceBox ? raceBox.getAttribute('href') : '';
+    const raceBox = matchingRace.element;
+    const raceLink = raceBox.getAttribute('href') || '';
     const imageElement = raceBox.querySelector('.background-img');
     const imageUrl = imageElement ? imageElement.getAttribute('src') : '';
     const header = raceBox.querySelector('.race-name').textContent;
@@ -219,97 +241,86 @@ function handleMarkerClick(marker) {
       .querySelector('.distance-container')
       .cloneNode(true);
 
-    // Update popup content
+    // Rest of the popup creation code remains the same
     customPopup.innerHTML = `
-      <div class="popup-content">
-        <button class="close-popup">&times;</button>
-        <a href="${raceLink}" class="popup-container">
-          <div class="popup-image">
-            <img src="${imageUrl}" alt="${header}">
-            <div class="overlay soft"></div>
-            <div class="popup-info">
-              <div class="popup-info-top">
-                <div class="popup-date">
-                  ${date}
-                </div>
-                <div class="popup-location">
-                  ${location}
-                </div>
-              </div>
-              <div class="popup-info-bottom">
-                <div class="race-type">
-                  <svg class="icon">
-                    <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-                  </svg>
-                  ${raceType}
-                </div>
-                <div class="popup-distances">
-                  ${distanceContainer.outerHTML}
-                </div>
-              </div>
-              <h3 class="popup-title">${header}</h3>
+            <div class="popup-content">
+                <button class="close-popup">&times;</button>
+                <a href="${raceLink}" class="popup-container">
+                    <div class="popup-image">
+                        <img src="${imageUrl}" alt="${header}">
+                        <div class="overlay soft"></div>
+                        <div class="popup-info">
+                            <div class="popup-info-top">
+                                <div class="popup-date">
+                                    ${date}
+                                </div>
+                                <div class="popup-location">
+                                    ${location}
+                                </div>
+                            </div>
+                            <div class="popup-info-bottom">
+                                <div class="race-type">
+                                    <svg class="icon">
+                                        <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+                                    </svg>
+                                    ${raceType}
+                                </div>
+                                <div class="popup-distances">
+                                    ${distanceContainer.outerHTML}
+                                </div>
+                            </div>
+                            <h3 class="popup-title">${header}</h3>
+                        </div>
+                    </div>
+                </a>
             </div>
-          </div>
-        </a>
-      </div>
-    `;
+        `;
 
-    // Show popup
+    // Show popup and handle other functionality as before
     customPopup.style.display = 'block';
+    const coordinates = marker.getLngLat();
 
-    // Add close button functionality
     const closeButton = customPopup.querySelector('.close-popup');
     closeButton.addEventListener('click', () => {
       customPopup.style.display = 'none';
-      // Reset marker color if needed
       const markerElement = marker.getElement().querySelector('svg');
       changeMarkerColor(markerElement, 'var(--color-warning)');
     });
 
-    // Change marker color
     const markerElement = marker.getElement().querySelector('svg');
     changeMarkerColor(markerElement, 'var(--color-success)');
 
-    // Move map to new position
+    // Get current zoom level and calculate appropriate offset
+    const currentZoom = map.getZoom();
+    const offset = calculateMapOffset(currentZoom);
+
     map.easeTo({
-      center: [coordinates.lng, coordinates.lat - 2.5],
+      center: [coordinates.lng, coordinates.lat - offset],
       duration: 1000,
     });
   }
 }
 
-function changeMarkerColor(markerElement, newColor) {
-  const pathElement = markerElement.querySelector('path');
-  pathElement.setAttribute('fill', newColor);
+// Update visibility handler
+function updateMarkerVisibility() {
+  Object.keys(races).forEach((hash) => {
+    const raceBox = races[hash].element;
+    const marker = markers[hash];
 
-  // Change the z-index based on newColor
-  if (newColor === 'var(--color-success)') {
-    markerElement.style.zIndex = '1000';
-  } else if (newColor === 'var(--color-warning)') {
-    markerElement.style.zIndex = '0';
-  }
+    if (raceBox.classList.contains('filtered-out')) {
+      marker.getElement().style.display = 'none';
+    } else {
+      marker.getElement().style.display = 'block';
+    }
+  });
 }
 
-// Add click event listener to each marker
-markers.forEach((marker) => {
+// Add click listeners to markers
+Object.values(markers).forEach((marker) => {
   marker.getElement().addEventListener('click', () => {
     handleMarkerClick(marker);
   });
 });
-
-// Add this function to show/hide markers based on race card visibility
-function updateMarkerVisibility() {
-  raceBoxes.forEach((raceBox, index) => {
-    const marker = markers[index];
-    if (marker) {
-      if (raceBox.classList.contains('filtered-out')) {
-        marker.getElement().style.display = 'none';
-      } else {
-        marker.getElement().style.display = 'block';
-      }
-    }
-  });
-}
 
 // Add a MutationObserver to watch for changes in race card visibility
 const observer = new MutationObserver((mutations) => {
@@ -337,7 +348,7 @@ map.on('click', () => {
   if (customPopup.style.display === 'block') {
     customPopup.style.display = 'none';
     // Reset all markers to default color
-    markers.forEach((marker) => {
+    Object.values(markers).forEach((marker) => {
       const markerElement = marker.getElement().querySelector('svg');
       changeMarkerColor(markerElement, 'var(--color-warning)');
     });
@@ -348,3 +359,15 @@ map.on('click', () => {
 customPopup.addEventListener('click', (event) => {
   event.stopPropagation();
 });
+
+function changeMarkerColor(markerElement, newColor) {
+  const pathElement = markerElement.querySelector('path');
+  pathElement.setAttribute('fill', newColor);
+
+  // Change the z-index based on newColor
+  if (newColor === 'var(--color-success)') {
+    markerElement.style.zIndex = '1000';
+  } else if (newColor === 'var(--color-warning)') {
+    markerElement.style.zIndex = '0';
+  }
+}

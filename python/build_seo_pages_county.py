@@ -211,3 +211,19 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+""" # Examples of usage:
+# Default: Swedish site with rate limiting
+python build_seo_pages_county.py
+
+# Norwegian site with rate limiting
+python build_seo_pages_county.py --country no
+
+# Swedish site without rate limiting (paid tier)
+python build_seo_pages_county.py --paid
+
+# Norwegian site without rate limiting (paid tier)
+python build_seo_pages_county.py --country no --paid
+# or
+python build_seo_pages_county.py -c no -p
+"""

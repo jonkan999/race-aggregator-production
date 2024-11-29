@@ -4,6 +4,7 @@ import PIL.Image
 from pathlib import Path
 import json
 import os
+import yaml
 
 import sys
 import os
@@ -16,7 +17,15 @@ from python.base_ai_response import BaseAIResponse
 class GeminiResponse(BaseAIResponse):
     def _initialize_client(self):
         genai.configure(api_key=self.api_key)
-        self.model = genai.GenerativeModel(self.config['model'])
+        # Make sure config is loaded before accessing it
+        if not hasattr(self, 'config'):
+            self.config = self.load_config()
+        model_config = self.config.get('cheap', {
+            'model': 'gemini-1.5-flash',  # fallback to default model
+            'temperature': 0.7,
+            'max_output_tokens': 1000
+        })
+        self.model = genai.GenerativeModel(model_config['model'])
 
     def _get_config_filename(self) -> str:
         return 'gemini_config.yaml'
@@ -50,8 +59,17 @@ class GeminiResponse(BaseAIResponse):
         return prompt.strip()
 
     def __init__(self):
+        # Load config first
+        self.config = self.load_config()
+        # Then initialize the rest
         super().__init__()
-        self.is_free_tier = self.config.get('free_tier', True)  # Add this config option
+        self.is_free_tier = self.config.get('free_tier', True)
+        self.model_config = self.config.get('cheap', {
+            'model': 'gemini-1.5-flash',
+            'temperature': 0.7,
+            'max_output_tokens': 1000
+        })
+        
         if self.is_free_tier:
             print("""
 ╔════════════════════════════════════════════════════════════════╗
@@ -158,20 +176,29 @@ class GeminiResponse(BaseAIResponse):
                 }
             raise  # Re-raise other types of errors
 
+    def load_config(self, config_type=None):
+        """Override the base class method to load config without using config_type"""
+        config_path = os.path.join('python', 'config', self._get_config_filename())
+        with open(config_path, 'r') as f:
+            return yaml.safe_load(f)
+
 class SEOContentGenerator:
-    def __init__(self, country_code: str, language: str):
+    def __init__(self, country_code: str, language: str, free_tier: bool = True):
         self.country_code = country_code
         self.language = language
         self.gemini = GeminiResponse()
-        print("""
+        self.gemini.is_free_tier = free_tier  # Set the free_tier status
+        
+        if free_tier:
+            print("""
 ╔════════════════════════════════════════════════════════════════╗
 ║                     RATE LIMITING ENABLED                       ║
 ║ Waiting 4 seconds between requests due to Gemini free tier     ║
 ║ limitation (15 requests/minute). Remove this delay when using  ║
 ║ a paid account for faster generation.                          ║
 ╚════════════════════════════════════════════════════════════════╝
-        """)
-        
+            """)
+    
     def get_cache_key(self, county=None, race_type=None, category=None):
         """Generate a unique cache key for the combination of filters."""
         filters = []
@@ -325,7 +352,6 @@ Rules:
 
         # Get AI response
         response = self.gemini.get_response(messages)
-        time.sleep(4)  # Wait 4 seconds between requests
         content = response['content']
 
         print(content)

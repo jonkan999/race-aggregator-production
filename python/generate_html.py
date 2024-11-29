@@ -215,16 +215,28 @@ def copy_folder(source_dir, destination_dir):
     shutil.copytree(source_dir, destination_dir)
     print(f"Copied all contents from {source_dir} to {destination_dir}")
 
-
-
+def copy_ads_txt(output_dir):
+    """Copy ads.txt to all country build directories."""
+    source_ads = 'common/ads.txt'
+    if os.path.exists(source_ads):
+        for country_dir in os.listdir(output_dir):
+            country_path = os.path.join(output_dir, country_dir)
+            if os.path.isdir(country_path):
+                dest_ads = os.path.join(country_path, 'ads.txt')
+                shutil.copy2(source_ads, dest_ads)
+                print(f"Copied ads.txt to {country_path}")
+    else:
+        print(f"Warning: ads.txt not found at {source_ads}")
 
 if __name__ == "__main__":
     # Compile LESS to CSS before generating HTML
     compile_less_to_css()
 
     # List of countries to generate
-    #countries = ['se', 'no', 'de']
     countries = ['se', 'no']
     
     for country in countries:
         generate_country(country)
+    
+    # Copy ads.txt to all country directories
+    copy_ads_txt(output_dir)
