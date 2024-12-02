@@ -113,6 +113,9 @@ document.addEventListener("DOMContentLoaded", function () {
                                     console.warn('AdSense retry error:', e);
                                 }
                             }, 1000);
+                        } else if (retryCount >= 2) {
+                            // Remove unfilled ad after last retry
+                            adElement.remove();
                         }
                         return;
                     }
