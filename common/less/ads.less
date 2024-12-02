@@ -122,3 +122,46 @@ Landscape tablet (≤1200px): 62px
 Small tablet (≤704px): 54px
 Phone (≤544px): 50px
 Small phone (≤430px): 46px */
+
+.ad-card {
+  width: 100%;
+  margin: 2rem 0;
+  background: transparent !important;
+  box-shadow: none !important;
+
+  .ad-container {
+    min-width: 250px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 1em auto;
+  }
+
+  .desktop-ad,
+  .mobile-ad {
+    width: 100%;
+    min-height: 100px;
+  }
+
+  // Hide/show based on screen size
+  .desktop-ad {
+    display: none;
+    @media (min-width: 768px) {
+      display: block;
+    }
+  }
+
+  .mobile-ad {
+    display: block;
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  // Remove fixed heights
+  .adsbygoogle {
+    width: 100%;
+    height: auto !important;
+    min-height: 100px;
+  }
+}

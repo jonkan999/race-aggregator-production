@@ -70,7 +70,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Add this function to manage ad insertion
   function insertAds() {
-    const raceCardsContainer = document.querySelector('.race-cards-container');
+    // Add minimum width constraint to ad containers
+    const adStyle = `
+        min-width: 250px;
+        width: 100%;
+        margin: 1em auto;
+    `;
+    
+    const adContainers = document.querySelectorAll('.ad-container');
+    adContainers.forEach(container => {
+        container.style.cssText = adStyle;
+    });
+
+    const raceCardsContainer = document.querySelector('.race-cards-grid');
     const visibleCards = Array.from(document.querySelectorAll('.race-card:not(.filtered-out):not(.paginated-out):not(.ad-card)'));
     
     // Remove existing ads
@@ -78,12 +90,45 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Insert new ads
     visibleCards.forEach((card, index) => {
-      // Insert after first card and then every fourth card
-      if (index === 1 || (index > 1 && (index - 1) % 4 === 0)) {
+      // Insert after every third card
+      if ((index + 1) % 3 === 0) {
         const adElement = document.createElement('div');
-        adElement.innerHTML = DESKTOP_AD_TEMPLATE + MOBILE_AD_TEMPLATE;
-        card.after(adElement.firstElementChild);
-        card.after(adElement.firstElementChild);
+        adElement.className = 'race-card ad-card';
+        // Use fluid layout for better native ad integration
+        adElement.innerHTML = `
+          <div class="ad-container" style="min-height: 100px; width: 100%;">
+            <!-- Desktop Ad -->
+            <div class="desktop-ad">
+              <ins class="adsbygoogle"
+                   style="display:block"
+                   data-ad-format="fluid"
+                   data-ad-layout-key="+2h+pb+48+1a-14"
+                   data-ad-client="ca-pub-7076760775175370"
+                   data-ad-slot="3457242356"></ins>
+            </div>
+            <!-- Mobile Ad -->
+            <div class="mobile-ad">
+              <ins class="adsbygoogle"
+                   style="display:block"
+                   data-ad-format="fluid"
+                   data-ad-layout-key="-78+d4+5t-28-87"
+                   data-ad-client="ca-pub-7076760775175370"
+                   data-ad-slot="4511303722"></ins>
+            </div>
+          </div>
+        `;
+        
+        card.after(adElement);
+        
+        // Initialize ads
+        const adSlots = adElement.querySelectorAll('.adsbygoogle');
+        adSlots.forEach(slot => {
+          try {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          } catch (e) {
+            console.warn('AdSense initialization error:', e);
+          }
+        });
       }
     });
   }
@@ -590,7 +635,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Add these styles to your CSS
   const styles = `
     .ad-card {
-      min-height: 100px;
       display: flex;
       justify-content: center;
       align-items: center;
