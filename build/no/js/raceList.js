@@ -56,10 +56,10 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
             
             <!-- Ad slots -->
-            <div class="ad-slots" style="display: none;">
+            <div class="ad-slots">
               <div class="desktop-ad">
                 <ins class="adsbygoogle"
-                     style="display:block; width:100%; min-width:250px;"
+                     style="display:block"
                      data-ad-client="ca-pub-7076760775175370"
                      data-ad-slot="1598812305"
                      data-ad-format="auto"
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
               </div>
               <div class="mobile-ad">
                 <ins class="adsbygoogle"
-                     style="display:block; width:100%; min-width:320px;"
+                     style="display:block"
                      data-ad-client="ca-pub-7076760775175370"
                      data-ad-slot="9358545536"
                      data-ad-format="auto"
@@ -84,38 +84,27 @@ document.addEventListener("DOMContentLoaded", function () {
             const adSlots = entry.target.querySelector('.ad-slots');
             const placeholder = entry.target.querySelector('.ad-placeholder');
             
-            // Set container sizes
-            adContainer.style.cssText = `
-                width: 100%;
-                min-width: 250px;
-                margin: 1em auto;
-                display: flex;
-                justify-content: center;
-                min-height: 250px;
-            `;
-            
-            // Show placeholder immediately
-            placeholder.style.display = 'flex';
-            
-            // Set a timeout for ad loading
-            const timeoutId = setTimeout(() => {
-                console.warn('Ad loading timeout');
-            }, 5000);
-            
             // Initialize ads
             try {
                 const slots = entry.target.querySelectorAll('.adsbygoogle');
                 slots.forEach(slot => {
-                    if (slot.getBoundingClientRect().width > 0) {
-                        (adsbygoogle = window.adsbygoogle || []).push({
-                            callback: () => {
-                                // Ad loaded successfully
-                                clearTimeout(timeoutId);
-                                placeholder.style.display = 'none';
-                                adSlots.style.display = 'block';
-                            }
-                        });
-                    }
+                    // Force display block before checking width
+                    slot.style.display = 'block';
+                    
+                    // Small delay to ensure display has taken effect
+                    setTimeout(() => {
+                        const width = slot.getBoundingClientRect().width;
+                        console.log('Ad slot width:', width); // Debug log
+                        
+                        if (width > 0) {
+                            (adsbygoogle = window.adsbygoogle || []).push({
+                                callback: () => {
+                                    placeholder.style.display = 'none';
+                                    adSlots.style.display = 'block';
+                                }
+                            });
+                        }
+                    }, 100);
                 });
             } catch (e) {
                 console.warn('AdSense initialization error:', e);
