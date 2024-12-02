@@ -44,97 +44,41 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Insert new ads
     visibleCards.forEach((card, index) => {
-      if ((index + 1) % 3 === 0) {
+      if ((index + 1) % 3 === 0) {  // Every 3rd card (will become 4th with ad insertion)
         const adElement = document.createElement('div');
         adElement.className = 'race-card ad-card';
         adElement.innerHTML = `
           <div class="ad-container">
-            <!-- Placeholder -->
-            <div class="ad-placeholder">
-              <span>Annons</span>
-              <div class="loading-dots"></div>
+            <div class="desktop-ad">
+              <ins class="adsbygoogle"
+                   style="display:block"
+                   data-ad-client="ca-pub-7076760775175370"
+                   data-ad-slot="1598812305"
+                   data-ad-format="auto"
+                   data-full-width-responsive="true"></ins>
             </div>
-            
-            <!-- Ad slots -->
-            <div class="ad-slots">
-              <div class="desktop-ad">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-7076760775175370"
-                     data-ad-slot="1598812305"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-              </div>
-              <div class="mobile-ad">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-7076760775175370"
-                     data-ad-slot="9358545536"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-              </div>
+            <div class="mobile-ad">
+              <ins class="adsbygoogle"
+                   style="display:block"
+                   data-ad-client="ca-pub-7076760775175370"
+                   data-ad-slot="9358545536"
+                   data-ad-format="auto"
+                   data-full-width-responsive="true"></ins>
             </div>
           </div>
         `;
         
         card.after(adElement);
-        
-        const initializeAd = (entry) => {
-            const adContainer = entry.target.querySelector('.ad-container');
-            const adSlots = entry.target.querySelector('.ad-slots');
-            const placeholder = entry.target.querySelector('.ad-placeholder');
-            
-            // Initialize ads
-            try {
-                const slots = entry.target.querySelectorAll('.adsbygoogle');
-                slots.forEach(slot => {
-                    // Force display block before checking width
-                    slot.style.display = 'block';
-                    
-                    // Small delay to ensure display has taken effect
-                    setTimeout(() => {
-                        const width = slot.getBoundingClientRect().width;
-                        console.log('Ad slot width:', width); // Debug log
-                        
-                        if (width > 0) {
-                            (adsbygoogle = window.adsbygoogle || []).push({
-                                callback: () => {
-                                    placeholder.style.display = 'none';
-                                    adSlots.style.display = 'block';
-                                }
-                            });
-                        }
-                    }, 100);
-                });
-            } catch (e) {
-                console.warn('AdSense initialization error:', e);
-            }
-        };
 
-        // Check if already in viewport
-        const rect = adElement.getBoundingClientRect();
-        const isInViewport = (
-            rect.top >= -50 &&
-            rect.bottom <= (window.innerHeight + 200)
-        );
-
-        if (isInViewport) {
-            initializeAd({ target: adElement });
-        } else {
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        initializeAd(entry);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { 
-                rootMargin: '50px 0px 200px 0px',
-                threshold: 0.1
-            });
-            
-            observer.observe(adElement);
-        }
+        // Initialize the ads
+        const adSlots = adElement.querySelectorAll('.adsbygoogle');
+        adSlots.forEach(slot => {
+          try {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          } catch (e) {
+            console.warn('AdSense initialization error:', e);
+          }
+        });
       }
     });
   }
