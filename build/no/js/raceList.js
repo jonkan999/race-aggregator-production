@@ -37,112 +37,111 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Add this function to manage ad insertion
   function insertAds() {
-    const visibleCards = Array.from(document.querySelectorAll('.race-card:not(.filtered-out):not(.paginated-out):not(.ad-card)'));
+    const raceCards = Array.from(document.querySelectorAll('.race-card:not(.filtered-out):not(.paginated-out):not(.ad-card)'));
     
     // Remove existing ads
     document.querySelectorAll('.ad-card').forEach(ad => ad.remove());
-    
-    // Create a single observer for all ads
-    const observer = window.ResizeObserver ? new ResizeObserver(entries => {
-        entries.forEach(entry => initializeAd(entry.target));
-    }) : null;
-    
-    // Insert new ads
-    visibleCards.forEach((card, index) => {
-      if ((index + 1) % 3 === 0) {
-        const adElement = document.createElement('div');
-        adElement.className = 'race-card ad-card';
-        adElement.innerHTML = `
-          <div class="ad-container">
-            <div class="desktop-wrapper">
-              <ins class="adsbygoogle"
-                   style="display:block"
-                   data-ad-client="ca-pub-7076760775175370"
-                   data-ad-slot="1598812305"
-                   data-ad-format="auto"
-                   data-full-width-responsive="true"></ins>
-            </div>
-            <div class="mobile-wrapper">
-              <ins class="adsbygoogle"
-                   style="display:block"
-                   data-ad-client="ca-pub-7076760775175370"
-                   data-ad-slot="9358545536"
-                   data-ad-format="auto"
-                   data-full-width-responsive="true"></ins>
-            </div>
-          </div>
-        `;
-        
-        card.after(adElement);
 
-        const wrappers = adElement.querySelectorAll('.desktop-wrapper, .mobile-wrapper');
-        wrappers.forEach(wrapper => {
-          if (observer) {
-            observer.observe(wrapper);
-          } else {
-            // Single timeout for older browsers
-            setTimeout(() => initializeAd(wrapper), 100);
-          }
-        });
-      }
-    });
+    // Match the CSS breakpoints
+    const isMobile = window.innerWidth < 544; // 34em
+    const isTwoColumn = window.innerWidth >= 544 && window.innerWidth < 1104; // 34em to 69em
+    const isThreeColumn = window.innerWidth >= 1104; // 69em and up
 
-    function initializeAd(wrapper, retryCount = 0) {
-        const width = wrapper.offsetWidth;
-        if (width === 0) return;
+    raceCards.forEach((card, index) => {
+        let shouldInsertAd = false;
 
-        const adSlot = wrapper.querySelector('.adsbygoogle');
-        if (!adSlot) return;
-
-        // Check if already initialized
-        if (adSlot.dataset.initialized === 'true') {
-            // Only retry if the ad is unfilled and we haven't exceeded retry count
-            if (adSlot.getAttribute('data-ad-status') === 'unfilled' && retryCount < 2) {
-                setTimeout(() => {
-                    try {
-                        // Remove the old ad slot
-                        const newAdSlot = adSlot.cloneNode(true);
-                        newAdSlot.removeAttribute('data-adsbygoogle-status');
-                        newAdSlot.removeAttribute('data-ad-status');
-                        newAdSlot.removeAttribute('data-initialized');
-                        adSlot.parentNode.replaceChild(newAdSlot, adSlot);
-                        
-                        // Initialize the new slot
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                        newAdSlot.dataset.initialized = 'true';
-                        initializeAd(wrapper, retryCount + 1);
-                    } catch (e) {
-                        console.warn('AdSense retry error:', e);
-                    }
-                }, 1000);
-            }
-            return;
+        if (isMobile) {
+            // Mobile: Ad after 2nd and every 3rd race
+            shouldInsertAd = (index === 1) || (index > 1 && (index - 1) % 3 === 0);
+        } else if (isTwoColumn) {
+            // 2-column: First position and every 3rd position after that
+            shouldInsertAd = (index === 0) || (index > 0 && index % 3 === 0);
+        } else if (isThreeColumn) {
+            // 3-column: First position and every 4th position after that
+            shouldInsertAd = (index === 0) || (index > 0 && index % 4 === 0);
         }
 
-        // Initial initialization
-        try {
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            adSlot.dataset.initialized = 'true';
+        if (shouldInsertAd) {
+            const adElement = document.createElement('div');
+            adElement.className = 'race-card ad-card';
+            adElement.innerHTML = `
+              <div class="ad-container">
+                <div class="desktop-wrapper">
+                  <ins class="adsbygoogle"
+                       style="display:block"
+                       data-ad-client="ca-pub-7076760775175370"
+                       data-ad-slot="1598812305"
+                       data-ad-format="auto"
+                       data-full-width-responsive="true"></ins>
+                </div>
+                <div class="mobile-wrapper">
+                  <ins class="adsbygoogle"
+                       style="display:block"
+                       data-ad-client="ca-pub-7076760775175370"
+                       data-ad-slot="9358545536"
+                       data-ad-format="auto"
+                       data-full-width-responsive="true"></ins>
+                </div>
+              </div>
+            `;
             
-            // Check fill status
-            setTimeout(() => {
-                if (adSlot.getAttribute('data-ad-status') === 'unfilled') {
-                    initializeAd(wrapper, 0);
-                } else if (observer) {
-                    observer.unobserve(wrapper);
-                }
-            }, 1000);
-        } catch (e) {
-            console.warn('AdSense initialization error:', e);
-        }
-    }
+            card.before(adElement);
 
-    // Cleanup observer when page changes
-    return () => {
-        if (observer) {
-            observer.disconnect();
+            const wrappers = adElement.querySelectorAll('.desktop-wrapper, .mobile-wrapper');
+            wrappers.forEach(wrapper => {
+                const initializeAd = (retryCount = 0) => {
+                    const width = wrapper.offsetWidth;
+                    if (width === 0) return;
+
+                    const adSlot = wrapper.querySelector('.adsbygoogle');
+                    if (!adSlot) return;
+
+                    if (adSlot.dataset.initialized === 'true') {
+                        if (adSlot.getAttribute('data-ad-status') === 'unfilled' && retryCount < 2) {
+                            setTimeout(() => {
+                                try {
+                                    const newAdSlot = adSlot.cloneNode(true);
+                                    newAdSlot.removeAttribute('data-adsbygoogle-status');
+                                    newAdSlot.removeAttribute('data-ad-status');
+                                    newAdSlot.removeAttribute('data-initialized');
+                                    adSlot.parentNode.replaceChild(newAdSlot, adSlot);
+                                    
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                    newAdSlot.dataset.initialized = 'true';
+                                    initializeAd(retryCount + 1);
+                                } catch (e) {
+                                    console.warn('AdSense retry error:', e);
+                                }
+                            }, 1000);
+                        }
+                        return;
+                    }
+
+                    try {
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        adSlot.dataset.initialized = 'true';
+                        
+                        setTimeout(() => {
+                            if (adSlot.getAttribute('data-ad-status') === 'unfilled') {
+                                initializeAd(0);
+                            }
+                        }, 1000);
+                    } catch (e) {
+                        console.warn('AdSense initialization error:', e);
+                    }
+                };
+
+                if (window.ResizeObserver) {
+                    const observer = new ResizeObserver(entries => {
+                        entries.forEach(() => initializeAd());
+                    });
+                    observer.observe(wrapper);
+                } else {
+                    setTimeout(() => initializeAd(), 100);
+                }
+            });
         }
-    };
+    });
   }
 
   // Function to check filters and redirect if necessary
