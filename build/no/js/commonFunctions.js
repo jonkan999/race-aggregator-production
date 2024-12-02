@@ -8,41 +8,30 @@ export function initAdBanner() {
 
   if (!adBanner) return;
 
-  // Remove any inline styles that might interfere
-  adBanner.style.cssText = '';
-  const adContent = adBanner.querySelector('.ad-content');
-  if (adContent) {
-    adContent.style.cssText = '';
-  }
-
   // Set initial state
-  adBanner.style.transform = 'translateY(100%)';
-  adBanner.style.transition = 'transform 0.3s ease-in-out';
-  adBanner.style.height = 'var(--ad-banner-height)';
-  adBanner.style.maxHeight = '90px';
+  adBanner.style.cssText = `
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+    height: var(--ad-banner-height);
+    max-height: 100px;
+  `;
 
   const showBanner = () => {
     const isMinimized = localStorage.getItem('adBannerMinimized') === 'true';
 
-    // Initialize the ad
-    const adContainer = adBanner.querySelector('#ad-container');
-    if (adContainer) {
-      const adSlot = adContainer.querySelector('.adsbygoogle');
-      if (adSlot && window.location.hostname !== 'localhost') {
+    // Initialize the ad only on production
+    if (window.location.hostname !== 'localhost') {
+      const adSlot = adBanner.querySelector('.adsbygoogle');
+      if (adSlot) {
         try {
           (adsbygoogle = window.adsbygoogle || []).push({});
-          // Hide placeholder once ad is initialized
-          const placeholder = adBanner.querySelector('.ad-placeholder');
-          if (placeholder) {
-            placeholder.style.display = 'none';
-          }
-          adContainer.style.display = 'block';
         } catch (e) {
           console.warn('AdSense initialization error:', e);
         }
       }
     }
 
+    // Show banner unless minimized
     if (!isMinimized) {
       adBanner.style.transform = 'translateY(0)';
     } else {
