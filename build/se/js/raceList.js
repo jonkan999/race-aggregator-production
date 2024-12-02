@@ -94,12 +94,22 @@ document.addEventListener("DOMContentLoaded", function () {
         const adSlot = wrapper.querySelector('.adsbygoogle');
         if (!adSlot) return;
 
-        // Check if already initialized but not filled
+        // Check if already initialized
         if (adSlot.dataset.initialized === 'true') {
-            if (adSlot.getAttribute('data-ad-status') !== 'filled' && retryCount < 2) {
+            // Only retry if the ad is unfilled and we haven't exceeded retry count
+            if (adSlot.getAttribute('data-ad-status') === 'unfilled' && retryCount < 2) {
                 setTimeout(() => {
                     try {
+                        // Remove the old ad slot
+                        const newAdSlot = adSlot.cloneNode(true);
+                        newAdSlot.removeAttribute('data-adsbygoogle-status');
+                        newAdSlot.removeAttribute('data-ad-status');
+                        newAdSlot.removeAttribute('data-initialized');
+                        adSlot.parentNode.replaceChild(newAdSlot, adSlot);
+                        
+                        // Initialize the new slot
                         (adsbygoogle = window.adsbygoogle || []).push({});
+                        newAdSlot.dataset.initialized = 'true';
                         initializeAd(wrapper, retryCount + 1);
                     } catch (e) {
                         console.warn('AdSense retry error:', e);
@@ -114,9 +124,9 @@ document.addEventListener("DOMContentLoaded", function () {
             (adsbygoogle = window.adsbygoogle || []).push({});
             adSlot.dataset.initialized = 'true';
             
-            // Single check for fill status
+            // Check fill status
             setTimeout(() => {
-                if (adSlot.getAttribute('data-ad-status') !== 'filled') {
+                if (adSlot.getAttribute('data-ad-status') === 'unfilled') {
                     initializeAd(wrapper, 0);
                 } else if (observer) {
                     observer.unobserve(wrapper);
