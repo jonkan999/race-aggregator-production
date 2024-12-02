@@ -44,12 +44,12 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Insert new ads
     visibleCards.forEach((card, index) => {
-      if ((index + 1) % 3 === 0) {  // Every 3rd card (will become 4th with ad insertion)
+      if ((index + 1) % 3 === 0) {
         const adElement = document.createElement('div');
         adElement.className = 'race-card ad-card';
         adElement.innerHTML = `
           <div class="ad-container">
-            <div class="desktop-ad">
+            <div class="desktop-wrapper">
               <ins class="adsbygoogle"
                    style="display:block"
                    data-ad-client="ca-pub-7076760775175370"
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
                    data-ad-format="auto"
                    data-full-width-responsive="true"></ins>
             </div>
-            <div class="mobile-ad">
+            <div class="mobile-wrapper">
               <ins class="adsbygoogle"
                    style="display:block"
                    data-ad-client="ca-pub-7076760775175370"
@@ -70,13 +70,16 @@ document.addEventListener("DOMContentLoaded", function () {
         
         card.after(adElement);
 
-        // Initialize the ads
-        const adSlots = adElement.querySelectorAll('.adsbygoogle');
-        adSlots.forEach(slot => {
-          try {
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          } catch (e) {
-            console.warn('AdSense initialization error:', e);
+        // Initialize ads after ensuring container widths
+        const wrappers = adElement.querySelectorAll('.desktop-wrapper, .mobile-wrapper');
+        wrappers.forEach(wrapper => {
+          if (wrapper.offsetWidth > 0) {
+            const adSlot = wrapper.querySelector('.adsbygoogle');
+            try {
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            } catch (e) {
+              console.warn('AdSense initialization error:', e);
+            }
           }
         });
       }

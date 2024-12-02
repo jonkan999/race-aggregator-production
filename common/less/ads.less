@@ -130,46 +130,41 @@ Small phone (≤430px): 46px */
 
 .ad-container {
   width: 100%;
-  max-width: 728px; /* Maximum width for desktop ads */
-  margin: 0 auto;
-  min-height: 90px; /* Minimum height for the smallest ad size */
-}
-
-.desktop-ad,
-.mobile-ad {
   display: flex;
   justify-content: center;
-  align-items: center;
+}
+
+.desktop-wrapper,
+.mobile-wrapper {
   width: 100%;
 }
 
-/* Mobile styles */
-.desktop-ad {
+.desktop-wrapper {
+  max-width: 728px;
   display: none;
 }
 
-.mobile-ad {
-  display: flex;
-  max-width: 320px; /* Common mobile ad width */
-  margin: 0 auto;
+.mobile-wrapper {
+  max-width: 320px;
+  display: none;
 }
 
-/* Desktop styles */
-@media (min-width: 768px) {
-  .desktop-ad {
-    display: flex;
+/* Mobile styles */
+@media (max-width: 767px) {
+  .mobile-wrapper {
+    display: block;
   }
 
-  .mobile-ad {
-    display: none;
-  }
-}
-
-/* Handle mobile container padding */
-@media (max-width: 768px) {
   .ad-container {
     margin-left: -1.5rem;
     margin-right: -1.5rem;
     width: calc(100% + 3rem);
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .desktop-wrapper {
+    display: block;
   }
 }
