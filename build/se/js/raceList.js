@@ -70,18 +70,24 @@ document.addEventListener("DOMContentLoaded", function () {
         
         card.after(adElement);
 
-        // Initialize ads after ensuring container widths
-        const wrappers = adElement.querySelectorAll('.desktop-wrapper, .mobile-wrapper');
-        wrappers.forEach(wrapper => {
-          if (wrapper.offsetWidth > 0) {
-            const adSlot = wrapper.querySelector('.adsbygoogle');
-            try {
-              (adsbygoogle = window.adsbygoogle || []).push({});
-            } catch (e) {
-              console.warn('AdSense initialization error:', e);
+        // Initialize ads with a delay
+        setTimeout(() => {
+          const wrappers = adElement.querySelectorAll('.desktop-wrapper, .mobile-wrapper');
+          wrappers.forEach(wrapper => {
+            // Force layout calculation
+            const width = wrapper.offsetWidth;
+            console.log('Wrapper width:', width); // Debug log
+            
+            if (width > 0) {
+              const adSlot = wrapper.querySelector('.adsbygoogle');
+              try {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+              } catch (e) {
+                console.warn('AdSense initialization error:', e);
+              }
             }
-          }
-        });
+          });
+        }, 100); // 100ms delay
       }
     });
   }
