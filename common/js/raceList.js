@@ -37,19 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Add this function to manage ad insertion
   function insertAds() {
-    // Add minimum width constraint to ad containers
-    const adStyle = `
-        min-width: 250px;
-        width: 100%;
-        margin: 1em auto;
-    `;
-    
-    const adContainers = document.querySelectorAll('.ad-container');
-    adContainers.forEach(container => {
-        container.style.cssText = adStyle;
-    });
-
-    const raceCardsContainer = document.querySelector('.race-cards-grid');
     const visibleCards = Array.from(document.querySelectorAll('.race-card:not(.filtered-out):not(.paginated-out):not(.ad-card)'));
     
     // Remove existing ads
@@ -59,22 +46,20 @@ document.addEventListener("DOMContentLoaded", function () {
     visibleCards.forEach((card, index) => {
       if ((index + 1) % 3 === 0) {
         const adElement = document.createElement('div');
-        adElement.className = 'race-card ad-card hidden';
+        adElement.className = 'race-card ad-card';
         adElement.innerHTML = `
           <div class="ad-container">
-            <!-- Desktop Ad (Vertical Responsive) -->
             <div class="desktop-ad">
               <ins class="adsbygoogle"
-                   style="display:block"
+                   style="display:block; width:100%; min-width:250px;"
                    data-ad-client="ca-pub-7076760775175370"
                    data-ad-slot="1598812305"
                    data-ad-format="auto"
                    data-full-width-responsive="true"></ins>
             </div>
-            <!-- Mobile Ad (Horizontal Responsive) -->
             <div class="mobile-ad">
               <ins class="adsbygoogle"
-                   style="display:block"
+                   style="display:block; width:100%; min-width:320px;"
                    data-ad-client="ca-pub-7076760775175370"
                    data-ad-slot="9358545536"
                    data-ad-format="auto"
@@ -85,53 +70,60 @@ document.addEventListener("DOMContentLoaded", function () {
         
         card.after(adElement);
         
-        // Lazy load with animation
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const adSlots = entry.target.querySelectorAll('.adsbygoogle');
-                    adSlots.forEach(slot => {
+        // Ensure container is properly sized before initializing ad
+        const initializeAd = (entry) => {
+            const adContainer = entry.target.querySelector('.ad-container');
+            const desktopAd = entry.target.querySelector('.desktop-ad');
+            const mobileAd = entry.target.querySelector('.mobile-ad');
+            
+            // Set explicit sizes
+            adContainer.style.cssText = `
+                width: 100%;
+                min-width: 250px;
+                margin: 1em auto;
+                display: flex;
+                justify-content: center;
+            `;
+            
+            // Wait a tiny bit for styles to apply
+            setTimeout(() => {
+                const adSlots = entry.target.querySelectorAll('.adsbygoogle');
+                adSlots.forEach(slot => {
+                    if (slot.getBoundingClientRect().width > 0) {
                         try {
                             (adsbygoogle = window.adsbygoogle || []).push({});
                         } catch (e) {
                             console.warn('AdSense initialization error:', e);
                         }
-                    });
-                    setTimeout(() => {
-                        entry.target.classList.remove('hidden');
-                        entry.target.classList.add('fade-in');
-                    }, 100);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { 
-            rootMargin: '50px 0px 200px 0px',
-            threshold: 0.1
-        });
+                    }
+                });
+                entry.target.classList.remove('hidden');
+                entry.target.classList.add('fade-in');
+            }, 50);
+        };
 
         // Check if already in viewport
         const rect = adElement.getBoundingClientRect();
         const isInViewport = (
-            rect.top >= -50 && // Account for rootMargin top
-            rect.bottom <= (window.innerHeight + 200) // Account for rootMargin bottom
+            rect.top >= -50 &&
+            rect.bottom <= (window.innerHeight + 200)
         );
 
         if (isInViewport) {
-            // Initialize immediately if in viewport
-            const adSlots = adElement.querySelectorAll('.adsbygoogle');
-            adSlots.forEach(slot => {
-                try {
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                } catch (e) {
-                    console.warn('AdSense initialization error:', e);
-                }
-            });
-            setTimeout(() => {
-                adElement.classList.remove('hidden');
-                adElement.classList.add('fade-in');
-            }, 100);
+            initializeAd({ target: adElement });
         } else {
-            // Use Intersection Observer for elements outside viewport
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        initializeAd(entry);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { 
+                rootMargin: '50px 0px 200px 0px',
+                threshold: 0.1
+            });
+            
             observer.observe(adElement);
         }
       }

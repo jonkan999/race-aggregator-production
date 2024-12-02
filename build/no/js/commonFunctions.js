@@ -23,10 +23,16 @@ export function initAdBanner() {
     if (window.location.hostname !== 'localhost') {
       const adSlot = adBanner.querySelector('.adsbygoogle');
       if (adSlot) {
-        try {
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) {
-          console.warn('AdSense initialization error:', e);
+        // Ensure the ad slot has a width before initializing
+        const adSlotWidth = adSlot.getBoundingClientRect().width;
+        if (adSlotWidth > 0) {
+          try {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          } catch (e) {
+            console.warn('AdSense initialization error:', e);
+          }
+        } else {
+          console.warn('Ad slot width is zero, skipping initialization.');
         }
       }
     }
