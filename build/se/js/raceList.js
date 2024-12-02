@@ -70,32 +70,68 @@ document.addEventListener("DOMContentLoaded", function () {
         
         card.after(adElement);
 
-        // Initialize ads when container is ready
         const wrappers = adElement.querySelectorAll('.desktop-wrapper, .mobile-wrapper');
         wrappers.forEach(wrapper => {
-          // Create an observer instance
-          const observer = new ResizeObserver(entries => {
-            entries.forEach(entry => {
-              const width = entry.contentRect.width;
-              console.log('Wrapper width:', width); // Debug log
+          const initializeAd = (retryCount = 0) => {
+            const width = wrapper.offsetWidth;
+            console.log('Wrapper width:', width); // Debug log
+            
+            if (width > 0) {
+              const adSlot = wrapper.querySelector('.adsbygoogle');
               
-              if (width > 0) {
-                const adSlot = wrapper.querySelector('.adsbygoogle');
-                if (!adSlot.dataset.initialized) {
-                  try {
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                    adSlot.dataset.initialized = 'true';
-                    observer.disconnect(); // Stop observing once initialized
-                  } catch (e) {
-                    console.warn('AdSense initialization error:', e);
-                  }
+              // Check if ad is already initialized but not filled
+              if (adSlot.dataset.initialized === 'true' && 
+                  adSlot.getAttribute('data-adsbygoogle-status') === 'done' && 
+                  adSlot.getAttribute('data-ad-status') !== 'filled') {
+                
+                if (retryCount < 2) {  // Try up to 2 more times
+                  console.log(`Retrying ad initialization (attempt ${retryCount + 1})`);
+                  setTimeout(() => {
+                    try {
+                      (adsbygoogle = window.adsbygoogle || []).push({});
+                      initializeAd(retryCount + 1);
+                    } catch (e) {
+                      console.warn('AdSense retry error:', e);
+                    }
+                  }, 1000); // Wait 1 second before retry
+                }
+                return;
+              }
+              
+              // Initial initialization
+              if (!adSlot.dataset.initialized) {
+                try {
+                  (adsbygoogle = window.adsbygoogle || []).push({});
+                  adSlot.dataset.initialized = 'true';
+                  
+                  // Check if ad was filled after initialization
+                  setTimeout(() => {
+                    if (adSlot.getAttribute('data-ad-status') !== 'filled') {
+                      initializeAd(0); // Start retry process
+                    }
+                  }, 1000);
+                  
+                } catch (e) {
+                  console.warn('AdSense initialization error:', e);
                 }
               }
+            }
+          };
+
+          // Use ResizeObserver if available
+          if (window.ResizeObserver) {
+            const observer = new ResizeObserver(entries => {
+              entries.forEach(() => initializeAd());
             });
-          });
-          
-          // Start observing
-          observer.observe(wrapper);
+            observer.observe(wrapper);
+          } else {
+            // Fallback for older browsers
+            const intervalId = setInterval(() => {
+              initializeAd();
+              // Clear interval after 5 seconds to prevent infinite checking
+              setTimeout(() => clearInterval(intervalId), 5000);
+            }, 100);
+          }
         });
       }
     });
