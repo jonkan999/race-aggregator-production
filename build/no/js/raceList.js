@@ -49,57 +49,77 @@ document.addEventListener("DOMContentLoaded", function () {
         adElement.className = 'race-card ad-card';
         adElement.innerHTML = `
           <div class="ad-container">
-            <div class="desktop-ad">
-              <ins class="adsbygoogle"
-                   style="display:block; width:100%; min-width:250px;"
-                   data-ad-client="ca-pub-7076760775175370"
-                   data-ad-slot="1598812305"
-                   data-ad-format="auto"
-                   data-full-width-responsive="true"></ins>
+            <!-- Placeholder -->
+            <div class="ad-placeholder">
+              <span>Annons</span>
+              <div class="loading-dots"></div>
             </div>
-            <div class="mobile-ad">
-              <ins class="adsbygoogle"
-                   style="display:block; width:100%; min-width:320px;"
-                   data-ad-client="ca-pub-7076760775175370"
-                   data-ad-slot="9358545536"
-                   data-ad-format="auto"
-                   data-full-width-responsive="true"></ins>
+            
+            <!-- Ad slots -->
+            <div class="ad-slots" style="display: none;">
+              <div class="desktop-ad">
+                <ins class="adsbygoogle"
+                     style="display:block; width:100%; min-width:250px;"
+                     data-ad-client="ca-pub-7076760775175370"
+                     data-ad-slot="1598812305"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+              </div>
+              <div class="mobile-ad">
+                <ins class="adsbygoogle"
+                     style="display:block; width:100%; min-width:320px;"
+                     data-ad-client="ca-pub-7076760775175370"
+                     data-ad-slot="9358545536"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+              </div>
             </div>
           </div>
         `;
         
         card.after(adElement);
         
-        // Ensure container is properly sized before initializing ad
         const initializeAd = (entry) => {
             const adContainer = entry.target.querySelector('.ad-container');
-            const desktopAd = entry.target.querySelector('.desktop-ad');
-            const mobileAd = entry.target.querySelector('.mobile-ad');
+            const adSlots = entry.target.querySelector('.ad-slots');
+            const placeholder = entry.target.querySelector('.ad-placeholder');
             
-            // Set explicit sizes
+            // Set container sizes
             adContainer.style.cssText = `
                 width: 100%;
                 min-width: 250px;
                 margin: 1em auto;
                 display: flex;
                 justify-content: center;
+                min-height: 250px;
             `;
             
-            // Wait a tiny bit for styles to apply
-            setTimeout(() => {
-                const adSlots = entry.target.querySelectorAll('.adsbygoogle');
-                adSlots.forEach(slot => {
+            // Show placeholder immediately
+            placeholder.style.display = 'flex';
+            
+            // Set a timeout for ad loading
+            const timeoutId = setTimeout(() => {
+                console.warn('Ad loading timeout');
+            }, 5000);
+            
+            // Initialize ads
+            try {
+                const slots = entry.target.querySelectorAll('.adsbygoogle');
+                slots.forEach(slot => {
                     if (slot.getBoundingClientRect().width > 0) {
-                        try {
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                        } catch (e) {
-                            console.warn('AdSense initialization error:', e);
-                        }
+                        (adsbygoogle = window.adsbygoogle || []).push({
+                            callback: () => {
+                                // Ad loaded successfully
+                                clearTimeout(timeoutId);
+                                placeholder.style.display = 'none';
+                                adSlots.style.display = 'block';
+                            }
+                        });
                     }
                 });
-                entry.target.classList.remove('hidden');
-                entry.target.classList.add('fade-in');
-            }, 50);
+            } catch (e) {
+                console.warn('AdSense initialization error:', e);
+            }
         };
 
         // Check if already in viewport
