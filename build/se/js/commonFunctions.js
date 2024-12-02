@@ -23,6 +23,26 @@ export function initAdBanner() {
 
   const showBanner = () => {
     const isMinimized = localStorage.getItem('adBannerMinimized') === 'true';
+
+    // Initialize the ad
+    const adContainer = adBanner.querySelector('#ad-container');
+    if (adContainer) {
+      const adSlot = adContainer.querySelector('.adsbygoogle');
+      if (adSlot && window.location.hostname !== 'localhost') {
+        try {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          // Hide placeholder once ad is initialized
+          const placeholder = adBanner.querySelector('.ad-placeholder');
+          if (placeholder) {
+            placeholder.style.display = 'none';
+          }
+          adContainer.style.display = 'block';
+        } catch (e) {
+          console.warn('AdSense initialization error:', e);
+        }
+      }
+    }
+
     if (!isMinimized) {
       adBanner.style.transform = 'translateY(0)';
     } else {

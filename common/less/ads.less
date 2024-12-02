@@ -164,4 +164,42 @@ Small phone (≤430px): 46px */
     height: auto !important;
     min-height: 100px;
   }
+
+  &.ad-placeholder {
+    min-height: 250px; // Minimum height for most ad formats
+    background: var(--color-background); // Match your site's background
+
+    // Optional: Add a subtle loading indicator
+    &::after {
+      content: 'Annons'; // or whatever text you want
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: var(--color-text-light);
+      font-size: 1.4rem;
+    }
+  }
+
+  // Responsive heights
+  @media (max-width: 768px) {
+    &.ad-placeholder {
+      min-height: 200px; // Smaller height for mobile
+    }
+  }
+
+  // Animation styles
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+
+  &.hidden {
+    opacity: 0;
+    transform: translateY(20px); // Start slightly below final position
+  }
+
+  &.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

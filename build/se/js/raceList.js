@@ -35,39 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Retrieve pre-selected filters from data attribute
   const preselectedFilters = JSON.parse(document.getElementById("race-cards-container").getAttribute("data-preselected-filters"));
 
-  // Add these constants at the top with your other constants
-  const DESKTOP_AD_TEMPLATE = `
-    <div class="race-card ad-card desktop-only">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
-           crossorigin="anonymous"></script>
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-format="fluid"
-           data-ad-layout-key="+2h+pb+48+1a-14"
-           data-ad-client="ca-pub-7076760775175370"
-           data-ad-slot="3457242356"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  `;
-
-  const MOBILE_AD_TEMPLATE = `
-    <div class="race-card ad-card mobile-only">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
-           crossorigin="anonymous"></script>
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-format="fluid"
-           data-ad-layout-key="-78+d4+5t-28-87"
-           data-ad-client="ca-pub-7076760775175370"
-           data-ad-slot="4511303722"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  `;
-
   // Add this function to manage ad insertion
   function insertAds() {
     // Add minimum width constraint to ad containers
@@ -93,42 +60,58 @@ document.addEventListener("DOMContentLoaded", function () {
       // Insert after every third card
       if ((index + 1) % 3 === 0) {
         const adElement = document.createElement('div');
-        adElement.className = 'race-card ad-card';
-        // Use fluid layout for better native ad integration
+        adElement.className = 'race-card ad-card hidden';
         adElement.innerHTML = `
-          <div class="ad-container" style="min-height: 100px; width: 100%;">
-            <!-- Desktop Ad -->
+          <div class="ad-container">
+            <!-- Desktop Ad (Vertical Responsive) -->
             <div class="desktop-ad">
               <ins class="adsbygoogle"
                    style="display:block"
-                   data-ad-format="fluid"
-                   data-ad-layout-key="+2h+pb+48+1a-14"
                    data-ad-client="ca-pub-7076760775175370"
-                   data-ad-slot="3457242356"></ins>
+                   data-ad-slot="1598812305"
+                   data-ad-format="auto"
+                   data-full-width-responsive="true"></ins>
             </div>
-            <!-- Mobile Ad -->
+            <!-- Mobile Ad (Horizontal Responsive) -->
             <div class="mobile-ad">
               <ins class="adsbygoogle"
                    style="display:block"
-                   data-ad-format="fluid"
-                   data-ad-layout-key="-78+d4+5t-28-87"
                    data-ad-client="ca-pub-7076760775175370"
-                   data-ad-slot="4511303722"></ins>
+                   data-ad-slot="9358545536"
+                   data-ad-format="auto"
+                   data-full-width-responsive="true"></ins>
             </div>
           </div>
         `;
         
         card.after(adElement);
         
-        // Initialize ads
-        const adSlots = adElement.querySelectorAll('.adsbygoogle');
-        adSlots.forEach(slot => {
-          try {
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          } catch (e) {
-            console.warn('AdSense initialization error:', e);
-          }
+        // Lazy load with animation
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const adSlots = entry.target.querySelectorAll('.adsbygoogle');
+                    adSlots.forEach(slot => {
+                        try {
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        } catch (e) {
+                            console.warn('AdSense initialization error:', e);
+                        }
+                    });
+                    // Add small delay to ensure ad is loaded before showing
+                    setTimeout(() => {
+                        entry.target.classList.remove('hidden');
+                        entry.target.classList.add('fade-in');
+                    }, 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { 
+            rootMargin: '50px 0px 200px 0px',
+            threshold: 0.1
         });
+
+        observer.observe(adElement);
       }
     });
   }

@@ -107,6 +107,9 @@ Small phone (≤430px): 46px */
   margin: 2rem 0;
   background: transparent !important;
   box-shadow: none !important;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 .ad-card .ad-container {
   min-width: 250px;
@@ -140,4 +143,30 @@ Small phone (≤430px): 46px */
   width: 100%;
   height: auto !important;
   min-height: 100px;
+}
+.ad-card.ad-placeholder {
+  min-height: 250px;
+  background: var(--color-background);
+}
+.ad-card.ad-placeholder::after {
+  content: 'Annons';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--color-text-light);
+  font-size: 1.4rem;
+}
+@media (max-width: 768px) {
+  .ad-card.ad-placeholder {
+    min-height: 200px;
+  }
+}
+.ad-card.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.ad-card.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
