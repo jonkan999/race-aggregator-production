@@ -57,7 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Insert new ads
     visibleCards.forEach((card, index) => {
-      // Insert after every third card
       if ((index + 1) % 3 === 0) {
         const adElement = document.createElement('div');
         adElement.className = 'race-card ad-card hidden';
@@ -98,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             console.warn('AdSense initialization error:', e);
                         }
                     });
-                    // Add small delay to ensure ad is loaded before showing
                     setTimeout(() => {
                         entry.target.classList.remove('hidden');
                         entry.target.classList.add('fade-in');
@@ -111,7 +109,31 @@ document.addEventListener("DOMContentLoaded", function () {
             threshold: 0.1
         });
 
-        observer.observe(adElement);
+        // Check if already in viewport
+        const rect = adElement.getBoundingClientRect();
+        const isInViewport = (
+            rect.top >= -50 && // Account for rootMargin top
+            rect.bottom <= (window.innerHeight + 200) // Account for rootMargin bottom
+        );
+
+        if (isInViewport) {
+            // Initialize immediately if in viewport
+            const adSlots = adElement.querySelectorAll('.adsbygoogle');
+            adSlots.forEach(slot => {
+                try {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                } catch (e) {
+                    console.warn('AdSense initialization error:', e);
+                }
+            });
+            setTimeout(() => {
+                adElement.classList.remove('hidden');
+                adElement.classList.add('fade-in');
+            }, 100);
+        } else {
+            // Use Intersection Observer for elements outside viewport
+            observer.observe(adElement);
+        }
       }
     });
   }
