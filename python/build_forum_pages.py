@@ -6,6 +6,7 @@ import yaml
 import os
 import sys
 from jinja2 import Environment, FileSystemLoader
+import argparse
 
 def create_base_context(index_content, country_code):
     """Create the base context for rendering templates."""
@@ -223,6 +224,11 @@ def build_thread_pages(country_code, output_dir, jinja_env, category, base_conte
 def main():
     """Main function to build forum pages."""
     try:
+        # Setup argument parser
+        parser = argparse.ArgumentParser(description='Build forum pages for specified country')
+        parser.add_argument('--country', type=str, help='Country code (e.g., se, no, de)')
+        args = parser.parse_args()
+
         # Setup Jinja environment
         env = Environment(
             loader=FileSystemLoader('templates'),
@@ -230,7 +236,7 @@ def main():
             lstrip_blocks=True
         )
         
-        # Add custom filters - Fix the slugify filter to handle country_code
+        # Add custom filters
         def slugify_filter(text, country_code=None):
             if country_code is None:
                 return slugify(text)
@@ -240,18 +246,19 @@ def main():
         
         # Get list of countries from config
         countries_dir = 'data/countries'
-        countries = [d for d in os.listdir(countries_dir) 
+        available_countries = [d for d in os.listdir(countries_dir) 
                     if os.path.isdir(os.path.join(countries_dir, d))]
         
-        print(f"Building forum pages for {len(countries)} countries")
+        print(f"Building forum pages for {len(available_countries)} countries")
         
         # Check if a specific country code is provided
-        if len(sys.argv) > 1:
-            country_code = sys.argv[1]
-            if country_code not in countries:
-                print(f"Invalid country code: {country_code}. Available codes: {countries}")
+        if args.country:
+            if args.country not in available_countries:
+                print(f"Invalid country code: {args.country}. Available codes: {available_countries}")
                 return 1
-            countries = [country_code]  # Only process the specified country
+            countries = [args.country]  # Only process the specified country
+        else:
+            countries = available_countries  # Process all countries
         
         # Process each country
         for country_code in countries:

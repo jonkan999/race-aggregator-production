@@ -147,7 +147,7 @@ class Analytics {
     }
 
     try {
-      const country = 'se';
+      const country = 'no';
       const collectionPath = `pageViews_${country}`;
 
       const sanitizedData = {
