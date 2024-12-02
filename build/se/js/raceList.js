@@ -70,24 +70,33 @@ document.addEventListener("DOMContentLoaded", function () {
         
         card.after(adElement);
 
-        // Initialize ads with a delay
-        setTimeout(() => {
-          const wrappers = adElement.querySelectorAll('.desktop-wrapper, .mobile-wrapper');
-          wrappers.forEach(wrapper => {
-            // Force layout calculation
-            const width = wrapper.offsetWidth;
-            console.log('Wrapper width:', width); // Debug log
-            
-            if (width > 0) {
-              const adSlot = wrapper.querySelector('.adsbygoogle');
-              try {
-                (adsbygoogle = window.adsbygoogle || []).push({});
-              } catch (e) {
-                console.warn('AdSense initialization error:', e);
+        // Initialize ads when container is ready
+        const wrappers = adElement.querySelectorAll('.desktop-wrapper, .mobile-wrapper');
+        wrappers.forEach(wrapper => {
+          // Create an observer instance
+          const observer = new ResizeObserver(entries => {
+            entries.forEach(entry => {
+              const width = entry.contentRect.width;
+              console.log('Wrapper width:', width); // Debug log
+              
+              if (width > 0) {
+                const adSlot = wrapper.querySelector('.adsbygoogle');
+                if (!adSlot.dataset.initialized) {
+                  try {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    adSlot.dataset.initialized = 'true';
+                    observer.disconnect(); // Stop observing once initialized
+                  } catch (e) {
+                    console.warn('AdSense initialization error:', e);
+                  }
+                }
               }
-            }
+            });
           });
-        }, 100); // 100ms delay
+          
+          // Start observing
+          observer.observe(wrapper);
+        });
       }
     });
   }
