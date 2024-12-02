@@ -210,3 +210,13 @@ Small phone (≤430px): 46px */
   min-height: 250px;
   transition: opacity 0.3s ease;
 }
+@media (max-width: 34em) {
+  .ad-container {
+    margin-left: -1.5rem;
+    /* Negative margin to offset parent padding */
+    margin-right: -1.5rem;
+    /* Balance the other side too */
+    width: calc(100% + 3rem);
+    /* Compensate for the negative margins */
+  }
+}
