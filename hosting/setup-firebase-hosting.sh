@@ -102,7 +102,7 @@ fi
 API_KEYS=($(get_api_keys))
 
 # Setup hosting for each country
-allowed_origins="['http://127.0.0.1:8080'"
+allowed_origins="['http://127.0.0.1:8080', 'https://aggregatory-running-dashboard.web.app'"
 for country in "${COUNTRIES[@]}"; do
     # Get both dev and prod site names
     dev_site_name=$(get_site_name "dev" $country)
@@ -338,6 +338,10 @@ cat << COUNTRYRULES
       allow read: if true;
       allow write: if true;
     }
+    match /processed_analytics/{document} {
+      allow read: if true;  // Public dashboard can read
+      allow write: if false; // Only Cloud Run job can write (using service account)
+    }
 COUNTRYRULES
 done)
   }
@@ -438,6 +442,12 @@ cat << HOSTING
         "firebase.json",
         "**/.*",
         "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
       ]
     }$([ "$country" != "${COUNTRIES[-1]}" ] && echo ",")
 HOSTING

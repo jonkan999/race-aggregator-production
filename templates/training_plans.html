@@ -2,13 +2,22 @@
 <link rel="stylesheet" href="/css/training-plans.css" />
 {% endblock %} {% block body_scripts %} {{ super() }}
 <script type="module" src="/js/trainingPlans.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 {% endblock %} {% block content %} {% include 'sections/ad-banner.html' %} {%
 include 'sections/header-menu.html' %}
 <section class="section-training-plans">
   <div class="container">
     <h1 class="heading-primary">{{ training_plans.title }}</h1>
     <p class="description">{{ training_plans.description }}</p>
-
+    <div class="info-disclaimer">
+      <p>
+        {{ training_plans.disclaimer_text_tp_1 }}
+        <a href="/{{ auxiliary_pages.contact | slugify(country_code) }}.html"
+          >{{ training_plans.disclaimer_link_tp }}</a
+        >
+        {{ training_plans.disclaimer_text_tp_2 }}
+      </p>
+    </div>
     <div class="calculator-container">
       <form class="calculator-form" id="training-calculator">
         <!-- Target Race Date -->
@@ -24,22 +33,6 @@ include 'sections/header-menu.html' %}
             min="{{ today_date }}"
             required
           />
-        </div>
-
-        <!-- Plan Type -->
-        <div class="form-group">
-          <label for="plan-type"
-            >{{ training_plans.form.plan_type_label }}</label
-          >
-          <select id="plan-type" name="plan-type" class="form-select" required>
-            <option value="">
-              {{ training_plans.form.plan_type.placeholder }}
-            </option>
-            {% for value, label in training_plans.form.plan_type.options.items()
-            %}
-            <option value="{{ value }}">{{ label }}</option>
-            {% endfor %}
-          </select>
         </div>
 
         <!-- Target Race Distance -->
@@ -161,6 +154,15 @@ include 'sections/header-menu.html' %}
         </button>
       </form>
     </div>
+    <!-- Action Buttons -->
+    <div class="plan-actions">
+      <button type="button" class="btn btn--outline" id="regenerate-plan">
+        {{ training_plans.results.regenerate_button }}
+      </button>
+      <button type="button" class="btn btn--outline" id="export-pdf">
+        {{ training_plans.results.export_button }}
+      </button>
+    </div>
 
     <!-- Results Container -->
     <div class="results-container hidden">
@@ -169,16 +171,6 @@ include 'sections/header-menu.html' %}
       <!-- Selected Plan Details -->
       <div class="selected-plan hidden">
         <div id="training-schedule"></div>
-      </div>
-
-      <!-- Action Buttons -->
-      <div class="plan-actions">
-        <button type="button" class="btn btn--outline" id="regenerate-plan">
-          {{ training_plans.results.regenerate_button }}
-        </button>
-        <button type="button" class="btn btn--outline" id="export-pdf">
-          {{ training_plans.results.export_button }}
-        </button>
       </div>
     </div>
   </div>

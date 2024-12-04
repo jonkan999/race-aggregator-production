@@ -32,6 +32,10 @@ service cloud.firestore {
       allow read: if true;
       allow write: if true;
     }
+    match /processed_analytics/{document} {
+      allow read: if true;  // Public dashboard can read
+      allow write: if false; // Only Cloud Run job can write (using service account)
+    }
     match /pageViews_no/{docId} {
       allow write: if true;
     }
@@ -48,6 +52,10 @@ service cloud.firestore {
       // Anyone can read posts
       allow read: if true;
       allow write: if true;
+    }
+    match /processed_analytics/{document} {
+      allow read: if true;  // Public dashboard can read
+      allow write: if false; // Only Cloud Run job can write (using service account)
     }
   }
 }
