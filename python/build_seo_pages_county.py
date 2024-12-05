@@ -144,74 +144,31 @@ def generate_breadcrumbs(index_content, navigation, country_code, county=None, r
     
     return breadcrumbs
 
-def generate_navigation_schema(country_code,races, current_filters, verbose_mapping, index_content):
-    """Generate schema.org navigation structure with related categories"""
-    related_items = []
-    position = 1
-    
-    current_county = current_filters.get('county')
-    current_type = current_filters.get('race_type')
-    current_category = current_filters.get('category')
-    
-    # Get top counties for current type/category
-    if current_type or current_category:
-        county_counts = defaultdict(int)
-        for race in races:
-            if ((not current_type or race['type_local'] == current_type) and 
-                (not current_category or any(
-                    cat in verbose_mapping['distance_mapping'].get(distance.strip(), [])
-                    for distance in (race.get('distance_verbose', '').split(', '))
-                    for cat in verbose_mapping['available_categories']
-                ))):
-                county_counts[race['county']] += 1
+def generate_category_schema(race_types, city=None):
+    """Generate schema.org ItemList for race categories/types"""
+    items = []
+    for i, race_type in enumerate(race_types, 1):
+        base_url = f"/loppkalender/stader/{slugify(city, 'se')}" if city else "/loppkalender"
         
-        # Add top 8 counties
-        for county, count in sorted(county_counts.items(), key=lambda x: x[1], reverse=True)[:8]:
-            if count >= 2:  # Only include if at least 2 races
-                related_items.append({
-                    "@type": "ListItem",
-                    "position": position,
-                    "item": {
-                        "@type": "CollectionPage",
-                        "name": county,
-                        "url": f"/loppkalender/{slugify(county, country_code)}/{slugify(current_type, country_code) if current_type else 'alla-loppstyper'}{f'/{slugify(current_category, country_code)}' if current_category else ''}",
-                        "numberOfItems": count
-                    }
-                })
-                position += 1
-
-    # Get top race types for current county/category
-    if current_county or current_category:
-        type_counts = defaultdict(int)
-        for race in races:
-            if ((not current_county or race['county'] == current_county) and
-                (not current_category or any(
-                    cat in verbose_mapping['distance_mapping'].get(distance.strip(), [])
-                    for distance in (race.get('distance_verbose', '').split(', '))
-                    for cat in verbose_mapping['available_categories']
-                ))):
-                type_counts[race['type_local']] += 1
-        
-        # Add top 8 race types
-        for race_type, count in sorted(type_counts.items(), key=lambda x: x[1], reverse=True)[:8]:
-            if count >= 2:  # Only include if at least 2 races
-                related_items.append({
-                    "@type": "ListItem",
-                    "position": position,
-                    "item": {
-                        "@type": "CollectionPage",
-                        "name": race_type,
-                        "url": f"/loppkalender/{slugify(current_county, country_code) if current_county else 'alla-lan'}/{slugify(race_type, country_code) if current_type else 'alla-loppstyper'}{f'/{slugify(current_category, country_code)}' if current_category else ''}",
-                        "numberOfItems": count
-                    }
-                })
-                position += 1
+        item = {
+            "@type": "ListItem",
+            "position": i,
+            "item": {
+                "@type": "CollectionPage",
+                "name": race_type['name'],
+                "url": f"{base_url}/{slugify(race_type['name'], 'se')}",
+                "description": f"Hitta {race_type['name'].lower()} löplopp och löpartävlingar{' i ' + city if city else ''}",
+                "numberOfItems": race_type['count']
+            }
+        }
+        items.append(item)
 
     return {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "itemListElement": related_items,
-        "numberOfItems": len(related_items)
+        "itemListElement": items,
+        "numberOfItems": len(items),
+        "description": f"Bläddra efter lopptyp{' i ' + city if city else ''}"
     }
 
 def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country_code, free_tier=True):
@@ -335,33 +292,6 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
             available_categories=verbose_mapping['available_categories']
         )
         
-        # Generate both schemas
-        breadcrumbs = generate_breadcrumbs(
-            index_content=index_content,
-            navigation=navigation,
-            country_code=country_code,
-            county=county,
-            race_type=race_type,
-            category=category
-        )
-
-        schemas = [
-            {
-                "@context": "https://schema.org",
-                "@type": "BreadcrumbList",
-                "itemListElement": breadcrumbs
-            }
-        ]
-
-        # Add navigation schema if we have race types
-        if race_type:
-            schemas.append(generate_navigation_schema(country_code,
-                filtered_races, 
-                {'county': county, 'race_type': race_type, 'category': category},
-                verbose_mapping,
-                index_content
-            ))
-
         # Prepare context for rendering
         context = {
             **index_content,
@@ -378,8 +308,14 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
             'distance_filter': verbose_mapping,
             'navigation': navigation,
             'month_mapping': month_mapping,
-            'breadcrumbs': breadcrumbs,
-            'schemas': schemas  # Add schemas to context
+            'breadcrumbs': generate_breadcrumbs(
+                index_content=index_content,
+                navigation=navigation,
+                country_code=country_code,
+                county=county,
+                race_type=race_type,
+                category=category
+            )
         }
         
         output = template.render(context)
