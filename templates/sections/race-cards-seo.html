@@ -1,8 +1,8 @@
 <section class="section section-race-cards">
-  {% if breadcrumbs %}
+  {% if breadcrumbs.visual %}
   <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
     <ol>
-      {% for crumb in breadcrumbs %}
+      {% for crumb in breadcrumbs.visual %}
       <li {% if loop.last %}aria-current="page"{% endif %}>
         {% if not loop.last %}
         <a href="{{ crumb.href }}">{{ crumb.name }}</a>

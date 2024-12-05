@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% for schema_type, schema in schema_data.items() %} {% if schema is defined
+    and schema is not none %}
     <script type="application/ld+json">
-      {% if breadcrumbs %}{{ breadcrumbs|tojson }}{% else %}[]{% endif %}
+      {{ schema | tojson | safe }}
     </script>
+    {% endif %} {% endfor %}
 
     <meta charset="UTF-8" />
     <meta
