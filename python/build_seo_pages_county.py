@@ -152,51 +152,70 @@ def generate_breadcrumbs(index_content, navigation, country_code, county=None, r
     }
 
 
-def generate_navigation_schema(index_content,filtered_races, current_url, country_code, verbose_mapping, race_type=None, category=None):
+def generate_navigation_schema(index_content, filtered_races, current_url, country_code, verbose_mapping, county=None, race_type=None, category=None):
     """Generate schema.org SiteNavigationElement for race filters"""
     nav_items = []
+    county_mapping = index_content.get('county_mapping', {})  # Get county mapping
     
     # Limit available categories to the first 6
     limited_categories = set(verbose_mapping['available_categories'][:6])
     
-    # Count race types
-    race_types = defaultdict(int)
-    for race in filtered_races:
-        race_types[race['type_local']] += 1
+    # If we're at a race type level, only show categories
+    if race_type:
+        categories = defaultdict(int)
+        for race in filtered_races:
+            mapped_county = county_mapping.get(race['county'], race['county'])
+            if (not county or mapped_county == county) and race['type_local'] == race_type and race.get('distance_verbose'):
+                for distance in race['distance_verbose'].split(', '):
+                    for cat in verbose_mapping['distance_mapping'].get(distance, []):
+                        if cat in limited_categories:
+                            categories[cat] += 1
+        
+        # Only show categories with 2+ races
+        valid_items = {item: count for item, count in categories.items() if count >= 2}
+        top_items = sorted(valid_items.items(), key=lambda item: item[1], reverse=True)[:5]
     
-    # Count categories, but only consider the limited set
-    categories = defaultdict(int)
-    for race in filtered_races:
-        if race.get('distance_verbose'):
-            for distance in race['distance_verbose'].split(', '):
-                for cat in verbose_mapping['distance_mapping'].get(distance, []):
-                    if cat in limited_categories:
-                        categories[cat] += 1
+    # If we're at county level or root level, show race types
+    else:
+        race_types = defaultdict(int)
+        for race in filtered_races:
+            mapped_county = county_mapping.get(race['county'], race['county'])
+            if not county or mapped_county == county:
+                race_types[race['type_local']] += 1
+        
+        # Only show race types with 2+ races
+        valid_items = {item: count for item, count in race_types.items() if count >= 2}
+        top_items = sorted(valid_items.items(), key=lambda item: item[1], reverse=True)[:5]
     
-    # Combine race types and categories into a single list
-    combined_items = {**race_types, **categories}
+    # Build the base URL path including county if present
+    base_url = current_url
+    if county:
+        base_url += f"/{slugify(county, country_code)}"
     
-    # Only include items with 2+ races and take top 5
-    valid_items = {item: count for item, count in combined_items.items() if count >= 2}
-    top_items = sorted(valid_items.items(), key=lambda item: item[1], reverse=True)[:5]
-    
+    # Add the navigation items
     if top_items:
         nav_items.extend([{
             "@type": "SiteNavigationElement",
             "name": item,
-            "url": current_url + f"/{slugify(item, country_code)}",
-            "description": f"{index_content['show_local']} {item.lower()} {index_content['race_local']}",
+            "url": base_url + (
+                # If it's a category, include the default race type in the path
+                f"/{slugify(index_content['filter_race_type'], country_code)}/{slugify(item, country_code)}"
+                if item in limited_categories  # Check if the item is a category
+                else f"/{slugify(item, country_code)}"
+            ),
+            "description": f"{index_content['show_local']} {count} {item.lower()} {index_content['race_local']}",
             "numberOfItems": count
-        } for item, count in top_items if item and count])
+        } for item, count in top_items])
 
-    # Add "alla-loppstyper" with various race categories
-    nav_items.append({
-        "@type": "SiteNavigationElement",
-        "name": index_content['filter_race_type'],
-        "url": current_url + f"/{slugify(index_content['filter_race_type'], country_code)}",
-        "description": f"{index_content['show_local']} {index_content['filter_race_type']}",
-        "numberOfItems": len(valid_items)
-    })
+    # Add "alla-loppstyper" only if we're at county level and have valid items
+    if not race_type and not category and len(valid_items) > 0:
+        nav_items.append({
+            "@type": "SiteNavigationElement",
+            "name": index_content['filter_race_type'],
+            "url": base_url + f"/{slugify(index_content['filter_race_type'], country_code)}",
+            "description": f"{index_content['show_local']} {index_content['filter_race_type']}",
+            "numberOfItems": len(valid_items)
+        })
 
     return {
         "@context": "https://schema.org",
@@ -407,6 +426,7 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
                 current_url=current_url,
                 country_code=country_code,
                 verbose_mapping=verbose_mapping,
+                county=county,
                 race_type=race_type,
                 category=category
             ) if filtered_races else None,  # Only generate if we have races

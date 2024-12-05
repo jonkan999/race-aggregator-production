@@ -71,6 +71,9 @@ run_script "build_race_list_browse_structure"
 # Build forum pages
 run_script "build_forum_pages"
 
+# Generate HTML need to do it last again since seo overwrite race pages
+run_script "generate_html"
+
 # Generate sitemaps for each country
 for country in "${COUNTRIES[@]}"; do
     run_script "generate_sitemap" "$country"

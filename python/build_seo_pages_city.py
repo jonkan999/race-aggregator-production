@@ -23,6 +23,7 @@ from generate_sitemap import generate_sitemap_for_country
 MIN_RACES_THRESHOLD = 2  # Minimum number of races required to create a page
 TOP_N_SUBCATEGORIES = 20  # Number of top subcategories to consider
 
+
 def get_city_mapping(races):
     """Create a mapping of cities to races."""
     city_races = defaultdict(list)
@@ -187,6 +188,31 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
         )
 
         # Prepare context for city index
+        current_url = f"{index_content['base_url'].rstrip('/')}/{slugify(navigation['race-list'], country_code)}"
+        
+        # Ensure all schema components are defined
+        schema_data = {
+            'breadcrumbs': generate_breadcrumbs(
+                index_content=index_content,
+                navigation=navigation,
+                country_code=country_code,
+                city=city
+            ),
+            'navigation': generate_navigation_schema(
+                index_content=index_content,
+                filtered_races=city_specific_races,
+                current_url=current_url,
+                country_code=country_code,
+                verbose_mapping=verbose_mapping
+            ) if city_specific_races else None,  # Only generate if we have races
+            'raceList': generate_race_list_schema(
+                index_content=index_content,
+                country_code=country_code,
+                filtered_races=city_specific_races,
+                race_page_folder_name=index_content['race_page_folder_name']
+            ) if city_specific_races else None
+        }
+
         context = {
             **index_content,
             'title_race_list': seo_content['title'],
@@ -200,12 +226,8 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
             'distance_filter': verbose_mapping,
             'navigation': navigation,
             'month_mapping': month_mapping,
-            'breadcrumbs': generate_breadcrumbs(
-                index_content=index_content,
-                navigation=navigation,
-                country_code=country_code,
-                city=city
-            )
+            'breadcrumbs': schema_data['breadcrumbs'],
+            'schema_data': schema_data
         }
 
         # Write city index file
@@ -290,7 +312,34 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
             )
             os.makedirs(folder_path, exist_ok=True)
 
-            # Prepare context
+            # Prepare context for filtered pages
+            schema_data = {
+                'breadcrumbs': generate_breadcrumbs(
+                    index_content=index_content,
+                    navigation=navigation,
+                    country_code=country_code,
+                    city=city,
+                    race_type=race_type,
+                    category=category
+                ),
+                'navigation': generate_navigation_schema(
+                    index_content=index_content,
+                    filtered_races=filtered_races,
+                    current_url=current_url,
+                    country_code=country_code,
+                    verbose_mapping=verbose_mapping,
+                    city=city,
+                    race_type=race_type,
+                    category=category
+                ) if filtered_races else None,
+                'raceList': generate_race_list_schema(
+                    index_content=index_content,
+                    country_code=country_code,
+                    filtered_races=filtered_races,
+                    race_page_folder_name=index_content['race_page_folder_name']
+                ) if filtered_races else None
+            }
+
             context = {
                 **index_content,
                 'title_race_list': seo_content['title'],
@@ -306,14 +355,8 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
                 'distance_filter': verbose_mapping,
                 'navigation': navigation,
                 'month_mapping': month_mapping,
-                'breadcrumbs': generate_breadcrumbs(
-                    index_content=index_content,
-                    navigation=navigation,
-                    country_code=country_code,
-                    city=city,
-                    race_type=race_type,
-                    category=category
-                )
+                'breadcrumbs': schema_data['breadcrumbs'],
+                'schema_data': schema_data
             }
 
             # Write file
@@ -323,6 +366,131 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
             print(f"Generated page for {city} - {race_type} - {category}")
 
     generate_sitemap_for_country(country_code)
+def generate_navigation_schema(index_content, filtered_races, current_url, country_code, verbose_mapping, city=None, race_type=None, category=None):
+    """Generate schema.org SiteNavigationElement for race filters"""
+    nav_items = []
+    
+    # Limit available categories to the first 6
+    limited_categories = set(verbose_mapping['available_categories'][:6])
+    
+    # If we're at a race type level, only show categories
+    if race_type:
+        categories = defaultdict(int)
+        for race in filtered_races:
+            if race['type_local'] == race_type and race.get('distance_verbose'):
+                for distance in race['distance_verbose'].split(', '):
+                    for cat in verbose_mapping['distance_mapping'].get(distance, []):
+                        if cat in limited_categories:
+                            categories[cat] += 1
+        
+        # Only show categories with 2+ races
+        valid_items = {item: count for item, count in categories.items() if count >= 2}
+        top_items = sorted(valid_items.items(), key=lambda item: item[1], reverse=True)[:5]
+    
+    # If we're at city level or root level, show race types
+    else:
+        race_types = defaultdict(int)
+        for race in filtered_races:
+            race_types[race['type_local']] += 1
+        
+        # Only show race types with 2+ races
+        valid_items = {item: count for item, count in race_types.items() if count >= 2}
+        top_items = sorted(valid_items.items(), key=lambda item: item[1], reverse=True)[:5]
+    
+    # Build the base URL path including city and cities folder if present
+    base_url = current_url
+    if city:
+        base_url += f"/{slugify(index_content['seo_cities_folder_name'], country_code)}/{slugify(city, country_code)}"
+    
+    # Add the navigation items
+    if top_items:
+        nav_items.extend([{
+            "@type": "SiteNavigationElement",
+            "name": item,
+            "url": base_url + (
+                # If it's a category, include the default race type in the path
+                f"/{slugify(index_content['filter_race_type'], country_code)}/{slugify(item, country_code)}"
+                if item in limited_categories  # Check if the item is a category
+                else f"/{slugify(item, country_code)}"
+            ),
+            "description": f"{index_content['show_local']} {count} {item.lower()} {index_content['race_local']}",
+            "numberOfItems": count
+        } for item, count in top_items])
+
+    # Add "alla-loppstyper" only if we're at city level and have valid items
+    if not race_type and not category and len(valid_items) > 0:
+        nav_items.append({
+            "@type": "SiteNavigationElement",
+            "name": index_content['filter_race_type'],
+            "url": base_url + f"/{slugify(index_content['filter_race_type'], country_code)}",
+            "description": f"{index_content['show_local']} {index_content['filter_race_type']}",
+            "numberOfItems": len(valid_items)
+        })
+
+    return {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": nav_items,
+        "numberOfItems": len(nav_items)
+    }
+
+def generate_race_list_schema(index_content, country_code, filtered_races, race_page_folder_name, max_races=5):
+    """Generate schema.org ItemList for race listing"""
+    
+    # Filter out races with missing required fields
+    valid_races = [
+        race for race in filtered_races
+        if all([
+            race.get('name'),
+            race.get('date'),
+            race.get('location'),
+            race.get('county'),
+            race.get('type_local'),
+            race.get('domain_name'),
+            race.get('description')
+        ])
+    ]
+
+    # Sort races: premier races (with supplied_ids) first, then by date
+    valid_races.sort(
+        key=lambda x: (
+            not bool(x.get('supplied_ids')),  # Premier races first (False sorts before True)
+            x['date']  # Then sort by date
+        )
+    )
+
+    return {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": i + 1,
+                "item": {
+                    "@type": "SportsEvent",
+                    "name": race['name'],
+                    "startDate": race['date'],
+                    "location": {
+                        "@type": "Place",
+                        "name": race['location'],
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": race['location'],
+                            "addressRegion": race['county'],
+                            "addressCountry": country_code
+                        }
+                    },
+                    "sport": f"{index_content['running_local']}, {race['type_local']}",
+                    "distance": race.get('distance_verbose', ''),
+                    "image": f"/{race_page_folder_name}/{race['domain_name']}/{race['domain_name']}_1.webp",
+                    "description": race['description'][:160],
+                    "eventStatus": "Premier" if race.get('supplied_ids') else "Standard"
+                }
+            }
+            for i, race in enumerate(valid_races[:max_races])
+        ],
+        "numberOfItems": min(len(valid_races), max_races)
+    }
 
 def main():
     parser = argparse.ArgumentParser(description='Generate SEO pages for cities')
