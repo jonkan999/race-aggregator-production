@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentPage = 1;
   let totalPages = Math.ceil(raceCards.length / itemsPerPage);
   const totalEvents = raceCards.length;
+  let activeCategories = new Set();
 
   const prevButton = document.getElementById("prev-page");
   const nextButton = document.getElementById("next-page");
@@ -211,14 +212,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Set active selections based on preselected filters
   if (preselectedFilters) {
-    if (preselectedFilters.category) {
-      const categoryButtons = document.querySelectorAll(".category-button");
-      categoryButtons.forEach((button) => {
-        if (button.getAttribute("data-category") === preselectedFilters.category) {
-          button.classList.add("active");
-        }
-      });
-    }
+    initializeCategories();
+    
     if (preselectedFilters.county) {
       countyFilter.value = preselectedFilters.county;
     }
@@ -251,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
   dateTo.valueAsDate = nextYear;
 
   const categoryButtons = document.querySelectorAll(".category-button");
-  let activeCategories = new Set();
+
 
   // Add event listeners to category buttons
   categoryButtons.forEach((button) => {
@@ -265,15 +260,17 @@ document.addEventListener("DOMContentLoaded", function () {
         categoryButtons.forEach((btn) => btn.classList.remove("active"));
         this.classList.add("active");
       } else {
-        // If specific category is clicked, deactivate "all"
-        allButton.classList.remove("active");
+        // If specific category is clicked
+        if (allButton) {
+          allButton.classList.remove("active");
+        }
         
         if (activeCategories.has(category)) {
           activeCategories.delete(category);
           this.classList.remove("active");
           
           // If no categories are selected, activate "all"
-          if (activeCategories.size === 0) {
+          if (activeCategories.size === 0 && allButton) {
             allButton.classList.add("active");
           }
         } else {
@@ -683,4 +680,34 @@ document.addEventListener("DOMContentLoaded", function () {
   const styleSheet = document.createElement("style");
   styleSheet.textContent = styles;
   document.head.appendChild(styleSheet);
+
+  function initializeCategories() {
+    const allButton = document.querySelector('.category-button[data-category="all"]');
+    
+    // Initialize the Set if it hasn't been already
+    if (!activeCategories) {
+      activeCategories = new Set();
+    }
+    
+    if (preselectedFilters && preselectedFilters.category) {
+      // If we have a preselected category
+      if (allButton) {
+        allButton.classList.remove("active");
+      }
+      
+      const categoryButtons = document.querySelectorAll(".category-button");
+      categoryButtons.forEach((button) => {
+        const buttonCategory = button.getAttribute("data-category");
+        if (buttonCategory === preselectedFilters.category) {
+          button.classList.add("active");
+          activeCategories.add(buttonCategory);
+        }
+      });
+    } else {
+      // No preselected category, ensure "all" is active
+      if (allButton) {
+        allButton.classList.add("active");
+      }
+    }
+  }
 });

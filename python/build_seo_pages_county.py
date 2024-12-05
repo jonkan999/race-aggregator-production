@@ -22,10 +22,14 @@ from generate_sitemap import generate_sitemap_for_country
 def get_valid_combinations(races, verbose_mapping):
     """Get all valid filter combinations that have races."""
     valid_combinations = defaultdict(set)
+    valid_category_combinations = defaultdict(lambda: defaultdict(set))
 
     for race in races:
-        valid_combinations['counties'].add(race['county'])
-        valid_combinations['types'].add(race['type_local'])
+        county = race['county']
+        race_type = race['type_local']
+        
+        valid_combinations['counties'].add(county)
+        valid_combinations['types'].add(race_type)
 
         # Check if 'distance_verbose' is present and not None
         if 'distance_verbose' in race and race['distance_verbose']:
@@ -34,13 +38,14 @@ def get_valid_combinations(races, verbose_mapping):
                 # Map the distance to its categories
                 categories = verbose_mapping['distance_mapping'].get(distance)
                 
-                # Add valid categories to valid_combinations
+                # Add valid categories to valid_combinations and track which categories exist for each county/type
                 if categories:
-                    valid_combinations['categories'].update(
-                        cat for cat in categories if cat in verbose_mapping['available_categories']
-                    )
+                    for cat in categories:
+                        if cat in verbose_mapping['available_categories']:
+                            valid_combinations['categories'].add(cat)
+                            valid_category_combinations[county][race_type].add(cat)
 
-    return valid_combinations
+    return valid_combinations, valid_category_combinations
 
 def cleanup_empty_seo_pages(output_dir, navigation, country_code, seo_cities_folder_name, browse_categories_folder_name):
     """Remove all SEO pages except the cities directory."""
@@ -202,59 +207,79 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
     cleanup_empty_seo_pages(output_dir, navigation, country_code, index_content['seo_cities_folder_name'], index_content['browse_by_category']['button'])
 
     # Get valid combinations
-    valid_combinations = get_valid_combinations(races, verbose_mapping)
+    valid_combinations, valid_category_combinations = get_valid_combinations(races, verbose_mapping)
     
     # Map counties using county_mapping
     mapped_counties = {county_mapping.get(county, county) for county in valid_combinations['counties']}
     
-    # Generate all possible combinations
-    combinations = product(
+    # First generate county-only and county+type combinations
+    base_combinations = product(
         [None] + list(mapped_counties),
         [None] + list(valid_combinations['types']),
-        [None] + list(valid_combinations['categories'])
+        [None]  # No categories yet
     )
     
-    # Keep track of valid paths for sitemap
-    valid_paths = set()
-    
-    # First generate the root page (loppkalender)
+    # Generate category combinations separately for each county+type combination
+    all_combinations = []
+    for county, race_type, _ in base_combinations:
+        # Add the base combination (without category)
+        if any([county, race_type]):  # Skip if both are None
+            all_combinations.append((county, race_type, None))
+        
+        # Add valid category combinations for this county+type
+        if county and race_type:
+            original_county = next(c for c in valid_combinations['counties'] 
+                                 if county_mapping.get(c, c) == county)
+            valid_cats = valid_category_combinations[original_county][race_type]
+            for category in valid_cats:
+                all_combinations.append((county, race_type, category))
+        elif county:  # County-only with categories
+            original_county = next(c for c in valid_combinations['counties'] 
+                                 if county_mapping.get(c, c) == county)
+            valid_cats = set().union(*[cats for cats in valid_category_combinations[original_county].values()])
+            for category in valid_cats:
+                all_combinations.append((county, None, category))
+        elif race_type:  # Race-type-only with categories
+            valid_cats = set().union(*[
+                type_cats 
+                for county_cats in valid_category_combinations.values()
+                for type_cats in [county_cats.get(race_type, set())]
+                if type_cats
+            ])
+            for category in valid_cats:
+                all_combinations.append((None, race_type, category))
+
+    # Define root path for race list pages
     root_path = os.path.join(output_dir, slugify(navigation['race-list'], country_code))
     os.makedirs(root_path, exist_ok=True)
-    
-    # Generate root page with all races
-    root_context = {
-        **index_content,
-        'races': races,
-        'preselected_filters': {},
-        'distance_filter': verbose_mapping,
-        'navigation': navigation,
-        'month_mapping': month_mapping,
-        'breadcrumbs': [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": navigation['race-list'],
-                "item": f"{index_content['base_url'].rstrip('/')}/{slugify(navigation['race-list'], country_code)}"
-            }
-        ]
-    }
-    
-    with open(os.path.join(root_path, 'index.html'), 'w', encoding='utf-8') as f:
-        f.write(template.render(root_context))
 
-    # Then generate all county combinations
-    for county, race_type, category in combinations:
-        # Skip only if we have no specifics at all
-        if not county and not race_type and not category:
+    # Then process all valid combinations
+    for county, race_type, category in all_combinations:
+        # Skip if all filters are None (that's the main page)
+        if not any([county, race_type, category]):
             continue
             
-        # Build the folder path
+        # Check if this combination has at least 2 races BEFORE creating directories
+        filtered_races = [
+            race for race in races
+            if (not county or county_mapping.get(race['county'], race['county']) == county) and
+               (not race_type or race['type_local'] == race_type) and
+               (not category or any(
+                   cat in verbose_mapping['available_categories'] for distance in (race.get('distance_verbose', '').split(', ') if race.get('distance_verbose') else [])
+                   for cat in verbose_mapping['distance_mapping'].get(distance.strip(), [])
+               ))
+        ]
+        
+        if len(filtered_races) < 1:  # Only proceed if we have at least 2 races
+            continue
+            
+        # Build the folder path only for valid combinations
         path_parts = []
         
         # Add county part (or alla-lan)
         path_parts.append(slugify(county if county else index_content['seo_county_folder_name'], country_code))
         
-        # Add race type part (or alla-loppstyper if we have a category)
+        # Add race type part (or alla-loppstyper) only if we have race_type or category
         if race_type or category:
             path_parts.append(slugify(race_type if race_type else index_content['filter_race_type'], country_code))
             
@@ -266,20 +291,6 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
         folder_path = os.path.join(root_path, *path_parts)
         os.makedirs(folder_path, exist_ok=True)
 
-        # Check if this combination has at least 2 races
-        filtered_races = [
-            race for race in races
-            if (not county or county_mapping.get(race['county'], race['county']) == county) and
-               (not race_type or race['type_local'] == race_type) and
-               (not category or any(
-                   cat in verbose_mapping['available_categories'] for distance in (race.get('distance_verbose', '').split(', ') if race.get('distance_verbose') else [])
-                   for cat in verbose_mapping['distance_mapping'].get(distance.strip(), [])
-               ))
-        ]
-        
-        if len(filtered_races) < 2:  # Only create pages with at least 2 races
-            continue
-            
         # Generate SEO content
         seo_content = seo_generator.generate_seo_content(
             index_content=index_content,

@@ -78,81 +78,113 @@ def build_browse_structure(races, verbose_mapping, index_content):
     """Build the hierarchical structure for browse pages"""
     race_list_name = index_content['race_list_name']
     country_code = index_content['country_code']
+    MIN_RACES_THRESHOLD = 2  # Define minimum races threshold
 
+    # Initialize counters for types and categories
+    type_counts = defaultdict(int)
+    category_counts = defaultdict(int)
+    county_type_counts = defaultdict(lambda: defaultdict(int))
+    type_category_counts = defaultdict(lambda: defaultdict(int))
+    county_type_category_counts = defaultdict(lambda: defaultdict(lambda: defaultdict(int)))
+
+    # First pass: count everything
+    for race in races:
+        county = race.get('county')
+        race_type = race.get('type_local')
+        
+        if race_type:
+            type_counts[race_type] += 1
+            if county:
+                county_type_counts[county][race_type] += 1
+
+        if race.get('distance_verbose'):
+            distances = race['distance_verbose'].split(', ')
+            for distance in distances:
+                categories = verbose_mapping['distance_mapping'].get(distance, [])
+                for category in categories:
+                    if category in verbose_mapping['available_categories']:
+                        category_counts[category] += 1
+                        if race_type:
+                            type_category_counts[race_type][category] += 1
+                            if county:
+                                county_type_category_counts[county][race_type][category] += 1
+
+    # Initialize structure with defaultdict as before
     structure = {
         'counties': defaultdict(lambda: {
             'name': '',
             'count': 0,
-            'href': '',  # Will store the county's href
+            'href': '',
             'types': defaultdict(lambda: {
                 'count': 0,
-                'href': '',  # Will store the type's href within county
+                'href': '',
                 'categories': defaultdict(lambda: {
                     'count': 0,
-                    'href': ''  # Will store the category's href within county/type
+                    'href': ''
                 })
             })
         }),
         'cities': defaultdict(lambda: {
             'count': 0,
-            'href': '',  # Will store the city's href
+            'href': '',
             'types': defaultdict(lambda: {
                 'count': 0,
-                'href': '',  # Will store the type's href within city
+                'href': '',
                 'categories': defaultdict(lambda: {
                     'count': 0,
-                    'href': ''  # Will store the category's href within city/type
+                    'href': ''
                 })
             })
         }),
         'types': defaultdict(lambda: {
             'count': 0,
-            'href': '',  # Will store the type's href
+            'href': '',
             'categories': defaultdict(lambda: {
                 'count': 0,
-                'href': ''  # Will store the category's href within type
+                'href': ''
             })
         }),
         'categories': defaultdict(lambda: {
             'count': 0,
-            'href': ''  # Will store the category's href
+            'href': ''
         })
     }
-    
+
     # Get county mapping from index_content
     county_mapping = index_content['county_mapping']
     
-    # Process each race
+    # Second pass: build structure only for valid combinations
     for race in races:
         county = race.get('county')
         race_type = race.get('type_local')
         
-        # Map and process county
-        if county in county_mapping:
-            mapped_county = county_mapping[county]
-            county_data = structure['counties'][mapped_county]
-            county_data['name'] = mapped_county
-            county_data['count'] += 1
-            county_data['href'] = build_href(
-                race_list_name, 
-                country_code, 
-                county=mapped_county,
-                index_content=index_content
-            )
-            
-            if race_type:
-                type_data = county_data['types'][race_type]
-                type_data['count'] += 1
-                type_data['href'] = build_href(
-                    race_list_name, 
-                    country_code, 
-                    county=mapped_county,
-                    race_type=race_type,
-                    index_content=index_content
-                )
-        
-        # Process type
-        if race_type:
+        # Only process types that meet the threshold
+        if race_type and type_counts[race_type] >= MIN_RACES_THRESHOLD:
+            # Map and process county
+            if county in county_mapping:
+                mapped_county = county_mapping[county]
+                if county_type_counts[county][race_type] >= MIN_RACES_THRESHOLD:
+                    county_data = structure['counties'][mapped_county]
+                    county_data['name'] = mapped_county
+                    county_data['count'] += 1
+                    county_data['href'] = build_href(
+                        race_list_name, 
+                        country_code, 
+                        county=mapped_county,
+                        index_content=index_content
+                    )
+                    
+                    type_data = county_data['types'][race_type]
+                    type_data['count'] += 1
+                    type_data['href'] = build_href(
+                        race_list_name, 
+                        country_code, 
+                        county=mapped_county,
+                        race_type=race_type,
+                        index_content=index_content
+                    )
+
+            # Process type
             type_data = structure['types'][race_type]
             type_data['count'] += 1
             type_data['href'] = build_href(
@@ -161,52 +193,53 @@ def build_browse_structure(races, verbose_mapping, index_content):
                 race_type=race_type,
                 index_content=index_content
             )
-        
-        # Process categories
-        if race.get('distance_verbose'):
-            distances = race['distance_verbose'].split(', ')
-            for distance in distances:
-                categories = verbose_mapping['distance_mapping'].get(distance, [])
-                for category in categories:
-                    if category in verbose_mapping['available_categories']:
-                        # Update category counts and hrefs at all levels
-                        cat_data = structure['categories'][category]
-                        cat_data['count'] += 1
-                        cat_data['href'] = build_href(
-                            race_list_name, 
-                            country_code, 
-                            category=category,
-                            index_content=index_content
-                        )
-                        
-                        if race_type:
-                            type_cat_data = structure['types'][race_type]['categories'][category]
-                            type_cat_data['count'] += 1
-                            type_cat_data['href'] = build_href(
-                                race_list_name, 
-                                country_code, 
-                                race_type=race_type,
-                                category=category,
-                                index_content=index_content
-                            )
-                            
-                            if county in county_mapping:
-                                mapped_county = county_mapping[county]
-                                county_type_cat_data = structure['counties'][mapped_county]['types'][race_type]['categories'][category]
-                                county_type_cat_data['count'] += 1
-                                county_type_cat_data['href'] = build_href(
+
+            # Process categories
+            if race.get('distance_verbose'):
+                distances = race['distance_verbose'].split(', ')
+                for distance in distances:
+                    categories = verbose_mapping['distance_mapping'].get(distance, [])
+                    for category in categories:
+                        if (category in verbose_mapping['available_categories'] and 
+                            category_counts[category] >= MIN_RACES_THRESHOLD):
+                            if type_category_counts[race_type][category] >= MIN_RACES_THRESHOLD:
+                                cat_data = structure['categories'][category]
+                                cat_data['count'] = category_counts[category]
+                                cat_data['href'] = build_href(
                                     race_list_name, 
                                     country_code, 
-                                    county=mapped_county,
+                                    category=category,
+                                    index_content=index_content
+                                )
+                                
+                                type_cat_data = type_data['categories'][category]
+                                type_cat_data['count'] = type_category_counts[race_type][category]
+                                type_cat_data['href'] = build_href(
+                                    race_list_name, 
+                                    country_code, 
                                     race_type=race_type,
                                     category=category,
                                     index_content=index_content
                                 )
 
-    # Process cities separately
+                                if county in county_mapping:
+                                    mapped_county = county_mapping[county]
+                                    if county_type_category_counts[county][race_type][category] >= MIN_RACES_THRESHOLD:
+                                        county_type_cat_data = structure['counties'][mapped_county]['types'][race_type]['categories'][category]
+                                        county_type_cat_data['count'] = county_type_category_counts[county][race_type][category]
+                                        county_type_cat_data['href'] = build_href(
+                                            race_list_name, 
+                                            country_code, 
+                                            county=mapped_county,
+                                            race_type=race_type,
+                                            category=category,
+                                            index_content=index_content
+                                        )
+
+    # Process cities with the same threshold
     city_races = get_city_mapping(races)
     for city, city_specific_races in city_races.items():
-        if len(city_specific_races) >= 2:  # MIN_RACES_THRESHOLD
+        if len(city_specific_races) >= MIN_RACES_THRESHOLD:
             city_data = structure['cities'][city]
             city_data['count'] = len(city_specific_races)
             city_data['href'] = build_href(
@@ -217,11 +250,28 @@ def build_browse_structure(races, verbose_mapping, index_content):
                 index_content=index_content
             )
             
+            # Count races by type and category for this city
+            city_type_counts = defaultdict(int)
+            city_type_category_counts = defaultdict(lambda: defaultdict(int))
+            
             for race in city_specific_races:
                 race_type = race.get('type_local')
                 if race_type:
+                    city_type_counts[race_type] += 1
+                    
+                    if race.get('distance_verbose'):
+                        distances = race['distance_verbose'].split(', ')
+                        for distance in distances:
+                            categories = verbose_mapping['distance_mapping'].get(distance, [])
+                            for category in categories:
+                                if category in verbose_mapping['available_categories']:
+                                    city_type_category_counts[race_type][category] += 1
+            
+            # Add only valid combinations
+            for race_type, type_count in city_type_counts.items():
+                if type_count >= MIN_RACES_THRESHOLD:
                     type_data = city_data['types'][race_type]
-                    type_data['count'] += 1
+                    type_data['count'] = type_count
                     type_data['href'] = build_href(
                         race_list_name, 
                         country_code, 
@@ -231,23 +281,19 @@ def build_browse_structure(races, verbose_mapping, index_content):
                         index_content=index_content
                     )
                     
-                    if race.get('distance_verbose'):
-                        distances = race['distance_verbose'].split(', ')
-                        for distance in distances:
-                            categories = verbose_mapping['distance_mapping'].get(distance, [])
-                            for category in categories:
-                                if category in verbose_mapping['available_categories']:
-                                    cat_data = type_data['categories'][category]
-                                    cat_data['count'] += 1
-                                    cat_data['href'] = build_href(
-                                        race_list_name, 
-                                        country_code, 
-                                        county=city,
-                                        city=True,
-                                        race_type=race_type,
-                                        category=category,
-                                        index_content=index_content
-                                    )
+                    for category, cat_count in city_type_category_counts[race_type].items():
+                        if cat_count >= MIN_RACES_THRESHOLD:
+                            cat_data = type_data['categories'][category]
+                            cat_data['count'] = cat_count
+                            cat_data['href'] = build_href(
+                                race_list_name, 
+                                country_code, 
+                                county=city,
+                                city=True,
+                                race_type=race_type,
+                                category=category,
+                                index_content=index_content
+                            )
 
     return structure
 

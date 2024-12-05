@@ -227,12 +227,20 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
         top_categories = list(set(top_categories))[:TOP_N_SUBCATEGORIES]
 
         # Generate combinations for this city (excluding the None, None case as we already handled it)
-        combinations = list(product(
-            [None] + top_race_types,
-            [None] + top_categories
-        ))
+        valid_combinations = [
+            (race_type, category) for race_type, category in product([None] + top_race_types, [None] + top_categories)
+            if any(
+                race for race in city_specific_races
+                if (not race_type or race['type_local'] == race_type) and
+                   (not category or any(
+                       cat in verbose_mapping['available_categories']
+                       for distance in (race.get('distance_verbose', '').split(', ') if race.get('distance_verbose') else [])
+                       for cat in verbose_mapping['distance_mapping'].get(distance.strip(), [])
+                   ))
+            )
+        ]
 
-        for race_type, category in combinations:
+        for race_type, category in valid_combinations:
             if not any([race_type, category]):
                 continue
 
@@ -251,70 +259,68 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
                 print(f"Skipping {city} - {race_type} - {category}: insufficient filtered races ({len(filtered_races)} < {MIN_RACES_THRESHOLD})")
                 continue
 
-            # Check if there are cities to process
-            if city:  # Assuming 'city' is a variable that holds the current city being processed
-                # Generate folder path with conditional parts
-                path_parts = [
-                    slugify(index_content['seo_cities_folder_name'], country_code),
-                    slugify(city, country_code)
-                ]
+            # Generate folder path with conditional parts
+            path_parts = [
+                slugify(index_content['seo_cities_folder_name'], country_code),
+                slugify(city, country_code)
+            ]
+            
+            # Only add type and category if they are active
+            if race_type or category:
+                path_parts.append(slugify(
+                    race_type if race_type else index_content['filter_race_type'],
+                    country_code
+                ))
                 
-                # Only add type and category if they are active
-                if race_type or category:
-                    path_parts.append(slugify(
-                        race_type if race_type else index_content['filter_race_type'],
-                        country_code
-                    ))
-                    
-                    if category:
-                        path_parts.append(slugify(category, country_code))
+                if category:
+                    path_parts.append(slugify(category, country_code))
 
-                folder_path = os.path.join(output_dir, slugify(navigation['race-list'], country_code), *path_parts)
+            folder_path = os.path.join(output_dir, slugify(navigation['race-list'], country_code), *path_parts)
 
-                # Generate SEO content
-                seo_content = seo_generator.generate_seo_content(
+            # Generate SEO content
+            seo_content = seo_generator.generate_seo_content(
+                index_content=index_content,
+                county=city, #use city instead of county
+                race_type=race_type,
+                category=category,
+                important_keywords=index_content['important_keywords_racelist'],
+                county_options=index_content['county_mapping'],
+                type_options=index_content['type_options'],
+                available_categories=verbose_mapping['available_categories']
+            )
+            os.makedirs(folder_path, exist_ok=True)
+
+            # Prepare context
+            context = {
+                **index_content,
+                'title_race_list': seo_content['title'],
+                'meta_description': seo_content['meta_description'],
+                'seo_h1': seo_content['h1'],
+                'seo_paragraph': seo_content['paragraph'],
+                'races': filtered_races,
+                'preselected_filters': {
+                    'county': city,
+                    'race_type': race_type,
+                    'category': category
+                },
+                'distance_filter': verbose_mapping,
+                'navigation': navigation,
+                'month_mapping': month_mapping,
+                'breadcrumbs': generate_breadcrumbs(
                     index_content=index_content,
-                    county=city, #use city instead of county
+                    navigation=navigation,
+                    country_code=country_code,
+                    city=city,
                     race_type=race_type,
-                    category=category,
-                    important_keywords=index_content['important_keywords_racelist'],
-                    county_options=index_content['county_mapping'],
-                    type_options=index_content['type_options'],
-                    available_categories=verbose_mapping['available_categories']
+                    category=category
                 )
-                os.makedirs(folder_path, exist_ok=True)
+            }
 
-                # Prepare context
-                context = {
-                    **index_content,
-                    'title_race_list': seo_content['title'],
-                    'meta_description': seo_content['meta_description'],
-                    'seo_h1': seo_content['h1'],
-                    'seo_paragraph': seo_content['paragraph'],
-                    'races': filtered_races,
-                    'preselected_filters': {
-                        'county': city,
-                        'race_type': race_type,
-                        'category': category
-                    },
-                    'distance_filter': verbose_mapping,
-                    'navigation': navigation,
-                    'month_mapping': month_mapping,
-                    'breadcrumbs': generate_breadcrumbs(
-                        index_content=index_content,
-                        navigation=navigation,
-                        country_code=country_code,
-                        city=city,
-                        race_type=race_type,
-                        category=category
-                    )
-                }
-
-                # Write file
-                output_path = os.path.join(folder_path, 'index.html')
-                with open(output_path, 'w', encoding='utf-8') as f:
-                    f.write(template.render(context))
-                print(f"Generated page for {city} - {race_type} - {category}")
+            # Write file
+            output_path = os.path.join(folder_path, 'index.html')
+            with open(output_path, 'w', encoding='utf-8') as f:
+                f.write(template.render(context))
+            print(f"Generated page for {city} - {race_type} - {category}")
 
     generate_sitemap_for_country(country_code)
 
