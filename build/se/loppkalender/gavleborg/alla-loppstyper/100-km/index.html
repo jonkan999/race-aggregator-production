@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script type="application/ld+json">
+      [{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "href": "/loppkalender", "item": "https://loppkartan.se/loppkalender", "name": "Loppkalender", "position": 1}, {"@type": "ListItem", "href": "/loppkalender/gavleborg", "item": "https://loppkartan.se/loppkalender/gavleborg", "name": "G\u00e4vleborg", "position": 2}, {"@type": "ListItem", "href": "/loppkalender/gavleborg", "item": "https://loppkartan.se/loppkalender/gavleborg", "name": "Alla loppstyper", "position": 3}, {"@type": "ListItem", "href": "/loppkalender/gavleborg/alla-loppstyper/100-km", "item": "https://loppkartan.se/loppkalender/gavleborg/alla-loppstyper/100-km", "name": "100 km", "position": 4}]}]
+    </script>
+
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>100 km Löpning i Gävleborg | Loppkalender & Löparkalendern</title>
-    <meta name="description" content="Hitta alla 100 km lopp i Gävleborg.  Bläddra i vår loppkalender och löparkalender för löpartävlingar och hitta ditt nästa äventyr. Alla loppstyper, inklusive Landsväg och Terränglopp, finns med." />
+
     <link rel="icon" href="/common_images/logo100px.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,8 +19,18 @@
       href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
+    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
+    <link rel="preconnect" href="https://adservice.google.com" />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://adservice.google.com" />
+
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
     <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
@@ -29,7 +43,11 @@
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
     />
-
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
     <script defer="" type="module" src="/js/raceListMap.js"></script>
@@ -39,44 +57,7 @@
   </head>
   <body>
     <!-- Page content -->
-    <main> <section class="ad-banner">
-  <div class="ad-banner-controls">
-    <button class="minimize-button" aria-label="Minimize ad">
-      <ion-icon name="chevron-down-outline"></ion-icon>
-    </button>
-  </div>
-
-  <div class="ad-content">
-    <!-- Default content shown while ad loads -->
-    <div class="ad-placeholder">
-      <div class="ad-placeholder-content">
-        <span class="ad-placeholder-text">Annons</span>
-        <div class="ad-placeholder-fallback">
-          <!-- Add a test image or text for local development -->
-          <div class="test-ad-content">Test Ad Banner - Local Development</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- AdSense ad -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
-      crossorigin="anonymous"
-    ></script>
-    <ins
-      class="adsbygoogle"
-      style="display: block"
-      data-ad-client="ca-pub-7076760775175370"
-      data-ad-slot="2240363608"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    ></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-</section> <section class="section-header-menu">
+    <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -558,9 +539,43 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
+  
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      
+      <li >
+        
+        <a href="/loppkalender">Loppkalender</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/loppkalender/gavleborg">Gävleborg</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/loppkalender/gavleborg">Alla loppstyper</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li aria-current="page">
+        
+        <span>100 km</span>
+        
+      </li>
+      
+    </ol>
+  </nav>
+  
 
-  <h1 class="section-header section-header-race-cards race-list-title">100 km Löpningar i Gävleborg - Lopplista & Löparkalendern</h1>
-  <p class="race-list-paragraph">Letar du efter 100 km lopp i Gävleborg? Vår loppkalender och löparkalender listar alla löpartävlingar, från Landsväg till Trail och Backyard Ultra. Oavsett om du föredrar en specifik lopptyp eller bara vill hitta ditt nästa löplopp, är denna lopplista den perfekta resursen. Använd våra filter för att hitta exakt det du söker.  Hitta ditt nästa äventyr bland våra löplopp och löpartävlingar!</p>
+  <h1 class="section-header section-header-race-cards race-list-title no-padding-top">100 km Löpningar i Gävleborg - Lopplista & Löparkalendern</h1>
+  <p class="race-list-paragraph seo-paragraph">Letar du efter 100 km lopp i Gävleborg? Vår loppkalender och löparkalender listar alla löpartävlingar, från Landsväg till Trail och Backyard Ultra. Oavsett om du föredrar en specifik lopptyp eller bara vill hitta ditt nästa löplopp, är denna lopplista den perfekta resursen. Använd våra filter för att hitta exakt det du söker.  Hitta ditt nästa äventyr bland våra löplopp och löpartävlingar!</p>
 
   <h2 class="section-header">
     Alla

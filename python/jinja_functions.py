@@ -123,4 +123,13 @@ def map_verbose_distance(distance_str, verbose_mapping):
     # Remove any double spaces that might have been created
     return ' '.join(distance_str.split())
 
+def get_years(dummy_input):
+    current_date = datetime.now()
+    future_date = current_date + timedelta(days=120)  # roughly 4 months
+    
+    if current_date.year == future_date.year:
+        return str(current_date.year)
+    else:
+        return f"{current_date.year}-{future_date.year}"
+
 

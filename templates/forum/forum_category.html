@@ -1,9 +1,24 @@
 {% extends "forum/forum_layout.html" %} {% block content %}
 <div class="forum-container forum-section" data-category="{{ category.slug }}">
+  {% if breadcrumbs %}
+  <nav class="breadcrumbs" aria-label="breadcrumb">
+    <ol>
+      {% for crumb in breadcrumbs %}
+      <li {% if loop.last %}aria-current="page" {% endif %}>
+        {% if not loop.last %}
+        <a href="{{ crumb.item }}">{{ crumb.name }}</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        {% else %}
+        <span>{{ crumb.name }}</span>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </nav>
+  {% endif %}
   <div class="forum-header">
-    <a href="/{{ navigation.forum | slugify(country_code) }}" class="back-link">
-      {{ forum.back_to_forum }}
-    </a>
     <h1 class="text-left">{{ category.name }}</h1>
     <p class="category-description">{{ category.description }}</p>
   </div>

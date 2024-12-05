@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{"@type": "ListItem", "href": "/loppkalender", "item": "https://loppkartan.se/loppkalender", "name": "Loppkalender", "position": 1}, {"@type": "ListItem", "href": "/loppkalender/stader/stenungsund", "item": "https://loppkartan.se/loppkalender/stader/stenungsund", "name": "St\u00e4der: Stenungsund", "position": 2}, {"@type": "ListItem", "href": "/loppkalender/stader/stenungsund/terrang", "item": "https://loppkartan.se/loppkalender/stader/stenungsund/terrang", "name": "Terr\u00e4ng", "position": 3}, {"@type": "ListItem", "href": "/loppkalender/stader/stenungsund/terrang/50-miles", "item": "https://loppkartan.se/loppkalender/stader/stenungsund/terrang/50-miles", "name": "50 miles", "position": 4}]
+      }
+    </script>
+
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Löparkalender: 50 miles terränglopp i Stenungsund - Hitta ditt nästa löplopp!</title>
-    <meta name="description" content="Hitta perfekta terränglöpningen!  Vår loppkalender listar alla 50 miles lopp i Stenungsund.  Bläddra bland löpartävlingar och hitta ditt nästa äventyr. Lopplista, löparkalendern." />
+
     <link rel="icon" href="/common_images/logo100px.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,8 +23,18 @@
       href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
+    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
+    <link rel="preconnect" href="https://adservice.google.com" />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://adservice.google.com" />
+
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
     <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
@@ -29,7 +47,11 @@
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
     />
-
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
     <script defer="" type="module" src="/js/raceListMap.js"></script>
@@ -39,44 +61,7 @@
   </head>
   <body>
     <!-- Page content -->
-    <main> <section class="ad-banner">
-  <div class="ad-banner-controls">
-    <button class="minimize-button" aria-label="Minimize ad">
-      <ion-icon name="chevron-down-outline"></ion-icon>
-    </button>
-  </div>
-
-  <div class="ad-content">
-    <!-- Default content shown while ad loads -->
-    <div class="ad-placeholder">
-      <div class="ad-placeholder-content">
-        <span class="ad-placeholder-text">Annons</span>
-        <div class="ad-placeholder-fallback">
-          <!-- Add a test image or text for local development -->
-          <div class="test-ad-content">Test Ad Banner - Local Development</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- AdSense ad -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
-      crossorigin="anonymous"
-    ></script>
-    <ins
-      class="adsbygoogle"
-      style="display: block"
-      data-ad-client="ca-pub-7076760775175370"
-      data-ad-slot="2240363608"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    ></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-</section> <section class="section-header-menu">
+    <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -456,10 +441,6 @@
     <div class="filter-county">
       <select id="county" name="county">
         <option value="">Alla län</option>
-        
-        <option value="Stenungsund">
-          Stenungsund
-        </option>
          
         <option value="Stockholm">Stockholm</option>
         
@@ -562,9 +543,43 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
+  
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      
+      <li >
+        
+        <a href="/loppkalender">Loppkalender</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/loppkalender/stader/stenungsund">Städer: Stenungsund</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/loppkalender/stader/stenungsund/terrang">Terräng</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li aria-current="page">
+        
+        <span>50 miles</span>
+        
+      </li>
+      
+    </ol>
+  </nav>
+  
 
-  <h1 class="section-header section-header-race-cards race-list-title">50 miles Terränglopp i Stenungsund - Loppkalender & Löpartävlingar</h1>
-  <p class="race-list-paragraph">Letar du efter ett spännande 50 miles terränglopp i Stenungsund?  Vår loppkalender och lopplista hjälper dig hitta rätt bland alla löpartävlingar.  Oavsett om du är erfaren löpare eller nybörjare, finns det ett lopp för dig.  Använd våra filter för att hitta specifika lopp, exempelvis efter datum (t.ex. nästa vecka) eller svårighetsgrad (t.ex. lätt, medel, svår).  Hitta ditt nästa löplopp – använd vår löparkalendern idag!</p>
+  <h1 class="section-header section-header-race-cards race-list-title no-padding-top">50 miles Terränglopp i Stenungsund - Loppkalender & Löpartävlingar</h1>
+  <p class="race-list-paragraph seo-paragraph">Letar du efter ett spännande 50 miles terränglopp i Stenungsund?  Vår loppkalender och lopplista hjälper dig hitta rätt bland alla löpartävlingar.  Oavsett om du är erfaren löpare eller nybörjare, finns det ett lopp för dig.  Använd våra filter för att hitta specifika lopp, exempelvis efter datum (t.ex. nästa vecka) eller svårighetsgrad (t.ex. lätt, medel, svår).  Hitta ditt nästa löplopp – använd vår löparkalendern idag!</p>
 
   <h2 class="section-header">
     Alla
@@ -591,7 +606,7 @@
         prettier-ignore
         */}
         
-        data-preselected-filters='{"category": "50 miles", "city": "Stenungsund", "county": "Stenungsund", "race_type": "Terr\u00e4ng"}'
+        data-preselected-filters='{"category": "50 miles", "county": "Stenungsund", "race_type": "Terr\u00e4ng"}'
         
       >
          <a
@@ -599,7 +614,7 @@
   class="race-card"
   data-name="Black Friday Trail Run"
   data-date="20241129"
-  data-county="Stenungsund"
+  data-county="Västra Götaland"
   data-category=""
   data-race-type="Terräng"
   data-distance="2,5km, 9km"
@@ -690,7 +705,7 @@
   class="race-card"
   data-name="Becksvart 6 km"
   data-date="20241206"
-  data-county="Stenungsund"
+  data-county="Västra Götaland"
   data-category=""
   data-race-type="Terräng"
   data-distance="6km, 12km"

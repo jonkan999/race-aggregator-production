@@ -47,21 +47,27 @@ document.addEventListener("DOMContentLoaded", function () {
     const isTwoColumn = window.innerWidth >= 544 && window.innerWidth < 1104; // 34em to 69em
     const isThreeColumn = window.innerWidth >= 1104; // 69em and up
 
+    let adCount = 0;
+    const MAX_ADS = 5;
+
     raceCards.forEach((card, index) => {
         let shouldInsertAd = false;
 
+        if (adCount >= MAX_ADS) return;
+
         if (isMobile) {
             // Mobile: Ad after 2nd and every 3rd race
-            shouldInsertAd = (index === 1) || (index > 1 && (index - 1) % 3 === 0);
+            shouldInsertAd = (index === 2) || (index > 1 && (index - 1) % 4 === 0);
         } else if (isTwoColumn) {
             // 2-column: First position and every 3rd position after that
-            shouldInsertAd = (index === 0) || (index > 0 && index % 3 === 0);
+            shouldInsertAd = (index === 0) || (index > 0 && index % 4 === 0);
         } else if (isThreeColumn) {
             // 3-column: First position and every 4th position after that
             shouldInsertAd = (index === 0) || (index > 0 && index % 4 === 0);
         }
 
-        if (shouldInsertAd) {
+        if (shouldInsertAd && adCount < MAX_ADS) {
+            adCount++;
             const adElement = document.createElement('div');
             adElement.className = 'race-card ad-card';
             adElement.innerHTML = `
@@ -196,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("Preselected filters were changed, redirecting...");
       
       // Construct the redirect URL
-      const redirectUrl = `/loppkalender.html?category=${encodeURIComponent(currentFilters.category)}&county=${encodeURIComponent(currentFilters.county)}&race_type=${encodeURIComponent(currentFilters.race_type)}`;
+      const redirectUrl = `/loppkalender/?category=${encodeURIComponent(currentFilters.category)}&county=${encodeURIComponent(currentFilters.county)}&race_type=${encodeURIComponent(currentFilters.race_type)}`;
       
       console.log(redirectUrl); // Log the redirect URL for debugging
       window.location.href = redirectUrl; // Uncomment to enable redirect

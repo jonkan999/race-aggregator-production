@@ -110,6 +110,7 @@ def build_forum_index(country_code, output_dir, jinja_env, base_context, db):
     template = jinja_env.get_template('forum/forum_index.html')
     output = template.render(
         forum_categories=base_context['forum']['categories'],
+        breadcrumbs=generate_forum_breadcrumbs(country_code, base_context['navigation']),
         **base_context
     )
     
@@ -167,6 +168,7 @@ def build_category_page(country_code, output_dir, jinja_env, category, base_cont
         category=category,
         threads=threads,  # Pass the threads directly
         thread_count=thread_count,
+        breadcrumbs=generate_forum_breadcrumbs(country_code, base_context['navigation'], category),
         **base_context
     )
     
@@ -205,10 +207,12 @@ def build_thread_pages(country_code, output_dir, jinja_env, category, base_conte
             
             # Render thread template
             template = jinja_env.get_template('forum/forum_thread.html')
+
             output = template.render(
                 category=category,
                 thread=thread_data,
                 posts=[thread_data] + replies,
+                breadcrumbs=generate_forum_breadcrumbs(country_code, base_context['navigation'], category, thread_data),
                 **base_context
             )
             
@@ -220,6 +224,32 @@ def build_thread_pages(country_code, output_dir, jinja_env, category, base_conte
                 
     except Exception as e:
         print(f"Error building thread pages for category {category['slug']}: {str(e)}")
+
+def generate_forum_breadcrumbs(country_code, navigation, category=None, thread=None):
+    """Generate breadcrumb structure for forum pages"""
+    breadcrumbs = [
+        {
+            "name": navigation['forum'],
+            "item": f"/{slugify(navigation['forum'], country_code)}",
+            "position": 1
+        }
+    ]
+    
+    if category:
+        breadcrumbs.append({
+            "name": category['name'],
+            "item": f"/{slugify(navigation['forum'], country_code)}/{category['slug']}",
+            "position": 2
+        })
+        
+        if thread:
+            breadcrumbs.append({
+                "name": thread['title'],
+                "item": f"/{slugify(navigation['forum'], country_code)}/{category['slug']}/{thread['threadId']}",
+                "position": 3
+            })
+    
+    return breadcrumbs
 
 def main():
     """Main function to build forum pages."""
@@ -237,12 +267,7 @@ def main():
         )
         
         # Add custom filters
-        def slugify_filter(text, country_code=None):
-            if country_code is None:
-                return slugify(text)
-            return slugify(text, country_code)
-            
-        env.filters['slugify'] = slugify_filter
+        env.filters['slugify'] = slugify
         
         # Get list of countries from config
         countries_dir = 'data/countries'

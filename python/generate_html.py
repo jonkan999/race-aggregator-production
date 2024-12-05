@@ -8,7 +8,7 @@ import subprocess
 from pathlib import Path
 
 # Import the custom timeago function from jinja_functions.py
-from jinja_functions import timeago, convert_date, slugify, get_display_values, map_verbose_distance
+from jinja_functions import timeago, convert_date, slugify, get_display_values, map_verbose_distance, get_years
 
 # Paths
 template_dir = 'templates'
@@ -32,7 +32,7 @@ env.filters['timeago'] = timeago
 env.filters['convert_date'] = convert_date
 env.filters['slugify'] = slugify
 env.filters['get_display_values'] = get_display_values
-
+env.filters['get_years'] = get_years
 # Add custom filters to the Jinja2 environment
 env.filters['map_verbose_distance'] = map_verbose_distance
 

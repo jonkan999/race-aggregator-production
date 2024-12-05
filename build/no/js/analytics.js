@@ -9,6 +9,10 @@ import {
   getDocs,
 } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js';
 
+const isLocalEnvironment =
+  window.location.hostname === '127.0.0.1' ||
+  window.location.hostname === 'localhost';
+
 class Analytics {
   constructor() {
     this.sessionData = {
@@ -73,6 +77,12 @@ class Analytics {
 
   async initialize() {
     console.log('Initializing analytics...');
+    if (isLocalEnvironment) {
+      console.log(
+        'Local environment detected. Firestore operations will be skipped.'
+      );
+      return;
+    }
     const { db } = await getFirebaseAuth();
     this.db = db;
     console.log('Firebase DB initialized:', !!this.db);
@@ -141,8 +151,10 @@ class Analytics {
   }
 
   async createInitialDocument() {
-    if (!this.db) {
-      console.error('Database not initialized');
+    if (isLocalEnvironment || !this.db) {
+      console.log(
+        'Firestore skipped: Local environment or database not initialized.'
+      );
       return;
     }
 

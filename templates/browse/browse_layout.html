@@ -17,6 +17,7 @@
     />
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
     <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
@@ -48,6 +49,7 @@
       './sections/header-menu.html' %}
 
       <div class="browse-container">
+        {% include 'components/breadcrumbs.html' %}
         <nav class="browse-nav">
           <a
             href="/{{ race_list_name|slugify(country_code) }}/{{ browse_by_category.button|slugify(country_code) }}"

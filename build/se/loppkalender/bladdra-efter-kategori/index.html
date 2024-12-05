@@ -17,6 +17,7 @@
     />
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
     <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
@@ -29,6 +30,11 @@
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
     />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
     <script defer="" type="module" src="/js/raceListMap.js"></script>
@@ -47,34 +53,17 @@
   </div>
 
   <div class="ad-content">
-    <!-- Default content shown while ad loads -->
-    <div class="ad-placeholder">
-      <div class="ad-placeholder-content">
-        <span class="ad-placeholder-text">Annons</span>
-        <div class="ad-placeholder-fallback">
-          <!-- Add a test image or text for local development -->
-          <div class="test-ad-content">Test Ad Banner - Local Development</div>
-        </div>
-      </div>
+    <!-- AdSense ad container -->
+    <div id="ad-container">
+      <ins
+        class="adsbygoogle"
+        style="display: block"
+        data-ad-client="ca-pub-7076760775175370"
+        data-ad-slot="2240363608"
+        data-ad-format="horizontal"
+        data-full-width-responsive="true"
+      ></ins>
     </div>
-
-    <!-- AdSense ad -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
-      crossorigin="anonymous"
-    ></script>
-    <ins
-      class="adsbygoogle"
-      style="display: block"
-      data-ad-client="ca-pub-7076760775175370"
-      data-ad-slot="2240363608"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    ></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
   </div>
 </section> <section class="section-header-menu">
   <div class="upper-header">
@@ -328,6 +317,24 @@
 </section>
 
       <div class="browse-container">
+        <nav class="breadcrumbs" aria-label="breadcrumb">
+  <ol>
+    
+    <li >
+      
+      <a href="/loppkalender">Loppkalender</a>
+      <span class="separator">/</span>
+      
+    </li>
+    
+    <li aria-current="page" >
+      
+      <span>Bläddra efter kategori</span>
+      
+    </li>
+    
+  </ol>
+</nav>
         <nav class="browse-nav">
           <a
             href="/loppkalender/bladdra-efter-kategori"

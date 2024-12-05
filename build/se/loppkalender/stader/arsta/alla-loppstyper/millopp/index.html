@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{"@type": "ListItem", "href": "/loppkalender", "item": "https://loppkartan.se/loppkalender", "name": "Loppkalender", "position": 1}, {"@type": "ListItem", "href": "/loppkalender/stader/arsta", "item": "https://loppkartan.se/loppkalender/stader/arsta", "name": "St\u00e4der: \u00c5rsta", "position": 2}, {"@type": "ListItem", "href": "/loppkalender/stader/arsta", "item": "https://loppkartan.se/loppkalender/stader/arsta", "name": "Alla loppstyper", "position": 3}, {"@type": "ListItem", "href": "/loppkalender/stader/arsta/alla-loppstyper/millopp", "item": "https://loppkartan.se/loppkalender/stader/arsta/alla-loppstyper/millopp", "name": "Millopp", "position": 4}]
+      }
+    </script>
+
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Millopp i Årsta - Hitta alla lopptyper i loppkalendern</title>
-    <meta name="description" content="Hitta alla Millopp i Årsta i vår loppkalender. Utforska lopptyper som Landsväg, Terräng, Trail, Löparbana, Backyard Ultra, Frontyard Ultra, Stafett, Tidslopp och Övrigt." />
+
     <link rel="icon" href="/common_images/logo100px.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,8 +23,18 @@
       href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
+    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
+    <link rel="preconnect" href="https://adservice.google.com" />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://adservice.google.com" />
+
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
     <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
@@ -29,7 +47,11 @@
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
     />
-
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
     <script defer="" type="module" src="/js/raceListMap.js"></script>
@@ -39,44 +61,7 @@
   </head>
   <body>
     <!-- Page content -->
-    <main> <section class="ad-banner">
-  <div class="ad-banner-controls">
-    <button class="minimize-button" aria-label="Minimize ad">
-      <ion-icon name="chevron-down-outline"></ion-icon>
-    </button>
-  </div>
-
-  <div class="ad-content">
-    <!-- Default content shown while ad loads -->
-    <div class="ad-placeholder">
-      <div class="ad-placeholder-content">
-        <span class="ad-placeholder-text">Annons</span>
-        <div class="ad-placeholder-fallback">
-          <!-- Add a test image or text for local development -->
-          <div class="test-ad-content">Test Ad Banner - Local Development</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- AdSense ad -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
-      crossorigin="anonymous"
-    ></script>
-    <ins
-      class="adsbygoogle"
-      style="display: block"
-      data-ad-client="ca-pub-7076760775175370"
-      data-ad-slot="2240363608"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    ></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-</section> <section class="section-header-menu">
+    <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -456,10 +441,6 @@
     <div class="filter-county">
       <select id="county" name="county">
         <option value="">Alla län</option>
-        
-        <option value="Årsta">
-          Årsta
-        </option>
          
         <option value="Stockholm">Stockholm</option>
         
@@ -562,9 +543,43 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
+  
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      
+      <li >
+        
+        <a href="/loppkalender">Loppkalender</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/loppkalender/stader/arsta">Städer: Årsta</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/loppkalender/stader/arsta">Alla loppstyper</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li aria-current="page">
+        
+        <span>Millopp</span>
+        
+      </li>
+      
+    </ol>
+  </nav>
+  
 
-  <h1 class="section-header section-header-race-cards race-list-title">Millopp i Årsta - Löpartävlingar och Lopplista</h1>
-  <p class="race-list-paragraph">Letar du efter Millopp i Årsta? I vår loppkalender hittar du alla typer av lopp, från Landsväg till Backyard Ultra. Hitta din nästa löpartävling och anmäl dig idag!</p>
+  <h1 class="section-header section-header-race-cards race-list-title no-padding-top">Millopp i Årsta - Löpartävlingar och Lopplista</h1>
+  <p class="race-list-paragraph seo-paragraph">Letar du efter Millopp i Årsta? I vår loppkalender hittar du alla typer av lopp, från Landsväg till Backyard Ultra. Hitta din nästa löpartävling och anmäl dig idag!</p>
 
   <h2 class="section-header">
     Alla
@@ -591,7 +606,7 @@
         prettier-ignore
         */}
         
-        data-preselected-filters='{"category": "Millopp", "city": "\u00c5rsta", "county": "\u00c5rsta", "race_type": null}'
+        data-preselected-filters='{"category": "Millopp", "county": "\u00c5rsta", "race_type": null}'
         
       >
          <a
@@ -599,7 +614,7 @@
   class="race-card"
   data-name="Hammarby Alpin Marathon"
   data-date="20241201"
-  data-county="Årsta"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Terräng"
   data-distance="marathon"
@@ -684,7 +699,7 @@
   class="race-card"
   data-name="Luciaspelen"
   data-date="20241213"
-  data-county="Årsta"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Löparbana"
   data-distance="4km"
@@ -769,7 +784,7 @@
   class="race-card"
   data-name="Scandic Indoor Games"
   data-date="20250110"
-  data-county="Årsta"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km, 3km"
@@ -860,7 +875,7 @@
   class="race-card"
   data-name="Stadion Marathon"
   data-date="20250111"
-  data-county="Årsta"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Landsväg"
   data-distance="10km, half marathon, marathon"
@@ -957,7 +972,7 @@
   class="race-card"
   data-name="Täby Vinterspel"
   data-date="20250117"
-  data-county="Årsta"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km, 3km"
@@ -1048,7 +1063,7 @@
   class="race-card"
   data-name="Vinthundsvintern"
   data-date="20250125"
-  data-county="Årsta"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Löparbana"
   data-distance="3km"
@@ -1133,7 +1148,7 @@
   class="race-card"
   data-name="Raka Spåret"
   data-date="20250201"
-  data-county="Årsta"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km, 3km"
@@ -1224,7 +1239,7 @@
   class="race-card"
   data-name="Hammarbyspelen"
   data-date="20250207"
-  data-county="Årsta"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Löparbana"
   data-distance="20km"
@@ -1309,7 +1324,7 @@
   class="race-card"
   data-name="Ursvik Ultra"
   data-date="20250315"
-  data-county="Årsta"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Terräng"
   data-distance="15km, 45km, 75km"
@@ -1406,7 +1421,7 @@
   class="race-card"
   data-name="Stockholm Marathon"
   data-date="20250531"
-  data-county="Årsta"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Landsväg"
   data-distance="marathon"
@@ -1491,7 +1506,7 @@
   class="race-card"
   data-name="Söder Runt"
   data-date="20250607"
-  data-county="Årsta"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Landsväg"
   data-distance="10km"
@@ -1576,7 +1591,7 @@
   class="race-card"
   data-name="EcoTrail Stockholm"
   data-date="20250614"
-  data-county="Årsta"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Terräng"
   data-distance="2km, 8km, 16km, 33km, 45km, 50 miles"
@@ -1679,7 +1694,7 @@
   class="race-card"
   data-name="Night Trail Run"
   data-date="20250621"
-  data-county="Årsta"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Terräng"
   data-distance="5km, 10km, 30km"
@@ -1776,7 +1791,7 @@
   class="race-card"
   data-name="Midnattsloppet"
   data-date="20250816"
-  data-county="Årsta"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Landsväg"
   data-distance="2km, 5km, 10km"
@@ -1873,7 +1888,7 @@
   class="race-card"
   data-name="Nattloppet Kalmar"
   data-date="20250822"
-  data-county="Årsta"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Landsväg"
   data-distance="5km"
@@ -1958,7 +1973,7 @@
   class="race-card"
   data-name="Stockholm Trail"
   data-date="20250830"
-  data-county="Årsta"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Trail"
   data-distance="0,6km, 2km, 2,5km, 5km, 10km, half marathon"
@@ -2065,7 +2080,7 @@
   class="race-card"
   data-name="Lidingöloppet 10k Junior & Veteran"
   data-date="20250927"
-  data-county="Årsta"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Landsväg"
   data-distance="4km, 10km"

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script type="application/ld+json">
+      [{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "href": "/loppkalender", "item": "https://loppkartan.se/loppkalender", "name": "Loppkalender", "position": 1}, {"@type": "ListItem", "href": "/loppkalender", "item": "https://loppkartan.se/loppkalender", "name": "Alla L\u00e4n", "position": 2}, {"@type": "ListItem", "href": "/loppkalender/alla-lan/terrang", "item": "https://loppkartan.se/loppkalender/alla-lan/terrang", "name": "Terr\u00e4ng", "position": 3}, {"@type": "ListItem", "href": "/loppkalender/alla-lan/terrang/5000-meter", "item": "https://loppkartan.se/loppkalender/alla-lan/terrang/5000-meter", "name": "5000 meter", "position": 4}]}, {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "CollectionPage", "name": "Stockholms", "numberOfItems": 7, "url": "/loppkalender/stockholms/terrang/5000-meter"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "CollectionPage", "name": "Dalarnas", "numberOfItems": 4, "url": "/loppkalender/dalarnas/terrang/5000-meter"}, "position": 2}, {"@type": "ListItem", "item": {"@type": "CollectionPage", "name": "Kalmar", "numberOfItems": 3, "url": "/loppkalender/kalmar/terrang/5000-meter"}, "position": 3}, {"@type": "ListItem", "item": {"@type": "CollectionPage", "name": "J\u00e4mtlands", "numberOfItems": 3, "url": "/loppkalender/jamtlands/terrang/5000-meter"}, "position": 4}, {"@type": "ListItem", "item": {"@type": "CollectionPage", "name": "V\u00e4stra G\u00f6talands", "numberOfItems": 2, "url": "/loppkalender/vastra-gotalands/terrang/5000-meter"}, "position": 5}, {"@type": "ListItem", "item": {"@type": "CollectionPage", "name": "\u00d6rebro", "numberOfItems": 2, "url": "/loppkalender/orebro/terrang/5000-meter"}, "position": 6}, {"@type": "ListItem", "item": {"@type": "CollectionPage", "name": "Terr\u00e4ng", "numberOfItems": 25, "url": "/loppkalender/alla-lan/terrang/5000-meter"}, "position": 7}], "numberOfItems": 7}]
+    </script>
+
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>5000 meter Terränglopp - Löparkalender & Lopplista</title>
-    <meta name="description" content="Hitta alla 5000 meter terränglopp i Sverige. Använd vår löparkalender för att hitta löplopp och löpartävlingar i alla län, från Stockholm till Norrbotten." />
+
     <link rel="icon" href="/common_images/logo100px.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,8 +19,18 @@
       href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
+    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
+    <link rel="preconnect" href="https://adservice.google.com" />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://adservice.google.com" />
+
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
     <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
@@ -29,7 +43,11 @@
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
     />
-
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
     <script defer="" type="module" src="/js/raceListMap.js"></script>
@@ -39,44 +57,7 @@
   </head>
   <body>
     <!-- Page content -->
-    <main> <section class="ad-banner">
-  <div class="ad-banner-controls">
-    <button class="minimize-button" aria-label="Minimize ad">
-      <ion-icon name="chevron-down-outline"></ion-icon>
-    </button>
-  </div>
-
-  <div class="ad-content">
-    <!-- Default content shown while ad loads -->
-    <div class="ad-placeholder">
-      <div class="ad-placeholder-content">
-        <span class="ad-placeholder-text">Annons</span>
-        <div class="ad-placeholder-fallback">
-          <!-- Add a test image or text for local development -->
-          <div class="test-ad-content">Test Ad Banner - Local Development</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- AdSense ad -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
-      crossorigin="anonymous"
-    ></script>
-    <ins
-      class="adsbygoogle"
-      style="display: block"
-      data-ad-client="ca-pub-7076760775175370"
-      data-ad-slot="2240363608"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    ></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-</section> <section class="section-header-menu">
+    <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -558,9 +539,43 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
+  
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      
+      <li >
+        
+        <a href="/loppkalender">Loppkalender</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/loppkalender">Alla Län</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/loppkalender/alla-lan/terrang">Terräng</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li aria-current="page">
+        
+        <span>5000 meter</span>
+        
+      </li>
+      
+    </ol>
+  </nav>
+  
 
-  <h1 class="section-header section-header-race-cards race-list-title">5000 meter Terränglopp - Löparkalender & Lopplista</h1>
-  <p class="race-list-paragraph">Letar du efter 5000 meter terränglopp? Här hittar du en komplett loppkalender med alla löplopp och löpartävlingar i Sverige. Oavsett om du är ute efter ett lopp i Stockholm, Uppsala eller någon annanstans i landet, hittar du det här. Använd våra filter för att hitta det perfekta loppet för dig.</p>
+  <h1 class="section-header section-header-race-cards race-list-title no-padding-top">5000 meter Terränglopp - Löparkalender & Lopplista</h1>
+  <p class="race-list-paragraph seo-paragraph">Letar du efter 5000 meter terränglopp? Här hittar du en komplett loppkalender med alla löplopp och löpartävlingar i Sverige. Oavsett om du är ute efter ett lopp i Stockholm, Uppsala eller någon annanstans i landet, hittar du det här. Använd våra filter för att hitta det perfekta loppet för dig.</p>
 
   <h2 class="section-header">
     Alla

@@ -61,6 +61,70 @@ def cleanup_empty_seo_pages(output_dir, navigation, country_code, seo_cities_fol
         shutil.rmtree(city_pages_path)
         print(f"Cleaned up city pages directory: {city_pages_path}")
 
+def generate_breadcrumbs(index_content, navigation, country_code, city=None, race_type=None, category=None):
+    """Generate breadcrumb structure for JSON-LD and navigation."""
+    domain = index_content['base_url'].rstrip('/')
+    current_path = f"/{slugify(navigation['race-list'], country_code)}"
+    
+    # For JSON-LD schema, we need absolute URLs
+    breadcrumbs = [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": navigation['race-list'],
+        "item": f"{domain}{current_path}",  # Absolute URL for schema
+        "href": current_path  # Relative URL for navigation
+    }]
+    position = 2
+    
+    # Add combined cities and city name
+    if city:
+        current_path += f"/{slugify(index_content['seo_cities_folder_name'], country_code)}/{slugify(city, country_code)}"
+        breadcrumbs.append({
+            "@type": "ListItem",
+            "position": position,
+            "name": f"{index_content['seo_cities_folder_name']}: {city}",
+            "item": f"{domain}{current_path}",  # Absolute URL for schema
+            "href": current_path  # Relative URL for navigation
+        })
+        position += 1
+    
+    # Add race type level (or alla-loppstyper)
+    if race_type or category:
+        if not race_type:
+            # For default race type (Alla loppstyper), link to city index
+            current_path_without_type = current_path  # Store the path before adding type
+            current_path += f"/{slugify(index_content['filter_race_type'], country_code)}"
+            breadcrumbs.append({
+                "@type": "ListItem",
+                "position": position,
+                "name": index_content['filter_race_type'],
+                "item": f"{domain}{current_path_without_type}",  # Absolute URL for schema
+                "href": current_path_without_type  # Link to city index
+            })
+        else:
+            current_path += f"/{slugify(race_type, country_code)}"
+            breadcrumbs.append({
+                "@type": "ListItem",
+                "position": position,
+                "name": race_type,
+                "item": f"{domain}{current_path}",  # Absolute URL for schema
+                "href": current_path  # Relative URL for navigation
+            })
+        position += 1
+    
+    # Add category if present
+    if category:
+        current_path += f"/{slugify(category, country_code)}"
+        breadcrumbs.append({
+            "@type": "ListItem",
+            "position": position,
+            "name": category,
+            "item": f"{domain}{current_path}",  # Absolute URL for schema
+            "href": current_path  # Relative URL for navigation
+        })
+    
+    return breadcrumbs
+
 def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country_code, free_tier=True):
     env = Environment(loader=FileSystemLoader(template_dir))
     template = env.get_template('race_list_seo.html')
@@ -103,6 +167,53 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
             print(f"Skipping {city}: insufficient races ({len(city_specific_races)} < {MIN_RACES_THRESHOLD})")
             continue
 
+        # First generate the city index page
+        path_parts = [
+            slugify(index_content['seo_cities_folder_name'], country_code),
+            slugify(city, country_code)
+        ]
+        
+        folder_path = os.path.join(output_dir, slugify(navigation['race-list'], country_code), *path_parts)
+        os.makedirs(folder_path, exist_ok=True)
+
+        # Generate SEO content for city index
+        seo_content = seo_generator.generate_seo_content(
+            index_content=index_content,
+            county=city,  # use city instead of county
+            important_keywords=index_content['important_keywords_racelist'],
+            county_options=index_content['county_mapping'],
+            type_options=index_content['type_options'],
+            available_categories=verbose_mapping['available_categories']
+        )
+
+        # Prepare context for city index
+        context = {
+            **index_content,
+            'title_race_list': seo_content['title'],
+            'meta_description': seo_content['meta_description'],
+            'seo_h1': seo_content['h1'],
+            'seo_paragraph': seo_content['paragraph'],
+            'races': city_specific_races,
+            'preselected_filters': {
+                'county': city
+            },
+            'distance_filter': verbose_mapping,
+            'navigation': navigation,
+            'month_mapping': month_mapping,
+            'breadcrumbs': generate_breadcrumbs(
+                index_content=index_content,
+                navigation=navigation,
+                country_code=country_code,
+                city=city
+            )
+        }
+
+        # Write city index file
+        output_path = os.path.join(folder_path, 'index.html')
+        with open(output_path, 'w', encoding='utf-8') as f:
+            f.write(template.render(context))
+        print(f"Generated index page for {city}")
+
         # Get top N race types and categories for this city
         top_race_types = get_top_subcategories(city_specific_races, 'type_local')
         
@@ -115,8 +226,8 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
                     top_categories.extend(categories)
         top_categories = list(set(top_categories))[:TOP_N_SUBCATEGORIES]
 
-        # Generate combinations for this city
-        combinations = [(None, None)] + list(product(
+        # Generate combinations for this city (excluding the None, None case as we already handled it)
+        combinations = list(product(
             [None] + top_race_types,
             [None] + top_categories
         ))
@@ -175,21 +286,28 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
 
                 # Prepare context
                 context = {
-                'title_race_list': seo_content['title'],
-                'meta_description': seo_content['meta_description'],
-                'seo_h1': seo_content['h1'],
-                'seo_paragraph': seo_content['paragraph'],
+                    **index_content,
+                    'title_race_list': seo_content['title'],
+                    'meta_description': seo_content['meta_description'],
+                    'seo_h1': seo_content['h1'],
+                    'seo_paragraph': seo_content['paragraph'],
                     'races': filtered_races,
                     'preselected_filters': {
-                        'county': city,  # Use city as county for filtering
+                        'county': city,
                         'race_type': race_type,
-                        'category': category,
-                        'city': city
+                        'category': category
                     },
                     'distance_filter': verbose_mapping,
                     'navigation': navigation,
                     'month_mapping': month_mapping,
-                    **index_content
+                    'breadcrumbs': generate_breadcrumbs(
+                        index_content=index_content,
+                        navigation=navigation,
+                        country_code=country_code,
+                        city=city,
+                        race_type=race_type,
+                        category=category
+                    )
                 }
 
                 # Write file

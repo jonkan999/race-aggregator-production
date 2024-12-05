@@ -277,6 +277,7 @@ def generate_browse_pages(races, template_dir, output_dir, verbose_mapping, coun
         'meta_description': index_content['browse_overview']['meta_description'],
         'title_race_list': index_content['browse_overview']['title'],
         'distance_filter': verbose_mapping,
+        'breadcrumbs': generate_browse_breadcrumbs(index_content),
         **base_context
     }
     with open(browse_dir / 'index.html', 'w', encoding='utf-8') as f:
@@ -292,6 +293,7 @@ def generate_browse_pages(races, template_dir, output_dir, verbose_mapping, coun
         'meta_description': index_content['browse_counties']['meta_description'],
         'title_race_list': index_content['browse_counties']['title'],
         'distance_filter': verbose_mapping,
+        'breadcrumbs': generate_browse_breadcrumbs(index_content, 'counties'),
         **base_context
     }
     
@@ -308,6 +310,7 @@ def generate_browse_pages(races, template_dir, output_dir, verbose_mapping, coun
         'meta_description': index_content['browse_cities']['meta_description'],
         'title_race_list': index_content['browse_cities']['title'],
         'distance_filter': verbose_mapping,
+        'breadcrumbs': generate_browse_breadcrumbs(index_content, 'cities'),
         **base_context
     }
     
@@ -324,6 +327,7 @@ def generate_browse_pages(races, template_dir, output_dir, verbose_mapping, coun
         'meta_description': index_content['browse_types']['meta_description'],
         'title_race_list': index_content['browse_types']['title'],
         'distance_filter': verbose_mapping,
+        'breadcrumbs': generate_browse_breadcrumbs(index_content, 'types'),
         **base_context
     }
     
@@ -340,11 +344,46 @@ def generate_browse_pages(races, template_dir, output_dir, verbose_mapping, coun
         'meta_description': index_content['browse_categories']['meta_description'],
         'title_race_list': index_content['browse_categories']['title'],
         'distance_filter': verbose_mapping,
+        'breadcrumbs': generate_browse_breadcrumbs(index_content, 'categories'),
         **base_context
     }
     
     with open(browse_dir / 'categories.html', 'w', encoding='utf-8') as f:
         f.write(template.render(context))
+
+def generate_browse_breadcrumbs(index_content, active_tab=None):
+    """Generate breadcrumb structure for browse pages"""
+    breadcrumbs = [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": index_content['navigation']['race-list'],
+            "item": f"/{slugify(index_content['navigation']['race-list'], index_content['country_code'])}"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": index_content['browse_by_category']['button'],
+            "item": f"/{slugify(index_content['navigation']['race-list'], index_content['country_code'])}/{slugify(index_content['browse_by_category']['button'], index_content['country_code'])}"
+        }
+    ]
+    
+    if active_tab and active_tab != 'all':
+        tab_mapping = {
+            'counties': index_content['browse_by_category']['counties'],
+            'cities': index_content['browse_by_category']['cities'],
+            'types': index_content['browse_by_category']['types'],
+            'categories': index_content['browse_by_category']['categories']
+        }
+        
+        breadcrumbs.append({
+            "@type": "ListItem",
+            "position": 3,
+            "name": tab_mapping[active_tab],
+            "item": f"/{slugify(index_content['navigation']['race-list'], index_content['country_code'])}/{slugify(index_content['browse_by_category']['button'], index_content['country_code'])}/{active_tab}.html"
+        })
+    
+    return breadcrumbs
 
 def main():
     # Parse command-line arguments

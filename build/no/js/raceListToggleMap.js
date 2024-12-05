@@ -28,7 +28,9 @@ toggleButtonMobile.addEventListener('click', function () {
       <p>Liste</p>
     `;
     toggleButtonMobile.style.bottom = '3.5rem';
-    adBanner.style.display = 'none';
+    if (adBanner) {
+      adBanner.style.display = 'none';
+    }
     //reset filter style on map open
     if (isMobile) {
       //reset filter style on map open
@@ -58,7 +60,9 @@ toggleButtonMobile.addEventListener('click', function () {
       <p>Kart</p>
     `;
     toggleButtonMobile.style.bottom = '9.5rem';
-    adBanner.style.display = 'flex';
+    if (adBanner) {
+      adBanner.style.display = 'flex';
+    }
     isMapClose = true;
   }
 });

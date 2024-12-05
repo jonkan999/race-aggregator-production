@@ -4,13 +4,25 @@
   data-category="{{ category.slug }}"
   data-thread-id="{{ thread.threadId }}"
 >
+  {% if breadcrumbs %}
+  <nav class="breadcrumbs" aria-label="breadcrumb">
+    <ol>
+      {% for crumb in breadcrumbs %}
+      <li {% if loop.last %}aria-current="page" {% endif %}>
+        {% if not loop.last %}
+        <a href="{{ crumb.item }}">{{ crumb.name }}</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        {% else %}
+        <span>{{ crumb.name }}</span>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </nav>
+  {% endif %}
   <div class="forum-header">
-    <a
-      href="/{{ navigation.forum | slugify(country_code) }}/{{ category.slug }}"
-      class="back-link"
-    >
-      {{ forum.back_to_category }} {{ category.name }}
-    </a>
     <h1 class="thread-header primary-color text-left">{{ thread.title }}</h1>
   </div>
 

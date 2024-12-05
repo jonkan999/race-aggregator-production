@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{"@type": "ListItem", "href": "/loppkalender", "item": "https://loppkartan.se/loppkalender", "name": "Loppkalender", "position": 1}, {"@type": "ListItem", "href": "/loppkalender/stader/ekero", "item": "https://loppkartan.se/loppkalender/stader/ekero", "name": "St\u00e4der: Eker\u00f6", "position": 2}, {"@type": "ListItem", "href": "/loppkalender/stader/ekero/loparbana", "item": "https://loppkartan.se/loppkalender/stader/ekero/loparbana", "name": "L\u00f6parbana", "position": 3}, {"@type": "ListItem", "href": "/loppkalender/stader/ekero/loparbana/marathon", "item": "https://loppkartan.se/loppkalender/stader/ekero/loparbana/marathon", "name": "Marathon", "position": 4}]
+      }
+    </script>
+
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Marathon på Löparbana i Ekerö - Hitta din nästa löpartävling | Loppkalender</title>
-    <meta name="description" content="Hitta alla Maratonlopp på Löparbana i Ekerö. Utforska vår loppkalender och hitta din nästa löpartävling." />
+
     <link rel="icon" href="/common_images/logo100px.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,8 +23,18 @@
       href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
+    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
+    <link rel="preconnect" href="https://adservice.google.com" />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://adservice.google.com" />
+
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
     <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
@@ -29,7 +47,11 @@
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
     />
-
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
     <script defer="" type="module" src="/js/raceListMap.js"></script>
@@ -39,44 +61,7 @@
   </head>
   <body>
     <!-- Page content -->
-    <main> <section class="ad-banner">
-  <div class="ad-banner-controls">
-    <button class="minimize-button" aria-label="Minimize ad">
-      <ion-icon name="chevron-down-outline"></ion-icon>
-    </button>
-  </div>
-
-  <div class="ad-content">
-    <!-- Default content shown while ad loads -->
-    <div class="ad-placeholder">
-      <div class="ad-placeholder-content">
-        <span class="ad-placeholder-text">Annons</span>
-        <div class="ad-placeholder-fallback">
-          <!-- Add a test image or text for local development -->
-          <div class="test-ad-content">Test Ad Banner - Local Development</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- AdSense ad -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
-      crossorigin="anonymous"
-    ></script>
-    <ins
-      class="adsbygoogle"
-      style="display: block"
-      data-ad-client="ca-pub-7076760775175370"
-      data-ad-slot="2240363608"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    ></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-</section> <section class="section-header-menu">
+    <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -456,10 +441,6 @@
     <div class="filter-county">
       <select id="county" name="county">
         <option value="">Alla län</option>
-        
-        <option value="Ekerö">
-          Ekerö
-        </option>
          
         <option value="Stockholm">Stockholm</option>
         
@@ -562,9 +543,43 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
+  
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      
+      <li >
+        
+        <a href="/loppkalender">Loppkalender</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/loppkalender/stader/ekero">Städer: Ekerö</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/loppkalender/stader/ekero/loparbana">Löparbana</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li aria-current="page">
+        
+        <span>Marathon</span>
+        
+      </li>
+      
+    </ol>
+  </nav>
+  
 
-  <h1 class="section-header section-header-race-cards race-list-title">Maratonlopp på Löparbana i Ekerö</h1>
-  <p class="race-list-paragraph">Letar du efter en Marathon på Löparbana i Ekerö? Här hittar du en lista över alla kommande löpartävlingar i Ekerö. Använd vår loppkalender för att hitta det perfekta loppet för dig.</p>
+  <h1 class="section-header section-header-race-cards race-list-title no-padding-top">Maratonlopp på Löparbana i Ekerö</h1>
+  <p class="race-list-paragraph seo-paragraph">Letar du efter en Marathon på Löparbana i Ekerö? Här hittar du en lista över alla kommande löpartävlingar i Ekerö. Använd vår loppkalender för att hitta det perfekta loppet för dig.</p>
 
   <h2 class="section-header">
     Alla
@@ -591,7 +606,7 @@
         prettier-ignore
         */}
         
-        data-preselected-filters='{"category": "Marathon", "city": "Eker\u00f6", "county": "Eker\u00f6", "race_type": "L\u00f6parbana"}'
+        data-preselected-filters='{"category": "Marathon", "county": "Eker\u00f6", "race_type": "L\u00f6parbana"}'
         
       >
          <a
@@ -599,7 +614,7 @@
   class="race-card"
   data-name="Luciaspelen"
   data-date="20241213"
-  data-county="Ekerö"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Löparbana"
   data-distance="4km"
@@ -684,7 +699,7 @@
   class="race-card"
   data-name="Scandic Indoor Games"
   data-date="20250110"
-  data-county="Ekerö"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km, 3km"
@@ -775,7 +790,7 @@
   class="race-card"
   data-name="Täby Vinterspel"
   data-date="20250117"
-  data-county="Ekerö"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km, 3km"
@@ -866,7 +881,7 @@
   class="race-card"
   data-name="Vinthundsvintern"
   data-date="20250125"
-  data-county="Ekerö"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Löparbana"
   data-distance="3km"
@@ -951,7 +966,7 @@
   class="race-card"
   data-name="Raka Spåret"
   data-date="20250201"
-  data-county="Ekerö"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Löparbana"
   data-distance="1,5km, 3km"
@@ -1042,7 +1057,7 @@
   class="race-card"
   data-name="Hammarbyspelen"
   data-date="20250207"
-  data-county="Ekerö"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Löparbana"
   data-distance="20km"

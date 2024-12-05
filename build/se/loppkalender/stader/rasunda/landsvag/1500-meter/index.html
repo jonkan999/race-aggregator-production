@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{"@type": "ListItem", "href": "/loppkalender", "item": "https://loppkartan.se/loppkalender", "name": "Loppkalender", "position": 1}, {"@type": "ListItem", "href": "/loppkalender/stader/rasunda", "item": "https://loppkartan.se/loppkalender/stader/rasunda", "name": "St\u00e4der: R\u00e5sunda", "position": 2}, {"@type": "ListItem", "href": "/loppkalender/stader/rasunda/landsvag", "item": "https://loppkartan.se/loppkalender/stader/rasunda/landsvag", "name": "Landsv\u00e4g", "position": 3}, {"@type": "ListItem", "href": "/loppkalender/stader/rasunda/landsvag/1500-meter", "item": "https://loppkartan.se/loppkalender/stader/rasunda/landsvag/1500-meter", "name": "1500 meter", "position": 4}]
+      }
+    </script>
+
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>1500 meter Landsväg Löp lopp i Råsunda | Löparkalender</title>
-    <meta name="description" content="Hitta 1500 meter Landsväg löp lopp i Råsunda. Utforska vår loppkalender och hitta ditt nästa löplopp!" />
+
     <link rel="icon" href="/common_images/logo100px.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,8 +23,18 @@
       href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
+    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
+    <link rel="preconnect" href="https://adservice.google.com" />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://adservice.google.com" />
+
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
     <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
@@ -29,7 +47,11 @@
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
     />
-
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
     <script defer="" type="module" src="/js/raceListMap.js"></script>
@@ -39,44 +61,7 @@
   </head>
   <body>
     <!-- Page content -->
-    <main> <section class="ad-banner">
-  <div class="ad-banner-controls">
-    <button class="minimize-button" aria-label="Minimize ad">
-      <ion-icon name="chevron-down-outline"></ion-icon>
-    </button>
-  </div>
-
-  <div class="ad-content">
-    <!-- Default content shown while ad loads -->
-    <div class="ad-placeholder">
-      <div class="ad-placeholder-content">
-        <span class="ad-placeholder-text">Annons</span>
-        <div class="ad-placeholder-fallback">
-          <!-- Add a test image or text for local development -->
-          <div class="test-ad-content">Test Ad Banner - Local Development</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- AdSense ad -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
-      crossorigin="anonymous"
-    ></script>
-    <ins
-      class="adsbygoogle"
-      style="display: block"
-      data-ad-client="ca-pub-7076760775175370"
-      data-ad-slot="2240363608"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    ></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-</section> <section class="section-header-menu">
+    <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -456,10 +441,6 @@
     <div class="filter-county">
       <select id="county" name="county">
         <option value="">Alla län</option>
-        
-        <option value="Råsunda">
-          Råsunda
-        </option>
          
         <option value="Stockholm">Stockholm</option>
         
@@ -562,9 +543,43 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
+  
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      
+      <li >
+        
+        <a href="/loppkalender">Loppkalender</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/loppkalender/stader/rasunda">Städer: Råsunda</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/loppkalender/stader/rasunda/landsvag">Landsväg</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li aria-current="page">
+        
+        <span>1500 meter</span>
+        
+      </li>
+      
+    </ol>
+  </nav>
+  
 
-  <h1 class="section-header section-header-race-cards race-list-title">1500 meter Landsväg Löp Lopp i Råsunda</h1>
-  <p class="race-list-paragraph">Letar du efter 1500 meter Landsväg löp lopp i Råsunda? Här hittar du en lista över alla kommande löpartävlingar i Råsunda. Använd vår löparkalender för att hitta ditt nästa löplopp!</p>
+  <h1 class="section-header section-header-race-cards race-list-title no-padding-top">1500 meter Landsväg Löp Lopp i Råsunda</h1>
+  <p class="race-list-paragraph seo-paragraph">Letar du efter 1500 meter Landsväg löp lopp i Råsunda? Här hittar du en lista över alla kommande löpartävlingar i Råsunda. Använd vår löparkalender för att hitta ditt nästa löplopp!</p>
 
   <h2 class="section-header">
     Alla
@@ -591,7 +606,7 @@
         prettier-ignore
         */}
         
-        data-preselected-filters='{"category": "1500 meter", "city": "R\u00e5sunda", "county": "R\u00e5sunda", "race_type": "Landsv\u00e4g"}'
+        data-preselected-filters='{"category": "1500 meter", "county": "R\u00e5sunda", "race_type": "Landsv\u00e4g"}'
         
       >
          <a
@@ -599,7 +614,7 @@
   class="race-card"
   data-name="Stadion Marathon"
   data-date="20250111"
-  data-county="Råsunda"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Landsväg"
   data-distance="10km, half marathon, marathon"
@@ -696,7 +711,7 @@
   class="race-card"
   data-name="IDM Mittsvenska"
   data-date="20250208"
-  data-county="Råsunda"
+  data-county="Uppsala"
   data-category=""
   data-race-type="Landsväg"
   data-distance="1,5km, 3km"
@@ -787,7 +802,7 @@
   class="race-card"
   data-name="Aros Marathon"
   data-date="20250503"
-  data-county="Råsunda"
+  data-county="Uppsala"
   data-category=""
   data-race-type="Landsväg"
   data-distance="25km, 50km"
@@ -878,7 +893,7 @@
   class="race-card"
   data-name="Stockholm Marathon"
   data-date="20250531"
-  data-county="Råsunda"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Landsväg"
   data-distance="marathon"
@@ -963,7 +978,7 @@
   class="race-card"
   data-name="Söder Runt"
   data-date="20250607"
-  data-county="Råsunda"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Landsväg"
   data-distance="10km"
@@ -1048,7 +1063,7 @@
   class="race-card"
   data-name="Midnattsloppet"
   data-date="20250816"
-  data-county="Råsunda"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Landsväg"
   data-distance="2km, 5km, 10km"
@@ -1145,7 +1160,7 @@
   class="race-card"
   data-name="Nattloppet Kalmar"
   data-date="20250822"
-  data-county="Råsunda"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Landsväg"
   data-distance="5km"
@@ -1230,7 +1245,7 @@
   class="race-card"
   data-name="Lidingöloppet 10k Junior & Veteran"
   data-date="20250927"
-  data-county="Råsunda"
+  data-county="Stockholm"
   data-category=""
   data-race-type="Landsväg"
   data-distance="4km, 10km"

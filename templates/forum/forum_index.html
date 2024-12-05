@@ -1,5 +1,23 @@
 {% extends "forum/forum_layout.html" %} {% block content %}
 <div class="forum-container forum-section">
+  {% if breadcrumbs %}
+  <nav class="breadcrumbs" aria-label="breadcrumb">
+    <ol>
+      {% for crumb in breadcrumbs %}
+      <li {% if loop.last %}aria-current="page" {% endif %}>
+        {% if not loop.last %}
+        <a href="{{ crumb.item }}">{{ crumb.name }}</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        {% else %}
+        <span>{{ crumb.name }}</span>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </nav>
+  {% endif %}
   <h1 class="text-left">{{ forum.title }}</h1>
   {% for category in forum_categories %}
   <div class="category-card">

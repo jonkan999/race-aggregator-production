@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{"@type": "ListItem", "href": "/loppkalender", "item": "https://loppkartan.se/loppkalender", "name": "Loppkalender", "position": 1}, {"@type": "ListItem", "href": "/loppkalender/stader/angelholm", "item": "https://loppkartan.se/loppkalender/stader/angelholm", "name": "St\u00e4der: \u00c4ngelholm", "position": 2}, {"@type": "ListItem", "href": "/loppkalender/stader/angelholm/trail", "item": "https://loppkartan.se/loppkalender/stader/angelholm/trail", "name": "Trail", "position": 3}, {"@type": "ListItem", "href": "/loppkalender/stader/angelholm/trail/5000-meter", "item": "https://loppkartan.se/loppkalender/stader/angelholm/trail/5000-meter", "name": "5000 meter", "position": 4}]
+      }
+    </script>
+
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>5000 meter Trail-lopp i Ängelholm | Loppkalender</title>
-    <meta name="description" content="Hitta 5000 meter Trail-lopp i Ängelholm. Utforska vår loppkalender för att hitta löpartävlingar och evenemang i din närhet." />
+
     <link rel="icon" href="/common_images/logo100px.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,8 +23,18 @@
       href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
+    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
+    <link rel="preconnect" href="https://adservice.google.com" />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://adservice.google.com" />
+
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
     <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
@@ -29,7 +47,11 @@
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
     />
-
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
     <script defer="" type="module" src="/js/raceListMap.js"></script>
@@ -39,44 +61,7 @@
   </head>
   <body>
     <!-- Page content -->
-    <main> <section class="ad-banner">
-  <div class="ad-banner-controls">
-    <button class="minimize-button" aria-label="Minimize ad">
-      <ion-icon name="chevron-down-outline"></ion-icon>
-    </button>
-  </div>
-
-  <div class="ad-content">
-    <!-- Default content shown while ad loads -->
-    <div class="ad-placeholder">
-      <div class="ad-placeholder-content">
-        <span class="ad-placeholder-text">Annons</span>
-        <div class="ad-placeholder-fallback">
-          <!-- Add a test image or text for local development -->
-          <div class="test-ad-content">Test Ad Banner - Local Development</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- AdSense ad -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
-      crossorigin="anonymous"
-    ></script>
-    <ins
-      class="adsbygoogle"
-      style="display: block"
-      data-ad-client="ca-pub-7076760775175370"
-      data-ad-slot="2240363608"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    ></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-</section> <section class="section-header-menu">
+    <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -456,10 +441,6 @@
     <div class="filter-county">
       <select id="county" name="county">
         <option value="">Alla län</option>
-        
-        <option value="Ängelholm">
-          Ängelholm
-        </option>
          
         <option value="Stockholm">Stockholm</option>
         
@@ -562,9 +543,43 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
+  
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      
+      <li >
+        
+        <a href="/loppkalender">Loppkalender</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/loppkalender/stader/angelholm">Städer: Ängelholm</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/loppkalender/stader/angelholm/trail">Trail</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li aria-current="page">
+        
+        <span>5000 meter</span>
+        
+      </li>
+      
+    </ol>
+  </nav>
+  
 
-  <h1 class="section-header section-header-race-cards race-list-title">5000 meter Trail-lopp i Ängelholm</h1>
-  <p class="race-list-paragraph">Letar du efter 5000 meter Trail-lopp i Ängelholm? Här hittar du en lista över kommande löplopp och löpartävlingar i Ängelholm. Använd våra filter för att hitta det perfekta loppet för dig, inklusive kategori (5000 meter), race type (Trail), och plats (Ängelholm). Sök i vår loppkalender för att hitta ditt nästa äventyr!</p>
+  <h1 class="section-header section-header-race-cards race-list-title no-padding-top">5000 meter Trail-lopp i Ängelholm</h1>
+  <p class="race-list-paragraph seo-paragraph">Letar du efter 5000 meter Trail-lopp i Ängelholm? Här hittar du en lista över kommande löplopp och löpartävlingar i Ängelholm. Använd våra filter för att hitta det perfekta loppet för dig, inklusive kategori (5000 meter), race type (Trail), och plats (Ängelholm). Sök i vår loppkalender för att hitta ditt nästa äventyr!</p>
 
   <h2 class="section-header">
     Alla
@@ -591,7 +606,7 @@
         prettier-ignore
         */}
         
-        data-preselected-filters='{"category": "5000 meter", "city": "\u00c4ngelholm", "county": "\u00c4ngelholm", "race_type": "Trail"}'
+        data-preselected-filters='{"category": "5000 meter", "county": "\u00c4ngelholm", "race_type": "Trail"}'
         
       >
          <a
@@ -599,7 +614,7 @@
   class="race-card"
   data-name="Hoka Torekov-Båstad"
   data-date="20250329"
-  data-county="Ängelholm"
+  data-county="Skåne"
   data-category=""
   data-race-type="Trail"
   data-distance="half marathon"
@@ -684,7 +699,7 @@
   class="race-card"
   data-name="Billingen Xtrail Challenge"
   data-date="20250510"
-  data-county="Ängelholm"
+  data-county="Skåne"
   data-category=""
   data-race-type="Trail"
   data-distance="5km, 12km, 35km"
@@ -781,7 +796,7 @@
   class="race-card"
   data-name="Eketånga Trail"
   data-date="20250606"
-  data-county="Ängelholm"
+  data-county="Halland"
   data-category=""
   data-race-type="Trail"
   data-distance="10km"
@@ -866,7 +881,7 @@
   class="race-card"
   data-name="Halland Ultra Beach"
   data-date="20250731"
-  data-county="Ängelholm"
+  data-county="Skåne"
   data-category=""
   data-race-type="Trail"
   data-distance="40km, 50km, 60km, 72km, 100km, 100 miles, 321,9km"

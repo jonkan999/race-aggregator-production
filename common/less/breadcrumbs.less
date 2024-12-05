@@ -1,0 +1,41 @@
+@import '_variables.less';
+.breadcrumbs {
+  padding: 1rem 1rem 1rem 0;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+.above-h1 {
+  @media (max-width: @small-tablet) {
+    padding-top: calc((var(--header-size) + 18.5rem));
+  }
+}
+
+.breadcrumbs ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.breadcrumbs li {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbs a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbs .separator {
+  margin: 0 0.5rem;
+  color: #6c757d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
