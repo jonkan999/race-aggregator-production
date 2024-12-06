@@ -3,11 +3,11 @@
   <head>
      
     <script type="application/ld+json">
-      [{"@type": "ListItem", "href": "/loppkalender", "item": "https://loppkartan.se/loppkalender", "name": "Loppkalender", "position": 1}, {"@type": "ListItem", "href": "/loppkalender/stader/orebro", "item": "https://loppkartan.se/loppkalender/stader/orebro", "name": "St\u00e4der: \u00d6rebro", "position": 2}]
+      {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender", "@type": "WebPage", "name": "Loppkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender/stader", "@type": "WebPage", "name": "St\u00e4der"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender/stader/orebro", "@type": "WebPage", "name": "\u00d6rebro"}, "position": 3}]}, "visual": [{"href": "/loppkalender", "name": "Loppkalender"}, {"href": "/loppkalender/stader/orebro", "name": "St\u00e4der: \u00d6rebro"}]}
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "SiteNavigationElement", "description": "Visa 4 terr\u00e4ng Lopp", "name": "Terr\u00e4ng", "numberOfItems": 4, "url": "https://loppkartan.se/loppkalender/terrang"}, {"@type": "SiteNavigationElement", "description": "Visa 3 l\u00f6parbana Lopp", "name": "L\u00f6parbana", "numberOfItems": 3, "url": "https://loppkartan.se/loppkalender/loparbana"}, {"@type": "SiteNavigationElement", "description": "Visa 2 backyard ultra Lopp", "name": "Backyard Ultra", "numberOfItems": 2, "url": "https://loppkartan.se/loppkalender/backyard-ultra"}, {"@type": "SiteNavigationElement", "description": "Visa 2 trail Lopp", "name": "Trail", "numberOfItems": 2, "url": "https://loppkartan.se/loppkalender/trail"}, {"@type": "SiteNavigationElement", "description": "Visa Alla loppstyper", "name": "Alla loppstyper", "numberOfItems": 4, "url": "https://loppkartan.se/loppkalender/alla-loppstyper"}], "numberOfItems": 5}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "SiteNavigationElement", "description": "Visa 4 terr\u00e4ng Lopp", "name": "Terr\u00e4ng", "numberOfItems": 4, "url": "https://loppkartan.se/loppkalender/stader/orebro/terrang"}, {"@type": "SiteNavigationElement", "description": "Visa 3 l\u00f6parbana Lopp", "name": "L\u00f6parbana", "numberOfItems": 3, "url": "https://loppkartan.se/loppkalender/stader/orebro/loparbana"}, {"@type": "SiteNavigationElement", "description": "Visa 2 50 miles Lopp", "name": "50 miles", "numberOfItems": 2, "url": "https://loppkartan.se/loppkalender/stader/orebro/alla-loppstyper/50-miles"}, {"@type": "SiteNavigationElement", "description": "Visa 2 backyard ultra Lopp", "name": "Backyard Ultra", "numberOfItems": 2, "url": "https://loppkartan.se/loppkalender/stader/orebro/backyard-ultra"}, {"@type": "SiteNavigationElement", "description": "Visa 2 trail Lopp", "name": "Trail", "numberOfItems": 2, "url": "https://loppkartan.se/loppkalender/stader/orebro/trail"}], "numberOfItems": 5}
     </script>
       
     <script type="application/ld+json">
@@ -550,9 +550,66 @@
   </div>
 </section> <section class="section section-race-cards">
   
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      
+      <li >
+        
+        <a href="/loppkalender">Loppkalender</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li aria-current="page">
+        
+        <span>Städer: Örebro</span>
+        
+      </li>
+      
+    </ol>
+  </nav>
+  
 
   <h1 class="section-header section-header-race-cards race-list-title no-padding-top">Löparkalender Örebro - Hitta Löpartävlingar i Örebro</h1>
   <p class="race-list-paragraph seo-paragraph">Letar du efter ett spännande löplopp i Örebro? Vår loppkalender listar alla löpartävlingar i Örebro, oavsett om du är ute efter en 5 km-runda, ett halvmarathon eller ett maraton. Du kan filtrera efter kategori (5 km, 10 km, Halvmarathon, Marathon...), lopptyp (Landsväg, Terräng, Trail...) och plats för att hitta det perfekta loppet för dig.</p>
+
+  
+  <nav class="race-type-navigation" aria-label="race types and categories">
+    <ul class="race-type-list">
+      
+      <li>
+        <a href="/loppkalender/stader/orebro/terrang" class="race-type-link">
+          Terräng (4)
+        </a>
+      </li>
+      
+      <li>
+        <a href="/loppkalender/stader/orebro/loparbana" class="race-type-link">
+          Löparbana (3)
+        </a>
+      </li>
+      
+      <li>
+        <a href="/loppkalender/stader/orebro/alla-loppstyper/50-miles" class="race-type-link">
+          50 miles (2)
+        </a>
+      </li>
+      
+      <li>
+        <a href="/loppkalender/stader/orebro/backyard-ultra" class="race-type-link">
+          Backyard Ultra (2)
+        </a>
+      </li>
+      
+      <li>
+        <a href="/loppkalender/stader/orebro/trail" class="race-type-link">
+          Trail (2)
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
 
   <h2 class="section-header">
     Alla

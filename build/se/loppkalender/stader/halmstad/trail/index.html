@@ -3,11 +3,11 @@
   <head>
      
     <script type="application/ld+json">
-      [{"@type": "ListItem", "href": "/loppkalender", "item": "https://loppkartan.se/loppkalender", "name": "Loppkalender", "position": 1}, {"@type": "ListItem", "href": "/loppkalender/stader/halmstad", "item": "https://loppkartan.se/loppkalender/stader/halmstad", "name": "St\u00e4der: Halmstad", "position": 2}, {"@type": "ListItem", "href": "/loppkalender/stader/halmstad/trail", "item": "https://loppkartan.se/loppkalender/stader/halmstad/trail", "name": "Trail", "position": 3}]
+      {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender", "@type": "WebPage", "name": "Loppkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender/stader", "@type": "WebPage", "name": "St\u00e4der"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender/stader/halmstad", "@type": "WebPage", "name": "Halmstad"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender/stader/halmstad/trail", "@type": "WebPage", "name": "Trail"}, "position": 4}]}, "visual": [{"href": "/loppkalender", "name": "Loppkalender"}, {"href": "/loppkalender/stader/halmstad", "name": "St\u00e4der: Halmstad"}, {"href": "/loppkalender/stader/halmstad/trail", "name": "Trail"}]}
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "SiteNavigationElement", "description": "Visa 3 5 km Lopp", "name": "5 km", "numberOfItems": 3, "url": "https://loppkartan.se/loppkalender/stader/halmstad/alla-loppstyper/5-km"}], "numberOfItems": 1}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "SiteNavigationElement", "description": "Visa 3 5 km Lopp", "name": "5 km", "numberOfItems": 3, "url": "https://loppkartan.se/loppkalender/stader/halmstad/trail/5-km"}], "numberOfItems": 1}
     </script>
       
     <script type="application/ld+json">
@@ -550,9 +550,49 @@
   </div>
 </section> <section class="section section-race-cards">
   
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      
+      <li >
+        
+        <a href="/loppkalender">Loppkalender</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/loppkalender/stader/halmstad">Städer: Halmstad</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li aria-current="page">
+        
+        <span>Trail</span>
+        
+      </li>
+      
+    </ol>
+  </nav>
+  
 
   <h1 class="section-header section-header-race-cards race-list-title no-padding-top">Trail-lopp i Halmstad - Löpkalendern</h1>
   <p class="race-list-paragraph seo-paragraph">Letar du efter trail-lopp i Halmstad? Här hittar du en komplett lopplista med löpartävlingar i olika kategorier, från 5 km till marathon och längre.  Använd filter för att hitta just det lopp du söker.</p>
+
+  
+  <nav class="race-type-navigation" aria-label="race types and categories">
+    <ul class="race-type-list">
+      
+      <li>
+        <a href="/loppkalender/stader/halmstad/trail/5-km" class="race-type-link">
+          5 km (3)
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
 
   <h2 class="section-header">
     Alla

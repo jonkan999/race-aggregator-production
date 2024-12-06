@@ -3,11 +3,11 @@
   <head>
      
     <script type="application/ld+json">
-      [{"@type": "ListItem", "href": "/loppkalender", "item": "https://loppkartan.se/loppkalender", "name": "Loppkalender", "position": 1}, {"@type": "ListItem", "href": "/loppkalender/stader/hoganas", "item": "https://loppkartan.se/loppkalender/stader/hoganas", "name": "St\u00e4der: H\u00f6gan\u00e4s", "position": 2}]
+      {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender", "@type": "WebPage", "name": "Loppkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender/stader", "@type": "WebPage", "name": "St\u00e4der"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender/stader/hoganas", "@type": "WebPage", "name": "H\u00f6gan\u00e4s"}, "position": 3}]}, "visual": [{"href": "/loppkalender", "name": "Loppkalender"}, {"href": "/loppkalender/stader/hoganas", "name": "St\u00e4der: H\u00f6gan\u00e4s"}]}
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "SiteNavigationElement", "description": "Visa 4 trail Lopp", "name": "Trail", "numberOfItems": 4, "url": "https://loppkartan.se/loppkalender/trail"}, {"@type": "SiteNavigationElement", "description": "Visa Alla loppstyper", "name": "Alla loppstyper", "numberOfItems": 1, "url": "https://loppkartan.se/loppkalender/alla-loppstyper"}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "SiteNavigationElement", "description": "Visa 4 trail Lopp", "name": "Trail", "numberOfItems": 4, "url": "https://loppkartan.se/loppkalender/stader/hoganas/trail"}, {"@type": "SiteNavigationElement", "description": "Visa 2 halvmarathon Lopp", "name": "Halvmarathon", "numberOfItems": 2, "url": "https://loppkartan.se/loppkalender/stader/hoganas/alla-loppstyper/halvmarathon"}], "numberOfItems": 2}
     </script>
       
     <script type="application/ld+json">
@@ -550,9 +550,48 @@
   </div>
 </section> <section class="section section-race-cards">
   
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      
+      <li >
+        
+        <a href="/loppkalender">Loppkalender</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li aria-current="page">
+        
+        <span>Städer: Höganäs</span>
+        
+      </li>
+      
+    </ol>
+  </nav>
+  
 
   <h1 class="section-header section-header-race-cards race-list-title no-padding-top">Löpartävlingar i Höganäs - Loppkalender & Lopplista</h1>
   <p class="race-list-paragraph seo-paragraph">Letar du efter löpartävlingar i Höganäs? Vår loppkalender listar alla löplopp i Höganäs, oavsett om du letar efter ett 5 km lopp, ett maraton eller en tuff terrängutmaning.  Använd våra filter för att specificera din sökning, exempelvis efter distans (5 km, 10 km, Halvmarathon, Marathon, etc.) eller lopptyp (Landsväg, Terräng, Trail, etc.).  Hitta ditt perfekta lopp bland våra löpartävlingar och använd vår löparkalender för att planera din träning.  Detta är din kompletta lopplista och löparkalendern för Höganäs!</p>
+
+  
+  <nav class="race-type-navigation" aria-label="race types and categories">
+    <ul class="race-type-list">
+      
+      <li>
+        <a href="/loppkalender/stader/hoganas/trail" class="race-type-link">
+          Trail (4)
+        </a>
+      </li>
+      
+      <li>
+        <a href="/loppkalender/stader/hoganas/alla-loppstyper/halvmarathon" class="race-type-link">
+          Halvmarathon (2)
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
 
   <h2 class="section-header">
     Alla

@@ -63,68 +63,104 @@ def cleanup_empty_seo_pages(output_dir, navigation, country_code, seo_cities_fol
         print(f"Cleaned up city pages directory: {city_pages_path}")
 
 def generate_breadcrumbs(index_content, navigation, country_code, city=None, race_type=None, category=None):
-    """Generate breadcrumb structure for JSON-LD and navigation."""
+    """Generate breadcrumb structure for both visual display and JSON-LD"""
     domain = index_content['base_url'].rstrip('/')
     current_path = f"/{slugify(navigation['race-list'], country_code)}"
     
-    # For JSON-LD schema, we need absolute URLs
-    breadcrumbs = [{
-        "@type": "ListItem",
-        "position": 1,
+    # For visual display
+    visual_breadcrumbs = [{
         "name": navigation['race-list'],
-        "item": f"{domain}{current_path}",  # Absolute URL for schema
-        "href": current_path  # Relative URL for navigation
+        "href": current_path
     }]
+    
+    # For JSON-LD schema (keep the full structure for SEO)
+    schema_breadcrumbs = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@type": "WebPage",
+                "@id": f"{domain}{current_path}",
+                "name": navigation['race-list']
+            }
+        }]
+    }
     position = 2
     
-    # Add combined cities and city name
+    # Add city level with combined cities folder name
     if city:
+        # Build the full path for the href
         current_path += f"/{slugify(index_content['seo_cities_folder_name'], country_code)}/{slugify(city, country_code)}"
-        breadcrumbs.append({
+        # Add combined cities+city name for visual display
+        visual_breadcrumbs.append({
+            "name": f"{index_content['seo_cities_folder_name']}: {city}",
+            "href": current_path
+        })
+        
+        # Keep full structure for schema
+        schema_breadcrumbs["itemListElement"].extend([
+            {
+                "@type": "ListItem",
+                "position": position,
+                "item": {
+                    "@type": "WebPage",
+                    "@id": f"{domain}/{slugify(navigation['race-list'], country_code)}/{slugify(index_content['seo_cities_folder_name'], country_code)}",
+                    "name": index_content['seo_cities_folder_name']
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": position + 1,
+                "item": {
+                    "@type": "WebPage",
+                    "@id": f"{domain}{current_path}",
+                    "name": city
+                }
+            }
+        ])
+        position += 2
+    
+    # Add race type level
+    if race_type:
+        current_path += f"/{slugify(race_type, country_code)}"
+        visual_breadcrumbs.append({
+            "name": race_type,
+            "href": current_path
+        })
+        schema_breadcrumbs["itemListElement"].append({
             "@type": "ListItem",
             "position": position,
-            "name": f"{index_content['seo_cities_folder_name']}: {city}",
-            "item": f"{domain}{current_path}",  # Absolute URL for schema
-            "href": current_path  # Relative URL for navigation
+            "item": {
+                "@type": "WebPage",
+                "@id": f"{domain}{current_path}",
+                "name": race_type
+            }
         })
         position += 1
     
-    # Add race type level (or alla-loppstyper)
-    if race_type or category:
-        if not race_type:
-            # For default race type (Alla loppstyper), link to city index
-            current_path_without_type = current_path  # Store the path before adding type
-            current_path += f"/{slugify(index_content['filter_race_type'], country_code)}"
-            breadcrumbs.append({
-                "@type": "ListItem",
-                "position": position,
-                "name": index_content['filter_race_type'],
-                "item": f"{domain}{current_path_without_type}",  # Absolute URL for schema
-                "href": current_path_without_type  # Link to city index
-            })
-        else:
-            current_path += f"/{slugify(race_type, country_code)}"
-            breadcrumbs.append({
-                "@type": "ListItem",
-                "position": position,
-                "name": race_type,
-                "item": f"{domain}{current_path}",  # Absolute URL for schema
-                "href": current_path  # Relative URL for navigation
-            })
-        position += 1
-    
-    # Add category if present
+    # Add category level
     if category:
         current_path += f"/{slugify(category, country_code)}"
-        breadcrumbs.append({
+        visual_breadcrumbs.append({
+            "name": category,
+            "href": current_path
+        })
+        schema_breadcrumbs["itemListElement"].append({
             "@type": "ListItem",
             "position": position,
-            "name": category,
-            "item": f"{domain}{current_path}",  # Absolute URL for schema
-            "href": current_path  # Relative URL for navigation
+            "item": {
+                "@type": "WebPage",
+                "@id": f"{domain}{current_path}",
+                "name": category
+            }
         })
     
-    return breadcrumbs
+    return {
+        "visual": visual_breadcrumbs,
+        "schema": schema_breadcrumbs
+    }
 
 def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country_code, free_tier=True):
     env = Environment(loader=FileSystemLoader(template_dir))
@@ -163,6 +199,7 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
     
     # Process each city
     for city, city_specific_races in city_races.items():
+
         # Skip cities with insufficient races
         if len(city_specific_races) < MIN_RACES_THRESHOLD:
             print(f"Skipping {city}: insufficient races ({len(city_specific_races)} < {MIN_RACES_THRESHOLD})")
@@ -180,17 +217,16 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
         # Generate SEO content for city index
         seo_content = seo_generator.generate_seo_content(
             index_content=index_content,
-            county=city,  # use city instead of county
+            county=city,
             important_keywords=index_content['important_keywords_racelist'],
             county_options=index_content['county_mapping'],
             type_options=index_content['type_options'],
             available_categories=verbose_mapping['available_categories']
         )
 
-        # Prepare context for city index
         current_url = f"{index_content['base_url'].rstrip('/')}/{slugify(navigation['race-list'], country_code)}"
         
-        # Ensure all schema components are defined
+        # Generate schema data for city index
         schema_data = {
             'breadcrumbs': generate_breadcrumbs(
                 index_content=index_content,
@@ -203,16 +239,18 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
                 filtered_races=city_specific_races,
                 current_url=current_url,
                 country_code=country_code,
-                verbose_mapping=verbose_mapping
-            ) if city_specific_races else None,  # Only generate if we have races
+                verbose_mapping=verbose_mapping,
+                city=city
+            ),
             'raceList': generate_race_list_schema(
                 index_content=index_content,
                 country_code=country_code,
                 filtered_races=city_specific_races,
                 race_page_folder_name=index_content['race_page_folder_name']
-            ) if city_specific_races else None
+            )
         }
 
+        # Create context for city index
         context = {
             **index_content,
             'title_race_list': seo_content['title'],
@@ -367,13 +405,14 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
 
     generate_sitemap_for_country(country_code)
 def generate_navigation_schema(index_content, filtered_races, current_url, country_code, verbose_mapping, city=None, race_type=None, category=None):
+    if category is not None:
+        return None
     """Generate schema.org SiteNavigationElement for race filters"""
     nav_items = []
     
     # Limit available categories to the first 6
     limited_categories = set(verbose_mapping['available_categories'][:6])
-    
-    # If we're at a race type level, only show categories
+        # If we're at a race type level, only show categories
     if race_type:
         categories = defaultdict(int)
         for race in filtered_races:
@@ -386,46 +425,44 @@ def generate_navigation_schema(index_content, filtered_races, current_url, count
         # Only show categories with 2+ races
         valid_items = {item: count for item, count in categories.items() if count >= 2}
         top_items = sorted(valid_items.items(), key=lambda item: item[1], reverse=True)[:5]
-    
-    # If we're at city level or root level, show race types
+
+    # If we're at city level or root level, show both race types and categories
     else:
-        race_types = defaultdict(int)
+        combined_items = defaultdict(int)
         for race in filtered_races:
-            race_types[race['type_local']] += 1
+            # Count race types
+            combined_items[race['type_local']] += 1
+            
+            # Count categories
+            if race.get('distance_verbose'):
+                for distance in race['distance_verbose'].split(', '):
+                    for cat in verbose_mapping['distance_mapping'].get(distance, []):
+                        if cat in limited_categories:
+                            combined_items[cat] += 1
         
-        # Only show race types with 2+ races
-        valid_items = {item: count for item, count in race_types.items() if count >= 2}
+        # Only show items with 2+ races
+        valid_items = {item: count for item, count in combined_items.items() if count >= 2}
         top_items = sorted(valid_items.items(), key=lambda item: item[1], reverse=True)[:5]
     
     # Build the base URL path including city and cities folder if present
     base_url = current_url
     if city:
         base_url += f"/{slugify(index_content['seo_cities_folder_name'], country_code)}/{slugify(city, country_code)}"
-    
+
     # Add the navigation items
     if top_items:
         nav_items.extend([{
             "@type": "SiteNavigationElement",
             "name": item,
             "url": base_url + (
-                # If it's a category, include the default race type in the path
-                f"/{slugify(index_content['filter_race_type'], country_code)}/{slugify(item, country_code)}"
+                # If it's a category, include race_type or default race type in the path
+                f"/{slugify(race_type if race_type else index_content['filter_race_type'], country_code)}/{slugify(item, country_code)}"
                 if item in limited_categories  # Check if the item is a category
                 else f"/{slugify(item, country_code)}"
             ),
             "description": f"{index_content['show_local']} {count} {item.lower()} {index_content['race_local']}",
             "numberOfItems": count
         } for item, count in top_items])
-
-    # Add "alla-loppstyper" only if we're at city level and have valid items
-    if not race_type and not category and len(valid_items) > 0:
-        nav_items.append({
-            "@type": "SiteNavigationElement",
-            "name": index_content['filter_race_type'],
-            "url": base_url + f"/{slugify(index_content['filter_race_type'], country_code)}",
-            "description": f"{index_content['show_local']} {index_content['filter_race_type']}",
-            "numberOfItems": len(valid_items)
-        })
 
     return {
         "@context": "https://schema.org",

@@ -3,11 +3,11 @@
   <head>
      
     <script type="application/ld+json">
-      [{"@type": "ListItem", "href": "/loppkalender", "item": "https://loppkartan.se/loppkalender", "name": "Loppkalender", "position": 1}, {"@type": "ListItem", "href": "/loppkalender/stader/eskilstuna", "item": "https://loppkartan.se/loppkalender/stader/eskilstuna", "name": "St\u00e4der: Eskilstuna", "position": 2}]
+      {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender", "@type": "WebPage", "name": "Loppkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender/stader", "@type": "WebPage", "name": "St\u00e4der"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender/stader/eskilstuna", "@type": "WebPage", "name": "Eskilstuna"}, "position": 3}]}, "visual": [{"href": "/loppkalender", "name": "Loppkalender"}, {"href": "/loppkalender/stader/eskilstuna", "name": "St\u00e4der: Eskilstuna"}]}
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "SiteNavigationElement", "description": "Visa 2 \u00f6vrigt Lopp", "name": "\u00d6vrigt", "numberOfItems": 2, "url": "https://loppkartan.se/loppkalender/ovrigt"}, {"@type": "SiteNavigationElement", "description": "Visa Alla loppstyper", "name": "Alla loppstyper", "numberOfItems": 1, "url": "https://loppkartan.se/loppkalender/alla-loppstyper"}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "SiteNavigationElement", "description": "Visa 2 5 km Lopp", "name": "5 km", "numberOfItems": 2, "url": "https://loppkartan.se/loppkalender/stader/eskilstuna/alla-loppstyper/5-km"}, {"@type": "SiteNavigationElement", "description": "Visa 2 \u00f6vrigt Lopp", "name": "\u00d6vrigt", "numberOfItems": 2, "url": "https://loppkartan.se/loppkalender/stader/eskilstuna/ovrigt"}], "numberOfItems": 2}
     </script>
       
     <script type="application/ld+json">
@@ -550,9 +550,48 @@
   </div>
 </section> <section class="section section-race-cards">
   
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      
+      <li >
+        
+        <a href="/loppkalender">Loppkalender</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li aria-current="page">
+        
+        <span>Städer: Eskilstuna</span>
+        
+      </li>
+      
+    </ol>
+  </nav>
+  
 
   <h1 class="section-header section-header-race-cards race-list-title no-padding-top">Löpartävlingar i Eskilstuna - Loppkalender & Lopplista</h1>
   <p class="race-list-paragraph seo-paragraph">Planerar du din nästa löptur?  Här hittar du en komplett loppkalender för Eskilstuna med löpartävlingar i olika kategorier, från korta distanser som 5 km och 10 km till längre lopp som halvmarathon och marathon.  Vi listar lopp av alla typer, inklusive Landsväg, Terräng och Trail. Oavsett om du letar efter ett lopp på löparbana eller ett mer unikt lopp som Backyard Ultra,  använd våra filter för att hitta det perfekta loppet för dig.  Använd vår löparkalender eller loppkalendern för att hitta ditt nästa äventyr!  Bläddra bland lopplistan och hitta din nästa löpartävling.</p>
+
+  
+  <nav class="race-type-navigation" aria-label="race types and categories">
+    <ul class="race-type-list">
+      
+      <li>
+        <a href="/loppkalender/stader/eskilstuna/alla-loppstyper/5-km" class="race-type-link">
+          5 km (2)
+        </a>
+      </li>
+      
+      <li>
+        <a href="/loppkalender/stader/eskilstuna/ovrigt" class="race-type-link">
+          Övrigt (2)
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
 
   <h2 class="section-header">
     Alla

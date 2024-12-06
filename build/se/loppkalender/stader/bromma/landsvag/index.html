@@ -3,11 +3,11 @@
   <head>
      
     <script type="application/ld+json">
-      [{"@type": "ListItem", "href": "/loppkalender", "item": "https://loppkartan.se/loppkalender", "name": "Loppkalender", "position": 1}, {"@type": "ListItem", "href": "/loppkalender/stader/bromma", "item": "https://loppkartan.se/loppkalender/stader/bromma", "name": "St\u00e4der: Bromma", "position": 2}, {"@type": "ListItem", "href": "/loppkalender/stader/bromma/landsvag", "item": "https://loppkartan.se/loppkalender/stader/bromma/landsvag", "name": "Landsv\u00e4g", "position": 3}]
+      {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender", "@type": "WebPage", "name": "Loppkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender/stader", "@type": "WebPage", "name": "St\u00e4der"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender/stader/bromma", "@type": "WebPage", "name": "Bromma"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender/stader/bromma/landsvag", "@type": "WebPage", "name": "Landsv\u00e4g"}, "position": 4}]}, "visual": [{"href": "/loppkalender", "name": "Loppkalender"}, {"href": "/loppkalender/stader/bromma", "name": "St\u00e4der: Bromma"}, {"href": "/loppkalender/stader/bromma/landsvag", "name": "Landsv\u00e4g"}]}
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "SiteNavigationElement", "description": "Visa 4 10 km Lopp", "name": "10 km", "numberOfItems": 4, "url": "https://loppkartan.se/loppkalender/stader/bromma/alla-loppstyper/10-km"}, {"@type": "SiteNavigationElement", "description": "Visa 3 5 km Lopp", "name": "5 km", "numberOfItems": 3, "url": "https://loppkartan.se/loppkalender/stader/bromma/alla-loppstyper/5-km"}, {"@type": "SiteNavigationElement", "description": "Visa 2 marathon Lopp", "name": "Marathon", "numberOfItems": 2, "url": "https://loppkartan.se/loppkalender/stader/bromma/alla-loppstyper/marathon"}], "numberOfItems": 3}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "SiteNavigationElement", "description": "Visa 4 10 km Lopp", "name": "10 km", "numberOfItems": 4, "url": "https://loppkartan.se/loppkalender/stader/bromma/landsvag/10-km"}, {"@type": "SiteNavigationElement", "description": "Visa 3 5 km Lopp", "name": "5 km", "numberOfItems": 3, "url": "https://loppkartan.se/loppkalender/stader/bromma/landsvag/5-km"}, {"@type": "SiteNavigationElement", "description": "Visa 2 marathon Lopp", "name": "Marathon", "numberOfItems": 2, "url": "https://loppkartan.se/loppkalender/stader/bromma/landsvag/marathon"}], "numberOfItems": 3}
     </script>
       
     <script type="application/ld+json">
@@ -550,9 +550,61 @@
   </div>
 </section> <section class="section section-race-cards">
   
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      
+      <li >
+        
+        <a href="/loppkalender">Loppkalender</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/loppkalender/stader/bromma">Städer: Bromma</a>
+        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        
+      </li>
+      
+      <li aria-current="page">
+        
+        <span>Landsväg</span>
+        
+      </li>
+      
+    </ol>
+  </nav>
+  
 
   <h1 class="section-header section-header-race-cards race-list-title no-padding-top">Löplopp på Landsväg i Bromma</h1>
   <p class="race-list-paragraph seo-paragraph">Letar du efter löpartävlingar på Landsväg i Bromma? Här hittar du en lista över kommande löplopp i Bromma, inklusive lopp i olika kategorier, från 5 km till marathon. Använd våra filter för att hitta det perfekta loppet för dig! Upptäck vår loppkalender och hitta din nästa löpartävling.</p>
+
+  
+  <nav class="race-type-navigation" aria-label="race types and categories">
+    <ul class="race-type-list">
+      
+      <li>
+        <a href="/loppkalender/stader/bromma/landsvag/10-km" class="race-type-link">
+          10 km (4)
+        </a>
+      </li>
+      
+      <li>
+        <a href="/loppkalender/stader/bromma/landsvag/5-km" class="race-type-link">
+          5 km (3)
+        </a>
+      </li>
+      
+      <li>
+        <a href="/loppkalender/stader/bromma/landsvag/marathon" class="race-type-link">
+          Marathon (2)
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
 
   <h2 class="section-header">
     Alla
