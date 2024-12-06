@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+     
+    <script type="application/ld+json">
+      {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste", "@type": "WebPage", "name": "Terminliste"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/innlandet", "@type": "WebPage", "name": "Innlandet"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/innlandet/trailfjellop", "@type": "WebPage", "name": "Trail/Fjell\u00f8p"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/innlandet/trailfjellop/50-km", "@type": "WebPage", "name": "50 km"}, "position": 4}]}, "visual": [{"href": "/terminliste", "name": "Terminliste"}, {"href": "/terminliste/innlandet", "name": "Innlandet"}, {"href": "/terminliste/innlandet/trailfjellop", "name": "Trail/Fjell\u00f8p"}, {"href": "/terminliste/innlandet/trailfjellop/50-km", "name": "50 km"}]}
+    </script>
+        
+    <script type="application/ld+json">
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "N\u00f8sen Hundreds ble grunnlagt i 2020 med ambisjonen om \u00e5 skape et morsomt, inkluderende og utfordrende fjell\u00f8p. Denne raseavstanden ble opprettet for \u00e5 invitere ", "distance": "half marathon, 50km, 100km", "eventStatus": "Standard", "identifier": "nosen_hundreds_ultra", "image": "/l\u00f8pssider/nosen_hundreds_ultra/nosen_hundreds_ultra_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "no", "addressLocality": "N\u00f8sen Yoga Hotel", "addressRegion": "Innlandet"}, "name": "N\u00f8sen Yoga Hotel"}, "name": "N\u00f8sen Hundreds Ultra", "sport": "L\u00f8ping, Trail/Fjell\u00f8p", "startDate": "20250614"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Fl\u00e6k\u00f8yh\u00f8e UPP er v\u00e5rens brattaste eventyr, kjent for sine utfordrende bakker og vakre omgivelser. L\u00f8pet starter ved Bismo p\u00e5 ca 400 moh og har m\u00e5lgang ved en va", "distance": "4km", "eventStatus": "Standard", "identifier": "flaekoyhoe_upp", "image": "/l\u00f8pssider/flaekoyhoe_upp/flaekoyhoe_upp_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "no", "addressLocality": "Bismo", "addressRegion": "Innlandet"}, "name": "Bismo"}, "name": "Fl\u00e6k\u00f8yh\u00f8e Upp", "sport": "L\u00f8ping, Trail/Fjell\u00f8p", "startDate": "20250621"}, "position": 2}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Jotunheimen Trail Run - Den ultimate trail running opplevelsen. Velg mellom 1K, 13K, 21K, 42K og 70K. Velkommen til Jotunheimen Trail Run - En opplevelse du ikk", "distance": "1km, 13km, half marathon, marathon, 70km", "eventStatus": "Standard", "identifier": "jotunheimen_trail_run", "image": "/l\u00f8pssider/jotunheimen_trail_run/jotunheimen_trail_run_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "no", "addressLocality": "Bygdin", "addressRegion": "Innlandet"}, "name": "Bygdin"}, "name": "Jotunheimen Trail Run", "sport": "L\u00f8ping, Trail/Fjell\u00f8p", "startDate": "20250802"}, "position": 3}], "numberOfItems": 3}
+    </script>
+     
+
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>50 km Trail/Fjelløp Løp i Innlandet: Løpskalender og Terminliste</title>
-    <meta name="description" content="Finn ditt neste 50 km fjelløp i Innlandet!  Sjekk vår løpskalender og terminliste for løpekonkurranser og løpeløp. Løping i Norge har aldri vært enklere!" />
+
     <link rel="icon" href="/common_images/logo100px.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,8 +25,18 @@
       href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
+    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
+    <link rel="preconnect" href="https://adservice.google.com" />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://adservice.google.com" />
+
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
     <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
@@ -29,7 +49,11 @@
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
     />
-
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
     <script defer="" type="module" src="/js/raceListMap.js"></script>
@@ -39,44 +63,7 @@
   </head>
   <body>
     <!-- Page content -->
-    <main> <section class="ad-banner">
-  <div class="ad-banner-controls">
-    <button class="minimize-button" aria-label="Minimize ad">
-      <ion-icon name="chevron-down-outline"></ion-icon>
-    </button>
-  </div>
-
-  <div class="ad-content">
-    <!-- Default content shown while ad loads -->
-    <div class="ad-placeholder">
-      <div class="ad-placeholder-content">
-        <span class="ad-placeholder-text">Annons</span>
-        <div class="ad-placeholder-fallback">
-          <!-- Add a test image or text for local development -->
-          <div class="test-ad-content">Test Ad Banner - Local Development</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- AdSense ad -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
-      crossorigin="anonymous"
-    ></script>
-    <ins
-      class="adsbygoogle"
-      style="display: block"
-      data-ad-client="ca-pub-7076760775175370"
-      data-ad-slot="2240363608"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    ></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-</section> <section class="section-header-menu">
+    <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -508,7 +495,7 @@
     </div>
     <div class="browse-all-filters">
       <a
-        href="/lopskalender/bla-etter-kategori"
+        href="/terminliste/bla-etter-kategori"
         class="browse-link"
       >
         <div class="browse-link-icon">
@@ -538,39 +525,90 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
+  
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      
+      <li >
+        
+        <a href="/terminliste">Terminliste</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/terminliste/innlandet">Innlandet</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/terminliste/innlandet/trailfjellop">Trail/Fjelløp</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        
+      </li>
+      
+      <li aria-current="page" >
+        
+        <span>50 km</span>
+        
+      </li>
+      
+    </ol>
+  </nav>
+  
 
-  <h1 class="section-header section-header-race-cards race-list-title">50 km Trail/Fjelløp Løp i Innlandet: Løpskalender og Terminliste</h1>
-  <p class="race-list-paragraph">Let etter ditt neste eventyr?  Denne løpskalenderen viser alle 50 km Trail/Fjelløp løpene i Innlandet.  Her finner du en komplett løpsliste og terminliste løping, perfekt for å planlegge din neste løpekonkurranse.  Enten du er erfaren fjelløper eller nybegynner, vil du finne et løp som passer deg i vår løpekalenderen.  Oppdag spennende løyper og utfordrende fjelløp i vakre Innlandet. Søk i vår løpskalender for å finne ditt perfekte løp i Norge.  Bruk filteret for å finne løp med ulike datoer (f.eks. sommerløp) og vanskelighetsgrader.  Finn ditt neste løp i vår terminliste løping og bli med på løpene norge!</p>
+  <h1
+    class="section-header section-header-race-cards race-list-title no-padding-top"
+  >
+    50 km Trail/Fjelløp Løp i Innlandet: Løpskalender og Terminliste
+  </h1>
+  <p class="race-list-paragraph seo-paragraph">Let etter ditt neste eventyr?  Denne løpskalenderen viser alle 50 km Trail/Fjelløp løpene i Innlandet.  Her finner du en komplett løpsliste og terminliste løping, perfekt for å planlegge din neste løpekonkurranse.  Enten du er erfaren fjelløper eller nybegynner, vil du finne et løp som passer deg i vår løpekalenderen.  Oppdag spennende løyper og utfordrende fjelløp i vakre Innlandet. Søk i vår løpskalender for å finne ditt perfekte løp i Norge.  Bruk filteret for å finne løp med ulike datoer (f.eks. sommerløp) og vanskelighetsgrader.  Finn ditt neste løp i vår terminliste løping og bli med på løpene norge!</p>
+
+  
 
   <h2 class="section-header">
     Alle
     <span id="race-cards-title-category"></span>
     løp
-    <span id="race-cards-title-separator">i</span>
-    <span id="race-cards-title-region">Norge</span>
+    <span id="race-cards-title-separator"
+      >i</span
+    >
+    <span id="race-cards-title-region"
+      >Norge</span
+    >
     <span id="date-range"></span>
   </h2>
 
   <button class="toggle-button mobile" id="toggleMapButtonMobile">
     <div class="icon-container">
-      <ion-icon name="map-outline" role="img" class="md hydrated" aria-label="map outline"></ion-icon>
+      <ion-icon
+        name="map-outline"
+        role="img"
+        class="md hydrated"
+        aria-label="map outline"
+      ></ion-icon>
     </div>
     <p>Kart</p>
   </button>
 
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
-        id="race-cards-container"
-        {/*
-        prettier-ignore
-        */}
-        
-        data-preselected-filters='{"category": "50 km", "county": "Innlandet", "race_type": "Trail/Fjell\u00f8p"}'
-        
-      >
-         <a
+      id="race-cards-container"
+      
+      data-preselected-filters="{&quot;category&quot;: &quot;50 km&quot;, &quot;county&quot;: &quot;Innlandet&quot;, &quot;race_type&quot;: &quot;Trail/Fjell\u00f8p&quot;}"
+      
+    >
+        <a
   href="/løpssider/nosen_hundreds_ultra"
   class="race-card"
   data-name="Nøsen Hundreds Ultra"
@@ -752,7 +790,228 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>   
+      <section class="section section-selected-races in-grid">
+        <div class="section-header-container">
+          <h2 class="section-header">Utvalgte Løp</h2>
+          <div class="scroll-buttons">
+            <button class="scroll-button prev" aria-label="Previous" disabled>
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </button>
+            <button class="scroll-button next" aria-label="Next">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+        <div class="race-card-big-container right-scroller">
+              <a
+  href="/løpssider/nosen_hundreds_ultra"
+  class="race-card-big"
+  data-name="Nøsen Hundreds Ultra"
+  data-date="20250614"
+  data-county="Innlandet"
+  data-category=""
+  data-race-type="Trail/Fjelløp"
+  data-distance="half marathon, 50km, 100km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/nosen_hundreds_ultra/nosen_hundreds_ultra_1.webp"
+        alt="Bilde til Nøsen Hundreds Ultra"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="overlay soft"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          14 juni
+        </div>
+        <div class="race-location">
+          Innlandet
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail/Fjelløp
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                Halvmaraton
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                50 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                100 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="race-name">Nøsen Hundreds Ultra</h3>
+</a>       <a
+  href="/løpssider/flaekoyhoe_upp"
+  class="race-card-big"
+  data-name="Flækøyhøe Upp"
+  data-date="20250621"
+  data-county="Innlandet"
+  data-category=""
+  data-race-type="Trail/Fjelløp"
+  data-distance="4km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/flaekoyhoe_upp/flaekoyhoe_upp_1.webp"
+        alt="Bilde til Flækøyhøe Upp"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="overlay soft"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          21 juni
+        </div>
+        <div class="race-location">
+          Innlandet
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail/Fjelløp
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                4 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="race-name">Flækøyhøe Upp</h3>
+</a>       <a
+  href="/løpssider/jotunheimen_trail_run"
+  class="race-card-big"
+  data-name="Jotunheimen Trail Run"
+  data-date="20250802"
+  data-county="Innlandet"
+  data-category=""
+  data-race-type="Trail/Fjelløp"
+  data-distance="1km, 13km, half marathon, marathon, 70km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/jotunheimen_trail_run/jotunheimen_trail_run_1.webp"
+        alt="Bilde til Jotunheimen Trail Run"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="overlay soft"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          2 aug.
+        </div>
+        <div class="race-location">
+          Innlandet
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail/Fjelløp
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                1 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                13 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Halvmaraton
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Maraton
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                70 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="race-name">Jotunheimen Trail Run</h3>
+</a>   
+        </div>
+      </section>
+         <a
   href="/løpssider/jotunheimen_trail_run"
   class="race-card"
   data-name="Jotunheimen Trail Run"
@@ -860,28 +1119,29 @@
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
 </a> 
-        <!-- Add pagination controls -->
-  <div class="pagination-info">
-    <span id="event-range">av</span> 
-    <span id="total-events">Løp</span> 
-  </div>
-  <div class="pagination">
-    <button id="prev-page">Forrige</button>
-    <div id="page-numbers"></div>
-      <button id="next-page">Neste</button>
-    </div>
-  </div>
 
-    
-    <div class="map-placeholder"   id="map-placeholder"    data-latitude="61.114952"
-    data-longitude="9.808722"
+      <!-- Add pagination controls -->
+      <div class="pagination-info">
+        <span id="event-range">av</span>
+        <span id="total-events">Løp</span>
+      </div>
+      <div class="pagination">
+        <button id="prev-page">Forrige</button>
+        <div id="page-numbers"></div>
+        <button id="next-page">Neste</button>
+      </div>
+    </div>
+
+    <div
+      class="map-placeholder"
+      id="map-placeholder"
+      data-latitude="61.114952"
+      data-longitude="9.808722"
       data-zoom="4"
     >
       <!-- Map will be inserted here -->
     </div>
   </div>
-
-
 </section> </main>
 
     

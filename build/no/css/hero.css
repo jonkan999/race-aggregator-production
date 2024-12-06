@@ -103,6 +103,7 @@
   align-items: center;
   justify-content: flex-start;
   background-color: var(--color-background);
+  position: relative;
   /* Adding the right arrow */
 }
 @media (max-width: 34em) {
@@ -137,6 +138,10 @@
   margin: 0 0 0.7rem 1%;
   transition: margin-left 0.2s;
   padding-right: 2rem;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 @media (max-width: 34em) {
   .section-hero .hero-content .bullet-list li:nth-child(1)::after,
@@ -158,6 +163,10 @@
   font-size: 3rem;
   margin: 0.2rem 0 0 1%;
   transition: font-weight 0.2s;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 @media (max-width: 34em) {
   .section-hero .hero-content .bullet-list li:nth-child(2)::after {
@@ -168,7 +177,7 @@
 }
 .section-hero .hero-content .bullet-list li:hover,
 .section-hero .hero-content .bullet-list li:active {
-  background-color: var(--color-background);
+  background-color: var(--color-background-shade);
   border-bottom: 2px solid #000;
   margin-bottom: calc(3rem - 2px);
   cursor: pointer;
@@ -204,6 +213,9 @@
   gap: 0.5rem;
   text-align: start;
   height: 4rem;
+  position: relative;
+  z-index: 1;
+  width: 100%;
 }
 .section-hero .hero-content .bullet-list li a ion-icon {
   font-size: 3rem;

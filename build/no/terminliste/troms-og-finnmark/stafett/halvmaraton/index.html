@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+     
+    <script type="application/ld+json">
+      {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste", "@type": "WebPage", "name": "Terminliste"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/troms-og-finnmark", "@type": "WebPage", "name": "Troms og Finnmark"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/troms-og-finnmark/stafett", "@type": "WebPage", "name": "Stafett"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/troms-og-finnmark/stafett/halvmaraton", "@type": "WebPage", "name": "Halvmaraton"}, "position": 4}]}, "visual": [{"href": "/terminliste", "name": "Terminliste"}, {"href": "/terminliste/troms-og-finnmark", "name": "Troms og Finnmark"}, {"href": "/terminliste/troms-og-finnmark/stafett", "name": "Stafett"}, {"href": "/terminliste/troms-og-finnmark/stafett/halvmaraton", "name": "Halvmaraton"}]}
+    </script>
+        
+    <script type="application/ld+json">
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "TUIL stafetten - v\u00e5rens barskeste eventyr er tilbake! Dette er en stafett best\u00e5ende av 6 etapper, totalt ca. 6 km. Alle typer lag kan delta, og det er en alders", "distance": "6km", "eventStatus": "Standard", "identifier": "tuil_stafetten", "image": "/l\u00f8pssider/tuil_stafetten/tuil_stafetten_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "no", "addressLocality": "Tromsdalen", "addressRegion": "Troms og Finnmark"}, "name": "Tromsdalen"}, "name": "TUIL Stafetten", "sport": "L\u00f8ping, Stafett", "startDate": "20250423"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Brakvatnet Halvmaraton Stafett g\u00e5r rundt den vakre Brakvatnet i Oster\u00f8y kommune, og best\u00e5r av 8 runder som totalt utgj\u00f8r 21,1 km pluss 337,5 m. Starten er 337 m", "distance": "2,6km, half marathon", "eventStatus": "Standard", "identifier": "brakvatnet_halvmaraton_stafett", "image": "/l\u00f8pssider/brakvatnet_halvmaraton_stafett/brakvatnet_halvmaraton_stafett_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "no", "addressLocality": "337m f\u00f8r badeplassen", "addressRegion": "Troms og Finnmark"}, "name": "337m f\u00f8r badeplassen"}, "name": "Brakvatnet Halvmaraton Stafett", "sport": "L\u00f8ping, Stafett", "startDate": "20250920"}, "position": 2}], "numberOfItems": 2}
+    </script>
+     
+
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Halvmaraton Stafett i Troms og Finnmark - Løpskalender og Terminliste</title>
-    <meta name="description" content="Finn din neste halvmaraton stafett i Troms og Finnmark!  Sjekk vår løpskalender og terminliste for løpekonkurranser og løpeløp i regionen. Løping i Norge har aldri vært enklere å planlegge." />
+
     <link rel="icon" href="/common_images/logo100px.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,8 +25,18 @@
       href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
+    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
+    <link rel="preconnect" href="https://adservice.google.com" />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://adservice.google.com" />
+
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
     <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
@@ -29,7 +49,11 @@
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
     />
-
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
     <script defer="" type="module" src="/js/raceListMap.js"></script>
@@ -39,44 +63,7 @@
   </head>
   <body>
     <!-- Page content -->
-    <main> <section class="ad-banner">
-  <div class="ad-banner-controls">
-    <button class="minimize-button" aria-label="Minimize ad">
-      <ion-icon name="chevron-down-outline"></ion-icon>
-    </button>
-  </div>
-
-  <div class="ad-content">
-    <!-- Default content shown while ad loads -->
-    <div class="ad-placeholder">
-      <div class="ad-placeholder-content">
-        <span class="ad-placeholder-text">Annons</span>
-        <div class="ad-placeholder-fallback">
-          <!-- Add a test image or text for local development -->
-          <div class="test-ad-content">Test Ad Banner - Local Development</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- AdSense ad -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
-      crossorigin="anonymous"
-    ></script>
-    <ins
-      class="adsbygoogle"
-      style="display: block"
-      data-ad-client="ca-pub-7076760775175370"
-      data-ad-slot="2240363608"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    ></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-</section> <section class="section-header-menu">
+    <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -508,7 +495,7 @@
     </div>
     <div class="browse-all-filters">
       <a
-        href="/lopskalender/bla-etter-kategori"
+        href="/terminliste/bla-etter-kategori"
         class="browse-link"
       >
         <div class="browse-link-icon">
@@ -538,39 +525,90 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
+  
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      
+      <li >
+        
+        <a href="/terminliste">Terminliste</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/terminliste/troms-og-finnmark">Troms og Finnmark</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/terminliste/troms-og-finnmark/stafett">Stafett</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        
+      </li>
+      
+      <li aria-current="page" >
+        
+        <span>Halvmaraton</span>
+        
+      </li>
+      
+    </ol>
+  </nav>
+  
 
-  <h1 class="section-header section-header-race-cards race-list-title">Halvmaraton Stafett Løp i Troms og Finnmark</h1>
-  <p class="race-list-paragraph">Letar du etter en halvmaraton stafett i fantastiske Troms og Finnmark? Vår løpskalender og terminliste for løping i Norge hjelper deg å finne det perfekte løpet.  Her finner du en oversikt over tilgjengelige løpekonkurranser og løpeløp, inkludert datoer og mer informasjon.  Uansett om du er erfaren løper eller nybegynner, finner du et løp som passer deg.  Sjekk løpslisten vår og planlegg din neste løpeopplevelse!  Denne løpekalenderen inkluderer også informasjon om fjelløp, men fokuserer på halvmaraton stafetter i Troms og Finnmark. Bruk filterne for å finne det perfekte løpet.</p>
+  <h1
+    class="section-header section-header-race-cards race-list-title no-padding-top"
+  >
+    Halvmaraton Stafett Løp i Troms og Finnmark
+  </h1>
+  <p class="race-list-paragraph seo-paragraph">Letar du etter en halvmaraton stafett i fantastiske Troms og Finnmark? Vår løpskalender og terminliste for løping i Norge hjelper deg å finne det perfekte løpet.  Her finner du en oversikt over tilgjengelige løpekonkurranser og løpeløp, inkludert datoer og mer informasjon.  Uansett om du er erfaren løper eller nybegynner, finner du et løp som passer deg.  Sjekk løpslisten vår og planlegg din neste løpeopplevelse!  Denne løpekalenderen inkluderer også informasjon om fjelløp, men fokuserer på halvmaraton stafetter i Troms og Finnmark. Bruk filterne for å finne det perfekte løpet.</p>
+
+  
 
   <h2 class="section-header">
     Alle
     <span id="race-cards-title-category"></span>
     løp
-    <span id="race-cards-title-separator">i</span>
-    <span id="race-cards-title-region">Norge</span>
+    <span id="race-cards-title-separator"
+      >i</span
+    >
+    <span id="race-cards-title-region"
+      >Norge</span
+    >
     <span id="date-range"></span>
   </h2>
 
   <button class="toggle-button mobile" id="toggleMapButtonMobile">
     <div class="icon-container">
-      <ion-icon name="map-outline" role="img" class="md hydrated" aria-label="map outline"></ion-icon>
+      <ion-icon
+        name="map-outline"
+        role="img"
+        class="md hydrated"
+        aria-label="map outline"
+      ></ion-icon>
     </div>
     <p>Kart</p>
   </button>
 
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
-        id="race-cards-container"
-        {/*
-        prettier-ignore
-        */}
-        
-        data-preselected-filters='{"category": "Halvmaraton", "county": "Troms og Finnmark", "race_type": "Stafett"}'
-        
-      >
-         <a
+      id="race-cards-container"
+      
+      data-preselected-filters="{&quot;category&quot;: &quot;Halvmaraton&quot;, &quot;county&quot;: &quot;Troms og Finnmark&quot;, &quot;race_type&quot;: &quot;Stafett&quot;}"
+      
+    >
+        <a
   href="/løpssider/tuil_stafetten"
   class="race-card"
   data-name="TUIL Stafetten"
@@ -746,29 +784,30 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a> 
-        <!-- Add pagination controls -->
-  <div class="pagination-info">
-    <span id="event-range">av</span> 
-    <span id="total-events">Løp</span> 
-  </div>
-  <div class="pagination">
-    <button id="prev-page">Forrige</button>
-    <div id="page-numbers"></div>
-      <button id="next-page">Neste</button>
-    </div>
-  </div>
+</a>     
 
-    
-    <div class="map-placeholder"   id="map-placeholder"    data-latitude="61.114952"
-    data-longitude="9.808722"
+      <!-- Add pagination controls -->
+      <div class="pagination-info">
+        <span id="event-range">av</span>
+        <span id="total-events">Løp</span>
+      </div>
+      <div class="pagination">
+        <button id="prev-page">Forrige</button>
+        <div id="page-numbers"></div>
+        <button id="next-page">Neste</button>
+      </div>
+    </div>
+
+    <div
+      class="map-placeholder"
+      id="map-placeholder"
+      data-latitude="61.114952"
+      data-longitude="9.808722"
       data-zoom="4"
     >
       <!-- Map will be inserted here -->
     </div>
   </div>
-
-
 </section> </main>
 
     

@@ -1,4 +1,6 @@
-{% extends "index_layout.html" %} {% block styles %} {{ super() }}
+{% extends "index_layout.html" %} {% block title %}{{ training_plans.title }}{%
+endblock %} {% block meta_description %}{{ training_plans.description }}{%
+endblock %} {% block styles %} {{ super() }}
 <link rel="stylesheet" href="/css/training-plans.css" />
 {% endblock %} {% block body_scripts %} {{ super() }}
 <script type="module" src="/js/trainingPlans.js"></script>

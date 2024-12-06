@@ -81,8 +81,8 @@ run_script_flag() {
 log_message "Starting build process for country: ${COUNTRY_CODE}"
 
 # Scripts that process all countries
-run_script "process_images"
-run_script "generate_html"
+run_script_direct "process_images"
+run_script_direct "generate_html"
 
 # Scripts that use --country flag
 run_script_flag "build_race_pages"
@@ -92,10 +92,10 @@ run_script_flag "build_race_list_browse_structure"
 run_script_flag "build_forum_pages"
 
 # Generate HTML again since seo overwrites race pages
-run_script "generate_html"
+run_script_direct "generate_html"
 
 # Generate sitemap index (all countries)
-run_script "generate_sitemap_index"
+run_script_direct "generate_sitemap"
 
 # Generate sitemap (direct country code)
 run_script_direct "generate_sitemap"

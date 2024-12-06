@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+     
+    <script type="application/ld+json">
+      {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste", "@type": "WebPage", "name": "Terminliste"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/backyard-ultra", "@type": "WebPage", "name": "Backyard Ultra"}, "position": 2}]}, "visual": [{"href": "/terminliste", "name": "Terminliste"}, {"href": "/terminliste/backyard-ultra", "name": "Backyard Ultra"}]}
+    </script>
+      
+    <script type="application/ld+json">
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [], "numberOfItems": 0}
+    </script>
+      
+    <script type="application/ld+json">
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Backyard konseptet g\u00e5r ut p\u00e5 \u00e5 l\u00f8pe en runde p\u00e5 6,7 km, eller 4,167 miles, hver time. Sandnes Backyard er ment som et sosialt lavterskel l\u00f8p, og det er helt opp", "distance": "6,7km, 50 miles", "eventStatus": "Standard", "identifier": "sandnes_backyard", "image": "/l\u00f8pssider/sandnes_backyard/sandnes_backyard_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "no", "addressLocality": "Sandnes Arena (Melsheia)", "addressRegion": "Rogaland"}, "name": "Sandnes Arena (Melsheia)"}, "name": "Sandnes Backyard", "sport": "L\u00f8ping, Backyard Ultra", "startDate": "20250315"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Hell Backyard Ultra (HBU) er en form for ultramaraton hvor deltagerne m\u00e5 l\u00f8pe en runde p\u00e5 6706 meter (4,167 miles) p\u00e5 under en time. Hvis du fullf\u00f8rer runden p\u00e5", "distance": "6,7km", "eventStatus": "Standard", "identifier": "hell_backyard_ultra", "image": "/l\u00f8pssider/hell_backyard_ultra/hell_backyard_ultra_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "no", "addressLocality": "Hell", "addressRegion": "Tr\u00f8ndelag"}, "name": "Hell"}, "name": "Hell Backyard Ultra", "sport": "L\u00f8ping, Backyard Ultra", "startDate": "20250426"}, "position": 2}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Rondane Backyard Trail er et 24 timers backyard-l\u00f8p med Hell Ultral\u00f8perklubb som teknisk arrang\u00f8r. L\u00f8pet starter 26. juli 2025 kl. 10:00 og p\u00e5g\u00e5r til 27. juli k", "distance": "24km", "eventStatus": "Standard", "identifier": "rondane_backyard_trail", "image": "/l\u00f8pssider/rondane_backyard_trail/rondane_backyard_trail_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "no", "addressLocality": "Folldal, Innlandet", "addressRegion": "Innlandet"}, "name": "Folldal, Innlandet"}, "name": "Rondane Backyard Trail", "sport": "L\u00f8ping, Backyard Ultra", "startDate": "20250726"}, "position": 3}], "numberOfItems": 3}
+    </script>
+     
+
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Løpskalender og Terminliste for Backyard Ultra Løp i Norge</title>
-    <meta name="description" content="Finn ditt neste løp!  Sjekk vår løpskalender for Backyard Ultra løpekonkurranser i Norge.  Alle kategorier, fra 5 km til 100 miles, og alle fylker er representert.  Bruk vår løpekalenderen til å planlegge din neste løping i norge." />
+
     <link rel="icon" href="/common_images/logo100px.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,8 +29,18 @@
       href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
+    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
+    <link rel="preconnect" href="https://adservice.google.com" />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://adservice.google.com" />
+
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
     <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
@@ -29,7 +53,11 @@
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
     />
-
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
     <script defer="" type="module" src="/js/raceListMap.js"></script>
@@ -39,44 +67,7 @@
   </head>
   <body>
     <!-- Page content -->
-    <main> <section class="ad-banner">
-  <div class="ad-banner-controls">
-    <button class="minimize-button" aria-label="Minimize ad">
-      <ion-icon name="chevron-down-outline"></ion-icon>
-    </button>
-  </div>
-
-  <div class="ad-content">
-    <!-- Default content shown while ad loads -->
-    <div class="ad-placeholder">
-      <div class="ad-placeholder-content">
-        <span class="ad-placeholder-text">Annons</span>
-        <div class="ad-placeholder-fallback">
-          <!-- Add a test image or text for local development -->
-          <div class="test-ad-content">Test Ad Banner - Local Development</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- AdSense ad -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
-      crossorigin="anonymous"
-    ></script>
-    <ins
-      class="adsbygoogle"
-      style="display: block"
-      data-ad-client="ca-pub-7076760775175370"
-      data-ad-slot="2240363608"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    ></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-</section> <section class="section-header-menu">
+    <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -508,7 +499,7 @@
     </div>
     <div class="browse-all-filters">
       <a
-        href="/lopskalender/bla-etter-kategori"
+        href="/terminliste/bla-etter-kategori"
         class="browse-link"
       >
         <div class="browse-link-icon">
@@ -538,39 +529,72 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
+  
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      
+      <li >
+        
+        <a href="/terminliste">Terminliste</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        
+      </li>
+      
+      <li aria-current="page" >
+        
+        <span>Backyard Ultra</span>
+        
+      </li>
+      
+    </ol>
+  </nav>
+  
 
-  <h1 class="section-header section-header-race-cards race-list-title">Backyard Ultra Løp: Løpskalender og Terminliste for Norge</h1>
-  <p class="race-list-paragraph">Planlegger du å delta i et Backyard Ultra løp?  Vår løpsliste og løpekalenderen hjelper deg å finne det perfekte løpeløpet.  Vi har en komplett terminliste løping med løp i alle kategorier, fra 5 km til 200 miles, og i alle fylker, inkludert Oslo, Viken og Vestland.  Enten du søker etter fjelløp eller andre løping konkurranser, finner du det du trenger her.  Sjekk vår løpskalender og finn ditt neste løp i Norge!  Dette er din ultimate løpekalender – din løpskalenderen for løping i norge.</p>
+  <h1
+    class="section-header section-header-race-cards race-list-title no-padding-top"
+  >
+    Backyard Ultra Løp: Løpskalender og Terminliste for Norge
+  </h1>
+  <p class="race-list-paragraph seo-paragraph">Planlegger du å delta i et Backyard Ultra løp?  Vår løpsliste og løpekalenderen hjelper deg å finne det perfekte løpeløpet.  Vi har en komplett terminliste løping med løp i alle kategorier, fra 5 km til 200 miles, og i alle fylker, inkludert Oslo, Viken og Vestland.  Enten du søker etter fjelløp eller andre løping konkurranser, finner du det du trenger her.  Sjekk vår løpskalender og finn ditt neste løp i Norge!  Dette er din ultimate løpekalender – din løpskalenderen for løping i norge.</p>
+
+  
 
   <h2 class="section-header">
     Alle
     <span id="race-cards-title-category"></span>
     løp
-    <span id="race-cards-title-separator">i</span>
-    <span id="race-cards-title-region">Norge</span>
+    <span id="race-cards-title-separator"
+      >i</span
+    >
+    <span id="race-cards-title-region"
+      >Norge</span
+    >
     <span id="date-range"></span>
   </h2>
 
   <button class="toggle-button mobile" id="toggleMapButtonMobile">
     <div class="icon-container">
-      <ion-icon name="map-outline" role="img" class="md hydrated" aria-label="map outline"></ion-icon>
+      <ion-icon
+        name="map-outline"
+        role="img"
+        class="md hydrated"
+        aria-label="map outline"
+      ></ion-icon>
     </div>
     <p>Kart</p>
   </button>
 
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
-        id="race-cards-container"
-        {/*
-        prettier-ignore
-        */}
-        
-        data-preselected-filters='{"category": null, "county": null, "race_type": "Backyard Ultra"}'
-        
-      >
-         <a
+      id="race-cards-container"
+      
+      data-preselected-filters="{&quot;category&quot;: null, &quot;county&quot;: null, &quot;race_type&quot;: &quot;Backyard Ultra&quot;}"
+      
+    >
+        <a
   href="/løpssider/sandnes_backyard"
   class="race-card"
   data-name="Sandnes Backyard"
@@ -746,7 +770,198 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>   
+      <section class="section section-selected-races in-grid">
+        <div class="section-header-container">
+          <h2 class="section-header">Utvalgte Løp</h2>
+          <div class="scroll-buttons">
+            <button class="scroll-button prev" aria-label="Previous" disabled>
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </button>
+            <button class="scroll-button next" aria-label="Next">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+        <div class="race-card-big-container right-scroller">
+              <a
+  href="/løpssider/sandnes_backyard"
+  class="race-card-big"
+  data-name="Sandnes Backyard"
+  data-date="20250315"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Backyard Ultra"
+  data-distance="6,7km, 50 miles"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/sandnes_backyard/sandnes_backyard_1.webp"
+        alt="Bilde til Sandnes Backyard"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="overlay soft"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          15 mars
+        </div>
+        <div class="race-location">
+          Rogaland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Backyard Ultra
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                6,7 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                50 miles
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="race-name">Sandnes Backyard</h3>
+</a>       <a
+  href="/løpssider/hell_backyard_ultra"
+  class="race-card-big"
+  data-name="Hell Backyard Ultra"
+  data-date="20250426"
+  data-county="Trøndelag"
+  data-category=""
+  data-race-type="Backyard Ultra"
+  data-distance="6,7km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/hell_backyard_ultra/hell_backyard_ultra_1.webp"
+        alt="Bilde til Hell Backyard Ultra"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="overlay soft"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          26 apr.
+        </div>
+        <div class="race-location">
+          Trøndelag
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Backyard Ultra
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                6,7 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="race-name">Hell Backyard Ultra</h3>
+</a>       <a
+  href="/løpssider/rondane_backyard_trail"
+  class="race-card-big"
+  data-name="Rondane Backyard Trail"
+  data-date="20250726"
+  data-county="Innlandet"
+  data-category=""
+  data-race-type="Backyard Ultra"
+  data-distance="24km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/rondane_backyard_trail/rondane_backyard_trail_1.webp"
+        alt="Bilde til Rondane Backyard Trail"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="overlay soft"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          26 juli
+        </div>
+        <div class="race-location">
+          Innlandet
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Backyard Ultra
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                24 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="race-name">Rondane Backyard Trail</h3>
+</a>   
+        </div>
+      </section>
+         <a
   href="/løpssider/rondane_backyard_trail"
   class="race-card"
   data-name="Rondane Backyard Trail"
@@ -832,28 +1047,29 @@
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
 </a> 
-        <!-- Add pagination controls -->
-  <div class="pagination-info">
-    <span id="event-range">av</span> 
-    <span id="total-events">Løp</span> 
-  </div>
-  <div class="pagination">
-    <button id="prev-page">Forrige</button>
-    <div id="page-numbers"></div>
-      <button id="next-page">Neste</button>
-    </div>
-  </div>
 
-    
-    <div class="map-placeholder"   id="map-placeholder"    data-latitude="61.114952"
-    data-longitude="9.808722"
+      <!-- Add pagination controls -->
+      <div class="pagination-info">
+        <span id="event-range">av</span>
+        <span id="total-events">Løp</span>
+      </div>
+      <div class="pagination">
+        <button id="prev-page">Forrige</button>
+        <div id="page-numbers"></div>
+        <button id="next-page">Neste</button>
+      </div>
+    </div>
+
+    <div
+      class="map-placeholder"
+      id="map-placeholder"
+      data-latitude="61.114952"
+      data-longitude="9.808722"
       data-zoom="4"
     >
       <!-- Map will be inserted here -->
     </div>
   </div>
-
-
 </section> </main>
 
     

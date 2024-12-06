@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+     
+    <script type="application/ld+json">
+      {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste", "@type": "WebPage", "name": "Terminliste"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/vestfold-og-telemark", "@type": "WebPage", "name": "Vestfold og Telemark"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/vestfold-og-telemark/landevei", "@type": "WebPage", "name": "Landevei"}, "position": 3}]}, "visual": [{"href": "/terminliste", "name": "Terminliste"}, {"href": "/terminliste/vestfold-og-telemark", "name": "Vestfold og Telemark"}, {"href": "/terminliste/vestfold-og-telemark/landevei", "name": "Landevei"}]}
+    </script>
+      
+    <script type="application/ld+json">
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [], "numberOfItems": 0}
+    </script>
+      
+    <script type="application/ld+json">
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Nytt\u00e5rstrimmen er et mosjonsl\u00f8p p\u00e5 10 km som passer for alle l\u00f8pere. Dette l\u00f8pet har lange tradisjoner og er Norges eldste n\u00e5levende mosjonsl\u00f8p, som har blitt a", "distance": "10km", "eventStatus": "Standard", "identifier": "nyttarstrimmen", "image": "/l\u00f8pssider/nyttarstrimmen/nyttarstrimmen_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "no", "addressLocality": "Sparebank 1 S\u00f8r\u00f8st-Norge bygget i Porsgrunn", "addressRegion": "Vestfold og Telemark"}, "name": "Sparebank 1 S\u00f8r\u00f8st-Norge bygget i Porsgrunn"}, "name": "Nytt\u00e5rstrimmen", "sport": "L\u00f8ping, Landevei", "startDate": "20241231"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Vi \u00f8nsker velkommen til den 36. utgaven av Kjosel\u00f8pet, tradisjon tro p\u00e5 Kristi Himmelfartsdag 26. mai. L\u00f8pet arrangeres p\u00e5 Omsland (Kjoseveien 885) med en barne", "distance": "2km, 6,5km", "eventStatus": "Standard", "identifier": "kjoselopet", "image": "/l\u00f8pssider/kjoselopet/kjoselopet_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "no", "addressLocality": "Omsland (Kjoseveien 885)", "addressRegion": "Vestfold og Telemark"}, "name": "Omsland (Kjoseveien 885)"}, "name": "Kjosel\u00f8pet", "sport": "L\u00f8ping, Landevei", "startDate": "20250508"}, "position": 2}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Vel m\u00f8tt til heile familien \u2013 til barnel\u00f8p, 5km og halvmaraton i spektakul\u00e6r l\u00f8ype rundt Vangsvatnet. Halvmaraton startar kl 11.00, barnel\u00f8pet startar kl 11.10 ", "distance": "5km, 22km", "eventStatus": "Standard", "identifier": "vossaton", "image": "/l\u00f8pssider/vossaton/vossaton_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "no", "addressLocality": "Gjernes", "addressRegion": "Vestfold og Telemark"}, "name": "Gjernes"}, "name": "Vossaton", "sport": "L\u00f8ping, Landevei", "startDate": "20250823"}, "position": 3}], "numberOfItems": 3}
+    </script>
+     
+
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Løpskalender Vestfold og Telemark: Landevei løp og løpekonkurranser</title>
-    <meta name="description" content="Finn ditt neste løp!  Løpskalenderen for Landevei løp i Vestfold og Telemark.  Sjekk terminlisten for 5 km, 10 km, halvmaraton, maraton og mer. Løping i Norge – løpekalenderen." />
+
     <link rel="icon" href="/common_images/logo100px.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,8 +29,18 @@
       href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
+    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
+    <link rel="preconnect" href="https://adservice.google.com" />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://adservice.google.com" />
+
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
     <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
@@ -29,7 +53,11 @@
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
     />
-
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
     <script defer="" type="module" src="/js/raceListMap.js"></script>
@@ -39,44 +67,7 @@
   </head>
   <body>
     <!-- Page content -->
-    <main> <section class="ad-banner">
-  <div class="ad-banner-controls">
-    <button class="minimize-button" aria-label="Minimize ad">
-      <ion-icon name="chevron-down-outline"></ion-icon>
-    </button>
-  </div>
-
-  <div class="ad-content">
-    <!-- Default content shown while ad loads -->
-    <div class="ad-placeholder">
-      <div class="ad-placeholder-content">
-        <span class="ad-placeholder-text">Annons</span>
-        <div class="ad-placeholder-fallback">
-          <!-- Add a test image or text for local development -->
-          <div class="test-ad-content">Test Ad Banner - Local Development</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- AdSense ad -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
-      crossorigin="anonymous"
-    ></script>
-    <ins
-      class="adsbygoogle"
-      style="display: block"
-      data-ad-client="ca-pub-7076760775175370"
-      data-ad-slot="2240363608"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    ></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-</section> <section class="section-header-menu">
+    <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -508,7 +499,7 @@
     </div>
     <div class="browse-all-filters">
       <a
-        href="/lopskalender/bla-etter-kategori"
+        href="/terminliste/bla-etter-kategori"
         class="browse-link"
       >
         <div class="browse-link-icon">
@@ -538,39 +529,81 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
+  
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      
+      <li >
+        
+        <a href="/terminliste">Terminliste</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/terminliste/vestfold-og-telemark">Vestfold og Telemark</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        
+      </li>
+      
+      <li aria-current="page" >
+        
+        <span>Landevei</span>
+        
+      </li>
+      
+    </ol>
+  </nav>
+  
 
-  <h1 class="section-header section-header-race-cards race-list-title">Landevei Løp i Vestfold og Telemark: Løpskalender og Terminliste</h1>
-  <p class="race-list-paragraph">Planlegger du din neste løpekonkurranse?  Her finner du en komplett løpsliste og løpekalender for Landevei løp i Vestfold og Telemark.  Uansett om du er ute etter et 5 km løp, en maraton, eller noe derimellom, som en halvmaraton, finner du det her.  Denne terminlisten for løping i Norge inkluderer et bredt utvalg av løpeløp og løpekonkurranser.  Sjekk løpskalenderen nå og finn ditt perfekte løp!  Løping norge, løp norge, løpene norge.</p>
+  <h1
+    class="section-header section-header-race-cards race-list-title no-padding-top"
+  >
+    Landevei Løp i Vestfold og Telemark: Løpskalender og Terminliste
+  </h1>
+  <p class="race-list-paragraph seo-paragraph">Planlegger du din neste løpekonkurranse?  Her finner du en komplett løpsliste og løpekalender for Landevei løp i Vestfold og Telemark.  Uansett om du er ute etter et 5 km løp, en maraton, eller noe derimellom, som en halvmaraton, finner du det her.  Denne terminlisten for løping i Norge inkluderer et bredt utvalg av løpeløp og løpekonkurranser.  Sjekk løpskalenderen nå og finn ditt perfekte løp!  Løping norge, løp norge, løpene norge.</p>
+
+  
 
   <h2 class="section-header">
     Alle
     <span id="race-cards-title-category"></span>
     løp
-    <span id="race-cards-title-separator">i</span>
-    <span id="race-cards-title-region">Norge</span>
+    <span id="race-cards-title-separator"
+      >i</span
+    >
+    <span id="race-cards-title-region"
+      >Norge</span
+    >
     <span id="date-range"></span>
   </h2>
 
   <button class="toggle-button mobile" id="toggleMapButtonMobile">
     <div class="icon-container">
-      <ion-icon name="map-outline" role="img" class="md hydrated" aria-label="map outline"></ion-icon>
+      <ion-icon
+        name="map-outline"
+        role="img"
+        class="md hydrated"
+        aria-label="map outline"
+      ></ion-icon>
     </div>
     <p>Kart</p>
   </button>
 
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
-        id="race-cards-container"
-        {/*
-        prettier-ignore
-        */}
-        
-        data-preselected-filters='{"category": null, "county": "Vestfold og Telemark", "race_type": "Landevei"}'
-        
-      >
-         <a
+      id="race-cards-container"
+      
+      data-preselected-filters="{&quot;category&quot;: null, &quot;county&quot;: &quot;Vestfold og Telemark&quot;, &quot;race_type&quot;: &quot;Landevei&quot;}"
+      
+    >
+        <a
   href="/løpssider/nyttarstrimmen"
   class="race-card"
   data-name="Nyttårstrimmen"
@@ -746,7 +779,204 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>   
+      <section class="section section-selected-races in-grid">
+        <div class="section-header-container">
+          <h2 class="section-header">Utvalgte Løp</h2>
+          <div class="scroll-buttons">
+            <button class="scroll-button prev" aria-label="Previous" disabled>
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </button>
+            <button class="scroll-button next" aria-label="Next">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+        <div class="race-card-big-container right-scroller">
+              <a
+  href="/løpssider/nyttarstrimmen"
+  class="race-card-big"
+  data-name="Nyttårstrimmen"
+  data-date="20241231"
+  data-county="Vestfold og Telemark"
+  data-category=""
+  data-race-type="Landevei"
+  data-distance="10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/nyttarstrimmen/nyttarstrimmen_1.webp"
+        alt="Bilde til Nyttårstrimmen"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="overlay soft"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          31 des.
+        </div>
+        <div class="race-location">
+          Vestfold og Telemark
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="race-name">Nyttårstrimmen</h3>
+</a>       <a
+  href="/løpssider/kjoselopet"
+  class="race-card-big"
+  data-name="Kjoseløpet"
+  data-date="20250508"
+  data-county="Vestfold og Telemark"
+  data-category=""
+  data-race-type="Landevei"
+  data-distance="2km, 6,5km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/kjoselopet/kjoselopet_1.webp"
+        alt="Bilde til Kjoseløpet"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="overlay soft"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          8 mai
+        </div>
+        <div class="race-location">
+          Vestfold og Telemark
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                2 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                6,5 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="race-name">Kjoseløpet</h3>
+</a>       <a
+  href="/løpssider/vossaton"
+  class="race-card-big"
+  data-name="Vossaton"
+  data-date="20250823"
+  data-county="Vestfold og Telemark"
+  data-category=""
+  data-race-type="Landevei"
+  data-distance="5km, 22km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/vossaton/vossaton_1.webp"
+        alt="Bilde til Vossaton"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="overlay soft"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          23 aug.
+        </div>
+        <div class="race-location">
+          Vestfold og Telemark
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                22 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="race-name">Vossaton</h3>
+</a>   
+        </div>
+      </section>
+         <a
   href="/løpssider/vossaton"
   class="race-card"
   data-name="Vossaton"
@@ -838,28 +1068,29 @@
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
 </a> 
-        <!-- Add pagination controls -->
-  <div class="pagination-info">
-    <span id="event-range">av</span> 
-    <span id="total-events">Løp</span> 
-  </div>
-  <div class="pagination">
-    <button id="prev-page">Forrige</button>
-    <div id="page-numbers"></div>
-      <button id="next-page">Neste</button>
-    </div>
-  </div>
 
-    
-    <div class="map-placeholder"   id="map-placeholder"    data-latitude="61.114952"
-    data-longitude="9.808722"
+      <!-- Add pagination controls -->
+      <div class="pagination-info">
+        <span id="event-range">av</span>
+        <span id="total-events">Løp</span>
+      </div>
+      <div class="pagination">
+        <button id="prev-page">Forrige</button>
+        <div id="page-numbers"></div>
+        <button id="next-page">Neste</button>
+      </div>
+    </div>
+
+    <div
+      class="map-placeholder"
+      id="map-placeholder"
+      data-latitude="61.114952"
+      data-longitude="9.808722"
       data-zoom="4"
     >
       <!-- Map will be inserted here -->
     </div>
   </div>
-
-
 </section> </main>
 
     

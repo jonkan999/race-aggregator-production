@@ -1,4 +1,6 @@
-{% extends "index_layout.html" %} {% block styles %} {{ super() }}
+{% extends "index_layout.html" %} {% block title %}{{ pace_calculator_title }}{%
+endblock %} {% block meta_description %}{{ pace_calculator_description }}{%
+endblock %} {% block styles %} {{ super() }}
 <link rel="stylesheet" href="/css/pace-calculator.css" />
 {% endblock %} {% block body_scripts %} {{ super() }}
 <script type="module" src="/js/paceCalculator.js"></script>

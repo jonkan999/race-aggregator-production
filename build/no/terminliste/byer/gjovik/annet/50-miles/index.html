@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+     
+    <script type="application/ld+json">
+      {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste", "@type": "WebPage", "name": "Terminliste"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer", "@type": "WebPage", "name": "Byer"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer/gjovik", "@type": "WebPage", "name": "Gj\u00f8vik"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer/gjovik/annet", "@type": "WebPage", "name": "Annet"}, "position": 4}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer/gjovik/annet/50-miles", "@type": "WebPage", "name": "50 miles"}, "position": 5}]}, "visual": [{"href": "/terminliste", "name": "Terminliste"}, {"href": "/terminliste/byer/gjovik", "name": "Byer: Gj\u00f8vik"}, {"href": "/terminliste/byer/gjovik/annet", "name": "Annet"}, {"href": "/terminliste/byer/gjovik/annet/50-miles", "name": "50 miles"}]}
+    </script>
+        
+    <script type="application/ld+json">
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "R\u00f8yse Ultra er et \u00e5rlig ultral\u00f8p som arrangeres p\u00e5 R\u00f8yse i Hole kommune. L\u00f8pet ble arrangert f\u00f8rste gang i 2015, og det inneb\u00e6rer \u00e5 l\u00f8pe Hytteplanmila \u00e5tte gang", "distance": "8km, 10km", "eventStatus": "Standard", "identifier": "royse_ultra", "image": "/l\u00f8pssider/royse_ultra/royse_ultra_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "no", "addressLocality": "Holehallen", "addressRegion": "Viken"}, "name": "Holehallen"}, "name": "R\u00f8yse Ultra", "sport": "L\u00f8ping, Annet", "startDate": "20250426"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Er du klar for en enest\u00e5ende utfordring, et fantastisk eventyr og en heidundrende folkefest? Neveresting i Hafjell er tilbake 6.-7. juni 2025, og vi inviterer d", "distance": "5km, 10km, 15km", "eventStatus": "Standard", "identifier": "neveresting_hafjell", "image": "/l\u00f8pssider/neveresting_hafjell/neveresting_hafjell_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "no", "addressLocality": "bunn av Hafjell", "addressRegion": "Innlandet"}, "name": "bunn av Hafjell"}, "name": "Neveresting Hafjell", "sport": "L\u00f8ping, Annet", "startDate": "20250606"}, "position": 2}], "numberOfItems": 2}
+    </script>
+     
+
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Løp i Gjøvik: 50 miles løp og Annet - Finn ditt neste løp i vår løpskalender</title>
-    <meta name="description" content="Finn alle løp i Gjøvik,  50 miles løp og Annet type i vår løpekalender.  Sjekk løpslisten for løping i Norge, inkludert løpekonkurranser og løpeløp.  Bruk vår terminliste løping for å planlegge ditt neste eventyr!" />
+
     <link rel="icon" href="/common_images/logo100px.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,8 +25,18 @@
       href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
+    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
+    <link rel="preconnect" href="https://adservice.google.com" />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://adservice.google.com" />
+
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
     <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
@@ -29,7 +49,11 @@
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
     />
-
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
     <script defer="" type="module" src="/js/raceListMap.js"></script>
@@ -39,44 +63,7 @@
   </head>
   <body>
     <!-- Page content -->
-    <main> <section class="ad-banner">
-  <div class="ad-banner-controls">
-    <button class="minimize-button" aria-label="Minimize ad">
-      <ion-icon name="chevron-down-outline"></ion-icon>
-    </button>
-  </div>
-
-  <div class="ad-content">
-    <!-- Default content shown while ad loads -->
-    <div class="ad-placeholder">
-      <div class="ad-placeholder-content">
-        <span class="ad-placeholder-text">Annons</span>
-        <div class="ad-placeholder-fallback">
-          <!-- Add a test image or text for local development -->
-          <div class="test-ad-content">Test Ad Banner - Local Development</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- AdSense ad -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
-      crossorigin="anonymous"
-    ></script>
-    <ins
-      class="adsbygoogle"
-      style="display: block"
-      data-ad-client="ca-pub-7076760775175370"
-      data-ad-slot="2240363608"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    ></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-</section> <section class="section-header-menu">
+    <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -456,10 +443,6 @@
     <div class="filter-county">
       <select id="county" name="county">
         <option value="">Alle fylker</option>
-        
-        <option value="Gjøvik">
-          Gjøvik
-        </option>
          
         <option value="Oslo">Oslo</option>
         
@@ -512,7 +495,7 @@
     </div>
     <div class="browse-all-filters">
       <a
-        href="/lopskalender/bla-etter-kategori"
+        href="/terminliste/bla-etter-kategori"
         class="browse-link"
       >
         <div class="browse-link-icon">
@@ -542,44 +525,95 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
+  
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      
+      <li >
+        
+        <a href="/terminliste">Terminliste</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/terminliste/byer/gjovik">Byer: Gjøvik</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/terminliste/byer/gjovik/annet">Annet</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        
+      </li>
+      
+      <li aria-current="page" >
+        
+        <span>50 miles</span>
+        
+      </li>
+      
+    </ol>
+  </nav>
+  
 
-  <h1 class="section-header section-header-race-cards race-list-title">Løp i Gjøvik: 50 miles, Annet type</h1>
-  <p class="race-list-paragraph">Letar du etter et 50 miles løp i Gjøvik?  Vår løpskalender og terminliste løping viser alle løpekonkurranser og løpeløp i Gjøvik, kategorisert som Annet.  Her finner du oversikten over løp norge, inkludert løping i norge.  Enten du er ute etter et fjelløp eller andre løpekonkurranser,  sjekk løpskalenderen og løpekalenderen for å finne ditt neste eventyr.  Denne løpslisten og løpekalenderen hjelper deg å planlegge din neste løping i norge.</p>
+  <h1
+    class="section-header section-header-race-cards race-list-title no-padding-top"
+  >
+    Løp i Gjøvik: 50 miles, Annet type
+  </h1>
+  <p class="race-list-paragraph seo-paragraph">Letar du etter et 50 miles løp i Gjøvik?  Vår løpskalender og terminliste løping viser alle løpekonkurranser og løpeløp i Gjøvik, kategorisert som Annet.  Her finner du oversikten over løp norge, inkludert løping i norge.  Enten du er ute etter et fjelløp eller andre løpekonkurranser,  sjekk løpskalenderen og løpekalenderen for å finne ditt neste eventyr.  Denne løpslisten og løpekalenderen hjelper deg å planlegge din neste løping i norge.</p>
+
+  
 
   <h2 class="section-header">
     Alle
     <span id="race-cards-title-category"></span>
     løp
-    <span id="race-cards-title-separator">i</span>
-    <span id="race-cards-title-region">Norge</span>
+    <span id="race-cards-title-separator"
+      >i</span
+    >
+    <span id="race-cards-title-region"
+      >Norge</span
+    >
     <span id="date-range"></span>
   </h2>
 
   <button class="toggle-button mobile" id="toggleMapButtonMobile">
     <div class="icon-container">
-      <ion-icon name="map-outline" role="img" class="md hydrated" aria-label="map outline"></ion-icon>
+      <ion-icon
+        name="map-outline"
+        role="img"
+        class="md hydrated"
+        aria-label="map outline"
+      ></ion-icon>
     </div>
     <p>Kart</p>
   </button>
 
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
-        id="race-cards-container"
-        {/*
-        prettier-ignore
-        */}
-        
-        data-preselected-filters='{"category": "50 miles", "city": "Gj\u00f8vik", "county": "Gj\u00f8vik", "race_type": "Annet"}'
-        
-      >
-         <a
+      id="race-cards-container"
+      
+      data-preselected-filters="{&quot;county&quot;: &quot;Gj\u00f8vik&quot;, &quot;race_type&quot;: &quot;Annet&quot;, &quot;category&quot;: &quot;50 miles&quot;}"
+      
+    >
+        <a
   href="/løpssider/royse_ultra"
   class="race-card"
   data-name="Røyse Ultra"
   data-date="20250426"
-  data-county="Gjøvik"
+  data-county="Viken"
   data-category=""
   data-race-type="Annet"
   data-distance="8km, 10km"
@@ -670,7 +704,7 @@
   class="race-card"
   data-name="Neveresting Hafjell"
   data-date="20250606"
-  data-county="Gjøvik"
+  data-county="Innlandet"
   data-category=""
   data-race-type="Annet"
   data-distance="5km, 10km, 15km"
@@ -762,29 +796,30 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a> 
-        <!-- Add pagination controls -->
-  <div class="pagination-info">
-    <span id="event-range">av</span> 
-    <span id="total-events">Løp</span> 
-  </div>
-  <div class="pagination">
-    <button id="prev-page">Forrige</button>
-    <div id="page-numbers"></div>
-      <button id="next-page">Neste</button>
-    </div>
-  </div>
+</a>     
 
-    
-    <div class="map-placeholder"   id="map-placeholder"    data-latitude="61.114952"
-    data-longitude="9.808722"
+      <!-- Add pagination controls -->
+      <div class="pagination-info">
+        <span id="event-range">av</span>
+        <span id="total-events">Løp</span>
+      </div>
+      <div class="pagination">
+        <button id="prev-page">Forrige</button>
+        <div id="page-numbers"></div>
+        <button id="next-page">Neste</button>
+      </div>
+    </div>
+
+    <div
+      class="map-placeholder"
+      id="map-placeholder"
+      data-latitude="61.114952"
+      data-longitude="9.808722"
       data-zoom="4"
     >
       <!-- Map will be inserted here -->
     </div>
   </div>
-
-
 </section> </main>
 
     

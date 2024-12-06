@@ -296,6 +296,7 @@ Rules:
 - Keep the exact filter texts as provided, DO NOT translate or vary them: {', '.join(filters)}
 - Use the exact keywords provided, DO NOT translate or vary them: {', '.join(important_keywords or [])}
 - Keep content natural but concise
+- Do not use any explicit years, dates or times
 - NO markdown, NO formatting, NO additional lines
 - Each line must start with "- " followed by the exact label"""
             }

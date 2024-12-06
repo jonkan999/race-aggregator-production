@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+     
+    <script type="application/ld+json">
+      {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste", "@type": "WebPage", "name": "Terminliste"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/agder", "@type": "WebPage", "name": "Agder"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/agder/trailfjellop", "@type": "WebPage", "name": "Trail/Fjell\u00f8p"}, "position": 3}]}, "visual": [{"href": "/terminliste", "name": "Terminliste"}, {"href": "/terminliste/agder", "name": "Agder"}, {"href": "/terminliste/agder/trailfjellop", "name": "Trail/Fjell\u00f8p"}]}
+    </script>
+      
+    <script type="application/ld+json">
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "SiteNavigationElement", "description": "Vis 2 halvmaraton L\u00f8p", "name": "Halvmaraton", "numberOfItems": 2, "url": "https://lopskalender.com/terminliste/agder/trailfjellop/halvmaraton"}], "numberOfItems": 1}
+    </script>
+      
+    <script type="application/ld+json">
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Det er med stor glede at vi \u00f8nsker \u00e5 invitere deg til en fantastisk l\u00f8peopplevelse! Bli med oss og utforsk det vakre, byn\u00e6re terrenget som Kristiansand har \u00e5 by", "distance": "half marathon, 60km", "eventStatus": "Standard", "identifier": "krs_ultra_2", "image": "/l\u00f8pssider/krs_ultra_2/krs_ultra_2_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "no", "addressLocality": "Scandic Kristiansand Bystranda", "addressRegion": "Agder"}, "name": "Scandic Kristiansand Bystranda"}, "name": "KRS Ultra", "sport": "L\u00f8ping, Trail/Fjell\u00f8p", "startDate": "20250405"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Det er med stor glede at vi \u00f8nsker \u00e5 invitere deg til en fantastisk l\u00f8peopplevelse! Bli med oss og utforsk det vakre, byn\u00e6re terrenget som Kristiansand har \u00e5 by", "distance": "half marathon, 60km", "eventStatus": "Standard", "identifier": "krs_ultra", "image": "/l\u00f8pssider/krs_ultra/krs_ultra_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "no", "addressLocality": "Kristiansand S", "addressRegion": "Agder"}, "name": "Kristiansand S"}, "name": "KRS Ultra", "sport": "L\u00f8ping, Trail/Fjell\u00f8p", "startDate": "20250412"}, "position": 2}], "numberOfItems": 2}
+    </script>
+     
+
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Løpskalender Agder: Finn ditt neste fjelløp eller trail løp!</title>
-    <meta name="description" content="Søk i vår løpskalender og finn alle trail/fjelløp i Agder.  Fra korte løp til lange distanser – finn ditt neste løp her! Løpsliste, terminliste løping, løpekalenderen." />
+
     <link rel="icon" href="/common_images/logo100px.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,8 +29,18 @@
       href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
+    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
+    <link rel="preconnect" href="https://adservice.google.com" />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://adservice.google.com" />
+
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
     <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
@@ -29,7 +53,11 @@
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
     />
-
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
     <script defer="" type="module" src="/js/raceListMap.js"></script>
@@ -39,44 +67,7 @@
   </head>
   <body>
     <!-- Page content -->
-    <main> <section class="ad-banner">
-  <div class="ad-banner-controls">
-    <button class="minimize-button" aria-label="Minimize ad">
-      <ion-icon name="chevron-down-outline"></ion-icon>
-    </button>
-  </div>
-
-  <div class="ad-content">
-    <!-- Default content shown while ad loads -->
-    <div class="ad-placeholder">
-      <div class="ad-placeholder-content">
-        <span class="ad-placeholder-text">Annons</span>
-        <div class="ad-placeholder-fallback">
-          <!-- Add a test image or text for local development -->
-          <div class="test-ad-content">Test Ad Banner - Local Development</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- AdSense ad -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
-      crossorigin="anonymous"
-    ></script>
-    <ins
-      class="adsbygoogle"
-      style="display: block"
-      data-ad-client="ca-pub-7076760775175370"
-      data-ad-slot="2240363608"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    ></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-</section> <section class="section-header-menu">
+    <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -508,7 +499,7 @@
     </div>
     <div class="browse-all-filters">
       <a
-        href="/lopskalender/bla-etter-kategori"
+        href="/terminliste/bla-etter-kategori"
         class="browse-link"
       >
         <div class="browse-link-icon">
@@ -538,39 +529,94 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
+  
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      
+      <li >
+        
+        <a href="/terminliste">Terminliste</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/terminliste/agder">Agder</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        
+      </li>
+      
+      <li aria-current="page" >
+        
+        <span>Trail/Fjelløp</span>
+        
+      </li>
+      
+    </ol>
+  </nav>
+  
 
-  <h1 class="section-header section-header-race-cards race-list-title">Trail/Fjelløp i Agder: Løpskalender og Terminliste</h1>
-  <p class="race-list-paragraph">Planlegger du ditt neste løp?  Her finner du en komplett løpskalender og terminliste for alle trail/fjelløp i Agder.  Vi har løp for alle nivåer, fra 5 km til maraton og lengre distanser.  Søk blant alle kategorier, inkludert 5 km, 10 km, halvmaraton og maraton, for å finne ditt perfekte løp.  Finn din neste løpekonkurranse i vår løpekalenderen!  Dette er din løpsliste for løping i norge,  løping konkurranser og fjelløp i Agder.  Bruk vår løpskalender, terminliste løping, eller løpekalender for å finne ditt neste løpeløp! Løp norge, løpene norge.</p>
+  <h1
+    class="section-header section-header-race-cards race-list-title no-padding-top"
+  >
+    Trail/Fjelløp i Agder: Løpskalender og Terminliste
+  </h1>
+  <p class="race-list-paragraph seo-paragraph">Planlegger du ditt neste løp?  Her finner du en komplett løpskalender og terminliste for alle trail/fjelløp i Agder.  Vi har løp for alle nivåer, fra 5 km til maraton og lengre distanser.  Søk blant alle kategorier, inkludert 5 km, 10 km, halvmaraton og maraton, for å finne ditt perfekte løp.  Finn din neste løpekonkurranse i vår løpekalenderen!  Dette er din løpsliste for løping i norge,  løping konkurranser og fjelløp i Agder.  Bruk vår løpskalender, terminliste løping, eller løpekalender for å finne ditt neste løpeløp! Løp norge, løpene norge.</p>
+
+  
+  <h3 class="race-type-list-title">Populære underkategorier</h3>
+  <nav class="race-type-navigation" aria-label="race types and categories">
+    <ul class="race-type-list">
+      
+      <li>
+        <a href="/terminliste/agder/trailfjellop/halvmaraton" class="race-type-link">
+          Halvmaraton (2)
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
 
   <h2 class="section-header">
     Alle
     <span id="race-cards-title-category"></span>
     løp
-    <span id="race-cards-title-separator">i</span>
-    <span id="race-cards-title-region">Norge</span>
+    <span id="race-cards-title-separator"
+      >i</span
+    >
+    <span id="race-cards-title-region"
+      >Norge</span
+    >
     <span id="date-range"></span>
   </h2>
 
   <button class="toggle-button mobile" id="toggleMapButtonMobile">
     <div class="icon-container">
-      <ion-icon name="map-outline" role="img" class="md hydrated" aria-label="map outline"></ion-icon>
+      <ion-icon
+        name="map-outline"
+        role="img"
+        class="md hydrated"
+        aria-label="map outline"
+      ></ion-icon>
     </div>
     <p>Kart</p>
   </button>
 
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
-        id="race-cards-container"
-        {/*
-        prettier-ignore
-        */}
-        
-        data-preselected-filters='{"category": null, "county": "Agder", "race_type": "Trail/Fjell\u00f8p"}'
-        
-      >
-         <a
+      id="race-cards-container"
+      
+      data-preselected-filters="{&quot;category&quot;: null, &quot;county&quot;: &quot;Agder&quot;, &quot;race_type&quot;: &quot;Trail/Fjell\u00f8p&quot;}"
+      
+    >
+        <a
   href="/løpssider/krs_ultra_2"
   class="race-card"
   data-name="KRS Ultra"
@@ -752,29 +798,30 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a> 
-        <!-- Add pagination controls -->
-  <div class="pagination-info">
-    <span id="event-range">av</span> 
-    <span id="total-events">Løp</span> 
-  </div>
-  <div class="pagination">
-    <button id="prev-page">Forrige</button>
-    <div id="page-numbers"></div>
-      <button id="next-page">Neste</button>
-    </div>
-  </div>
+</a>     
 
-    
-    <div class="map-placeholder"   id="map-placeholder"    data-latitude="61.114952"
-    data-longitude="9.808722"
+      <!-- Add pagination controls -->
+      <div class="pagination-info">
+        <span id="event-range">av</span>
+        <span id="total-events">Løp</span>
+      </div>
+      <div class="pagination">
+        <button id="prev-page">Forrige</button>
+        <div id="page-numbers"></div>
+        <button id="next-page">Neste</button>
+      </div>
+    </div>
+
+    <div
+      class="map-placeholder"
+      id="map-placeholder"
+      data-latitude="61.114952"
+      data-longitude="9.808722"
       data-zoom="4"
     >
       <!-- Map will be inserted here -->
     </div>
   </div>
-
-
 </section> </main>
 
     

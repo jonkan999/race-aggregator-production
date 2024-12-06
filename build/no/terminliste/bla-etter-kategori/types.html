@@ -17,6 +17,7 @@
     />
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
     <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
@@ -29,6 +30,11 @@
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
     />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
     <script defer="" type="module" src="/js/raceListMap.js"></script>
@@ -47,34 +53,17 @@
   </div>
 
   <div class="ad-content">
-    <!-- Default content shown while ad loads -->
-    <div class="ad-placeholder">
-      <div class="ad-placeholder-content">
-        <span class="ad-placeholder-text">Annons</span>
-        <div class="ad-placeholder-fallback">
-          <!-- Add a test image or text for local development -->
-          <div class="test-ad-content">Test Ad Banner - Local Development</div>
-        </div>
-      </div>
+    <!-- AdSense ad container -->
+    <div id="ad-container">
+      <ins
+        class="adsbygoogle"
+        style="display: block"
+        data-ad-client="ca-pub-7076760775175370"
+        data-ad-slot="2240363608"
+        data-ad-format="horizontal"
+        data-full-width-responsive="true"
+      ></ins>
     </div>
-
-    <!-- AdSense ad -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
-      crossorigin="anonymous"
-    ></script>
-    <ins
-      class="adsbygoogle"
-      style="display: block"
-      data-ad-client="ca-pub-7076760775175370"
-      data-ad-slot="2240363608"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    ></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
   </div>
 </section> <section class="section-header-menu">
   <div class="upper-header">
@@ -328,6 +317,35 @@
 </section>
 
       <div class="browse-container">
+        <nav class="breadcrumbs" aria-label="breadcrumb">
+  <ol>
+    
+    <li >
+      
+      <a href="/terminliste">Terminliste</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li >
+      
+      <a href="/terminliste/bla-etter-kategori">Bla etter kategori</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li aria-current="page" >
+      
+      <span>Løpstyper</span>
+      
+    </li>
+    
+  </ol>
+</nav>
         <nav class="browse-nav">
           <a
             href="/terminliste/bla-etter-kategori"
@@ -392,38 +410,13 @@
           </li>
             
           <li>
-            <a href="/terminliste/alle-fylker/annet/1500-meter"> 1500 meter </a>
-            <span class="count">(1)</span>
-          </li>
-            
-          <li>
-            <a href="/terminliste/alle-fylker/annet/3000-meter"> 3000 meter </a>
-            <span class="count">(1)</span>
-          </li>
-            
-          <li>
             <a href="/terminliste/alle-fylker/annet/5-km"> 5 km </a>
             <span class="count">(10)</span>
           </li>
             
           <li>
-            <a href="/terminliste/alle-fylker/annet/50-km"> 50 km </a>
-            <span class="count">(1)</span>
-          </li>
-            
-          <li>
             <a href="/terminliste/alle-fylker/annet/5000-meter"> 5000 meter </a>
             <span class="count">(5)</span>
-          </li>
-            
-          <li>
-            <a href="/terminliste/alle-fylker/annet/halvmaraton"> Halvmaraton </a>
-            <span class="count">(1)</span>
-          </li>
-            
-          <li>
-            <a href="/terminliste/alle-fylker/annet/maraton"> Maraton </a>
-            <span class="count">(1)</span>
           </li>
             
           <li>
@@ -445,18 +438,6 @@
       </div>
 
       
-      <div class="categories">
-        <h3></h3>
-        <ul class="category-list">
-           
-          <li>
-            <a href="/terminliste/alle-fylker/backyard-ultra/50-miles"> 50 miles </a>
-            <span class="count">(1)</span>
-          </li>
-           
-        </ul>
-      </div>
-      
     </div>
     
     <div class="type-card">
@@ -475,11 +456,6 @@
           <li>
             <a href="/terminliste/alle-fylker/landevei/10-km"> 10 km </a>
             <span class="count">(99)</span>
-          </li>
-            
-          <li>
-            <a href="/terminliste/alle-fylker/landevei/100-km"> 100 km </a>
-            <span class="count">(1)</span>
           </li>
             
           <li>
@@ -505,11 +481,6 @@
           <li>
             <a href="/terminliste/alle-fylker/landevei/50-km"> 50 km </a>
             <span class="count">(8)</span>
-          </li>
-            
-          <li>
-            <a href="/terminliste/alle-fylker/landevei/50-miles"> 50 miles </a>
-            <span class="count">(1)</span>
           </li>
             
           <li>
@@ -556,11 +527,6 @@
           </li>
             
           <li>
-            <a href="/terminliste/alle-fylker/lopebane/100-miles"> 100 miles </a>
-            <span class="count">(1)</span>
-          </li>
-            
-          <li>
             <a href="/terminliste/alle-fylker/lopebane/10000-meter"> 10000 meter </a>
             <span class="count">(7)</span>
           </li>
@@ -583,11 +549,6 @@
           <li>
             <a href="/terminliste/alle-fylker/lopebane/5000-meter"> 5000 meter </a>
             <span class="count">(6)</span>
-          </li>
-            
-          <li>
-            <a href="/terminliste/alle-fylker/lopebane/halvmaraton"> Halvmaraton </a>
-            <span class="count">(1)</span>
           </li>
             
           <li>
@@ -619,33 +580,8 @@
         <ul class="category-list">
            
           <li>
-            <a href="/terminliste/alle-fylker/stafett/10-km"> 10 km </a>
-            <span class="count">(1)</span>
-          </li>
-            
-          <li>
-            <a href="/terminliste/alle-fylker/stafett/10000-meter"> 10000 meter </a>
-            <span class="count">(1)</span>
-          </li>
-            
-          <li>
             <a href="/terminliste/alle-fylker/stafett/5-km"> 5 km </a>
             <span class="count">(6)</span>
-          </li>
-            
-          <li>
-            <a href="/terminliste/alle-fylker/stafett/halvmaraton"> Halvmaraton </a>
-            <span class="count">(1)</span>
-          </li>
-            
-          <li>
-            <a href="/terminliste/alle-fylker/stafett/maraton"> Maraton </a>
-            <span class="count">(1)</span>
-          </li>
-            
-          <li>
-            <a href="/terminliste/alle-fylker/stafett/millop"> Milløp </a>
-            <span class="count">(1)</span>
           </li>
            
         </ul>
@@ -657,7 +593,7 @@
       <div class="type-header">
         <h2>
           <a href="/terminliste/alle-fylker/terreng"> Terreng </a>
-          <span class="count">(71 lopp)</span>
+          <span class="count">(69 lopp)</span>
         </h2>
       </div>
 
@@ -687,23 +623,13 @@
           </li>
             
           <li>
-            <a href="/terminliste/alle-fylker/terreng/1500-meter"> 1500 meter </a>
-            <span class="count">(1)</span>
-          </li>
-            
-          <li>
-            <a href="/terminliste/alle-fylker/terreng/200-miles"> 200 miles </a>
-            <span class="count">(1)</span>
-          </li>
-            
-          <li>
             <a href="/terminliste/alle-fylker/terreng/3000-meter"> 3000 meter </a>
             <span class="count">(3)</span>
           </li>
             
           <li>
             <a href="/terminliste/alle-fylker/terreng/5-km"> 5 km </a>
-            <span class="count">(24)</span>
+            <span class="count">(22)</span>
           </li>
             
           <li>
@@ -755,18 +681,8 @@
         <ul class="category-list">
            
           <li>
-            <a href="/terminliste/alle-fylker/tidslop/100-km"> 100 km </a>
-            <span class="count">(1)</span>
-          </li>
-            
-          <li>
             <a href="/terminliste/alle-fylker/tidslop/5-km"> 5 km </a>
             <span class="count">(2)</span>
-          </li>
-            
-          <li>
-            <a href="/terminliste/alle-fylker/tidslop/50-miles"> 50 miles </a>
-            <span class="count">(1)</span>
           </li>
            
         </ul>
@@ -808,11 +724,6 @@
           </li>
             
           <li>
-            <a href="/terminliste/alle-fylker/trailfjellop/3000-meter"> 3000 meter </a>
-            <span class="count">(1)</span>
-          </li>
-            
-          <li>
             <a href="/terminliste/alle-fylker/trailfjellop/5-km"> 5 km </a>
             <span class="count">(5)</span>
           </li>
@@ -825,11 +736,6 @@
           <li>
             <a href="/terminliste/alle-fylker/trailfjellop/50-miles"> 50 miles </a>
             <span class="count">(5)</span>
-          </li>
-            
-          <li>
-            <a href="/terminliste/alle-fylker/trailfjellop/5000-meter"> 5000 meter </a>
-            <span class="count">(1)</span>
           </li>
             
           <li>

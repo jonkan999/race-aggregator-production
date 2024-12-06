@@ -1,4 +1,6 @@
-{% extends "index_layout.html" %} {% block styles %} {{ super() }}
+{% extends "index_layout.html" %} {% block title %}{{ racetime_estimator_title
+}}{% endblock %} {% block meta_description %}{{ racetime_estimator_description
+}}{% endblock %} {% block styles %} {{ super() }}
 <link rel="stylesheet" href="/css/race-time-estimator.css" />
 {% endblock %} {% block body_scripts %} {{ super() }}
 <script type="module" src="/js/racePredictions.js"></script>

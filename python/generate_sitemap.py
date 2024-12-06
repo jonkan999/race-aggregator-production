@@ -54,14 +54,27 @@ def generate_sitemap_for_country(country_code):
                 
                 # Add priority
                 priority = ET.SubElement(url_element, 'priority')
-                if f"{index_context['navigation']['race-list'].lower()}" in url:  # Main race calendar page
-                    priority.text = '1.0'
-                elif index_context['base_url'] == url: # Main page
+                race_list_path = index_context['navigation']['race-list'].lower()
+                
+                if race_list_path in url:  # Race list pages
+                    # Count path segments after race-list to determine depth
+                    path_after_race_list = url.split(race_list_path)[1].strip('/')
+                    if not path_after_race_list:  # Main race calendar page
+                        priority.text = '1.0'
+                    else:
+                        depth = len([p for p in path_after_race_list.split('/') if p])
+                        if depth == 1:    # Second level
+                            priority.text = '0.9'
+                        elif depth == 2:   # Third level
+                            priority.text = '0.8'
+                        elif depth == 3:   # Fourth level
+                            priority.text = '0.7'
+                        else:             # Deeper levels
+                            priority.text = '0.6'
+                elif index_context['base_url'] == url:  # Main page
                     priority.text = '0.9'
                 elif f"{index_context['race_page_folder_name'].lower()}" in url:  # Race pages
                     priority.text = '0.85'
-                elif index_context['navigation']['race-list'].lower() in url:  # Race calendar SEO page
-                    priority.text = '0.7'
                 else:  # Other pages
                     priority.text = '0.5'
 

@@ -17,6 +17,7 @@
     />
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
     <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
@@ -29,6 +30,11 @@
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
     />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="/js/commonFunctions.js"></script>
     <script src="/js/raceList.js"></script>
     <script defer="" type="module" src="/js/raceListMap.js"></script>
@@ -47,34 +53,17 @@
   </div>
 
   <div class="ad-content">
-    <!-- Default content shown while ad loads -->
-    <div class="ad-placeholder">
-      <div class="ad-placeholder-content">
-        <span class="ad-placeholder-text">Annons</span>
-        <div class="ad-placeholder-fallback">
-          <!-- Add a test image or text for local development -->
-          <div class="test-ad-content">Test Ad Banner - Local Development</div>
-        </div>
-      </div>
+    <!-- AdSense ad container -->
+    <div id="ad-container">
+      <ins
+        class="adsbygoogle"
+        style="display: block"
+        data-ad-client="ca-pub-7076760775175370"
+        data-ad-slot="2240363608"
+        data-ad-format="horizontal"
+        data-full-width-responsive="true"
+      ></ins>
     </div>
-
-    <!-- AdSense ad -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
-      crossorigin="anonymous"
-    ></script>
-    <ins
-      class="adsbygoogle"
-      style="display: block"
-      data-ad-client="ca-pub-7076760775175370"
-      data-ad-slot="2240363608"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    ></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
   </div>
 </section> <section class="section-header-menu">
   <div class="upper-header">
@@ -328,6 +317,26 @@
 </section>
 
       <div class="browse-container">
+        <nav class="breadcrumbs" aria-label="breadcrumb">
+  <ol>
+    
+    <li >
+      
+      <a href="/terminliste">Terminliste</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li aria-current="page" >
+      
+      <span>Bla etter kategori</span>
+      
+    </li>
+    
+  </ol>
+</nav>
         <nav class="browse-nav">
           <a
             href="/terminliste/bla-etter-kategori"
@@ -374,7 +383,7 @@
         <a href="/terminliste/agder" class="browse-card">
           Agder
           <span class="count"
-            >(13 løp)</span
+            >(11 løp)</span
           >
         </a>
       </h3>
@@ -383,7 +392,7 @@
         <a href="/terminliste/innlandet" class="browse-card">
           Innlandet
           <span class="count"
-            >(35 løp)</span
+            >(33 løp)</span
           >
         </a>
       </h3>
@@ -401,7 +410,7 @@
         <a href="/terminliste/nordland" class="browse-card">
           Nordland
           <span class="count"
-            >(10 løp)</span
+            >(7 løp)</span
           >
         </a>
       </h3>
@@ -410,7 +419,7 @@
         <a href="/terminliste/oslo" class="browse-card">
           Oslo
           <span class="count"
-            >(25 løp)</span
+            >(23 løp)</span
           >
         </a>
       </h3>
@@ -419,7 +428,7 @@
         <a href="/terminliste/rogaland" class="browse-card">
           Rogaland
           <span class="count"
-            >(21 løp)</span
+            >(15 løp)</span
           >
         </a>
       </h3>
@@ -428,7 +437,7 @@
         <a href="/terminliste/troms-og-finnmark" class="browse-card">
           Troms og Finnmark
           <span class="count"
-            >(12 løp)</span
+            >(10 løp)</span
           >
         </a>
       </h3>
@@ -437,7 +446,7 @@
         <a href="/terminliste/trondelag" class="browse-card">
           Trøndelag
           <span class="count"
-            >(22 løp)</span
+            >(19 løp)</span
           >
         </a>
       </h3>
@@ -446,7 +455,7 @@
         <a href="/terminliste/vestfold-og-telemark" class="browse-card">
           Vestfold og Telemark
           <span class="count"
-            >(11 løp)</span
+            >(10 løp)</span
           >
         </a>
       </h3>
@@ -455,7 +464,7 @@
         <a href="/terminliste/vestland" class="browse-card">
           Vestland
           <span class="count"
-            >(79 løp)</span
+            >(78 løp)</span
           >
         </a>
       </h3>
@@ -464,7 +473,7 @@
         <a href="/terminliste/viken" class="browse-card">
           Viken
           <span class="count"
-            >(66 løp)</span
+            >(63 løp)</span
           >
         </a>
       </h3>
@@ -606,7 +615,7 @@
         <a href="/terminliste/byer/haugesund" class="browse-card">
           Haugesund
           <span class="count"
-            >(27 løp)</span
+            >(26 løp)</span
           >
         </a>
       </h3>
@@ -624,7 +633,7 @@
         <a href="/terminliste/byer/honefoss" class="browse-card">
           Hønefoss
           <span class="count"
-            >(100 løp)</span
+            >(99 løp)</span
           >
         </a>
       </h3>
@@ -786,7 +795,7 @@
         <a href="/terminliste/byer/sandnes" class="browse-card">
           Sandnes
           <span class="count"
-            >(20 løp)</span
+            >(19 løp)</span
           >
         </a>
       </h3>
@@ -822,7 +831,7 @@
         <a href="/terminliste/byer/stavanger" class="browse-card">
           Stavanger
           <span class="count"
-            >(21 løp)</span
+            >(20 løp)</span
           >
         </a>
       </h3>
@@ -955,7 +964,7 @@
         <a href="/terminliste/alle-fylker/terreng" class="browse-card">
           Terreng
           <span class="count"
-            >(71 løp)</span
+            >(69 løp)</span
           >
         </a>
       </h3>
@@ -1030,15 +1039,6 @@
         </h3>
       </a>
       
-      <a href="/terminliste/alle-fylker/alle-lopstyper/200-miles" class="browse-card">
-        <h3>
-          200 miles
-          <span class="count"
-            >(1 løp)</span
-          >
-        </h3>
-      </a>
-      
       <a href="/terminliste/alle-fylker/alle-lopstyper/3000-meter" class="browse-card">
         <h3>
           3000 meter
@@ -1052,7 +1052,7 @@
         <h3>
           5 km
           <span class="count"
-            >(172 løp)</span
+            >(170 løp)</span
           >
         </h3>
       </a>
