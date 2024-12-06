@@ -54,7 +54,7 @@ def generate_sitemap_for_country(country_code):
                 
                 # Add priority
                 priority = ET.SubElement(url_element, 'priority')
-                if f"{index_context['navigation']['race-list'].lower()}.html" in url:  # Main race calendar page
+                if f"{index_context['navigation']['race-list'].lower()}" in url:  # Main race calendar page
                     priority.text = '1.0'
                 elif index_context['base_url'] == url: # Main page
                     priority.text = '0.9'

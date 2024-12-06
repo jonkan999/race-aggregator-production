@@ -1,5 +1,5 @@
 <a
-  href="/race-pages/{{ race.domain_name|default('missing-domain') }}.html"
+  href="/{{ race_page_folder_name }}/{{ race.domain_name|default('missing-domain') }}"
   class="race-card-big"
   data-name="{{ race.name|default('') }}"
   data-date="{{ race.date|default('') }}"

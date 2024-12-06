@@ -11,7 +11,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Floraspelen \u00e4r en \u00e5rlig friidrottst\u00e4vling som kommer tillbaka 2025, och vi hoppas att det ska bli \u00e4nnu st\u00f6rre och b\u00e4ttre. T\u00e4vlingen samlar deltagare fr\u00e5n olika ", "distance": "1,5km, 3km", "eventStatus": "Standard", "image": "/loppsidor/floraspelen/floraspelen_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "se", "addressLocality": "Skellefte\u00e5", "addressRegion": "V\u00e4sterbottens"}, "name": "Skellefte\u00e5"}, "name": "Floraspelen", "sport": "L\u00f6pning, L\u00f6parbana", "startDate": "20250111"}, "position": 1}], "numberOfItems": 1}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Floraspelen \u00e4r en \u00e5rlig friidrottst\u00e4vling som kommer tillbaka 2025, och vi hoppas att det ska bli \u00e4nnu st\u00f6rre och b\u00e4ttre. T\u00e4vlingen samlar deltagare fr\u00e5n olika ", "distance": "1,5km, 3km", "eventStatus": "Standard", "identifier": "floraspelen", "image": "/loppsidor/floraspelen/floraspelen_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "se", "addressLocality": "Skellefte\u00e5", "addressRegion": "V\u00e4sterbottens"}, "name": "Skellefte\u00e5"}, "name": "Floraspelen", "sport": "L\u00f6pning, L\u00f6parbana", "startDate": "20250111"}, "position": 1}], "numberOfItems": 1}
     </script>
      
 
@@ -556,11 +556,13 @@
       <li >
         
         <a href="/loppkalender">Loppkalender</a>
-        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
         
       </li>
       
-      <li aria-current="page">
+      <li aria-current="page" >
         
         <span>Västerbotten</span>
         
@@ -570,7 +572,11 @@
   </nav>
   
 
-  <h1 class="section-header section-header-race-cards race-list-title no-padding-top">Löparkalender Västerbotten: Alla Löpartävlingar & Lopp i Västerbotten</h1>
+  <h1
+    class="section-header section-header-race-cards race-list-title no-padding-top"
+  >
+    Löparkalender Västerbotten: Alla Löpartävlingar & Lopp i Västerbotten
+  </h1>
   <p class="race-list-paragraph seo-paragraph">Letar du efter löpartävlingar i Västerbotten? Vår löparkalender listar alla kommande lopp i Västerbotten, oavsett om du söker ett 5 km lopp, ett marathon, eller något däremellan.  Filtrera efter distans (t.ex. Halvmarathon, 10 km, 100 km), lopptyp (t.ex. Landsväg, Terräng, Trail) och hitta ditt perfekta lopp. Använd vår lopplista och planera din löparsäsong i Västerbotten.  Hitta ditt nästa äventyr med vår kompletta löparkalendern och loppkalendern.</p>
 
   
@@ -579,31 +585,36 @@
     Alla
     <span id="race-cards-title-category"></span>
     lopp
-    <span id="race-cards-title-separator">i</span>
-    <span id="race-cards-title-region">Sverige</span>
+    <span id="race-cards-title-separator"
+      >i</span
+    >
+    <span id="race-cards-title-region"
+      >Sverige</span
+    >
     <span id="date-range"></span>
   </h2>
 
   <button class="toggle-button mobile" id="toggleMapButtonMobile">
     <div class="icon-container">
-      <ion-icon name="map-outline" role="img" class="md hydrated" aria-label="map outline"></ion-icon>
+      <ion-icon
+        name="map-outline"
+        role="img"
+        class="md hydrated"
+        aria-label="map outline"
+      ></ion-icon>
     </div>
     <p>Karta</p>
   </button>
 
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
-        id="race-cards-container"
-        {/*
-        prettier-ignore
-        */}
-        
-        data-preselected-filters='{"category": null, "county": "V\u00e4sterbotten", "race_type": null}'
-        
-      >
-         <a
+      id="race-cards-container"
+      
+      data-preselected-filters="{&quot;category&quot;: null, &quot;county&quot;: &quot;V\u00e4sterbotten&quot;, &quot;race_type&quot;: null}"
+      
+    >
+        <a
   href="/loppsidor/floraspelen"
   class="race-card"
   data-name="Floraspelen"
@@ -694,29 +705,30 @@
   >
     <div class="more-info-button">Mer info & anmälan</div>
   </div>
-</a> 
-        <!-- Add pagination controls -->
-  <div class="pagination-info">
-    <span id="event-range">av</span> 
-    <span id="total-events">Lopp</span> 
-  </div>
-  <div class="pagination">
-    <button id="prev-page">Föregående</button>
-    <div id="page-numbers"></div>
-      <button id="next-page">Nästa</button>
-    </div>
-  </div>
+</a>     
 
-    
-    <div class="map-placeholder"   id="map-placeholder"    data-latitude="59.346972"
-    data-longitude="15.027053"
+      <!-- Add pagination controls -->
+      <div class="pagination-info">
+        <span id="event-range">av</span>
+        <span id="total-events">Lopp</span>
+      </div>
+      <div class="pagination">
+        <button id="prev-page">Föregående</button>
+        <div id="page-numbers"></div>
+        <button id="next-page">Nästa</button>
+      </div>
+    </div>
+
+    <div
+      class="map-placeholder"
+      id="map-placeholder"
+      data-latitude="59.346972"
+      data-longitude="15.027053"
       data-zoom="4"
     >
       <!-- Map will be inserted here -->
     </div>
   </div>
-
-
 </section> </main>
 
     

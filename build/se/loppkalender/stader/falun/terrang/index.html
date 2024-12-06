@@ -11,7 +11,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Bj\u00f6rnfrossa ultramaraton \u00e4r ett drygt 65 km l\u00e5ngt l\u00f6plopp som \u00e4ger rum l\u00f6rdagen den 7 juni i vacker natur l\u00e4ngs G\u00e4strikeleden, Len\u00e5sleden och F\u00e4bodleden. Banan ", "distance": "65km", "eventStatus": "Standard", "image": "/loppsidor/bjornfrossa_ultra/bjornfrossa_ultra_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "se", "addressLocality": "Kungsbergets Fritidsanl\u00e4ggning", "addressRegion": "G\u00e4vleborgs"}, "name": "Kungsbergets Fritidsanl\u00e4ggning"}, "name": "Bj\u00f6rnfrossa Ultra", "sport": "L\u00f6pning, Terr\u00e4ng", "startDate": "20250607"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Stora St\u00f6ten Run \u00e4r ett fantastiskt terr\u00e4nglopp mitt i v\u00e4rldsarvet Falun, d\u00e4r deltagarna f\u00e5r uppleva en unik l\u00f6pupplevelse i en fantastisk milj\u00f6. Utefter banan ", "distance": "5,6km", "eventStatus": "Standard", "image": "/loppsidor/stora_stoten_run/stora_stoten_run_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "se", "addressLocality": "Falu Gruva", "addressRegion": "Dalarnas"}, "name": "Falu Gruva"}, "name": "Stora St\u00f6ten Run", "sport": "L\u00f6pning, Terr\u00e4ng", "startDate": "20250809"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Bj\u00f6rnfrossa ultramaraton \u00e4r ett drygt 65 km l\u00e5ngt l\u00f6plopp som \u00e4ger rum l\u00f6rdagen den 7 juni i vacker natur l\u00e4ngs G\u00e4strikeleden, Len\u00e5sleden och F\u00e4bodleden. Banan ", "distance": "65km", "eventStatus": "Standard", "identifier": "bjornfrossa_ultra", "image": "/loppsidor/bjornfrossa_ultra/bjornfrossa_ultra_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "se", "addressLocality": "Kungsbergets Fritidsanl\u00e4ggning", "addressRegion": "G\u00e4vleborgs"}, "name": "Kungsbergets Fritidsanl\u00e4ggning"}, "name": "Bj\u00f6rnfrossa Ultra", "sport": "L\u00f6pning, Terr\u00e4ng", "startDate": "20250607"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Stora St\u00f6ten Run \u00e4r ett fantastiskt l\u00f6plopp i Falun, Dalarna, som erbjuder deltagarna en unik upplevelse i V\u00e4rldsarvet Falun. Banan \u00e4r till stor del formad av m", "distance": "5,6km, 13,6km, 21,6km", "eventStatus": "Standard", "identifier": "stora_stoten_run", "image": "/loppsidor/stora_stoten_run/stora_stoten_run_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "se", "addressLocality": "Falu gruva", "addressRegion": "Dalarnas"}, "name": "Falu gruva"}, "name": "Stora St\u00f6ten Run", "sport": "L\u00f6pning, Terr\u00e4ng", "startDate": "20250809"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -556,18 +556,22 @@
       <li >
         
         <a href="/loppkalender">Loppkalender</a>
-        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
         
       </li>
       
       <li >
         
         <a href="/loppkalender/stader/falun">Städer: Falun</a>
-        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
         
       </li>
       
-      <li aria-current="page">
+      <li aria-current="page" >
         
         <span>Terräng</span>
         
@@ -577,7 +581,11 @@
   </nav>
   
 
-  <h1 class="section-header section-header-race-cards race-list-title no-padding-top">Terränglopp i Falun - Hitta ditt nästa löplopp</h1>
+  <h1
+    class="section-header section-header-race-cards race-list-title no-padding-top"
+  >
+    Terränglopp i Falun - Hitta ditt nästa löplopp
+  </h1>
   <p class="race-list-paragraph seo-paragraph">Planerar du din nästa löpartävling?  I vår loppkalender hittar du alla terränglopp i Falun.  Oavsett om du letar efter ett kortare lopp som en 5 km eller en längre utmaning som ett marathon,  har vi en lopplista med alternativ för dig.  Använd våra filter för att hitta det perfekta löploppet, filtrera på distans (t.ex. 10 km, halvmarathon) och hitta din nästa utmaning i vår löparkalender eller löparkalendern.  Bläddra bland tillgängliga löpartävlingar och hitta ditt nästa äventyr!</p>
 
   
@@ -586,31 +594,36 @@
     Alla
     <span id="race-cards-title-category"></span>
     lopp
-    <span id="race-cards-title-separator">i</span>
-    <span id="race-cards-title-region">Sverige</span>
+    <span id="race-cards-title-separator"
+      >i</span
+    >
+    <span id="race-cards-title-region"
+      >Sverige</span
+    >
     <span id="date-range"></span>
   </h2>
 
   <button class="toggle-button mobile" id="toggleMapButtonMobile">
     <div class="icon-container">
-      <ion-icon name="map-outline" role="img" class="md hydrated" aria-label="map outline"></ion-icon>
+      <ion-icon
+        name="map-outline"
+        role="img"
+        class="md hydrated"
+        aria-label="map outline"
+      ></ion-icon>
     </div>
     <p>Karta</p>
   </button>
 
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
-        id="race-cards-container"
-        {/*
-        prettier-ignore
-        */}
-        
-        data-preselected-filters='{"category": null, "county": "Falun", "race_type": "Terr\u00e4ng"}'
-        
-      >
-         <a
+      id="race-cards-container"
+      
+      data-preselected-filters="{&quot;county&quot;: &quot;Falun&quot;, &quot;race_type&quot;: &quot;Terr\u00e4ng&quot;, &quot;category&quot;: null}"
+      
+    >
+        <a
   href="/loppsidor/bjornfrossa_ultra"
   class="race-card"
   data-name="Björnfrossa Ultra"
@@ -703,7 +716,7 @@
   data-county="Dalarna"
   data-category=""
   data-race-type="Terräng"
-  data-distance="5,6km"
+  data-distance="5,6km, 13,6km, 21,6km"
   data-latitude="60.6002216"
   data-longitude="15.6165187"
 >
@@ -735,18 +748,18 @@
       <div class="left-container">
         <h3 class="race-name">Stora Stöten Run</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Falu Gruva 
+          Falu gruva 
         </div>
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -756,6 +769,18 @@
             <div class="distance-item">
               <span class="race-distance">
                 5,6 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                13,6 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                21,6 km
               </span>
             </div>
               
@@ -772,37 +797,38 @@
       </div>
     </div>
     <div class="race-summary">
-      Stora Stöten Run är ett fantastiskt terränglopp mitt i världsarvet Falun, där deltagarna får uppleva en unik löpupplevelse i en fantastisk m...
+      Stora Stöten Run är ett fantastiskt löplopp i Falun, Dalarna, som erbjuder deltagarna en unik upplevelse i Världsarvet Falun. Banan är till ...
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & anmälan</div>
   </div>
-</a> 
-        <!-- Add pagination controls -->
-  <div class="pagination-info">
-    <span id="event-range">av</span> 
-    <span id="total-events">Lopp</span> 
-  </div>
-  <div class="pagination">
-    <button id="prev-page">Föregående</button>
-    <div id="page-numbers"></div>
-      <button id="next-page">Nästa</button>
-    </div>
-  </div>
+</a>     
 
-    
-    <div class="map-placeholder"   id="map-placeholder"    data-latitude="59.346972"
-    data-longitude="15.027053"
+      <!-- Add pagination controls -->
+      <div class="pagination-info">
+        <span id="event-range">av</span>
+        <span id="total-events">Lopp</span>
+      </div>
+      <div class="pagination">
+        <button id="prev-page">Föregående</button>
+        <div id="page-numbers"></div>
+        <button id="next-page">Nästa</button>
+      </div>
+    </div>
+
+    <div
+      class="map-placeholder"
+      id="map-placeholder"
+      data-latitude="59.346972"
+      data-longitude="15.027053"
       data-zoom="4"
     >
       <!-- Map will be inserted here -->
     </div>
   </div>
-
-
 </section> </main>
 
     

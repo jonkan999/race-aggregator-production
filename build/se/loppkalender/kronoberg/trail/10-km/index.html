@@ -7,7 +7,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Night Shift Trail \u00e4r ett unikt traillopp med fokus p\u00e5 upplevelsen. Anm\u00e4l dig nu och dela m\u00f6rkermagin med oss. Loppet g\u00e5r av stapeln fredagen den 6 december i No", "distance": "10km", "eventStatus": "Standard", "image": "/loppsidor/night_shift_trail/night_shift_trail_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "se", "addressLocality": "Notteryds naturreservat", "addressRegion": "Kronobergs"}, "name": "Notteryds naturreservat"}, "name": "Night Shift Trail", "sport": "L\u00f6pning, Trail", "startDate": "20241206"}, "position": 1}], "numberOfItems": 1}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Night Shift Trail \u00e4r ett unikt traillopp med fokus p\u00e5 upplevelsen. Anm\u00e4l dig nu och dela m\u00f6rkermagin med oss. Loppet g\u00e5r av stapeln fredagen den 6 december i No", "distance": "10km", "eventStatus": "Standard", "identifier": "night_shift_trail", "image": "/loppsidor/night_shift_trail/night_shift_trail_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "se", "addressLocality": "Notteryds naturreservat", "addressRegion": "Kronobergs"}, "name": "Notteryds naturreservat"}, "name": "Night Shift Trail", "sport": "L\u00f6pning, Trail", "startDate": "20241206"}, "position": 1}], "numberOfItems": 1}
     </script>
      
 
@@ -552,25 +552,31 @@
       <li >
         
         <a href="/loppkalender">Loppkalender</a>
-        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
         
       </li>
       
       <li >
         
         <a href="/loppkalender/kronoberg">Kronoberg</a>
-        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
         
       </li>
       
       <li >
         
         <a href="/loppkalender/kronoberg/trail">Trail</a>
-        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
         
       </li>
       
-      <li aria-current="page">
+      <li aria-current="page" >
         
         <span>10 km</span>
         
@@ -580,7 +586,11 @@
   </nav>
   
 
-  <h1 class="section-header section-header-race-cards race-list-title no-padding-top">10 km Trail-lopp i Kronoberg: Lopplista och Löparkalender</h1>
+  <h1
+    class="section-header section-header-race-cards race-list-title no-padding-top"
+  >
+    10 km Trail-lopp i Kronoberg: Lopplista och Löparkalender
+  </h1>
   <p class="race-list-paragraph seo-paragraph">Letar du efter ett spännande 10 km Trail-lopp i Kronoberg?  Vår loppkalender och löparkalender hjälper dig att hitta det perfekta loppet.  Använd våra filter för att enkelt hitta löpartävlingar som passar dig.  Sök bland olika kategorier,  lopptyper (som exempelvis Trail) och platser (som Kronoberg) för att skapa din perfekta lopplista.  Hitta ditt nästa löplopp idag!</p>
 
   
@@ -589,31 +599,36 @@
     Alla
     <span id="race-cards-title-category"></span>
     lopp
-    <span id="race-cards-title-separator">i</span>
-    <span id="race-cards-title-region">Sverige</span>
+    <span id="race-cards-title-separator"
+      >i</span
+    >
+    <span id="race-cards-title-region"
+      >Sverige</span
+    >
     <span id="date-range"></span>
   </h2>
 
   <button class="toggle-button mobile" id="toggleMapButtonMobile">
     <div class="icon-container">
-      <ion-icon name="map-outline" role="img" class="md hydrated" aria-label="map outline"></ion-icon>
+      <ion-icon
+        name="map-outline"
+        role="img"
+        class="md hydrated"
+        aria-label="map outline"
+      ></ion-icon>
     </div>
     <p>Karta</p>
   </button>
 
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
-        id="race-cards-container"
-        {/*
-        prettier-ignore
-        */}
-        
-        data-preselected-filters='{"category": "10 km", "county": "Kronoberg", "race_type": "Trail"}'
-        
-      >
-         <a
+      id="race-cards-container"
+      
+      data-preselected-filters="{&quot;category&quot;: &quot;10 km&quot;, &quot;county&quot;: &quot;Kronoberg&quot;, &quot;race_type&quot;: &quot;Trail&quot;}"
+      
+    >
+        <a
   href="/loppsidor/night_shift_trail"
   class="race-card"
   data-name="Night Shift Trail"
@@ -698,29 +713,30 @@
   >
     <div class="more-info-button">Mer info & anmälan</div>
   </div>
-</a> 
-        <!-- Add pagination controls -->
-  <div class="pagination-info">
-    <span id="event-range">av</span> 
-    <span id="total-events">Lopp</span> 
-  </div>
-  <div class="pagination">
-    <button id="prev-page">Föregående</button>
-    <div id="page-numbers"></div>
-      <button id="next-page">Nästa</button>
-    </div>
-  </div>
+</a>     
 
-    
-    <div class="map-placeholder"   id="map-placeholder"    data-latitude="59.346972"
-    data-longitude="15.027053"
+      <!-- Add pagination controls -->
+      <div class="pagination-info">
+        <span id="event-range">av</span>
+        <span id="total-events">Lopp</span>
+      </div>
+      <div class="pagination">
+        <button id="prev-page">Föregående</button>
+        <div id="page-numbers"></div>
+        <button id="next-page">Nästa</button>
+      </div>
+    </div>
+
+    <div
+      class="map-placeholder"
+      id="map-placeholder"
+      data-latitude="59.346972"
+      data-longitude="15.027053"
       data-zoom="4"
     >
       <!-- Map will be inserted here -->
     </div>
   </div>
-
-
 </section> </main>
 
     

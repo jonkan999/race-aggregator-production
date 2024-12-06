@@ -17,6 +17,7 @@ import yaml
 import json
 from datetime import datetime
 from generate_sitemap import generate_sitemap_for_country
+import html
 
 
 def get_valid_combinations(races, verbose_mapping):
@@ -227,13 +228,16 @@ def generate_navigation_schema(index_content, filtered_races, current_url, count
         "numberOfItems": len(nav_items)
     }
 
-def generate_race_list_schema(index_content,country_code, filtered_races, race_page_folder_name, max_races=5):
+def generate_race_list_schema(index_content, country_code, filtered_races, race_page_folder_name, max_races=5):
     """Generate schema.org ItemList for race listing"""
     
-    # Filter out races with missing required fields
+    # Get today's date in YYYYMMDD format
+    today = datetime.now().strftime('%Y%m%d')
+    
+    # Filter out past races and races with missing required fields
     valid_races = [
         race for race in filtered_races
-        if all([
+        if race['date'] >= today and all([
             race.get('name'),
             race.get('date'),
             race.get('location'),
@@ -275,9 +279,9 @@ def generate_race_list_schema(index_content,country_code, filtered_races, race_p
                     },
                     "sport": f"{index_content['running_local']}, {race['type_local']}",
                     "distance": race.get('distance_verbose', ''),
+                    "identifier": race['domain_name'],  # Add identifier field
                     "image": f"/{race_page_folder_name}/{race['domain_name']}/{race['domain_name']}_1.webp",
                     "description": race['description'][:160],
-                    # Add a special designation for premier races
                     "eventStatus": "Premier" if race.get('supplied_ids') else "Standard"
                 }
             }
@@ -436,6 +440,20 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
             'raceList': generate_race_list_schema(index_content, country_code, filtered_races, index_content['race_page_folder_name']) if filtered_races else None
         }
 
+        # Before setting the context, encode the preselected filters properly
+        import json
+        import html
+
+        # Prepare preselected filters
+        preselected_filters = {
+            'category': category,
+            'county': county,
+            'race_type': race_type
+        }
+
+        # Properly encode the JSON for HTML attribute
+        encoded_filters = html.escape(json.dumps(preselected_filters))
+
         context = {
             **index_content,
             'title_race_list': seo_content['title'],
@@ -443,11 +461,7 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
             'seo_h1': seo_content['h1'],
             'seo_paragraph': seo_content['paragraph'],
             'races': filtered_races,
-            'preselected_filters': {
-                'county': county,
-                'race_type': race_type,
-                'category': category
-            },
+            'preselected_filters': encoded_filters,  # Use the encoded version
             'distance_filter': verbose_mapping,
             'navigation': navigation,
             'month_mapping': month_mapping,

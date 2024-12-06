@@ -7,7 +7,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "\u00d6land Lighthouse Challenge \u00e4r en fantastisk l\u00f6pning i en natur som bara kan upplevas p\u00e5 \u00d6land. Efter starten vid fyren L\u00e5nge Jan upplever vi de s\u00e4regna vyerna \u00f6", "distance": "50 miles, 100 miles", "eventStatus": "Standard", "image": "/loppsidor/oland_lighthouse_challenge/oland_lighthouse_challenge_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "se", "addressLocality": "Fyren L\u00e5nge Jan", "addressRegion": "Kalmar"}, "name": "Fyren L\u00e5nge Jan"}, "name": "\u00d6land Lighthouse Challenge", "sport": "L\u00f6pning, Trail", "startDate": "20250531"}, "position": 1}], "numberOfItems": 1}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "\u00d6land Lighthouse Challenge \u00e4r en fantastisk l\u00f6pning i en natur som bara kan upplevas p\u00e5 \u00d6land. Efter starten vid fyren L\u00e5nge Jan upplever vi de s\u00e4regna vyerna \u00f6", "distance": "50 miles, 100 miles", "eventStatus": "Standard", "identifier": "oland_lighthouse_challenge", "image": "/loppsidor/oland_lighthouse_challenge/oland_lighthouse_challenge_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "se", "addressLocality": "Fyren L\u00e5nge Jan", "addressRegion": "Kalmar"}, "name": "Fyren L\u00e5nge Jan"}, "name": "\u00d6land Lighthouse Challenge", "sport": "L\u00f6pning, Trail", "startDate": "20250531"}, "position": 1}], "numberOfItems": 1}
     </script>
      
 
@@ -552,25 +552,31 @@
       <li >
         
         <a href="/loppkalender">Loppkalender</a>
-        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
         
       </li>
       
       <li >
         
         <a href="/loppkalender/kalmar">Kalmar</a>
-        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
         
       </li>
       
       <li >
         
         <a href="/loppkalender/kalmar/trail">Trail</a>
-        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
         
       </li>
       
-      <li aria-current="page">
+      <li aria-current="page" >
         
         <span>100 miles</span>
         
@@ -580,7 +586,11 @@
   </nav>
   
 
-  <h1 class="section-header section-header-race-cards race-list-title no-padding-top">100 miles Trail-lopp i Kalmar: Loppkalender och Löparkalendern</h1>
+  <h1
+    class="section-header section-header-race-cards race-list-title no-padding-top"
+  >
+    100 miles Trail-lopp i Kalmar: Loppkalender och Löparkalendern
+  </h1>
   <p class="race-list-paragraph seo-paragraph">Letar du efter ett 100 miles Trail-lopp i Kalmar?  Vår loppkalender och löparkalender hjälper dig att hitta perfekta löpartävlingar.  Här hittar du en komplett lopplista med information om datum och andra detaljer.  Filtrera enkelt efter kategori (100 miles), lopptyp (Trail) och plats (Kalmar) för att hitta just ditt nästa löplopp.  Använd våra filter för att hitta fler lopp.  Sök bland alla löpartävlingar och planera din nästa utmaning.</p>
 
   
@@ -589,31 +599,36 @@
     Alla
     <span id="race-cards-title-category"></span>
     lopp
-    <span id="race-cards-title-separator">i</span>
-    <span id="race-cards-title-region">Sverige</span>
+    <span id="race-cards-title-separator"
+      >i</span
+    >
+    <span id="race-cards-title-region"
+      >Sverige</span
+    >
     <span id="date-range"></span>
   </h2>
 
   <button class="toggle-button mobile" id="toggleMapButtonMobile">
     <div class="icon-container">
-      <ion-icon name="map-outline" role="img" class="md hydrated" aria-label="map outline"></ion-icon>
+      <ion-icon
+        name="map-outline"
+        role="img"
+        class="md hydrated"
+        aria-label="map outline"
+      ></ion-icon>
     </div>
     <p>Karta</p>
   </button>
 
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
-        id="race-cards-container"
-        {/*
-        prettier-ignore
-        */}
-        
-        data-preselected-filters='{"category": "100 miles", "county": "Kalmar", "race_type": "Trail"}'
-        
-      >
-         <a
+      id="race-cards-container"
+      
+      data-preselected-filters="{&quot;category&quot;: &quot;100 miles&quot;, &quot;county&quot;: &quot;Kalmar&quot;, &quot;race_type&quot;: &quot;Trail&quot;}"
+      
+    >
+        <a
   href="/loppsidor/oland_lighthouse_challenge"
   class="race-card"
   data-name="Öland Lighthouse Challenge"
@@ -704,29 +719,30 @@
   >
     <div class="more-info-button">Mer info & anmälan</div>
   </div>
-</a> 
-        <!-- Add pagination controls -->
-  <div class="pagination-info">
-    <span id="event-range">av</span> 
-    <span id="total-events">Lopp</span> 
-  </div>
-  <div class="pagination">
-    <button id="prev-page">Föregående</button>
-    <div id="page-numbers"></div>
-      <button id="next-page">Nästa</button>
-    </div>
-  </div>
+</a>     
 
-    
-    <div class="map-placeholder"   id="map-placeholder"    data-latitude="59.346972"
-    data-longitude="15.027053"
+      <!-- Add pagination controls -->
+      <div class="pagination-info">
+        <span id="event-range">av</span>
+        <span id="total-events">Lopp</span>
+      </div>
+      <div class="pagination">
+        <button id="prev-page">Föregående</button>
+        <div id="page-numbers"></div>
+        <button id="next-page">Nästa</button>
+      </div>
+    </div>
+
+    <div
+      class="map-placeholder"
+      id="map-placeholder"
+      data-latitude="59.346972"
+      data-longitude="15.027053"
       data-zoom="4"
     >
       <!-- Map will be inserted here -->
     </div>
   </div>
-
-
 </section> </main>
 
     

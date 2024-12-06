@@ -4,6 +4,15 @@
 set -e  # Exit on any error
 set -u  # Exit on undefined variable
 
+# Check if country code is provided
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <country_code>"
+    echo "Example: $0 se"
+    exit 1
+fi
+
+COUNTRY_CODE="$1"
+
 # Define colors for output
 GREEN='\033[0;32m'
 RED='\033[0;31m'
@@ -11,7 +20,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Define log file
-LOG_FILE="build_$(date +%Y%m%d_%H%M%S).log"
+LOG_FILE="build_${COUNTRY_CODE}_$(date +%Y%m%d_%H%M%S).log"
 
 # Function to log messages
 log_message() {
@@ -20,22 +29,46 @@ log_message() {
     echo -e "${timestamp} - ${message}" | tee -a "$LOG_FILE"
 }
 
-# Function to run a Python script
-run_script() {
+# Function to run a Python script with direct country code argument
+run_script_direct() {
     local script="$1"
     local args="${2:-}"  # Optional arguments
     
     log_message "${BLUE}Starting: ${script}${NC}"
     
     if [ -n "$args" ]; then
-        if python3 "python/${script}.py" $args >> "$LOG_FILE" 2>&1; then
+        if python3 "python/${script}.py" "$COUNTRY_CODE" $args >> "$LOG_FILE" 2>&1; then
             log_message "${GREEN}Successfully completed: ${script}${NC}"
         else
             log_message "${RED}Failed: ${script}${NC}"
             exit 1
         fi
     else
-        if python3 "python/${script}.py" >> "$LOG_FILE" 2>&1; then
+        if python3 "python/${script}.py" "$COUNTRY_CODE" >> "$LOG_FILE" 2>&1; then
+            log_message "${GREEN}Successfully completed: ${script}${NC}"
+        else
+            log_message "${RED}Failed: ${script}${NC}"
+            exit 1
+        fi
+    fi
+}
+
+# Function to run a Python script with --country flag
+run_script_flag() {
+    local script="$1"
+    local args="${2:-}"  # Optional arguments
+    
+    log_message "${BLUE}Starting: ${script}${NC}"
+    
+    if [ -n "$args" ]; then
+        if python3 "python/${script}.py" --country "$COUNTRY_CODE" $args >> "$LOG_FILE" 2>&1; then
+            log_message "${GREEN}Successfully completed: ${script}${NC}"
+        else
+            log_message "${RED}Failed: ${script}${NC}"
+            exit 1
+        fi
+    else
+        if python3 "python/${script}.py" --country "$COUNTRY_CODE" >> "$LOG_FILE" 2>&1; then
             log_message "${GREEN}Successfully completed: ${script}${NC}"
         else
             log_message "${RED}Failed: ${script}${NC}"
@@ -45,38 +78,26 @@ run_script() {
 }
 
 # Main build process
-log_message "Starting build process"
+log_message "Starting build process for country: ${COUNTRY_CODE}"
 
-# Define country codes (add more as needed)
-COUNTRIES=("se")
-
-# Process images
+# Scripts that process all countries
 run_script "process_images"
-
-# Generate HTML
 run_script "generate_html"
 
-# Build race pages
-run_script "build_race_pages"
+# Scripts that use --country flag
+run_script_flag "build_race_pages"
+run_script_flag "build_seo_pages_county"
+run_script_flag "build_seo_pages_city"
+run_script_flag "build_race_list_browse_structure"
+run_script_flag "build_forum_pages"
 
-# Build SEO pages (county)
-run_script "build_seo_pages_county"
-
-# Build SEO pages (city)
-run_script "build_seo_pages_city"
-
-# Build race list browse structure
-run_script "build_race_list_browse_structure"
-
-# Build forum pages
-run_script "build_forum_pages"
-
-# Generate HTML need to do it last again since seo overwrite race pages
+# Generate HTML again since seo overwrites race pages
 run_script "generate_html"
 
-# Generate sitemaps for each country
-for country in "${COUNTRIES[@]}"; do
-    run_script "generate_sitemap" "$country"
-done
+# Generate sitemap index (all countries)
+run_script "generate_sitemap_index"
 
-log_message "${GREEN}Build process completed successfully!${NC}"
+# Generate sitemap (direct country code)
+run_script_direct "generate_sitemap"
+
+log_message "${GREEN}Build process completed successfully for country: ${COUNTRY_CODE}!${NC}"

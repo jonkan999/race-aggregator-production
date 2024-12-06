@@ -137,7 +137,7 @@
   /* Adding the right arrow */
 }
 .selected-races-button::after {
-  content: "→";
+  content: '→';
   font-size: 3rem;
   margin: 0 0 0.5rem 1%;
   transition: margin-left 0.3s;
@@ -151,4 +151,85 @@
 .selected-races-button:hover::after,
 .selected-races-button:active::after {
   margin-left: 2%;
+}
+.section-selected-races.in-grid {
+  /* Take up full width of the grid column */
+  grid-column: 1 / -1;
+  /* Ensure it doesn't overflow */
+  width: 100%;
+  /* Contain the overflow */
+  overflow: hidden;
+  padding: 0 !important;
+  margin: 0;
+  border-top: 1px solid var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
+}
+/* Handle the scrolling container */
+.section-selected-races.in-grid .race-card-big-container {
+  /* Allow horizontal scrolling */
+  overflow-x: auto;
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.section-selected-races.in-grid .race-card-big-container::-webkit-scrollbar {
+  display: none;
+}
+/* Ensure the race cards inside maintain their size */
+.section-selected-races.in-grid .race-card-big {
+  flex: 0 0 auto;
+  /* Set a specific width if needed */
+}
+.section-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: var(--color-background-light);
+  margin-bottom: 2rem;
+  color: var(--color-primary);
+}
+.section-header-container .section-header {
+  margin: 0;
+  color: var(--color-primary-dark);
+  font-size: 2rem;
+}
+.section-header-container .scroll-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+}
+@media (max-width: 34em) {
+  .section-header-container .scroll-buttons {
+    display: none;
+  }
+}
+.section-header-container .scroll-button {
+  background: white;
+  border: none;
+  border-radius: 2px;
+  width: 3.6rem;
+  height: 3.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--color-primary-dark);
+}
+.section-header-container .scroll-button ion-icon {
+  font-size: 2rem;
+}
+.section-header-container .scroll-button:hover {
+  background-color: var(--color-background-shade);
+}
+.section-header-container .scroll-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.section-header-container .scroll-button:disabled:hover {
+  background-color: white;
 }

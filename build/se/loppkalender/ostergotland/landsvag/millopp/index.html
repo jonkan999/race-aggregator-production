@@ -7,7 +7,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Ny\u00e5rsloppet \u00e4r ett perfekt s\u00e4tt att f\u00e5 r\u00f6ra p\u00e5 sig i mellandagarna. Nu \u00e4r det 42:a g\u00e5ngen Vallentuna Friidrott bjuder in till l\u00f6pning p\u00e5 ny\u00e5rsafton och loppet s", "distance": "5km, 10km", "eventStatus": "Standard", "image": "/loppsidor/nyarsloppet/nyarsloppet_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "se", "addressLocality": "Norrk\u00f6ping", "addressRegion": "\u00d6sterg\u00f6tlands"}, "name": "Norrk\u00f6ping"}, "name": "Ny\u00e5rsloppet", "sport": "L\u00f6pning, Landsv\u00e4g", "startDate": "20241231"}, "position": 1}], "numberOfItems": 1}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Ny\u00e5rsloppet \u00e4r ett perfekt s\u00e4tt att f\u00e5 r\u00f6ra p\u00e5 sig i mellandagarna. Nu \u00e4r det 42:a g\u00e5ngen Vallentuna Friidrott bjuder in till l\u00f6pning p\u00e5 ny\u00e5rsafton och loppet s", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "nyarsloppet", "image": "/loppsidor/nyarsloppet/nyarsloppet_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "se", "addressLocality": "Norrk\u00f6ping", "addressRegion": "\u00d6sterg\u00f6tlands"}, "name": "Norrk\u00f6ping"}, "name": "Ny\u00e5rsloppet", "sport": "L\u00f6pning, Landsv\u00e4g", "startDate": "20241231"}, "position": 1}], "numberOfItems": 1}
     </script>
      
 
@@ -552,25 +552,31 @@
       <li >
         
         <a href="/loppkalender">Loppkalender</a>
-        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
         
       </li>
       
       <li >
         
         <a href="/loppkalender/ostergotland">Östergötland</a>
-        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
         
       </li>
       
       <li >
         
         <a href="/loppkalender/ostergotland/landsvag">Landsväg</a>
-        <span class="separator"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
         
       </li>
       
-      <li aria-current="page">
+      <li aria-current="page" >
         
         <span>Millopp</span>
         
@@ -580,7 +586,11 @@
   </nav>
   
 
-  <h1 class="section-header section-header-race-cards race-list-title no-padding-top">Millopp på Landsväg i Östergötland - Loppkalender & Löparkalendern</h1>
+  <h1
+    class="section-header section-header-race-cards race-list-title no-padding-top"
+  >
+    Millopp på Landsväg i Östergötland - Loppkalender & Löparkalendern
+  </h1>
   <p class="race-list-paragraph seo-paragraph">Letar du efter ett millopp?  Här hittar du en lista (lopplista) över kommande millopp (löplopp) på landsväg i Östergötland.  Använd vår loppkalender eller löparkalender för att hitta din nästa löpartävling.  Vi listar ett brett urval av lopp, så oavsett om du är en erfaren löpare eller nybörjare, hittar du ett lopp som passar dig.  Sök bland olika avstånd och datum för att hitta det perfekta milloppet.  Börja planera din träning med hjälp av vår kompletta loppkalendern!</p>
 
   
@@ -589,31 +599,36 @@
     Alla
     <span id="race-cards-title-category"></span>
     lopp
-    <span id="race-cards-title-separator">i</span>
-    <span id="race-cards-title-region">Sverige</span>
+    <span id="race-cards-title-separator"
+      >i</span
+    >
+    <span id="race-cards-title-region"
+      >Sverige</span
+    >
     <span id="date-range"></span>
   </h2>
 
   <button class="toggle-button mobile" id="toggleMapButtonMobile">
     <div class="icon-container">
-      <ion-icon name="map-outline" role="img" class="md hydrated" aria-label="map outline"></ion-icon>
+      <ion-icon
+        name="map-outline"
+        role="img"
+        class="md hydrated"
+        aria-label="map outline"
+      ></ion-icon>
     </div>
     <p>Karta</p>
   </button>
 
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
-        id="race-cards-container"
-        {/*
-        prettier-ignore
-        */}
-        
-        data-preselected-filters='{"category": "Millopp", "county": "\u00d6sterg\u00f6tland", "race_type": "Landsv\u00e4g"}'
-        
-      >
-         <a
+      id="race-cards-container"
+      
+      data-preselected-filters="{&quot;category&quot;: &quot;Millopp&quot;, &quot;county&quot;: &quot;\u00d6sterg\u00f6tland&quot;, &quot;race_type&quot;: &quot;Landsv\u00e4g&quot;}"
+      
+    >
+        <a
   href="/loppsidor/nyarsloppet"
   class="race-card"
   data-name="Nyårsloppet"
@@ -704,29 +719,30 @@
   >
     <div class="more-info-button">Mer info & anmälan</div>
   </div>
-</a> 
-        <!-- Add pagination controls -->
-  <div class="pagination-info">
-    <span id="event-range">av</span> 
-    <span id="total-events">Lopp</span> 
-  </div>
-  <div class="pagination">
-    <button id="prev-page">Föregående</button>
-    <div id="page-numbers"></div>
-      <button id="next-page">Nästa</button>
-    </div>
-  </div>
+</a>     
 
-    
-    <div class="map-placeholder"   id="map-placeholder"    data-latitude="59.346972"
-    data-longitude="15.027053"
+      <!-- Add pagination controls -->
+      <div class="pagination-info">
+        <span id="event-range">av</span>
+        <span id="total-events">Lopp</span>
+      </div>
+      <div class="pagination">
+        <button id="prev-page">Föregående</button>
+        <div id="page-numbers"></div>
+        <button id="next-page">Nästa</button>
+      </div>
+    </div>
+
+    <div
+      class="map-placeholder"
+      id="map-placeholder"
+      data-latitude="59.346972"
+      data-longitude="15.027053"
       data-zoom="4"
     >
       <!-- Map will be inserted here -->
     </div>
   </div>
-
-
 </section> </main>
 
     

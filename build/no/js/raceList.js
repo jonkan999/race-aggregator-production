@@ -711,3 +711,36 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const containers = document.querySelectorAll('.race-card-big-container');
+  
+  containers.forEach(container => {
+    const prevButton = container.parentElement.querySelector('.scroll-button.prev');
+    const nextButton = container.parentElement.querySelector('.scroll-button.next');
+    
+    if (!prevButton || !nextButton) return;
+
+    const scrollAmount = container.offsetWidth * 0.8; // 80% of container width
+    
+    const updateButtons = () => {
+      prevButton.disabled = container.scrollLeft <= 0;
+      nextButton.disabled = 
+        container.scrollLeft >= container.scrollWidth - container.offsetWidth - 10; // 10px buffer
+    };
+
+    prevButton.addEventListener('click', () => {
+      container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+    
+    nextButton.addEventListener('click', () => {
+      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+    
+    container.addEventListener('scroll', updateButtons);
+    window.addEventListener('resize', updateButtons);
+    
+    // Initial state
+    updateButtons();
+  });
+});

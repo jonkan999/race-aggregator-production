@@ -1,6 +1,7 @@
 import sys
 import os
 import argparse
+import html  # Add at the top with other imports
 
 # Add the parent directory to the system path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -251,6 +252,11 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
         }
 
         # Create context for city index
+        preselected_filters = {
+            'county': city
+        }
+        encoded_filters = html.escape(json.dumps(preselected_filters))
+
         context = {
             **index_content,
             'title_race_list': seo_content['title'],
@@ -258,9 +264,7 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
             'seo_h1': seo_content['h1'],
             'seo_paragraph': seo_content['paragraph'],
             'races': city_specific_races,
-            'preselected_filters': {
-                'county': city
-            },
+            'preselected_filters': encoded_filters,  # Use encoded version
             'distance_filter': verbose_mapping,
             'navigation': navigation,
             'month_mapping': month_mapping,
@@ -378,6 +382,13 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
                 ) if filtered_races else None
             }
 
+            preselected_filters = {
+                'county': city,
+                'race_type': race_type,
+                'category': category
+            }
+            encoded_filters = html.escape(json.dumps(preselected_filters))
+
             context = {
                 **index_content,
                 'title_race_list': seo_content['title'],
@@ -385,11 +396,7 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
                 'seo_h1': seo_content['h1'],
                 'seo_paragraph': seo_content['paragraph'],
                 'races': filtered_races,
-                'preselected_filters': {
-                    'county': city,
-                    'race_type': race_type,
-                    'category': category
-                },
+                'preselected_filters': encoded_filters,  # Use encoded version
                 'distance_filter': verbose_mapping,
                 'navigation': navigation,
                 'month_mapping': month_mapping,
@@ -474,10 +481,13 @@ def generate_navigation_schema(index_content, filtered_races, current_url, count
 def generate_race_list_schema(index_content, country_code, filtered_races, race_page_folder_name, max_races=5):
     """Generate schema.org ItemList for race listing"""
     
-    # Filter out races with missing required fields
+    # Get today's date in YYYYMMDD format
+    today = datetime.now().strftime('%Y%m%d')
+    
+    # Filter out past races and races with missing required fields
     valid_races = [
         race for race in filtered_races
-        if all([
+        if race['date'] >= today and all([
             race.get('name'),
             race.get('date'),
             race.get('location'),
@@ -519,6 +529,7 @@ def generate_race_list_schema(index_content, country_code, filtered_races, race_
                     },
                     "sport": f"{index_content['running_local']}, {race['type_local']}",
                     "distance": race.get('distance_verbose', ''),
+                    "identifier": race['domain_name'],
                     "image": f"/{race_page_folder_name}/{race['domain_name']}/{race['domain_name']}_1.webp",
                     "description": race['description'][:160],
                     "eventStatus": "Premier" if race.get('supplied_ids') else "Standard"
