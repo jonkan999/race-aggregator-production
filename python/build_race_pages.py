@@ -300,7 +300,14 @@ def generate_race_pages(country_code, domain_name=None):
         race_wall_posts = fetch_race_wall_posts(country_code, race['domain_name'])
         
         # Create meta description using first 2 sentences of description
-        meta_description = f"{race['description'].split('.')[0]}. {race['description'].split('.')[1]}." if race['description'] else f"{race['name']} - {race['distance_verbose']}"
+        if race['description']:
+            sentences = race['description'].split('.')
+            if len(sentences) > 1:
+                meta_description = f"{sentences[0]}. {sentences[1]}."
+            else:
+                meta_description = race['description']  # Use the whole description if no periods
+        else:
+            meta_description = f"{race['name']} - {race['distance_verbose']}"
         
         # Prepare the context for rendering
         context = {

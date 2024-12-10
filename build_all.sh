@@ -83,6 +83,7 @@ log_message "Starting build process for country: ${COUNTRY_CODE}"
 # Scripts that process all countries
 run_script_direct "process_images"
 run_script_direct "generate_html"
+run_script_direct "build_robots_txt"
 
 # Scripts that use --country flag
 run_script_flag "build_race_pages"
