@@ -13,6 +13,12 @@ import {
   doc,
   setDoc,
 } from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js';
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
+} from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js';
 
 const messages = {
   auth: {
@@ -288,6 +294,38 @@ async function processSubmission(db, userId) {
 
   const { cleanFormData, mapCoordinates, raceImages } = getFormData();
 
+  // Upload images first if they exist
+  let imageUrls = [];
+  if (raceImages && raceImages.images.length > 0) {
+    try {
+      const storage = getStorage();
+
+      // Upload each image and get its URL
+      for (let i = 0; i < raceImages.images.length; i++) {
+        const imageData = raceImages.images[i];
+        // Convert base64 to blob
+        const imageBlob = await fetch(imageData).then((r) => r.blob());
+
+        // Create a unique filename with .webp extension
+        const filename = `races/${cleanFormData.date}_${cleanFormData.name}_${i}.webp`;
+        const storageRef = ref(storage, filename);
+
+        // Upload the WebP image
+        await uploadBytes(storageRef, imageBlob, {
+          contentType: 'image/webp', // Explicitly set the content type
+        });
+
+        // Get the download URL
+        const imageUrl = await getDownloadURL(storageRef);
+        imageUrls.push(imageUrl);
+      }
+    } catch (error) {
+      console.error('Error uploading images:', error);
+      alert('Failed to upload images. Please try again.');
+      return;
+    }
+  }
+
   const raceObject = {
     date: cleanFormData.date.replace(/-/g, ''),
     type: cleanFormData.type.toLowerCase(),
@@ -303,7 +341,8 @@ async function processSubmission(db, userId) {
     price_range: cleanFormData['price-range'],
     summary: cleanFormData.summary,
     additional: cleanFormData.additional,
-    images: raceImages ? raceImages.images : [],
+    // Store image URLs instead of the actual images
+    imageUrls: imageUrls,
     status: 'pending',
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),

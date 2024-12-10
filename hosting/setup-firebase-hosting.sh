@@ -412,6 +412,19 @@ done)
 }
 EOF
 
+# Create Firebase Storage rules
+cat > storage.rules << EOF
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /races/{imageFile} {
+      allow write: if request.auth != null;
+      allow read: if true;
+    }
+  }
+}
+EOF
+
 # Create firebase.json
 cat > firebase.json << EOF
 {
@@ -452,7 +465,10 @@ cat << HOSTING
     }$([ "$country" != "${COUNTRIES[-1]}" ] && echo ",")
 HOSTING
 done)
-  ]
+  ],
+  "storage": {
+    "rules": "storage.rules"
+  }
 }
 EOF
 
@@ -463,7 +479,6 @@ echo "1. Deploying Firestore rules..."
 firebase deploy --only firestore:rules -f
 
 echo "2. Deploying Firestore indexes..."
-# Simply deploy the indexes we created in firestore.indexes.json
 firebase deploy --only firestore:indexes || {
     echo "Some indexes may require manual creation. Check the Firebase console if you see any errors."
 }
@@ -473,5 +488,8 @@ firebase deploy --only functions -f
 
 echo "4. Deploying Hosting..."
 firebase deploy --only hosting -f
+
+echo "5. Deploying Storage rules..."
+firebase deploy --only storage -f
 
 echo "Firebase setup complete!"

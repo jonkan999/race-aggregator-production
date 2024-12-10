@@ -97,7 +97,4 @@ run_script_direct "generate_html"
 # Generate sitemap index (all countries)
 run_script_direct "generate_sitemap"
 
-# Generate sitemap (direct country code)
-run_script_direct "generate_sitemap"
-
 log_message "${GREEN}Build process completed successfully for country: ${COUNTRY_CODE}!${NC}"

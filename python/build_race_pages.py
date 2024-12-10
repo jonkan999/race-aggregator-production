@@ -299,6 +299,9 @@ def generate_race_pages(country_code, domain_name=None):
         # Fetch forum posts for this race
         race_wall_posts = fetch_race_wall_posts(country_code, race['domain_name'])
         
+        # Create meta description using first 2 sentences of description
+        meta_description = f"{race['description'].split('.')[0]}. {race['description'].split('.')[1]}." if race['description'] else f"{race['name']} - {race['distance_verbose']}"
+        
         # Prepare the context for rendering
         context = {
             **content,
@@ -309,6 +312,7 @@ def generate_race_pages(country_code, domain_name=None):
             'race_date': convert_date(race['date'], content['month_mapping_short']),
             'mapbox_zoom': content['mapbox_zoom'],
             'race_wall_posts': race_wall_posts,  # Add forum posts to context
+            'meta_description': meta_description
         }
 
         # Render the race page content

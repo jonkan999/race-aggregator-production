@@ -9,8 +9,7 @@ endblock %} {% block styles %} {{ super() }}
 {% endblock %} {% block body_scripts %} {{ super() }}
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script type="module" src="/js/measureRoute.js"></script>
-{% endblock %} {% block content %} {% include 'sections/ad-banner.html' %} {%
-include 'sections/header-menu.html' %}
+{% endblock %} {% block content %} {% include 'sections/header-menu.html' %}
 <section class="section-measure-route">
   <div class="container">
     <h1 class="heading-primary">{{ measure_route_title }}</h1>
