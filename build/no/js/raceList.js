@@ -39,9 +39,19 @@ document.addEventListener("DOMContentLoaded", function () {
   // Add this function to manage ad insertion
    function insertAds() {
     const raceCards = Array.from(document.querySelectorAll('.race-card:not(.filtered-out):not(.paginated-out):not(.ad-card)'));
+    const container = document.querySelector('.race-cards-grid');
     
-    // Remove existing ads
-    document.querySelectorAll('.ad-card').forEach(ad => ad.remove());
+    // Store existing ads and their positions
+    const existingAds = Array.from(document.querySelectorAll('.ad-card')).map(ad => {
+        const adSlots = ad.querySelectorAll('.adsbygoogle');
+        return {
+            element: ad,
+            initialized: Array.from(adSlots).some(slot => slot.dataset.adStatus === 'filled')
+        };
+    });
+
+    // Remove existing ads but keep their references
+    existingAds.forEach(({element}) => element.remove());
 
     // Match the CSS breakpoints
     const isMobile = window.innerWidth < 544;
@@ -65,40 +75,46 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (shouldInsertAd && adCount < MAX_ADS) {
-            adCount++;
-            const adElement = document.createElement('div');
-            adElement.className = 'ad-card';
-            adElement.innerHTML = `
-              <div class="ad-container">
-                <div class="desktop-wrapper">
-                  <ins class="adsbygoogle"
-                       style="display:block"
-                       data-ad-client="ca-pub-7076760775175370"
-                       data-ad-slot="1598812305"
-                       data-ad-format="auto"
-                       data-full-width-responsive="true"></ins>
-                </div>
-                <div class="mobile-wrapper">
-                  <ins class="adsbygoogle"
-                       style="display:block"
-                       data-ad-client="ca-pub-7076760775175370"
-                       data-ad-slot="9358545536"
-                       data-ad-format="auto"
-                       data-full-width-responsive="true"></ins>
-                </div>
-              </div>
-            `;
-            
-            card.before(adElement);
+            // Reuse existing ad if available, otherwise create new one
+            const existingAd = existingAds[adCount];
+            if (existingAd && existingAd.initialized) {
+                card.before(existingAd.element);
+            } else {
+                const adElement = document.createElement('div');
+                adElement.className = 'ad-card';
+                adElement.innerHTML = `
+                    <div class="ad-container">
+                        <div class="desktop-wrapper">
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-7076760775175370"
+                                 data-ad-slot="1598812305"
+                                 data-ad-format="auto"
+                                 data-full-width-responsive="true"></ins>
+                        </div>
+                        <div class="mobile-wrapper">
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-7076760775175370"
+                                 data-ad-slot="9358545536"
+                                 data-ad-format="auto"
+                                 data-full-width-responsive="true"></ins>
+                        </div>
+                    </div>
+                `;
+                
+                card.before(adElement);
 
-            // Initialize both desktop and mobile ads
-            adElement.querySelectorAll('.adsbygoogle').forEach(adSlot => {
-                try {
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                } catch (e) {
-                    console.warn('AdSense initialization error:', e);
-                }
-            });
+                // Initialize only new ads
+                adElement.querySelectorAll('.adsbygoogle').forEach(adSlot => {
+                    try {
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    } catch (e) {
+                        console.warn('AdSense initialization error:', e);
+                    }
+                });
+            }
+            adCount++;
         }
     });
   } 
