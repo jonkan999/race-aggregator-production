@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const preselectedFilters = JSON.parse(document.getElementById("race-cards-container").getAttribute("data-preselected-filters"));
 
   // Add this function to manage ad insertion
-/*   function insertAds() {
+   function insertAds() {
     const raceCards = Array.from(document.querySelectorAll('.race-card:not(.filtered-out):not(.paginated-out):not(.ad-card)'));
     
     // Remove existing ads
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (shouldInsertAd && adCount < MAX_ADS) {
             adCount++;
             const adElement = document.createElement('div');
-            adElement.className = 'race-card ad-card';
+            adElement.className = 'ad-card';
             adElement.innerHTML = `
               <div class="ad-container">
                 <div class="desktop-wrapper">
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     });
-  } */
+  } 
 
   // Function to check filters and redirect if necessary
   function checkFilters() {
@@ -362,7 +362,7 @@ document.addEventListener("DOMContentLoaded", function () {
     updatePagination();
     updateEventRange();
     updateURL(page);
-/*     insertAds(); */
+    insertAds();
   }
 
   function updatePagination() {

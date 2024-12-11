@@ -122,43 +122,13 @@ Landscape tablet (≤1200px): 62px
 Small tablet (≤704px): 54px
 Phone (≤544px): 50px
 Small phone (≤430px): 46px */
-
-.ad-card {
-  width: 100%;
-  margin: 1rem 0;
-}
-
-.ad-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.desktop-wrapper,
-.mobile-wrapper {
-  width: 100%;
-}
-
-.desktop-wrapper {
-  max-width: 728px;
-  display: none;
-}
-
-.mobile-wrapper {
-  max-width: 320px;
-  display: none;
-}
-
 /* Mobile styles */
 @media (max-width: 767px) {
   .mobile-wrapper {
     display: block;
   }
-
-  .ad-container {
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
-    width: calc(100% + 3rem);
+  .desktop-wrapper {
+    display: none;
   }
 }
 
@@ -166,5 +136,8 @@ Small phone (≤430px): 46px */
 @media (min-width: 768px) {
   .desktop-wrapper {
     display: block;
+  }
+  .mobile-wrapper {
+    display: none;
   }
 }
