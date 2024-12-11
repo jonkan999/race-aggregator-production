@@ -53,13 +53,44 @@ document.addEventListener("DOMContentLoaded", function () {
     // Remove existing ads but keep their references
     existingAds.forEach(({element}) => element.remove());
 
-    // Match the CSS breakpoints
     const isMobile = window.innerWidth < 544;
     const isTwoColumn = window.innerWidth >= 544 && window.innerWidth < 1104;
     const isThreeColumn = window.innerWidth >= 1104;
 
     let adCount = 0;
     const MAX_ADS = 5;
+    const MAX_RETRIES = 3;
+    const RETRY_DELAY = 800; // 1 second
+
+    const initializeAd = async (adElement, retryCount = 0) => {
+        const adSlots = adElement.querySelectorAll('.adsbygoogle');
+        
+        try {
+            // Initialize all ad slots in the element
+            await Promise.all(Array.from(adSlots).map(async (adSlot) => {
+                if (!adSlot.dataset.adStatus || adSlot.dataset.adStatus === 'unfilled') {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    
+                    // Wait for initialization
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                    
+                    // Check if ad is still unfilled
+                    if (retryCount < MAX_RETRIES && (!adSlot.dataset.adStatus || adSlot.dataset.adStatus === 'unfilled')) {
+                        console.log(`Retrying ad initialization (attempt ${retryCount + 1})`);
+                        await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
+                        await initializeAd(adElement, retryCount + 1);
+                    }
+                }
+            }));
+        } catch (e) {
+            console.warn('AdSense initialization error:', e);
+            if (retryCount < MAX_RETRIES) {
+                console.log(`Retrying after error (attempt ${retryCount + 1})`);
+                await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
+                await initializeAd(adElement, retryCount + 1);
+            }
+        }
+    };
 
     raceCards.forEach((card, index) => {
         let shouldInsertAd = false;
@@ -75,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (shouldInsertAd && adCount < MAX_ADS) {
-            // Reuse existing ad if available, otherwise create new one
+            // Reuse existing ad if available and filled
             const existingAd = existingAds[adCount];
             if (existingAd && existingAd.initialized) {
                 card.before(existingAd.element);
@@ -104,20 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 `;
                 
                 card.before(adElement);
-
-                // Wait for next frame to ensure layout is calculated
-                requestAnimationFrame(() => {
-                    // Initialize only new ads
-                    adElement.querySelectorAll('.adsbygoogle').forEach(adSlot => {
-                        try {
-                            if (adSlot.offsetWidth > 0) { // Only initialize if visible
-                                (adsbygoogle = window.adsbygoogle || []).push({});
-                            }
-                        } catch (e) {
-                            console.warn('AdSense initialization error:', e);
-                        }
-                    });
-                });
+                initializeAd(adElement);
             }
             adCount++;
         }
