@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const distanceMapping = {"1,5km": ["1500 meter"], "10,5km": ["Millopp", "10 km"], "100 miles": ["100 miles"], "100km": ["100 km", "50 miles"], "10km": ["10000 meter", "Millopp", "10 km"], "11km": ["Millopp", "10 km"], "20km": ["Halvmarathon"], "21,6km": ["Halvmarathon"], "22km": ["Halvmarathon"], "321,9km": ["200 miles"], "3km": ["3000 meter"], "4,3km": ["5 km"], "4,8km": ["5 km"], "40km": ["Marathon"], "44km": ["Marathon"], "45km": ["50 km"], "46,2km": ["50 km"], "46km": ["50 km"], "47km": ["50 km"], "4km": ["5 km"], "5,5km": ["5 km"], "5,6km": ["5 km"], "50 miles": ["50 miles"], "50km": ["50 km"], "5km": ["5 km", "5000 meter"], "6km": ["5 km"], "75km": ["50 miles"], "77km": ["50 miles"], "84km": ["50 miles"], "90km": ["100 km", "50 miles"], "92km": ["100 km", "50 miles"], "96km": ["100 km", "50 miles"], "9km": ["Millopp", "10 km"], "half marathon": ["Halvmarathon"], "marathon": ["Marathon"]};
+  const distanceMapping = {"1,5km": ["1500 meter"], "10,5km": ["Millopp", "10 km"], "100 miles": ["100 miles"], "100km": ["50 miles", "100 km"], "10km": ["Millopp", "10000 meter", "10 km"], "11km": ["Millopp", "10 km"], "20km": ["Halvmarathon"], "21,6km": ["Halvmarathon"], "22km": ["Halvmarathon"], "321,9km": ["200 miles"], "3km": ["3000 meter"], "4,3km": ["5 km"], "4,8km": ["5 km"], "40km": ["Marathon"], "44km": ["Marathon"], "45km": ["50 km"], "46,2km": ["50 km"], "46km": ["50 km"], "47km": ["50 km"], "4km": ["5 km"], "5,5km": ["5 km"], "5,6km": ["5 km"], "50 miles": ["50 miles"], "50km": ["50 km"], "5km": ["5000 meter", "5 km"], "6km": ["5 km"], "75km": ["50 miles"], "77km": ["50 miles"], "84km": ["50 miles"], "90km": ["50 miles", "100 km"], "92km": ["50 miles", "100 km"], "96km": ["50 miles", "100 km"], "9km": ["Millopp", "10 km"], "half marathon": ["Halvmarathon"], "marathon": ["Marathon"]};
   const raceCards = document.querySelectorAll(".race-card");
   const itemsPerPage = 20;
   let currentPage = 1;
@@ -456,38 +456,61 @@ document.addEventListener("DOMContentLoaded", function () {
     const raceType = raceTypeFilter.value;
 
     raceCards.forEach((card) => {
-      const raceDate = card.getAttribute("data-date");
-      const raceCounty = card.getAttribute("data-county");
-      const raceDistances = card.getAttribute("data-distance");
-      const raceTypeAttr = card.getAttribute("data-race-type");
+        const raceDate = card.getAttribute("data-date");
+        const raceCounty = card.getAttribute("data-county");
+        const raceDistances = card.getAttribute("data-distance");
+        const raceTypeAttr = card.getAttribute("data-race-type");
 
-      let show = true;
+        let show = true;
 
-      if (fromDate && raceDate < fromDate) show = false;
-      if (toDate && raceDate > toDate) show = false;
-      if (county && raceCounty !== county) show = false;
-      if (raceType && raceTypeAttr !== raceType) show = false;
+        if (fromDate && raceDate < fromDate) show = false;
+        if (toDate && raceDate > toDate) show = false;
+        if (county && raceCounty !== county) show = false;
 
-      // Category (distance) filtering
-      if (activeCategories.size > 0 && !activeCategories.has("all")) {
-        const distances = raceDistances ? raceDistances.split(', ') : [];
-        
-        const matchesActiveCategory = Array.from(activeCategories).some(category => 
-          distances.some(distance => 
-            distanceMapping[distance] && distanceMapping[distance].includes(category)
-          )
-        );
-
-        if (!matchesActiveCategory) {
-          show = false;
+        // Modified race type filtering to handle backyard/frontyard
+        if (raceType) {
+            // Normalize race types to lowercase simple format
+            const normalizedRaceType = raceType.toLowerCase().replace(' ultra', '');
+            const normalizedRaceTypeAttr = raceTypeAttr ? raceTypeAttr.toLowerCase().replace(' ultra', '') : '';
+            
+            const isBackyardOrFrontyard = normalizedRaceType === 'backyard' || normalizedRaceType === 'frontyard';
+            
+            if (isBackyardOrFrontyard) {
+                // Check both race-type and distances for backyard/frontyard
+                const distances = raceDistances ? raceDistances.split(', ') : [];
+                const matchesInDistances = distances.some(distance => 
+                    distance.toLowerCase().includes(normalizedRaceType)
+                );
+                
+                if (!(normalizedRaceTypeAttr === normalizedRaceType || matchesInDistances)) {
+                    show = false;
+                }
+            } else {
+                // Normal race type filtering for other types
+                if (normalizedRaceTypeAttr !== normalizedRaceType) show = false;
+            }
         }
-      }
 
-      if (show) {
-        card.classList.remove("filtered-out");
-      } else {
-        card.classList.add("filtered-out");
-      }
+        // Category (distance) filtering
+        if (activeCategories.size > 0 && !activeCategories.has("all")) {
+            const distances = raceDistances ? raceDistances.split(', ') : [];
+            
+            const matchesActiveCategory = Array.from(activeCategories).some(category => 
+                distances.some(distance => 
+                    distanceMapping[distance] && distanceMapping[distance].includes(category)
+                )
+            );
+
+            if (!matchesActiveCategory) {
+                show = false;
+            }
+        }
+
+        if (show) {
+            card.classList.remove("filtered-out");
+        } else {
+            card.classList.add("filtered-out");
+        }
     });
 
     // After applying filters

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const distanceMapping = {"1,5km": ["1500 meter"], "10,2km": ["Mill\u00f8p", "10 km"], "10,5km": ["Mill\u00f8p", "10 km"], "100 miles": ["100 miles"], "100km": ["50 miles", "100 km"], "10km": ["Mill\u00f8p", "10000 meter", "10 km"], "150km": ["100 miles"], "20km": ["Halvmaraton"], "22km": ["Halvmaraton"], "3km": ["3000 meter"], "4,1km": ["5 km"], "4,2km": ["5 km"], "4,3km": ["5 km"], "4,4km": ["5 km"], "4,5km": ["5 km"], "4,6km": ["5 km"], "400km": ["200 miles"], "45km": ["50 km"], "48km": ["50 km"], "4km": ["5 km"], "5,1km": ["5 km"], "5,2km": ["5 km"], "5,4km": ["5 km"], "5,5km": ["5 km"], "5,7km": ["5 km"], "5,8km": ["5 km"], "50 miles": ["50 miles"], "50km": ["50 km"], "52,2km": ["50 km"], "52,5km": ["50 km"], "55km": ["50 km"], "5km": ["5000 meter", "5 km"], "6km": ["5 km"], "75km": ["50 miles"], "76km": ["50 miles"], "88km": ["50 miles"], "9,5km": ["Mill\u00f8p", "10 km"], "95km": ["50 miles", "100 km"], "9km": ["Mill\u00f8p", "10 km"], "half marathon": ["Halvmaraton"], "marathon": ["Maraton"]};
+  const distanceMapping = {"1,5km": ["1500 meter"], "10,2km": ["10 km", "Mill\u00f8p"], "10,5km": ["10 km", "Mill\u00f8p"], "100 miles": ["100 miles"], "100km": ["50 miles", "100 km"], "10km": ["10 km", "Mill\u00f8p", "10000 meter"], "150km": ["100 miles"], "20km": ["Halvmaraton"], "22km": ["Halvmaraton"], "3km": ["3000 meter"], "4,1km": ["5 km"], "4,2km": ["5 km"], "4,3km": ["5 km"], "4,4km": ["5 km"], "4,5km": ["5 km"], "4,6km": ["5 km"], "400km": ["200 miles"], "45km": ["50 km"], "48km": ["50 km"], "4km": ["5 km"], "5,1km": ["5 km"], "5,2km": ["5 km"], "5,4km": ["5 km"], "5,5km": ["5 km"], "5,7km": ["5 km"], "5,8km": ["5 km"], "50 miles": ["50 miles"], "50km": ["50 km"], "52,2km": ["50 km"], "52,5km": ["50 km"], "55km": ["50 km"], "5km": ["5 km", "5000 meter"], "6km": ["5 km"], "75km": ["50 miles"], "76km": ["50 miles"], "88km": ["50 miles"], "9,5km": ["10 km", "Mill\u00f8p"], "95km": ["50 miles", "100 km"], "9km": ["10 km", "Mill\u00f8p"], "half marathon": ["Halvmaraton"], "marathon": ["Maraton"]};
   const raceCards = document.querySelectorAll(".race-card");
   const itemsPerPage = 20;
   let currentPage = 1;
@@ -456,38 +456,61 @@ document.addEventListener("DOMContentLoaded", function () {
     const raceType = raceTypeFilter.value;
 
     raceCards.forEach((card) => {
-      const raceDate = card.getAttribute("data-date");
-      const raceCounty = card.getAttribute("data-county");
-      const raceDistances = card.getAttribute("data-distance");
-      const raceTypeAttr = card.getAttribute("data-race-type");
+        const raceDate = card.getAttribute("data-date");
+        const raceCounty = card.getAttribute("data-county");
+        const raceDistances = card.getAttribute("data-distance");
+        const raceTypeAttr = card.getAttribute("data-race-type");
 
-      let show = true;
+        let show = true;
 
-      if (fromDate && raceDate < fromDate) show = false;
-      if (toDate && raceDate > toDate) show = false;
-      if (county && raceCounty !== county) show = false;
-      if (raceType && raceTypeAttr !== raceType) show = false;
+        if (fromDate && raceDate < fromDate) show = false;
+        if (toDate && raceDate > toDate) show = false;
+        if (county && raceCounty !== county) show = false;
 
-      // Category (distance) filtering
-      if (activeCategories.size > 0 && !activeCategories.has("all")) {
-        const distances = raceDistances ? raceDistances.split(', ') : [];
-        
-        const matchesActiveCategory = Array.from(activeCategories).some(category => 
-          distances.some(distance => 
-            distanceMapping[distance] && distanceMapping[distance].includes(category)
-          )
-        );
-
-        if (!matchesActiveCategory) {
-          show = false;
+        // Modified race type filtering to handle backyard/frontyard
+        if (raceType) {
+            // Normalize race types to lowercase simple format
+            const normalizedRaceType = raceType.toLowerCase().replace(' ultra', '');
+            const normalizedRaceTypeAttr = raceTypeAttr ? raceTypeAttr.toLowerCase().replace(' ultra', '') : '';
+            
+            const isBackyardOrFrontyard = normalizedRaceType === 'backyard' || normalizedRaceType === 'frontyard';
+            
+            if (isBackyardOrFrontyard) {
+                // Check both race-type and distances for backyard/frontyard
+                const distances = raceDistances ? raceDistances.split(', ') : [];
+                const matchesInDistances = distances.some(distance => 
+                    distance.toLowerCase().includes(normalizedRaceType)
+                );
+                
+                if (!(normalizedRaceTypeAttr === normalizedRaceType || matchesInDistances)) {
+                    show = false;
+                }
+            } else {
+                // Normal race type filtering for other types
+                if (normalizedRaceTypeAttr !== normalizedRaceType) show = false;
+            }
         }
-      }
 
-      if (show) {
-        card.classList.remove("filtered-out");
-      } else {
-        card.classList.add("filtered-out");
-      }
+        // Category (distance) filtering
+        if (activeCategories.size > 0 && !activeCategories.has("all")) {
+            const distances = raceDistances ? raceDistances.split(', ') : [];
+            
+            const matchesActiveCategory = Array.from(activeCategories).some(category => 
+                distances.some(distance => 
+                    distanceMapping[distance] && distanceMapping[distance].includes(category)
+                )
+            );
+
+            if (!matchesActiveCategory) {
+                show = false;
+            }
+        }
+
+        if (show) {
+            card.classList.remove("filtered-out");
+        } else {
+            card.classList.add("filtered-out");
+        }
     });
 
     // After applying filters

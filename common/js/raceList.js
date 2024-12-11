@@ -456,38 +456,61 @@ document.addEventListener("DOMContentLoaded", function () {
     const raceType = raceTypeFilter.value;
 
     raceCards.forEach((card) => {
-      const raceDate = card.getAttribute("data-date");
-      const raceCounty = card.getAttribute("data-county");
-      const raceDistances = card.getAttribute("data-distance");
-      const raceTypeAttr = card.getAttribute("data-race-type");
+        const raceDate = card.getAttribute("data-date");
+        const raceCounty = card.getAttribute("data-county");
+        const raceDistances = card.getAttribute("data-distance");
+        const raceTypeAttr = card.getAttribute("data-race-type");
 
-      let show = true;
+        let show = true;
 
-      if (fromDate && raceDate < fromDate) show = false;
-      if (toDate && raceDate > toDate) show = false;
-      if (county && raceCounty !== county) show = false;
-      if (raceType && raceTypeAttr !== raceType) show = false;
+        if (fromDate && raceDate < fromDate) show = false;
+        if (toDate && raceDate > toDate) show = false;
+        if (county && raceCounty !== county) show = false;
 
-      // Category (distance) filtering
-      if (activeCategories.size > 0 && !activeCategories.has("all")) {
-        const distances = raceDistances ? raceDistances.split(', ') : [];
-        
-        const matchesActiveCategory = Array.from(activeCategories).some(category => 
-          distances.some(distance => 
-            distanceMapping[distance] && distanceMapping[distance].includes(category)
-          )
-        );
-
-        if (!matchesActiveCategory) {
-          show = false;
+        // Modified race type filtering to handle backyard/frontyard
+        if (raceType) {
+            // Normalize race types to lowercase simple format
+            const normalizedRaceType = raceType.toLowerCase().replace(' ultra', '');
+            const normalizedRaceTypeAttr = raceTypeAttr ? raceTypeAttr.toLowerCase().replace(' ultra', '') : '';
+            
+            const isBackyardOrFrontyard = normalizedRaceType === 'backyard' || normalizedRaceType === 'frontyard';
+            
+            if (isBackyardOrFrontyard) {
+                // Check both race-type and distances for backyard/frontyard
+                const distances = raceDistances ? raceDistances.split(', ') : [];
+                const matchesInDistances = distances.some(distance => 
+                    distance.toLowerCase().includes(normalizedRaceType)
+                );
+                
+                if (!(normalizedRaceTypeAttr === normalizedRaceType || matchesInDistances)) {
+                    show = false;
+                }
+            } else {
+                // Normal race type filtering for other types
+                if (normalizedRaceTypeAttr !== normalizedRaceType) show = false;
+            }
         }
-      }
 
-      if (show) {
-        card.classList.remove("filtered-out");
-      } else {
-        card.classList.add("filtered-out");
-      }
+        // Category (distance) filtering
+        if (activeCategories.size > 0 && !activeCategories.has("all")) {
+            const distances = raceDistances ? raceDistances.split(', ') : [];
+            
+            const matchesActiveCategory = Array.from(activeCategories).some(category => 
+                distances.some(distance => 
+                    distanceMapping[distance] && distanceMapping[distance].includes(category)
+                )
+            );
+
+            if (!matchesActiveCategory) {
+                show = false;
+            }
+        }
+
+        if (show) {
+            card.classList.remove("filtered-out");
+        } else {
+            card.classList.add("filtered-out");
+        }
     });
 
     // After applying filters
