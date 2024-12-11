@@ -1,6 +1,6 @@
 .race-card-big {
   margin: 1rem;
-  padding: 0 2rem 2rem 0;
+  padding: 0 2rem 1rem 0;
   color: black;
   text-decoration: none;
 
@@ -10,8 +10,8 @@
   }
 
   .race-card-big-upper-box {
-    height: 18rem;
-    width: 35rem;
+    height: 20rem;
+    width: 40rem;
     /* Adjust as necessary */
 
     background-size: cover;
@@ -112,10 +112,55 @@
     }
   }
 
-  .race-name {
+  .race-card-bottom {
     margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    .cta-button {
+      margin-top: 0;
+      max-width: 20rem;
+    }
+    .more-info-button {
+      left: 10%;
+      width: 90%;
+    }
+  }
+
+  .race-name {
     font-size: 1.8rem;
     color: black;
-    /* Adjust color as needed */
+    margin: 0;
+    flex: 1;
+    height: 4rem;
+    max-width: 20rem;
+    text-wrap: balance;
+    display: flex;
+    align-items: center;
+  }
+
+  .to-race-page-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    color: var(--color-text);
+    background: var(--color-background-shade);
+
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      fill: currentColor;
+    }
+
+    &:hover {
+      transform: translateX(3px);
+      background: var(--color-background-shade-hover);
+    }
   }
 }

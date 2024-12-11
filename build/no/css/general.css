@@ -51,6 +51,7 @@ select:focus {
   --color-primary-overlay-hard: #e6edea;
   --color-primary-overlay-medium: rgba(230, 237, 234, 0.5);
   --color-primary-overlay-soft: rgba(230, 237, 234, 0.3);
+  --color-primary-overlay-softer: rgba(230, 237, 234, 0.2);
   --color-primary-shade-overlay: rgba(0, 26, 17, 0.15);
   --color-primary-tint-overlay: rgba(0, 102, 68, 0.15);
   --color-grey-dark-1: #333;
@@ -137,6 +138,9 @@ h2.section-header {
 .overlay.soft {
   background: var(--color-primary-overlay-soft);
 }
+.overlay.softer {
+  background: var(--color-primary-overlay-softer);
+}
 .overlay.gradient {
   background: linear-gradient(to bottom, var(--color-primary-overlay-hard), var(--color-primary-overlay-medium));
 }
@@ -171,6 +175,10 @@ h2.section-header {
   top: 0;
   left: 0;
   z-index: 0;
+}
+.background-container .selected-race-card-img {
+  filter: grayscale(0.6) contrast(120%) brightness(110%);
+  mix-blend-mode: normal;
 }
 .section-separator-top {
   border-top: 2px solid var(--color-section-separator);

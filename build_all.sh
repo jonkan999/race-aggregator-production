@@ -20,7 +20,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Define log file
-LOG_FILE="build_${COUNTRY_CODE}_$(date +%Y%m%d_%H%M%S).log"
+LOG_FILE="build_log/build_${COUNTRY_CODE}_$(date +%Y%m%d_%H%M%S).log"
 
 # Function to log messages
 log_message() {

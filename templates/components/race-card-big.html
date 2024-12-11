@@ -1,6 +1,6 @@
 <a
   href="/{{ race_page_folder_name }}/{{ race.domain_name|default('missing-domain') }}"
-  class="race-card-big"
+  class="race-card-big race-card"
   data-name="{{ race.name|default('') }}"
   data-date="{{ race.date|default('') }}"
   data-county="{{ county_mapping[race.county] if race.county else country_native }}"
@@ -14,10 +14,10 @@
         src="/{{ race_page_folder_name }}/{{ race.domain_name }}/{{ race.domain_name }}_1.webp"
         alt="{{ alt_prefix }}{{ race.name }}"
         loading="lazy"
-        class="background-img"
+        class="background-img selected-race-card-img"
       />
     </picture>
-    <div class="overlay soft"></div>
+    <div class="overlay softer"></div>
 
     <div class="race-card-content">
       <div class="race-info-top">
@@ -66,5 +66,10 @@
     </div>
   </div>
 
-  <h3 class="race-name">{{ race.name|default('Unnamed Race') }}</h3>
+  <div class="race-card-bottom">
+    <h3 class="race-name">{{ race.name|default('Unnamed Race') }}</h3>
+    <div class="cta-button">
+      <div class="more-info-button">{{ to_race_page_cta}}</div>
+    </div>
+  </div>
 </a>

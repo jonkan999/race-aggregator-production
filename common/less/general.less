@@ -71,6 +71,12 @@ select:focus {
   blue(@color-primary-overlay),
   0.3
 );
+@color-primary-overlay-softer: rgba(
+  red(@color-primary-overlay),
+  green(@color-primary-overlay),
+  blue(@color-primary-overlay),
+  0.2
+);
 
 /* Create a semi-transparent overlay color based on the primary color */
 @color-primary-shade-overlay: rgba(
@@ -102,6 +108,7 @@ select:focus {
   --color-primary-overlay-hard: @color-primary-overlay-hard;
   --color-primary-overlay-medium: @color-primary-overlay-medium;
   --color-primary-overlay-soft: @color-primary-overlay-soft;
+  --color-primary-overlay-softer: @color-primary-overlay-softer;
   --color-primary-shade-overlay: @color-primary-shade-overlay;
   --color-primary-tint-overlay: @color-primary-tint-overlay;
   --color-grey-dark-1: #333;
@@ -190,6 +197,10 @@ h2.section-header {
   &.soft {
     background: var(--color-primary-overlay-soft);
   }
+  &.softer {
+    background: var(--color-primary-overlay-softer);
+  }
+
   &.gradient {
     background: linear-gradient(
       to bottom,
@@ -234,6 +245,10 @@ h2.section-header {
     top: 0;
     left: 0;
     z-index: 0;
+  }
+  .selected-race-card-img {
+    filter: grayscale(0.6) contrast(120%) brightness(110%); // Lighter version of the filter
+    mix-blend-mode: normal;
   }
 }
 
