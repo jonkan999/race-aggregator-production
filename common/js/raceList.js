@@ -105,13 +105,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 
                 card.before(adElement);
 
-                // Initialize only new ads
-                adElement.querySelectorAll('.adsbygoogle').forEach(adSlot => {
-                    try {
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    } catch (e) {
-                        console.warn('AdSense initialization error:', e);
-                    }
+                // Wait for next frame to ensure layout is calculated
+                requestAnimationFrame(() => {
+                    // Initialize only new ads
+                    adElement.querySelectorAll('.adsbygoogle').forEach(adSlot => {
+                        try {
+                            if (adSlot.offsetWidth > 0) { // Only initialize if visible
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            }
+                        } catch (e) {
+                            console.warn('AdSense initialization error:', e);
+                        }
+                    });
                 });
             }
             adCount++;
