@@ -36,15 +36,47 @@
     margin: 0 auto;
     width: 100%;
     background-color: white;
+    margin-bottom: 2rem;
+
+    // Add styles for Google ads
+    .google-auto-placed {
+      order: 0;
+      grid-column: 1 / -1;
+    }
 
     .race-card {
       width: 100%;
+      order: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .filtered-out {
+      display: none;
+    }
+
+    // Force pagination to the end
+    .pagination-info {
+      order: 999;
+      grid-column: 1 / -1;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+    }
+
+    .pagination {
+      order: 1000;
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2rem 0 10rem 0;
     }
 
     // One column (mobile)
     .section-selected-races {
-      grid-column: 1 / -1; // Span full width
-      grid-row: 3; // Place after first two cards in single column
+      grid-column: 1 / -1;
+      grid-row: 3;
+      order: 1; // Maintain order with other race cards
     }
 
     // Two columns (tablet)
@@ -54,7 +86,7 @@
 
       .section-selected-races {
         grid-column: 1 / -1;
-        grid-row: 2; // Move to second row when in multi-column
+        grid-row: 2;
       }
     }
 
@@ -64,23 +96,9 @@
 
       .section-selected-races {
         grid-column: 1 / -1;
-        grid-row: 2; // Keep in second row
+        grid-row: 2;
       }
     }
-  }
-  .pagination-info {
-    grid-column: 1 / -1; // Span all columns
-    text-align: center;
-    margin-bottom: 1rem;
-    font-size: 1.6rem;
-  }
-
-  .pagination {
-    grid-column: 1 / -1; // Span all columns
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2rem 0 10rem 0;
   }
 
   .pagination button {

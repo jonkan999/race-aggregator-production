@@ -36,13 +36,39 @@
   margin: 0 auto;
   width: 100%;
   background-color: white;
+  margin-bottom: 2rem;
+}
+.section-race-cards .race-cards-grid .google-auto-placed {
+  order: 0;
+  grid-column: 1 / -1;
 }
 .section-race-cards .race-cards-grid .race-card {
   width: 100%;
+  order: 1;
+  transition: opacity 0.3s ease;
+}
+.section-race-cards .race-cards-grid .filtered-out {
+  display: none;
+}
+.section-race-cards .race-cards-grid .pagination-info {
+  order: 999;
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+.section-race-cards .race-cards-grid .pagination {
+  order: 1000;
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0 10rem 0;
 }
 .section-race-cards .race-cards-grid .section-selected-races {
   grid-column: 1 / -1;
   grid-row: 3;
+  order: 1;
 }
 @media (min-width: 34em) {
   .section-race-cards .race-cards-grid {
@@ -62,19 +88,6 @@
     grid-column: 1 / -1;
     grid-row: 2;
   }
-}
-.section-race-cards .pagination-info {
-  grid-column: 1 / -1;
-  text-align: center;
-  margin-bottom: 1rem;
-  font-size: 1.6rem;
-}
-.section-race-cards .pagination {
-  grid-column: 1 / -1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 2rem 0 10rem 0;
 }
 .section-race-cards .pagination button {
   margin: 0 5px 5px 5px;
