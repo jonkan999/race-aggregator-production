@@ -455,6 +455,23 @@ document.addEventListener("DOMContentLoaded", function () {
     const county = countyFilter.value;
     const raceType = raceTypeFilter.value;
 
+    // First, get all elements in their current order (including ads)
+    const allElements = Array.from(document.querySelectorAll('.race-card, .google-auto-placed'));
+    
+    // Create a map to store the original positions of ads relative to visible races
+    const adPositions = new Map();
+    let visibleRaceCount = 0;
+    
+    allElements.forEach((element, index) => {
+        if (element.classList.contains('google-auto-placed')) {
+            adPositions.set(element, visibleRaceCount);
+        } else if (!element.classList.contains('filtered-out')) {
+            visibleRaceCount++;
+        }
+    });
+
+    // Apply filters to race cards
+    const raceCards = allElements.filter(el => !el.classList.contains('google-auto-placed'));
     raceCards.forEach((card) => {
         const raceDate = card.getAttribute("data-date");
         const raceCounty = card.getAttribute("data-county");
@@ -513,11 +530,27 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // After applying filters
+    // Reposition ads based on remaining visible races
+    let newVisibleCount = 0;
+    const container = document.querySelector('.race-cards-grid');
+    
+    allElements.forEach((element) => {
+        if (!element.classList.contains('filtered-out') && !element.classList.contains('google-auto-placed')) {
+            newVisibleCount++;
+        }
+        
+        if (element.classList.contains('google-auto-placed')) {
+            const originalPosition = adPositions.get(element);
+            if (newVisibleCount < originalPosition) {
+                // Move ad to the end if there aren't enough visible races
+                container.appendChild(element);
+            }
+        }
+    });
+
+    // Rest of your existing code...
     currentPage = 1;
     showPage(currentPage);
-/*     insertAds(); */
-
     updateRaceCardsTitle();
   }
 
