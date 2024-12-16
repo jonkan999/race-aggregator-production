@@ -265,6 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
           this.classList.add("active");
         }
       }
+      switchToDynamicHeader();
       applyFilters();
       if (preselectedFilters) checkFilters();
     });
@@ -563,16 +564,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Add event listeners to filters
   dateFrom.addEventListener("change", function() {
+    switchToDynamicHeader();
     applyFilters();
   });
   dateTo.addEventListener("change", function() {
+    switchToDynamicHeader();
     applyFilters();
   });
   countyFilter.addEventListener("change", function() {
+    switchToDynamicHeader();
     applyFilters();
     if (preselectedFilters) checkFilters(); // Check filters after applying
   });
   raceTypeFilter.addEventListener("change", function() {
+    switchToDynamicHeader();
     applyFilters();
     if (preselectedFilters) checkFilters(); // Check filters after applying
   });
@@ -761,6 +766,20 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   }
+
+  function switchToDynamicHeader() {
+    const staticHeader = document.querySelector('.static-header');
+    const dynamicHeader = document.querySelector('.dynamic-header');
+    const staticDescription = document.querySelector('.static-description');
+    
+    if (staticHeader && dynamicHeader) {
+      staticHeader.style.display = 'none';
+      dynamicHeader.style.display = 'block';
+    }
+    if (staticDescription) {
+      staticDescription.style.display = 'none';
+    }
+  }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -795,3 +814,4 @@ document.addEventListener('DOMContentLoaded', function() {
     updateButtons();
   });
 });
+

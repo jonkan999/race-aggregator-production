@@ -537,7 +537,13 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  <h1 class="section-header section-header-race-cards">
+  <!-- Static SEO-friendly version (initially visible) -->
+  <h1 id="race-cards-title" class="section-header section-header-race-cards static-header">
+    Sveriges mest kompletta lista på maraton, halvmaraton, millopp och andra löpartävlingar 2024-2025
+  </h1>
+  
+  <!-- Dynamic version (initially hidden) -->
+  <h1 id="race-cards-title-dynamic" class="section-header section-header-race-cards dynamic-header" style="display: none;">
     Alla
     <span id="race-cards-title-category"></span>
     lopp
@@ -546,6 +552,10 @@
     <span id="date-range"></span>
   </h1>
 
+  <!-- Add a descriptive paragraph for additional SEO value -->
+  <p class="section-description static-description">
+    Här hittar du alla löpartävlingar och lopp i Sverige ✔️Största löparkalendern ✔️Trail, Backyard, eller Maraton ✔️Lopp från hela Sverige
+  </p>
 
   <button class="toggle-button mobile" id="toggleMapButtonMobile">
     <div class="icon-container">

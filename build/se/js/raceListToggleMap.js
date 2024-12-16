@@ -3,7 +3,11 @@ const toggleButtonMobile = document.getElementById('toggleMapButtonMobile');
 const raceCardsSection = document.querySelector('.race-cards-grid');
 const mapSection = document.querySelector('.map-placeholder');
 const pagination = document.querySelector('.pagination');
-const headerRaceCards = document.querySelector('.section-header-race-cards');
+const headerRaceCards = document.getElementById('race-cards-title');
+const headerRaceCardsDynamic = document.getElementById(
+  'race-cards-title-dynamic'
+);
+const pDescription = document.querySelector('.static-description');
 
 // Set an initial state
 let isMapClose = true;
@@ -17,6 +21,8 @@ toggleButtonMobile.addEventListener('click', function () {
     raceCardsSection.style.display = 'none';
     mapSection.style.display = 'block';
     headerRaceCards.style.display = 'none';
+    headerRaceCardsDynamic.style.display = 'none';
+    pDescription.style.display = 'none';
     //mapSection.style.position = 'fixed';
     pagination.style.display = 'none';
     /* mapSection.style.zIndex = "1"; */
@@ -48,7 +54,7 @@ toggleButtonMobile.addEventListener('click', function () {
     raceCardsSection.style.display = 'block';
     mapSection.style.display = 'none';
     pagination.style.display = 'flex';
-    headerRaceCards.style.display = 'block';
+    headerRaceCardsDynamic.style.display = 'block';
     /* mapSection.style.zIndex = "-1"; */
     toggleButtonMobile.innerHTML = `
       <div class="icon-container">
