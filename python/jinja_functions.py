@@ -132,4 +132,30 @@ def get_years(dummy_input):
     else:
         return f"{current_date.year}-{future_date.year}"
 
+def get_selected_races(races):
+    """
+
+    ONLY SELECTS STATIC LIST THAT HAVE SUPPLIED IDS. IN FUTURE WE WILL NEED TO ADD A DYNAMIC LIST THAT ALSO HAVE SUPPLIED IDS.
+    ON
+
+    Filter and sort races that have supplied_ids
+    
+    Args:
+        races: List of all race objects
+        country_code: Country code to filter races (default: 'se')
+    
+    Returns:
+        List of selected race objects sorted by date
+    """
+    # Filter races that have non-empty supplied_ids
+    selected_races = [
+        race for race in races 
+        if race.get('supplied_ids') and len(race.get('supplied_ids', [])) > 0
+    ]
+    
+    # Sort by date (assuming date is in format YYYYMMDD)
+    selected_races.sort(key=lambda x: x.get('date', '99999999'))
+    
+    return selected_races
+
 

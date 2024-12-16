@@ -8,7 +8,7 @@ import subprocess
 from pathlib import Path
 
 # Import the custom timeago function from jinja_functions.py
-from jinja_functions import timeago, convert_date, slugify, get_display_values, map_verbose_distance, get_years
+from jinja_functions import timeago, convert_date, slugify, get_display_values, map_verbose_distance, get_years, get_selected_races
 
 # Paths
 template_dir = 'templates'
@@ -33,8 +33,10 @@ env.filters['convert_date'] = convert_date
 env.filters['slugify'] = slugify
 env.filters['get_display_values'] = get_display_values
 env.filters['get_years'] = get_years
-# Add custom filters to the Jinja2 environment
 env.filters['map_verbose_distance'] = map_verbose_distance
+
+# Add global functions
+env.globals['get_selected_races'] = get_selected_races
 
 # Load global YAML content (used across all countries)
 with open(global_data_file) as f:

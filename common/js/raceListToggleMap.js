@@ -34,6 +34,7 @@ toggleButtonMobile.addEventListener('click', function () {
     `;
     toggleButtonMobile.style.bottom = '2.5rem';
 
+    toggleButtonMobile.classList.add('active');
     //reset filter style on map open
     if (isMobile) {
       //reset filter style on map open
@@ -63,6 +64,7 @@ toggleButtonMobile.addEventListener('click', function () {
       <p>{{map_toggle_mobile}}</p>
     `;
     toggleButtonMobile.style.bottom = '6.5rem';
+    toggleButtonMobile.classList.remove('active');
     isMapClose = true;
   }
 });

@@ -771,8 +771,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const staticHeader = document.querySelector('.static-header');
     const dynamicHeader = document.querySelector('.dynamic-header');
     const staticDescription = document.querySelector('.static-description');
-    
-    if (staticHeader && dynamicHeader) {
+    const isMapActive = document.querySelector('.toggle-button.mobile.active');
+    console.log('isMapActive', isMapActive);
+    if (staticHeader && dynamicHeader && !isMapActive) {
+      console.log('switching to dynamic header');
       staticHeader.style.display = 'none';
       dynamicHeader.style.display = 'block';
     }
