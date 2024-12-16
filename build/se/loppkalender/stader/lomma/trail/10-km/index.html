@@ -1,22 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+     
+    <script type="application/ld+json">
+      {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender", "@type": "WebPage", "name": "Loppkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender/stader", "@type": "WebPage", "name": "St\u00e4der"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender/stader/lomma", "@type": "WebPage", "name": "Lomma"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender/stader/lomma/trail", "@type": "WebPage", "name": "Trail"}, "position": 4}, {"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender/stader/lomma/trail/10-km", "@type": "WebPage", "name": "10 km"}, "position": 5}]}, "visual": [{"href": "/loppkalender", "name": "Loppkalender"}, {"href": "/loppkalender/stader/lomma", "name": "St\u00e4der: Lomma"}, {"href": "/loppkalender/stader/lomma/trail", "name": "Trail"}, {"href": "/loppkalender/stader/lomma/trail/10-km", "name": "10 km"}]}
+    </script>
+        
+    <script type="application/ld+json">
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "\u00d6sterlen Spring Trail startades 2015 och kan beskrivas som ett motionslopp d\u00e4r naturen, gemenskapen och upplevelsen \u00e4r i fokus, medan prestationen och tiden \u00e4r ", "distance": "22km, 30km, 60km", "eventStatus": "Standard", "identifier": "osterlen_spring_trail", "image": "/loppsidor/osterlen_spring_trail/osterlen_spring_trail_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "se", "addressLocality": "Andrarum", "addressRegion": "Sk\u00e5ne"}, "name": "Andrarum"}, "name": "\u00d6sterlen Spring Trail", "sport": "L\u00f6pning, Trail", "startDate": "20250412"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Billingen X-trail \u00e4r en kr\u00e4vande bana som erbjuder b\u00e5de 5 km och 12 km distanser p\u00e5 Berget Billingen i Sk\u00f6vde. 5 km-banan \u00e4r perfekt f\u00f6r dig som vill b\u00f6rja med ", "distance": "5km, 12km, 35km", "eventStatus": "Standard", "identifier": "billingen_xtrail_challenge", "image": "/loppsidor/billingen_xtrail_challenge/billingen_xtrail_challenge_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "se", "addressLocality": "Toppen av Billingens slalombacke", "addressRegion": "Sk\u00e5ne"}, "name": "Toppen av Billingens slalombacke"}, "name": "Billingen Xtrail Challenge", "sport": "L\u00f6pning, Trail", "startDate": "20250510"}, "position": 2}], "numberOfItems": 2}
+    </script>
+     
+
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>10 km Trail-lopp i Lomma - Loppkalender & Löpartävlingar</title>
-    <meta name="description" content="Hitta 10 km Trail-lopp i Lomma. Utforska vår loppkalender med löpartävlingar i Lomma och hitta ditt nästa löplopp." />
-    <link rel="icon" href="/common_images/logo100px.jpg" />
+
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
+    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
+    <link rel="preconnect" href="https://adservice.google.com" />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://adservice.google.com" />
+
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
     <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
@@ -29,54 +49,21 @@
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
     />
-
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMap.js"></script>
-  </head>
-  <body>
-    <!-- Page content -->
-    <main> <section class="ad-banner">
-  <div class="ad-banner-controls">
-    <button class="minimize-button" aria-label="Minimize ad">
-      <ion-icon name="chevron-down-outline"></ion-icon>
-    </button>
-  </div>
-
-  <div class="ad-content">
-    <!-- Default content shown while ad loads -->
-    <div class="ad-placeholder">
-      <div class="ad-placeholder-content">
-        <span class="ad-placeholder-text">Annons</span>
-        <div class="ad-placeholder-fallback">
-          <!-- Add a test image or text for local development -->
-          <div class="test-ad-content">Test Ad Banner - Local Development</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- AdSense ad -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <ins
-      class="adsbygoogle"
-      style="display: block"
-      data-ad-client="ca-pub-7076760775175370"
-      data-ad-slot="2240363608"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    ></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-</section> <section class="section-header-menu">
+    <script type="module" src="/js/commonFunctions.js"></script>
+    <script src="/js/raceList.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+    <script defer="" src="/js/raceListToggleButton.js"></script>
+    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+  </head>
+  <body>
+    <!-- Page content -->
+    <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -418,6 +405,10 @@
       100 miles
     </button>
     
+    <button class="category-button" data-category="200 miles">
+      200 miles
+    </button>
+    
     <button class="category-button" data-category="50 km">
       50 km
     </button>
@@ -452,10 +443,6 @@
     <div class="filter-county">
       <select id="county" name="county">
         <option value="">Alla län</option>
-        
-        <option value="Lomma">
-          Lomma
-        </option>
          
         <option value="Stockholm">Stockholm</option>
         
@@ -558,47 +545,98 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
+  
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      
+      <li >
+        
+        <a href="/loppkalender">Loppkalender</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/loppkalender/stader/lomma">Städer: Lomma</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/loppkalender/stader/lomma/trail">Trail</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        
+      </li>
+      
+      <li aria-current="page" >
+        
+        <span>10 km</span>
+        
+      </li>
+      
+    </ol>
+  </nav>
+  
 
-  <h1 class="section-header section-header-race-cards race-list-title">10 km Trail-lopp i Lomma - Loppkalender & Löpartävlingar</h1>
-  <p class="race-list-paragraph">Letar du efter ett 10 km Trail-lopp i Lomma? Utforska vår loppkalender och hitta ditt nästa löplopp. Vi listar löpartävlingar i Lomma, inklusive Trail-lopp, så att du kan hitta den perfekta utmaningen.  Använd våra filter för att hitta lopp som passar dina behov, till exempel kategori (10 km), race type (Trail) och location (Lomma).  Sök bland våra lopplistor och hitta ditt nästa äventyr!</p>
+  <h1
+    class="section-header section-header-race-cards race-list-title no-padding-top"
+  >
+    10 km Trail-lopp i Lomma - Loppkalender & Löpartävlingar
+  </h1>
+  <p class="race-list-paragraph seo-paragraph">Letar du efter ett 10 km Trail-lopp i Lomma? Utforska vår loppkalender och hitta ditt nästa löplopp. Vi listar löpartävlingar i Lomma, inklusive Trail-lopp, så att du kan hitta den perfekta utmaningen.  Använd våra filter för att hitta lopp som passar dina behov, till exempel kategori (10 km), race type (Trail) och location (Lomma).  Sök bland våra lopplistor och hitta ditt nästa äventyr!</p>
+
+  
 
   <h2 class="section-header">
     Alla
     <span id="race-cards-title-category"></span>
     lopp
-    <span id="race-cards-title-separator">i</span>
-    <span id="race-cards-title-region">Sverige</span>
+    <span id="race-cards-title-separator"
+      >i</span
+    >
+    <span id="race-cards-title-region"
+      >Sverige</span
+    >
     <span id="date-range"></span>
   </h2>
 
   <button class="toggle-button mobile" id="toggleMapButtonMobile">
     <div class="icon-container">
-      <ion-icon name="map-outline" role="img" class="md hydrated" aria-label="map outline"></ion-icon>
+      <ion-icon
+        name="map-outline"
+        role="img"
+        class="md hydrated"
+        aria-label="map outline"
+      ></ion-icon>
     </div>
     <p>Karta</p>
   </button>
 
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
-        id="race-cards-container"
-        {/*
-        prettier-ignore
-        */}
-        
-        data-preselected-filters='{"category": "10 km", "city": "Lomma", "county": "Lomma", "race_type": "Trail"}'
-        
-      >
-         <a
-  href="/loppsidor/osterlen_spring_trail/index.html"
+      id="race-cards-container"
+      
+      data-preselected-filters="{&quot;county&quot;: &quot;Lomma&quot;, &quot;race_type&quot;: &quot;Trail&quot;, &quot;category&quot;: &quot;10 km&quot;}"
+      
+    >
+        <a
+  href="/loppsidor/osterlen_spring_trail"
   class="race-card"
   data-name="Österlen Spring Trail"
   data-date="20250412"
-  data-county="Lomma"
+  data-county="Skåne"
   data-category=""
   data-race-type="Trail"
-  data-distance="2km, 5km, 14km, half marathon, 22km, 30km, 60km, trail"
+  data-distance="22km, 30km, 60km"
   data-latitude="55.7067466"
   data-longitude="13.9596983"
 >
@@ -650,32 +688,22 @@
               
             <div class="distance-item">
               <span class="race-distance">
-                2 km
+                22 km
               </span>
             </div>
             
             <div class="distance-item">
               <span class="race-distance">
-                5 km
+                30 km
               </span>
             </div>
             
             <div class="distance-item">
               <span class="race-distance">
-                14 km
+                60 km
               </span>
             </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Halvmarathon
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
+              
           </div>
         </div>
         
@@ -689,7 +717,7 @@
       </div>
     </div>
     <div class="race-summary">
-      Österlen Spring Trail är en fantastisk möjlighet att upptäcka de vackra stigarna i Österlen. Loppet erbjuder en unik upplevelse av natur och...
+      Österlen Spring Trail startades 2015 och kan beskrivas som ett motionslopp där naturen, gemenskapen och upplevelsen är i fokus, medan presta...
     </div>
   </div>
   <div
@@ -698,11 +726,11 @@
     <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>  <a
-  href="/loppsidor/billingen_xtrail_challenge/index.html"
+  href="/loppsidor/billingen_xtrail_challenge"
   class="race-card"
   data-name="Billingen Xtrail Challenge"
   data-date="20250510"
-  data-county="Lomma"
+  data-county="Skåne"
   data-category=""
   data-race-type="Trail"
   data-distance="5km, 12km, 35km"
@@ -794,29 +822,30 @@
   >
     <div class="more-info-button">Mer info & anmälan</div>
   </div>
-</a> 
-        <!-- Add pagination controls -->
-  <div class="pagination-info">
-    <span id="event-range">av</span> 
-    <span id="total-events">Lopp</span> 
-  </div>
-  <div class="pagination">
-    <button id="prev-page">Föregående</button>
-    <div id="page-numbers"></div>
-      <button id="next-page">Nästa</button>
-    </div>
-  </div>
+</a>     
 
-    
-    <div class="map-placeholder"   id="map-placeholder"    data-latitude="59.346972"
-    data-longitude="15.027053"
+      <!-- Add pagination controls -->
+      <div class="pagination-info">
+        <span id="event-range">av</span>
+        <span id="total-events">Lopp</span>
+      </div>
+      <div class="pagination">
+        <button id="prev-page">Föregående</button>
+        <div id="page-numbers"></div>
+        <button id="next-page">Nästa</button>
+      </div>
+    </div>
+
+    <div
+      class="map-placeholder"
+      id="map-placeholder"
+      data-latitude="59.346972"
+      data-longitude="15.027053"
       data-zoom="4"
     >
       <!-- Map will be inserted here -->
     </div>
   </div>
-
-
 </section> </main>
 
     

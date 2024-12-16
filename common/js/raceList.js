@@ -191,10 +191,9 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("Preselected filters were changed, redirecting...");
       
       // Construct the redirect URL
-      const redirectUrl = `/{{ navigation['race-list'].lower() }}/?category=${encodeURIComponent(currentFilters.category)}&county=${encodeURIComponent(currentFilters.county)}&race_type=${encodeURIComponent(currentFilters.race_type)}`;
+      const redirectUrl = `/{{ navigation['race-list'] | slugify(country_code) }}/?category=${encodeURIComponent(currentFilters.category)}&county=${encodeURIComponent(currentFilters.county)}&race_type=${encodeURIComponent(currentFilters.race_type)}`;
       
       console.log(redirectUrl); // Log the redirect URL for debugging
-      window.location.href = redirectUrl; // Uncomment to enable redirect
     }
   }
 
@@ -632,6 +631,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+  // Add map initialization class if map=true
+  if (urlParams.get('map') === 'true') {
+    const mapButton = document.getElementById('toggleMapButtonMobile');
+    if (mapButton) {
+      mapButton.click();
+    }
+  }
+
 
   // Apply filters after setting initial values from URL
   applyFilters();

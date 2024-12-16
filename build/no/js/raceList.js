@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const distanceMapping = {"1,5km": ["1500 meter"], "10,2km": ["10 km", "Mill\u00f8p"], "10,5km": ["10 km", "Mill\u00f8p"], "100 miles": ["100 miles"], "100km": ["100 km", "50 miles"], "10km": ["10000 meter", "10 km", "Mill\u00f8p"], "11km": ["10 km", "Mill\u00f8p"], "150km": ["100 miles"], "20km": ["Halvmaraton"], "22km": ["Halvmaraton"], "3km": ["3000 meter"], "4,1km": ["5 km"], "4,2km": ["5 km"], "4,3km": ["5 km"], "4,4km": ["5 km"], "4,5km": ["5 km"], "4,6km": ["5 km"], "400km": ["200 miles"], "45km": ["50 km"], "48km": ["50 km"], "4km": ["5 km"], "5,1km": ["5 km"], "5,2km": ["5 km"], "5,4km": ["5 km"], "5,5km": ["5 km"], "5,7km": ["5 km"], "5,8km": ["5 km"], "50 miles": ["50 miles"], "50km": ["50 km"], "52,2km": ["50 km"], "52,5km": ["50 km"], "55km": ["50 km"], "5km": ["5 km", "5000 meter"], "6km": ["5 km"], "75km": ["50 miles"], "76km": ["50 miles"], "88km": ["50 miles"], "9,5km": ["10 km", "Mill\u00f8p"], "95km": ["100 km", "50 miles"], "9km": ["10 km", "Mill\u00f8p"], "half marathon": ["Halvmaraton"], "marathon": ["Maraton"]};
+  const distanceMapping = {"1,5km": ["1500 meter"], "10,2km": ["Mill\u00f8p", "10 km"], "10,3km": ["Mill\u00f8p", "10 km"], "100 miles": ["100 miles"], "100km": ["100 km", "50 miles"], "10km": ["Mill\u00f8p", "10 km", "10000 meter"], "11km": ["Mill\u00f8p", "10 km"], "150km": ["100 miles"], "20km": ["Halvmaraton"], "22km": ["Halvmaraton"], "3km": ["3000 meter"], "4,1km": ["5 km"], "4,2km": ["5 km"], "4,3km": ["5 km"], "4,4km": ["5 km"], "4,5km": ["5 km"], "4,6km": ["5 km"], "400km": ["200 miles"], "43,4km": ["Maraton"], "45km": ["50 km"], "48km": ["50 km"], "4km": ["5 km"], "5,1km": ["5 km"], "5,4km": ["5 km"], "5,5km": ["5 km"], "5,7km": ["5 km"], "5,8km": ["5 km"], "50 miles": ["50 miles"], "50km": ["50 km"], "52,2km": ["50 km"], "52,5km": ["50 km"], "55km": ["50 km"], "5km": ["5 km", "5000 meter"], "6km": ["5 km"], "75km": ["50 miles"], "76km": ["50 miles"], "88km": ["50 miles"], "9,5km": ["Mill\u00f8p", "10 km"], "95km": ["100 km", "50 miles"], "9km": ["Mill\u00f8p", "10 km"], "half marathon": ["Halvmaraton"], "marathon": ["Maraton"]};
   const raceCards = document.querySelectorAll(".race-card");
   const itemsPerPage = 20;
   let currentPage = 1;
@@ -194,7 +194,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const redirectUrl = `/terminliste/?category=${encodeURIComponent(currentFilters.category)}&county=${encodeURIComponent(currentFilters.county)}&race_type=${encodeURIComponent(currentFilters.race_type)}`;
       
       console.log(redirectUrl); // Log the redirect URL for debugging
-      window.location.href = redirectUrl; // Uncomment to enable redirect
     }
   }
 
@@ -632,6 +631,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+  // Add map initialization class if map=true
+  if (urlParams.get('map') === 'true') {
+    const mapButton = document.getElementById('toggleMapButtonMobile');
+    if (mapButton) {
+      mapButton.click();
+    }
+  }
+
 
   // Apply filters after setting initial values from URL
   applyFilters();

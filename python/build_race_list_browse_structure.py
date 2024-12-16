@@ -78,7 +78,7 @@ def build_browse_structure(races, verbose_mapping, index_content):
     """Build the hierarchical structure for browse pages"""
     race_list_name = index_content['race_list_name']
     country_code = index_content['country_code']
-    MIN_RACES_THRESHOLD = 2  # Define minimum races threshold
+    MIN_RACES_THRESHOLD = 1  # Define minimum races threshold
 
     # Initialize counters for types and categories
     type_counts = defaultdict(int)
