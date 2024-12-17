@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Add these new elements
   const raceTitleCategory = document.getElementById("race-cards-title-category");
   const raceTitleRegion = document.getElementById("race-cards-title-region");
-  const defaultRegionText = "Ruotsi";
+  const defaultRegionText = "Suomi";
   const defaultCountyText = "Kaikki läänit";
 
   const categoryMapping = {"10 km": {"range": [9, 11]}, "100 km": {"range": [90, 110]}, "100 miles": {"range": [150, 170]}, "10000 meter": {"range": [10, 10]}, "1500 meter": {"range": [1.5, 1.5]}, "200 miles": {"range": [300, 500]}, "3000 meter": {"range": [3, 3]}, "5 km": {"range": [4, 6]}, "50 km": {"range": [45, 55]}, "50 miles": {"range": [75, 100]}, "5000 meter": {"range": [5, 5]}, "Backyard Ultra": "backyard", "Halvmarathon": {"range": [20, 22]}, "Marathon": {"range": [40, 44]}};
