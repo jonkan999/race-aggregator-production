@@ -61,7 +61,9 @@ def slugify(input_string,country_code):
     if country_code == 'no': 
         # Replace å, ä, and ö with a, a, and o
         input_string = input_string.replace('å', 'a').replace('æ', 'a').replace('ø', 'o')
-
+    if country_code == 'fi': 
+        # Replace å, ä, and ö with a, a, and o
+        input_string = input_string.replace('å', 'a').replace('ä', 'a').replace('ö', 'o')
     # Normalize the string to remove diacritics (accents)
     input_string = unicodedata.normalize('NFKD', input_string)
     input_string = "".join(c for c in input_string if not unicodedata.combining(c))
@@ -136,7 +138,7 @@ def get_selected_races(races):
     """
 
     ONLY SELECTS STATIC LIST THAT HAVE SUPPLIED IDS. IN FUTURE WE WILL NEED TO ADD A DYNAMIC LIST THAT ALSO HAVE SUPPLIED IDS.
-    ON
+    MAYBE ONE LIST PER COUNTY AND THEN WE PICK THE LIST BASED ON WHICH COUNTY THE USER IS ON, AND A DEFAULT FALLBACK. WE SHOULD HAVE MORE THAN 5 RACES IN EACH LIST. AND THEN FILTER OUT TOP 5 ON THE CLIENT SIDE AND ALSO APPLY FILTERS TO THIS LIST.
 
     Filter and sort races that have supplied_ids
     

@@ -20,7 +20,7 @@ exports.getApiKeys = onRequest({
   secrets: ["MAPBOX_API_KEY","FIREBASE_API_KEY"] 
 }, (request, response) => {
   try {
-    const allowedOrigins = ['http://127.0.0.1:8080', 'https://aggregatory-running-dashboard.web.app', 'https://loppkartan-dev.web.app', 'https://loppkartan-dev.firebaseapp.com', 'https://loppkartan-se.web.app', 'https://loppkartan-se.firebaseapp.com', 'https://loppkartan.se', 'https://www.loppkartan.se', 'https://lopskalender-dev.web.app', 'https://lopskalender-dev.firebaseapp.com', 'https://lopskalender-com.web.app', 'https://lopskalender-com.firebaseapp.com', 'https://lopskalender.com', 'https://www.lopskalender.com'];
+    const allowedOrigins = ['http://127.0.0.1:8080', 'https://aggregatory-running-dashboard.web.app', 'https://loppkartan-dev.web.app', 'https://loppkartan-dev.firebaseapp.com', 'https://loppkartan-se.web.app', 'https://loppkartan-se.firebaseapp.com', 'https://loppkartan.se', 'https://www.loppkartan.se', 'https://lopskalender-dev.web.app', 'https://lopskalender-dev.firebaseapp.com', 'https://lopskalender-com.web.app', 'https://lopskalender-com.firebaseapp.com', 'https://lopskalender.com', 'https://www.lopskalender.com', 'https://juoksen-dev.web.app', 'https://juoksen-dev.firebaseapp.com', 'https://juoksen-fi.web.app', 'https://juoksen-fi.firebaseapp.com', 'https://juoksen.fi', 'https://www.juoksen.fi'];
     if (corsHandler(request, response, allowedOrigins)) return;
 
     response.set('Cache-Control', 'no-store');

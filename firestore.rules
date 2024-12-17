@@ -57,5 +57,26 @@ service cloud.firestore {
       allow read: if true;  // Public dashboard can read
       allow write: if false; // Only Cloud Run job can write (using service account)
     }
+    match /pageViews_fi/{docId} {
+      allow write: if true;
+    }
+    match /submissions_fi/{raceId} {
+      allow read: if true;
+      allow write: if true;
+    }
+    match /race_wall_posts_fi/{postId} {
+      // Anyone can read posts
+      allow read: if true;
+      allow write: if true;
+    }
+    match /forum_posts_fi/{postId} {
+      // Anyone can read posts
+      allow read: if true;
+      allow write: if true;
+    }
+    match /processed_analytics/{document} {
+      allow read: if true;  // Public dashboard can read
+      allow write: if false; // Only Cloud Run job can write (using service account)
+    }
   }
 }

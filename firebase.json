@@ -55,6 +55,30 @@
           "destination": "/index.html"
         }
       ]
+    },
+    {
+      "target": "fidev",
+      "public": "build/fi",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    },
+    {
+      "target": "fiprod",
+      "public": "build/fi",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
     }
   ],
   "storage": {
