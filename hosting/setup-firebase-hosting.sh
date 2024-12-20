@@ -17,7 +17,14 @@ if [[ "$ENVIRONMENT" != "dev" && "$ENVIRONMENT" != "prod" ]]; then
 fi
 
 # At the start of the script, define the countries array
-COUNTRIES=(se no fi)
+COUNTRIES=('se' 'no' 'fi' 'dk')
+
+# Create build directories for each country
+echo "Creating build directories..."
+for country in "${COUNTRIES[@]}"; do
+    mkdir -p "build/${country}"
+done
+
 
 # At the start of your script, after the environment validation
 # Add authentication check/setup

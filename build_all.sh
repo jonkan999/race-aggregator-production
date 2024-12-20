@@ -58,7 +58,7 @@ run_script_flag() {
     local script="$1"
     local args="${2:-}"  # Optional arguments
     
-    log_message "${BLUE}Starting: ${script}${NC}"
+    log_message "${BLUE}Starting: ${script}${NC} with ${args}"
     
     if [ -n "$args" ]; then
         if python3 "python/${script}.py" --country "$COUNTRY_CODE" $args >> "$LOG_FILE" 2>&1; then
@@ -81,6 +81,7 @@ run_script_flag() {
 log_message "Starting build process for country: ${COUNTRY_CODE}"
 
 # Scripts that process all countries
+run_script_flag "build_race_pages" --filter
 run_script_direct "process_images"
 run_script_direct "generate_html"
 run_script_direct "build_robots_txt"

@@ -64,6 +64,9 @@ def slugify(input_string,country_code):
     if country_code == 'fi': 
         # Replace å, ä, and ö with a, a, and o
         input_string = input_string.replace('å', 'a').replace('ä', 'a').replace('ö', 'o')
+    if country_code == 'dk': 
+        # Replace å, ä, and ö with a, a, and o
+        input_string = input_string.replace('å', 'a').replace('æ', 'a').replace('ø', 'o')
     # Normalize the string to remove diacritics (accents)
     input_string = unicodedata.normalize('NFKD', input_string)
     input_string = "".join(c for c in input_string if not unicodedata.combining(c))

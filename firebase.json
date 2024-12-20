@@ -79,6 +79,30 @@
           "destination": "/index.html"
         }
       ]
+    },
+    {
+      "target": "dkdev",
+      "public": "build/dk",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    },
+    {
+      "target": "dkprod",
+      "public": "build/dk",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
     }
   ],
   "storage": {

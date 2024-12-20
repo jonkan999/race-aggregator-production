@@ -43,7 +43,7 @@ print(base_url)
 }
 
 # Define the countries array
-COUNTRIES=(se no fi)
+COUNTRIES=('se' 'no' 'fi' 'dk')
 
 # Build allowed origins array
 allowed_origins="["

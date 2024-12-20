@@ -78,7 +78,7 @@ def process_country_images(country_code):
 if __name__ == "__main__":
 
     # List of countries to process
-    countries = ['se', 'no', 'de', 'fi']
+    countries = ['se', 'no', 'de', 'fi', 'dk']
     
     for country in countries:
         process_country_images(country)

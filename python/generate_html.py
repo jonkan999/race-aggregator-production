@@ -235,7 +235,7 @@ if __name__ == "__main__":
     compile_less_to_css()
 
     # List of countries to generate
-    countries = ['se', 'no', 'fi']
+    countries = ['se', 'no', 'fi', 'dk']
     
     for country in countries:
         generate_country(country)
