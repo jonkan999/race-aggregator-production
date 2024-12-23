@@ -43,7 +43,7 @@ const translations = {
   },
 };
 
-const countryCodeLanguageCode = 'sv';
+const countryCodeLanguageCode = 'de';
 let trainingPlans = null;
 
 // Core Functions
