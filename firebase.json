@@ -103,6 +103,30 @@
           "destination": "/index.html"
         }
       ]
+    },
+    {
+      "target": "dedev",
+      "public": "build/de",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    },
+    {
+      "target": "deprod",
+      "public": "build/de",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
     }
   ],
   "storage": {

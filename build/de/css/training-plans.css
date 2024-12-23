@@ -1,0 +1,326 @@
+.section-race-estimator,
+.section-training-plans {
+  padding: 6.4rem 0;
+  padding-top: calc(var(--header-size) + 4rem) !important;
+  margin-bottom: 16.4rem;
+}
+.section-race-estimator h1,
+.section-training-plans h1 {
+  padding: 0 2rem;
+  font-size: 2.5rem;
+}
+.section-race-estimator .container,
+.section-training-plans .container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+.section-race-estimator .description,
+.section-training-plans .description {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  padding: 2rem;
+}
+.section-race-estimator .calculator-container,
+.section-training-plans .calculator-container {
+  margin: 0 auto;
+  background-color: white;
+  padding: 3.2rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-divider-grey);
+}
+.section-race-estimator .calculator-container .calculator-form,
+.section-training-plans .calculator-container .calculator-form {
+  max-width: 64rem;
+}
+.section-race-estimator .form-group,
+.section-training-plans .form-group {
+  margin-bottom: 2.4rem;
+}
+.section-race-estimator label,
+.section-training-plans label {
+  display: block;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.section-race-estimator .form-select,
+.section-training-plans .form-select {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.6rem;
+  border: 0.1rem solid var(--color-divider-grey);
+  border-radius: 0.4rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.section-race-estimator .form-select:focus,
+.section-training-plans .form-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.2rem rgba(52, 188, 140, 0.25);
+}
+.section-race-estimator .time-inputs,
+.section-training-plans .time-inputs {
+  display: flex;
+  gap: 1.6rem;
+}
+.section-race-estimator .time-input,
+.section-training-plans .time-input {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.section-race-estimator .form-input,
+.section-training-plans .form-input {
+  width: 8rem;
+  padding: 1.2rem;
+  font-size: 1.6rem;
+  border: 0.1rem solid var(--color-divider-grey);
+  border-radius: 0.4rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.section-race-estimator .form-input:focus,
+.section-training-plans .form-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.2rem rgba(52, 188, 140, 0.25);
+}
+.section-race-estimator .unit,
+.section-training-plans .unit {
+  font-size: 1.6rem;
+  color: var(--color-grey-dark-2);
+}
+.section-race-estimator .checkbox-wrapper,
+.section-training-plans .checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.section-race-estimator .checkbox-wrapper .form-checkbox,
+.section-training-plans .checkbox-wrapper .form-checkbox {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+.section-race-estimator .checkbox-wrapper label,
+.section-training-plans .checkbox-wrapper label {
+  cursor: pointer;
+  font-size: 1.6rem;
+  margin-bottom: 0;
+  font-weight: normal;
+}
+.section-race-estimator .btn,
+.section-training-plans .btn {
+  display: block;
+  width: 100%;
+  margin-top: 3.2rem;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 1.2rem 2.4rem;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.section-race-estimator .btn:hover,
+.section-training-plans .btn:hover {
+  background: var(--color-primary-tint);
+}
+.section-race-estimator .btn:active,
+.section-training-plans .btn:active {
+  transform: translateY(0.1rem);
+}
+.section-race-estimator .results-container,
+.section-training-plans .results-container {
+  margin-top: 4.8rem;
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 2rem 0;
+}
+.section-race-estimator .results-container.hidden,
+.section-training-plans .results-container.hidden {
+  display: none;
+}
+.section-race-estimator .heading-secondary,
+.section-training-plans .heading-secondary {
+  font-size: 2rem;
+  margin-bottom: 2.4rem;
+  color: var(--color-primary);
+}
+.section-race-estimator .results-table,
+.section-training-plans .results-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.section-race-estimator .results-table th,
+.section-race-estimator .results-table td,
+.section-training-plans .results-table th,
+.section-training-plans .results-table td {
+  padding: 1.2rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-divider-grey);
+  font-size: 1.6rem;
+}
+.section-race-estimator .results-table th,
+.section-training-plans .results-table th {
+  font-weight: 600;
+  background-color: var(--color-background-light);
+  color: var(--color-primary-easiest-shade);
+}
+.section-race-estimator .results-table tr:hover,
+.section-training-plans .results-table tr:hover {
+  background-color: var(--color-background-shade);
+}
+@media (max-width: 75em) {
+  .section-race-estimator,
+  .section-training-plans {
+    padding: 1rem;
+  }
+  .section-race-estimator .container,
+  .section-training-plans .container {
+    padding: 0 1.5rem;
+  }
+  .section-race-estimator .time-inputs,
+  .section-training-plans .time-inputs {
+    flex-wrap: wrap;
+  }
+}
+.section-training-plans .plan-overview {
+  background: white;
+  padding: 3rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 2.4rem 0;
+}
+.section-training-plans .plan-overview h3 {
+  font-size: 2.4rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+}
+.section-training-plans .plan-overview .plan-focus,
+.section-training-plans .plan-overview .plan-description {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+.section-training-plans .plan-overview .plan-highlights {
+  margin: 2rem 0;
+}
+.section-training-plans .plan-overview .plan-highlights ul {
+  padding-left: 2rem;
+}
+.section-training-plans .plan-overview .plan-highlights ul li {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+.section-training-plans .plan-overview .plan-structure,
+.section-training-plans .plan-overview .plan-distribution {
+  margin-top: 1.5rem;
+}
+.section-training-plans .plan-overview .plan-structure strong,
+.section-training-plans .plan-overview .plan-distribution strong {
+  color: var(--color-grey-dark-2);
+}
+.section-training-plans #training-schedule {
+  margin-top: 3rem;
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+.section-training-plans #training-schedule .week-container {
+  background: white;
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+}
+.section-training-plans #training-schedule .week-container .week-header {
+  margin-bottom: 2.5rem;
+}
+.section-training-plans #training-schedule .week-container .week-header h4 {
+  font-size: 2.2rem;
+  color: var(--color-primary);
+  margin-bottom: 0.8rem;
+}
+.section-training-plans #training-schedule .week-container .week-header .week-focus {
+  color: var(--color-grey-dark-2);
+  font-style: italic;
+}
+.section-training-plans #training-schedule .week-container .sessions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.section-training-plans #training-schedule .week-container .sessions-container .session {
+  background: var(--color-background-light);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  transition: transform 0.2s ease;
+}
+.section-training-plans #training-schedule .week-container .sessions-container .session:hover {
+  transform: translateX(4px);
+}
+.section-training-plans #training-schedule .week-container .sessions-container .session .session-header {
+  margin-bottom: 1.2rem;
+  font-size: 1.8rem;
+}
+.section-training-plans #training-schedule .week-container .sessions-container .session .session-header strong {
+  color: var(--color-primary);
+  margin-right: 0.5rem;
+}
+.section-training-plans #training-schedule .week-container .sessions-container .session .session-details p {
+  margin-bottom: 1.5rem;
+  color: var(--color-grey-dark-2);
+}
+.section-training-plans #training-schedule .week-container .sessions-container .session .session-details .workout-specs {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.section-training-plans #training-schedule .week-container .sessions-container .session .session-details .workout-specs li strong {
+  color: var(--color-grey-dark-2);
+  margin-right: 0.5rem;
+}
+.section-training-plans .plan-actions {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+.section-training-plans .plan-actions .btn {
+  margin-top: 2rem;
+  min-width: 15rem;
+}
+@media (max-width: 75em) {
+  .section-training-plans .plan-overview {
+    padding: 2rem;
+  }
+  .section-training-plans #training-schedule .week-container {
+    padding: 2rem;
+  }
+  .section-training-plans #training-schedule .week-container .sessions-container .session {
+    padding: 1.5rem;
+  }
+  .section-training-plans #training-schedule .week-container .sessions-container .session .session-details .workout-specs {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .section-training-plans .plan-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+@media (max-width: 75em) {
+  .section-training-plans .plan-overview h3 {
+    font-size: 2rem;
+  }
+  .section-training-plans #training-schedule .week-container .week-header h4 {
+    font-size: 1.8rem;
+  }
+  .section-training-plans #training-schedule .week-container .session .session-header {
+    font-size: 1.6rem;
+  }
+}
