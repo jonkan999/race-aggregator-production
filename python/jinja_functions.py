@@ -41,13 +41,14 @@ def convert_date(date_str, month_mapping_short):
 
 def slugify(input_string,country_code):
     """
-    Converts a Swedish string to a slugified version:
+    Converts a string to a slugified version:
     - Converts to lowercase
     - Replaces special characters and spaces with "-"
-    - Converts å, ä, and ö to a, a, and o
+    - Handles special characters for different countries
     
     Parameters:
     - input_string (str): The string to be converted.
+    - country_code (str): Country code to determine which replacements to use.
 
     Returns:
     - str: The slugified string.
@@ -59,17 +60,47 @@ def slugify(input_string,country_code):
         # Replace å, ä, and ö with a, a, and o
         input_string = input_string.replace('å', 'a').replace('ä', 'a').replace('ö', 'o')
     if country_code == 'no': 
-        # Replace å, ä, and ö with a, a, and o
+        # Replace å, æ, and ø with a, a, and o
         input_string = input_string.replace('å', 'a').replace('æ', 'a').replace('ø', 'o')
     if country_code == 'fi': 
         # Replace å, ä, and ö with a, a, and o
         input_string = input_string.replace('å', 'a').replace('ä', 'a').replace('ö', 'o')
     if country_code == 'dk': 
-        # Replace å, ä, and ö with a, a, and o
+        # Replace å, æ, and ø with a, a, and o
         input_string = input_string.replace('å', 'a').replace('æ', 'a').replace('ø', 'o')
     if country_code == 'de': 
         # Replace all german special characters
         input_string = input_string.replace('ä', 'ae').replace('ö', 'oe').replace('ü', 'ue').replace('ß', 'ss')
+    if country_code == 'nl' or country_code == 'be': 
+        # Handle Dutch special characters
+        dutch_replacements = {
+            # Common vowels with diacritics
+            'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e',
+            'ï': 'i', 'í': 'i', 'ì': 'i', 'î': 'i',
+            'ö': 'o', 'ó': 'o', 'ò': 'o', 'ô': 'o',
+            'ü': 'u', 'ú': 'u', 'ù': 'u', 'û': 'u',
+            'ä': 'a', 'á': 'a', 'à': 'a', 'â': 'a',
+            
+            # Additional Dutch characters
+            'ĳ': 'ij',  # Dutch digraph
+            'Ĳ': 'ij',  # Uppercase Dutch digraph
+            'ÿ': 'y',   # Sometimes used in borrowed words
+            'ñ': 'n',   # Used in borrowed words
+            'ç': 'c',   # Used in borrowed words
+            
+            # Capital letters (for completeness)
+            'É': 'e', 'È': 'e', 'Ê': 'e', 'Ë': 'e',
+            'Ï': 'i', 'Í': 'i', 'Ì': 'i', 'Î': 'i',
+            'Ö': 'o', 'Ó': 'o', 'Ò': 'o', 'Ô': 'o',
+            'Ü': 'u', 'Ú': 'u', 'Ù': 'u', 'Û': 'u',
+            'Ä': 'a', 'Á': 'a', 'À': 'a', 'Â': 'a',
+            'Ÿ': 'y',
+            'Ñ': 'n',
+            'Ç': 'c'
+        }
+        for old, new in dutch_replacements.items():
+            input_string = input_string.replace(old, new)
+
     # Normalize the string to remove diacritics (accents)
     input_string = unicodedata.normalize('NFKD', input_string)
     input_string = "".join(c for c in input_string if not unicodedata.combining(c))

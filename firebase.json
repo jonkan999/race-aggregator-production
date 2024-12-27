@@ -127,6 +127,30 @@
           "destination": "/index.html"
         }
       ]
+    },
+    {
+      "target": "nldev",
+      "public": "build/nl",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    },
+    {
+      "target": "nlprod",
+      "public": "build/nl",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
     }
   ],
   "storage": {

@@ -17,7 +17,7 @@ if [[ "$ENVIRONMENT" != "dev" && "$ENVIRONMENT" != "prod" ]]; then
 fi
 
 # At the start of the script, define the countries array
-COUNTRIES=('se' 'no' 'fi' 'dk' 'de')
+COUNTRIES=('se' 'no' 'fi' 'dk' 'de' 'nl')
 
 # Create build directories for each country
 echo "Creating build directories..."

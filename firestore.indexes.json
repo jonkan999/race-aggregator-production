@@ -84,6 +84,23 @@
         { "fieldPath": "createdAt", "mode": "ASCENDING" },
         { "fieldPath": "__name__", "mode": "DESCENDING" }
       ]
+    },
+    {
+      "collectionGroup": "race_wall_posts_nl",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "source_race", "mode": "ASCENDING" },
+        { "fieldPath": "createdAt", "mode": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "race_wall_posts_nl",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "source_race", "mode": "ASCENDING" },
+        { "fieldPath": "createdAt", "mode": "ASCENDING" },
+        { "fieldPath": "__name__", "mode": "DESCENDING" }
+      ]
     }
   ],
   "fieldOverrides": [
@@ -194,6 +211,27 @@
     },
     {
       "collectionGroup": "race_wall_posts_de",
+      "fieldPath": "createdAt",
+      "indexes": [
+        { "order": "DESCENDING", "queryScope": "COLLECTION" }
+      ]
+    },
+    {
+      "collectionGroup": "submissions_nl",
+      "fieldPath": "date",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION" }
+      ]
+    },
+    {
+      "collectionGroup": "pageViews_nl",
+      "fieldPath": "date",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION" }
+      ]
+    },
+    {
+      "collectionGroup": "race_wall_posts_nl",
       "fieldPath": "createdAt",
       "indexes": [
         { "order": "DESCENDING", "queryScope": "COLLECTION" }
