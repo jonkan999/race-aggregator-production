@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Alles over hardlopen in België</title>
+    <meta
+      name="description"
+      content="Hardlooplijst | Meest uitgebreide hardloopcommunity in België"
+    />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/hero.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <link rel="stylesheet" href="/css/selected-forum-posts.css" />
+    <link rel="stylesheet" href="/css/selected-forum-post-card.css" />
+    <link rel="stylesheet" href="/css/about-contact.css" />
+     
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    
+  </head>
+  <body>
+    <!-- Page content -->
+    <main> <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Hardlooplijst</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Inloggen
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Alles</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/hardloopkalender"
+      ><span class="nav-item">Hardloopkalender</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/voeg-race-toe"
+      ><span class="nav-item">Voeg race toe</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/forum"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/meet-je-ronde"
+      ><span class="nav-item">Meet je ronde</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/trainingsprogramma"
+      ><span class="nav-item">Trainingsprogramma</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/snelheidsomzetter"
+      ><span class="nav-item">Snelheidsomzetter</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/schat-je-eindtijd-in"
+      ><span class="nav-item">Schat je eindtijd in</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/over-ons"
+      ><span class="nav-item">Over ons</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/neem-contact-met-ons-op"
+      ><span class="nav-item">Neem contact met ons op</span></a
+    >
+    
+    
+    
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Inloggen</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Je e-mail"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Wachtwoord"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Vergeten wachtwoord?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Maak in plaats daarvan een account aan
+            </a>
+          </div>
+          <button type="submit">Inloggen</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Maak account aan
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Vergeten wachtwoord?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Maak account</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Je naam"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Je e-mail"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Wachtwoord"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Maak account aan</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Terug naar inloggen
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Wachtwoord opnieuw instellen</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Je e-mail"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Verstuur herstel link</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Terug naar inloggen
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Je bent al ingelogd als</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Ga verder als deze gebruiker
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Uitloggen en wissel gebruiker
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto aangemaakt!</h2>
+        <div class="logged-in-user-info">
+          <p>Je bent nu ingelogd als</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            Een verificatielink is naar je e-mail gestuurd
+          </p>
+          <p class="verification-notice">Gelieve je e-mailadres te verifiëren</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Ga verder als deze gebruiker
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section> <section class="section section-hero background-container">
+  <div class="overlay gradient"></div>
+  <!-- cycle through 4 inspirational hero pictures one marathon one trail and one "fun run" hero1 hero2 hero3 -->
+  <picture>
+    <source
+      srcset="/images/hero_xlarge.webp"
+      media="(min-width: 1920px)"
+    />
+    <source
+      srcset="/images/hero_large.webp"
+      media="(min-width: 1200px)"
+    />
+    <source
+      srcset="/images/hero_medium.webp"
+      media="(min-width: 800px)"
+    />
+    <source
+      srcset="/images/hero_small.webp"
+      media="(max-width: 417px)"
+    />
+    <img src="/images/hero_xlarge.webp" alt="Hero Image" class="background-img" />
+  </picture>
+
+  <div class="hero-content">
+    <div class="title-container">
+      <h1 class="native-title">Alles over hardlopen in
+      <span class="native-country new-amsterdam">België</span></h1>
+    </div>
+    <ul class="bullet-list">
+      <li>
+        <a href="/hardloopkalender" class="full-link"> 
+          <ion-icon name="search-outline" role="img"></ion-icon>
+          Vind je volgende loopwedstrijd
+
+        </a>
+      </li>
+      <li>
+        <a href="/voeg-race-toe" class="full-link">
+          - Of voeg dit hier toe
+
+        </a>
+      </li>
+      <li>
+        <a href="/forum" class="full-link">
+          <ion-icon name="chatbox-ellipses-outline" role="img"></ion-icon>  
+          Lees het laatste of praat erover in ons forum
+
+        </a>
+      </li>
+    </ul>
+  </div>
+<!--     <button onclick="location.href='/race-list'">Vind Wedstrijden</button>
+    <button onclick="location.href='/add-races'">Voeg een Wedstrijd Toe</button> -->
+  </div>
+</section> <section class="section section-selected-races">
+  <h2 class="section-header">Geselecteerde Races</h2>
+  <div class="race-card-big-container right-scroller">
+     <a
+  href="/looppaginas/sylvesterjogging_wielsbeke"
+  class="race-card-big race-card"
+  data-name="Sylvesterjogging Wielsbeke"
+  data-date="20241229"
+  data-county="Tielt"
+  data-category=""
+  data-race-type="Wegwedstrijd"
+  data-distance="5km, 6,7km, 10km, 15km, 16,2km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="/looppaginas/sylvesterjogging_wielsbeke/sylvesterjogging_wielsbeke_1.webp"
+        alt="Afbeelding naarSylvesterjogging Wielsbeke"
+        loading="lazy"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          29 dec.
+        </div>
+        <div class="race-location">
+          Tielt
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Wegwedstrijd
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                6,7 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                15 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                16,2 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Sylvesterjogging Wielsbeke</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Naar de racepagina</div>
+    </div>
+  </div>
+</a>
+     <a
+  href="/looppaginas/trail_night_tilff"
+  class="race-card-big race-card"
+  data-name="Trail Night Tilff"
+  data-date="20241230"
+  data-county="Luik"
+  data-category=""
+  data-race-type="Trail"
+  data-distance="10km, 19km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="/looppaginas/trail_night_tilff/trail_night_tilff_1.webp"
+        alt="Afbeelding naarTrail Night Tilff"
+        loading="lazy"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          30 dec.
+        </div>
+        <div class="race-location">
+          Luik
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                19 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Trail Night Tilff</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Naar de racepagina</div>
+    </div>
+  </div>
+</a>
+     <a
+  href="/looppaginas/sylvesterloop_geluwe"
+  class="race-card-big race-card"
+  data-name="Sylvesterloop Geluwe"
+  data-date="20241231"
+  data-county="Ieper"
+  data-category=""
+  data-race-type="Wegwedstrijd"
+  data-distance="3,5km, 6km, 7km, 8km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="/looppaginas/sylvesterloop_geluwe/sylvesterloop_geluwe_1.webp"
+        alt="Afbeelding naarSylvesterloop Geluwe"
+        loading="lazy"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          31 dec.
+        </div>
+        <div class="race-location">
+          Ieper
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Wegwedstrijd
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                3,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                6 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                7 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                8 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Sylvesterloop Geluwe</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Naar de racepagina</div>
+    </div>
+  </div>
+</a>
+     <a
+  href="/looppaginas/ferme_toer_trail"
+  class="race-card-big race-card"
+  data-name="Ferme Toer Trail"
+  data-date="20250101"
+  data-county="Leuven"
+  data-category=""
+  data-race-type="Trail"
+  data-distance="9km, 11km, 20km, 33km, 50km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="/looppaginas/ferme_toer_trail/ferme_toer_trail_1.webp"
+        alt="Afbeelding naarFerme Toer Trail"
+        loading="lazy"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          1 jan.
+        </div>
+        <div class="race-location">
+          Leuven
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                9 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                11 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                20 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                33 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                50 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Ferme Toer Trail</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Naar de racepagina</div>
+    </div>
+  </div>
+</a>
+     <a
+  href="/looppaginas/trail_des_serres_rois"
+  class="race-card-big race-card"
+  data-name="Trail Des Serres &amp; Rois"
+  data-date="20250101"
+  data-county="Aat"
+  data-category=""
+  data-race-type="Trail"
+  data-distance="13km, 24km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="/looppaginas/trail_des_serres_rois/trail_des_serres_rois_1.webp"
+        alt="Afbeelding naarTrail Des Serres &amp; Rois"
+        loading="lazy"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          1 jan.
+        </div>
+        <div class="race-location">
+          Aat
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                13 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                24 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Trail Des Serres &amp; Rois</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Naar de racepagina</div>
+    </div>
+  </div>
+</a>
+     <a
+  href="/looppaginas/tnt_by_day"
+  class="race-card-big race-card"
+  data-name="TNT by Day"
+  data-date="20250104"
+  data-county="Virton"
+  data-category=""
+  data-race-type="Trail"
+  data-distance="8km, 14km, 20km, 32km, marathon"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="/looppaginas/tnt_by_day/tnt_by_day_1.webp"
+        alt="Afbeelding naarTNT by Day"
+        loading="lazy"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          4 jan.
+        </div>
+        <div class="race-location">
+          Virton
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                8 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                14 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                20 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                32 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Marathon
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">TNT by Day</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Naar de racepagina</div>
+    </div>
+  </div>
+</a>
+     <a
+  href="/looppaginas/trail_de_la_belle_dame"
+  class="race-card-big race-card"
+  data-name="Trail de la Belle Dame"
+  data-date="20250104"
+  data-county="Luik"
+  data-category=""
+  data-race-type="Trail"
+  data-distance="5km, 11km, 17,6km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="/looppaginas/trail_de_la_belle_dame/trail_de_la_belle_dame_1.webp"
+        alt="Afbeelding naarTrail de la Belle Dame"
+        loading="lazy"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          4 jan.
+        </div>
+        <div class="race-location">
+          Luik
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                11 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                17,6 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Trail de la Belle Dame</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Naar de racepagina</div>
+    </div>
+  </div>
+</a>
+     <a
+  href="/looppaginas/nieuwjaarscorrida_walo"
+  class="race-card-big race-card"
+  data-name="Nieuwjaarscorrida WALO"
+  data-date="20250105"
+  data-county="Oudenaarde"
+  data-category=""
+  data-race-type="Wegwedstrijd"
+  data-distance="5km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="/looppaginas/nieuwjaarscorrida_walo/nieuwjaarscorrida_walo_1.webp"
+        alt="Afbeelding naarNieuwjaarscorrida WALO"
+        loading="lazy"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          5 jan.
+        </div>
+        <div class="race-location">
+          Oudenaarde
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Wegwedstrijd
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Nieuwjaarscorrida WALO</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Naar de racepagina</div>
+    </div>
+  </div>
+</a>
+     <a
+  href="/looppaginas/appelbollenloop"
+  class="race-card-big race-card"
+  data-name="Appelbollenloop"
+  data-date="20250105"
+  data-county="Antwerpen"
+  data-category=""
+  data-race-type="Wegwedstrijd"
+  data-distance="2km, 5km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="/looppaginas/appelbollenloop/appelbollenloop_1.webp"
+        alt="Afbeelding naarAppelbollenloop"
+        loading="lazy"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          5 jan.
+        </div>
+        <div class="race-location">
+          Antwerpen
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Wegwedstrijd
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                2 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Appelbollenloop</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Naar de racepagina</div>
+    </div>
+  </div>
+</a>
+     <a
+  href="/looppaginas/ultra_tour_ardennen"
+  class="race-card-big race-card"
+  data-name="Ultra Tour Ardennen"
+  data-date="20250110"
+  data-county="Oudenaarde"
+  data-category=""
+  data-race-type="Trail"
+  data-distance="88km, 138km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="/looppaginas/ultra_tour_ardennen/ultra_tour_ardennen_1.webp"
+        alt="Afbeelding naarUltra Tour Ardennen"
+        loading="lazy"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          10 jan.
+        </div>
+        <div class="race-location">
+          Oudenaarde
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                88 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                138 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Ultra Tour Ardennen</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Naar de racepagina</div>
+    </div>
+  </div>
+</a>
+    
+  </div>
+  <div class="selected-races-button-container">
+    <!-- eslint-disable-next-line -->
+    <button class="selected-races-button" id="selected-races-button">
+      Toon alle races
+    </button>
+    <script>
+      // JavaScript logic to handle the button click
+      document.getElementById('selected-races-button').onclick = function () {
+        location.href =
+          '/hardloopkalender';
+      };
+    </script>
+  </div>
+</section> <section class="section section-selected-forum-posts">
+  <h2 class="section-header">Forum</h2>
+  <div class="selected-forum-posts-container">
+     <a href="/forum/skador/c2d708ad-4f40-4024-9dd3-057891e81408/" class="forum-post-card">
+  <div class="forum-post-upper-box">
+    <div class="forum-post-content">
+      <div class="forum-info-top">
+        <div class="icon-category-container">
+          <div class="forum-post-icon">
+            <ion-icon name="chatbubbles-outline"></ion-icon>
+          </div>
+          <div class="forum-author">/TrainingsTips</div>
+        </div>
+        <div class="forum-time">• 2024-08-25</div>
+      </div>
+
+      <div class="forum-info-middle">Zoals de titel zegt, is mijn hiel begonnen te pijn doen tijdens het hardlopen. Tips voor revalidatieoefeningen?</div>
+    </div>
+  </div>
+
+  <div class="forum-comments">
+    2 Reacties
+  </div>
+</a>  <a href="/forum/resor/ba58801a-004f-4cd4-9746-b3505ad792d7/" class="forum-post-card">
+  <div class="forum-post-upper-box">
+    <div class="forum-post-content">
+      <div class="forum-info-top">
+        <div class="icon-category-container">
+          <div class="forum-post-icon">
+            <ion-icon name="chatbubbles-outline"></ion-icon>
+          </div>
+          <div class="forum-author">/Reizen en toerisme</div>
+        </div>
+        <div class="forum-time">• 2024-08-26</div>
+      </div>
+
+      <div class="forum-info-middle">Ik plan een hardloop-/wandeling naar Zweden en zou graag uw aanbevelingen horen voor de beste routes. Ik neem graag tips vanuit heel Zweden.</div>
+    </div>
+  </div>
+
+  <div class="forum-comments">
+    2 Reacties
+  </div>
+</a> 
+  </div>
+  <div class="selected-races-button-container">
+    <button class="selected-races-button" id="forum-button">
+      Bekijk Alle Berichten
+    </button>
+    <script>
+      // JavaScript logic to handle the button click
+      document.getElementById('forum-button').onclick = function () {
+        location.href = '/forum';
+      };
+    </script>
+  </div>
+</section> </main>
+
+     
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="/js/index.js"></script>
+    
+  </body>
+</html>

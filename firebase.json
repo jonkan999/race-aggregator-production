@@ -151,6 +151,30 @@
           "destination": "/index.html"
         }
       ]
+    },
+    {
+      "target": "bedev",
+      "public": "build/be",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    },
+    {
+      "target": "beprod",
+      "public": "build/be",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
     }
   ],
   "storage": {
