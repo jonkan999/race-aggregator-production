@@ -43,7 +43,7 @@ const translations = {
   },
 };
 
-const countryCodeLanguageCode = '';
+const countryCodeLanguageCode = 'nl';
 let trainingPlans = null;
 
 // Core Functions
