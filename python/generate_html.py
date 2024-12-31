@@ -139,7 +139,7 @@ def generate_country(country_code):
     content['sizes'] = config['responsive_image_widths']
 
     # Combine navigation and auxiliary pages
-    for page in ['index','race-list','add-race', 'race-page-preview', 'measure-route', 'pace-calculator','racetime-estimator', 'about-us', 'contact', 'training-plans']:
+    for page in ['index','race-list','add-race', 'race-page-preview', 'measure-route', 'pace-calculator','racetime-estimator', 'about-us', 'contact', 'training-plans', 'privacy']:
         # Render the index page template for the country
         page_template = env.get_template(f'{page.replace("-", "_")}.html') 
         page_html = page_template.render(content)
@@ -147,16 +147,22 @@ def generate_country(country_code):
         # Output directory for the specific country
         country_output_dir = os.path.join(output_dir, country_code)
         os.makedirs(country_output_dir, exist_ok=True)
-        if page != 'index':
+        if page != 'index' and page != 'privacy':
            all_pages = {**content['navigation'], **content['auxiliary_pages']}
            local_page_name = slugify(all_pages[page], country_code)
            local_page_dir = os.path.join(country_output_dir, local_page_name)
            os.makedirs(local_page_dir, exist_ok=True)
            with open(Path(country_output_dir, f'{local_page_name}/index.html'),  'w', encoding='utf-8') as f:
                f.write(page_html) 
-        else:
+        elif page == 'index':
            local_page_name = 'index'
            with open(Path(country_output_dir, f'index.html'),  'w', encoding='utf-8') as f:
+               f.write(page_html) 
+        if page == 'privacy':
+           local_page_name = 'privacy'
+           privacy_dir = os.path.join(country_output_dir, 'privacy')
+           os.makedirs(privacy_dir, exist_ok=True)
+           with open(Path(privacy_dir, 'index.html'),  'w', encoding='utf-8') as f:
                f.write(page_html) 
 
 
