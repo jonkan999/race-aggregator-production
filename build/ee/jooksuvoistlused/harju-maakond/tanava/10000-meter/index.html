@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="et">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://jooksma.ee/jooksuvoistlused", "@type": "WebPage", "name": "Jooksuv\u00f5istlused"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://jooksma.ee/jooksuvoistlused/harju-maakond", "@type": "WebPage", "name": "Harju maakond"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://jooksma.ee/jooksuvoistlused/harju-maakond/tanava", "@type": "WebPage", "name": "T\u00e4nava"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://jooksma.ee/jooksuvoistlused/harju-maakond/tanava/10000-meter", "@type": "WebPage", "name": "10000 meter"}, "position": 4}]}, "visual": [{"href": "/jooksuvoistlused", "name": "Jooksuv\u00f5istlused"}, {"href": "/jooksuvoistlused/harju-maakond", "name": "Harju maakond"}, {"href": "/jooksuvoistlused/harju-maakond/tanava", "name": "T\u00e4nava"}, {"href": "/jooksuvoistlused/harju-maakond/tanava/10000-meter", "name": "10000 meter"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>10 000 meetri tänavavõistlused Harju maakonnas: Leia oma järgmine jooksuvõistlus!</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Alates:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Kuni:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -568,7 +632,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Kõik
     <span id="race-cards-title-category"></span>
     lõpp
@@ -581,18 +645,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kaart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -601,7 +653,9 @@
       data-preselected-filters="{&quot;category&quot;: &quot;10000 meter&quot;, &quot;county&quot;: &quot;Harju maakond&quot;, &quot;race_type&quot;: &quot;T\u00e4nava&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/jooksulehed/triathlon_estonia_keila"
   class="race-card"
   data-name="Triathlon Estonia Keila"
@@ -612,15 +666,23 @@
   data-distance="1km, 3,8km, 6km, marathon"
   data-latitude="59.31080069999999"
   data-longitude="24.4157526"
+  data-location="Keila"
+  data-description="Triathlon Estonia Keila on loodud looduskauni ja vahelduva profiiliga rajal, mis on sinu hooaja viimane võistlus, kus saad realiseerida kogu"
+  data-image-path="/jooksulehed/triathlon_estonia_keila/triathlon_estonia_keila"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="14 jaan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/triathlon_estonia_keila/triathlon_estonia_keila_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/triathlon_estonia_keila/triathlon_estonia_keila_1.webp"
+        width="600"
+        height="400"
         alt="Pilt {x} jaoksTriathlon Estonia Keila"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -704,7 +766,10 @@
   >
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/jooksulehed/e_lux_peetri_jooks"
   class="race-card"
   data-name="E-Lux Peetri Jooks"
@@ -715,15 +780,23 @@
   data-distance="5km, 10km"
   data-latitude="59.39476870000001"
   data-longitude="24.8117749"
+  data-location="Peetri"
+  data-description="E-Lux Peetri Jooks toimub pühapäeval, 1. juunil 2025 Peetris ning on Eesti meeleolukaim jooksu- ja laadapidu, mis propageerib jooksmist ja a"
+  data-image-path="/jooksulehed/e_lux_peetri_jooks/e_lux_peetri_jooks"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="1 juuni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/e_lux_peetri_jooks/e_lux_peetri_jooks_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/e_lux_peetri_jooks/e_lux_peetri_jooks_1.webp"
+        width="600"
+        height="400"
         alt="Pilt {x} jaoksE-Lux Peetri Jooks"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -744,7 +817,7 @@
       <div class="left-container">
         <h3 class="race-name">E-Lux Peetri Jooks</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -755,7 +828,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -791,11 +864,12 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Valitud Võistlused</h2>
@@ -822,9 +896,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/triathlon_estonia_keila/triathlon_estonia_keila_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/triathlon_estonia_keila/triathlon_estonia_keila_1.webp"
         alt="Pilt {x} jaoksTriathlon Estonia Keila"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -901,9 +977,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/e_lux_peetri_jooks/e_lux_peetri_jooks_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/e_lux_peetri_jooks/e_lux_peetri_jooks_1.webp"
         alt="Pilt {x} jaoksE-Lux Peetri Jooks"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -968,9 +1046,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/ulemiste_oojooks/ulemiste_oojooks_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/ulemiste_oojooks/ulemiste_oojooks_1.webp"
         alt="Pilt {x} jaoksÜlemiste Ööjooks"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1053,9 +1133,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/maardu_city_run/maardu_city_run_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/maardu_city_run/maardu_city_run_1.webp"
         alt="Pilt {x} jaoksMaardu City Run"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1126,9 +1208,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/tallinna_maraton/tallinna_maraton_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/tallinna_maraton/tallinna_maraton_1.webp"
         alt="Pilt {x} jaoksTallinna Maraton"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1189,7 +1273,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/jooksulehed/ulemiste_oojooks"
   class="race-card"
   data-name="Ülemiste Ööjooks"
@@ -1200,15 +1287,23 @@
   data-distance="0,2km, 5km, 5,3km, 10km, half marathon"
   data-latitude="59.4219391"
   data-longitude="24.793867"
+  data-location="Ülemiste Keskus"
+  data-description="Ülemiste Ööjooks on Tallinnas toimuv jooksuvõistlus, kus osalejad saavad valida erinevate distantside vahel, sealhulgas 5 km ja 10 km jooksu"
+  data-image-path="/jooksulehed/ulemiste_oojooks/ulemiste_oojooks"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="15 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/ulemiste_oojooks/ulemiste_oojooks_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/ulemiste_oojooks/ulemiste_oojooks_1.webp"
+        width="600"
+        height="400"
         alt="Pilt {x} jaoksÜlemiste Ööjooks"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1296,7 +1391,11 @@
   >
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/jooksulehed/maardu_city_run"
   class="race-card"
   data-name="Maardu City Run"
@@ -1307,15 +1406,23 @@
   data-distance="0,2km, 5km, 10km"
   data-latitude="59.4771113"
   data-longitude="25.0186855"
+  data-location="Maardu Vaba Aja Keskus (Keemikute 12b)"
+  data-description="Maardu City Run 2024 toimub 25. augustil Maardus, pakkudes osalejatele mitmeid distantsivalikuid: Cappy lastejooks 0.2 km, Stebby 5 km ajavõ"
+  data-image-path="/jooksulehed/maardu_city_run/maardu_city_run"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="24 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/maardu_city_run/maardu_city_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/maardu_city_run/maardu_city_run_1.webp"
+        width="600"
+        height="400"
         alt="Pilt {x} jaoksMaardu City Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1393,7 +1500,11 @@
   >
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/jooksulehed/tallinna_maraton"
   class="race-card"
   data-name="Tallinna Maraton"
@@ -1404,15 +1515,23 @@
   data-distance="10km, half marathon, marathon"
   data-latitude="59.4342074"
   data-longitude="24.7446464"
+  data-location="Vabaduse väljak"
+  data-description="Swedbanki Tallinna Maraton on üks suurimaid ja populaarsemaid jooksuvõistlusi Eestis, mis toimub 14. septembril 2025. Maraton pakub osalejat"
+  data-image-path="/jooksulehed/tallinna_maraton/tallinna_maraton"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="1 sept."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/tallinna_maraton/tallinna_maraton_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/tallinna_maraton/tallinna_maraton_1.webp"
+        width="600"
+        height="400"
         alt="Pilt {x} jaoksTallinna Maraton"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1490,7 +1609,11 @@
   >
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/jooksulehed/elke_tallinn_run"
   class="race-card"
   data-name="ELKE Tallinn Run"
@@ -1501,15 +1624,23 @@
   data-distance="0,2km, 5km, 10km"
   data-latitude="59.43830219999999"
   data-longitude="24.7027847"
+  data-location="Põhja-Tallinna linnaosa"
+  data-description="ELKE Tallinn Run - Noblessner toimub Põhja-Tallinna linnaosas, kus osaleda saab nii joostes, jalutades kui ka kepikõndides. Ülimalt kaunis j"
+  data-image-path="/jooksulehed/elke_tallinn_run/elke_tallinn_run"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="6 sept."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/elke_tallinn_run/elke_tallinn_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/elke_tallinn_run/elke_tallinn_run_1.webp"
+        width="600"
+        height="400"
         alt="Pilt {x} jaoksELKE Tallinn Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1587,7 +1718,11 @@
   >
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/jooksulehed/tallinna_sugisjooks"
   class="race-card"
   data-name="Tallinna Sügisjooks"
@@ -1598,15 +1733,23 @@
   data-distance="5km, 10km, half marathon"
   data-latitude="59.4348432"
   data-longitude="24.7356304"
+  data-location="Tallinn - Falgi tee"
+  data-description="Tallinna Sügisjooks toimub 13. septembril 2025. Esimene Tallinna sügisjooks toimus 2000. aastal ja see on igal aastal septembris toimuv jook"
+  data-image-path="/jooksulehed/tallinna_sugisjooks/tallinna_sugisjooks"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="13 sept."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/tallinna_sugisjooks/tallinna_sugisjooks_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/tallinna_sugisjooks/tallinna_sugisjooks_1.webp"
+        width="600"
+        height="400"
         alt="Pilt {x} jaoksTallinna Sügisjooks"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1684,7 +1827,11 @@
   >
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/jooksulehed/tallinna_maraton_2"
   class="race-card"
   data-name="Tallinna Maraton"
@@ -1695,15 +1842,23 @@
   data-distance="5km, 10km, half marathon, marathon"
   data-latitude="59.43696079999999"
   data-longitude="24.7535746"
+  data-location="Tallinn"
+  data-description="Swedbanki Tallinna Maraton on iga-aastane jooksuvõistlus, mis toimub Tallinna linnas 12.-14. septembril 2025. Maraton on tuntud oma kauni ra"
+  data-image-path="/jooksulehed/tallinna_maraton_2/tallinna_maraton_2"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="13 sept."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/tallinna_maraton_2/tallinna_maraton_2_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/tallinna_maraton_2/tallinna_maraton_2_1.webp"
+        width="600"
+        height="400"
         alt="Pilt {x} jaoksTallinna Maraton"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1787,7 +1942,11 @@
   >
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/jooksulehed/nike_noortejooks"
   class="race-card"
   data-name="Nike Noortejooks"
@@ -1798,15 +1957,23 @@
   data-distance="5km"
   data-latitude="59.4336232"
   data-longitude="24.7440994"
+  data-location="Vabaduse väljak, Harju maakond, Eesti"
+  data-description="Nike Noortejooks toimub 13. septembril 2025 Tallinna tänavatel ning kergliiklusteedel, Swedbanki Tallinna Maratoni raames. Osavõtutasud vari"
+  data-image-path="/jooksulehed/nike_noortejooks/nike_noortejooks"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="13 sept."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/nike_noortejooks/nike_noortejooks_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/nike_noortejooks/nike_noortejooks_1.webp"
+        width="600"
+        height="400"
         alt="Pilt {x} jaoksNike Noortejooks"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1827,7 +1994,7 @@
       <div class="left-container">
         <h3 class="race-name">Nike Noortejooks</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1838,7 +2005,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1868,11 +2035,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/jooksulehed/friday_night_run"
   class="race-card"
   data-name="Friday Night Run"
@@ -1883,15 +2054,23 @@
   data-distance="4km"
   data-latitude="59.4371575"
   data-longitude="24.7450067"
+  data-location="Raekoja plats"
+  data-description="Friday Night Run toimub 4. oktoobril 2024 kell 21.00, alustades Raekoja platsilt Tartu vanalinnas. Jooksusündmus on eriline, kuna start anta"
+  data-image-path="/jooksulehed/friday_night_run/friday_night_run"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="3 okt."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/friday_night_run/friday_night_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/friday_night_run/friday_night_run_1.webp"
+        width="600"
+        height="400"
         alt="Pilt {x} jaoksFriday Night Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1912,7 +2091,7 @@
       <div class="left-container">
         <h3 class="race-name">Friday Night Run</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1923,7 +2102,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1953,11 +2132,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/jooksulehed/raimo_testib"
   class="race-card"
   data-name="Raimo Testib"
@@ -1968,15 +2151,23 @@
   data-distance="5km, 20km"
   data-latitude="59.41899189999999"
   data-longitude="24.7397778"
+  data-location="Jalgpalli 1, 11312 Tallinn"
+  data-description="Raimo Testib 11111 toimub 15.09.2024 Tallinnas, Jalgpalli 1. Spordialadeks on jooksmine ja kepikõnd. Korraldajaks on BestIT OÜ, kes toob kok"
+  data-image-path="/jooksulehed/raimo_testib/raimo_testib"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="1 dets."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/raimo_testib/raimo_testib_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/raimo_testib/raimo_testib_1.webp"
+        width="600"
+        height="400"
         alt="Pilt {x} jaoksRaimo Testib"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1997,7 +2188,7 @@
       <div class="left-container">
         <h3 class="race-name">Raimo Testib</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2008,7 +2199,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2044,13 +2235,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">av</span>
         <span id="total-events">Lõpp</span>
@@ -2072,17 +2264,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kaart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

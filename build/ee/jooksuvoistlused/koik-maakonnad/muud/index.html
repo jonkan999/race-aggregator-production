@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="et">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://jooksma.ee/jooksuvoistlused", "@type": "WebPage", "name": "Jooksuv\u00f5istlused"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://jooksma.ee/jooksuvoistlused/muud", "@type": "WebPage", "name": "Muud"}, "position": 2}]}, "visual": [{"href": "/jooksuvoistlused", "name": "Jooksuv\u00f5istlused"}, {"href": "/jooksuvoistlused/muud", "name": "Muud"}]}
@@ -11,10 +12,11 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Ol\u00fcmpia Trepijooks 2025 toimub 4. jaanuaril 2025 Hotell Ol\u00fcmpias ning on korraldatud MT\u00dc Eesti trepi- ja t\u00f5usujooksude poolt. V\u00f5istlus algab kell 11:00 ja on av", "distance": "27km", "eventStatus": "Standard", "identifier": "olumpia_trepijooks", "image": "/jooksulehed/olumpia_trepijooks/olumpia_trepijooks_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "ee", "addressLocality": "Hotell Ol\u00fcmpia", "addressRegion": "Harju maakond"}, "name": "Hotell Ol\u00fcmpia"}, "name": "Ol\u00fcmpia Trepijooks", "sport": "Jooks, Muud", "startDate": "20250104"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "NEPTUNAS Tallinn Grit 2024 toimub 04.08.2024 Tallinnas. Distantsid on 3H kestvusjooks/k\u00e4imine/kepik\u00f5nd ja 6H kestvusjooks/k\u00e4imine/kepik\u00f5nd, samuti on v\u00f5imalik o", "distance": null, "eventStatus": "Standard", "identifier": "tallinn_grit", "image": "/jooksulehed/tallinn_grit/tallinn_grit_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "ee", "addressLocality": "Tallinn", "addressRegion": "Harju maakond"}, "name": "Tallinn"}, "name": "Tallinn Grit", "sport": "Jooks, Muud", "startDate": "20250518"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "NEPTUNAS Tallinn Grit 2024 toimub 04.08.2024 Tallinnas. Distantsid on 3H kestvusjooks/k\u00e4imine/kepik\u00f5nd ja 6H kestvusjooks/k\u00e4imine/kepik\u00f5nd, samuti on v\u00f5imalik o", "distance": null, "eventStatus": "Standard", "identifier": "tallinn_grit", "image": "/jooksulehed/tallinn_grit/tallinn_grit_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "ee", "addressLocality": "Tallinn", "addressRegion": "Harju maakond"}, "name": "Tallinn"}, "name": "Tallinn Grit", "sport": "Jooks, Muud", "startDate": "20250518"}, "position": 1}], "numberOfItems": 1}
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -22,24 +24,48 @@
     />
     <title>Jooksuvõistlused Eestis: Muud jooksud kõikides maakondades</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -48,26 +74,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -320,10 +384,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Alates:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Kuni:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -554,7 +618,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Kõik
     <span id="race-cards-title-category"></span>
     lõpp
@@ -567,18 +631,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kaart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -587,7 +639,9 @@
       data-preselected-filters="{&quot;category&quot;: null, &quot;county&quot;: null, &quot;race_type&quot;: &quot;Muud&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/jooksulehed/olumpia_trepijooks"
   class="race-card"
   data-name="Olümpia Trepijooks"
@@ -598,15 +652,23 @@
   data-distance="27km"
   data-latitude="59.4301703"
   data-longitude="24.7579841"
+  data-location="Hotell Olümpia"
+  data-description="Olümpia Trepijooks 2025 toimub 4. jaanuaril 2025 Hotell Olümpias ning on korraldatud MTÜ Eesti trepi- ja tõusujooksude poolt. Võistlus algab"
+  data-image-path="/jooksulehed/olumpia_trepijooks/olumpia_trepijooks"
+  data-type="other"
+  data-type-display="Muud"
+  data-date-display="4 jaan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/olumpia_trepijooks/olumpia_trepijooks_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/olumpia_trepijooks/olumpia_trepijooks_1.webp"
+        width="600"
+        height="400"
         alt="Pilt {x} jaoksOlümpia Trepijooks"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -627,7 +689,7 @@
       <div class="left-container">
         <h3 class="race-name">Olümpia Trepijooks</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -638,7 +700,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -668,11 +730,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/jooksulehed/tallinn_grit"
   class="race-card"
   data-name="Tallinn Grit"
@@ -683,15 +748,23 @@
   data-distance=""
   data-latitude="59.43696079999999"
   data-longitude="24.7535746"
+  data-location="Tallinn"
+  data-description="NEPTUNAS Tallinn Grit 2024 toimub 04.08.2024 Tallinnas. Distantsid on 3H kestvusjooks/käimine/kepikõnd ja 6H kestvusjooks/käimine/kepikõnd, "
+  data-image-path="/jooksulehed/tallinn_grit/tallinn_grit"
+  data-type="other"
+  data-type-display="Muud"
+  data-date-display="18 mai"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/tallinn_grit/tallinn_grit_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/tallinn_grit/tallinn_grit_1.webp"
+        width="600"
+        height="400"
         alt="Pilt {x} jaoksTallinn Grit"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -757,9 +830,10 @@
   >
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
-</a>     
+</a>
+     
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">av</span>
         <span id="total-events">Lõpp</span>
@@ -781,17 +855,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kaart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

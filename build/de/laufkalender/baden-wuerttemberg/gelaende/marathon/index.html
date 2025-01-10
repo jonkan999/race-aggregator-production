@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://laufrennen.de/laufkalender", "@type": "WebPage", "name": "Laufkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://laufrennen.de/laufkalender/baden-wuerttemberg", "@type": "WebPage", "name": "Baden-W\u00fcrttemberg"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://laufrennen.de/laufkalender/baden-wuerttemberg/gelaende", "@type": "WebPage", "name": "Gel\u00e4nde"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://laufrennen.de/laufkalender/baden-wuerttemberg/gelaende/marathon", "@type": "WebPage", "name": "Marathon"}, "position": 4}]}, "visual": [{"href": "/laufkalender", "name": "Laufkalender"}, {"href": "/laufkalender/baden-wuerttemberg", "name": "Baden-W\u00fcrttemberg"}, {"href": "/laufkalender/baden-wuerttemberg/gelaende", "name": "Gel\u00e4nde"}, {"href": "/laufkalender/baden-wuerttemberg/gelaende/marathon", "name": "Marathon"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>Marathon-Gelände-Läufe in Baden-Württemberg: Dein Laufkalender für Laufwettbewerbe</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Von:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Bis:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -570,7 +634,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     Rennen
@@ -583,18 +647,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Karte</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -603,7 +655,9 @@
       data-preselected-filters="{&quot;category&quot;: &quot;Marathon&quot;, &quot;county&quot;: &quot;Baden-W\u00fcrttemberg&quot;, &quot;race_type&quot;: &quot;Gel\u00e4nde&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/silvesterlauf"
   class="race-card"
   data-name="Silvesterlauf"
@@ -614,15 +668,23 @@
   data-distance="5km, 10km"
   data-latitude="48.6425125"
   data-longitude="9.459418399999999"
+  data-location="73230 Kirchheim unter Teck"
+  data-description="Der Silvesterlauf in Berlin bietet eine herausfordernde Strecke über Drachenflieger- und Teufelsberg, die mit einer atemberaubenden Aussicht"
+  data-image-path="/Rennseiten/silvesterlauf/silvesterlauf"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="27 dez."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/silvesterlauf/silvesterlauf_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/silvesterlauf/silvesterlauf_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuSilvesterlauf"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -643,7 +705,7 @@
       <div class="left-container">
         <h3 class="race-name">Silvesterlauf</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -654,7 +716,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -690,11 +752,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/allmendlauf"
   class="race-card"
   data-name="Allmendlauf"
@@ -705,15 +770,23 @@
   data-distance="2,2km, 10km"
   data-latitude="48.1216568"
   data-longitude="7.8166913"
+  data-location="Vor der Ludwig-Jahn-Halle, Teningen"
+  data-description="Der 33. Teninger Allmendlauf findet am Sonntag, den 19. Januar 2025, statt und wird vom TuS Teningen veranstaltet. Der Hauptlauf über 10 km "
+  data-image-path="/Rennseiten/allmendlauf/allmendlauf"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="19 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/allmendlauf/allmendlauf_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/allmendlauf/allmendlauf_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuAllmendlauf"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -734,7 +807,7 @@
       <div class="left-container">
         <h3 class="race-name">Allmendlauf</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -745,7 +818,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -781,11 +854,12 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Ausgewählte Rennen</h2>
@@ -812,9 +886,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/allmendlauf/allmendlauf_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/allmendlauf/allmendlauf_1.webp"
         alt="Bild zuAllmendlauf"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -879,9 +955,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/alb_gold_winterlauf_cup_2_lauf/alb_gold_winterlauf_cup_2_lauf_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/alb_gold_winterlauf_cup_2_lauf/alb_gold_winterlauf_cup_2_lauf_1.webp"
         alt="Bild zuALB-GOLD Winterlauf-Cup 2. Lauf"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -958,9 +1036,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/bottwartal_marathon/bottwartal_marathon_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/bottwartal_marathon/bottwartal_marathon_1.webp"
         alt="Bild zuBottwartal Marathon"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1037,9 +1117,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/matteos_crosslauf/matteos_crosslauf_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/matteos_crosslauf/matteos_crosslauf_1.webp"
         alt="Bild zuMatteos Crosslauf"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1104,9 +1186,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/bottwartal_marathon_2/bottwartal_marathon_2_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/bottwartal_marathon_2/bottwartal_marathon_2_1.webp"
         alt="Bild zuBottwartal Marathon"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1173,7 +1257,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/alb_gold_winterlauf_cup_2_lauf"
   class="race-card"
   data-name="ALB-GOLD Winterlauf-Cup 2. Lauf"
@@ -1184,15 +1271,23 @@
   data-distance="1km, 2km, 5km, 10km"
   data-latitude="48.4786256"
   data-longitude="9.1899106"
+  data-location="Reutlinger Kreuzeichestadion"
+  data-description="Der ALB-GOLD Winterlauf-Cup 2. Lauf findet in einer malerischen Winterlandschaft statt und bietet den Teilnehmern die Möglichkeit, ihre Ausd"
+  data-image-path="/Rennseiten/alb_gold_winterlauf_cup_2_lauf/alb_gold_winterlauf_cup_2_lauf"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="25 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/alb_gold_winterlauf_cup_2_lauf/alb_gold_winterlauf_cup_2_lauf_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/alb_gold_winterlauf_cup_2_lauf/alb_gold_winterlauf_cup_2_lauf_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuALB-GOLD Winterlauf-Cup 2. Lauf"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1276,7 +1371,11 @@
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/bottwartal_marathon"
   class="race-card"
   data-name="Bottwartal Marathon"
@@ -1287,15 +1386,23 @@
   data-distance="10km, half marathon, marathon, 54km"
   data-latitude="48.9691889"
   data-longitude="9.276239700000001"
+  data-location="Steinheim an der Murr"
+  data-description="Der Bottwartal-Marathon ist eine bedeutende Laufveranstaltung, die verschiedene Distanzen bietet und in einer malerischen Umgebung stattfind"
+  data-image-path="/Rennseiten/bottwartal_marathon/bottwartal_marathon"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="26 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/bottwartal_marathon/bottwartal_marathon_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/bottwartal_marathon/bottwartal_marathon_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuBottwartal Marathon"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1379,7 +1486,11 @@
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/matteos_crosslauf"
   class="race-card"
   data-name="Matteos Crosslauf"
@@ -1390,15 +1501,23 @@
   data-distance="2km, 4km"
   data-latitude="49.2815739"
   data-longitude="9.162461799999999"
+  data-location="Gundelsheim"
+  data-description="Der Matteos Crosslauf startet am 28. Januar 2023 und bietet den Teilnehmern die Wahl zwischen einer kurzen Strecke von 2 km und einer langen"
+  data-image-path="/Rennseiten/matteos_crosslauf/matteos_crosslauf"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="8 Feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/matteos_crosslauf/matteos_crosslauf_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/matteos_crosslauf/matteos_crosslauf_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuMatteos Crosslauf"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1419,7 +1538,7 @@
       <div class="left-container">
         <h3 class="race-name">Matteos Crosslauf</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1430,7 +1549,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1466,11 +1585,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/bottwartal_marathon_2"
   class="race-card"
   data-name="Bottwartal Marathon"
@@ -1481,15 +1604,23 @@
   data-distance="10km, half marathon, marathon, 54km"
   data-latitude="48.9691889"
   data-longitude="9.276239700000001"
+  data-location="Steinheim an der Murr"
+  data-description="Langstreckenfans laufen Mitte Oktober den Bottwartal-Marathon oder die Ultra-Variante bei Steinheim an der Murr: eine Topadresse mit mehrere"
+  data-image-path="/Rennseiten/bottwartal_marathon_2/bottwartal_marathon_2"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="23 Feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/bottwartal_marathon_2/bottwartal_marathon_2_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/bottwartal_marathon_2/bottwartal_marathon_2_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuBottwartal Marathon"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1573,9 +1704,10 @@
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">von</span>
         <span id="total-events">Läufe</span>
@@ -1597,17 +1729,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Karte</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

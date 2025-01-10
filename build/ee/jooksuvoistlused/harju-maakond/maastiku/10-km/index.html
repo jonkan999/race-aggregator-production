@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="et">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://jooksma.ee/jooksuvoistlused", "@type": "WebPage", "name": "Jooksuv\u00f5istlused"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://jooksma.ee/jooksuvoistlused/harju-maakond", "@type": "WebPage", "name": "Harju maakond"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://jooksma.ee/jooksuvoistlused/harju-maakond/maastiku", "@type": "WebPage", "name": "Maastiku"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://jooksma.ee/jooksuvoistlused/harju-maakond/maastiku/10-km", "@type": "WebPage", "name": "10 km"}, "position": 4}]}, "visual": [{"href": "/jooksuvoistlused", "name": "Jooksuv\u00f5istlused"}, {"href": "/jooksuvoistlused/harju-maakond", "name": "Harju maakond"}, {"href": "/jooksuvoistlused/harju-maakond/maastiku", "name": "Maastiku"}, {"href": "/jooksuvoistlused/harju-maakond/maastiku/10-km", "name": "10 km"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>10 km Maastiku Jooksuvõistlused Harju Maakonnas | Jooksuvõistluste Kalender</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Alates:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Kuni:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -568,7 +632,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Kõik
     <span id="race-cards-title-category"></span>
     lõpp
@@ -581,18 +645,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kaart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -601,7 +653,9 @@
       data-preselected-filters="{&quot;category&quot;: &quot;10 km&quot;, &quot;county&quot;: &quot;Harju maakond&quot;, &quot;race_type&quot;: &quot;Maastiku&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/jooksulehed/paunkula_veehoidla_jooks"
   class="race-card"
   data-name="Paunküla Veehoidla Jooks"
@@ -612,15 +666,23 @@
   data-distance="10,5km"
   data-latitude="59.114573"
   data-longitude="25.380985"
+  data-location="Paunküla Heaolukeskus"
+  data-description="Laupäeval, 26. aprillil 2025 toimub 3. jooks ümber Paunküla veehoidla, mis kuulub 2025 Maru Järvejooksude sarja ja on sarja 1. osavõistlus. "
+  data-image-path="/jooksulehed/paunkula_veehoidla_jooks/paunkula_veehoidla_jooks"
+  data-type="terrain"
+  data-type-display="Maastiku"
+  data-date-display="26 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/paunkula_veehoidla_jooks/paunkula_veehoidla_jooks_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/paunkula_veehoidla_jooks/paunkula_veehoidla_jooks_1.webp"
+        width="600"
+        height="400"
         alt="Pilt {x} jaoksPaunküla Veehoidla Jooks"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -641,7 +703,7 @@
       <div class="left-container">
         <h3 class="race-name">Paunküla Veehoidla Jooks</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -652,7 +714,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -682,11 +744,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/jooksulehed/paunkula_metsamiil"
   class="race-card"
   data-name="Paunküla Metsamiil"
@@ -697,15 +762,23 @@
   data-distance="1,6km, 10,5km"
   data-latitude="59.114573"
   data-longitude="25.380985"
+  data-location="Paunküla Heaolukeskus"
+  data-description="Laupäeval, 26. aprillil 2025 toimub 3. jooks ümber Paunküla veehoidla, mis kuulub 2025 Maru Järvejooksude sarja ja on sarja 1. osavõistlus. "
+  data-image-path="/jooksulehed/paunkula_metsamiil/paunkula_metsamiil"
+  data-type="terrain"
+  data-type-display="Maastiku"
+  data-date-display="26 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/paunkula_metsamiil/paunkula_metsamiil_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/paunkula_metsamiil/paunkula_metsamiil_1.webp"
+        width="600"
+        height="400"
         alt="Pilt {x} jaoksPaunküla Metsamiil"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -726,7 +799,7 @@
       <div class="left-container">
         <h3 class="race-name">Paunküla Metsamiil</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -737,7 +810,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -773,11 +846,12 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Valitud Võistlused</h2>
@@ -804,9 +878,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/paunkula_veehoidla_jooks/paunkula_veehoidla_jooks_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/paunkula_veehoidla_jooks/paunkula_veehoidla_jooks_1.webp"
         alt="Pilt {x} jaoksPaunküla Veehoidla Jooks"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -865,9 +941,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/paunkula_metsamiil/paunkula_metsamiil_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/paunkula_metsamiil/paunkula_metsamiil_1.webp"
         alt="Pilt {x} jaoksPaunküla Metsamiil"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -932,9 +1010,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/korvemaa_kevadjooks/korvemaa_kevadjooks_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/korvemaa_kevadjooks/korvemaa_kevadjooks_1.webp"
         alt="Pilt {x} jaoksKõrvemaa Kevadjooks"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1005,9 +1085,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/icebug_kova_mehe_jooks/icebug_kova_mehe_jooks_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/icebug_kova_mehe_jooks/icebug_kova_mehe_jooks_1.webp"
         alt="Pilt {x} jaoksICEBUG Kõva Mehe Jooks"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1072,9 +1154,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/rummu_vagilase_jooks/rummu_vagilase_jooks_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/rummu_vagilase_jooks/rummu_vagilase_jooks_1.webp"
         alt="Pilt {x} jaoksRummu Vägilase Jooks"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1129,7 +1213,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/jooksulehed/korvemaa_kevadjooks"
   class="race-card"
   data-name="Kõrvemaa Kevadjooks"
@@ -1140,15 +1227,23 @@
   data-distance="1km, 6km, 16km"
   data-latitude="59.3368939"
   data-longitude="25.6437508"
+  data-location="Oja talu, Pillapalu küla"
+  data-description="Kevad piilub vaikselt uksevahelt ja meie saame suurtele ning väikestele jooksusõpradele häid uudiseid tuua! Sportland Kõrvemaa Kevadjooks to"
+  data-image-path="/jooksulehed/korvemaa_kevadjooks/korvemaa_kevadjooks"
+  data-type="terrain"
+  data-type-display="Maastiku"
+  data-date-display="27 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/korvemaa_kevadjooks/korvemaa_kevadjooks_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/korvemaa_kevadjooks/korvemaa_kevadjooks_1.webp"
+        width="600"
+        height="400"
         alt="Pilt {x} jaoksKõrvemaa Kevadjooks"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1226,7 +1321,11 @@
   >
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/jooksulehed/icebug_kova_mehe_jooks"
   class="race-card"
   data-name="ICEBUG Kõva Mehe Jooks"
@@ -1237,15 +1336,23 @@
   data-distance="2,5km, 10km"
   data-latitude="59.33702849999999"
   data-longitude="24.5857849"
+  data-location="Saunapunkt"
+  data-description="18. ICEBUG KÕVA MEHE JOOKS toimub 24. mail 2025. Ajakava kohaselt avatakse võistluskeskus kell 9.30, stardimaterjalide väljastamine algab sa"
+  data-image-path="/jooksulehed/icebug_kova_mehe_jooks/icebug_kova_mehe_jooks"
+  data-type="terrain"
+  data-type-display="Maastiku"
+  data-date-display="23 mai"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/icebug_kova_mehe_jooks/icebug_kova_mehe_jooks_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/icebug_kova_mehe_jooks/icebug_kova_mehe_jooks_1.webp"
+        width="600"
+        height="400"
         alt="Pilt {x} jaoksICEBUG Kõva Mehe Jooks"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1266,7 +1373,7 @@
       <div class="left-container">
         <h3 class="race-name">ICEBUG Kõva Mehe Jooks</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1277,7 +1384,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1313,11 +1420,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/jooksulehed/rummu_vagilase_jooks"
   class="race-card"
   data-name="Rummu Vägilase Jooks"
@@ -1328,15 +1439,23 @@
   data-distance="4km, 7,5km"
   data-latitude="59.22831219999999"
   data-longitude="24.2260113"
+  data-location="Rummu karjäär"
+  data-description="Rummu Vägilase Jooks on seikluslik jooksuvõistlus, kus põhisõit ulatub ligikaudu 7.5 km ja lühijooksu rada on ligikaudu 4 km. Rajal on nii t"
+  data-image-path="/jooksulehed/rummu_vagilase_jooks/rummu_vagilase_jooks"
+  data-type="terrain"
+  data-type-display="Maastiku"
+  data-date-display="8 juuni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/rummu_vagilase_jooks/rummu_vagilase_jooks_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/rummu_vagilase_jooks/rummu_vagilase_jooks_1.webp"
+        width="600"
+        height="400"
         alt="Pilt {x} jaoksRummu Vägilase Jooks"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1357,7 +1476,7 @@
       <div class="left-container">
         <h3 class="race-name">Rummu Vägilase Jooks</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1368,7 +1487,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1404,11 +1523,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/jooksulehed/korvemaa_triatlon"
   class="race-card"
   data-name="Kõrvemaa Triatlon"
@@ -1419,15 +1542,23 @@
   data-distance="4km, 20km"
   data-latitude="59.31758430000001"
   data-longitude="25.6526681"
+  data-location="Sportland Kõrvemaa Matka- ja Suusakeskus"
+  data-description="Sportland Kõrvemaa Triatlon toimub 12. juulil 2025. Distantsiks on 350 m ujumist, 20 km ratast ja 4 km jooksu. Tegemist on kõige suurema maa"
+  data-image-path="/jooksulehed/korvemaa_triatlon/korvemaa_triatlon"
+  data-type="terrain"
+  data-type-display="Maastiku"
+  data-date-display="12 juuli"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/korvemaa_triatlon/korvemaa_triatlon_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/korvemaa_triatlon/korvemaa_triatlon_1.webp"
+        width="600"
+        height="400"
         alt="Pilt {x} jaoksKõrvemaa Triatlon"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1448,7 +1579,7 @@
       <div class="left-container">
         <h3 class="race-name">Kõrvemaa Triatlon</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1459,7 +1590,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1495,11 +1626,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/jooksulehed/korvemaa_metsajooks"
   class="race-card"
   data-name="Kõrvemaa Metsajooks"
@@ -1510,15 +1645,23 @@
   data-distance="1km, 5km, 10km, half marathon"
   data-latitude="59.31758430000001"
   data-longitude="25.6526681"
+  data-location="Sportland Kõrvemaa Matka- ja Suusakeskus"
+  data-description="Sportland Kõrvemaa Metsajooks toimub 2024. aastal 18. augustil. Osalejad saavad valida erinevate jooksudistantside vahel, sealhulgas 21 km, "
+  data-image-path="/jooksulehed/korvemaa_metsajooks/korvemaa_metsajooks"
+  data-type="terrain"
+  data-type-display="Maastiku"
+  data-date-display="7 sept."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/jooksulehed/korvemaa_metsajooks/korvemaa_metsajooks_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/jooksulehed/korvemaa_metsajooks/korvemaa_metsajooks_1.webp"
+        width="600"
+        height="400"
         alt="Pilt {x} jaoksKõrvemaa Metsajooks"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1602,9 +1745,10 @@
   >
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">av</span>
         <span id="total-events">Lõpp</span>
@@ -1626,17 +1770,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kaart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>
