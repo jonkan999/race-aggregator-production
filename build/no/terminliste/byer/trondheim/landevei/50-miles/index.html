@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste", "@type": "WebPage", "name": "Terminliste"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer", "@type": "WebPage", "name": "Byer"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer/trondheim", "@type": "WebPage", "name": "Trondheim"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer/trondheim/landevei", "@type": "WebPage", "name": "Landevei"}, "position": 4}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer/trondheim/landevei/50-miles", "@type": "WebPage", "name": "50 miles"}, "position": 5}]}, "visual": [{"href": "/terminliste", "name": "Terminliste"}, {"href": "/terminliste/byer/trondheim", "name": "Byer: Trondheim"}, {"href": "/terminliste/byer/trondheim/landevei", "name": "Landevei"}, {"href": "/terminliste/byer/trondheim/landevei/50-miles", "name": "50 miles"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>50 miles Landevei Sykkelritt i Trondheim - Løpskalender og Terminliste</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Fra:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Til:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -576,7 +640,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     løp
@@ -589,18 +653,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -609,7 +661,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Trondheim&quot;, &quot;race_type&quot;: &quot;Landevei&quot;, &quot;category&quot;: &quot;50 miles&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/orasprinten"
   class="race-card"
   data-name="Ørasprinten"
@@ -620,15 +674,23 @@
   data-distance="5km"
   data-latitude="63.28960230000001"
   data-longitude="9.0840689"
+  data-location="ved Kulørn, øverst i Øragata"
+  data-description="Bli med på Ørasprinten, et gateløp for alle den 21. april 2024, ved Kulørn, øverst i Øragata, Kyrksæterøra. Tidsplanen inkluderer småbarnslø"
+  data-image-path="/løpssider/orasprinten/orasprinten"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="20 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/orasprinten/orasprinten_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/orasprinten/orasprinten_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Ørasprinten"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -649,7 +711,7 @@
       <div class="left-container">
         <h3 class="race-name">Ørasprinten</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -660,7 +722,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -690,11 +752,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/tronderjogg"
   class="race-card"
   data-name="Trønderjogg"
@@ -705,15 +770,23 @@
   data-distance="5km, 10km"
   data-latitude="63.4273685"
   data-longitude="10.466399"
+  data-location="Leangen Idrettsanlegg"
+  data-description="Trønderjogg arrangeres torsdag 22. august med barneløp kl. 18:00 og fellesstart for 5 og 10 km kl. 19:00. For barneløpet er det påmelding på"
+  data-image-path="/løpssider/tronderjogg/tronderjogg"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="22 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/tronderjogg/tronderjogg_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/tronderjogg/tronderjogg_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Trønderjogg"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -734,7 +807,7 @@
       <div class="left-container">
         <h3 class="race-name">Trønderjogg</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -745,7 +818,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -781,11 +854,12 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Utvalgte Løp</h2>
@@ -812,9 +886,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/orasprinten/orasprinten_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/orasprinten/orasprinten_1.webp"
         alt="Bilde til Ørasprinten"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -873,9 +949,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/tronderjogg/tronderjogg_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/tronderjogg/tronderjogg_1.webp"
         alt="Bilde til Trønderjogg"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -940,9 +1018,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/varig_orkla_lopet/varig_orkla_lopet_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/varig_orkla_lopet/varig_orkla_lopet_1.webp"
         alt="Bilde til Varig Orkla-løpet"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1007,9 +1087,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/sommernattslopet_trondheim/sommernattslopet_trondheim_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/sommernattslopet_trondheim/sommernattslopet_trondheim_1.webp"
         alt="Bilde til Sommernattsløpet Trondheim"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1074,9 +1156,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/tronder_ostlopet/tronder_ostlopet_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/tronder_ostlopet/tronder_ostlopet_1.webp"
         alt="Bilde til Trønder-Østløpet"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1131,7 +1215,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/varig_orkla_lopet"
   class="race-card"
   data-name="Varig Orkla-løpet"
@@ -1142,15 +1229,23 @@
   data-distance="1,7km, 5km"
   data-latitude="63.26202480000001"
   data-longitude="9.8015647"
+  data-location="Varig Orkla Arena"
+  data-description="Varig Orkla-løpet gir både konkurranseløpere og mosjonister muligheten til å teste formen på en 5 km lang runde, med start og mål på Varig O"
+  data-image-path="/løpssider/varig_orkla_lopet/varig_orkla_lopet"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="18 mai"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/varig_orkla_lopet/varig_orkla_lopet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/varig_orkla_lopet/varig_orkla_lopet_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Varig Orkla-løpet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1171,7 +1266,7 @@
       <div class="left-container">
         <h3 class="race-name">Varig Orkla-løpet</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1182,7 +1277,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1218,11 +1313,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/sommernattslopet_trondheim"
   class="race-card"
   data-name="Sommernattsløpet Trondheim"
@@ -1233,15 +1332,23 @@
   data-distance="5km, 10km"
   data-latitude="63.4305149"
   data-longitude="10.3950528"
+  data-location="Trondheim"
+  data-description="Sommernattsløpet Trondheim 2025 er en løpefest som finner sted i Trondheim. Deltakerne kan velge mellom 5 og 10 flate og raske kilometer på "
+  data-image-path="/løpssider/sommernattslopet_trondheim/sommernattslopet_trondheim"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="14 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/sommernattslopet_trondheim/sommernattslopet_trondheim_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/sommernattslopet_trondheim/sommernattslopet_trondheim_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Sommernattsløpet Trondheim"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1262,7 +1369,7 @@
       <div class="left-container">
         <h3 class="race-name">Sommernattsløpet Trondheim</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1273,7 +1380,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1309,11 +1416,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/tronder_ostlopet"
   class="race-card"
   data-name="Trønder-Østløpet"
@@ -1324,15 +1435,23 @@
   data-distance="5km, 10km"
   data-latitude="63.42634700000001"
   data-longitude="10.3796463"
+  data-location="Øya Stadion"
+  data-description="Trønder-Østløpet har siden 2016 hatt en ny trasé, med start og mål ved Øya Stadion, som ble ferdig i 2013. Den nye løypa er kontrollmålt av "
+  data-image-path="/løpssider/tronder_ostlopet/tronder_ostlopet"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="17 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/tronder_ostlopet/tronder_ostlopet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/tronder_ostlopet/tronder_ostlopet_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Trønder-Østløpet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1353,7 +1472,7 @@
       <div class="left-container">
         <h3 class="race-name">Trønder-Østløpet</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1364,7 +1483,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1400,11 +1519,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/trondheim_maraton"
   class="race-card"
   data-name="Trondheim Maraton"
@@ -1415,15 +1538,23 @@
   data-distance="5km, 10km, 20km, half marathon, marathon, 73,3km"
   data-latitude="63.4305149"
   data-longitude="10.3950528"
+  data-location="Nidarosdomen"
+  data-description="Trondheim Maraton er Norges eldste maraton og finner sted tidlig i september 2025. Løpet tilbyr flere distanser, inkludert maraton (42,195 k"
+  data-image-path="/løpssider/trondheim_maraton/trondheim_maraton"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="6 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/trondheim_maraton/trondheim_maraton_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/trondheim_maraton/trondheim_maraton_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Trondheim Maraton"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1511,9 +1642,10 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">av</span>
         <span id="total-events">Løp</span>
@@ -1535,17 +1667,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

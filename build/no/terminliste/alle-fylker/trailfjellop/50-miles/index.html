@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste", "@type": "WebPage", "name": "Terminliste"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/trailfjellop", "@type": "WebPage", "name": "Trail/Fjell\u00f8p"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/trailfjellop/50-miles", "@type": "WebPage", "name": "50 miles"}, "position": 3}]}, "visual": [{"href": "/terminliste", "name": "Terminliste"}, {"href": "/terminliste/trailfjellop", "name": "Trail/Fjell\u00f8p"}, {"href": "/terminliste/trailfjellop/50-miles", "name": "50 miles"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>50 Miles Trail/Fjelløp Løpskalender: Finn ditt neste løp i Norge</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Fra:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Til:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -567,7 +631,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     løp
@@ -580,18 +644,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -600,7 +652,9 @@
       data-preselected-filters="{&quot;category&quot;: &quot;50 miles&quot;, &quot;county&quot;: null, &quot;race_type&quot;: &quot;Trail/Fjell\u00f8p&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/krs_ultra_2"
   class="race-card"
   data-name="KRS Ultra"
@@ -611,15 +665,23 @@
   data-distance="half marathon, 60km"
   data-latitude="58.1470766"
   data-longitude="8.0050482"
+  data-location="Scandic Kristiansand Bystranda"
+  data-description="Det er med stor glede at vi ønsker å invitere deg til en fantastisk løpeopplevelse! Bli med oss og utforsk det vakre, bynære terrenget som K"
+  data-image-path="/løpssider/krs_ultra_2/krs_ultra_2"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="5 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/krs_ultra_2/krs_ultra_2_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/krs_ultra_2/krs_ultra_2_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til KRS Ultra"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -640,7 +702,7 @@
       <div class="left-container">
         <h3 class="race-name">KRS Ultra</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -651,7 +713,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -687,11 +749,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/krs_ultra"
   class="race-card"
   data-name="KRS Ultra"
@@ -702,15 +767,23 @@
   data-distance="half marathon, 60km"
   data-latitude="58.15991189999999"
   data-longitude="8.0182064"
+  data-location="Kristiansand S"
+  data-description="Det er med stor glede at vi ønsker å invitere deg til en fantastisk løpeopplevelse! Bli med oss og utforsk det vakre, bynære terrenget som K"
+  data-image-path="/løpssider/krs_ultra/krs_ultra"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="12 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/krs_ultra/krs_ultra_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/krs_ultra/krs_ultra_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til KRS Ultra"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -731,7 +804,7 @@
       <div class="left-container">
         <h3 class="race-name">KRS Ultra</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -742,7 +815,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -778,11 +851,12 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Utvalgte Løp</h2>
@@ -809,9 +883,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/krs_ultra_2/krs_ultra_2_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/krs_ultra_2/krs_ultra_2_1.webp"
         alt="Bilde til KRS Ultra"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -876,9 +952,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/krs_ultra/krs_ultra_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/krs_ultra/krs_ultra_1.webp"
         alt="Bilde til KRS Ultra"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -943,9 +1021,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/sandnes_ultratrail/sandnes_ultratrail_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/sandnes_ultratrail/sandnes_ultratrail_1.webp"
         alt="Bilde til Sandnes Ultratrail"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1028,9 +1108,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/ulriken_opp/ulriken_opp_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/ulriken_opp/ulriken_opp_1.webp"
         alt="Bilde til Ulriken Opp"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1101,9 +1183,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/berghem_ultra_trail/berghem_ultra_trail_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/berghem_ultra_trail/berghem_ultra_trail_1.webp"
         alt="Bilde til Bèrghem Ultra Trail"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1158,7 +1242,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/sandnes_ultratrail"
   class="race-card"
   data-name="Sandnes Ultratrail"
@@ -1169,15 +1256,23 @@
   data-distance="10km, 23km, marathon, 50 miles, 100 miles"
   data-latitude="58.8568282"
   data-longitude="5.8577941"
+  data-location="Alsvik Natursenter"
+  data-description="Sandnes Ultratrail ble startet i 2021 og tilbyr distanser på 100 miles, 50 miles, 43 km, 23 km, 10 km og barneløp. Løypene går gjennom vakke"
+  data-image-path="/løpssider/sandnes_ultratrail/sandnes_ultratrail"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="25 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/sandnes_ultratrail/sandnes_ultratrail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/sandnes_ultratrail/sandnes_ultratrail_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Sandnes Ultratrail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1265,7 +1360,11 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/ulriken_opp"
   class="race-card"
   data-name="Ulriken Opp"
@@ -1276,15 +1375,23 @@
   data-distance="1,6km, 2km, 5,4km"
   data-latitude="60.382015"
   data-longitude="5.3437914"
+  data-location="Store Lungegårdsvann"
+  data-description="Ulriken Opp er et motbakkeløp som har vært arrangert siste helgen i mai måned siden 2007. Løpet går opp til Ulriken, Bergens høyeste av de 7"
+  data-image-path="/løpssider/ulriken_opp/ulriken_opp"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="24 mai"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/ulriken_opp/ulriken_opp_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/ulriken_opp/ulriken_opp_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Ulriken Opp"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1362,7 +1469,11 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/berghem_ultra_trail"
   class="race-card"
   data-name="Bèrghem Ultra Trail"
@@ -1373,15 +1484,23 @@
   data-distance="50 miles, 100 miles"
   data-latitude="59.7290387"
   data-longitude="11.0406595"
+  data-location="Ytre Enebakk-Lørenskog"
+  data-description="Velkommen til Bèrghem Ultra Runners Club – stedet for ultra løping og naturopplevelser i Norge. Vi spesialiserer oss på ultra løpsarrangemen"
+  data-image-path="/løpssider/berghem_ultra_trail/berghem_ultra_trail"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="24 mai"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/berghem_ultra_trail/berghem_ultra_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/berghem_ultra_trail/berghem_ultra_trail_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Bèrghem Ultra Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1402,7 +1521,7 @@
       <div class="left-container">
         <h3 class="race-name">Bèrghem Ultra Trail</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1413,7 +1532,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1449,11 +1568,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/osteroy_pa_tvers"
   class="race-card"
   data-name="Osterøy på tvers"
@@ -1464,15 +1587,23 @@
   data-distance="half marathon"
   data-latitude="60.479529"
   data-longitude="5.6791401"
+  data-location="Bruvik"
+  data-description="Bli med på årets utfordring i Osterøy-naturen; «Osterøy på tvers» laurdag 1. juni. Fjelløpet startar på kaien i den vakre Bruvik-bygda og gå"
+  data-image-path="/løpssider/osteroy_pa_tvers/osteroy_pa_tvers"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="31 mai"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/osteroy_pa_tvers/osteroy_pa_tvers_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/osteroy_pa_tvers/osteroy_pa_tvers_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Osterøy på tvers"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1493,7 +1624,7 @@
       <div class="left-container">
         <h3 class="race-name">Osterøy på tvers</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1504,7 +1635,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1534,11 +1665,124 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
+  href="/løpssider/nosen_hundreds_ultra"
+  class="race-card"
+  data-name="Nøsen Hundreds Ultra"
+  data-date="20250614"
+  data-county="Innlandet"
+  data-category=""
+  data-race-type="Trail/Fjelløp"
+  data-distance="half marathon, 50km, 100km"
+  data-latitude="60.93873409999999"
+  data-longitude="8.849008699999999"
+  data-location="Nøsen Yoga Hotel"
+  data-description="Nøsen Hundreds ble grunnlagt i 2020 med ambisjonen om å skape et morsomt, inkluderende og utfordrende fjelløp. Denne raseavstanden ble oppre"
+  data-image-path="/løpssider/nosen_hundreds_ultra/nosen_hundreds_ultra"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="14 juni"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/nosen_hundreds_ultra/nosen_hundreds_ultra_1.webp"
+        width="600"
+        height="400"
+        alt="Bilde til Nøsen Hundreds Ultra"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          14 juni
+        </div>
+        <div class="race-location">
+          Innlandet
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Nøsen Hundreds Ultra</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Nøsen Yoga Hotel 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                Halvmaraton
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                50 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                100 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail/Fjelløp
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Nøsen Hundreds ble grunnlagt i 2020 med ambisjonen om å skape et morsomt, inkluderende og utfordrende fjelløp. Denne raseavstanden ble oppre...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/orsta_fjellmaraton"
   class="race-card"
   data-name="Ørsta Fjellmaraton"
@@ -1549,15 +1793,23 @@
   data-distance="3km, 7km, half marathon, marathon"
   data-latitude="62.1981333"
   data-longitude="6.127590199999999"
+  data-location="Ørsta"
+  data-description="Ørsta Fjellmaraton er eit sosialt og uhøgtidleg løp i vakker fjellnatur, med lav startkontingent og helseplikt når du møter andre i løypa! E"
+  data-image-path="/løpssider/orsta_fjellmaraton/orsta_fjellmaraton"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="14 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/orsta_fjellmaraton/orsta_fjellmaraton_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/orsta_fjellmaraton/orsta_fjellmaraton_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Ørsta Fjellmaraton"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1641,32 +1893,44 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
-  href="/løpssider/nosen_hundreds_ultra"
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
+  href="/løpssider/flaekoyhoe_upp"
   class="race-card"
-  data-name="Nøsen Hundreds Ultra"
-  data-date="20250614"
+  data-name="Flækøyhøe Upp"
+  data-date="20250621"
   data-county="Innlandet"
   data-category=""
   data-race-type="Trail/Fjelløp"
-  data-distance="half marathon, 50km, 100km"
-  data-latitude="60.93873409999999"
-  data-longitude="8.849008699999999"
+  data-distance="4km"
+  data-latitude="61.8811642"
+  data-longitude="8.2688756"
+  data-location="Bismo"
+  data-description="Flækøyhøe UPP er vårens brattaste eventyr, kjent for sine utfordrende bakker og vakre omgivelser. Løpet starter ved Bismo på ca 400 moh og h"
+  data-image-path="/løpssider/flaekoyhoe_upp/flaekoyhoe_upp"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="21 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/nosen_hundreds_ultra/nosen_hundreds_ultra_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bilde til Nøsen Hundreds Ultra"
-        loading="lazy"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/flaekoyhoe_upp/flaekoyhoe_upp_1.webp"
+        width="600"
+        height="400"
+        alt="Bilde til Flækøyhøe Upp"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
       <div class="race-info-top">
         <div class="race-date">
-          14 juni
+          21 juni
         </div>
         <div class="race-location">
           Innlandet
@@ -1679,7 +1943,7 @@
   <div class="race-info-bottom">
     <div class="upper-container">
       <div class="left-container">
-        <h3 class="race-name">Nøsen Hundreds Ultra</h3>
+        <h3 class="race-name">Flækøyhøe Upp</h3>
         <div
           class="race-location with-spacing"
         >
@@ -1687,7 +1951,7 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Nøsen Yoga Hotel 
+          Bismo 
         </div>
       </div>
       <div class="right-container">
@@ -1701,19 +1965,7 @@
               
             <div class="distance-item">
               <span class="race-distance">
-                Halvmaraton
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                50 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                100 km
+                4 km
               </span>
             </div>
               
@@ -1730,7 +1982,7 @@
       </div>
     </div>
     <div class="race-summary">
-      Nøsen Hundreds ble grunnlagt i 2020 med ambisjonen om å skape et morsomt, inkluderende og utfordrende fjelløp. Denne raseavstanden ble oppre...
+      Flækøyhøe UPP er vårens brattaste eventyr, kjent for sine utfordrende bakker og vakre omgivelser. Løpet starter ved Bismo på ca 400 moh og h...
     </div>
   </div>
   <div
@@ -1738,7 +1990,11 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/fyr_til_fyr"
   class="race-card"
   data-name="Fyr til Fyr"
@@ -1749,15 +2005,23 @@
   data-distance="10km, marathon"
   data-latitude="62.3733994"
   data-longitude="5.556954"
+  data-location="Golleneset fyr"
+  data-description="Fjellløp / mosjonsarrangementet Fyr til Fyr går fra Golleneset til Runde og strekker seg over omlag 43 km. Alle er velkomne, enten du ønsker"
+  data-image-path="/løpssider/fyr_til_fyr/fyr_til_fyr"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="21 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/fyr_til_fyr/fyr_til_fyr_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/fyr_til_fyr/fyr_til_fyr_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Fyr til Fyr"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1778,7 +2042,7 @@
       <div class="left-container">
         <h3 class="race-name">Fyr til Fyr</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1789,7 +2053,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1825,96 +2089,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
-  href="/løpssider/flaekoyhoe_upp"
-  class="race-card"
-  data-name="Flækøyhøe Upp"
-  data-date="20250621"
-  data-county="Innlandet"
-  data-category=""
-  data-race-type="Trail/Fjelløp"
-  data-distance="4km"
-  data-latitude="61.8811642"
-  data-longitude="8.2688756"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/løpssider/flaekoyhoe_upp/flaekoyhoe_upp_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bilde til Flækøyhøe Upp"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          21 juni
-        </div>
-        <div class="race-location">
-          Innlandet
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Flækøyhøe Upp</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Bismo 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                4 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Trail/Fjelløp
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Flækøyhøe UPP er vårens brattaste eventyr, kjent for sine utfordrende bakker og vakre omgivelser. Løpet starter ved Bismo på ca 400 moh og h...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Mer info & påmelding</div>
-  </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/hornindal_rundt"
   class="race-card"
   data-name="Hornindal Rundt"
@@ -1925,15 +2108,23 @@
   data-distance="38km, 75km"
   data-latitude="61.98942969999999"
   data-longitude="6.564680699999999"
+  data-location="Hornindal"
+  data-description="Midt mellom Jotunheimen og Nordsjøen finn du Hornindal, omringa av dei mest spektakulære fjella Norden har å by på. Hornindal Rundt er et år"
+  data-image-path="/løpssider/hornindal_rundt/hornindal_rundt"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="5 juli"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/hornindal_rundt/hornindal_rundt_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/hornindal_rundt/hornindal_rundt_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Hornindal Rundt"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1954,7 +2145,7 @@
       <div class="left-container">
         <h3 class="race-name">Hornindal Rundt</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1965,7 +2156,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2001,11 +2192,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/hardangerjokulen_ultra"
   class="race-card"
   data-name="Hardangerjøkulen Ultra"
@@ -2016,15 +2211,23 @@
   data-distance="34km, 95km"
   data-latitude="60.47202399999999"
   data-longitude="8.468945999999999"
+  data-location="Liseth P"
+  data-description="Dynafit Hardangerjøkulen Ultra er eit løp som går rundt ein av Noregs vakreste isbreer, Hardangerjøkulen, med ei løype på 95 km. Det er også"
+  data-image-path="/løpssider/hardangerjokulen_ultra/hardangerjokulen_ultra"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="12 juli"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/hardangerjokulen_ultra/hardangerjokulen_ultra_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/hardangerjokulen_ultra/hardangerjokulen_ultra_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Hardangerjøkulen Ultra"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2045,7 +2248,7 @@
       <div class="left-container">
         <h3 class="race-name">Hardangerjøkulen Ultra</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2056,7 +2259,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2092,11 +2295,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/blefjells_beste"
   class="race-card"
   data-name="Blefjells Beste"
@@ -2107,15 +2314,23 @@
   data-distance="5km, 10km, half marathon, 57km"
   data-latitude="59.861658"
   data-longitude="9.430529"
+  data-location="Flesberg"
+  data-description="Blefjells Beste er et ultraløp på Blefjell, og navnet kommer fra de flotte plassene man passerer på "Store-Ble". Løpet tilbyr fire forskjell"
+  data-image-path="/løpssider/blefjells_beste/blefjells_beste"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="26 juli"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/blefjells_beste/blefjells_beste_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/blefjells_beste/blefjells_beste_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Blefjells Beste"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2199,7 +2414,11 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/jotunheimen_trail_run"
   class="race-card"
   data-name="Jotunheimen Trail Run"
@@ -2210,15 +2429,23 @@
   data-distance="1km, 13km, half marathon, marathon, 70km"
   data-latitude="61.32202029999999"
   data-longitude="8.7575591"
+  data-location="Bygdin"
+  data-description="Jotunheimen Trail Run - Den ultimate trail running opplevelsen. Velg mellom 1K, 13K, 21K, 42K og 70K. Velkommen til Jotunheimen Trail Run - "
+  data-image-path="/løpssider/jotunheimen_trail_run/jotunheimen_trail_run"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="2 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/jotunheimen_trail_run/jotunheimen_trail_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/jotunheimen_trail_run/jotunheimen_trail_run_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Jotunheimen Trail Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2306,7 +2533,11 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/stranda_fjord_trail_race"
   class="race-card"
   data-name="Stranda Fjord Trail Race"
@@ -2317,15 +2548,23 @@
   data-distance="12km, 25km, 48km"
   data-latitude="62.3091141"
   data-longitude="6.9424091"
+  data-location="Stranda"
+  data-description="Stranda Fjord Trail Race er en spektakulær løpsopplevelse som tar deg gjennom vakre fjellområder i Stranda, Møre og Romsdal. Løypen strekker"
+  data-image-path="/løpssider/stranda_fjord_trail_race/stranda_fjord_trail_race"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="9 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/stranda_fjord_trail_race/stranda_fjord_trail_race_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/stranda_fjord_trail_race/stranda_fjord_trail_race_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Stranda Fjord Trail Race"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2403,7 +2642,11 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/karvatn_skyrace"
   class="race-card"
   data-name="Kårvatn Skyrace"
@@ -2414,15 +2657,23 @@
   data-distance="2,5km, 4km, 10km, 15km, 29km"
   data-latitude="62.7814665"
   data-longitude="8.874582199999999"
+  data-location="Kårvatn"
+  data-description="Kårvatn ligger sentralt plassert innerst i Todalen på Nordmøre, omringet av flott, urørt natur. Vi ønsker at du skal oppleve gleden av å bev"
+  data-image-path="/løpssider/karvatn_skyrace/karvatn_skyrace"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="16 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/karvatn_skyrace/karvatn_skyrace_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/karvatn_skyrace/karvatn_skyrace_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Kårvatn Skyrace"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2510,7 +2761,11 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/lofoten_high5_svolvaer"
   class="race-card"
   data-name="Lofoten High5 Svolvær"
@@ -2521,15 +2776,23 @@
   data-distance="20km"
   data-latitude="68.2320828"
   data-longitude="14.5638481"
+  data-location="Svolvær torg"
+  data-description="Vi har gleden av å invitere til Svolvær High5 Lofoten for andre gang. Lofoten High5 er et spektakulært toppturløp med utgangspunkt i fem fje"
+  data-image-path="/løpssider/lofoten_high5_svolvaer/lofoten_high5_svolvaer"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="30 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/lofoten_high5_svolvaer/lofoten_high5_svolvaer_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/lofoten_high5_svolvaer/lofoten_high5_svolvaer_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Lofoten High5 Svolvær"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2550,7 +2813,7 @@
       <div class="left-container">
         <h3 class="race-name">Lofoten High5 Svolvær</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2561,7 +2824,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2591,11 +2854,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/styrkeproven_rett_vest"
   class="race-card"
   data-name="Styrkeprøven Rett Vest"
@@ -2606,15 +2873,23 @@
   data-distance="marathon, 45km, 60km"
   data-latitude="60.47202399999999"
   data-longitude="8.468945999999999"
+  data-location="Gullbotten"
+  data-description="Styrkeprøven Rett Vest er et ultraløp som arrangeres i fjellheimen i Bergen, med hovedfokus på å skape et sunt, engasjerende og motiverende "
+  data-image-path="/løpssider/styrkeproven_rett_vest/styrkeproven_rett_vest"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="30 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/styrkeproven_rett_vest/styrkeproven_rett_vest_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/styrkeproven_rett_vest/styrkeproven_rett_vest_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Styrkeprøven Rett Vest"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2692,92 +2967,11 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
-  href="/løpssider/lilo_trail"
-  class="race-card"
-  data-name="Lilo Trail"
-  data-date="20250913"
-  data-county="Oslo"
-  data-category=""
-  data-race-type="Trail/Fjelløp"
-  data-distance="half marathon"
-  data-latitude="59.979235"
-  data-longitude="10.817545"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/løpssider/lilo_trail/lilo_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bilde til Lilo Trail"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          13 sep.
-        </div>
-        <div class="race-location">
-          Oslo
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Lilo Trail</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Solemskogen 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                Halvmaraton
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Trail/Fjelløp
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Lørdag 14. september var det duket for den 11. utgaven av Lilo Trail, som er en del av (gratis)løpsserien Pop-Up-Runs arrangerer i bynær mar...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Mer info & påmelding</div>
-  </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/skjervoy_20_1000"
   class="race-card"
   data-name="Skjervøy 20:1000"
@@ -2788,15 +2982,23 @@
   data-distance="1km, 10km, 20km"
   data-latitude="70.0339919"
   data-longitude="20.9737453"
+  data-location="Skjervøy sentrum"
+  data-description="Skjervøy 20:1000 er et fjelløp rundt Skjervøy sentrum som gir 20 km med utfordrende terreng. Løpet finner sted lørdag 13. september, med påm"
+  data-image-path="/løpssider/skjervoy_20_1000/skjervoy_20_1000"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="13 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/skjervoy_20_1000/skjervoy_20_1000_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/skjervoy_20_1000/skjervoy_20_1000_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Skjervøy 20:1000"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2874,7 +3076,108 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
+  href="/løpssider/lilo_trail"
+  class="race-card"
+  data-name="Lilo Trail"
+  data-date="20250913"
+  data-county="Oslo"
+  data-category=""
+  data-race-type="Trail/Fjelløp"
+  data-distance="half marathon"
+  data-latitude="59.979235"
+  data-longitude="10.817545"
+  data-location="Solemskogen"
+  data-description="Lørdag 14. september var det duket for den 11. utgaven av Lilo Trail, som er en del av (gratis)løpsserien Pop-Up-Runs arrangerer i bynær mar"
+  data-image-path="/løpssider/lilo_trail/lilo_trail"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="13 sep."
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/lilo_trail/lilo_trail_1.webp"
+        width="600"
+        height="400"
+        alt="Bilde til Lilo Trail"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          13 sep.
+        </div>
+        <div class="race-location">
+          Oslo
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Lilo Trail</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Solemskogen 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                Halvmaraton
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail/Fjelløp
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Lørdag 14. september var det duket for den 11. utgaven av Lilo Trail, som er en del av (gratis)løpsserien Pop-Up-Runs arrangerer i bynær mar...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/hodlekve_rundt_fjellop"
   class="race-card"
   data-name="Hodlekve Rundt Fjelløp"
@@ -2885,15 +3188,23 @@
   data-distance="6km, 10km, half marathon"
   data-latitude="61.2272256"
   data-longitude="7.0992124"
+  data-location="Sogndalsfjøra"
+  data-description="Hodlekve Rundt Fjelløp er et spennende fjelløp som tar deltakerne gjennom naturskjønne områder i Sogndalsfjøra. Dette løpet, nå i sitt sjett"
+  data-image-path="/løpssider/hodlekve_rundt_fjellop/hodlekve_rundt_fjellop"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="20 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/hodlekve_rundt_fjellop/hodlekve_rundt_fjellop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/hodlekve_rundt_fjellop/hodlekve_rundt_fjellop_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Hodlekve Rundt Fjelløp"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2971,9 +3282,10 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">av</span>
         <span id="total-events">Løp</span>
@@ -2995,17 +3307,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

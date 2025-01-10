@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste", "@type": "WebPage", "name": "Terminliste"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer", "@type": "WebPage", "name": "Byer"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer/sandnes", "@type": "WebPage", "name": "Sandnes"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer/sandnes/5000-meter", "@type": "WebPage", "name": "5000 meter"}, "position": 4}]}, "visual": [{"href": "/terminliste", "name": "Terminliste"}, {"href": "/terminliste/byer/sandnes", "name": "Byer: Sandnes"}, {"href": "/terminliste/byer/sandnes/5000-meter", "name": "5000 meter"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>5000 meter løp i Sandnes: Løpskalender og terminliste</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Fra:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Til:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -567,7 +631,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     løp
@@ -580,18 +644,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -600,7 +652,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Sandnes&quot;, &quot;race_type&quot;: null, &quot;category&quot;: &quot;5000 meter&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/robust_lopet"
   class="race-card"
   data-name="Robust-løpet"
@@ -611,15 +665,23 @@
   data-distance="2km, 2,5km, 4km, 5km, 10km, half marathon, relay"
   data-latitude="58.73579299999999"
   data-longitude="5.6477347"
+  data-location="Bryne sentrum"
+  data-description="Robust-løpet er et lokalt, kjekt og inkluderende sentrumsløp i hjertet av Bryne, som finner sted lørdag 15. februar 2025. Deltakere kan velg"
+  data-image-path="/løpssider/robust_lopet/robust_lopet"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="15 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/robust_lopet/robust_lopet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/robust_lopet/robust_lopet_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Robust-løpet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -707,7 +769,10 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/orremila"
   class="race-card"
   data-name="Orremilå"
@@ -718,15 +783,23 @@
   data-distance="0,5km, 5km, 10km"
   data-latitude="58.85236020000001"
   data-longitude="5.735793699999999"
+  data-location="Håland Kjøtt"
+  data-description="Orre Idrettslag arrangerer Pølsemilå i samarbeid med Håland Kjøtt. Pølsemilå 2024 går av stabelen 7. september kl. 14.00, med turmarsjen og "
+  data-image-path="/løpssider/orremila/orremila"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="8 mars"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/orremila/orremila_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/orremila/orremila_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Orremilå"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -804,7 +877,8 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Utvalgte Løp</h2>
@@ -831,9 +905,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/robust_lopet/robust_lopet_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/robust_lopet/robust_lopet_1.webp"
         alt="Bilde til Robust-løpet"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -920,9 +996,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/orremila/orremila_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/orremila/orremila_1.webp"
         alt="Bilde til Orremilå"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -993,9 +1071,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/sandnes_backyard/sandnes_backyard_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/sandnes_backyard/sandnes_backyard_1.webp"
         alt="Bilde til Sandnes Backyard"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1060,9 +1140,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/mortenlopene_terrenglop/mortenlopene_terrenglop_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/mortenlopene_terrenglop/mortenlopene_terrenglop_1.webp"
         alt="Bilde til Mortenløpene Terrengløp"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1139,9 +1221,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/sandtangstafetten/sandtangstafetten_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/sandtangstafetten/sandtangstafetten_1.webp"
         alt="Bilde til Sandtangstafetten"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1202,7 +1286,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/sandnes_backyard"
   class="race-card"
   data-name="Sandnes Backyard"
@@ -1213,15 +1300,23 @@
   data-distance="6,7km, 50 miles"
   data-latitude="58.81712650000001"
   data-longitude="5.7903974"
+  data-location="Sandnes Arena (Melsheia)"
+  data-description="Backyard konseptet går ut på å løpe en runde på 6,7 km, eller 4,167 miles, hver time. Sandnes Backyard er ment som et sosialt lavterskel løp"
+  data-image-path="/løpssider/sandnes_backyard/sandnes_backyard"
+  data-type="backyard"
+  data-type-display="Backyard Ultra"
+  data-date-display="15 mars"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/sandnes_backyard/sandnes_backyard_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/sandnes_backyard/sandnes_backyard_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Sandnes Backyard"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1242,7 +1337,7 @@
       <div class="left-container">
         <h3 class="race-name">Sandnes Backyard</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1253,7 +1348,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1289,11 +1384,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/mortenlopene_terrenglop"
   class="race-card"
   data-name="Mortenløpene Terrengløp"
@@ -1304,15 +1403,23 @@
   data-distance="1km, 2km, 5km, 10km"
   data-latitude="58.7520822"
   data-longitude="5.6912682"
+  data-location="Njåskogen, Bryne"
+  data-description="Gjesdal idrettslag inviterer til Mortenløpene 2024 med innlagt Kretsmesterskap i Terrengløp. Løpet finner sted 6. april klokken 13:00 i Njås"
+  data-image-path="/løpssider/mortenlopene_terrenglop/mortenlopene_terrenglop"
+  data-type="terrain"
+  data-type-display="Terreng"
+  data-date-display="29 mars"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/mortenlopene_terrenglop/mortenlopene_terrenglop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/mortenlopene_terrenglop/mortenlopene_terrenglop_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Mortenløpene Terrengløp"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1396,7 +1503,11 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/sandtangstafetten"
   class="race-card"
   data-name="Sandtangstafetten"
@@ -1407,15 +1518,23 @@
   data-distance="7km, 10km, 11km"
   data-latitude="58.73579299999999"
   data-longitude="5.6477347"
+  data-location="Bryne"
+  data-description="Årets Sandtangstafett går torsdag 4.4 kl 18:00 på Bryne. I 2023 var det 40 påmeldte lag, så det kan lønne seg å komme 45 minutter før start."
+  data-image-path="/løpssider/sandtangstafetten/sandtangstafetten"
+  data-type="relay"
+  data-type-display="Stafett"
+  data-date-display="3 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/sandtangstafetten/sandtangstafetten_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/sandtangstafetten/sandtangstafetten_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Sandtangstafetten"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1493,7 +1612,11 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/halandsvannet_halvmaraton"
   class="race-card"
   data-name="Hålandsvannet Halvmaraton"
@@ -1504,15 +1627,23 @@
   data-distance="7km, 14km, half marathon"
   data-latitude="58.99967460000001"
   data-longitude="5.6187068"
+  data-location="Randaberg"
+  data-description="Hålandsvannet Halvmaraton er et mosjonsløp for alle, hvor du kan velge å løpe én, to eller tre runder rundt det vakre Hålandsvannet. Arrange"
+  data-image-path="/løpssider/halandsvannet_halvmaraton/halandsvannet_halvmaraton"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="12 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/halandsvannet_halvmaraton/halandsvannet_halvmaraton_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/halandsvannet_halvmaraton/halandsvannet_halvmaraton_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Hålandsvannet Halvmaraton"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1590,7 +1721,11 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/algardstafetten"
   class="race-card"
   data-name="Ålgårdstafetten"
@@ -1601,15 +1736,23 @@
   data-distance="5,5km"
   data-latitude="58.8353384"
   data-longitude="6.312727199999999"
+  data-location="Gjesdal"
+  data-description="Ålgårdstafetten er en årlig stafett som arrangeres av Gjesdal Idrettslag. Løpet har en variert og spennende trase, som tar deltakerne gjenno"
+  data-image-path="/løpssider/algardstafetten/algardstafetten"
+  data-type="relay"
+  data-type-display="Stafett"
+  data-date-display="24 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/algardstafetten/algardstafetten_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/algardstafetten/algardstafetten_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Ålgårdstafetten"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1630,7 +1773,7 @@
       <div class="left-container">
         <h3 class="race-name">Ålgårdstafetten</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1641,7 +1784,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1671,11 +1814,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/sandnes_ultratrail"
   class="race-card"
   data-name="Sandnes Ultratrail"
@@ -1686,15 +1833,23 @@
   data-distance="10km, 23km, marathon, 50 miles, 100 miles"
   data-latitude="58.8568282"
   data-longitude="5.8577941"
+  data-location="Alsvik Natursenter"
+  data-description="Sandnes Ultratrail ble startet i 2021 og tilbyr distanser på 100 miles, 50 miles, 43 km, 23 km, 10 km og barneløp. Løypene går gjennom vakke"
+  data-image-path="/løpssider/sandnes_ultratrail/sandnes_ultratrail"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="25 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/sandnes_ultratrail/sandnes_ultratrail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/sandnes_ultratrail/sandnes_ultratrail_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Sandnes Ultratrail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1782,7 +1937,11 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/strandamila"
   class="race-card"
   data-name="Strandamilå"
@@ -1793,15 +1952,23 @@
   data-distance="10km"
   data-latitude="59.0274138"
   data-longitude="6.0306975"
+  data-location="Jørpeland Flerbrukshall"
+  data-description="Strandamilå 1. mai 2024 er en 10 kilometer lang løpsbegivenhet som markerer den 44. gangen løpet blir arrangert. Siden 1980 har Strandamilå "
+  data-image-path="/løpssider/strandamila/strandamila"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="1 mai"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/strandamila/strandamila_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/strandamila/strandamila_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Strandamilå"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1822,7 +1989,7 @@
       <div class="left-container">
         <h3 class="race-name">Strandamilå</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1833,7 +2000,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1863,11 +2030,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/froylandsvatnet_rundt"
   class="race-card"
   data-name="Frøylandsvatnet Rundt"
@@ -1878,15 +2049,23 @@
   data-distance="10km, 16,5km"
   data-latitude="58.77106859999999"
   data-longitude="5.7242897"
+  data-location="Kvernaland"
+  data-description="Rundt Frøylandsvannet er en 16.54 km lang løperute som tilbyr en naturskjønn opplevelse. Ruten er perfekt for både trening og konkurranse, o"
+  data-image-path="/løpssider/froylandsvatnet_rundt/froylandsvatnet_rundt"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="14 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/froylandsvatnet_rundt/froylandsvatnet_rundt_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/froylandsvatnet_rundt/froylandsvatnet_rundt_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Frøylandsvatnet Rundt"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1907,7 +2086,7 @@
       <div class="left-container">
         <h3 class="race-name">Frøylandsvatnet Rundt</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1918,7 +2097,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1954,11 +2133,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/solnedgangen"
   class="race-card"
   data-name="Solnedgangen"
@@ -1969,15 +2152,23 @@
   data-distance="5km"
   data-latitude="58.88498569999999"
   data-longitude="5.6048442"
+  data-location="Sola Strand hotel"
+  data-description="Stavanger Sunset Marathon (Solnedgangen) er et løp som avholdes hvert år i september. Løpet inkluderer en rask 5 km løype og en turmarsj, me"
+  data-image-path="/løpssider/solnedgangen/solnedgangen"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="18 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/solnedgangen/solnedgangen_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/solnedgangen/solnedgangen_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Solnedgangen"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1998,7 +2189,7 @@
       <div class="left-container">
         <h3 class="race-name">Solnedgangen</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2009,7 +2200,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2039,11 +2230,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/solnedgangen_2"
   class="race-card"
   data-name="Solnedgangen"
@@ -2054,15 +2249,23 @@
   data-distance="5km"
   data-latitude="58.88498569999999"
   data-longitude="5.6048442"
+  data-location="Sola Strand Hotel"
+  data-description="Stavanger Sunset Marathon (Solnedgangen) er et løp som avholdes hvert år i september. Løpet tilbyr en rask 5 km-løype og en turmarsj, med st"
+  data-image-path="/løpssider/solnedgangen_2/solnedgangen_2"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="28 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/solnedgangen_2/solnedgangen_2_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/solnedgangen_2/solnedgangen_2_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Solnedgangen"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2083,7 +2286,7 @@
       <div class="left-container">
         <h3 class="race-name">Solnedgangen</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2094,7 +2297,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2124,11 +2327,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/preikestolen_trailrun"
   class="race-card"
   data-name="Preikestolen Trailrun"
@@ -2139,15 +2346,23 @@
   data-distance="9km, 20km"
   data-latitude="59.0241523"
   data-longitude="6.043277"
+  data-location="Jørpeland"
+  data-description="Gjør deg klar for et uforglemmelig eventyr på Preikestolen Trailrun, arrangert av Rockman lørdag 5. juli 2025, i den fantastiske lokasjonen "
+  data-image-path="/løpssider/preikestolen_trailrun/preikestolen_trailrun"
+  data-type="terrain"
+  data-type-display="Terreng"
+  data-date-display="25 juli"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/preikestolen_trailrun/preikestolen_trailrun_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/preikestolen_trailrun/preikestolen_trailrun_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Preikestolen Trailrun"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2168,7 +2383,7 @@
       <div class="left-container">
         <h3 class="race-name">Preikestolen Trailrun</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2179,7 +2394,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2215,11 +2430,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/gjesdalmila"
   class="race-card"
   data-name="Gjesdalmilå"
@@ -2230,15 +2449,23 @@
   data-distance="5km, 10km"
   data-latitude="58.77045399999999"
   data-longitude="5.955948299999999"
+  data-location="Gjesdal IL sin friidrettsstadion"
+  data-description="Gjesdalmilå, Ålgård, er høstens vakreste eventyr! Løpet starter mellom Gjesdal IL sin friidrettsstadion og Ålgård Fotballklubb sitt trenings"
+  data-image-path="/løpssider/gjesdalmila/gjesdalmila"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="21 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/gjesdalmila/gjesdalmila_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/gjesdalmila/gjesdalmila_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Gjesdalmilå"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2259,7 +2486,7 @@
       <div class="left-container">
         <h3 class="race-name">Gjesdalmilå</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2270,7 +2497,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2306,11 +2533,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/gjesdal_trailrun"
   class="race-card"
   data-name="Gjesdal Trailrun"
@@ -2321,15 +2552,23 @@
   data-distance="1km, 6km, 10km"
   data-latitude="58.8887958"
   data-longitude="5.6530475"
+  data-location="Gjesdal IL sitt friidrettsanlegg på Solås"
+  data-description="Gjesdal il inviterer til Gjesdal Trailrun, et ekte terrengløp/mosjonsløp med utgangspunkt fra Gjesdal IL sitt nye flotte friidrettsanlegg på"
+  data-image-path="/løpssider/gjesdal_trailrun/gjesdal_trailrun"
+  data-type="terrain"
+  data-type-display="Terreng"
+  data-date-display="19 okt."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/gjesdal_trailrun/gjesdal_trailrun_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/gjesdal_trailrun/gjesdal_trailrun_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Gjesdal Trailrun"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2399,7 +2638,7 @@
       </div>
     </div>
     <div class="race-summary">
-      Gjesdal il inviterer til Gjesdal Trailrun, et ekte terrengløp/mosjonsløp med utgangspunkt fra Gjesdal IL sitt flotte friidrettsanlegg på Sol...
+      Gjesdal il inviterer til Gjesdal Trailrun, et ekte terrengløp/mosjonsløp med utgangspunkt fra Gjesdal IL sitt nye flotte friidrettsanlegg på...
     </div>
   </div>
   <div
@@ -2407,9 +2646,10 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">av</span>
         <span id="total-events">Løp</span>
@@ -2431,17 +2671,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>
