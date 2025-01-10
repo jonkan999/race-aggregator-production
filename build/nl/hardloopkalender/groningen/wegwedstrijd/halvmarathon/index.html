@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://hardlooplijst.nl/hardloopkalender", "@type": "WebPage", "name": "Hardloopkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.nl/hardloopkalender/groningen", "@type": "WebPage", "name": "Groningen"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.nl/hardloopkalender/groningen/wegwedstrijd", "@type": "WebPage", "name": "Wegwedstrijd"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.nl/hardloopkalender/groningen/wegwedstrijd/halvmarathon", "@type": "WebPage", "name": "Halvmarathon"}, "position": 4}]}, "visual": [{"href": "/hardloopkalender", "name": "Hardloopkalender"}, {"href": "/hardloopkalender/groningen", "name": "Groningen"}, {"href": "/hardloopkalender/groningen/wegwedstrijd", "name": "Wegwedstrijd"}, {"href": "/hardloopkalender/groningen/wegwedstrijd/halvmarathon", "name": "Halvmarathon"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>Halve Marathon Wegwedstrijden in Groningen: Vind jouw volgende hardloopwedstrijd!</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Van:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Tot:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -574,7 +638,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     wedstrijd
@@ -587,18 +651,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kaart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -607,7 +659,9 @@
       data-preselected-filters="{&quot;category&quot;: &quot;Halvmarathon&quot;, &quot;county&quot;: &quot;Groningen&quot;, &quot;race_type&quot;: &quot;Wegwedstrijd&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/road_to_rotterdam_20_km"
   class="race-card"
   data-name="Road to Rotterdam 20 km"
@@ -618,15 +672,23 @@
   data-distance="20km, 25km, 30km, 35km"
   data-latitude="53.1974026"
   data-longitude="6.539585"
+  data-location="Atletiekbaan van Groningen Atletiek in het Stadspark"
+  data-description="Road to Rotterdam 20 km is een hardloopevenement dat plaatsvindt op zaterdag 11 januari 2025 in Groningen. Dit evenement is onderdeel van vi"
+  data-image-path="/looppaginas/road_to_rotterdam_20_km/road_to_rotterdam_20_km"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="11 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/road_to_rotterdam_20_km/road_to_rotterdam_20_km_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/road_to_rotterdam_20_km/road_to_rotterdam_20_km_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarRoad to Rotterdam 20 km"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -710,7 +772,10 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/road2rotterdam"
   class="race-card"
   data-name="Road2Rotterdam"
@@ -721,15 +786,23 @@
   data-distance="20km, 25km, 30km, 35km"
   data-latitude="53.1974026"
   data-longitude="6.539585"
+  data-location="atletiekbaan van Groningen Atletiek in het Stadspark"
+  data-description="Net als voorgaande jaren worden in 2025 weer vier trainingslopen ter voorbereiding op de Marathon van Rotterdam georganiseerd door Groningen"
+  data-image-path="/looppaginas/road2rotterdam/road2rotterdam"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="19 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/road2rotterdam/road2rotterdam_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/road2rotterdam/road2rotterdam_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarRoad2Rotterdam"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -813,7 +886,8 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Geselecteerde Races</h2>
@@ -840,9 +914,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/road_to_rotterdam_20_km/road_to_rotterdam_20_km_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/road_to_rotterdam_20_km/road_to_rotterdam_20_km_1.webp"
         alt="Afbeelding naarRoad to Rotterdam 20 km"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -919,9 +995,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/road2rotterdam/road2rotterdam_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/road2rotterdam/road2rotterdam_1.webp"
         alt="Afbeelding naarRoad2Rotterdam"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -998,9 +1076,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/road_to_rotterdam_25km/road_to_rotterdam_25km_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/road_to_rotterdam_25km/road_to_rotterdam_25km_1.webp"
         alt="Afbeelding naarRoad to Rotterdam 25km"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1077,9 +1157,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/road2rotterdam_2/road2rotterdam_2_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/road2rotterdam_2/road2rotterdam_2_1.webp"
         alt="Afbeelding naarRoad2Rotterdam"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1156,9 +1238,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/road_to_rotterdam_30_km/road_to_rotterdam_30_km_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/road_to_rotterdam_30_km/road_to_rotterdam_30_km_1.webp"
         alt="Afbeelding naarRoad to Rotterdam 30 km"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1225,7 +1309,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/road_to_rotterdam_25km"
   class="race-card"
   data-name="Road to Rotterdam 25km"
@@ -1236,15 +1323,23 @@
   data-distance="20km, 25km, 30km, 35km"
   data-latitude="53.1974026"
   data-longitude="6.539585"
+  data-location="Atletiekbaan van Groningen Atletiek in het Stadspark"
+  data-description="In 2025 worden er weer vier trainingslopen georganiseerd door Groningen Atletiek ter voorbereiding op de Marathon van Rotterdam. De Road to "
+  data-image-path="/looppaginas/road_to_rotterdam_25km/road_to_rotterdam_25km"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="1 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/road_to_rotterdam_25km/road_to_rotterdam_25km_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/road_to_rotterdam_25km/road_to_rotterdam_25km_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarRoad to Rotterdam 25km"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1328,7 +1423,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/road2rotterdam_2"
   class="race-card"
   data-name="Road2Rotterdam"
@@ -1339,15 +1438,23 @@
   data-distance="20km, 25km, 30km, 35km"
   data-latitude="53.1974026"
   data-longitude="6.539585"
+  data-location="Atletiekbaan van Groningen Atletiek in het Stadspark"
+  data-description="Net als voorgaande jaren worden in 2025 weer vier trainingslopen ter voorbereiding op de Marathon van Rotterdam georganiseerd door Groningen"
+  data-image-path="/looppaginas/road2rotterdam_2/road2rotterdam_2"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="22 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/road2rotterdam_2/road2rotterdam_2_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/road2rotterdam_2/road2rotterdam_2_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarRoad2Rotterdam"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1431,7 +1538,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/road_to_rotterdam_30_km"
   class="race-card"
   data-name="Road to Rotterdam 30 km"
@@ -1442,15 +1553,23 @@
   data-distance="20km, 25km, 30km, 35km"
   data-latitude="53.1974026"
   data-longitude="6.539585"
+  data-location="Atletiekbaan van Groningen Atletiek in het Stadspark"
+  data-description="Net als voorgaande jaren worden ook in 2025 weer vier trainingslopen ter voorbereiding op de Marathon van Rotterdam georganiseerd door Groni"
+  data-image-path="/looppaginas/road_to_rotterdam_30_km/road_to_rotterdam_30_km"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="22 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/road_to_rotterdam_30_km/road_to_rotterdam_30_km_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/road_to_rotterdam_30_km/road_to_rotterdam_30_km_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarRoad to Rotterdam 30 km"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1534,7 +1653,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/road2rotterdam_3"
   class="race-card"
   data-name="Road2Rotterdam"
@@ -1545,15 +1668,23 @@
   data-distance="20km, 25km, 30km, 35km"
   data-latitude="53.1974026"
   data-longitude="6.539585"
+  data-location="Atletiekbaan van Groningen Atletiek in het Stadspark"
+  data-description="Net als voorgaande jaren worden ook in 2025 weer vier trainingslopen ter voorbereiding op de Marathon van Rotterdam georganiseerd door Groni"
+  data-image-path="/looppaginas/road2rotterdam_3/road2rotterdam_3"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="2 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/road2rotterdam_3/road2rotterdam_3_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/road2rotterdam_3/road2rotterdam_3_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarRoad2Rotterdam"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1637,7 +1768,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/halve_marathon_van_haren"
   class="race-card"
   data-name="Halve Marathon van Haren"
@@ -1648,15 +1783,23 @@
   data-distance="5km, 10km, half marathon"
   data-latitude="53.1637505"
   data-longitude="6.6308972"
+  data-location="Haren industrieterrein Felland Zuid"
+  data-description="Welkom bij de “RunX Halve Marathon van Haren”, deze voorjaarsklassieker wordt voor de 40e keer gehouden op zaterdag 8 maart 2025. Het parcou"
+  data-image-path="/looppaginas/halve_marathon_van_haren/halve_marathon_van_haren"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="8 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/halve_marathon_van_haren/halve_marathon_van_haren_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/halve_marathon_van_haren/halve_marathon_van_haren_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarHalve Marathon van Haren"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1734,7 +1877,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/road_to_rotterdam_31_km"
   class="race-card"
   data-name="Road to Rotterdam 31 km"
@@ -1745,15 +1892,23 @@
   data-distance="20km, 25km, 30km, 35km"
   data-latitude="53.1974026"
   data-longitude="6.539585"
+  data-location="Atletiekbaan van Groningen Atletiek in het Stadspark"
+  data-description="Road to Rotterdam 31/35 km is een hardloopevenement dat plaatsvindt op zaterdag 15 maart 2025 in Groningen. Dit evenement biedt deelnemers d"
+  data-image-path="/looppaginas/road_to_rotterdam_31_km/road_to_rotterdam_31_km"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="15 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/road_to_rotterdam_31_km/road_to_rotterdam_31_km_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/road_to_rotterdam_31_km/road_to_rotterdam_31_km_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarRoad to Rotterdam 31 km"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1837,7 +1992,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/road2rotterdam_groningen"
   class="race-card"
   data-name="Road2Rotterdam - Groningen"
@@ -1848,15 +2007,23 @@
   data-distance="20km, 25km, 30km, 35km"
   data-latitude="53.1974026"
   data-longitude="6.539585"
+  data-location="atletiekbaan van Groningen Atletiek in het Stadspark"
+  data-description="Net als voorgaande jaren worden in 2025 weer vier trainingslopen ter voorbereiding op de Marathon van Rotterdam georganiseerd door Groningen"
+  data-image-path="/looppaginas/road2rotterdam_groningen/road2rotterdam_groningen"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="15 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/road2rotterdam_groningen/road2rotterdam_groningen_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/road2rotterdam_groningen/road2rotterdam_groningen_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarRoad2Rotterdam - Groningen"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1940,7 +2107,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/leekster_lente_loop"
   class="race-card"
   data-name="Leekster Lente Loop"
@@ -1948,18 +2119,26 @@
   data-county="Groningen"
   data-category=""
   data-race-type="Wegwedstrijd"
-  data-distance="5km, 10km, marathon"
-  data-latitude="53.1616114"
-  data-longitude="6.390616500000001"
+  data-distance="0,6km, 1,2km, 1,8km, 5km, 10km, 15km, half marathon, 25km"
+  data-latitude="53.1618678"
+  data-longitude="6.3913942"
+  data-location="De Dam in Leek"
+  data-description="De Univé Leekster Lente Loop vindt plaats op zaterdag 22 maart 2025 en biedt verschillende loop- en wandelonderdelen aan. De race omvat een "
+  data-image-path="/looppaginas/leekster_lente_loop/leekster_lente_loop"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="22 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/leekster_lente_loop/leekster_lente_loop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/leekster_lente_loop/leekster_lente_loop_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarLeekster Lente Loop"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1986,7 +2165,7 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Leek 
+          De Dam in Leek 
         </div>
       </div>
       <div class="right-container">
@@ -2000,22 +2179,32 @@
               
             <div class="distance-item">
               <span class="race-distance">
+                0,6 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                1,2 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                1,8 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
                 5 km
               </span>
             </div>
-            
+             
             <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
+              <span class="race-distance">...</span>
             </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Marathon
-              </span>
-            </div>
-              
+             
           </div>
         </div>
         
@@ -2029,7 +2218,7 @@
       </div>
     </div>
     <div class="race-summary">
-      Het hardloopevenement Unive Leekster Lente Loop vindt plaats te Leek, gemeente Westerkwartier (GR) op zaterdag 16 maart 2024. De deelnemers ...
+      De Univé Leekster Lente Loop vindt plaats op zaterdag 22 maart 2025 en biedt verschillende loop- en wandelonderdelen aan. De race omvat een ...
     </div>
   </div>
   <div
@@ -2037,7 +2226,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/urban_trail_groningen"
   class="race-card"
   data-name="Urban Trail Groningen"
@@ -2048,15 +2241,23 @@
   data-distance="12km, 20km"
   data-latitude="53.2193835"
   data-longitude="6.566501799999999"
+  data-location="Funrun"
+  data-description="De Urban Trail Groningen is een unieke loopervaring door de stad, een bijzondere ontdekkingstocht waar sportiviteit, cultuur en architectuur"
+  data-image-path="/looppaginas/urban_trail_groningen/urban_trail_groningen"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="6 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/urban_trail_groningen/urban_trail_groningen_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/urban_trail_groningen/urban_trail_groningen_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarUrban Trail Groningen"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2077,7 +2278,7 @@
       <div class="left-container">
         <h3 class="race-name">Urban Trail Groningen</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2088,7 +2289,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2124,11 +2325,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/thaisner_dorpsrun"
   class="race-card"
   data-name="Thaisner Dorpsrun"
@@ -2139,15 +2344,23 @@
   data-distance="4km, 10km, half marathon"
   data-latitude="53.2681438"
   data-longitude="6.6512343"
+  data-location="Thesinge"
+  data-description="De Thaisner Dorpsrun is een hardloopwedstrijd die plaatsvindt in Thesinge. De race biedt verschillende afstanden voor deelnemers van alle le"
+  data-image-path="/looppaginas/thaisner_dorpsrun/thaisner_dorpsrun"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="27 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/thaisner_dorpsrun/thaisner_dorpsrun_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/thaisner_dorpsrun/thaisner_dorpsrun_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarThaisner Dorpsrun"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2225,7 +2438,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/halve_van_haarlem"
   class="race-card"
   data-name="Halve van Haarlem"
@@ -2236,15 +2453,23 @@
   data-distance="5km, 10km, half marathon"
   data-latitude="53.21896169999999"
   data-longitude="6.5679106"
+  data-location="Grote Markt"
+  data-description="De Teva Halve van Haarlem vindt plaats op 28 september 2025 (zondag) en biedt verschillende afstanden aan: 5 km, een halve marathon van 21,1"
+  data-image-path="/looppaginas/halve_van_haarlem/halve_van_haarlem"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="28 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/halve_van_haarlem/halve_van_haarlem_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/halve_van_haarlem/halve_van_haarlem_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarHalve van Haarlem"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2322,7 +2547,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/rode_loper_run"
   class="race-card"
   data-name="Rode Loper Run"
@@ -2333,15 +2562,23 @@
   data-distance="2km, 5km, 10km"
   data-latitude="52.991639"
   data-longitude="6.972007"
+  data-location="Beachpark, Stadskanaal"
+  data-description="Welkom op de site van de Rode Loper Run, een mooie en uitdagende run via de Rode loper brug door het Vledderbos in Stadskanaal. De run vindt"
+  data-image-path="/looppaginas/rode_loper_run/rode_loper_run"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="19 okt."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/rode_loper_run/rode_loper_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/rode_loper_run/rode_loper_run_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarRode Loper Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2419,7 +2656,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/zeemijlenloop_delfzijl"
   class="race-card"
   data-name="Zeemijlenloop Delfzijl"
@@ -2430,15 +2671,23 @@
   data-distance="4km, 5km, 7,4km, 10km"
   data-latitude="53.3307859"
   data-longitude="6.9158168"
+  data-location="Burgemeester Boeremalaan"
+  data-description="Op zondag 26 oktober 2025 wordt de dertiende editie van de Zeemijlenloop gelopen. Dit unieke hardloopevenement, georganiseerd door AV Fivels"
+  data-image-path="/looppaginas/zeemijlenloop_delfzijl/zeemijlenloop_delfzijl"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="26 okt."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/zeemijlenloop_delfzijl/zeemijlenloop_delfzijl_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/zeemijlenloop_delfzijl/zeemijlenloop_delfzijl_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarZeemijlenloop Delfzijl"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2522,7 +2771,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/plantsoenloop_groningen"
   class="race-card"
   data-name="Plantsoenloop Groningen"
@@ -2533,15 +2786,23 @@
   data-distance="1km, 2km, 4km, 8km"
   data-latitude="53.22416029999999"
   data-longitude="6.555644300000001"
+  data-location="Noorderplantsoen"
+  data-description="De 66e editie van de Plantsoenloop op 9 november 2024 is een hardloopevenement in Groningen dat jaarlijks veel deelnemers trekt. Dit jaar wa"
+  data-image-path="/looppaginas/plantsoenloop_groningen/plantsoenloop_groningen"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="1 nov."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/plantsoenloop_groningen/plantsoenloop_groningen_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/plantsoenloop_groningen/plantsoenloop_groningen_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarPlantsoenloop Groningen"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2625,7 +2886,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/stadspark_night_run"
   class="race-card"
   data-name="Stadspark Night Run"
@@ -2636,15 +2901,23 @@
   data-distance="5km, 6km, 10km, marathon"
   data-latitude="53.2032129"
   data-longitude="6.5408369"
+  data-location="Stadspark Groningen"
+  data-description="Vrijdagavond 13 december staat het Groningse Stadspark weer in het teken van de sfeervolle Stadspark Nightrun. Dit winterse hardloopevenemen"
+  data-image-path="/looppaginas/stadspark_night_run/stadspark_night_run"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="12 dec."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/stadspark_night_run/stadspark_night_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/stadspark_night_run/stadspark_night_run_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarStadspark Night Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2728,9 +3001,10 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">van</span>
         <span id="total-events">Evenementen</span>
@@ -2752,17 +3026,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kaart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

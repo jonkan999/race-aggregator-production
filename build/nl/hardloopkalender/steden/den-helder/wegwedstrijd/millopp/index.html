@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://hardlooplijst.nl/hardloopkalender", "@type": "WebPage", "name": "Hardloopkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.nl/hardloopkalender/steden", "@type": "WebPage", "name": "Steden"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.nl/hardloopkalender/steden/den-helder", "@type": "WebPage", "name": "Den Helder"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.nl/hardloopkalender/steden/den-helder/wegwedstrijd", "@type": "WebPage", "name": "Wegwedstrijd"}, "position": 4}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.nl/hardloopkalender/steden/den-helder/wegwedstrijd/millopp", "@type": "WebPage", "name": "Millopp"}, "position": 5}]}, "visual": [{"href": "/hardloopkalender", "name": "Hardloopkalender"}, {"href": "/hardloopkalender/steden/den-helder", "name": "Steden: Den Helder"}, {"href": "/hardloopkalender/steden/den-helder/wegwedstrijd", "name": "Wegwedstrijd"}, {"href": "/hardloopkalender/steden/den-helder/wegwedstrijd/millopp", "name": "Millopp"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>Millopp Wegwedstrijden in Den Helder: Vind jouw hardloopwedstrijd!</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Van:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Tot:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -574,7 +638,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     wedstrijd
@@ -587,18 +651,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kaart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -607,7 +659,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Den Helder&quot;, &quot;race_type&quot;: &quot;Wegwedstrijd&quot;, &quot;category&quot;: &quot;Millopp&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/halve_marathon_de_waal"
   class="race-card"
   data-name="Halve Marathon De Waal"
@@ -618,15 +672,23 @@
   data-distance="5km, 10,6km, half marathon"
   data-latitude="53.0729311"
   data-longitude="4.8201727"
+  data-location="Dorpshuis De Waal"
+  data-description="Begin maart vindt de jaarlijkse Halve Marathon van De Waal plaats op het prachtige Texel. Dit kleinschalige en gezellige evenement trekt lop"
+  data-image-path="/looppaginas/halve_marathon_de_waal/halve_marathon_de_waal"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="8 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/halve_marathon_de_waal/halve_marathon_de_waal_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/halve_marathon_de_waal/halve_marathon_de_waal_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarHalve Marathon De Waal"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -704,7 +766,10 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/run_for_kika_texel"
   class="race-card"
   data-name="Run for Kika Texel"
@@ -715,15 +780,23 @@
   data-distance="1,5km, 2,5km, 5km, 10km, half marathon, 30km, marathon"
   data-latitude="53.1523298"
   data-longitude="4.8586301"
+  data-location="Vakantiepark De Krim, Roggeslootweg 6, 1795 JV De Cocksdorp"
+  data-description="Run for KiKa Texel is een compleet verzorgde hardloopbeleving voor ervaren én beginnende hardlopers. Op zaterdag 22 maart 2025 kun je deelne"
+  data-image-path="/looppaginas/run_for_kika_texel/run_for_kika_texel"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="22 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/run_for_kika_texel/run_for_kika_texel_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/run_for_kika_texel/run_for_kika_texel_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarRun for Kika Texel"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -811,7 +884,8 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Geselecteerde Races</h2>
@@ -838,9 +912,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/halve_marathon_de_waal/halve_marathon_de_waal_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/halve_marathon_de_waal/halve_marathon_de_waal_1.webp"
         alt="Afbeelding naarHalve Marathon De Waal"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -911,9 +987,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/run_for_kika_texel/run_for_kika_texel_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/run_for_kika_texel/run_for_kika_texel_1.webp"
         alt="Afbeelding naarRun for Kika Texel"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1000,9 +1078,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/vuurtorenloop/vuurtorenloop_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/vuurtorenloop/vuurtorenloop_1.webp"
         alt="Afbeelding naarVuurtorenloop"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1079,9 +1159,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/paaspolderloop/paaspolderloop_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/paaspolderloop/paaspolderloop_1.webp"
         alt="Afbeelding naarPaaspolderloop"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1152,9 +1234,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/hoge_bergloop_texel/hoge_bergloop_texel_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/hoge_bergloop_texel/hoge_bergloop_texel_1.webp"
         alt="Afbeelding naarHoge Bergloop Texel"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1209,7 +1293,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/vuurtorenloop"
   class="race-card"
   data-name="Vuurtorenloop"
@@ -1220,15 +1307,23 @@
   data-distance="2,1km, 5km, 10km, half marathon"
   data-latitude="53.3005376"
   data-longitude="5.0773492"
+  data-location="Sportcentrum Flidunen"
+  data-description="Bij de Vuurtorenloop op Vlieland kun je kiezen uit drie schitterende en zeer afwisselende routes: een halve marathon (21,1 km), 10 km en 5 k"
+  data-image-path="/looppaginas/vuurtorenloop/vuurtorenloop"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="13 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/vuurtorenloop/vuurtorenloop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/vuurtorenloop/vuurtorenloop_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarVuurtorenloop"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1312,7 +1407,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/paaspolderloop"
   class="race-card"
   data-name="Paaspolderloop"
@@ -1323,15 +1422,23 @@
   data-distance="2km, 5km, 10km"
   data-latitude="52.7377535"
   data-longitude="4.8913015"
+  data-location="Nieuwe Niedorp"
+  data-description="De Paaspolderloop wordt traditioneel gehouden op tweede paasdag, maandag 21 april 2025, in Nieuwe Niedorp. Dit populaire loopevenement trekt"
+  data-image-path="/looppaginas/paaspolderloop/paaspolderloop"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="21 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/paaspolderloop/paaspolderloop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/paaspolderloop/paaspolderloop_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarPaaspolderloop"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1409,7 +1516,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/hoge_bergloop_texel"
   class="race-card"
   data-name="Hoge Bergloop Texel"
@@ -1420,15 +1531,23 @@
   data-distance="5,6km, 7,5km"
   data-latitude="53.0483947"
   data-longitude="4.8005707"
+  data-location="Atletiekbaan bij AV Texel"
+  data-description="Atletiek Vereniging Texel organiseert de Hoge Bergloop, een recreatieve loop voor jong en oud. De start is op de atletiekbaan van AV Texel, "
+  data-image-path="/looppaginas/hoge_bergloop_texel/hoge_bergloop_texel"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="27 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/hoge_bergloop_texel/hoge_bergloop_texel_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/hoge_bergloop_texel/hoge_bergloop_texel_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarHoge Bergloop Texel"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1449,7 +1568,7 @@
       <div class="left-container">
         <h3 class="race-name">Hoge Bergloop Texel</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1460,7 +1579,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1496,11 +1615,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/schagencity_run"
   class="race-card"
   data-name="Schagencity Run"
@@ -1509,17 +1632,25 @@
   data-category=""
   data-race-type="Wegwedstrijd"
   data-distance="5km, 10km"
-  data-latitude="52.7870461"
-  data-longitude="4.7960775"
+  data-latitude="52.7869574"
+  data-longitude="4.796405399999999"
+  data-location="Markt 1741 BS"
+  data-description="De Schagen City Run vindt plaats op zondag 12 mei 2024 van 9:00 tot 15:00 in Schagen. De race biedt afstanden van 5 en 10 km, waarbij iedere"
+  data-image-path="/looppaginas/schagencity_run/schagencity_run"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="11 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/schagencity_run/schagencity_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/schagencity_run/schagencity_run_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarSchagencity Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1540,18 +1671,18 @@
       <div class="left-container">
         <h3 class="race-name">Schagencity Run</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Markt 1, 741 BS Schagen 
+          Markt 1741 BS 
         </div>
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1583,15 +1714,19 @@
       </div>
     </div>
     <div class="race-summary">
-      De Schagen City Run vindt plaats op zondag 12 mei 2024 van 9:00 tot 15:00 in Schagen. De race biedt afstanden van 5 km en 10 km, waarbij ied...
+      De Schagen City Run vindt plaats op zondag 12 mei 2024 van 9:00 tot 15:00 in Schagen. De race biedt afstanden van 5 en 10 km, waarbij iedere...
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/de_langedijker_run"
   class="race-card"
   data-name="De Langedijker Run"
@@ -1602,15 +1737,23 @@
   data-distance="5km, 10km"
   data-latitude="52.7006891"
   data-longitude="4.810644"
+  data-location="Restaurant De Burg, Dorpsstraat 571"
+  data-description="De negende editie van de Langedijker Run vindt plaats op zondag 2 juni in Noord-Scharwoude. Dit hardloopevenement, dat jaarlijks ongeveer 70"
+  data-image-path="/looppaginas/de_langedijker_run/de_langedijker_run"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="25 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/de_langedijker_run/de_langedijker_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/de_langedijker_run/de_langedijker_run_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarDe Langedijker Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1631,7 +1774,7 @@
       <div class="left-container">
         <h3 class="race-name">De Langedijker Run</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1642,7 +1785,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1678,11 +1821,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/texel_zomerloop_7"
   class="race-card"
   data-name="Texel Zomerloop"
@@ -1693,15 +1840,23 @@
   data-distance="4,4km, 8,4km"
   data-latitude="53.0483869"
   data-longitude="4.8005601"
+  data-location="Sportpark Zuid, Haffelderweg 48, Den Burg"
+  data-description="De AV Texel Zomerloop is een wekelijkse hardloopwedstrijd die elke woensdagavond plaatsvindt op Sportpark Zuid in Den Burg. Deelnemers kunne"
+  data-image-path="/looppaginas/texel_zomerloop_7/texel_zomerloop_7"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="20 juli"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/texel_zomerloop_7/texel_zomerloop_7_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/texel_zomerloop_7/texel_zomerloop_7_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTexel Zomerloop"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1722,7 +1877,7 @@
       <div class="left-container">
         <h3 class="race-name">Texel Zomerloop</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1733,7 +1888,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1769,11 +1924,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/texel_zomerloop_8"
   class="race-card"
   data-name="Texel Zomerloop"
@@ -1784,15 +1943,23 @@
   data-distance="4,4km, 8,4km"
   data-latitude="53.0483869"
   data-longitude="4.8005601"
+  data-location="Sportpark Zuid, Haffelderweg 48, Den Burg"
+  data-description="De AV Texel Zomerloop vindt plaats op Sportpark Zuid in Den Burg en is onderdeel van een serie van zes zomerlopen op woensdagavonden. De rac"
+  data-image-path="/looppaginas/texel_zomerloop_8/texel_zomerloop_8"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="3 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/texel_zomerloop_8/texel_zomerloop_8_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/texel_zomerloop_8/texel_zomerloop_8_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTexel Zomerloop"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1813,7 +1980,7 @@
       <div class="left-container">
         <h3 class="race-name">Texel Zomerloop</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1824,7 +1991,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1860,11 +2027,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/texel_zomerloop_9"
   class="race-card"
   data-name="Texel Zomerloop"
@@ -1875,15 +2046,23 @@
   data-distance="1,2km, 4,4km, 8,4km"
   data-latitude="53.0483869"
   data-longitude="4.8005601"
+  data-location="Haffelderweg 48"
+  data-description="De AV Texel Zomerloop vindt plaats op Sportpark Zuid in Den Burg, waar deelnemers kunnen genieten van een afwisselend parcours over verharde"
+  data-image-path="/looppaginas/texel_zomerloop_9/texel_zomerloop_9"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="10 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/texel_zomerloop_9/texel_zomerloop_9_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/texel_zomerloop_9/texel_zomerloop_9_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTexel Zomerloop"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1961,7 +2140,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/texel_zomerloop_10"
   class="race-card"
   data-name="Texel Zomerloop"
@@ -1972,15 +2155,23 @@
   data-distance="4,4km, 8,4km"
   data-latitude="53.0483869"
   data-longitude="4.8005601"
+  data-location="Haffelderweg 48"
+  data-description="De AV Texel Zomerloop vindt plaats op Sportpark Zuid in Den Burg en omvat een serie van zes zomerlopen op woensdagavonden. Deelnemers kunnen"
+  data-image-path="/looppaginas/texel_zomerloop_10/texel_zomerloop_10"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="17 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/texel_zomerloop_10/texel_zomerloop_10_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/texel_zomerloop_10/texel_zomerloop_10_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTexel Zomerloop"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2001,7 +2192,7 @@
       <div class="left-container">
         <h3 class="race-name">Texel Zomerloop</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2012,7 +2203,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2048,11 +2239,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/boerenkoolloop_warmenhuizen"
   class="race-card"
   data-name="Boerenkoolloop Warmenhuizen"
@@ -2063,15 +2258,23 @@
   data-distance="1,2km, 5km, 10km"
   data-latitude="52.7328987"
   data-longitude="4.7468051"
+  data-location="AV Nova"
+  data-description="Traditiegetrouw start de 10 km van de Vezet-Boerenkoolloop op de baan van AV Nova. Na 100 meter verlaat je de atletiekbaan en volg je de weg"
+  data-image-path="/looppaginas/boerenkoolloop_warmenhuizen/boerenkoolloop_warmenhuizen"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="2 nov."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/boerenkoolloop_warmenhuizen/boerenkoolloop_warmenhuizen_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/boerenkoolloop_warmenhuizen/boerenkoolloop_warmenhuizen_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarBoerenkoolloop Warmenhuizen"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2149,9 +2352,10 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">van</span>
         <span id="total-events">Evenementen</span>
@@ -2173,17 +2377,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kaart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

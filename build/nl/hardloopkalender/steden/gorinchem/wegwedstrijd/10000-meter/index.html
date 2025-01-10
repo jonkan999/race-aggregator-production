@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://hardlooplijst.nl/hardloopkalender", "@type": "WebPage", "name": "Hardloopkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.nl/hardloopkalender/steden", "@type": "WebPage", "name": "Steden"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.nl/hardloopkalender/steden/gorinchem", "@type": "WebPage", "name": "Gorinchem"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.nl/hardloopkalender/steden/gorinchem/wegwedstrijd", "@type": "WebPage", "name": "Wegwedstrijd"}, "position": 4}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.nl/hardloopkalender/steden/gorinchem/wegwedstrijd/10000-meter", "@type": "WebPage", "name": "10000 meter"}, "position": 5}]}, "visual": [{"href": "/hardloopkalender", "name": "Hardloopkalender"}, {"href": "/hardloopkalender/steden/gorinchem", "name": "Steden: Gorinchem"}, {"href": "/hardloopkalender/steden/gorinchem/wegwedstrijd", "name": "Wegwedstrijd"}, {"href": "/hardloopkalender/steden/gorinchem/wegwedstrijd/10000-meter", "name": "10000 meter"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>10000 meter Wegwedstrijd in Gorinchem | Loopkalender & Hardlooplijst</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Van:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Tot:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -574,7 +638,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     wedstrijd
@@ -587,18 +651,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kaart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -607,7 +659,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Gorinchem&quot;, &quot;race_type&quot;: &quot;Wegwedstrijd&quot;, &quot;category&quot;: &quot;10000 meter&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/run2day_vlinderloop"
   class="race-card"
   data-name="Run2Day Vlinderloop"
@@ -618,15 +672,23 @@
   data-distance="4,4km, 10,7km, 14,8km, half marathon"
   data-latitude="52.01631"
   data-longitude="5.150253999999999"
+  data-location="Groene Hoon 1, Houten"
+  data-description="Voor elke hardloopliefhebber, jong en oud, staat zaterdag 13 april de maandelijks Run2Day Vlinderloop van de Loopgroep Houten op het program"
+  data-image-path="/looppaginas/run2day_vlinderloop/run2day_vlinderloop"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="11 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/run2day_vlinderloop/run2day_vlinderloop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/run2day_vlinderloop/run2day_vlinderloop_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarRun2Day Vlinderloop"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -710,7 +772,10 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/kuijkse_stratenloop"
   class="race-card"
   data-name="Kuijkse StratenLoop"
@@ -721,15 +786,23 @@
   data-distance="2,5km, 5km, 7,5km, 10km"
   data-latitude="51.6903595"
   data-longitude="5.1780672"
+  data-location="Nieuwkuijk"
+  data-description="Welkom op de website van de Kuijkse StratenLoop, de gezelligste loop van de regio met leuke hardlooproutes door Nieuwkuijk voor iedereen. Op"
+  data-image-path="/looppaginas/kuijkse_stratenloop/kuijkse_stratenloop"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="12 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/kuijkse_stratenloop/kuijkse_stratenloop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/kuijkse_stratenloop/kuijkse_stratenloop_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarKuijkse StratenLoop"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -813,7 +886,8 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Geselecteerde Races</h2>
@@ -840,9 +914,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/run2day_vlinderloop/run2day_vlinderloop_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/run2day_vlinderloop/run2day_vlinderloop_1.webp"
         alt="Afbeelding naarRun2Day Vlinderloop"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -919,9 +995,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/kuijkse_stratenloop/kuijkse_stratenloop_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/kuijkse_stratenloop/kuijkse_stratenloop_1.webp"
         alt="Afbeelding naarKuijkse StratenLoop"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -998,9 +1076,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/blue_monday_run_gouda/blue_monday_run_gouda_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/blue_monday_run_gouda/blue_monday_run_gouda_1.webp"
         alt="Afbeelding naarBlue Monday Run Gouda"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1059,9 +1139,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/groenehartloop/groenehartloop_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/groenehartloop/groenehartloop_1.webp"
         alt="Afbeelding naarGroenehartloop"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1144,9 +1226,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/boels_rental_run/boels_rental_run_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/boels_rental_run/boels_rental_run_1.webp"
         alt="Afbeelding naarBoels Rental Run"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1207,7 +1291,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/blue_monday_run_gouda"
   class="race-card"
   data-name="Blue Monday Run Gouda"
@@ -1218,15 +1305,23 @@
   data-distance="5km"
   data-latitude="52.0115205"
   data-longitude="4.7104633"
+  data-location="Gouda"
+  data-description="De MIND Blue Monday Run is het meest positieve hardloop- en wandel evenement van het jaar! Op maandag 20 januari 2025, de zogenaamd meest de"
+  data-image-path="/looppaginas/blue_monday_run_gouda/blue_monday_run_gouda"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="20 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/blue_monday_run_gouda/blue_monday_run_gouda_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/blue_monday_run_gouda/blue_monday_run_gouda_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarBlue Monday Run Gouda"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1247,7 +1342,7 @@
       <div class="left-container">
         <h3 class="race-name">Blue Monday Run Gouda</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1258,7 +1353,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1288,11 +1383,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/groenehartloop"
   class="race-card"
   data-name="Groenehartloop"
@@ -1303,15 +1402,23 @@
   data-distance="1,5km, 5km, 10km, half marathon, marathon"
   data-latitude="52.02808899999999"
   data-longitude="4.6865026"
+  data-location="Groenhovenpark 6, 2803 PH, Gouda"
+  data-description="Atletiekvereniging Gouda organiseert op zondag 2 februari 2025 de 49e De Knikker Groenehartloop voor iedereen. Of je nu een fanatieke loper "
+  data-image-path="/looppaginas/groenehartloop/groenehartloop"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="2 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/groenehartloop/groenehartloop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/groenehartloop/groenehartloop_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarGroenehartloop"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1399,7 +1506,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/boels_rental_run"
   class="race-card"
   data-name="Boels Rental Run"
@@ -1410,15 +1521,23 @@
   data-distance="5km, 10km, marathon"
   data-latitude="51.81329789999999"
   data-longitude="4.6900929"
+  data-location="Dordrecht"
+  data-description="De 47e editie van de Boels Rental Run vindt plaats op zaterdag 8 maart 2025 in Dordrecht, ZH. Deze Dordtse loop gaat over verharde wegen via"
+  data-image-path="/looppaginas/boels_rental_run/boels_rental_run"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="8 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/boels_rental_run/boels_rental_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/boels_rental_run/boels_rental_run_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarBoels Rental Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1496,7 +1615,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/riwal_hoogwerkers_halve_marathon"
   class="race-card"
   data-name="Riwal Hoogwerkers Halve Marathon"
@@ -1507,15 +1630,23 @@
   data-distance="5km, 10km, half marathon"
   data-latitude="51.8055866"
   data-longitude="4.695793999999999"
+  data-location="Sportpark Reeweg, Halmaheiraplein 35, 3312 GH Dordrecht"
+  data-description="Op zaterdag 9 maart 2024 zal de Riwal Hoogwerkers Halve Marathon weer plaatsvinden in Dordrecht! Dit is een enorm leuk evenement waar jij ni"
+  data-image-path="/looppaginas/riwal_hoogwerkers_halve_marathon/riwal_hoogwerkers_halve_marathon"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="8 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/riwal_hoogwerkers_halve_marathon/riwal_hoogwerkers_halve_marathon_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/riwal_hoogwerkers_halve_marathon/riwal_hoogwerkers_halve_marathon_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarRiwal Hoogwerkers Halve Marathon"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1593,7 +1724,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/inofec_vestingloop_gorinchem"
   class="race-card"
   data-name="Inofec Vestingloop Gorinchem"
@@ -1604,15 +1739,23 @@
   data-distance="1km, 5km, 10km, marathon"
   data-latitude="51.826594"
   data-longitude="4.9696495"
+  data-location="Buiten de Waterpoort"
+  data-description="De Inofec Vestingloop Gorinchem is een gezellig hardloopevenement dat voor iedereen iets te bieden heeft. Er is een 1 KM Familie Loop voor k"
+  data-image-path="/looppaginas/inofec_vestingloop_gorinchem/inofec_vestingloop_gorinchem"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="9 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/inofec_vestingloop_gorinchem/inofec_vestingloop_gorinchem_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/inofec_vestingloop_gorinchem/inofec_vestingloop_gorinchem_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarInofec Vestingloop Gorinchem"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1696,7 +1839,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/plassenloop_reeuwijkse"
   class="race-card"
   data-name="Plassenloop Reeuwijkse"
@@ -1705,17 +1852,25 @@
   data-category=""
   data-race-type="Wegwedstrijd"
   data-distance="5km, 10km, 15km"
-  data-latitude="52.0502876"
-  data-longitude="4.7568978"
+  data-latitude="52.0459962"
+  data-longitude="4.7235288"
+  data-location="Reeuwijk"
+  data-description="Op zaterdag 15 maart 2025 organiseert Sportclub Reeuwijk de 71e Vosplan Reeuwijkse Plassenloop. Dit hardloopevenement, dat sinds 1951 jaarli"
+  data-image-path="/looppaginas/plassenloop_reeuwijkse/plassenloop_reeuwijkse"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="15 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/plassenloop_reeuwijkse/plassenloop_reeuwijkse_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/plassenloop_reeuwijkse/plassenloop_reeuwijkse_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarPlassenloop Reeuwijkse"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1742,7 +1897,7 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Reeuwijk-Brug, Zuid-Holland 
+          Reeuwijk 
         </div>
       </div>
       <div class="right-container">
@@ -1785,7 +1940,7 @@
       </div>
     </div>
     <div class="race-summary">
-      Op zaterdag 15 maart 2025 organiseert Sportclub Reeuwijk de 71e Vosplan Reeuwijkse Plassenloop. Dit evenement omvat kidsruns over 1100 meter...
+      Op zaterdag 15 maart 2025 organiseert Sportclub Reeuwijk de 71e Vosplan Reeuwijkse Plassenloop. Dit hardloopevenement, dat sinds 1951 jaarli...
     </div>
   </div>
   <div
@@ -1793,7 +1948,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/dak_drunense_duinenloop"
   class="race-card"
   data-name="DAK Drunense Duinenloop"
@@ -1804,15 +1963,23 @@
   data-distance="half marathon, marathon"
   data-latitude="51.6718503"
   data-longitude="5.1410165"
+  data-location="Sportlaan 14, Drunen"
+  data-description="Atletiek Vereniging DAK organiseert de DAK Drunense Duinen Loop, een halve marathon rondom de Loonse en Drunense Duinen. De start van de wed"
+  data-image-path="/looppaginas/dak_drunense_duinenloop/dak_drunense_duinenloop"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="16 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/dak_drunense_duinenloop/dak_drunense_duinenloop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/dak_drunense_duinenloop/dak_drunense_duinenloop_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarDAK Drunense Duinenloop"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1833,7 +2000,7 @@
       <div class="left-container">
         <h3 class="race-name">DAK Drunense Duinenloop</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1844,7 +2011,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1880,11 +2047,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/road2rotterdam_35_km"
   class="race-card"
   data-name="Road2Rotterdam 35 km"
@@ -1895,15 +2066,23 @@
   data-distance="20km, 25km, 30km, 35km"
   data-latitude="51.6651657"
   data-longitude="5.2796083"
+  data-location="atletiekbaan van Prins Hendrik in Vught"
+  data-description="In 2025 worden er weer vier trainingslopen georganiseerd ter voorbereiding op de NN Marathon Rotterdam, met de Road2Rotterdam 35 km als een "
+  data-image-path="/looppaginas/road2rotterdam_35_km/road2rotterdam_35_km"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="22 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/road2rotterdam_35_km/road2rotterdam_35_km_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/road2rotterdam_35_km/road2rotterdam_35_km_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarRoad2Rotterdam 35 km"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1987,7 +2166,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/two_rivers_marathon"
   class="race-card"
   data-name="Two Rivers Marathon"
@@ -1998,15 +2181,23 @@
   data-distance="marathon"
   data-latitude="51.8135539"
   data-longitude="5.250773300000001"
+  data-location="Zaltbommel"
+  data-description="De Two Rivers Marathon vindt plaats in Zaltbommel, Gelderland, Nederland, en biedt een parcours dat deelnemers meeneemt door prachtige natuu"
+  data-image-path="/looppaginas/two_rivers_marathon/two_rivers_marathon"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="23 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/two_rivers_marathon/two_rivers_marathon_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/two_rivers_marathon/two_rivers_marathon_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTwo Rivers Marathon"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2027,7 +2218,7 @@
       <div class="left-container">
         <h3 class="race-name">Two Rivers Marathon</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2038,7 +2229,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2068,11 +2259,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/brakelse_lenteloop"
   class="race-card"
   data-name="Brakelse Lenteloop"
@@ -2083,15 +2278,23 @@
   data-distance="5km, 10km, 20km"
   data-latitude="51.8200766"
   data-longitude="5.0983291"
+  data-location="Hervormd centrum De Terp, Burgemeester Posweg 4, Brakel"
+  data-description="De Brakelse Lenteloop 2024 is de zesde editie van dit populaire hardloopevenement, dat plaatsvindt op zaterdag 25 maart 2023 van 12:30 tot 1"
+  data-image-path="/looppaginas/brakelse_lenteloop/brakelse_lenteloop"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="29 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/brakelse_lenteloop/brakelse_lenteloop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/brakelse_lenteloop/brakelse_lenteloop_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarBrakelse Lenteloop"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2169,98 +2372,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
-  href="/looppaginas/weideloop"
-  class="race-card"
-  data-name="Weideloop"
-  data-date="20250330"
-  data-county="Noord-Brabant"
-  data-category=""
-  data-race-type="Wegwedstrijd"
-  data-distance="5km, 10km"
-  data-latitude="51.6646838"
-  data-longitude="4.747925"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/looppaginas/weideloop/weideloop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Afbeelding naarWeideloop"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          30 maart
-        </div>
-        <div class="race-location">
-          Noord-Brabant
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Weideloop</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Wagenberg 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Wegwedstrijd
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      De Oude Weideloop is een unieke hardloopwedstrijd die plaatsvindt op zondag 7 april 2024 in Wagenberg. De deelnemers kunnen kiezen uit versc...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Meer info & aanmelding</div>
-  </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/50e_rivierenland_parkloop"
   class="race-card"
   data-name="50e Rivierenland Parkloop"
@@ -2271,15 +2387,23 @@
   data-distance="1,5km, 5km, 10km"
   data-latitude="51.9525204"
   data-longitude="4.8432204"
+  data-location="Schoonhoven"
+  data-description="De 50e Rivierenland Parkloop vindt plaats op 5 april 2025 in Schoonhoven en biedt afstanden van 1,50 km, 5,00 km en 10,00 km. Dit jaarlijks "
+  data-image-path="/looppaginas/50e_rivierenland_parkloop/50e_rivierenland_parkloop"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="5 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/50e_rivierenland_parkloop/50e_rivierenland_parkloop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/50e_rivierenland_parkloop/50e_rivierenland_parkloop_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naar50e Rivierenland Parkloop"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2357,7 +2481,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/leemputtenloop_13e"
   class="race-card"
   data-name="Leemputtenloop 13e"
@@ -2368,15 +2496,23 @@
   data-distance="1km, 2,5km, 5km, 10km"
   data-latitude="51.5910445"
   data-longitude="4.9180655"
+  data-location="Rijen"
+  data-description="Als het voorjaar er aan komt is het weer tijd voor de Leemputtenloop, een van de mooiste lopen door het prachtige en gevarieerde bosgebied v"
+  data-image-path="/looppaginas/leemputtenloop_13e/leemputtenloop_13e"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="9 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/leemputtenloop_13e/leemputtenloop_13e_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/leemputtenloop_13e/leemputtenloop_13e_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarLeemputtenloop 13e"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2460,7 +2596,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/rondje_almkerk"
   class="race-card"
   data-name="Rondje Almkerk"
@@ -2471,15 +2611,23 @@
   data-distance="6km, 10km"
   data-latitude="51.7719653"
   data-longitude="4.9609986"
+  data-location="Almkerk"
+  data-description="De tweede loop van het Altena Road Circuit, Rondje Almkerk, vindt plaats op 18 april 2024 van 18:30 uur tot 22:00 uur. De jeugd start om 18:"
+  data-image-path="/looppaginas/rondje_almkerk/rondje_almkerk"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="17 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/rondje_almkerk/rondje_almkerk_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/rondje_almkerk/rondje_almkerk_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarRondje Almkerk"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2500,7 +2648,7 @@
       <div class="left-container">
         <h3 class="race-name">Rondje Almkerk</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2511,7 +2659,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2547,11 +2695,130 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
+  href="/looppaginas/culemborg_city_run"
+  class="race-card"
+  data-name="Culemborg City Run"
+  data-date="20250421"
+  data-county="Gelderland"
+  data-category=""
+  data-race-type="Wegwedstrijd"
+  data-distance="1km, 3km, 5km, 10km"
+  data-latitude="51.9572959"
+  data-longitude="5.2253436"
+  data-location="Culemborg"
+  data-description="De 12e editie van de Culemborg City Run vindt plaats op maandag 21 april 2025. Op het programma staan diverse afstanden, waaronder een indiv"
+  data-image-path="/looppaginas/culemborg_city_run/culemborg_city_run"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="21 apr."
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/culemborg_city_run/culemborg_city_run_1.webp"
+        width="600"
+        height="400"
+        alt="Afbeelding naarCulemborg City Run"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          21 apr.
+        </div>
+        <div class="race-location">
+          Gelderland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Culemborg City Run</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Culemborg 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                1 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                3 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Wegwedstrijd
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      De 12e editie van de Culemborg City Run vindt plaats op maandag 21 april 2025. Op het programma staan diverse afstanden, waaronder een indiv...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Meer info & aanmelding</div>
+  </div>
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/zomeravondcup_1"
   class="race-card"
   data-name="Zomeravondcup 1"
@@ -2562,15 +2829,23 @@
   data-distance="5km, 10km"
   data-latitude="52.0788908"
   data-longitude="5.1565128"
+  data-location="Atletiekbaan Maarschalkerweerd"
+  data-description="Zomeravondcup 1 is een hardloopevenement dat plaatsvindt op dinsdag 22 april 2025 in Utrecht. De race biedt deelnemers de keuze uit afstande"
+  data-image-path="/looppaginas/zomeravondcup_1/zomeravondcup_1"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="22 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/zomeravondcup_1/zomeravondcup_1_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/zomeravondcup_1/zomeravondcup_1_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarZomeravondcup 1"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2591,7 +2866,7 @@
       <div class="left-container">
         <h3 class="race-name">Zomeravondcup 1</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2602,7 +2877,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2638,11 +2913,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/rondje_vrachelen_16e"
   class="race-card"
   data-name="Rondje Vrachelen 16e"
@@ -2653,15 +2932,23 @@
   data-distance="6km, 10km"
   data-latitude="51.6325879"
   data-longitude="4.8499454"
+  data-location="Wilhelminakanaal Zuid 78 te Oosterhout"
+  data-description="Op woensdagavond 23 april 2025 om 19.30 uur organiseert ATV Scorpio haar 16e Rondje Vrachelen als onderdeel van het Regio 13 wegcircuit in h"
+  data-image-path="/looppaginas/rondje_vrachelen_16e/rondje_vrachelen_16e"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="23 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/rondje_vrachelen_16e/rondje_vrachelen_16e_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/rondje_vrachelen_16e/rondje_vrachelen_16e_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarRondje Vrachelen 16e"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2682,7 +2969,7 @@
       <div class="left-container">
         <h3 class="race-name">Rondje Vrachelen 16e</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2693,7 +2980,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2729,11 +3016,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/de_kraaienrun"
   class="race-card"
   data-name="De Kraaienrun"
@@ -2744,15 +3035,23 @@
   data-distance="1,7km, 5km, 10km, 15km, marathon"
   data-latitude="51.847559"
   data-longitude="4.597288199999999"
+  data-location="Rijsoord"
+  data-description="De Kraaienrun vindt plaats op zaterdag 11 mei 2024 in Rijsoord en biedt een gevarieerde en ontspannen loop voor jong en oud in een gezellige"
+  data-image-path="/looppaginas/de_kraaienrun/de_kraaienrun"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="10 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/de_kraaienrun/de_kraaienrun_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/de_kraaienrun/de_kraaienrun_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarDe Kraaienrun"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2840,7 +3139,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/zomeravondcup_2"
   class="race-card"
   data-name="Zomeravondcup 2"
@@ -2851,15 +3154,23 @@
   data-distance="1km, 5km, 10km"
   data-latitude="52.0788908"
   data-longitude="5.1565128"
+  data-location="atletiekbaan Maarschalkerweerd"
+  data-description="Op dinsdag 13 mei 2025 ben je van harte welkom bij de tweede loop van de 43e Hellas Zomeravondcup. Deze start vanaf atletiekbaan Maarschalke"
+  data-image-path="/looppaginas/zomeravondcup_2/zomeravondcup_2"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="13 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/zomeravondcup_2/zomeravondcup_2_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/zomeravondcup_2/zomeravondcup_2_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarZomeravondcup 2"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2937,7 +3248,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/omloop_van_de_biesbosch"
   class="race-card"
   data-name="Omloop van de Biesbosch"
@@ -2948,15 +3263,23 @@
   data-distance="10km, 23km, 34,5km, 57,5km, 50 miles, 92km"
   data-latitude="51.76671349999999"
   data-longitude="4.780349699999999"
+  data-location="Noordwaardweg, 1,5 km oostelijk van Lijnoorden 15, Werkendam"
+  data-description="Op 24 en 25 mei 2024 kunnen hardlopers en wielrenners weer genieten van de Omloop van de Biesbosch, oftewel De Grote Groene Uitdaging. Op za"
+  data-image-path="/looppaginas/omloop_van_de_biesbosch/omloop_van_de_biesbosch"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="16 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/omloop_van_de_biesbosch/omloop_van_de_biesbosch_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/omloop_van_de_biesbosch/omloop_van_de_biesbosch_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarOmloop van de Biesbosch"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -3044,7 +3367,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/meppel_city_run"
   class="race-card"
   data-name="Meppel City Run"
@@ -3055,15 +3382,23 @@
   data-distance="4km, 8km"
   data-latitude="51.8166776"
   data-longitude="4.6666643"
+  data-location="historische binnenstad"
+  data-description="De Meppel City Run is een hardloopwedstrijd van 4 of 8 Engelse mijl door Meppel, met de start en finish in de historische binnenstad. Deze w"
+  data-image-path="/looppaginas/meppel_city_run/meppel_city_run"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="25 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/meppel_city_run/meppel_city_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/meppel_city_run/meppel_city_run_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarMeppel City Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -3084,18 +3419,18 @@
       <div class="left-container">
         <h3 class="race-name">Meppel City Run</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Historische binnenstad 
+          historische binnenstad 
         </div>
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -3127,15 +3462,19 @@
       </div>
     </div>
     <div class="race-summary">
-      De Meppel City Run is een hardloopwedstrijd van 4 of 8 Engelse mijl door Meppel, met de start en finish in de historische binnenstad. Dit ev...
+      De Meppel City Run is een hardloopwedstrijd van 4 of 8 Engelse mijl door Meppel, met de start en finish in de historische binnenstad. Deze w...
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/leidsche_rijn_loop"
   class="race-card"
   data-name="Leidsche Rijn Loop"
@@ -3146,15 +3485,23 @@
   data-distance="1km, 5km, 10km, 15km"
   data-latitude="52.1002161"
   data-longitude="5.0021321"
+  data-location="Vleuten/De Meern"
+  data-description="De Loop van Leidsche Rijn vindt plaats op zondag 2 juni 2024 in Vleuten/De Meern. Het evenement biedt verschillende afstanden voor deelnemer"
+  data-image-path="/looppaginas/leidsche_rijn_loop/leidsche_rijn_loop"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="1 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/leidsche_rijn_loop/leidsche_rijn_loop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/leidsche_rijn_loop/leidsche_rijn_loop_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarLeidsche Rijn Loop"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -3238,7 +3585,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/ijsselsteinloop"
   class="race-card"
   data-name="Ijsselsteinloop"
@@ -3249,15 +3600,23 @@
   data-distance="5km, 10km, half marathon"
   data-latitude="52.0177649"
   data-longitude="5.0403003"
+  data-location="UIT in IJsselstein I Tourist Info, Overtoom 73401 BK IJsselstein"
+  data-description="De PodoXpert IJsselsteinloop vindt plaats op 7 juni 2025 en is een feestelijk evenement omdat het voor de 41e keer wordt gehouden. Er zijn d"
+  data-image-path="/looppaginas/ijsselsteinloop/ijsselsteinloop"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="7 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/ijsselsteinloop/ijsselsteinloop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/ijsselsteinloop/ijsselsteinloop_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarIjsselsteinloop"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -3335,7 +3694,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/omloop_van_empel"
   class="race-card"
   data-name="Omloop van Empel"
@@ -3346,15 +3709,23 @@
   data-distance="5km, 10km, 15km"
   data-latitude="51.7300332"
   data-longitude="5.3240218"
+  data-location="Empel, Noord-Brabant"
+  data-description="Zet hem in je agenda: op zondag 15 juni 2025 is het weer tijd voor hét wandel- en hardloopevent van Empel! Een dag waarop we samenkomen om t"
+  data-image-path="/looppaginas/omloop_van_empel/omloop_van_empel"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="15 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/omloop_van_empel/omloop_van_empel_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/omloop_van_empel/omloop_van_empel_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarOmloop van Empel"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -3432,7 +3803,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/inner_circle_run"
   class="race-card"
   data-name="Inner Circle Run"
@@ -3443,15 +3818,23 @@
   data-distance="5km, 10km"
   data-latitude="51.84239729999999"
   data-longitude="4.6395056"
+  data-location="Hendrik-Ido-Ambacht, Zuid-Holland"
+  data-description="De Bolidt Inner Circle Run is een jaarlijks terugkerend loopevenement voor het goede doel, dat plaatsvindt op de derde donderdag in juni. De"
+  data-image-path="/looppaginas/inner_circle_run/inner_circle_run"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="19 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/inner_circle_run/inner_circle_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/inner_circle_run/inner_circle_run_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarInner Circle Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -3472,7 +3855,7 @@
       <div class="left-container">
         <h3 class="race-name">Inner Circle Run</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -3483,7 +3866,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -3519,13 +3902,17 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
-  href="/looppaginas/waterlinieloop"
-  class="race-card"
+</a>
+   
+      
+<!-- Packed version for remaining cards -->
+<div
+  class="race-card packed"
+  data-href="/looppaginas/waterlinieloop"
   data-name="Waterlinieloop"
   data-date="20250621"
   data-county="Noord-Brabant"
@@ -3534,83 +3921,27 @@
   data-distance="5km"
   data-latitude="51.8051888"
   data-longitude="4.9424993"
+  data-location="Atletiekpark Altena De Nieuwe Roef 1, 4254 XX Sleeuwijk"
+  data-description="Zaterdag 5 oktober 2024 vindt de 3e Waterlinieloop plaats, georganiseerd door de stratenloopcommissie van de Altena Road Runners. Deze loop "
+  data-image-path="/looppaginas/waterlinieloop/waterlinieloop"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="21 juni"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/looppaginas/waterlinieloop/waterlinieloop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Afbeelding naarWaterlinieloop"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          21 juni
-        </div>
-        <div class="race-location">
-          Noord-Brabant
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Waterlinieloop</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Atletiekpark Altena De Nieuwe Roef 1, 4254 XX Sleeuwijk 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Wegwedstrijd
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Zaterdag 5 oktober 2024 vindt de 3e Waterlinieloop plaats, georganiseerd door de stratenloopcommissie van de Altena Road Runners. Deze loop ...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Waterlinieloop</div>
+    <div class="race-date">
+      21 juni
     </div>
   </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Meer info & aanmelding</div>
-  </div>
-</a>  <a
-  href="/looppaginas/engelenrun"
-  class="race-card"
+</div>
+   
+      
+<!-- Packed version for remaining cards -->
+<div
+  class="race-card packed"
+  data-href="/looppaginas/engelenrun"
   data-name="Engelenrun"
   data-date="20250622"
   data-county="Noord-Brabant"
@@ -3619,89 +3950,27 @@
   data-distance="6km, 12km"
   data-latitude="51.72048119999999"
   data-longitude="5.269245"
+  data-location="Engelen, Noord-Brabant"
+  data-description="Wij konden weer op jullie massale energie rekenen om er weer een sfeervol hardloopfeest van te maken voor elke snelheid en elke leeftijd! We"
+  data-image-path="/looppaginas/engelenrun/engelenrun"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="22 juni"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/looppaginas/engelenrun/engelenrun_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Afbeelding naarEngelenrun"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          22 juni
-        </div>
-        <div class="race-location">
-          Noord-Brabant
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Engelenrun</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Engelen, Noord-Brabant 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                12 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Wegwedstrijd
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Wij konden weer op jullie massale energie rekenen om er weer een sfeervol hardloopfeest van te maken voor elke snelheid en elke leeftijd! We...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Engelenrun</div>
+    <div class="race-date">
+      22 juni
     </div>
   </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Meer info & aanmelding</div>
-  </div>
-</a>  <a
-  href="/looppaginas/ronde_van_genderen"
-  class="race-card"
+</div>
+   
+      
+<!-- Packed version for remaining cards -->
+<div
+  class="race-card packed"
+  data-href="/looppaginas/ronde_van_genderen"
   data-name="Ronde van Genderen"
   data-date="20250827"
   data-county="Noord-Brabant"
@@ -3710,105 +3979,56 @@
   data-distance="0,5km, 1km, 1,5km, 2km, 8km"
   data-latitude="51.73548599999999"
   data-longitude="5.0826709"
+  data-location="Van der Beekstraat / Akkerstraat"
+  data-description="De Ronde van Genderen is een jaarlijks evenement dat plaatsvindt in de laatste week van augustus. Het programma omvat verschillende jeugdloo"
+  data-image-path="/looppaginas/ronde_van_genderen/ronde_van_genderen"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="27 aug."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/looppaginas/ronde_van_genderen/ronde_van_genderen_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Afbeelding naarRonde van Genderen"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          27 aug.
-        </div>
-        <div class="race-location">
-          Noord-Brabant
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Ronde van Genderen</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Van der Beekstraat / Akkerstraat 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                0,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                1,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Wegwedstrijd
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      De Ronde van Genderen is een jaarlijks evenement dat plaatsvindt in de laatste week van augustus. Het programma omvat verschillende jeugdloo...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Ronde van Genderen</div>
+    <div class="race-date">
+      27 aug.
     </div>
   </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Meer info & aanmelding</div>
+</div>
+   
+      
+<!-- Packed version for remaining cards -->
+<div
+  class="race-card packed"
+  data-href="/looppaginas/cargill_singelloop_gouda_night"
+  data-name="Cargill Singelloop Gouda Night"
+  data-date="20250906"
+  data-county="Zuid-Holland"
+  data-category=""
+  data-race-type="Wegwedstrijd"
+  data-distance="1km, 2km, 5km, 10km"
+  data-latitude="52.0115443"
+  data-longitude="4.7111202"
+  data-location="Markt, Gouda"
+  data-description="Op zaterdag 6 september en zondag 7 september wordt voor de 36e keer de Cargill Singelloop Gouda georganiseerd. Dit sfeervolle evenement hee"
+  data-image-path="/looppaginas/cargill_singelloop_gouda_night/cargill_singelloop_gouda_night"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="6 sep."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Cargill Singelloop Gouda Night</div>
+    <div class="race-date">
+      6 sep.
+    </div>
   </div>
-</a>  <a
-  href="/looppaginas/hardloopevent_harmelen"
-  class="race-card"
+</div>
+   
+      
+<!-- Packed version for remaining cards -->
+<div
+  class="race-card packed"
+  data-href="/looppaginas/hardloopevent_harmelen"
   data-name="Hardloopevent Harmelen"
   data-date="20250907"
   data-county="Utrecht"
@@ -3817,95 +4037,27 @@
   data-distance="1km, 5km, 10km"
   data-latitude="52.0881698"
   data-longitude="4.963288299999999"
+  data-location="Harmelen"
+  data-description="Het Hardloopevent Harmelen biedt een vlakke 5 kilometer- en 10 kilometer-route door de prachtige polder van Harmelen, met de lange route die"
+  data-image-path="/looppaginas/hardloopevent_harmelen/hardloopevent_harmelen"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="7 sep."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/looppaginas/hardloopevent_harmelen/hardloopevent_harmelen_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Afbeelding naarHardloopevent Harmelen"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          7 sep.
-        </div>
-        <div class="race-location">
-          Utrecht
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Hardloopevent Harmelen</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Harmelen 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Wegwedstrijd
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Het Hardloopevent Harmelen biedt een vlakke 5 kilometer- en 10 kilometer-route door de prachtige polder van Harmelen, met de lange route die...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Hardloopevent Harmelen</div>
+    <div class="race-date">
+      7 sep.
     </div>
   </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Meer info & aanmelding</div>
-  </div>
-</a>  <a
-  href="/looppaginas/giessen_ronde"
-  class="race-card"
+</div>
+   
+      
+<!-- Packed version for remaining cards -->
+<div
+  class="race-card packed"
+  data-href="/looppaginas/giessen_ronde"
   data-name="Giessen Ronde"
   data-date="20250911"
   data-county="Noord-Brabant"
@@ -3914,89 +4066,27 @@
   data-distance="5,2km, 38km"
   data-latitude="51.7852439"
   data-longitude="5.0346359"
+  data-location="Parallelweg in Giessen"
+  data-description="De (52ste) ronde van Giessen vindt plaats op donderdag 12 september 2024, georganiseerd door de Stratenloopcommissie van Altena Road Runners"
+  data-image-path="/looppaginas/giessen_ronde/giessen_ronde"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="11 sep."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/looppaginas/giessen_ronde/giessen_ronde_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Afbeelding naarGiessen Ronde"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          11 sep.
-        </div>
-        <div class="race-location">
-          Noord-Brabant
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Giessen Ronde</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Parallelweg in Giessen 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5,2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                38 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Wegwedstrijd
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      De (52ste) ronde van Giessen vindt plaats op donderdag 12 september 2024, georganiseerd door de Stratenloopcommissie van Altena Road Runners...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Giessen Ronde</div>
+    <div class="race-date">
+      11 sep.
     </div>
   </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Meer info & aanmelding</div>
-  </div>
-</a>  <a
-  href="/looppaginas/albert_heijn_rondje_rijen"
-  class="race-card"
+</div>
+   
+      
+<!-- Packed version for remaining cards -->
+<div
+  class="race-card packed"
+  data-href="/looppaginas/albert_heijn_rondje_rijen"
   data-name="Albert Heijn Rondje Rijen"
   data-date="20250914"
   data-county="Noord-Brabant"
@@ -4005,89 +4095,27 @@
   data-distance="5km, 10km"
   data-latitude="51.5891526"
   data-longitude="4.9339099"
+  data-location="Sportcentrum den Butter"
+  data-description="Na de zomervakantie wacht in het buitengebied van Rijen het uitdagende parcours van Albert Heijn Rondje Rijen weer op jou. De 24e editie vin"
+  data-image-path="/looppaginas/albert_heijn_rondje_rijen/albert_heijn_rondje_rijen"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="14 sep."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/looppaginas/albert_heijn_rondje_rijen/albert_heijn_rondje_rijen_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Afbeelding naarAlbert Heijn Rondje Rijen"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          14 sep.
-        </div>
-        <div class="race-location">
-          Noord-Brabant
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Albert Heijn Rondje Rijen</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Sportcentrum den Butter 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Wegwedstrijd
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Na de zomervakantie wacht in het buitengebied van Rijen het uitdagende parcours van Albert Heijn Rondje Rijen weer op jou. De 24e editie vin...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Albert Heijn Rondje Rijen</div>
+    <div class="race-date">
+      14 sep.
     </div>
   </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Meer info & aanmelding</div>
-  </div>
-</a>  <a
-  href="/looppaginas/inofec_vestingloop"
-  class="race-card"
+</div>
+   
+      
+<!-- Packed version for remaining cards -->
+<div
+  class="race-card packed"
+  data-href="/looppaginas/inofec_vestingloop"
   data-name="Inofec Vestingloop"
   data-date="20250921"
   data-county="Zuid-Holland"
@@ -4096,101 +4124,27 @@
   data-distance="1km, 5km, 10km, marathon"
   data-latitude="51.8372247"
   data-longitude="4.9758292"
+  data-location="Gorinchem"
+  data-description="De Inofec Vestingloop Gorinchem is een gezellig hardloopevenement dat voor iedereen iets te bieden heeft. Er is een 1 KM Familie Loop voor k"
+  data-image-path="/looppaginas/inofec_vestingloop/inofec_vestingloop"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="21 sep."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/looppaginas/inofec_vestingloop/inofec_vestingloop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Afbeelding naarInofec Vestingloop"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          21 sep.
-        </div>
-        <div class="race-location">
-          Zuid-Holland
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Inofec Vestingloop</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Gorinchem 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Marathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Wegwedstrijd
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      De Inofec Vestingloop Gorinchem is een gezellig hardloopevenement dat voor iedereen iets te bieden heeft. Er is een 1 KM Familie Loop voor k...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Inofec Vestingloop</div>
+    <div class="race-date">
+      21 sep.
     </div>
   </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Meer info & aanmelding</div>
-  </div>
-</a>  <a
-  href="/looppaginas/goudasfaltloop_incl_kidsrun"
-  class="race-card"
+</div>
+   
+      
+<!-- Packed version for remaining cards -->
+<div
+  class="race-card packed"
+  data-href="/looppaginas/goudasfaltloop_incl_kidsrun"
   data-name="Goudasfaltloop incl. KidsRun"
   data-date="20251012"
   data-county="Zuid-Holland"
@@ -4199,198 +4153,27 @@
   data-distance="0,2km, 5km, 10km"
   data-latitude="52.0048448"
   data-longitude="4.7133027"
+  data-location="Gouderaksedijk 342808NG Gouda"
+  data-description="De GOUDasfaltloop vindt plaats op zondag 13 oktober 2019 en biedt een mooie loop door de polders van het Veerstalblok en over Tiendwegen, me"
+  data-image-path="/looppaginas/goudasfaltloop_incl_kidsrun/goudasfaltloop_incl_kidsrun"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="12 okt."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/looppaginas/goudasfaltloop_incl_kidsrun/goudasfaltloop_incl_kidsrun_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Afbeelding naarGoudasfaltloop incl. KidsRun"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          12 okt.
-        </div>
-        <div class="race-location">
-          Zuid-Holland
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Goudasfaltloop incl. KidsRun</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Gouderaksedijk 342808NG Gouda 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                0,2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Wegwedstrijd
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      De GOUDasfaltloop vindt plaats op zondag 13 oktober 2019 en biedt een mooie loop door de polders van het Veerstalblok en over Tiendwegen, me...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Goudasfaltloop incl. KidsRun</div>
+    <div class="race-date">
+      12 okt.
     </div>
   </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Meer info & aanmelding</div>
-  </div>
-</a>  <a
-  href="/looppaginas/49e_halve_marathon_schoonhoven"
-  class="race-card"
-  data-name="49e Halve Marathon Schoonhoven"
-  data-date="20251018"
-  data-county="Zuid-Holland"
-  data-category=""
-  data-race-type="Wegwedstrijd"
-  data-distance="1,5km, 6km, 10km, half marathon"
-  data-latitude="51.9525204"
-  data-longitude="4.8432204"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/looppaginas/49e_halve_marathon_schoonhoven/49e_halve_marathon_schoonhoven_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Afbeelding naar49e Halve Marathon Schoonhoven"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          18 okt.
-        </div>
-        <div class="race-location">
-          Zuid-Holland
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">49e Halve Marathon Schoonhoven</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Schoonhoven 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Halve marathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Wegwedstrijd
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      De 49e Jan Koudstaal Dijkloop - Halve Marathon Schoonhoven vindt plaats op zaterdag 19 oktober 2024. De race biedt diverse afstanden, waaron...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Meer info & aanmelding</div>
-  </div>
-</a>  <a
-  href="/looppaginas/jan_koudstaal_dijkloop"
-  class="race-card"
+</div>
+   
+      
+<!-- Packed version for remaining cards -->
+<div
+  class="race-card packed"
+  data-href="/looppaginas/jan_koudstaal_dijkloop"
   data-name="Jan Koudstaal Dijkloop"
   data-date="20251018"
   data-county="Zuid-Holland"
@@ -4399,101 +4182,56 @@
   data-distance="1,5km, 6km, 10km, half marathon"
   data-latitude="51.9525204"
   data-longitude="4.8432204"
+  data-location="Schoonhoven"
+  data-description="De Jan Koudstaal Dijkloop is een halve marathon die plaatsvindt in Schoonhoven op zaterdag 19 oktober 2024. De race biedt deelnemers de moge"
+  data-image-path="/looppaginas/jan_koudstaal_dijkloop/jan_koudstaal_dijkloop"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="18 okt."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/looppaginas/jan_koudstaal_dijkloop/jan_koudstaal_dijkloop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Afbeelding naarJan Koudstaal Dijkloop"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          18 okt.
-        </div>
-        <div class="race-location">
-          Zuid-Holland
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Jan Koudstaal Dijkloop</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Schoonhoven 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Halve marathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Wegwedstrijd
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      De Jan Koudstaal Dijkloop is een halve marathon die plaatsvindt in Schoonhoven op zaterdag 19 oktober 2024. De race biedt deelnemers de moge...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Jan Koudstaal Dijkloop</div>
+    <div class="race-date">
+      18 okt.
     </div>
   </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Meer info & aanmelding</div>
+</div>
+   
+      
+<!-- Packed version for remaining cards -->
+<div
+  class="race-card packed"
+  data-href="/looppaginas/49e_halve_marathon_schoonhoven"
+  data-name="49e Halve Marathon Schoonhoven"
+  data-date="20251018"
+  data-county="Zuid-Holland"
+  data-category=""
+  data-race-type="Wegwedstrijd"
+  data-distance="1,5km, 6km, 10km, half marathon"
+  data-latitude="51.9525204"
+  data-longitude="4.8432204"
+  data-location="Schoonhoven"
+  data-description="De 49e Jan Koudstaal Dijkloop - Halve Marathon Schoonhoven vindt plaats op zaterdag 19 oktober 2024. De race biedt diverse afstanden, waaron"
+  data-image-path="/looppaginas/49e_halve_marathon_schoonhoven/49e_halve_marathon_schoonhoven"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="18 okt."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">49e Halve Marathon Schoonhoven</div>
+    <div class="race-date">
+      18 okt.
+    </div>
   </div>
-</a>  <a
-  href="/looppaginas/vestingstadloop_woudrichem"
-  class="race-card"
+</div>
+   
+      
+<!-- Packed version for remaining cards -->
+<div
+  class="race-card packed"
+  data-href="/looppaginas/vestingstadloop_woudrichem"
   data-name="Vestingstadloop Woudrichem"
   data-date="20251101"
   data-county="Noord-Brabant"
@@ -4502,95 +4240,24 @@
   data-distance="5,2km, 10,5km, half marathon"
   data-latitude="51.810891"
   data-longitude="4.9511788"
+  data-location="Atletiekpark Altena, Sleeuwijk"
+  data-description="De 24e Vestingstadloop, georganiseerd door de Altena Road Runners, vindt plaats op zaterdag 2 november 2023. De start is vanaf Atletiekpark "
+  data-image-path="/looppaginas/vestingstadloop_woudrichem/vestingstadloop_woudrichem"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="1 nov."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/looppaginas/vestingstadloop_woudrichem/vestingstadloop_woudrichem_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Afbeelding naarVestingstadloop Woudrichem"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          1 nov.
-        </div>
-        <div class="race-location">
-          Noord-Brabant
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Vestingstadloop Woudrichem</div>
+    <div class="race-date">
+      1 nov.
     </div>
-    <div class="overlay soft"></div>
   </div>
+</div>
+ 
 
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Vestingstadloop Woudrichem</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Atletiekpark Altena, Sleeuwijk 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5,2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Halve marathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Wegwedstrijd
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      De 24e Vestingstadloop, georganiseerd door de Altena Road Runners, vindt plaats op zaterdag 2 november 2023. De start is vanaf Atletiekpark ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Meer info & aanmelding</div>
-  </div>
-</a> 
-
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">van</span>
         <span id="total-events">Evenementen</span>
@@ -4612,17 +4279,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kaart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>
