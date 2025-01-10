@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender", "@type": "WebPage", "name": "Hardloopkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/verviers", "@type": "WebPage", "name": "Verviers"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/verviers/trail", "@type": "WebPage", "name": "Trail"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/verviers/trail/50-km", "@type": "WebPage", "name": "50 km"}, "position": 4}]}, "visual": [{"href": "/hardloopkalender", "name": "Hardloopkalender"}, {"href": "/hardloopkalender/verviers", "name": "Verviers"}, {"href": "/hardloopkalender/verviers/trail", "name": "Trail"}, {"href": "/hardloopkalender/verviers/trail/50-km", "name": "50 km"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>50 km Trail Runs in Verviers: Vind jouw volgende hardloopwedstrijd!</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Van:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Tot:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -634,7 +698,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     wedstrijd
@@ -647,18 +711,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kaart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -667,7 +719,9 @@
       data-preselected-filters="{&quot;category&quot;: &quot;50 km&quot;, &quot;county&quot;: &quot;Verviers&quot;, &quot;race_type&quot;: &quot;Trail&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_du_geant"
   class="race-card"
   data-name="Trail du Géant"
@@ -678,15 +732,23 @@
   data-distance="10km, 13km"
   data-latitude="50.52428"
   data-longitude="5.805569999999999"
+  data-location="Jevoumont"
+  data-description="Trail du Géant is gepland voor 7 februari 2025 in Jevoumont. De race begint om 19:00 voor de trail en om 17:00 voor de wandeling, met toegan"
+  data-image-path="/looppaginas/trail_du_geant/trail_du_geant"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="7 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_du_geant/trail_du_geant_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_du_geant/trail_du_geant_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail du Géant"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -707,7 +769,7 @@
       <div class="left-container">
         <h3 class="race-name">Trail du Géant</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -718,7 +780,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -754,11 +816,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/jogging_en_duo"
   class="race-card"
   data-name="Jogging en Duo"
@@ -769,15 +834,23 @@
   data-distance="11km"
   data-latitude="50.59027020000001"
   data-longitude="5.7217867"
+  data-location="Hall omnisport d’Olne"
+  data-description="De Jogging en Duo 2025 is een trailrun van 11 km die op zondag 9 februari 2025 om 10:00 uur van start gaat in de hall omnisport d’Olne, Chem"
+  data-image-path="/looppaginas/jogging_en_duo/jogging_en_duo"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="9 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/jogging_en_duo/jogging_en_duo_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/jogging_en_duo/jogging_en_duo_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarJogging en Duo"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -798,7 +871,7 @@
       <div class="left-container">
         <h3 class="race-name">Jogging en Duo</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -809,7 +882,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -839,11 +912,12 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Geselecteerde Races</h2>
@@ -870,9 +944,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_du_geant/trail_du_geant_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_du_geant/trail_du_geant_1.webp"
         alt="Afbeelding naarTrail du Géant"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -937,9 +1013,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/jogging_en_duo/jogging_en_duo_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/jogging_en_duo/jogging_en_duo_1.webp"
         alt="Afbeelding naarJogging en Duo"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -998,9 +1076,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_des_idylles/trail_des_idylles_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_des_idylles/trail_des_idylles_1.webp"
         alt="Afbeelding naarTrail des Idylles"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1077,9 +1157,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/gtlc_summer_trail/gtlc_summer_trail_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/gtlc_summer_trail/gtlc_summer_trail_1.webp"
         alt="Afbeelding naarGTLC Summer Trail"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1166,9 +1248,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_des_lacs/trail_des_lacs_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_des_lacs/trail_des_lacs_1.webp"
         alt="Afbeelding naarTrail des Lacs"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1229,7 +1313,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_des_idylles"
   class="race-card"
   data-name="Trail des Idylles"
@@ -1240,15 +1327,23 @@
   data-distance="11km, 25km, 35km, 52km"
   data-latitude="50.433473"
   data-longitude="6.056164600000001"
+  data-location="Salle de Chôdes, route du barrage 68, 4960 Malmedy"
+  data-description="De Trail des Idylles biedt verschillende afstanden aan, waaronder de Grande Idylle van 52 km, de Nouvelle Idylle van 35 km, de l'Idylle van "
+  data-image-path="/looppaginas/trail_des_idylles/trail_des_idylles"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="12 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_des_idylles/trail_des_idylles_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_des_idylles/trail_des_idylles_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail des Idylles"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1332,7 +1427,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/gtlc_summer_trail"
   class="race-card"
   data-name="GTLC Summer Trail"
@@ -1343,15 +1442,23 @@
   data-distance="2km, 8km, 8,2km, half marathon, 23km, marathon, 85km, 100 miles"
   data-latitude="50.46642749999999"
   data-longitude="6.1066635"
+  data-location="Piste de ski d’Ovifat"
+  data-description="De GTLC Summer Trail biedt een legendarisch parcours van 23 km in het hart van de Warche Valley, met een hoogteverschil van 781 m. Dit onger"
+  data-image-path="/looppaginas/gtlc_summer_trail/gtlc_summer_trail"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="17 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/gtlc_summer_trail/gtlc_summer_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/gtlc_summer_trail/gtlc_summer_trail_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarGTLC Summer Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1439,7 +1546,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_des_lacs"
   class="race-card"
   data-name="Trail des Lacs"
@@ -1450,15 +1561,23 @@
   data-distance="8km, 22km, 35km"
   data-latitude="50.46642749999999"
   data-longitude="6.1066635"
+  data-location="Piste de ski d’Ovifat"
+  data-description="Le GTLC is een onmiskenbare trail in België. De parcoursen zijn prachtig en gevarieerd, de organisatie is uitstekend en de startlocatie bij "
+  data-image-path="/looppaginas/trail_des_lacs/trail_des_lacs"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="31 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_des_lacs/trail_des_lacs_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_des_lacs/trail_des_lacs_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail des Lacs"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1536,7 +1655,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/longest_day_spa_walk"
   class="race-card"
   data-name="Longest Day Spa Walk"
@@ -1547,15 +1670,23 @@
   data-distance="10km, 20km, 30km, 50km"
   data-latitude="50.49345049999999"
   data-longitude="5.860033899999999"
+  data-location="Parc de 7 Heures, Spa"
+  data-description="De Longest Day is een ruige trail met start en aankomst in het hartje van Spa, waar deelnemers kunnen kiezen uit afstanden van 10, 20, 30 en"
+  data-image-path="/looppaginas/longest_day_spa_walk/longest_day_spa_walk"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="7 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/longest_day_spa_walk/longest_day_spa_walk_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/longest_day_spa_walk/longest_day_spa_walk_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarLongest Day Spa Walk"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1639,7 +1770,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/100_km_celestes"
   class="race-card"
   data-name="100 KM CÉLESTES"
@@ -1650,15 +1785,23 @@
   data-distance="100km"
   data-latitude="50.5833028"
   data-longitude="5.7842194"
+  data-location="Terrain de football de Soiron, Rte Croix Maga 2-20, 4860 Pepinster"
+  data-description="Op zondag 8 juni 2025 vindt de 100 KM CÉLESTES plaats, een prachtige natuurloop met ongeveer 3.300 m D+. Het parcours is niet gemarkeerd en "
+  data-image-path="/looppaginas/100_km_celestes/100_km_celestes"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="8 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/100_km_celestes/100_km_celestes_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/100_km_celestes/100_km_celestes_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naar100 KM CÉLESTES"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1679,7 +1822,7 @@
       <div class="left-container">
         <h3 class="race-name">100 KM CÉLESTES</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1690,7 +1833,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1720,11 +1863,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/l_assaut_du_maquisard"
   class="race-card"
   data-name="L'Assaut du Maquisard"
@@ -1735,15 +1882,23 @@
   data-distance="9km, 16km, 28km, 45km, 50km, 75km"
   data-latitude="50.4856406"
   data-longitude="5.8078083"
+  data-location="HEPL – Campus La Reid, Rue Haftay, 214910 La Reid"
+  data-description="L'assaut du Maquisard is een uitdagende en atypische sportieve gebeurtenis die plaatsvindt op 28 juni 2025 in Theux, België. Het parcours is"
+  data-image-path="/looppaginas/l_assaut_du_maquisard/l_assaut_du_maquisard"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="28 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/l_assaut_du_maquisard/l_assaut_du_maquisard_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/l_assaut_du_maquisard/l_assaut_du_maquisard_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarL'Assaut du Maquisard"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1831,7 +1986,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_des_hautes_fagnes"
   class="race-card"
   data-name="Trail des Hautes-Fagnes"
@@ -1842,15 +2001,23 @@
   data-distance="14km, 24km, 50km"
   data-latitude="50.45927"
   data-longitude="6.07144"
+  data-location="Xhoffraix"
+  data-description="Le Trail des Hautes Fagnes is een natuurloop georganiseerd door de vriendelijke leden van Team Nelles. Deze populaire trail, vaak beschouwd "
+  data-image-path="/looppaginas/trail_des_hautes_fagnes/trail_des_hautes_fagnes"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="27 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_des_hautes_fagnes/trail_des_hautes_fagnes_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_des_hautes_fagnes/trail_des_hautes_fagnes_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail des Hautes-Fagnes"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1928,7 +2095,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_des_nutons"
   class="race-card"
   data-name="Trail des Nutons"
@@ -1939,15 +2110,23 @@
   data-distance="10km, half marathon"
   data-latitude="50.5249815"
   data-longitude="5.9656953"
+  data-location="Salle de la jeunesse de Solwaster"
+  data-description="Le Trail des Nutons is een evenement dat plaatsvindt in België, in het kleine ardennendorp Solwaster, gelegen in de provincie Luik binnen de"
+  data-image-path="/looppaginas/trail_des_nutons/trail_des_nutons"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="4 okt."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_des_nutons/trail_des_nutons_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_des_nutons/trail_des_nutons_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail des Nutons"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1968,7 +2147,7 @@
       <div class="left-container">
         <h3 class="race-name">Trail des Nutons</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1979,7 +2158,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2015,11 +2194,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/grand_trail_des_lacs_winter_edition"
   class="race-card"
   data-name="Grand Trail des Lacs Winter Edition"
@@ -2030,15 +2213,23 @@
   data-distance="12km, 22km, 38km"
   data-latitude="50.46642749999999"
   data-longitude="6.1066635"
+  data-location="Piste de ski d’Ovifat"
+  data-description="De Grand Trail des Lacs & Châteaux - Winter Edition 2025 biedt een afstand voor iedereen met drie verschillende trails: 38 km, 22 km en 12 k"
+  data-image-path="/looppaginas/grand_trail_des_lacs_winter_edition/grand_trail_des_lacs_winter_edition"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="8 nov."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/grand_trail_des_lacs_winter_edition/grand_trail_des_lacs_winter_edition_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/grand_trail_des_lacs_winter_edition/grand_trail_des_lacs_winter_edition_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarGrand Trail des Lacs Winter Edition"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2116,9 +2307,10 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">van</span>
         <span id="total-events">Evenementen</span>
@@ -2140,17 +2332,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kaart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

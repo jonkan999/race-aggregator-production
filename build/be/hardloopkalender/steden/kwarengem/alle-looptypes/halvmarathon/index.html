@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender", "@type": "WebPage", "name": "Hardloopkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/steden", "@type": "WebPage", "name": "Steden"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/steden/kwarengem", "@type": "WebPage", "name": "Kwarengem"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/steden/kwarengem/halvmarathon", "@type": "WebPage", "name": "Halvmarathon"}, "position": 4}]}, "visual": [{"href": "/hardloopkalender", "name": "Hardloopkalender"}, {"href": "/hardloopkalender/steden/kwarengem", "name": "Steden: Kwarengem"}, {"href": "/hardloopkalender/steden/kwarengem/halvmarathon", "name": "Halvmarathon"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>Halve Marathon Kwarengem: Vind jouw volgende hardloopwedstrijd</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Van:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Tot:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -625,7 +689,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     wedstrijd
@@ -638,18 +702,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kaart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -658,7 +710,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Kwarengem&quot;, &quot;race_type&quot;: null, &quot;category&quot;: &quot;Halvmarathon&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_du_bosquetia"
   class="race-card"
   data-name="Trail du Bosquetia"
@@ -669,15 +723,23 @@
   data-distance="9km, 17km, 25km, 33km"
   data-latitude="50.3997176"
   data-longitude="3.899778"
+  data-location="Rue des Templiers 60, 7080 Frameries, België"
+  data-description="Trail du Bosquetia is een hardloopwedstrijd die plaatsvindt op 26 januari 2025 in Frameries, België. De race biedt verschillende afstanden: "
+  data-image-path="/looppaginas/trail_du_bosquetia/trail_du_bosquetia"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="26 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_du_bosquetia/trail_du_bosquetia_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_du_bosquetia/trail_du_bosquetia_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail du Bosquetia"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -761,7 +823,10 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/theodo_tempo_trail"
   class="race-card"
   data-name="Theodo Tempo Trail"
@@ -772,15 +837,23 @@
   data-distance="10km, 17km, 25km"
   data-latitude="50.5117656"
   data-longitude="4.0465114"
+  data-location="Rue de la Motte, 7061 Thieusies"
+  data-description="De Theodo Tempo Trail vindt plaats op zaterdag 8 februari 2025 in Thieusies, België. Er zijn drie afstanden beschikbaar: 10 km, 17 km en 25 "
+  data-image-path="/looppaginas/theodo_tempo_trail/theodo_tempo_trail"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="8 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/theodo_tempo_trail/theodo_tempo_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/theodo_tempo_trail/theodo_tempo_trail_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTheodo Tempo Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -858,7 +931,8 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Geselecteerde Races</h2>
@@ -885,9 +959,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_du_bosquetia/trail_du_bosquetia_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_du_bosquetia/trail_du_bosquetia_1.webp"
         alt="Afbeelding naarTrail du Bosquetia"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -964,9 +1040,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/theodo_tempo_trail/theodo_tempo_trail_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/theodo_tempo_trail/theodo_tempo_trail_1.webp"
         alt="Afbeelding naarTheodo Tempo Trail"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1037,9 +1115,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/semi_marathon_dour/semi_marathon_dour_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/semi_marathon_dour/semi_marathon_dour_1.webp"
         alt="Afbeelding naarSemi-Marathon Dour"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1110,9 +1190,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/semi_marathon_ourse/semi_marathon_ourse_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/semi_marathon_ourse/semi_marathon_ourse_1.webp"
         alt="Afbeelding naarSemi-Marathon Ourse"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1183,9 +1265,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/provincie_trail_henegouwen/provincie_trail_henegouwen_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/provincie_trail_henegouwen/provincie_trail_henegouwen_1.webp"
         alt="Afbeelding naarProvincie Trail Henegouwen"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1240,7 +1324,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/semi_marathon_dour"
   class="race-card"
   data-name="Semi-Marathon Dour"
@@ -1251,15 +1338,23 @@
   data-distance="5km, 10km, half marathon"
   data-latitude="50.3972659"
   data-longitude="3.7794227"
+  data-location="Dour, Wallonie"
+  data-description="Organisée par des passionnés de longues distances, nous vous donnons RDV pour cette troisième édition du semi-marathon à Dour. Ce semi-marat"
+  data-image-path="/looppaginas/semi_marathon_dour/semi_marathon_dour"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="5 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/semi_marathon_dour/semi_marathon_dour_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/semi_marathon_dour/semi_marathon_dour_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarSemi-Marathon Dour"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1337,7 +1432,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/semi_marathon_ourse"
   class="race-card"
   data-name="Semi-Marathon Ourse"
@@ -1348,15 +1447,23 @@
   data-distance="5km, 10km, half marathon"
   data-latitude="50.4705472"
   data-longitude="3.8169748"
+  data-location="Saint-Ghislain, Wallonie"
+  data-description="Le semi-marathon de la Province de Liège, programmé le 19 octobre, offre une expérience unique qui allie histoire et modernité. Les parcours"
+  data-image-path="/looppaginas/semi_marathon_ourse/semi_marathon_ourse"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="4 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/semi_marathon_ourse/semi_marathon_ourse_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/semi_marathon_ourse/semi_marathon_ourse_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarSemi-Marathon Ourse"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1434,7 +1541,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/provincie_trail_henegouwen"
   class="race-card"
   data-name="Provincie Trail Henegouwen"
@@ -1445,15 +1556,23 @@
   data-distance="15km, 20km"
   data-latitude="50.4538181"
   data-longitude="3.9612155"
+  data-location="Mons, Wallonie"
+  data-description=""Lopen is geen sport, maar een vorm van reizen" (Jan Knippenberg). Tijdens de Provincie Trail Henegouwen lopen we steeds een nieuw stuk van "
+  data-image-path="/looppaginas/provincie_trail_henegouwen/provincie_trail_henegouwen"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="5 okt."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/provincie_trail_henegouwen/provincie_trail_henegouwen_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/provincie_trail_henegouwen/provincie_trail_henegouwen_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarProvincie Trail Henegouwen"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1474,7 +1593,7 @@
       <div class="left-container">
         <h3 class="race-name">Provincie Trail Henegouwen</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1485,7 +1604,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1521,13 +1640,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">van</span>
         <span id="total-events">Evenementen</span>
@@ -1549,17 +1669,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kaart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

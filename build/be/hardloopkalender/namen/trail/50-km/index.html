@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender", "@type": "WebPage", "name": "Hardloopkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/namen", "@type": "WebPage", "name": "Namen"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/namen/trail", "@type": "WebPage", "name": "Trail"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/namen/trail/50-km", "@type": "WebPage", "name": "50 km"}, "position": 4}]}, "visual": [{"href": "/hardloopkalender", "name": "Hardloopkalender"}, {"href": "/hardloopkalender/namen", "name": "Namen"}, {"href": "/hardloopkalender/namen/trail", "name": "Trail"}, {"href": "/hardloopkalender/namen/trail/50-km", "name": "50 km"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>Trailrun 50 km in Namen: Vind jouw volgende hardloopwedstrijd!</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Van:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Tot:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -634,7 +698,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     wedstrijd
@@ -647,18 +711,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kaart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -667,7 +719,9 @@
       data-preselected-filters="{&quot;category&quot;: &quot;50 km&quot;, &quot;county&quot;: &quot;Namen&quot;, &quot;race_type&quot;: &quot;Trail&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/night_trail_du_samson"
   class="race-card"
   data-name="Night Trail Du Samson"
@@ -678,15 +732,23 @@
   data-distance="10km, 15km, 25km"
   data-latitude="50.4077938"
   data-longitude="5.0716051"
+  data-location="Hall des sports des Gesves"
+  data-description="De Night Trail Du Samson vindt plaats op zaterdag 25 januari 2025 in Gesves, België. De race biedt verschillende afstanden van 10 km, 15 km "
+  data-image-path="/looppaginas/night_trail_du_samson/night_trail_du_samson"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="25 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/night_trail_du_samson/night_trail_du_samson_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/night_trail_du_samson/night_trail_du_samson_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarNight Trail Du Samson"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -764,7 +826,10 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/la_sebastian"
   class="race-card"
   data-name="La Sebastian"
@@ -775,15 +840,23 @@
   data-distance="6km, 13km"
   data-latitude="50.5022173"
   data-longitude="4.876087699999999"
+  data-location="Vedrin, België"
+  data-description="Jogging "La Sébastian" vindt plaats op 25 februari 2024 en is de 19e editie van deze race, een eerbetoon aan Sebastian Minet. De deelnemers "
+  data-image-path="/looppaginas/la_sebastian/la_sebastian"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="9 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/la_sebastian/la_sebastian_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/la_sebastian/la_sebastian_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarLa Sebastian"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -804,7 +877,7 @@
       <div class="left-container">
         <h3 class="race-name">La Sebastian</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -815,7 +888,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -851,11 +924,12 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Geselecteerde Races</h2>
@@ -882,9 +956,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/night_trail_du_samson/night_trail_du_samson_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/night_trail_du_samson/night_trail_du_samson_1.webp"
         alt="Afbeelding naarNight Trail Du Samson"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -955,9 +1031,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/la_sebastian/la_sebastian_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/la_sebastian/la_sebastian_1.webp"
         alt="Afbeelding naarLa Sebastian"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1022,9 +1100,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_nocturne_ultra/trail_nocturne_ultra_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_nocturne_ultra/trail_nocturne_ultra_1.webp"
         alt="Afbeelding naarTrail Nocturne Ultra"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1111,9 +1191,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_de_la_biesmoise/trail_de_la_biesmoise_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_de_la_biesmoise/trail_de_la_biesmoise_1.webp"
         alt="Afbeelding naarTrail de la Biesmoise"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1200,9 +1282,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/champions_trail/champions_trail_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/champions_trail/champions_trail_1.webp"
         alt="Afbeelding naarChampions Trail"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1263,7 +1347,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_nocturne_ultra"
   class="race-card"
   data-name="Trail Nocturne Ultra"
@@ -1274,15 +1361,23 @@
   data-distance="6km, 10km, 15km, 19km, 25km, 35km, marathon, 52km, 75km, 100km, 125km"
   data-latitude="50.3631203"
   data-longitude="4.8508546"
+  data-location="Collège de Burnot, route de Floreffe, 5170 Profondeville"
+  data-description="De zesde editie van de Trail Nocturne de la Sibérie vindt plaats op vrijdag 21 februari 2025, met vertrek vanaf het Collège de Burnot, route"
+  data-image-path="/looppaginas/trail_nocturne_ultra/trail_nocturne_ultra"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="21 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_nocturne_ultra/trail_nocturne_ultra_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_nocturne_ultra/trail_nocturne_ultra_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail Nocturne Ultra"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1370,7 +1465,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_de_la_biesmoise"
   class="race-card"
   data-name="Trail de la Biesmoise"
@@ -1381,15 +1480,23 @@
   data-distance="9km, 15km, 25km, 38km, 44km, 47km, 64km, 73km"
   data-latitude="50.33987"
   data-longitude="4.61024"
+  data-location="Biesme"
+  data-description="Parcourez les sentiers sinueux de Biesme lors du Trail de la Biesmoise. Laissez-vous envoûter par le murmure des ruisseaux, les forêts dense"
+  data-image-path="/looppaginas/trail_de_la_biesmoise/trail_de_la_biesmoise"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="12 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_de_la_biesmoise/trail_de_la_biesmoise_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_de_la_biesmoise/trail_de_la_biesmoise_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail de la Biesmoise"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1477,7 +1584,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/champions_trail"
   class="race-card"
   data-name="Champions Trail"
@@ -1488,15 +1599,23 @@
   data-distance="8km, 14km, 22km"
   data-latitude="50.4952788"
   data-longitude="4.900837999999999"
+  data-location="Institut de la Providence Champion"
+  data-description="Champions Trail vindt plaats op zaterdag 17 mei 2025 in Champion, België. De race biedt afstanden van 8 km, 14 km en 22 km, met starttijden "
+  data-image-path="/looppaginas/champions_trail/champions_trail"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="17 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/champions_trail/champions_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/champions_trail/champions_trail_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarChampions Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1574,7 +1693,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_des_lumecons"
   class="race-card"
   data-name="Trail des Lumeçons"
@@ -1585,15 +1708,23 @@
   data-distance="10km, 17km, 27km"
   data-latitude="50.46493340000001"
   data-longitude="4.864973099999999"
+  data-location="Namur"
+  data-description="De Trail des Lumeçons vindt plaats op 25 oktober 2024 in België en biedt deelnemers de keuze uit drie afstanden: 10 km, 17 km en 27 km. Deze"
+  data-image-path="/looppaginas/trail_des_lumecons/trail_des_lumecons"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="31 okt."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_des_lumecons/trail_des_lumecons_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_des_lumecons/trail_des_lumecons_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail des Lumeçons"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1671,9 +1802,10 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">van</span>
         <span id="total-events">Evenementen</span>
@@ -1695,17 +1827,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kaart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

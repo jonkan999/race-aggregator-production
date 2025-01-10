@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender", "@type": "WebPage", "name": "Hardloopkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/marche-en-famenne", "@type": "WebPage", "name": "Marche-en-Famenne"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/marche-en-famenne/10000-meter", "@type": "WebPage", "name": "10000 meter"}, "position": 3}]}, "visual": [{"href": "/hardloopkalender", "name": "Hardloopkalender"}, {"href": "/hardloopkalender/marche-en-famenne", "name": "Marche-en-Famenne"}, {"href": "/hardloopkalender/marche-en-famenne/10000-meter", "name": "10000 meter"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>10000 meter hardloopwedstrijden in Marche-en-Famenne | Loopkalender</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Van:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Tot:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -625,7 +689,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     wedstrijd
@@ -638,18 +702,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kaart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -658,7 +710,9 @@
       data-preselected-filters="{&quot;category&quot;: &quot;10000 meter&quot;, &quot;county&quot;: &quot;Marche-en-Famenne&quot;, &quot;race_type&quot;: null}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_nocturne_beliers"
   class="race-card"
   data-name="Trail Nocturne Béliers"
@@ -669,15 +723,23 @@
   data-distance="6km, 11km, half marathon"
   data-latitude="50.2748011"
   data-longitude="5.4410538"
+  data-location="Rue des Villas 386990 Hotton"
+  data-description="Le samedi 18 janvier 2025, le Trail Nocturne des Béliers aura lieu à Hotton, en Belgique. Les participants pourront courir entre 6 et 21 kil"
+  data-image-path="/looppaginas/trail_nocturne_beliers/trail_nocturne_beliers"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="18 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_nocturne_beliers/trail_nocturne_beliers_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_nocturne_beliers/trail_nocturne_beliers_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail Nocturne Béliers"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -755,7 +817,10 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_de_la_roche"
   class="race-card"
   data-name="Trail de la Roche"
@@ -766,15 +831,23 @@
   data-distance="10km, half marathon, marathon"
   data-latitude="50.1799613"
   data-longitude="5.5760564"
+  data-location="Sportcomplex van La Roche-en-Ardenne"
+  data-description="De Trail de la Roche is een sportevenement dat deelnemers uitnodigt om het bos te oversteken en boerderijen in activiteit te ontdekken. Het "
+  data-image-path="/looppaginas/trail_de_la_roche/trail_de_la_roche"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="22 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_de_la_roche/trail_de_la_roche_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_de_la_roche/trail_de_la_roche_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail de la Roche"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -852,7 +925,8 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Geselecteerde Races</h2>
@@ -879,9 +953,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_nocturne_beliers/trail_nocturne_beliers_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_nocturne_beliers/trail_nocturne_beliers_1.webp"
         alt="Afbeelding naarTrail Nocturne Béliers"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -952,9 +1028,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_de_la_roche/trail_de_la_roche_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_de_la_roche/trail_de_la_roche_1.webp"
         alt="Afbeelding naarTrail de la Roche"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1025,9 +1103,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_de_l_ermitage/trail_de_l_ermitage_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_de_l_ermitage/trail_de_l_ermitage_1.webp"
         alt="Afbeelding naarTrail de l'Ermitage"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1098,9 +1178,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_des_sangliers/trail_des_sangliers_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_des_sangliers/trail_des_sangliers_1.webp"
         alt="Afbeelding naarTrail des Sangliers"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1177,9 +1259,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/oufti_trail/oufti_trail_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/oufti_trail/oufti_trail_1.webp"
         alt="Afbeelding naarOUFTI TRAIL"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1240,7 +1324,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_de_l_ermitage"
   class="race-card"
   data-name="Trail de l'Ermitage"
@@ -1251,15 +1338,23 @@
   data-distance="9km, 13km, 23km"
   data-latitude="50.2327306"
   data-longitude="5.5109655"
+  data-location="Ecole Communale de Rendeux Rue de La Roche 226987 Rendeux"
+  data-description="Trail de l'Ermitage biedt drie parcours: 9 km, 13 km en 23 km. De race vindt plaats op zondag 16 maart 2025 in Rendeux, Vallée de l'Ourthe, "
+  data-image-path="/looppaginas/trail_de_l_ermitage/trail_de_l_ermitage"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="16 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_de_l_ermitage/trail_de_l_ermitage_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_de_l_ermitage/trail_de_l_ermitage_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail de l'Ermitage"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1337,7 +1432,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_des_sangliers"
   class="race-card"
   data-name="Trail des Sangliers"
@@ -1348,15 +1447,23 @@
   data-distance="15km, 26km, 44km, 75km"
   data-latitude="50.1799613"
   data-longitude="5.5760564"
+  data-location="La Roche-en-Ardenne"
+  data-description="Le Trail des Sangliers, qui se déroule à La Roche-en-Ardenne, change de format en 2025 pour devenir une course en solo. Quatre parcours vari"
+  data-image-path="/looppaginas/trail_des_sangliers/trail_des_sangliers"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="22 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_des_sangliers/trail_des_sangliers_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_des_sangliers/trail_des_sangliers_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail des Sangliers"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1440,7 +1547,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/oufti_trail"
   class="race-card"
   data-name="OUFTI TRAIL"
@@ -1451,15 +1562,23 @@
   data-distance="12km, 26km, 47km"
   data-latitude="50.17800889999999"
   data-longitude="5.6072316"
+  data-location="Quartier de Lohan, 9 à La Roche-en-Ardenne"
+  data-description="De OUFTI TRAIL is een uitdagende trailrun georganiseerd door de Royal Brussels Kayak Club, die plaatsvindt op zaterdag 1 april 2023 in de be"
+  data-image-path="/looppaginas/oufti_trail/oufti_trail"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="5 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/oufti_trail/oufti_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/oufti_trail/oufti_trail_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarOUFTI TRAIL"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1537,7 +1656,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/verlaine_s_trail_runners"
   class="race-card"
   data-name="Verlaine's Trail Runners"
@@ -1548,15 +1671,23 @@
   data-distance="11km, 22km, 36km"
   data-latitude="50.3926151"
   data-longitude="5.4994184"
+  data-location="Chemin de la Pyramide, 6940 Durbuy, België"
+  data-description="Amis traileurs, wij zijn blij om de 3e editie van de Verlaine's Runners trail te organiseren! De race vindt plaats op 20 april 2024 en biedt"
+  data-image-path="/looppaginas/verlaine_s_trail_runners/verlaine_s_trail_runners"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="19 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/verlaine_s_trail_runners/verlaine_s_trail_runners_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/verlaine_s_trail_runners/verlaine_s_trail_runners_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarVerlaine's Trail Runners"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1634,7 +1765,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/la_grimace"
   class="race-card"
   data-name="LA GRIMACE"
@@ -1645,15 +1780,23 @@
   data-distance="9km, 19km, 39km"
   data-latitude="50.2256607"
   data-longitude="5.348790699999999"
+  data-location="Ecole Sainte-Julie, rue nérette 1, 6900 Marche-en-Famenne"
+  data-description="Le TAF is blij om de 13e editie van de Trail La Grimace aan te kondigen, die plaatsvindt op zondag 21 april 2024 in Marche-en-Famenne, Belgi"
+  data-image-path="/looppaginas/la_grimace/la_grimace"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="4 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/la_grimace/la_grimace_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/la_grimace/la_grimace_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarLA GRIMACE"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1731,32 +1874,44 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_du_neblon"
   class="race-card"
   data-name="Trail du Néblon"
-  data-date="20250511"
+  data-date="20250510"
   data-county="Marche-en-Famenne"
   data-category=""
   data-race-type="Trail"
   data-distance="10km, half marathon"
   data-latitude="50.3520176"
   data-longitude="5.455651899999999"
+  data-location="Durbuy, België"
+  data-description="De Trail du Néblon vindt plaats op zondag 14 mei 2023 in Durbuy, België, en biedt afstanden van 10 km en 21 km, beide startend om 08.30 uur."
+  data-image-path="/looppaginas/trail_du_neblon/trail_du_neblon"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="10 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_du_neblon/trail_du_neblon_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_du_neblon/trail_du_neblon_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail du Néblon"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
       <div class="race-info-top">
         <div class="race-date">
-          11 mei
+          10 mei
         </div>
         <div class="race-location">
           Marche-en-Famenne
@@ -1771,7 +1926,7 @@
       <div class="left-container">
         <h3 class="race-name">Trail du Néblon</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1782,7 +1937,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1818,11 +1973,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/boucles_ardennaises"
   class="race-card"
   data-name="Boucles Ardennaises"
@@ -1833,15 +1992,23 @@
   data-distance="10km, half marathon, marathon"
   data-latitude="50.1849"
   data-longitude="5.66284"
+  data-location="Complexe Sportif à La Roche-en-Ardenne"
+  data-description="Les Boucles Ardennaises est un événement populaire qui se déroule à La Roche-en-Ardenne, en Belgique, le samedi 1er juin. Cette course propo"
+  data-image-path="/looppaginas/boucles_ardennaises/boucles_ardennaises"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="7 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/boucles_ardennaises/boucles_ardennaises_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/boucles_ardennaises/boucles_ardennaises_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarBoucles Ardennaises"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1919,7 +2086,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/le_calestrail"
   class="race-card"
   data-name="Le Calestrail"
@@ -1930,15 +2101,23 @@
   data-distance="9km, 18km, 27km, marathon"
   data-latitude="50.2691531"
   data-longitude="5.4436828"
+  data-location="Rue du Batty 96990 Hotton"
+  data-description="Op zondag 30 juni 2024 vindt de Le Calestrail plaats in Hotton, België. De race biedt deelnemers de keuze uit vier verschillende afstanden: "
+  data-image-path="/looppaginas/le_calestrail/le_calestrail"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="29 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/le_calestrail/le_calestrail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/le_calestrail/le_calestrail_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarLe Calestrail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2022,7 +2201,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/great_escape"
   class="race-card"
   data-name="Great Escape"
@@ -2033,15 +2216,23 @@
   data-distance="169km"
   data-latitude="50.1799613"
   data-longitude="5.5760564"
+  data-location="La Roche en Ardenne"
+  data-description="De Great Escape is een uitdagende trailrun van 169 km die je meeneemt door de mooiste delen van de Ardennen. Deze zware hardlooproute vereis"
+  data-image-path="/looppaginas/great_escape/great_escape"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="20 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/great_escape/great_escape_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/great_escape/great_escape_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarGreat Escape"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2062,7 +2253,7 @@
       <div class="left-container">
         <h3 class="race-name">Great Escape</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2073,7 +2264,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2103,11 +2294,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/bilstrail"
   class="race-card"
   data-name="Bilstrail"
@@ -2118,15 +2313,23 @@
   data-distance="8km, 9km, 16km, 25km, 35km, 37km"
   data-latitude="50.2295567"
   data-longitude="5.3437708"
+  data-location="Marche"
+  data-description="BILSTRAIL is een hardloopwedstrijd die plaatsvindt in Marche en biedt een parcours van 9 km. Op zondag 21 september 2025 vindt de Bilstrail "
+  data-image-path="/looppaginas/bilstrail/bilstrail"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="21 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/bilstrail/bilstrail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/bilstrail/bilstrail_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarBilstrail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2214,9 +2417,10 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">van</span>
         <span id="total-events">Evenementen</span>
@@ -2238,17 +2442,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kaart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>
