@@ -1,0 +1,3957 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Durchsuchen Sie alle Veranstaltungen</title>
+    <meta name="description" content="Finde Veranstaltungen nach Bundesland, Typ oder Kategorie" />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/race-list-filter.css" />
+    <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card-big.css" />
+    <link rel="stylesheet" href="/css/race-cards.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+    <script src="/js/raceList.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+    <script defer="" src="/js/raceListToggleButton.js"></script>
+    <script defer="" src="/js/raceListToggleMap.js"></script>
+  </head>
+  <body>
+    <!-- Page content -->
+    <main>
+       <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">laufrennen</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Anmelden
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Alles</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/laufkalender"
+      ><span class="nav-item">Laufkalender</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/lauf-hinzufuegen"
+      ><span class="nav-item">Lauf hinzufügen</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/forum"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/miss-deine-runde"
+      ><span class="nav-item">Miss deine Runde</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/trainingsprogramme"
+      ><span class="nav-item">Trainingsprogramme</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/geschwindigkeitsumrechner"
+      ><span class="nav-item">Geschwindigkeitsumrechner</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/schaetze-deine-endzeit-ein"
+      ><span class="nav-item">Schätze deine Endzeit ein</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/ueber-uns"
+      ><span class="nav-item">Über uns</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/kontaktiere-uns"
+      ><span class="nav-item">Kontaktiere uns</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Anmelden</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Deine E-Mail"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Passwort"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Hast du dein Passwort vergessen?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Konto erstellen statt
+            </a>
+          </div>
+          <button type="submit">Anmelden</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Konto erstellen
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Hast du dein Passwort vergessen?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto erstellen</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Ihr Name"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Deine E-Mail"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Passwort"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Konto erstellen</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Zurück zur Anmeldung
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Passwort zurücksetzen</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Deine E-Mail"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Senden Sie den Wiederherstellungslink</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Zurück zur Anmeldung
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Du bist bereits eingeloggt als</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Fortfahren als dieser Benutzer
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Abmelden und Benutzer wechseln
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto erstellt!</h2>
+        <div class="logged-in-user-info">
+          <p>Du bist jetzt angemeldet als</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            Ein Verifizierungslink wurde an deine E-Mail-Adresse gesendet.
+          </p>
+          <p class="verification-notice">Bitte verifizieren Sie Ihre E-Mail-Adresse</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Fortfahren als dieser Benutzer
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+      <div class="browse-container">
+        <nav class="breadcrumbs" aria-label="breadcrumb">
+  <ol>
+    
+    <li >
+      
+      <a href="/laufkalender">Laufkalender</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li aria-current="page" >
+      
+      <span>Kategorie durchsuchen</span>
+      
+    </li>
+    
+  </ol>
+</nav>
+        <nav class="browse-nav">
+          <a
+            href="/laufkalender/kategorie-durchsuchen"
+            class="active"
+          >
+            Übersicht
+          </a>
+          <a
+            href="/laufkalender/kategorie-durchsuchen/counties.html"
+            class=""
+          >
+            Landkreise
+          </a>
+          <a
+            href="/laufkalender/kategorie-durchsuchen/cities.html"
+            class=""
+          >
+            Städte
+          </a>
+          <a
+            href="/laufkalender/kategorie-durchsuchen/types.html"
+            class=""
+          >
+            Lauftypen
+          </a>
+          <a
+            href="/laufkalender/kategorie-durchsuchen/categories.html"
+            class=""
+          >
+            Kategorien
+          </a>
+        </nav>
+
+        
+<div class="browse-overview">
+  <h1>Durchsuchen Sie alle Veranstaltungen</h1>
+  <p class="browse-description">Finde Veranstaltungen nach Bundesland, Typ oder Kategorie</p>
+
+  <section class="browse-section">
+    <h2>Bläddra nach Bundesländern</h2>
+    <div class="browse-grid">
+      
+      <h3>
+        <a href="/laufkalender/baden-wuerttemberg" class="browse-card">
+          Baden-Württemberg
+          <span class="count"
+            >(18 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/bayern" class="browse-card">
+          Bayern
+          <span class="count"
+            >(18 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/berlin" class="browse-card">
+          Berlin
+          <span class="count"
+            >(9 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/brandenburg" class="browse-card">
+          Brandenburg
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/bremen" class="browse-card">
+          Bremen
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/hamburg" class="browse-card">
+          Hamburg
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/hessen" class="browse-card">
+          Hessen
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/niedersachsen" class="browse-card">
+          Niedersachsen
+          <span class="count"
+            >(33 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/nordrhein-westfalen" class="browse-card">
+          Nordrhein-Westfalen
+          <span class="count"
+            >(25 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/rheinland-pfalz" class="browse-card">
+          Rheinland-Pfalz
+          <span class="count"
+            >(20 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/saarland" class="browse-card">
+          Saarland
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/sachsen" class="browse-card">
+          Sachsen
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/sachsen-anhalt" class="browse-card">
+          Sachsen-Anhalt
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/schleswig-holstein" class="browse-card">
+          Schleswig-Holstein
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/thueringen" class="browse-card">
+          Thüringen
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+    </div>
+  </section>
+
+  <section class="browse-section">
+    <h2>Städte durchsuchen</h2>
+    <div class="browse-grid">
+      
+      <h3>
+        <a href="/laufkalender/staedte/aachen" class="browse-card">
+          Aachen
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/aalen" class="browse-card">
+          Aalen
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/ahaus" class="browse-card">
+          Ahaus
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/ahlen" class="browse-card">
+          Ahlen
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/albstadt" class="browse-card">
+          Albstadt
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/alsdorf" class="browse-card">
+          Alsdorf
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/alt-hohenschoenhausen" class="browse-card">
+          Alt-Hohenschönhausen
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/altenburg" class="browse-card">
+          Altenburg
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/altona" class="browse-card">
+          Altona
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/amberg" class="browse-card">
+          Amberg
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/arnsberg" class="browse-card">
+          Arnsberg
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/aschaffenburg" class="browse-card">
+          Aschaffenburg
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/augsburg" class="browse-card">
+          Augsburg
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/aurich" class="browse-card">
+          Aurich
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/backnang" class="browse-card">
+          Backnang
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bad-homburg-vor-der-hoehe" class="browse-card">
+          Bad Homburg vor der Höhe
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bad-kreuznach" class="browse-card">
+          Bad Kreuznach
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bad-oeynhausen" class="browse-card">
+          Bad Oeynhausen
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bad-salzuflen" class="browse-card">
+          Bad Salzuflen
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/baden-baden" class="browse-card">
+          Baden-Baden
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/balingen" class="browse-card">
+          Balingen
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bamberg" class="browse-card">
+          Bamberg
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/barmbek-nord" class="browse-card">
+          Barmbek-Nord
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bayreuth" class="browse-card">
+          Bayreuth
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/beckum" class="browse-card">
+          Beckum
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bensheim" class="browse-card">
+          Bensheim
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bergedorf" class="browse-card">
+          Bergedorf
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bergheim" class="browse-card">
+          Bergheim
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bergisch-gladbach" class="browse-card">
+          Bergisch Gladbach
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bergkamen" class="browse-card">
+          Bergkamen
+          <span class="count"
+            >(7 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/berlin" class="browse-card">
+          Berlin
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/berlin-koepenick" class="browse-card">
+          Berlin Köpenick
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/berlin-treptow" class="browse-card">
+          Berlin Treptow
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/berlin-schoeneberg" class="browse-card">
+          Berlin-Schöneberg
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bernau-bei-berlin" class="browse-card">
+          Bernau bei Berlin
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bezirk-kreuzberg" class="browse-card">
+          Bezirk Kreuzberg
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bielefeld" class="browse-card">
+          Bielefeld
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bietigheim-bissingen" class="browse-card">
+          Bietigheim-Bissingen
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bocholt" class="browse-card">
+          Bocholt
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bochum" class="browse-card">
+          Bochum
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bochum-hordel" class="browse-card">
+          Bochum-Hordel
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bogenhausen" class="browse-card">
+          Bogenhausen
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bonn" class="browse-card">
+          Bonn
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/borken" class="browse-card">
+          Borken
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bornheim" class="browse-card">
+          Bornheim
+          <span class="count"
+            >(7 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bottrop" class="browse-card">
+          Bottrop
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/brandenburg-an-der-havel" class="browse-card">
+          Brandenburg an der Havel
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/braunschweig" class="browse-card">
+          Braunschweig
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bremen" class="browse-card">
+          Bremen
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bremerhaven" class="browse-card">
+          Bremerhaven
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/britz" class="browse-card">
+          Britz
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bruchsal" class="browse-card">
+          Bruchsal
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/bruehl" class="browse-card">
+          Brühl
+          <span class="count"
+            >(9 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/buchholz-in-der-nordheide" class="browse-card">
+          Buchholz in der Nordheide
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/buckow" class="browse-card">
+          Buckow
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/buxtehude" class="browse-card">
+          Buxtehude
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/boeblingen" class="browse-card">
+          Böblingen
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/buende" class="browse-card">
+          Bünde
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/castrop-rauxel" class="browse-card">
+          Castrop-Rauxel
+          <span class="count"
+            >(7 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/celle" class="browse-card">
+          Celle
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/charlottenburg" class="browse-card">
+          Charlottenburg
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/chemnitz" class="browse-card">
+          Chemnitz
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/coburg" class="browse-card">
+          Coburg
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/coesfeld" class="browse-card">
+          Coesfeld
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/cottbus" class="browse-card">
+          Cottbus
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/cuxhaven" class="browse-card">
+          Cuxhaven
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/dachau" class="browse-card">
+          Dachau
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/darmstadt" class="browse-card">
+          Darmstadt
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/datteln" class="browse-card">
+          Datteln
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/delmenhorst" class="browse-card">
+          Delmenhorst
+          <span class="count"
+            >(14 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/detmold" class="browse-card">
+          Detmold
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/dinslaken" class="browse-card">
+          Dinslaken
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/dormagen" class="browse-card">
+          Dormagen
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/dorsten" class="browse-card">
+          Dorsten
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/dortmund" class="browse-card">
+          Dortmund
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/dreieich" class="browse-card">
+          Dreieich
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/duisburg" class="browse-card">
+          Duisburg
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/duelmen" class="browse-card">
+          Dülmen
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/dueren" class="browse-card">
+          Düren
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/duesseldorf" class="browse-card">
+          Düsseldorf
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/eberswalde" class="browse-card">
+          Eberswalde
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/eimsbuettel" class="browse-card">
+          Eimsbüttel
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/eisenach" class="browse-card">
+          Eisenach
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/elmshorn" class="browse-card">
+          Elmshorn
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/emden" class="browse-card">
+          Emden
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/emsdetten" class="browse-card">
+          Emsdetten
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/erftstadt" class="browse-card">
+          Erftstadt
+          <span class="count"
+            >(9 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/erfurt" class="browse-card">
+          Erfurt
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/erkelenz" class="browse-card">
+          Erkelenz
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/erkrath" class="browse-card">
+          Erkrath
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/erlangen" class="browse-card">
+          Erlangen
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/eschweiler" class="browse-card">
+          Eschweiler
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/essen" class="browse-card">
+          Essen
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/esslingen" class="browse-card">
+          Esslingen
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/ettlingen" class="browse-card">
+          Ettlingen
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/euskirchen" class="browse-card">
+          Euskirchen
+          <span class="count"
+            >(7 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/falkenhagener-feld" class="browse-card">
+          Falkenhagener Feld
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/falkensee" class="browse-card">
+          Falkensee
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/fellbach" class="browse-card">
+          Fellbach
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/filderstadt" class="browse-card">
+          Filderstadt
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/flensburg" class="browse-card">
+          Flensburg
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/frankenthal" class="browse-card">
+          Frankenthal
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/frankfurt-am-main" class="browse-card">
+          Frankfurt am Main
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/frechen" class="browse-card">
+          Frechen
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/freiberg" class="browse-card">
+          Freiberg
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/freiburg" class="browse-card">
+          Freiburg
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/freising" class="browse-card">
+          Freising
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/friedrichsfelde" class="browse-card">
+          Friedrichsfelde
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/friedrichshain-bezirk" class="browse-card">
+          Friedrichshain Bezirk
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/fulda" class="browse-card">
+          Fulda
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/fuerth" class="browse-card">
+          Fürth
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/gallus" class="browse-card">
+          Gallus
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/garbsen" class="browse-card">
+          Garbsen
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/geldern" class="browse-card">
+          Geldern
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/gelsenkirchen" class="browse-card">
+          Gelsenkirchen
+          <span class="count"
+            >(9 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/gera" class="browse-card">
+          Gera
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/germering" class="browse-card">
+          Germering
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/gesundbrunnen" class="browse-card">
+          Gesundbrunnen
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/giessen" class="browse-card">
+          Gießen
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/gifhorn" class="browse-card">
+          Gifhorn
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/gladbeck" class="browse-card">
+          Gladbeck
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/gotha" class="browse-card">
+          Gotha
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/greven" class="browse-card">
+          Greven
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/grevenbroich" class="browse-card">
+          Grevenbroich
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/gronau" class="browse-card">
+          Gronau
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/gropiusstadt" class="browse-card">
+          Gropiusstadt
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/gummersbach" class="browse-card">
+          Gummersbach
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/goeppingen" class="browse-card">
+          Göppingen
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/goettingen" class="browse-card">
+          Göttingen
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/guetersloh" class="browse-card">
+          Gütersloh
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/hagen" class="browse-card">
+          Hagen
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/halle-saale" class="browse-card">
+          Halle (Saale)
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/halle-neustadt" class="browse-card">
+          Halle-Neustadt
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/haltern-am-see" class="browse-card">
+          Haltern am See
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/hamburg" class="browse-card">
+          Hamburg
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/hamburg-mitte" class="browse-card">
+          Hamburg-Mitte
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/hamburg-nord" class="browse-card">
+          Hamburg-Nord
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/hameln" class="browse-card">
+          Hameln
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/hamm" class="browse-card">
+          Hamm
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/hanau-am-main" class="browse-card">
+          Hanau am Main
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/hannover" class="browse-card">
+          Hannover
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/harburg" class="browse-card">
+          Harburg
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/hattingen" class="browse-card">
+          Hattingen
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/heidelberg" class="browse-card">
+          Heidelberg
+          <span class="count"
+            >(9 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/heidenheim-an-der-brenz" class="browse-card">
+          Heidenheim an der Brenz
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/heilbronn" class="browse-card">
+          Heilbronn
+          <span class="count"
+            >(9 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/heinsberg" class="browse-card">
+          Heinsberg
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/hellersdorf" class="browse-card">
+          Hellersdorf
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/hemer" class="browse-card">
+          Hemer
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/hennef" class="browse-card">
+          Hennef
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/herford" class="browse-card">
+          Herford
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/herne" class="browse-card">
+          Herne
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/herten" class="browse-card">
+          Herten
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/herzogenrath" class="browse-card">
+          Herzogenrath
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/hilden" class="browse-card">
+          Hilden
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/hildesheim" class="browse-card">
+          Hildesheim
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/hofheim-am-taunus" class="browse-card">
+          Hofheim am Taunus
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/homburg" class="browse-card">
+          Homburg
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/hueckelhoven" class="browse-card">
+          Hückelhoven
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/huerth" class="browse-card">
+          Hürth
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/ibbenbueren" class="browse-card">
+          Ibbenbüren
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/ingolstadt" class="browse-card">
+          Ingolstadt
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/iserlohn" class="browse-card">
+          Iserlohn
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/jena" class="browse-card">
+          Jena
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/juelich" class="browse-card">
+          Jülich
+          <span class="count"
+            >(9 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/kaarst" class="browse-card">
+          Kaarst
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/kaiserslautern" class="browse-card">
+          Kaiserslautern
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/kamen" class="browse-card">
+          Kamen
+          <span class="count"
+            >(7 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/kamp-lintfort" class="browse-card">
+          Kamp-Lintfort
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/karlsruhe" class="browse-card">
+          Karlsruhe
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/kassel" class="browse-card">
+          Kassel
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/kaufbeuren" class="browse-card">
+          Kaufbeuren
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/kempen" class="browse-card">
+          Kempen
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/kerpen" class="browse-card">
+          Kerpen
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/kiel" class="browse-card">
+          Kiel
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/kirchheim-unter-teck" class="browse-card">
+          Kirchheim unter Teck
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/kleve" class="browse-card">
+          Kleve
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/koblenz" class="browse-card">
+          Koblenz
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/krefeld" class="browse-card">
+          Krefeld
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/koeln" class="browse-card">
+          Köln
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/koenigswinter" class="browse-card">
+          Königswinter
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/koepenick-bezirk" class="browse-card">
+          Köpenick Bezirk
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/laatzen" class="browse-card">
+          Laatzen
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/lage" class="browse-card">
+          Lage
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/lahr" class="browse-card">
+          Lahr
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/landau-in-der-pfalz" class="browse-card">
+          Landau in der Pfalz
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/landshut" class="browse-card">
+          Landshut
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/langen" class="browse-card">
+          Langen
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/langenfeld" class="browse-card">
+          Langenfeld
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/langenhagen" class="browse-card">
+          Langenhagen
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/lankwitz" class="browse-card">
+          Lankwitz
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/leer" class="browse-card">
+          Leer
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/lehrte" class="browse-card">
+          Lehrte
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/leinfelden-echterdingen" class="browse-card">
+          Leinfelden-Echterdingen
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/leipzig" class="browse-card">
+          Leipzig
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/lemgo" class="browse-card">
+          Lemgo
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/leonberg" class="browse-card">
+          Leonberg
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/leverkusen" class="browse-card">
+          Leverkusen
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/lichtenrade" class="browse-card">
+          Lichtenrade
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/lichterfelde" class="browse-card">
+          Lichterfelde
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/lingen" class="browse-card">
+          Lingen
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/lippstadt" class="browse-card">
+          Lippstadt
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/ludwigsburg" class="browse-card">
+          Ludwigsburg
+          <span class="count"
+            >(14 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/ludwigshafen-am-rhein" class="browse-card">
+          Ludwigshafen am Rhein
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/lurup" class="browse-card">
+          Lurup
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/loehne" class="browse-card">
+          Löhne
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/luebeck" class="browse-card">
+          Lübeck
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/luedenscheid" class="browse-card">
+          Lüdenscheid
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/lueneburg" class="browse-card">
+          Lüneburg
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/luenen" class="browse-card">
+          Lünen
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/maintal" class="browse-card">
+          Maintal
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/mainz" class="browse-card">
+          Mainz
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/mannheim" class="browse-card">
+          Mannheim
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/marburg-an-der-lahn" class="browse-card">
+          Marburg an der Lahn
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/mariendorf" class="browse-card">
+          Mariendorf
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/marienthal" class="browse-card">
+          Marienthal
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/marl" class="browse-card">
+          Marl
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/marzahn" class="browse-card">
+          Marzahn
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/meerbusch" class="browse-card">
+          Meerbusch
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/meiderich" class="browse-card">
+          Meiderich
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/melle" class="browse-card">
+          Melle
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/memmingen" class="browse-card">
+          Memmingen
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/menden" class="browse-card">
+          Menden
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/meppen" class="browse-card">
+          Meppen
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/merseburg" class="browse-card">
+          Merseburg
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/mettmann" class="browse-card">
+          Mettmann
+          <span class="count"
+            >(14 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/minden" class="browse-card">
+          Minden
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/mitte" class="browse-card">
+          Mitte
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/moabit" class="browse-card">
+          Moabit
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/moers" class="browse-card">
+          Moers
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/monheim-am-rhein" class="browse-card">
+          Monheim am Rhein
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/maerkisches-viertel" class="browse-card">
+          Märkisches Viertel
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/moenchengladbach" class="browse-card">
+          Mönchengladbach
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/muehlhausen" class="browse-card">
+          Mühlhausen
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/muelheim" class="browse-card">
+          Mülheim
+          <span class="count"
+            >(22 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/muenchen" class="browse-card">
+          München
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/muenster" class="browse-card">
+          Münster
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/nettetal" class="browse-card">
+          Nettetal
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/neu-hohenschoenhausen" class="browse-card">
+          Neu-Hohenschönhausen
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/neu-isenburg" class="browse-card">
+          Neu-Isenburg
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/neu-ulm" class="browse-card">
+          Neu-Ulm
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/neubrueck" class="browse-card">
+          Neubrück
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/neukoelln" class="browse-card">
+          Neukölln
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/neumarkt-in-der-oberpfalz" class="browse-card">
+          Neumarkt in der Oberpfalz
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/neumuenster" class="browse-card">
+          Neumünster
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/neunkirchen" class="browse-card">
+          Neunkirchen
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/neuss" class="browse-card">
+          Neuss
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/neustadt" class="browse-card">
+          Neustadt
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/neustadt-am-ruebenberge" class="browse-card">
+          Neustadt am Rübenberge
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/neustadt-an-der-weinstrasse" class="browse-card">
+          Neustadt an der Weinstraße
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/neuwied" class="browse-card">
+          Neuwied
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/niederkassel" class="browse-card">
+          Niederkassel
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/nippes" class="browse-card">
+          Nippes
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/norderstedt" class="browse-card">
+          Norderstedt
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/nordhausen" class="browse-card">
+          Nordhausen
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/nordhorn" class="browse-card">
+          Nordhorn
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/nuernberg" class="browse-card">
+          Nürnberg
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/nuertingen" class="browse-card">
+          Nürtingen
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/oberhausen" class="browse-card">
+          Oberhausen
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/oberursel" class="browse-card">
+          Oberursel
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/offenbach" class="browse-card">
+          Offenbach
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/offenburg" class="browse-card">
+          Offenburg
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/oldenburg" class="browse-card">
+          Oldenburg
+          <span class="count"
+            >(16 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/oranienburg" class="browse-card">
+          Oranienburg
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/paderborn" class="browse-card">
+          Paderborn
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/pankow" class="browse-card">
+          Pankow
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/papenburg" class="browse-card">
+          Papenburg
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/pasing" class="browse-card">
+          Pasing
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/passau" class="browse-card">
+          Passau
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/peine" class="browse-card">
+          Peine
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/pforzheim" class="browse-card">
+          Pforzheim
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/pinneberg" class="browse-card">
+          Pinneberg
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/pirmasens" class="browse-card">
+          Pirmasens
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/plauen" class="browse-card">
+          Plauen
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/porta-westfalica" class="browse-card">
+          Porta Westfalica
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/potsdam" class="browse-card">
+          Potsdam
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/prenzlauer-berg" class="browse-card">
+          Prenzlauer Berg
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/pulheim" class="browse-card">
+          Pulheim
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/rastatt" class="browse-card">
+          Rastatt
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/ratingen" class="browse-card">
+          Ratingen
+          <span class="count"
+            >(14 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/ravensburg" class="browse-card">
+          Ravensburg
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/recklinghausen" class="browse-card">
+          Recklinghausen
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/regensburg" class="browse-card">
+          Regensburg
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/reinickendorf" class="browse-card">
+          Reinickendorf
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/remscheid" class="browse-card">
+          Remscheid
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/reutlingen" class="browse-card">
+          Reutlingen
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/rheda-wiedenbrueck" class="browse-card">
+          Rheda-Wiedenbrück
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/rheine" class="browse-card">
+          Rheine
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/rodgau" class="browse-card">
+          Rodgau
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/rottenburg" class="browse-card">
+          Rottenburg
+          <span class="count"
+            >(9 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/rudow" class="browse-card">
+          Rudow
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/ruesselsheim" class="browse-card">
+          Rüsselsheim
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/saarbruecken" class="browse-card">
+          Saarbrücken
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/saarlouis" class="browse-card">
+          Saarlouis
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/salzgitter" class="browse-card">
+          Salzgitter
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/sankt-augustin" class="browse-card">
+          Sankt Augustin
+          <span class="count"
+            >(9 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/sankt-ingbert" class="browse-card">
+          Sankt Ingbert
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/schorndorf" class="browse-card">
+          Schorndorf
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/schwabach" class="browse-card">
+          Schwabach
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/schweinfurt" class="browse-card">
+          Schweinfurt
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/schwerte" class="browse-card">
+          Schwerte
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/schwaebisch-gmuend" class="browse-card">
+          Schwäbisch Gmünd
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/schwaebisch-hall" class="browse-card">
+          Schwäbisch Hall
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/schoeneberg-bezirk" class="browse-card">
+          Schöneberg Bezirk
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/seevetal" class="browse-card">
+          Seevetal
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/siegburg" class="browse-card">
+          Siegburg
+          <span class="count"
+            >(7 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/siegen" class="browse-card">
+          Siegen
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/sindelfingen" class="browse-card">
+          Sindelfingen
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/sinsheim" class="browse-card">
+          Sinsheim
+          <span class="count"
+            >(9 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/soest" class="browse-card">
+          Soest
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/solingen" class="browse-card">
+          Solingen
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/spandau" class="browse-card">
+          Spandau
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/speyer" class="browse-card">
+          Speyer
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/staaken" class="browse-card">
+          Staaken
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/stade" class="browse-card">
+          Stade
+          <span class="count"
+            >(7 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/steglitz" class="browse-card">
+          Steglitz
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/steinfurt" class="browse-card">
+          Steinfurt
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/stendal" class="browse-card">
+          Stendal
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/stolberg" class="browse-card">
+          Stolberg
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/straubing" class="browse-card">
+          Straubing
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/stuttgart" class="browse-card">
+          Stuttgart
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/stuttgart-ost" class="browse-card">
+          Stuttgart-Ost
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/suhl" class="browse-card">
+          Suhl
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/tegel" class="browse-card">
+          Tegel
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/tempelhof" class="browse-card">
+          Tempelhof
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/trier" class="browse-card">
+          Trier
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/troisdorf" class="browse-card">
+          Troisdorf
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/tuebingen" class="browse-card">
+          Tübingen
+          <span class="count"
+            >(9 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/uelzen" class="browse-card">
+          Uelzen
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/ulm" class="browse-card">
+          Ulm
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/unna" class="browse-card">
+          Unna
+          <span class="count"
+            >(7 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/vegesack" class="browse-card">
+          Vegesack
+          <span class="count"
+            >(15 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/velbert" class="browse-card">
+          Velbert
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/viersen" class="browse-card">
+          Viersen
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/voerde" class="browse-card">
+          Voerde
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/voelklingen" class="browse-card">
+          Völklingen
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/waiblingen" class="browse-card">
+          Waiblingen
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/wandsbek" class="browse-card">
+          Wandsbek
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/warendorf" class="browse-card">
+          Warendorf
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/wedding" class="browse-card">
+          Wedding
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/weimar" class="browse-card">
+          Weimar
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/weinheim" class="browse-card">
+          Weinheim
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/weissensee" class="browse-card">
+          Weißensee
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/wermelskirchen" class="browse-card">
+          Wermelskirchen
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/wesel" class="browse-card">
+          Wesel
+          <span class="count"
+            >(9 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/wesseling" class="browse-card">
+          Wesseling
+          <span class="count"
+            >(9 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/westend" class="browse-card">
+          Westend
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/wetzlar" class="browse-card">
+          Wetzlar
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/wiesbaden" class="browse-card">
+          Wiesbaden
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/wilhelmshaven" class="browse-card">
+          Wilhelmshaven
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/wilhelmstadt" class="browse-card">
+          Wilhelmstadt
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/willich" class="browse-card">
+          Willich
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/wilmersdorf" class="browse-card">
+          Wilmersdorf
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/winterhude" class="browse-card">
+          Winterhude
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/wismar" class="browse-card">
+          Wismar
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/witten" class="browse-card">
+          Witten
+          <span class="count"
+            >(9 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/wolfenbuettel" class="browse-card">
+          Wolfenbüttel
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/wolfsburg" class="browse-card">
+          Wolfsburg
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/worms" class="browse-card">
+          Worms
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/wunstorf" class="browse-card">
+          Wunstorf
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/wuppertal" class="browse-card">
+          Wuppertal
+          <span class="count"
+            >(12 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/wuerselen" class="browse-card">
+          Würselen
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/zehlendorf" class="browse-card">
+          Zehlendorf
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/zweibruecken" class="browse-card">
+          Zweibrücken
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/staedte/zwickau" class="browse-card">
+          Zwickau
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+    </div>
+  </section>
+
+  <section class="browse-section">
+    <h2>Bläddern nach Laufart</h2>
+    <div class="browse-grid">
+      
+      <h3>
+        <a href="/laufkalender/alle-bundeslaender/gelaende" class="browse-card">
+          Gelände
+          <span class="count"
+            >(69 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/alle-bundeslaender/sonstiges" class="browse-card">
+          Sonstiges
+          <span class="count"
+            >(17 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/alle-bundeslaender/staffel" class="browse-card">
+          Staffel
+          <span class="count"
+            >(1 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/alle-bundeslaender/strasse" class="browse-card">
+          Straße
+          <span class="count"
+            >(84 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/laufkalender/alle-bundeslaender/trail" class="browse-card">
+          Trail
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </a>
+      </h3>
+      
+    </div>
+  </section>
+
+  <section class="browse-section">
+    <h2>Kategorie durchsuchen</h2>
+    <div class="browse-grid">
+      
+      <a href="/laufkalender/alle-bundeslaender/alle-laufarten/10-km" class="browse-card">
+        <h3>
+          10 km
+          <span class="count"
+            >(88 Rennen)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/laufkalender/alle-bundeslaender/alle-laufarten/10000-meter" class="browse-card">
+        <h3>
+          10000 meter
+          <span class="count"
+            >(73 Rennen)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/laufkalender/alle-bundeslaender/alle-laufarten/1500-meter" class="browse-card">
+        <h3>
+          1500 meter
+          <span class="count"
+            >(8 Rennen)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/laufkalender/alle-bundeslaender/alle-laufarten/3000-meter" class="browse-card">
+        <h3>
+          3000 meter
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/laufkalender/alle-bundeslaender/alle-laufarten/5-km" class="browse-card">
+        <h3>
+          5 km
+          <span class="count"
+            >(100 Rennen)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/laufkalender/alle-bundeslaender/alle-laufarten/50-km" class="browse-card">
+        <h3>
+          50 km
+          <span class="count"
+            >(10 Rennen)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/laufkalender/alle-bundeslaender/alle-laufarten/5000-meter" class="browse-card">
+        <h3>
+          5000 meter
+          <span class="count"
+            >(62 Rennen)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/laufkalender/alle-bundeslaender/alle-laufarten/halvmarathon" class="browse-card">
+        <h3>
+          Halvmarathon
+          <span class="count"
+            >(11 Rennen)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/laufkalender/alle-bundeslaender/alle-laufarten/marathon" class="browse-card">
+        <h3>
+          Marathon
+          <span class="count"
+            >(17 Rennen)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/laufkalender/alle-bundeslaender/alle-laufarten/millopp" class="browse-card">
+        <h3>
+          Millopp
+          <span class="count"
+            >(88 Rennen)</span
+          >
+        </h3>
+      </a>
+      
+    </div>
+  </section>
+</div>
+
+      </div>
+
+       
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

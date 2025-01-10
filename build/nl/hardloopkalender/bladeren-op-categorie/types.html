@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Blader door alle wedstrijden</title>
+    <meta name="description" content="Vind evenementen op basis van provincie, type of categorie" />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/race-list-filter.css" />
+    <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card-big.css" />
+    <link rel="stylesheet" href="/css/race-cards.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+    <script src="/js/raceList.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+    <script defer="" src="/js/raceListToggleButton.js"></script>
+    <script defer="" src="/js/raceListToggleMap.js"></script>
+  </head>
+  <body>
+    <!-- Page content -->
+    <main>
+       <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Hardlooplijst</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Inloggen
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Alles</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/hardloopkalender"
+      ><span class="nav-item">Hardloopkalender</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/voeg-race-toe"
+      ><span class="nav-item">Voeg race toe</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/forum"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/meet-je-ronde"
+      ><span class="nav-item">Meet je ronde</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/trainingsprogramma"
+      ><span class="nav-item">Trainingsprogramma</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/snelheidsomzetter"
+      ><span class="nav-item">Snelheidsomzetter</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/schat-je-eindtijd-in"
+      ><span class="nav-item">Schat je eindtijd in</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/over-ons"
+      ><span class="nav-item">Over ons</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/neem-contact-met-ons-op"
+      ><span class="nav-item">Neem contact met ons op</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Inloggen</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Je e-mail"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Wachtwoord"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Vergeten wachtwoord?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Maak in plaats daarvan een account aan
+            </a>
+          </div>
+          <button type="submit">Inloggen</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Maak account aan
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Vergeten wachtwoord?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Maak account</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Je naam"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Je e-mail"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Wachtwoord"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Maak account aan</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Terug naar inloggen
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Wachtwoord opnieuw instellen</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Je e-mail"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Verstuur herstel link</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Terug naar inloggen
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Je bent al ingelogd als</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Ga verder als deze gebruiker
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Uitloggen en wissel gebruiker
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto aangemaakt!</h2>
+        <div class="logged-in-user-info">
+          <p>Je bent nu ingelogd als</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            Een verificatielink is naar je e-mail gestuurd
+          </p>
+          <p class="verification-notice">Gelieve je e-mailadres te verifiëren</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Ga verder als deze gebruiker
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+      <div class="browse-container">
+        <nav class="breadcrumbs" aria-label="breadcrumb">
+  <ol>
+    
+    <li >
+      
+      <a href="/hardloopkalender">Hardloopkalender</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li >
+      
+      <a href="/hardloopkalender/bladeren-op-categorie">Bladeren op categorie</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li aria-current="page" >
+      
+      <span>Loptypen</span>
+      
+    </li>
+    
+  </ol>
+</nav>
+        <nav class="browse-nav">
+          <a
+            href="/hardloopkalender/bladeren-op-categorie"
+            class=""
+          >
+            Overzicht
+          </a>
+          <a
+            href="/hardloopkalender/bladeren-op-categorie/counties.html"
+            class=""
+          >
+            Provincie
+          </a>
+          <a
+            href="/hardloopkalender/bladeren-op-categorie/cities.html"
+            class=""
+          >
+            Steden
+          </a>
+          <a
+            href="/hardloopkalender/bladeren-op-categorie/types.html"
+            class="active"
+          >
+            Loptypen
+          </a>
+          <a
+            href="/hardloopkalender/bladeren-op-categorie/categories.html"
+            class=""
+          >
+            Categorieën
+          </a>
+        </nav>
+
+        
+<div class="browse-types">
+  <h1>Blader op type loop</h1>
+  <p class="browse-description">Vind evenementen op type evenement.</p>
+
+  <div class="browse-grid">
+    
+    <div class="type-card">
+      <div class="type-header">
+        <h2>
+          <a href="/hardloopkalender/alle-provincies/backyard-ultra"> Backyard Ultra </a>
+          <span class="count">(2 lopp)</span>
+        </h2>
+      </div>
+
+      
+    </div>
+    
+    <div class="type-card">
+      <div class="type-header">
+        <h2>
+          <a href="/hardloopkalender/alle-provincies/cross"> Cross </a>
+          <span class="count">(109 lopp)</span>
+        </h2>
+      </div>
+
+      
+      <div class="categories">
+        <h3></h3>
+        <ul class="category-list">
+           
+          <li>
+            <a href="/hardloopkalender/alle-provincies/cross/10-km"> 10 km </a>
+            <span class="count">(79)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/cross/10000-meter"> 10000 meter </a>
+            <span class="count">(46)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/cross/1500-meter"> 1500 meter </a>
+            <span class="count">(10)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/cross/3000-meter"> 3000 meter </a>
+            <span class="count">(16)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/cross/5-km"> 5 km </a>
+            <span class="count">(100)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/cross/5000-meter"> 5000 meter </a>
+            <span class="count">(41)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/cross/halvmarathon"> Halvmarathon </a>
+            <span class="count">(3)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/cross/marathon"> Marathon </a>
+            <span class="count">(3)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/cross/millopp"> Millopp </a>
+            <span class="count">(79)</span>
+          </li>
+           
+        </ul>
+      </div>
+      
+    </div>
+    
+    <div class="type-card">
+      <div class="type-header">
+        <h2>
+          <a href="/hardloopkalender/alle-provincies/estafette"> Estafette </a>
+          <span class="count">(4 lopp)</span>
+        </h2>
+      </div>
+
+      
+      <div class="categories">
+        <h3></h3>
+        <ul class="category-list">
+           
+          <li>
+            <a href="/hardloopkalender/alle-provincies/estafette/10-km"> 10 km </a>
+            <span class="count">(2)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/estafette/10000-meter"> 10000 meter </a>
+            <span class="count">(2)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/estafette/5-km"> 5 km </a>
+            <span class="count">(6)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/estafette/5000-meter"> 5000 meter </a>
+            <span class="count">(3)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/estafette/marathon"> Marathon </a>
+            <span class="count">(2)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/estafette/millopp"> Millopp </a>
+            <span class="count">(2)</span>
+          </li>
+           
+        </ul>
+      </div>
+      
+    </div>
+    
+    <div class="type-card">
+      <div class="type-header">
+        <h2>
+          <a href="/hardloopkalender/alle-provincies/hardloopbaan"> Hardloopbaan </a>
+          <span class="count">(5 lopp)</span>
+        </h2>
+      </div>
+
+      
+      <div class="categories">
+        <h3></h3>
+        <ul class="category-list">
+           
+          <li>
+            <a href="/hardloopkalender/alle-provincies/hardloopbaan/1500-meter"> 1500 meter </a>
+            <span class="count">(2)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/hardloopbaan/3000-meter"> 3000 meter </a>
+            <span class="count">(1)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/hardloopbaan/5-km"> 5 km </a>
+            <span class="count">(5)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/hardloopbaan/5000-meter"> 5000 meter </a>
+            <span class="count">(4)</span>
+          </li>
+           
+        </ul>
+      </div>
+      
+    </div>
+    
+    <div class="type-card">
+      <div class="type-header">
+        <h2>
+          <a href="/hardloopkalender/alle-provincies/overig"> Overig </a>
+          <span class="count">(11 lopp)</span>
+        </h2>
+      </div>
+
+      
+      <div class="categories">
+        <h3></h3>
+        <ul class="category-list">
+           
+          <li>
+            <a href="/hardloopkalender/alle-provincies/overig/10-km"> 10 km </a>
+            <span class="count">(5)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/overig/10000-meter"> 10000 meter </a>
+            <span class="count">(5)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/overig/1500-meter"> 1500 meter </a>
+            <span class="count">(2)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/overig/5-km"> 5 km </a>
+            <span class="count">(6)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/overig/5000-meter"> 5000 meter </a>
+            <span class="count">(4)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/overig/halvmarathon"> Halvmarathon </a>
+            <span class="count">(1)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/overig/millopp"> Millopp </a>
+            <span class="count">(5)</span>
+          </li>
+           
+        </ul>
+      </div>
+      
+    </div>
+    
+    <div class="type-card">
+      <div class="type-header">
+        <h2>
+          <a href="/hardloopkalender/alle-provincies/trail"> Trail </a>
+          <span class="count">(133 lopp)</span>
+        </h2>
+      </div>
+
+      
+      <div class="categories">
+        <h3></h3>
+        <ul class="category-list">
+           
+          <li>
+            <a href="/hardloopkalender/alle-provincies/trail/10-km"> 10 km </a>
+            <span class="count">(72)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/trail/100-km"> 100 km </a>
+            <span class="count">(13)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/trail/10000-meter"> 10000 meter </a>
+            <span class="count">(54)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/trail/1500-meter"> 1500 meter </a>
+            <span class="count">(1)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/trail/3000-meter"> 3000 meter </a>
+            <span class="count">(3)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/trail/5-km"> 5 km </a>
+            <span class="count">(40)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/trail/50-km"> 50 km </a>
+            <span class="count">(27)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/trail/50-miles"> 50 miles </a>
+            <span class="count">(19)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/trail/5000-meter"> 5000 meter </a>
+            <span class="count">(28)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/trail/halvmarathon"> Halvmarathon </a>
+            <span class="count">(19)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/trail/marathon"> Marathon </a>
+            <span class="count">(21)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/trail/millopp"> Millopp </a>
+            <span class="count">(72)</span>
+          </li>
+           
+        </ul>
+      </div>
+      
+    </div>
+    
+    <div class="type-card">
+      <div class="type-header">
+        <h2>
+          <a href="/hardloopkalender/alle-provincies/wegwedstrijd"> Wegwedstrijd </a>
+          <span class="count">(446 lopp)</span>
+        </h2>
+      </div>
+
+      
+      <div class="categories">
+        <h3></h3>
+        <ul class="category-list">
+           
+          <li>
+            <a href="/hardloopkalender/alle-provincies/wegwedstrijd/10-km"> 10 km </a>
+            <span class="count">(336)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/wegwedstrijd/100-km"> 100 km </a>
+            <span class="count">(3)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/wegwedstrijd/100-miles"> 100 miles </a>
+            <span class="count">(1)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/wegwedstrijd/10000-meter"> 10000 meter </a>
+            <span class="count">(296)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/wegwedstrijd/1500-meter"> 1500 meter </a>
+            <span class="count">(33)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/wegwedstrijd/3000-meter"> 3000 meter </a>
+            <span class="count">(26)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/wegwedstrijd/5-km"> 5 km </a>
+            <span class="count">(379)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/wegwedstrijd/50-km"> 50 km </a>
+            <span class="count">(5)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/wegwedstrijd/50-miles"> 50 miles </a>
+            <span class="count">(4)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/wegwedstrijd/5000-meter"> 5000 meter </a>
+            <span class="count">(279)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/wegwedstrijd/halvmarathon"> Halvmarathon </a>
+            <span class="count">(34)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/wegwedstrijd/marathon"> Marathon </a>
+            <span class="count">(80)</span>
+          </li>
+            
+          <li>
+            <a href="/hardloopkalender/alle-provincies/wegwedstrijd/millopp"> Millopp </a>
+            <span class="count">(336)</span>
+          </li>
+           
+        </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+      </div>
+
+       
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

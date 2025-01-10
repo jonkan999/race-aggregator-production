@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Alles over hardlopen in Nederland</title>
+    <meta
+      name="description"
+      content="Hardlooplijst | Meest uitgebreide hardloopcommunity in Nederland"
+    />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/hero.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <link rel="stylesheet" href="/css/selected-forum-posts.css" />
+    <link rel="stylesheet" href="/css/selected-forum-post-card.css" />
+    <link rel="stylesheet" href="/css/about-contact.css" />
+    <link rel="stylesheet" href="/css/privacy.css" />
+     
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    
+  </head>
+  <body>
+    <!-- Page content -->
+    <main> <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Hardlooplijst</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Inloggen
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Alles</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/hardloopkalender"
+      ><span class="nav-item">Hardloopkalender</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/voeg-race-toe"
+      ><span class="nav-item">Voeg race toe</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/forum"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/meet-je-ronde"
+      ><span class="nav-item">Meet je ronde</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/trainingsprogramma"
+      ><span class="nav-item">Trainingsprogramma</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/snelheidsomzetter"
+      ><span class="nav-item">Snelheidsomzetter</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/schat-je-eindtijd-in"
+      ><span class="nav-item">Schat je eindtijd in</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/over-ons"
+      ><span class="nav-item">Over ons</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/neem-contact-met-ons-op"
+      ><span class="nav-item">Neem contact met ons op</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Inloggen</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Je e-mail"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Wachtwoord"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Vergeten wachtwoord?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Maak in plaats daarvan een account aan
+            </a>
+          </div>
+          <button type="submit">Inloggen</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Maak account aan
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Vergeten wachtwoord?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Maak account</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Je naam"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Je e-mail"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Wachtwoord"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Maak account aan</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Terug naar inloggen
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Wachtwoord opnieuw instellen</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Je e-mail"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Verstuur herstel link</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Terug naar inloggen
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Je bent al ingelogd als</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Ga verder als deze gebruiker
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Uitloggen en wissel gebruiker
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto aangemaakt!</h2>
+        <div class="logged-in-user-info">
+          <p>Je bent nu ingelogd als</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            Een verificatielink is naar je e-mail gestuurd
+          </p>
+          <p class="verification-notice">Gelieve je e-mailadres te verifiëren</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Ga verder als deze gebruiker
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section> <section class="section section-hero background-container">
+  <div class="overlay gradient"></div>
+  <!-- cycle through 4 inspirational hero pictures one marathon one trail and one "fun run" hero1 hero2 hero3 -->
+  <picture>
+    <source
+      srcset="/images/hero_xlarge.webp"
+      media="(min-width: 1280px)"
+    />
+    <source
+      srcset="/images/hero_large.webp"
+      media="(min-width: 960px)"
+    />
+    <source
+      srcset="/images/hero_medium.webp"
+      media="(min-width: 640px)"
+    />
+    <source
+      srcset="/images/hero_small.webp"
+      media="(max-width: 320px)"
+    />
+    <img src="/images/hero_xlarge.webp" alt="Hero Image" class="background-img" />
+  </picture>
+
+  <div class="hero-content">
+    <div class="title-container">
+      <h1 class="native-title">Alles over hardlopen in
+      <span class="native-country new-amsterdam">Nederland</span></h1>
+    </div>
+    <ul class="bullet-list">
+      <li>
+        <a href="/hardloopkalender" class="full-link"> 
+          <ion-icon name="search-outline" role="img"></ion-icon>
+          Vind je volgende loopwedstrijd
+
+        </a>
+      </li>
+      <li>
+        <a href="/voeg-race-toe" class="full-link">
+          - Of voeg dit hier toe
+
+        </a>
+      </li>
+      <li>
+        <a href="/forum" class="full-link">
+          <ion-icon name="chatbox-ellipses-outline" role="img"></ion-icon>  
+          Lees het laatste of praat erover in ons forum
+
+        </a>
+      </li>
+    </ul>
+  </div>
+<!--     <button onclick="location.href='/race-list'">Vind Wedstrijden</button>
+    <button onclick="location.href='/add-races'">Voeg een Wedstrijd Toe</button> -->
+  </div>
+</section> <section class="section section-selected-races">
+  <h2 class="section-header">Geselecteerde Races</h2>
+  <div class="race-card-big-container right-scroller">
+      <a
+  href="/looppaginas/alphense_bruggenrun_15e"
+  class="race-card-big race-card"
+  data-name="Alphense Bruggenrun 15e"
+  data-date="20250109"
+  data-county="Zuid-Holland"
+  data-category=""
+  data-race-type="Wegwedstrijd"
+  data-distance="5km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/alphense_bruggenrun_15e/alphense_bruggenrun_15e_1.webp"
+        alt="Afbeelding naarAlphense Bruggenrun 15e"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          9 jan.
+        </div>
+        <div class="race-location">
+          Zuid-Holland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Wegwedstrijd
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Alphense Bruggenrun 15e</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Naar de racepagina</div>
+    </div>
+  </div>
+</a>    <a
+  href="/looppaginas/nieuwjaarsloop_rondomme"
+  class="race-card-big race-card"
+  data-name="Nieuwjaarsloop Rondomme"
+  data-date="20250111"
+  data-county="Drenthe"
+  data-category=""
+  data-race-type="Wegwedstrijd"
+  data-distance="3km, 5km, 10km, 15km, 20km, 25km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/nieuwjaarsloop_rondomme/nieuwjaarsloop_rondomme_1.webp"
+        alt="Afbeelding naarNieuwjaarsloop Rondomme"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          11 jan.
+        </div>
+        <div class="race-location">
+          Drenthe
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Wegwedstrijd
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                3 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                15 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                20 km
+              </span>
+            </div>
+             
+            <div class="distance-item">
+              <span class="race-distance">...</span>
+            </div>
+             
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Nieuwjaarsloop Rondomme</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Naar de racepagina</div>
+    </div>
+  </div>
+</a>    <a
+  href="/looppaginas/nienoord_crossloop"
+  class="race-card-big race-card"
+  data-name="Nienoord Crossloop"
+  data-date="20250111"
+  data-county="Groningen"
+  data-category=""
+  data-race-type="Cross"
+  data-distance="5km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/nienoord_crossloop/nienoord_crossloop_1.webp"
+        alt="Afbeelding naarNienoord Crossloop"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          11 jan.
+        </div>
+        <div class="race-location">
+          Groningen
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Cross
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Nienoord Crossloop</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Naar de racepagina</div>
+    </div>
+  </div>
+</a>    <a
+  href="/looppaginas/gouwe_bos_cross"
+  class="race-card-big race-card"
+  data-name="Gouwe Bos Cross"
+  data-date="20250111"
+  data-county="Zuid-Holland"
+  data-category=""
+  data-race-type="Cross"
+  data-distance=""
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/gouwe_bos_cross/gouwe_bos_cross_1.webp"
+        alt="Afbeelding naarGouwe Bos Cross"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          11 jan.
+        </div>
+        <div class="race-location">
+          Zuid-Holland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Cross
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Gemengde afstand
+              </span>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Gouwe Bos Cross</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Naar de racepagina</div>
+    </div>
+  </div>
+</a>    <a
+  href="/looppaginas/run2day_trimloop"
+  class="race-card-big race-card"
+  data-name="Run2Day Trimloop"
+  data-date="20250111"
+  data-county="Drenthe"
+  data-category=""
+  data-race-type="Wegwedstrijd"
+  data-distance="3km, 6km, 9km, 12km, 15km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/run2day_trimloop/run2day_trimloop_1.webp"
+        alt="Afbeelding naarRun2Day Trimloop"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          11 jan.
+        </div>
+        <div class="race-location">
+          Drenthe
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Wegwedstrijd
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                3 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                6 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                9 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                12 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                15 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Run2Day Trimloop</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Naar de racepagina</div>
+    </div>
+  </div>
+</a>    <a
+  href="/looppaginas/run2day_vlinderloop"
+  class="race-card-big race-card"
+  data-name="Run2Day Vlinderloop"
+  data-date="20250111"
+  data-county="Utrecht"
+  data-category=""
+  data-race-type="Wegwedstrijd"
+  data-distance="4,4km, 10,7km, 14,8km, half marathon"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/run2day_vlinderloop/run2day_vlinderloop_1.webp"
+        alt="Afbeelding naarRun2Day Vlinderloop"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          11 jan.
+        </div>
+        <div class="race-location">
+          Utrecht
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Wegwedstrijd
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                4,4 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10,7 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                14,8 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Halve marathon
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Run2Day Vlinderloop</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Naar de racepagina</div>
+    </div>
+  </div>
+</a>    <a
+  href="/looppaginas/snertloop_8_nijkerk"
+  class="race-card-big race-card"
+  data-name="Snertloop 8 Nijkerk"
+  data-date="20250111"
+  data-county="Gelderland"
+  data-category=""
+  data-race-type="Wegwedstrijd"
+  data-distance="5km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/snertloop_8_nijkerk/snertloop_8_nijkerk_1.webp"
+        alt="Afbeelding naarSnertloop 8 Nijkerk"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          11 jan.
+        </div>
+        <div class="race-location">
+          Gelderland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Wegwedstrijd
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Snertloop 8 Nijkerk</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Naar de racepagina</div>
+    </div>
+  </div>
+</a>    <a
+  href="/looppaginas/hollen_met_han"
+  class="race-card-big race-card"
+  data-name="Hollen met Han"
+  data-date="20250111"
+  data-county="Zuid-Holland"
+  data-category=""
+  data-race-type="Wegwedstrijd"
+  data-distance="5km, 10km, marathon"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/hollen_met_han/hollen_met_han_1.webp"
+        alt="Afbeelding naarHollen met Han"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          11 jan.
+        </div>
+        <div class="race-location">
+          Zuid-Holland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Wegwedstrijd
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Marathon
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Hollen met Han</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Naar de racepagina</div>
+    </div>
+  </div>
+</a>    <a
+  href="/looppaginas/2bfit_snertloop"
+  class="race-card-big race-card"
+  data-name="2BFit Snertloop"
+  data-date="20250111"
+  data-county="Gelderland"
+  data-category=""
+  data-race-type="Wegwedstrijd"
+  data-distance="5km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/2bfit_snertloop/2bfit_snertloop_1.webp"
+        alt="Afbeelding naar2BFit Snertloop"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          11 jan.
+        </div>
+        <div class="race-location">
+          Gelderland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Wegwedstrijd
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">2BFit Snertloop</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Naar de racepagina</div>
+    </div>
+  </div>
+</a>    <a
+  href="/looppaginas/ijsseldelta_cross"
+  class="race-card-big race-card"
+  data-name="IJsseldelta Cross"
+  data-date="20250111"
+  data-county="Overijssel"
+  data-category=""
+  data-race-type="Cross"
+  data-distance="1,5km, 2,5km, 8km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/ijsseldelta_cross/ijsseldelta_cross_1.webp"
+        alt="Afbeelding naarIJsseldelta Cross"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          11 jan.
+        </div>
+        <div class="race-location">
+          Overijssel
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Cross
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                1,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                2,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                8 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">IJsseldelta Cross</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Naar de racepagina</div>
+    </div>
+  </div>
+</a>  
+  </div>
+  <div class="selected-races-button-container">
+    <!-- eslint-disable-next-line -->
+    <button class="selected-races-button" id="selected-races-button">
+      Toon alle races
+    </button>
+    <script>
+      // JavaScript logic to handle the button click
+      document.getElementById('selected-races-button').onclick = function () {
+        location.href =
+          '/hardloopkalender';
+      };
+    </script>
+  </div>
+</section> <section class="section section-selected-forum-posts">
+  <h2 class="section-header">Forum</h2>
+  <div class="selected-forum-posts-container">
+     <a href="/forum/skador/c2d708ad-4f40-4024-9dd3-057891e81408/" class="forum-post-card">
+  <div class="forum-post-upper-box">
+    <div class="forum-post-content">
+      <div class="forum-info-top">
+        <div class="icon-category-container">
+          <div class="forum-post-icon">
+            <ion-icon name="chatbubbles-outline"></ion-icon>
+          </div>
+          <div class="forum-author">/TrainingsTips</div>
+        </div>
+        <div class="forum-time">• 2024-08-25</div>
+      </div>
+
+      <div class="forum-info-middle">Zoals de titel zegt, is mijn hiel begonnen te pijn doen tijdens het hardlopen. Tips voor revalidatieoefeningen?</div>
+    </div>
+  </div>
+
+  <div class="forum-comments">
+    2 Reacties
+  </div>
+</a>  <a href="/forum/resor/ba58801a-004f-4cd4-9746-b3505ad792d7/" class="forum-post-card">
+  <div class="forum-post-upper-box">
+    <div class="forum-post-content">
+      <div class="forum-info-top">
+        <div class="icon-category-container">
+          <div class="forum-post-icon">
+            <ion-icon name="chatbubbles-outline"></ion-icon>
+          </div>
+          <div class="forum-author">/Reizen en toerisme</div>
+        </div>
+        <div class="forum-time">• 2024-08-26</div>
+      </div>
+
+      <div class="forum-info-middle">Ik plan een hardloop-/wandeling naar Zweden en zou graag uw aanbevelingen horen voor de beste routes. Ik neem graag tips vanuit heel Zweden.</div>
+    </div>
+  </div>
+
+  <div class="forum-comments">
+    2 Reacties
+  </div>
+</a> 
+  </div>
+  <div class="selected-races-button-container">
+    <button class="selected-races-button" id="forum-button">
+      Bekijk Alle Berichten
+    </button>
+    <script>
+      // JavaScript logic to handle the button click
+      document.getElementById('forum-button').onclick = function () {
+        location.href = '/forum';
+      };
+    </script>
+  </div>
+</section> </main>
+
+     
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="/js/index.js"></script>
+    
+  </body>
+</html>

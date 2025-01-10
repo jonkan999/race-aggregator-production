@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     
+    <script type="application/ld+json">
+      {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste", "@type": "WebPage", "name": "Terminliste"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer", "@type": "WebPage", "name": "Byer"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer/drobak", "@type": "WebPage", "name": "Dr\u00f8bak"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer/drobak/tidslop", "@type": "WebPage", "name": "Tidsl\u00f8p"}, "position": 4}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer/drobak/tidslop/100-miles", "@type": "WebPage", "name": "100 miles"}, "position": 5}]}, "visual": [{"href": "/terminliste", "name": "Terminliste"}, {"href": "/terminliste/byer/drobak", "name": "Byer: Dr\u00f8bak"}, {"href": "/terminliste/byer/drobak/tidslop", "name": "Tidsl\u00f8p"}, {"href": "/terminliste/byer/drobak/tidslop/100-miles", "name": "100 miles"}]}
+    </script>
+        
+    <script type="application/ld+json">
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Rocket Run er en ellevill 24-timers l\u00f8pekonkurranse som kombinerer glede og fellesskap. Det hele startet som en liten id\u00e9 og har utviklet seg til et fantastisk ", "distance": "100km", "eventStatus": "Standard", "identifier": "rocket_run", "image": "/l\u00f8pssider/rocket_run/rocket_run_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "no", "addressLocality": "Porsgrunn, Telemark", "addressRegion": "Vestfold og Telemark"}, "name": "Porsgrunn, Telemark"}, "name": "Rocket Run", "sport": "L\u00f8ping, Tidsl\u00f8p", "startDate": "20250613"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Over femti l\u00f8pere skal l\u00f8pe rundt og rundt i seks timer under Ringerike 6-Timers Marathon. Dette l\u00f8pet finner sted i H\u00f8nefoss, Buskerud, og gir deltakerne en un", "distance": "6km", "eventStatus": "Standard", "identifier": "ringerike_6_timers_marathon", "image": "/l\u00f8pssider/ringerike_6_timers_marathon/ringerike_6_timers_marathon_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "no", "addressLocality": "H\u00f8nefoss", "addressRegion": "Viken"}, "name": "H\u00f8nefoss"}, "name": "Ringerike 6-Timers Marathon", "sport": "L\u00f8ping, Tidsl\u00f8p", "startDate": "20250621"}, "position": 2}], "numberOfItems": 2}
+    </script>
+     
+
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>100 miles Tidsløp løp i Drøbak | Løpskalender og Terminliste Løping</title>
+
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
+    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
+    <link rel="preconnect" href="https://adservice.google.com" />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://adservice.google.com" />
+
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/race-list-filter.css" />
+    <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card-big.css" />
+    <link rel="stylesheet" href="/css/race-cards.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+    <script src="/js/raceList.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+    <script defer="" src="/js/raceListToggleButton.js"></script>
+    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+  </head>
+  <body>
+    <!-- Page content -->
+    <main> <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Lopskalender</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Logg inn
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Alt</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/terminliste"
+      ><span class="nav-item">Terminliste</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/legg-til-lop"
+      ><span class="nav-item">Legg til løp</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/forum"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/mal-ruten-din"
+      ><span class="nav-item">Mål ruten din</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/treningsprogram"
+      ><span class="nav-item">Treningsprogram</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/fartkalkulator"
+      ><span class="nav-item">Fartkalkulator</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/estimer-sluttiden-din"
+      ><span class="nav-item">Estimér sluttiden din</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/om-oss"
+      ><span class="nav-item">Om oss</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/kontakt-oss"
+      ><span class="nav-item">Kontakt oss</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Logg inn</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Passord"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Glemt passord?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Opprett konto i stedet
+            </a>
+          </div>
+          <button type="submit">Logg inn</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Opprett konto
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Glemt passord?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Opprett konto</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Ditt navn"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Passord"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Opprett konto</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Tilbake til innlogging
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Tilbakestill passord</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Send tilbakestillingslink</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Tilbake til innlogging
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Du er allerede logget inn som</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Fortsett som denne brukeren
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Logg ut og bytt bruker
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto opprettet!</h2>
+        <div class="logged-in-user-info">
+          <p>Du er nå logget inn som</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            En verifiseringslink har blitt sendt til din e-post
+          </p>
+          <p class="verification-notice">Vennligst bekreft e-postadressen din</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Fortsett som denne brukeren
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section> <section class="section-filters">
+  <div class="filter-date">
+    <label for="date-from">Fra:</label>
+    <input type="date" id="date-from" name="date-from" />
+
+    <label for="date-to">Til:</label>
+    <input type="date" id="date-to" name="date-to" />
+  </div>
+
+  <div class="filter-months right-scroller">
+    <button class="month-button active" data-month="all">
+      Hele året
+    </button>
+    
+    <button class="month-button" data-month="01">
+      Januar
+    </button>
+    
+    <button class="month-button" data-month="02">
+      Februar
+    </button>
+    
+    <button class="month-button" data-month="03">
+      Mars
+    </button>
+    
+    <button class="month-button" data-month="04">
+      April
+    </button>
+    
+    <button class="month-button" data-month="05">
+      Mai
+    </button>
+    
+    <button class="month-button" data-month="06">
+      Juni
+    </button>
+    
+    <button class="month-button" data-month="07">
+      Juli
+    </button>
+    
+    <button class="month-button" data-month="08">
+      August
+    </button>
+    
+    <button class="month-button" data-month="09">
+      September
+    </button>
+    
+    <button class="month-button" data-month="10">
+      Oktober
+    </button>
+    
+    <button class="month-button" data-month="11">
+      November
+    </button>
+    
+    <button class="month-button" data-month="12">
+      Desember
+    </button>
+    
+  </div>
+
+  <div class="filter-categories right-scroller">
+    <button class="category-button active" data-category="all">
+      Alle distanser
+    </button>
+    
+    <button class="category-button" data-category="5 km">
+      5 km
+    </button>
+    
+    <button class="category-button" data-category="10 km">
+      10 km
+    </button>
+    
+    <button class="category-button" data-category="Halvmaraton">
+      Halvmaraton
+    </button>
+    
+    <button class="category-button" data-category="Maraton">
+      Maraton
+    </button>
+    
+    <button class="category-button" data-category="50 miles">
+      50 miles
+    </button>
+    
+    <button class="category-button" data-category="100 miles">
+      100 miles
+    </button>
+    
+    <button class="category-button" data-category="200 miles">
+      200 miles
+    </button>
+    
+    <button class="category-button" data-category="50 km">
+      50 km
+    </button>
+    
+    <button class="category-button" data-category="100 km">
+      100 km
+    </button>
+    
+    <button class="category-button" data-category="Milløp">
+      Milløp
+    </button>
+    
+    <button class="category-button" data-category="1500 meter">
+      1500 meter
+    </button>
+    
+    <button class="category-button" data-category="3000 meter">
+      3000 meter
+    </button>
+    
+    <button class="category-button" data-category="5000 meter">
+      5000 meter
+    </button>
+    
+    <button class="category-button" data-category="10000 meter">
+      10000 meter
+    </button>
+    
+  </div>
+
+  <div class="filter-dropdowns right-scroller">
+    <div class="filter-county">
+      <select id="county" name="county">
+        <option value="">Alle fylker</option>
+         
+        <option value="Oslo">Oslo</option>
+        
+        <option value="Rogaland">Rogaland</option>
+        
+        <option value="Møre og Romsdal">Møre og Romsdal</option>
+        
+        <option value="Nordland">Nordland</option>
+        
+        <option value="Viken">Viken</option>
+        
+        <option value="Innlandet">Innlandet</option>
+        
+        <option value="Vestfold og Telemark">Vestfold og Telemark</option>
+        
+        <option value="Agder">Agder</option>
+        
+        <option value="Vestland">Vestland</option>
+        
+        <option value="Trøndelag">Trøndelag</option>
+        
+        <option value="Troms og Finnmark">Troms og Finnmark</option>
+        
+      </select>
+    </div>
+
+    <div class="filter-race-type">
+      <select id="race-type" name="race-type">
+        <option value="">Alle løpstyper</option>
+        
+        <option value="Landevei">Landevei</option>
+        
+        <option value="Terreng">Terreng</option>
+        
+        <option value="Trail/Fjelløp">Trail/Fjelløp</option>
+        
+        <option value="Løpebane">Løpebane</option>
+        
+        <option value="Backyard Ultra">Backyard Ultra</option>
+        
+        <option value="Frontyard Ultra">Frontyard Ultra</option>
+        
+        <option value="Stafett">Stafett</option>
+        
+        <option value="Tidsløp">Tidsløp</option>
+        
+        <option value="Annet">Annet</option>
+        
+      </select>
+    </div>
+    <div class="browse-all-filters">
+      <a
+        href="/terminliste/bla-etter-kategori"
+        class="browse-link"
+      >
+        <div class="browse-link-icon">
+          <ion-icon name="git-network-outline"></ion-icon>
+        </div>
+        <div class="browse-link-text">Bla etter kategori</div>
+      </a>
+    </div>
+    <div class="toggle-button desktop" id="toggleMapButton">
+      <button>
+        <ion-icon
+          name="radio-button-on-outline"
+          id="onIcon"
+          role="img"
+          class="md hydrated"
+          aria-label="radio button on outline"
+        ></ion-icon>
+        <ion-icon
+          name="radio-button-off-outline"
+          id="offIcon"
+          role="img"
+          class="md hydrated"
+          aria-label="radio button off outline"
+        ></ion-icon>
+        Kart
+      </button>
+    </div>
+  </div>
+</section> <section class="section section-race-cards">
+  
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      
+      <li >
+        
+        <a href="/terminliste">Terminliste</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/terminliste/byer/drobak">Byer: Drøbak</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        
+      </li>
+      
+      <li >
+        
+        <a href="/terminliste/byer/drobak/tidslop">Tidsløp</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        
+      </li>
+      
+      <li aria-current="page" >
+        
+        <span>100 miles</span>
+        
+      </li>
+      
+    </ol>
+  </nav>
+  
+
+  <h1
+    class="section-header section-header-race-cards race-list-title no-padding-top"
+  >
+    100 miles Tidsløp Løp i Drøbak
+  </h1>
+  <p class="race-list-paragraph seo-paragraph">Letar du etter et 100 miles løp?  Denne løpskalenderen og terminliste løping viser alle Tidsløp løpene i Drøbak.  Her finner du en oversikt over løpeløp og løpekonkurranser, perfekt for de som søker løping i Norge.  Uansett om du er erfaren løper eller nybegynner, vil du finne et løp som passer deg i vår løpsliste.  Finn ditt neste eventyr blant løpene i Norge!  Sjekk løpekalenderen og terminliste løping nå!</p>
+
+  
+
+  <h2 class="section-header">
+    Alle
+    <span id="race-cards-title-category"></span>
+    løp
+    <span id="race-cards-title-separator"
+      >i</span
+    >
+    <span id="race-cards-title-region"
+      >Norge</span
+    >
+    <span id="date-range"></span>
+  </h2>
+
+  <button class="toggle-button mobile" id="toggleMapButtonMobile">
+    <div class="icon-container">
+      <ion-icon
+        name="map-outline"
+        role="img"
+        class="md hydrated"
+        aria-label="map outline"
+      ></ion-icon>
+    </div>
+    <p>Kart</p>
+  </button>
+
+  <div class="race-cards-selector">
+    <div
+      class="race-cards-grid"
+      id="race-cards-container"
+      
+      data-preselected-filters="{&quot;county&quot;: &quot;Dr\u00f8bak&quot;, &quot;race_type&quot;: &quot;Tidsl\u00f8p&quot;, &quot;category&quot;: &quot;100 miles&quot;}"
+      
+    >
+        <a
+  href="/løpssider/rocket_run"
+  class="race-card"
+  data-name="Rocket Run"
+  data-date="20250613"
+  data-county="Vestfold og Telemark"
+  data-category=""
+  data-race-type="Tidsløp"
+  data-distance="100km"
+  data-latitude="59.1385567"
+  data-longitude="9.6555147"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/rocket_run/rocket_run_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Rocket Run"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          13 juni
+        </div>
+        <div class="race-location">
+          Vestfold og Telemark
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Rocket Run</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Porsgrunn, Telemark 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                100 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Tidsløp
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Rocket Run er en ellevill 24-timers løpekonkurranse som kombinerer glede og fellesskap. Det hele startet som en liten idé og har utviklet se...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/ringerike_6_timers_marathon"
+  class="race-card"
+  data-name="Ringerike 6-Timers Marathon"
+  data-date="20250621"
+  data-county="Viken"
+  data-category=""
+  data-race-type="Tidsløp"
+  data-distance="6km"
+  data-latitude="60.16822250000001"
+  data-longitude="10.2564172"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/ringerike_6_timers_marathon/ringerike_6_timers_marathon_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Ringerike 6-Timers Marathon"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          21 juni
+        </div>
+        <div class="race-location">
+          Viken
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Ringerike 6-Timers Marathon</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Hønefoss 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                6 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Tidsløp
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Over femti løpere skal løpe rundt og rundt i seks timer under Ringerike 6-Timers Marathon. Dette løpet finner sted i Hønefoss, Buskerud, og ...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>     
+
+      <!-- Add pagination controls -->
+      <div class="pagination-info">
+        <span id="event-range">av</span>
+        <span id="total-events">Løp</span>
+      </div>
+      <div class="pagination">
+        <button id="prev-page">Forrige</button>
+        <div id="page-numbers"></div>
+        <button id="next-page">Neste</button>
+      </div>
+    </div>
+
+    <div
+      class="map-placeholder"
+      id="map-placeholder"
+      data-latitude="61.114952"
+      data-longitude="9.808722"
+      data-zoom="4"
+    >
+      <!-- Map will be inserted here -->
+    </div>
+  </div>
+</section> </main>
+
+    
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

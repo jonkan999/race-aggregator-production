@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Trainingsprogramme</title>
+    <meta
+      name="description"
+      content="Erstelle einen maßgeschneiderten Trainingsplan basierend auf deinem Ziel"
+    />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+     
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/hero.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <link rel="stylesheet" href="/css/selected-forum-posts.css" />
+    <link rel="stylesheet" href="/css/selected-forum-post-card.css" />
+    <link rel="stylesheet" href="/css/about-contact.css" />
+    <link rel="stylesheet" href="/css/privacy.css" />
+    
+<link rel="stylesheet" href="/css/training-plans.css" />
+ 
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    
+  </head>
+  <body>
+    <!-- Page content -->
+    <main> <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">laufrennen</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Anmelden
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Alles</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/laufkalender"
+      ><span class="nav-item">Laufkalender</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/lauf-hinzufuegen"
+      ><span class="nav-item">Lauf hinzufügen</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/forum"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/miss-deine-runde"
+      ><span class="nav-item">Miss deine Runde</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/trainingsprogramme"
+      ><span class="nav-item">Trainingsprogramme</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/geschwindigkeitsumrechner"
+      ><span class="nav-item">Geschwindigkeitsumrechner</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/schaetze-deine-endzeit-ein"
+      ><span class="nav-item">Schätze deine Endzeit ein</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/ueber-uns"
+      ><span class="nav-item">Über uns</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/kontaktiere-uns"
+      ><span class="nav-item">Kontaktiere uns</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Anmelden</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Deine E-Mail"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Passwort"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Hast du dein Passwort vergessen?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Konto erstellen statt
+            </a>
+          </div>
+          <button type="submit">Anmelden</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Konto erstellen
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Hast du dein Passwort vergessen?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto erstellen</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Ihr Name"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Deine E-Mail"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Passwort"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Konto erstellen</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Zurück zur Anmeldung
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Passwort zurücksetzen</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Deine E-Mail"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Senden Sie den Wiederherstellungslink</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Zurück zur Anmeldung
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Du bist bereits eingeloggt als</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Fortfahren als dieser Benutzer
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Abmelden und Benutzer wechseln
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto erstellt!</h2>
+        <div class="logged-in-user-info">
+          <p>Du bist jetzt angemeldet als</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            Ein Verifizierungslink wurde an deine E-Mail-Adresse gesendet.
+          </p>
+          <p class="verification-notice">Bitte verifizieren Sie Ihre E-Mail-Adresse</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Fortfahren als dieser Benutzer
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section-training-plans">
+  <div class="container">
+    <h1 class="heading-primary">Trainingsprogramme</h1>
+    <p class="description">Erstelle einen maßgeschneiderten Trainingsplan basierend auf deinem Ziel</p>
+    <div class="info-disclaimer">
+      <p>
+        Unsere Trainingsprogramme werden mit Hilfe von KI generiert und anschließend an Ihre angegebenen Ziele und Vorlieben angepasst. Die Programme sind nicht garantiert perfekt oder funktionieren für alle.
+        <a href="/kontaktiere-uns.html"
+          >Kontaktiere uns</a
+        >
+        wenn du Feedback oder Verbesserungsvorschläge hast.
+      </p>
+    </div>
+    <div class="calculator-container">
+      <form class="calculator-form" id="training-calculator">
+        <!-- Target Race Date -->
+        <div class="form-group">
+          <label for="race-date"
+            >Wettkampftermin</label
+          >
+          <input
+            type="date"
+            id="race-date"
+            name="race-date"
+            class="form-select"
+            min=""
+            required
+          />
+        </div>
+
+        <!-- Target Race Distance -->
+        <div class="form-group">
+          <label for="target-distance"
+            >Zieldistanz</label
+          >
+          <select
+            id="target-distance"
+            name="target-distance"
+            class="form-select"
+            required
+          >
+            <option value="">
+              Wähle Distanz
+            </option>
+            
+            <option value="5000">5 km</option>
+            
+            <option value="10000">10 km</option>
+            
+            <option value="21097">Halbmarathon</option>
+            
+            <option value="42195">Marathon</option>
+            
+          </select>
+        </div>
+
+        <!-- Target Finish Time -->
+        <div class="form-group">
+          <label for="target-time"
+            >Mahlzeit</label
+          >
+          <div class="time-inputs">
+            <div class="time-input">
+              <input
+                type="number"
+                id="hours"
+                class="form-input"
+                min="0"
+                value="0"
+              />
+              <span class="unit"
+                >Stunden</span
+              >
+            </div>
+            <div class="time-input">
+              <input
+                type="number"
+                id="minutes"
+                class="form-input"
+                min="0"
+                max="59"
+                value="30"
+              />
+              <span class="unit"
+                >Minuten</span
+              >
+            </div>
+            <div class="time-input">
+              <input
+                type="number"
+                id="seconds"
+                class="form-input"
+                min="0"
+                max="59"
+                value="0"
+              />
+              <span class="unit"
+                >Sekunden</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Training Days Per Week -->
+        <div class="form-group">
+          <label for="training-days"
+            >Trainingstage pro Woche</label
+          >
+          <select
+            id="training-days"
+            name="training-days"
+            class="form-select"
+            required
+          >
+            
+            <option value="3">3 Tage</option>
+            
+            <option value="4">4 Tage</option>
+            
+            <option value="5">5 Tage</option>
+            
+            <option value="6">6 Tage</option>
+            
+          </select>
+        </div>
+
+        <!-- Time Available Per Session -->
+        <div class="form-group">
+          <label for="session-time"
+            >Verfügbare Zeit pro Einheit</label
+          >
+          <select
+            id="session-time"
+            name="session-time"
+            class="form-select"
+            required
+          >
+            
+            <option value="30-45">30-45 Minuten</option>
+            
+            <option value="45-60">45-60 Minuten</option>
+            
+            <option value="60-90">60-90 Minuten</option>
+            
+            <option value="90+">90+ Minuten</option>
+            
+          </select>
+        </div>
+
+        <!-- Hilly Course -->
+        <div class="form-group">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="is-hilly" class="form-checkbox" />
+            <label for="is-hilly"
+              >Kuperiertes Gelände</label
+            >
+          </div>
+        </div>
+
+        <button type="button" class="btn btn--full" id="generate-plan">
+          Trainingsplan generieren
+        </button>
+      </form>
+    </div>
+    <!-- Action Buttons -->
+    <div class="plan-actions">
+      <button type="button" class="btn btn--outline" id="regenerate-plan">
+        Andere Varianten anzeigen
+      </button>
+      <button type="button" class="btn btn--outline" id="export-pdf">
+        Exportieren als PDF
+      </button>
+    </div>
+
+    <!-- Results Container -->
+    <div class="results-container hidden">
+      <h2 class="heading-secondary">Dein Trainingsprogramm</h2>
+
+      <!-- Selected Plan Details -->
+      <div class="selected-plan hidden">
+        <div id="training-schedule"></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+      
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="/js/index.js"></script>
+    
+<script type="module" src="/js/trainingPlans.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  </body>
+</html>

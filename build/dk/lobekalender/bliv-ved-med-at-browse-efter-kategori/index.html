@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Bladr gennem alle løb</title>
+    <meta name="description" content="Find løb efter region, type eller kategori" />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/race-list-filter.css" />
+    <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card-big.css" />
+    <link rel="stylesheet" href="/css/race-cards.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+    <script src="/js/raceList.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+    <script defer="" src="/js/raceListToggleButton.js"></script>
+    <script defer="" src="/js/raceListToggleMap.js"></script>
+  </head>
+  <body>
+    <!-- Page content -->
+    <main>
+       <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Lobskalender</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Log ind
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Alt</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/lobekalender"
+      ><span class="nav-item">Løbekalender</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/tilfoj-lob"
+      ><span class="nav-item">Tilføj løb</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/forum"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/mal-din-rute"
+      ><span class="nav-item">Mål din rute</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/traningsprogram"
+      ><span class="nav-item">Træningsprogram</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/fartomformer"
+      ><span class="nav-item">Fartomformer</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/vurder-din-sluttid"
+      ><span class="nav-item">Vurder din sluttid</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/om-os"
+      ><span class="nav-item">Om os</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/kontakt-os"
+      ><span class="nav-item">Kontakt os</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Log ind</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Din e-mail"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Adgangskode"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Glemt adgangskode?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Opret konto i stedet
+            </a>
+          </div>
+          <button type="submit">Log ind</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Opret konto
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Glemt adgangskode?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Opret konto</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Dit navn"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Din e-mail"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Adgangskode"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Opret konto</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Tilbage til login
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Nulstil adgangskode</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Din e-mail"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Send nulstillingslink</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Tilbage til login
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Du er allerede logget ind som</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Fortsæt som denne bruger
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Log ud og skift bruger
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto oprettet!</h2>
+        <div class="logged-in-user-info">
+          <p>Du er nu logget ind som</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            En verificeringslink er blevet sendt til din e-mail
+          </p>
+          <p class="verification-notice">Venligst verificer din e-mailadresse</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Fortsæt som denne bruger
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+      <div class="browse-container">
+        <nav class="breadcrumbs" aria-label="breadcrumb">
+  <ol>
+    
+    <li >
+      
+      <a href="/lobekalender">Løbekalender</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li aria-current="page" >
+      
+      <span>Bliv ved med at browse efter kategori</span>
+      
+    </li>
+    
+  </ol>
+</nav>
+        <nav class="browse-nav">
+          <a
+            href="/lobekalender/bliv-ved-med-at-browse-efter-kategori"
+            class="active"
+          >
+            Oversigt
+          </a>
+          <a
+            href="/lobekalender/bliv-ved-med-at-browse-efter-kategori/counties.html"
+            class=""
+          >
+            Amter
+          </a>
+          <a
+            href="/lobekalender/bliv-ved-med-at-browse-efter-kategori/cities.html"
+            class=""
+          >
+            Byer
+          </a>
+          <a
+            href="/lobekalender/bliv-ved-med-at-browse-efter-kategori/types.html"
+            class=""
+          >
+            Løbetyper
+          </a>
+          <a
+            href="/lobekalender/bliv-ved-med-at-browse-efter-kategori/categories.html"
+            class=""
+          >
+            Kategorier
+          </a>
+        </nav>
+
+        
+<div class="browse-overview">
+  <h1>Bladr gennem alle løb</h1>
+  <p class="browse-description">Find løb efter region, type eller kategori</p>
+
+  <section class="browse-section">
+    <h2>Bläddra efter regioner</h2>
+    <div class="browse-grid">
+      
+      <h3>
+        <a href="/lobekalender/kobenhavn" class="browse-card">
+          København
+          <span class="count"
+            >(46 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/midtjylland" class="browse-card">
+          Midtjylland
+          <span class="count"
+            >(65 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/nordjylland" class="browse-card">
+          Nordjylland
+          <span class="count"
+            >(38 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/sjalland" class="browse-card">
+          Sjælland
+          <span class="count"
+            >(31 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/syddanmark" class="browse-card">
+          Syddanmark
+          <span class="count"
+            >(43 løb)</span
+          >
+        </a>
+      </h3>
+      
+    </div>
+  </section>
+
+  <section class="browse-section">
+    <h2>Bladr efter by</h2>
+    <div class="browse-grid">
+      
+      <h3>
+        <a href="/lobekalender/byer/aabenraa" class="browse-card">
+          Aabenraa
+          <span class="count"
+            >(6 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/aalborg" class="browse-card">
+          Aalborg
+          <span class="count"
+            >(14 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/aarhus" class="browse-card">
+          Aarhus
+          <span class="count"
+            >(20 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/albertslund" class="browse-card">
+          Albertslund
+          <span class="count"
+            >(32 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/ballerup" class="browse-card">
+          Ballerup
+          <span class="count"
+            >(35 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/birkerod" class="browse-card">
+          Birkerød
+          <span class="count"
+            >(37 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/bornholm" class="browse-card">
+          Bornholm
+          <span class="count"
+            >(3 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/bronderslev" class="browse-card">
+          Brønderslev
+          <span class="count"
+            >(14 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/charlottenlund" class="browse-card">
+          Charlottenlund
+          <span class="count"
+            >(31 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/christianshavn" class="browse-card">
+          Christianshavn
+          <span class="count"
+            >(25 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/dragor" class="browse-card">
+          Dragør
+          <span class="count"
+            >(22 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/esbjerg" class="browse-card">
+          Esbjerg
+          <span class="count"
+            >(6 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/espergarde" class="browse-card">
+          Espergærde
+          <span class="count"
+            >(17 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/farum" class="browse-card">
+          Farum
+          <span class="count"
+            >(39 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/flong" class="browse-card">
+          Flong
+          <span class="count"
+            >(35 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/fredericia" class="browse-card">
+          Fredericia
+          <span class="count"
+            >(13 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/frederiksberg" class="browse-card">
+          Frederiksberg
+          <span class="count"
+            >(27 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/frederikshavn" class="browse-card">
+          Frederikshavn
+          <span class="count"
+            >(10 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/frederikssund" class="browse-card">
+          Frederikssund
+          <span class="count"
+            >(31 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/frederiksvark" class="browse-card">
+          Frederiksværk
+          <span class="count"
+            >(15 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/glostrup" class="browse-card">
+          Glostrup
+          <span class="count"
+            >(32 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/grenaa" class="browse-card">
+          Grenaa
+          <span class="count"
+            >(3 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/greve" class="browse-card">
+          Greve
+          <span class="count"
+            >(28 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/haderslev" class="browse-card">
+          Haderslev
+          <span class="count"
+            >(9 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/haslev" class="browse-card">
+          Haslev
+          <span class="count"
+            >(10 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/hedensted" class="browse-card">
+          Hedensted
+          <span class="count"
+            >(18 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/helsingor" class="browse-card">
+          Helsingør
+          <span class="count"
+            >(16 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/herning" class="browse-card">
+          Herning
+          <span class="count"
+            >(2 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/hillerod" class="browse-card">
+          Hillerød
+          <span class="count"
+            >(26 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/hjorring" class="browse-card">
+          Hjørring
+          <span class="count"
+            >(5 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/hobro" class="browse-card">
+          Hobro
+          <span class="count"
+            >(8 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/holbak" class="browse-card">
+          Holbæk
+          <span class="count"
+            >(9 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/holstebro" class="browse-card">
+          Holstebro
+          <span class="count"
+            >(2 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/horsens" class="browse-card">
+          Horsens
+          <span class="count"
+            >(14 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/hvidovre" class="browse-card">
+          Hvidovre
+          <span class="count"
+            >(27 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/horsholm" class="browse-card">
+          Hørsholm
+          <span class="count"
+            >(34 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/ikast" class="browse-card">
+          Ikast
+          <span class="count"
+            >(21 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/ishoj" class="browse-card">
+          Ishøj
+          <span class="count"
+            >(28 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/kalundborg" class="browse-card">
+          Kalundborg
+          <span class="count"
+            >(6 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/kolding" class="browse-card">
+          Kolding
+          <span class="count"
+            >(16 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/kongens-lyngby" class="browse-card">
+          Kongens Lyngby
+          <span class="count"
+            >(34 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/korsor" class="browse-card">
+          Korsør
+          <span class="count"
+            >(8 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/kobenhavn" class="browse-card">
+          København
+          <span class="count"
+            >(25 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/koge" class="browse-card">
+          Køge
+          <span class="count"
+            >(14 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/lillerod" class="browse-card">
+          Lillerød
+          <span class="count"
+            >(38 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/middelfart" class="browse-card">
+          Middelfart
+          <span class="count"
+            >(15 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/nakskov" class="browse-card">
+          Nakskov
+          <span class="count"
+            >(3 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/nyborg" class="browse-card">
+          Nyborg
+          <span class="count"
+            >(7 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/nykobing-falster" class="browse-card">
+          Nykøbing Falster
+          <span class="count"
+            >(2 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/nastved" class="browse-card">
+          Næstved
+          <span class="count"
+            >(9 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/norresundby" class="browse-card">
+          Nørresundby
+          <span class="count"
+            >(16 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/odder" class="browse-card">
+          Odder
+          <span class="count"
+            >(22 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/odense" class="browse-card">
+          Odense
+          <span class="count"
+            >(6 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/randers" class="browse-card">
+          Randers
+          <span class="count"
+            >(10 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/ringsted" class="browse-card">
+          Ringsted
+          <span class="count"
+            >(13 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/roskilde" class="browse-card">
+          Roskilde
+          <span class="count"
+            >(21 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/rodovre" class="browse-card">
+          Rødovre
+          <span class="count"
+            >(31 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/ronne" class="browse-card">
+          Rønne
+          <span class="count"
+            >(7 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/silkeborg" class="browse-card">
+          Silkeborg
+          <span class="count"
+            >(29 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/skanderborg" class="browse-card">
+          Skanderborg
+          <span class="count"
+            >(28 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/skive" class="browse-card">
+          Skive
+          <span class="count"
+            >(8 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/slagelse" class="browse-card">
+          Slagelse
+          <span class="count"
+            >(7 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/solrod-strand" class="browse-card">
+          Solrød Strand
+          <span class="count"
+            >(25 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/stenlose" class="browse-card">
+          Stenløse
+          <span class="count"
+            >(40 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/struer" class="browse-card">
+          Struer
+          <span class="count"
+            >(1 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/svendborg" class="browse-card">
+          Svendborg
+          <span class="count"
+            >(6 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/sonderborg" class="browse-card">
+          Sønderborg
+          <span class="count"
+            >(5 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/taastrup" class="browse-card">
+          Taastrup
+          <span class="count"
+            >(34 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/thisted" class="browse-card">
+          Thisted
+          <span class="count"
+            >(7 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/vallensbak" class="browse-card">
+          Vallensbæk
+          <span class="count"
+            >(28 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/vanlose" class="browse-card">
+          Vanløse
+          <span class="count"
+            >(31 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/varde" class="browse-card">
+          Varde
+          <span class="count"
+            >(6 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/vejle" class="browse-card">
+          Vejle
+          <span class="count"
+            >(18 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/viborg" class="browse-card">
+          Viborg
+          <span class="count"
+            >(23 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/vordingborg" class="browse-card">
+          Vordingborg
+          <span class="count"
+            >(7 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/byer/varlose" class="browse-card">
+          Værløse
+          <span class="count"
+            >(36 løb)</span
+          >
+        </a>
+      </h3>
+      
+    </div>
+  </section>
+
+  <section class="browse-section">
+    <h2>Bläddra efter løbtype</h2>
+    <div class="browse-grid">
+      
+      <h3>
+        <a href="/lobekalender/alle-kommuner/andet" class="browse-card">
+          Andet
+          <span class="count"
+            >(39 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/alle-kommuner/backyard-ultra" class="browse-card">
+          Backyard Ultra
+          <span class="count"
+            >(8 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/alle-kommuner/landsvej" class="browse-card">
+          Landsvej
+          <span class="count"
+            >(54 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/alle-kommuner/stafett" class="browse-card">
+          Stafett
+          <span class="count"
+            >(4 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/alle-kommuner/terran" class="browse-card">
+          Terræn
+          <span class="count"
+            >(78 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/alle-kommuner/tidslopp" class="browse-card">
+          Tidslopp
+          <span class="count"
+            >(2 løb)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/lobekalender/alle-kommuner/traillob" class="browse-card">
+          Trailløb
+          <span class="count"
+            >(41 løb)</span
+          >
+        </a>
+      </h3>
+      
+    </div>
+  </section>
+
+  <section class="browse-section">
+    <h2>Bläddre efter kategori</h2>
+    <div class="browse-grid">
+      
+      <a href="/lobekalender/alle-kommuner/alle-lobstyper/10-km" class="browse-card">
+        <h3>
+          10 km
+          <span class="count"
+            >(74 løb)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/lobekalender/alle-kommuner/alle-lobstyper/100-km" class="browse-card">
+        <h3>
+          100 km
+          <span class="count"
+            >(13 løb)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/lobekalender/alle-kommuner/alle-lobstyper/100-miles" class="browse-card">
+        <h3>
+          100 miles
+          <span class="count"
+            >(3 løb)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/lobekalender/alle-kommuner/alle-lobstyper/10000-meter" class="browse-card">
+        <h3>
+          10000 meter
+          <span class="count"
+            >(59 løb)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/lobekalender/alle-kommuner/alle-lobstyper/1500-meter" class="browse-card">
+        <h3>
+          1500 meter
+          <span class="count"
+            >(2 løb)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/lobekalender/alle-kommuner/alle-lobstyper/200-miles" class="browse-card">
+        <h3>
+          200 miles
+          <span class="count"
+            >(2 løb)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/lobekalender/alle-kommuner/alle-lobstyper/3000-meter" class="browse-card">
+        <h3>
+          3000 meter
+          <span class="count"
+            >(22 løb)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/lobekalender/alle-kommuner/alle-lobstyper/5-km" class="browse-card">
+        <h3>
+          5 km
+          <span class="count"
+            >(112 løb)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/lobekalender/alle-kommuner/alle-lobstyper/50-km" class="browse-card">
+        <h3>
+          50 km
+          <span class="count"
+            >(15 løb)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/lobekalender/alle-kommuner/alle-lobstyper/50-miles" class="browse-card">
+        <h3>
+          50 miles
+          <span class="count"
+            >(20 løb)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/lobekalender/alle-kommuner/alle-lobstyper/5000-meter" class="browse-card">
+        <h3>
+          5000 meter
+          <span class="count"
+            >(68 løb)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/lobekalender/alle-kommuner/alle-lobstyper/halvmarathon" class="browse-card">
+        <h3>
+          Halvmarathon
+          <span class="count"
+            >(80 løb)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/lobekalender/alle-kommuner/alle-lobstyper/marathon" class="browse-card">
+        <h3>
+          Marathon
+          <span class="count"
+            >(2 løb)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/lobekalender/alle-kommuner/alle-lobstyper/millopp" class="browse-card">
+        <h3>
+          Millopp
+          <span class="count"
+            >(74 løb)</span
+          >
+        </h3>
+      </a>
+      
+    </div>
+  </section>
+</div>
+
+      </div>
+
+       
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

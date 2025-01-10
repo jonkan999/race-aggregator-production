@@ -1,0 +1,2265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Bladr gennem alle løb</title>
+    <meta name="description" content="Find løb efter region, type eller kategori" />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/race-list-filter.css" />
+    <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card-big.css" />
+    <link rel="stylesheet" href="/css/race-cards.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+    <script src="/js/raceList.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+    <script defer="" src="/js/raceListToggleButton.js"></script>
+    <script defer="" src="/js/raceListToggleMap.js"></script>
+  </head>
+  <body>
+    <!-- Page content -->
+    <main>
+       <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Lobskalender</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Log ind
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Alt</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/lobekalender"
+      ><span class="nav-item">Løbekalender</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/tilfoj-lob"
+      ><span class="nav-item">Tilføj løb</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/forum"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/mal-din-rute"
+      ><span class="nav-item">Mål din rute</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/traningsprogram"
+      ><span class="nav-item">Træningsprogram</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/fartomformer"
+      ><span class="nav-item">Fartomformer</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/vurder-din-sluttid"
+      ><span class="nav-item">Vurder din sluttid</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/om-os"
+      ><span class="nav-item">Om os</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/kontakt-os"
+      ><span class="nav-item">Kontakt os</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Log ind</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Din e-mail"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Adgangskode"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Glemt adgangskode?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Opret konto i stedet
+            </a>
+          </div>
+          <button type="submit">Log ind</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Opret konto
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Glemt adgangskode?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Opret konto</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Dit navn"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Din e-mail"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Adgangskode"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Opret konto</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Tilbage til login
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Nulstil adgangskode</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Din e-mail"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Send nulstillingslink</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Tilbage til login
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Du er allerede logget ind som</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Fortsæt som denne bruger
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Log ud og skift bruger
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto oprettet!</h2>
+        <div class="logged-in-user-info">
+          <p>Du er nu logget ind som</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            En verificeringslink er blevet sendt til din e-mail
+          </p>
+          <p class="verification-notice">Venligst verificer din e-mailadresse</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Fortsæt som denne bruger
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+      <div class="browse-container">
+        <nav class="breadcrumbs" aria-label="breadcrumb">
+  <ol>
+    
+    <li >
+      
+      <a href="/lobekalender">Løbekalender</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li >
+      
+      <a href="/lobekalender/bliv-ved-med-at-browse-efter-kategori">Bliv ved med at browse efter kategori</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li aria-current="page" >
+      
+      <span>Amter</span>
+      
+    </li>
+    
+  </ol>
+</nav>
+        <nav class="browse-nav">
+          <a
+            href="/lobekalender/bliv-ved-med-at-browse-efter-kategori"
+            class=""
+          >
+            Oversigt
+          </a>
+          <a
+            href="/lobekalender/bliv-ved-med-at-browse-efter-kategori/counties.html"
+            class="active"
+          >
+            Amter
+          </a>
+          <a
+            href="/lobekalender/bliv-ved-med-at-browse-efter-kategori/cities.html"
+            class=""
+          >
+            Byer
+          </a>
+          <a
+            href="/lobekalender/bliv-ved-med-at-browse-efter-kategori/types.html"
+            class=""
+          >
+            Løbetyper
+          </a>
+          <a
+            href="/lobekalender/bliv-ved-med-at-browse-efter-kategori/categories.html"
+            class=""
+          >
+            Kategorier
+          </a>
+        </nav>
+
+        
+<div class="browse-counties">
+  <h1>Bläddra efter regioner</h1>
+  <p class="browse-description">Find løb i dit amt.</p>
+
+  <div class="browse-grid">
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/lobekalender/kobenhavn">København</a>
+          <span class="count"
+            >(46 løb)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/kobenhavn">Alle løbstyper</a>
+            <span class="count">(46)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                       
+            <li>
+              <a
+                href="/lobekalender/kobenhavn/alle-lobstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(22)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/kobenhavn/alle-lobstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(20)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/kobenhavn/alle-lobstyper/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(12)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/kobenhavn/alle-lobstyper/marathon"
+              >
+                Marathon
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/kobenhavn/alle-lobstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                                                                                
+            <li>
+              <a
+                href="/lobekalender/kobenhavn/alle-lobstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/kobenhavn/alle-lobstyper/100-km"
+              >
+                100 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/kobenhavn/alle-lobstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(20)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/kobenhavn/alle-lobstyper/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/kobenhavn/alle-lobstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/kobenhavn/alle-lobstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(12)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/kobenhavn/alle-lobstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(15)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/kobenhavn/andet">Andet</a>
+            <span class="count">(9)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/lobekalender/kobenhavn/andet/10-km">10 km</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/kobenhavn/andet/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/kobenhavn/andet/10000-meter">10000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/kobenhavn/andet/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/kobenhavn/andet/5-km">5 km</a>
+              <span class="count">(5)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/kobenhavn/andet/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/kobenhavn/andet/5000-meter">5000 meter</a>
+              <span class="count">(4)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/kobenhavn/andet/millopp">Millopp</a>
+              <span class="count">(3)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/kobenhavn/backyard-ultra">Backyard Ultra</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a href="/lobekalender/kobenhavn/backyard-ultra/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                      
+            <li>
+              <a href="/lobekalender/kobenhavn/backyard-ultra/marathon">Marathon</a>
+              <span class="count">(1)</span>
+            </li>
+               
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/kobenhavn/landsvej">Landsvej</a>
+            <span class="count">(11)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/lobekalender/kobenhavn/landsvej/10-km">10 km</a>
+              <span class="count">(5)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/kobenhavn/landsvej/10000-meter">10000 meter</a>
+              <span class="count">(5)</span>
+            </li>
+                    
+            <li>
+              <a href="/lobekalender/kobenhavn/landsvej/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/kobenhavn/landsvej/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/kobenhavn/landsvej/halvmarathon">Halvmarathon</a>
+              <span class="count">(4)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/kobenhavn/landsvej/millopp">Millopp</a>
+              <span class="count">(5)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/kobenhavn/stafett">Stafett</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                        
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/kobenhavn/terran">Terræn</a>
+            <span class="count">(12)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/lobekalender/kobenhavn/terran/10-km">10 km</a>
+              <span class="count">(6)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/kobenhavn/terran/10000-meter">10000 meter</a>
+              <span class="count">(6)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/kobenhavn/terran/1500-meter">1500 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/kobenhavn/terran/5-km">5 km</a>
+              <span class="count">(8)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/kobenhavn/terran/5000-meter">5000 meter</a>
+              <span class="count">(5)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/kobenhavn/terran/halvmarathon">Halvmarathon</a>
+              <span class="count">(4)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/kobenhavn/terran/millopp">Millopp</a>
+              <span class="count">(6)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/kobenhavn/traillob">Trailløb</a>
+            <span class="count">(12)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/lobekalender/kobenhavn/traillob/10-km">10 km</a>
+              <span class="count">(6)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/kobenhavn/traillob/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/kobenhavn/traillob/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/kobenhavn/traillob/3000-meter">3000 meter</a>
+              <span class="count">(4)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/kobenhavn/traillob/5-km">5 km</a>
+              <span class="count">(6)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/kobenhavn/traillob/50-km">50 km</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/kobenhavn/traillob/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/kobenhavn/traillob/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/kobenhavn/traillob/halvmarathon">Halvmarathon</a>
+              <span class="count">(4)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/kobenhavn/traillob/millopp">Millopp</a>
+              <span class="count">(6)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/lobekalender/midtjylland">Midtjylland</a>
+          <span class="count"
+            >(65 løb)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/midtjylland">Alle løbstyper</a>
+            <span class="count">(65)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                           
+            <li>
+              <a
+                href="/lobekalender/midtjylland/alle-lobstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(31)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/lobekalender/midtjylland/alle-lobstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(20)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/lobekalender/midtjylland/alle-lobstyper/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(22)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/lobekalender/midtjylland/alle-lobstyper/marathon"
+              >
+                Marathon
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/lobekalender/midtjylland/alle-lobstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(9)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/lobekalender/midtjylland/alle-lobstyper/100-miles"
+              >
+                100 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/lobekalender/midtjylland/alle-lobstyper/200-miles"
+              >
+                200 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/lobekalender/midtjylland/alle-lobstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(7)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/lobekalender/midtjylland/alle-lobstyper/100-km"
+              >
+                100 km
+              </a>
+              <span class="count">(6)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/lobekalender/midtjylland/alle-lobstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(20)</span>
+            </li>
+                                                                            
+            <li>
+              <a
+                href="/lobekalender/midtjylland/alle-lobstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/lobekalender/midtjylland/alle-lobstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(19)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/lobekalender/midtjylland/alle-lobstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(17)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/midtjylland/andet">Andet</a>
+            <span class="count">(12)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/lobekalender/midtjylland/andet/10-km">10 km</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/midtjylland/andet/10000-meter">10000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/midtjylland/andet/200-miles">200 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/andet/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/andet/5-km">5 km</a>
+              <span class="count">(6)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/andet/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/andet/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/andet/5000-meter">5000 meter</a>
+              <span class="count">(4)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/andet/halvmarathon">Halvmarathon</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/midtjylland/andet/millopp">Millopp</a>
+              <span class="count">(3)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/midtjylland/backyard-ultra">Backyard Ultra</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                        
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/midtjylland/landsvej">Landsvej</a>
+            <span class="count">(16)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/lobekalender/midtjylland/landsvej/10-km">10 km</a>
+              <span class="count">(4)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/landsvej/100-km">100 km</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/midtjylland/landsvej/10000-meter">10000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/midtjylland/landsvej/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/landsvej/5-km">5 km</a>
+              <span class="count">(5)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/midtjylland/landsvej/50-miles">50 miles</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/landsvej/5000-meter">5000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/landsvej/halvmarathon">Halvmarathon</a>
+              <span class="count">(9)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/midtjylland/landsvej/millopp">Millopp</a>
+              <span class="count">(4)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/midtjylland/stafett">Stafett</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/lobekalender/midtjylland/stafett/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/midtjylland/stafett/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/lobekalender/midtjylland/stafett/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a href="/lobekalender/midtjylland/stafett/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/midtjylland/terran">Terræn</a>
+            <span class="count">(19)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/lobekalender/midtjylland/terran/10-km">10 km</a>
+              <span class="count">(8)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/terran/100-km">100 km</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/midtjylland/terran/10000-meter">10000 meter</a>
+              <span class="count">(7)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/midtjylland/terran/3000-meter">3000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/terran/5-km">5 km</a>
+              <span class="count">(13)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/terran/50-km">50 km</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/terran/50-miles">50 miles</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/terran/5000-meter">5000 meter</a>
+              <span class="count">(9)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/terran/halvmarathon">Halvmarathon</a>
+              <span class="count">(4)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/terran/marathon">Marathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/terran/millopp">Millopp</a>
+              <span class="count">(8)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/midtjylland/tidslopp">Tidslopp</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                        
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/midtjylland/traillob">Trailløb</a>
+            <span class="count">(13)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/lobekalender/midtjylland/traillob/10-km">10 km</a>
+              <span class="count">(4)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/traillob/100-km">100 km</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/traillob/100-miles">100 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/traillob/10000-meter">10000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+                    
+            <li>
+              <a href="/lobekalender/midtjylland/traillob/5-km">5 km</a>
+              <span class="count">(6)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/traillob/50-km">50 km</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/traillob/50-miles">50 miles</a>
+              <span class="count">(4)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/traillob/5000-meter">5000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/midtjylland/traillob/halvmarathon">Halvmarathon</a>
+              <span class="count">(7)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/midtjylland/traillob/millopp">Millopp</a>
+              <span class="count">(4)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/lobekalender/nordjylland">Nordjylland</a>
+          <span class="count"
+            >(38 løb)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/nordjylland">Alle løbstyper</a>
+            <span class="count">(38)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                       
+            <li>
+              <a
+                href="/lobekalender/nordjylland/alle-lobstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(15)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/nordjylland/alle-lobstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(12)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/nordjylland/alle-lobstyper/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(16)</span>
+            </li>
+                                                                    
+            <li>
+              <a
+                href="/lobekalender/nordjylland/alle-lobstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/nordjylland/alle-lobstyper/100-miles"
+              >
+                100 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                    
+            <li>
+              <a
+                href="/lobekalender/nordjylland/alle-lobstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/nordjylland/alle-lobstyper/100-km"
+              >
+                100 km
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/nordjylland/alle-lobstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(12)</span>
+            </li>
+                                                                    
+            <li>
+              <a
+                href="/lobekalender/nordjylland/alle-lobstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/nordjylland/alle-lobstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(11)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/nordjylland/alle-lobstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(9)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/nordjylland/andet">Andet</a>
+            <span class="count">(7)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/lobekalender/nordjylland/andet/10-km">10 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/nordjylland/andet/10000-meter">10000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/nordjylland/andet/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/nordjylland/andet/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/nordjylland/andet/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/nordjylland/andet/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/nordjylland/andet/millopp">Millopp</a>
+              <span class="count">(2)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/nordjylland/backyard-ultra">Backyard Ultra</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+               
+            <li>
+              <a href="/lobekalender/nordjylland/backyard-ultra/100-km">100 km</a>
+              <span class="count">(2)</span>
+            </li>
+                          
+            <li>
+              <a href="/lobekalender/nordjylland/backyard-ultra/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/nordjylland/backyard-ultra/50-miles">50 miles</a>
+              <span class="count">(2)</span>
+            </li>
+                     
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/nordjylland/landsvej">Landsvej</a>
+            <span class="count">(11)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/lobekalender/nordjylland/landsvej/10-km">10 km</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/nordjylland/landsvej/10000-meter">10000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+                    
+            <li>
+              <a href="/lobekalender/nordjylland/landsvej/5-km">5 km</a>
+              <span class="count">(7)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/nordjylland/landsvej/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/nordjylland/landsvej/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/nordjylland/landsvej/5000-meter">5000 meter</a>
+              <span class="count">(5)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/nordjylland/landsvej/halvmarathon">Halvmarathon</a>
+              <span class="count">(7)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/nordjylland/landsvej/millopp">Millopp</a>
+              <span class="count">(3)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/nordjylland/terran">Terræn</a>
+            <span class="count">(10)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/lobekalender/nordjylland/terran/10-km">10 km</a>
+              <span class="count">(6)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/nordjylland/terran/100-miles">100 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/nordjylland/terran/10000-meter">10000 meter</a>
+              <span class="count">(4)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/nordjylland/terran/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/nordjylland/terran/5-km">5 km</a>
+              <span class="count">(4)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/nordjylland/terran/5000-meter">5000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/nordjylland/terran/halvmarathon">Halvmarathon</a>
+              <span class="count">(5)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/nordjylland/terran/millopp">Millopp</a>
+              <span class="count">(6)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/nordjylland/tidslopp">Tidslopp</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                         
+            <li>
+              <a href="/lobekalender/nordjylland/tidslopp/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/nordjylland/tidslopp/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                         
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/nordjylland/traillob">Trailløb</a>
+            <span class="count">(6)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/lobekalender/nordjylland/traillob/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/nordjylland/traillob/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a href="/lobekalender/nordjylland/traillob/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/nordjylland/traillob/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/nordjylland/traillob/50-miles">50 miles</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/nordjylland/traillob/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/nordjylland/traillob/halvmarathon">Halvmarathon</a>
+              <span class="count">(3)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/nordjylland/traillob/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/lobekalender/sjalland">Sjælland</a>
+          <span class="count"
+            >(31 løb)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/sjalland">Alle løbstyper</a>
+            <span class="count">(31)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                   
+            <li>
+              <a
+                href="/lobekalender/sjalland/alle-lobstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(20)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/lobekalender/sjalland/alle-lobstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(11)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/lobekalender/sjalland/alle-lobstyper/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(14)</span>
+            </li>
+                                                            
+            <li>
+              <a
+                href="/lobekalender/sjalland/alle-lobstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                                                                    
+            <li>
+              <a
+                href="/lobekalender/sjalland/alle-lobstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                            
+            <li>
+              <a
+                href="/lobekalender/sjalland/alle-lobstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(11)</span>
+            </li>
+                                                            
+            <li>
+              <a
+                href="/lobekalender/sjalland/alle-lobstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/lobekalender/sjalland/alle-lobstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(11)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/lobekalender/sjalland/alle-lobstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(8)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/sjalland/andet">Andet</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/lobekalender/sjalland/andet/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/sjalland/andet/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/lobekalender/sjalland/andet/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/sjalland/andet/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/sjalland/andet/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/sjalland/landsvej">Landsvej</a>
+            <span class="count">(7)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/lobekalender/sjalland/landsvej/10-km">10 km</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/sjalland/landsvej/10000-meter">10000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+                    
+            <li>
+              <a href="/lobekalender/sjalland/landsvej/5-km">5 km</a>
+              <span class="count">(5)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/sjalland/landsvej/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/sjalland/landsvej/5000-meter">5000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/sjalland/landsvej/halvmarathon">Halvmarathon</a>
+              <span class="count">(7)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/sjalland/landsvej/millopp">Millopp</a>
+              <span class="count">(3)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/sjalland/stafett">Stafett</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                        
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/sjalland/terran">Terræn</a>
+            <span class="count">(14)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/lobekalender/sjalland/terran/10-km">10 km</a>
+              <span class="count">(6)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/sjalland/terran/10000-meter">10000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/sjalland/terran/3000-meter">3000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/sjalland/terran/5-km">5 km</a>
+              <span class="count">(10)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/sjalland/terran/50-miles">50 miles</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/sjalland/terran/5000-meter">5000 meter</a>
+              <span class="count">(4)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/sjalland/terran/halvmarathon">Halvmarathon</a>
+              <span class="count">(5)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/sjalland/terran/millopp">Millopp</a>
+              <span class="count">(6)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/sjalland/traillob">Trailløb</a>
+            <span class="count">(6)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/lobekalender/sjalland/traillob/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/sjalland/traillob/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/sjalland/traillob/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/sjalland/traillob/5-km">5 km</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/sjalland/traillob/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/sjalland/traillob/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/sjalland/traillob/halvmarathon">Halvmarathon</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/sjalland/traillob/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/lobekalender/syddanmark">Syddanmark</a>
+          <span class="count"
+            >(43 løb)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/syddanmark">Alle løbstyper</a>
+            <span class="count">(43)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                       
+            <li>
+              <a
+                href="/lobekalender/syddanmark/alle-lobstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(23)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/syddanmark/alle-lobstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(11)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/syddanmark/alle-lobstyper/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(15)</span>
+            </li>
+                                                                    
+            <li>
+              <a
+                href="/lobekalender/syddanmark/alle-lobstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/syddanmark/alle-lobstyper/100-miles"
+              >
+                100 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/syddanmark/alle-lobstyper/200-miles"
+              >
+                200 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/syddanmark/alle-lobstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/syddanmark/alle-lobstyper/100-km"
+              >
+                100 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/syddanmark/alle-lobstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(11)</span>
+            </li>
+                                                                    
+            <li>
+              <a
+                href="/lobekalender/syddanmark/alle-lobstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(6)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/syddanmark/alle-lobstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(14)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/lobekalender/syddanmark/alle-lobstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(10)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/syddanmark/andet">Andet</a>
+            <span class="count">(7)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/lobekalender/syddanmark/andet/10-km">10 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/syddanmark/andet/10000-meter">10000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                    
+            <li>
+              <a href="/lobekalender/syddanmark/andet/5-km">5 km</a>
+              <span class="count">(4)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/syddanmark/andet/5000-meter">5000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/syddanmark/andet/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/syddanmark/andet/millopp">Millopp</a>
+              <span class="count">(2)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/syddanmark/backyard-ultra">Backyard Ultra</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                 
+            <li>
+              <a href="/lobekalender/syddanmark/backyard-ultra/100-miles">100 miles</a>
+              <span class="count">(1)</span>
+            </li>
+                                   
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/syddanmark/landsvej">Landsvej</a>
+            <span class="count">(9)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/lobekalender/syddanmark/landsvej/10-km">10 km</a>
+              <span class="count">(4)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/syddanmark/landsvej/10000-meter">10000 meter</a>
+              <span class="count">(4)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/syddanmark/landsvej/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/syddanmark/landsvej/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/syddanmark/landsvej/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/syddanmark/landsvej/halvmarathon">Halvmarathon</a>
+              <span class="count">(8)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/syddanmark/landsvej/millopp">Millopp</a>
+              <span class="count">(4)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/syddanmark/stafett">Stafett</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                         
+            <li>
+              <a href="/lobekalender/syddanmark/stafett/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                           
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/syddanmark/terran">Terræn</a>
+            <span class="count">(22)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/lobekalender/syddanmark/terran/10-km">10 km</a>
+              <span class="count">(5)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/syddanmark/terran/10000-meter">10000 meter</a>
+              <span class="count">(4)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/syddanmark/terran/3000-meter">3000 meter</a>
+              <span class="count">(4)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/syddanmark/terran/5-km">5 km</a>
+              <span class="count">(17)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/syddanmark/terran/5000-meter">5000 meter</a>
+              <span class="count">(9)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/syddanmark/terran/halvmarathon">Halvmarathon</a>
+              <span class="count">(6)</span>
+            </li>
+                
+            <li>
+              <a href="/lobekalender/syddanmark/terran/millopp">Millopp</a>
+              <span class="count">(5)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/lobekalender/syddanmark/traillob">Trailløb</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+               
+            <li>
+              <a href="/lobekalender/syddanmark/traillob/100-km">100 km</a>
+              <span class="count">(2)</span>
+            </li>
+                    
+            <li>
+              <a href="/lobekalender/syddanmark/traillob/200-miles">200 miles</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/lobekalender/syddanmark/traillob/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/lobekalender/syddanmark/traillob/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+                     
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+      </div>
+
+       
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

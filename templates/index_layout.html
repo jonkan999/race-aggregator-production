@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="{{ country_language_code }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>{% block title %}{% endblock %}</title>
+    <meta
+      name="description"
+      content="{% block meta_description %}{% endblock %}"
+    />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    {% block styles %}
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/hero.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <link rel="stylesheet" href="/css/selected-forum-posts.css" />
+    <link rel="stylesheet" href="/css/selected-forum-post-card.css" />
+    <link rel="stylesheet" href="/css/about-contact.css" />
+    <link rel="stylesheet" href="/css/privacy.css" />
+    {% endblock %} {% block head_scripts %}
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    {% endblock %}
+  </head>
+  <body>
+    <!-- Page content -->
+    <main>{% block content %}{% endblock %}</main>
+
+    {% include 'components/footer.html' %} {% block body_scripts %}
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="/js/index.js"></script>
+    {% endblock %}
+  </body>
+</html>

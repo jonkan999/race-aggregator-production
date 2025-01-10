@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Allt om löpning i Sverige</title>
+    <meta
+      name="description"
+      content="Loppkartan | Mest omfattande löparcommunity i Sverige"
+    />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/hero.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <link rel="stylesheet" href="/css/selected-forum-posts.css" />
+    <link rel="stylesheet" href="/css/selected-forum-post-card.css" />
+    <link rel="stylesheet" href="/css/about-contact.css" />
+    <link rel="stylesheet" href="/css/privacy.css" />
+     
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    
+  </head>
+  <body>
+    <!-- Page content -->
+    <main> <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Loppkartan</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Logga in
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Allt</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/loppkalender"
+      ><span class="nav-item">Loppkalender</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/lagg-till-lopp"
+      ><span class="nav-item">Lägg till lopp</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/forum"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/mat-din-runda"
+      ><span class="nav-item">Mät din runda</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/traningsprogram"
+      ><span class="nav-item">Träningsprogram</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/fartomvandlare"
+      ><span class="nav-item">Fartomvandlare</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/uppskatta-din-sluttid"
+      ><span class="nav-item">Uppskatta din sluttid</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/om-oss"
+      ><span class="nav-item">Om oss</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/kontakta-oss"
+      ><span class="nav-item">Kontakta oss</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Logga in</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Lösenord"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Glömt lösenord?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Skapa konto istället
+            </a>
+          </div>
+          <button type="submit">Logga in</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Skapa konto
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Glömt lösenord?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Skapa konto</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Ditt namn"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Lösenord"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Skapa konto</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Tillbaka till inloggning
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Återställ lösenord</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Skicka återställningslänk</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Tillbaka till inloggning
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Du är redan inloggad som</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Fortsätt som denna användare
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Logga ut och byt användare
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto skapat!</h2>
+        <div class="logged-in-user-info">
+          <p>Du är nu inloggad som</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            En verifieringslänk har skickats till din e-post
+          </p>
+          <p class="verification-notice">Vänligen verifiera din e-postadress</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Fortsätt som denna användare
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section> <section class="section section-hero background-container">
+  <div class="overlay gradient"></div>
+  <!-- cycle through 4 inspirational hero pictures one marathon one trail and one "fun run" hero1 hero2 hero3 -->
+  <picture>
+    <source
+      srcset="/images/hero_xlarge.webp"
+      media="(min-width: 1280px)"
+    />
+    <source
+      srcset="/images/hero_large.webp"
+      media="(min-width: 960px)"
+    />
+    <source
+      srcset="/images/hero_medium.webp"
+      media="(min-width: 640px)"
+    />
+    <source
+      srcset="/images/hero_small.webp"
+      media="(max-width: 320px)"
+    />
+    <img src="/images/hero_xlarge.webp" alt="Hero Image" class="background-img" />
+  </picture>
+
+  <div class="hero-content">
+    <div class="title-container">
+      <h1 class="native-title">Allt om löpning i
+      <span class="native-country new-amsterdam">Sverige</span></h1>
+    </div>
+    <ul class="bullet-list">
+      <li>
+        <a href="/loppkalender" class="full-link"> 
+          <ion-icon name="search-outline" role="img"></ion-icon>
+          Hitta ditt nästa lopp
+
+        </a>
+      </li>
+      <li>
+        <a href="/lagg-till-lopp" class="full-link">
+           - Eller lägg till det här
+
+        </a>
+      </li>
+      <li>
+        <a href="/forum" class="full-link">
+          <ion-icon name="chatbox-ellipses-outline" role="img"></ion-icon>  
+          Läs det senaste eller prata av dig i vårt forum
+
+        </a>
+      </li>
+    </ul>
+  </div>
+<!--     <button onclick="location.href='/race-list'">Hitta Lopp</button>
+    <button onclick="location.href='/add-races'">Lägg till ett Lopp</button> -->
+  </div>
+</section> <section class="section section-selected-races">
+  <h2 class="section-header">Utvalda Lopp</h2>
+  <div class="race-card-big-container right-scroller">
+      <a
+  href="/loppsidor/scandic_indoor_games"
+  class="race-card-big race-card"
+  data-name="Scandic Indoor Games"
+  data-date="20250110"
+  data-county="Stockholm"
+  data-category=""
+  data-race-type="Löparbana"
+  data-distance="1,5km, 3km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/loppsidor/scandic_indoor_games/scandic_indoor_games_1.webp"
+        alt="Bild till Scandic Indoor Games"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          10 jan.
+        </div>
+        <div class="race-location">
+          Stockholm
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Löparbana
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                1,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                3 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Scandic Indoor Games</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Till loppsida</div>
+    </div>
+  </div>
+</a>    <a
+  href="/loppsidor/stadion_marathon"
+  class="race-card-big race-card"
+  data-name="Stadion Marathon"
+  data-date="20250111"
+  data-county="Stockholm"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="10km, half marathon, marathon"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/loppsidor/stadion_marathon/stadion_marathon_1.webp"
+        alt="Bild till Stadion Marathon"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          11 jan.
+        </div>
+        <div class="race-location">
+          Stockholm
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landsväg
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Halvmarathon
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Marathon
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Stadion Marathon</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Till loppsida</div>
+    </div>
+  </div>
+</a>    <a
+  href="/loppsidor/ka_2_spelen"
+  class="race-card-big race-card"
+  data-name="KA 2-Spelen"
+  data-date="20250111"
+  data-county="Blekinge"
+  data-category=""
+  data-race-type="Löparbana"
+  data-distance="1,5km, 3km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/loppsidor/ka_2_spelen/ka_2_spelen_1.webp"
+        alt="Bild till KA 2-Spelen"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          11 jan.
+        </div>
+        <div class="race-location">
+          Blekinge
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Löparbana
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                1,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                3 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">KA 2-Spelen</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Till loppsida</div>
+    </div>
+  </div>
+</a>    <a
+  href="/loppsidor/orebro_indoor_games"
+  class="race-card-big race-card"
+  data-name="Örebro Indoor Games"
+  data-date="20250111"
+  data-county="Örebro"
+  data-category=""
+  data-race-type="Löparbana"
+  data-distance="1km, 1,5km, 2km, 3km, 5km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/loppsidor/orebro_indoor_games/orebro_indoor_games_1.webp"
+        alt="Bild till Örebro Indoor Games"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          11 jan.
+        </div>
+        <div class="race-location">
+          Örebro
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Löparbana
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                1 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                1,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                2 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                3 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Örebro Indoor Games</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Till loppsida</div>
+    </div>
+  </div>
+</a>    <a
+  href="/loppsidor/floraspelen"
+  class="race-card-big race-card"
+  data-name="Floraspelen"
+  data-date="20250111"
+  data-county="Västerbotten"
+  data-category=""
+  data-race-type="Löparbana"
+  data-distance="1,5km, 3km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/loppsidor/floraspelen/floraspelen_1.webp"
+        alt="Bild till Floraspelen"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          11 jan.
+        </div>
+        <div class="race-location">
+          Västerbotten
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Löparbana
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                1,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                3 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Floraspelen</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Till loppsida</div>
+    </div>
+  </div>
+</a>    <a
+  href="/loppsidor/quality_hotel_games"
+  class="race-card-big race-card"
+  data-name="Quality Hotel Games"
+  data-date="20250117"
+  data-county="Kronoberg"
+  data-category=""
+  data-race-type="Löparbana"
+  data-distance="1,5km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/loppsidor/quality_hotel_games/quality_hotel_games_1.webp"
+        alt="Bild till Quality Hotel Games"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          17 jan.
+        </div>
+        <div class="race-location">
+          Kronoberg
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Löparbana
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                1,5 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Quality Hotel Games</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Till loppsida</div>
+    </div>
+  </div>
+</a>    <a
+  href="/loppsidor/taby_vinterspel"
+  class="race-card-big race-card"
+  data-name="Täby Vinterspel"
+  data-date="20250117"
+  data-county="Stockholm"
+  data-category=""
+  data-race-type="Löparbana"
+  data-distance="1,5km, 3km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/loppsidor/taby_vinterspel/taby_vinterspel_1.webp"
+        alt="Bild till Täby Vinterspel"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          17 jan.
+        </div>
+        <div class="race-location">
+          Stockholm
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Löparbana
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                1,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                3 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Täby Vinterspel</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Till loppsida</div>
+    </div>
+  </div>
+</a>    <a
+  href="/loppsidor/sandsjobacka_trail"
+  class="race-card-big race-card"
+  data-name="Sandsjöbacka Trail"
+  data-date="20250117"
+  data-county="Västra Götaland"
+  data-category=""
+  data-race-type="Trail"
+  data-distance="31km, 60km, 96km, 185km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/loppsidor/sandsjobacka_trail/sandsjobacka_trail_1.webp"
+        alt="Bild till Sandsjöbacka Trail"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          17 jan.
+        </div>
+        <div class="race-location">
+          Västra Götaland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                31 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                60 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                96 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                185 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Sandsjöbacka Trail</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Till loppsida</div>
+    </div>
+  </div>
+</a>    <a
+  href="/loppsidor/vinterspring_2"
+  class="race-card-big race-card"
+  data-name="Vinterspring"
+  data-date="20250118"
+  data-county="Västra Götaland"
+  data-category=""
+  data-race-type="Övrigt"
+  data-distance="2km, 3km, 5km, 10km, 15km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/loppsidor/vinterspring_2/vinterspring_2_1.webp"
+        alt="Bild till Vinterspring"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          18 jan.
+        </div>
+        <div class="race-location">
+          Västra Götaland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Övrigt
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                2 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                3 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                15 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Vinterspring</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Till loppsida</div>
+    </div>
+  </div>
+</a>    <a
+  href="/loppsidor/westinghouse_gurkspel"
+  class="race-card-big race-card"
+  data-name="Westinghouse Gurkspel"
+  data-date="20250118"
+  data-county="Västmanland"
+  data-category=""
+  data-race-type="Övrigt"
+  data-distance="1,5km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/loppsidor/westinghouse_gurkspel/westinghouse_gurkspel_1.webp"
+        alt="Bild till Westinghouse Gurkspel"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          18 jan.
+        </div>
+        <div class="race-location">
+          Västmanland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Övrigt
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                1,5 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Westinghouse Gurkspel</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Till loppsida</div>
+    </div>
+  </div>
+</a>  
+  </div>
+  <div class="selected-races-button-container">
+    <!-- eslint-disable-next-line -->
+    <button class="selected-races-button" id="selected-races-button">
+      Visa alla lopp
+    </button>
+    <script>
+      // JavaScript logic to handle the button click
+      document.getElementById('selected-races-button').onclick = function () {
+        location.href =
+          '/loppkalender';
+      };
+    </script>
+  </div>
+</section> <section class="section section-selected-forum-posts">
+  <h2 class="section-header">Forum</h2>
+  <div class="selected-forum-posts-container">
+     <a href="/forum/skador/c2d708ad-4f40-4024-9dd3-057891e81408/" class="forum-post-card">
+  <div class="forum-post-upper-box">
+    <div class="forum-post-content">
+      <div class="forum-info-top">
+        <div class="icon-category-container">
+          <div class="forum-post-icon">
+            <ion-icon name="chatbubbles-outline"></ion-icon>
+          </div>
+          <div class="forum-author">/Träningstips</div>
+        </div>
+        <div class="forum-time">• 2024-08-25</div>
+      </div>
+
+      <div class="forum-info-middle">Som rubriken lyder, jag har börjat få ont i hälen när jag springer. Tips på rehabövningar?</div>
+    </div>
+  </div>
+
+  <div class="forum-comments">
+    2 Kommentarer
+  </div>
+</a>  <a href="/forum/resor/ba58801a-004f-4cd4-9746-b3505ad792d7/" class="forum-post-card">
+  <div class="forum-post-upper-box">
+    <div class="forum-post-content">
+      <div class="forum-info-top">
+        <div class="icon-category-container">
+          <div class="forum-post-icon">
+            <ion-icon name="chatbubbles-outline"></ion-icon>
+          </div>
+          <div class="forum-author">/Resor och reserelaterat</div>
+        </div>
+        <div class="forum-time">• 2024-08-26</div>
+      </div>
+
+      <div class="forum-info-middle">Jag planerar en löp/vandringstur i Sverige och skulle gärna vilja höra era rekommendationer om de bästa lederna. Tar gärna emot tips om leder över hela Sverige.</div>
+    </div>
+  </div>
+
+  <div class="forum-comments">
+    2 Kommentarer
+  </div>
+</a> 
+  </div>
+  <div class="selected-races-button-container">
+    <button class="selected-races-button" id="forum-button">
+      Visa Alla Inlägg
+    </button>
+    <script>
+      // JavaScript logic to handle the button click
+      document.getElementById('forum-button').onclick = function () {
+        location.href = '/forum';
+      };
+    </script>
+  </div>
+</section> </main>
+
+     
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="/js/index.js"></script>
+    
+  </body>
+</html>

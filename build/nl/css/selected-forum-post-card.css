@@ -1,0 +1,94 @@
+.forum-post-card {
+  border-top: 2px solid var(--color-background-shade);
+  margin: 1rem;
+  padding: 1rem 2rem 2rem 0;
+  color: black;
+  text-decoration: none;
+}
+.forum-post-card a {
+  text-decoration: none;
+  color: var(--color-black-text);
+}
+.forum-post-card a .forum-info-top {
+  color: var(--color-primary-easiest-shade);
+}
+.forum-post-card a .forum-info-top:visited {
+  color: var(--color-visited-links);
+}
+.forum-post-card:hover,
+.forum-post-card:active {
+  background-color: var(--color-background-shade);
+}
+.forum-post-card .forum-post-upper-box {
+  max-height: 18rem;
+  width: 40rem;
+  /* Adjust as necessary */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.forum-post-card .forum-post-upper-box .forum-post-content {
+  position: relative;
+  z-index: 2;
+  /* Ensure content is above any background elements */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  height: 100%;
+  font-size: 1.5rem;
+}
+.forum-post-card .forum-post-upper-box .forum-info-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+.forum-post-card .forum-post-upper-box .forum-info-top .icon-category-container {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.forum-post-card .forum-post-upper-box .forum-info-top .icon-category-container .forum-post-icon {
+  font-size: 2rem;
+}
+.forum-post-card .forum-post-upper-box .forum-info-top .icon-category-container .forum-author {
+  font-weight: 600;
+}
+.forum-post-card .forum-post-upper-box .forum-info-top .forum-time {
+  text-align: right;
+  color: #292727;
+  font-size: 1.5rem;
+}
+.forum-post-card .forum-post-upper-box .forum-info-middle {
+  flex-grow: 1;
+  font-size: 1.5rem;
+  padding-left: 1rem;
+}
+.forum-post-card .forum-comments {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #555;
+}
+.icon-category-container.thread-info {
+  flex-direction: column;
+  align-items: flex-start !important;
+  justify-content: flex-start;
+}
+.icon-category-container.thread-info .forum-user {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.icon-category-container.thread-info .forum-user .forum-post-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-category-container.thread-info .forum-user-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+}

@@ -1,0 +1,61 @@
+{% extends "forum/forum_layout.html" %} {% block content %}
+<div
+  class="forum-container forum-section thread-container"
+  data-category="{{ category.slug }}"
+  data-thread-id="{{ thread.threadId }}"
+>
+  {% if breadcrumbs %}
+  <nav class="breadcrumbs" aria-label="breadcrumb">
+    <ol>
+      {% for crumb in breadcrumbs %}
+      <li {% if loop.last %}aria-current="page" {% endif %}>
+        {% if not loop.last %}
+        <a href="{{ crumb.item }}">{{ crumb.name }}</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        {% else %}
+        <span>{{ crumb.name }}</span>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </nav>
+  {% endif %}
+  <div class="forum-header">
+    <h1 class="thread-header primary-color text-left">{{ thread.title }}</h1>
+  </div>
+
+  <div class="forum-posts">
+    {% if posts %} {% for post in posts %}
+    <div class="forum-post-card">
+      <div class="forum-post-upper-box">
+        <div class="forum-info-top">
+          <div class="icon-category-container primary-color">
+            <div class="forum-post-icon flex-center">
+              <ion-icon name="person-outline"></ion-icon>
+            </div>
+            <div class="forum-category">/{{ post.authorName }}</div>
+          </div>
+          <div class="forum-time">• {{ post.createdAt }}</div>
+        </div>
+        <p class="forum-info-middle">{{ post.content }}</p>
+      </div>
+    </div>
+    {% endfor %} {% else %}
+    <div class="empty-state">{{ forum.empty_thread_state }}</div>
+    {% endif %}
+  </div>
+
+  <div class="forum-input-container" id="forum-input-container">
+    <h2>{{ forum.reply_title }}</h2>
+    <textarea
+      id="forum-input"
+      placeholder="{{ forum.reply_placeholder }}"
+      disabled
+    ></textarea>
+    <button id="forum-submit">{{ forum.submit_button }}</button>
+    <div id="login-prompt" class="login-prompt">{{ forum.login_prompt }}</div>
+  </div>
+</div>
+{% endblock %}

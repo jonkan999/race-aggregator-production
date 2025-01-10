@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Alt om løping i Norge</title>
+    <meta
+      name="description"
+      content="Lopskalender | Mest omfattende løpercommunity i Norge"
+    />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/hero.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <link rel="stylesheet" href="/css/selected-forum-posts.css" />
+    <link rel="stylesheet" href="/css/selected-forum-post-card.css" />
+    <link rel="stylesheet" href="/css/about-contact.css" />
+    <link rel="stylesheet" href="/css/privacy.css" />
+     
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    
+  </head>
+  <body>
+    <!-- Page content -->
+    <main> <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Lopskalender</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Logg inn
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Alt</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/terminliste"
+      ><span class="nav-item">Terminliste</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/legg-til-lop"
+      ><span class="nav-item">Legg til løp</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/forum"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/mal-ruten-din"
+      ><span class="nav-item">Mål ruten din</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/treningsprogram"
+      ><span class="nav-item">Treningsprogram</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/fartkalkulator"
+      ><span class="nav-item">Fartkalkulator</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/estimer-sluttiden-din"
+      ><span class="nav-item">Estimér sluttiden din</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/om-oss"
+      ><span class="nav-item">Om oss</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/kontakt-oss"
+      ><span class="nav-item">Kontakt oss</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Logg inn</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Passord"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Glemt passord?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Opprett konto i stedet
+            </a>
+          </div>
+          <button type="submit">Logg inn</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Opprett konto
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Glemt passord?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Opprett konto</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Ditt navn"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Passord"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Opprett konto</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Tilbake til innlogging
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Tilbakestill passord</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Send tilbakestillingslink</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Tilbake til innlogging
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Du er allerede logget inn som</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Fortsett som denne brukeren
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Logg ut og bytt bruker
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto opprettet!</h2>
+        <div class="logged-in-user-info">
+          <p>Du er nå logget inn som</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            En verifiseringslink har blitt sendt til din e-post
+          </p>
+          <p class="verification-notice">Vennligst bekreft e-postadressen din</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Fortsett som denne brukeren
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section> <section class="section section-hero background-container">
+  <div class="overlay gradient"></div>
+  <!-- cycle through 4 inspirational hero pictures one marathon one trail and one "fun run" hero1 hero2 hero3 -->
+  <picture>
+    <source
+      srcset="/images/hero_xlarge.webp"
+      media="(min-width: 1280px)"
+    />
+    <source
+      srcset="/images/hero_large.webp"
+      media="(min-width: 960px)"
+    />
+    <source
+      srcset="/images/hero_medium.webp"
+      media="(min-width: 640px)"
+    />
+    <source
+      srcset="/images/hero_small.webp"
+      media="(max-width: 320px)"
+    />
+    <img src="/images/hero_xlarge.webp" alt="Hero Image" class="background-img" />
+  </picture>
+
+  <div class="hero-content">
+    <div class="title-container">
+      <h1 class="native-title">Alt om løping i
+      <span class="native-country new-amsterdam">Norge</span></h1>
+    </div>
+    <ul class="bullet-list">
+      <li>
+        <a href="/terminliste" class="full-link"> 
+          <ion-icon name="search-outline" role="img"></ion-icon>
+          Finn ditt neste løp
+
+        </a>
+      </li>
+      <li>
+        <a href="/legg-til-lop" class="full-link">
+           - Eller legg det til her
+
+        </a>
+      </li>
+      <li>
+        <a href="/forum" class="full-link">
+          <ion-icon name="chatbox-ellipses-outline" role="img"></ion-icon>  
+          Les det siste eller del dine tanker i forumet vårt
+
+        </a>
+      </li>
+    </ul>
+  </div>
+<!--     <button onclick="location.href='/race-list'">Finn Løp</button>
+    <button onclick="location.href='/add-races'">Legg til et Løp</button> -->
+  </div>
+</section> <section class="section section-selected-races">
+  <h2 class="section-header">Utvalgte Løp</h2>
+  <div class="race-card-big-container right-scroller">
+      <a
+  href="/løpssider/hagemanns_hill_mile"
+  class="race-card-big race-card"
+  data-name="Hagemanns Hill Mile"
+  data-date="20250111"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Løpebane"
+  data-distance="6,7km, 200km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/hagemanns_hill_mile/hagemanns_hill_mile_1.webp"
+        alt="Bilde til Hagemanns Hill Mile"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          11 jan.
+        </div>
+        <div class="race-location">
+          Rogaland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Løpebane
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                6,7 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                200 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Hagemanns Hill Mile</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Til løpssiden</div>
+    </div>
+  </div>
+</a>    <a
+  href="/løpssider/vinterkarusellen_3_lop_2"
+  class="race-card-big race-card"
+  data-name="Vinterkarusellen 3. løp"
+  data-date="20250111"
+  data-county="Møre og Romsdal"
+  data-category=""
+  data-race-type="Landevei"
+  data-distance="5km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/vinterkarusellen_3_lop_2/vinterkarusellen_3_lop_2_1.webp"
+        alt="Bilde til Vinterkarusellen 3. løp"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          11 jan.
+        </div>
+        <div class="race-location">
+          Møre og Romsdal
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Vinterkarusellen 3. løp</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Til løpssiden</div>
+    </div>
+  </div>
+</a>    <a
+  href="/løpssider/hamarkarusellen_vinter_lop_4"
+  class="race-card-big race-card"
+  data-name="Hamarkarusellen Vinter Løp 4"
+  data-date="20250114"
+  data-county="Innlandet"
+  data-category=""
+  data-race-type="Landevei"
+  data-distance="5km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/hamarkarusellen_vinter_lop_4/hamarkarusellen_vinter_lop_4_1.webp"
+        alt="Bilde til Hamarkarusellen Vinter Løp 4"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          14 jan.
+        </div>
+        <div class="race-location">
+          Innlandet
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Hamarkarusellen Vinter Løp 4</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Til løpssiden</div>
+    </div>
+  </div>
+</a>    <a
+  href="/løpssider/vinterkarusellen_6_lop"
+  class="race-card-big race-card"
+  data-name="Vinterkarusellen 6. løp"
+  data-date="20250118"
+  data-county="Vestland"
+  data-category=""
+  data-race-type="Landevei"
+  data-distance="5km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/vinterkarusellen_6_lop/vinterkarusellen_6_lop_1.webp"
+        alt="Bilde til Vinterkarusellen 6. løp"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          18 jan.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Vinterkarusellen 6. løp</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Til løpssiden</div>
+    </div>
+  </div>
+</a>    <a
+  href="/løpssider/asane_lopskarusell_1"
+  class="race-card-big race-card"
+  data-name="Åsane Løpskarusell 1"
+  data-date="20250123"
+  data-county="Vestland"
+  data-category=""
+  data-race-type="Landevei"
+  data-distance="5km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/asane_lopskarusell_1/asane_lopskarusell_1_1.webp"
+        alt="Bilde til Åsane Løpskarusell 1"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          23 jan.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Åsane Løpskarusell 1</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Til løpssiden</div>
+    </div>
+  </div>
+</a>    <a
+  href="/løpssider/vinterkarusellen_lop_5"
+  class="race-card-big race-card"
+  data-name="Vinterkarusellen Løp 5"
+  data-date="20250127"
+  data-county="Vestland"
+  data-category=""
+  data-race-type="Landevei"
+  data-distance="5km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/vinterkarusellen_lop_5/vinterkarusellen_lop_5_1.webp"
+        alt="Bilde til Vinterkarusellen Løp 5"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          27 jan.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Vinterkarusellen Løp 5</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Til løpssiden</div>
+    </div>
+  </div>
+</a>    <a
+  href="/løpssider/vinterkarusellen_7_lop"
+  class="race-card-big race-card"
+  data-name="Vinterkarusellen 7. løp"
+  data-date="20250201"
+  data-county="Vestland"
+  data-category=""
+  data-race-type="Landevei"
+  data-distance="5km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/vinterkarusellen_7_lop/vinterkarusellen_7_lop_1.webp"
+        alt="Bilde til Vinterkarusellen 7. løp"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          1 feb.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Vinterkarusellen 7. løp</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Til løpssiden</div>
+    </div>
+  </div>
+</a>    <a
+  href="/løpssider/bislett_indoor_marathon"
+  class="race-card-big race-card"
+  data-name="Bislett Indoor Marathon"
+  data-date="20250207"
+  data-county="Oslo"
+  data-category=""
+  data-race-type="Løpebane"
+  data-distance="3km, 5km, 10km, half marathon, marathon, 50km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/bislett_indoor_marathon/bislett_indoor_marathon_1.webp"
+        alt="Bilde til Bislett Indoor Marathon"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          7 feb.
+        </div>
+        <div class="race-location">
+          Oslo
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Løpebane
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                3 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Halvmaraton
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Maraton
+              </span>
+            </div>
+             
+            <div class="distance-item">
+              <span class="race-distance">...</span>
+            </div>
+             
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Bislett Indoor Marathon</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Til løpssiden</div>
+    </div>
+  </div>
+</a>    <a
+  href="/løpssider/vinterkarusellen_4_lop_2"
+  class="race-card-big race-card"
+  data-name="Vinterkarusellen 4. løp"
+  data-date="20250208"
+  data-county="Vestland"
+  data-category=""
+  data-race-type="Landevei"
+  data-distance="5km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/vinterkarusellen_4_lop_2/vinterkarusellen_4_lop_2_1.webp"
+        alt="Bilde til Vinterkarusellen 4. løp"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          8 feb.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Vinterkarusellen 4. løp</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Til løpssiden</div>
+    </div>
+  </div>
+</a>    <a
+  href="/løpssider/winterrun_bergen"
+  class="race-card-big race-card"
+  data-name="Winterrun Bergen"
+  data-date="20250208"
+  data-county="Vestland"
+  data-category=""
+  data-race-type="Terreng"
+  data-distance="5km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/winterrun_bergen/winterrun_bergen_1.webp"
+        alt="Bilde til Winterrun Bergen"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          8 feb.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Terreng
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Winterrun Bergen</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Til løpssiden</div>
+    </div>
+  </div>
+</a>  
+  </div>
+  <div class="selected-races-button-container">
+    <!-- eslint-disable-next-line -->
+    <button class="selected-races-button" id="selected-races-button">
+      Vis alle løp
+    </button>
+    <script>
+      // JavaScript logic to handle the button click
+      document.getElementById('selected-races-button').onclick = function () {
+        location.href =
+          '/terminliste';
+      };
+    </script>
+  </div>
+</section> <section class="section section-selected-forum-posts">
+  <h2 class="section-header">Forum</h2>
+  <div class="selected-forum-posts-container">
+     <a href="/forum/skader" class="forum-post-card">
+  <div class="forum-post-upper-box">
+    <div class="forum-post-content">
+      <div class="forum-info-top">
+        <div class="icon-category-container">
+          <div class="forum-post-icon">
+            <ion-icon name="chatbubbles-outline"></ion-icon>
+          </div>
+          <div class="forum-author">/Treningstips</div>
+        </div>
+        <div class="forum-time">• 2024-08-25</div>
+      </div>
+
+      <div class="forum-info-middle">Som tittelen sier, har jeg begynt å få vondt i hælen når jeg løper. Har dere noen tips om rehabiliteringsøvelser?</div>
+    </div>
+  </div>
+
+  <div class="forum-comments">
+    2 Kommentarer
+  </div>
+</a>  <a href="/forum/reiser" class="forum-post-card">
+  <div class="forum-post-upper-box">
+    <div class="forum-post-content">
+      <div class="forum-info-top">
+        <div class="icon-category-container">
+          <div class="forum-post-icon">
+            <ion-icon name="chatbubbles-outline"></ion-icon>
+          </div>
+          <div class="forum-author">/Reiser og reiseforslag</div>
+        </div>
+        <div class="forum-time">• 2024-08-26</div>
+      </div>
+
+      <div class="forum-info-middle">Jeg planlegger en løpe-/vandretur i Sverige og vil gjerne høre deres anbefalinger om de beste stiene.</div>
+    </div>
+  </div>
+
+  <div class="forum-comments">
+    2 Kommentarer
+  </div>
+</a> 
+  </div>
+  <div class="selected-races-button-container">
+    <button class="selected-races-button" id="forum-button">
+      Vis Alle Innlegg
+    </button>
+    <script>
+      // JavaScript logic to handle the button click
+      document.getElementById('forum-button').onclick = function () {
+        location.href = '/forum';
+      };
+    </script>
+  </div>
+</section> </main>
+
+     
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="/js/index.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,38 @@
+{% extends "index_layout.html" %} {% block title %}{{ contact.title }}{%
+endblock %} {% block meta_description %}{{ contact.content.intro }}{% endblock
+%} {% block content %} {% include 'sections/header-menu.html' %}
+
+<section class="section-contact">
+  <div class="container">
+    <h1>{{ contact.title }}</h1>
+
+    <div class="contact-content">
+      <p class="intro">{{ contact.content.intro }}</p>
+
+      <div class="contact-methods">
+        <div class="contact-method">
+          <h3>{{ contact.content.email.title }}</h3>
+          <a href="mailto:{{ contact.content.email.address }}"
+            >{{ contact.content.email.address }}</a
+          >
+          <p>{{ contact.content.email.description }}</p>
+        </div>
+
+        <div class="contact-method">
+          <h3>{{ contact.content.social.title }}</h3>
+          <p>{{ contact.content.social.description }}</p>
+          <div class="social-links">
+            <!-- Add your social media links here -->
+          </div>
+        </div>
+
+        <div class="contact-method">
+          <h3>{{ contact.content.feedback.title }}</h3>
+          <p>{{ contact.content.feedback.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include 'components/footer.html' %} {% endblock %}

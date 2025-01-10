@@ -1,0 +1,4716 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>50 km Landsveg løp i Leirvik - Finn ditt neste løp i løpskalenderen!</title>
+    <meta name="description" content="Finn perfekte 50 km Landsveg løpekonkurranser i Leirvik. Sjekk vår løpskalender, terminliste løping, og finn ditt neste løpeløp. Løping i norge har aldri vært enklere!" />
+    <link rel="icon" href="/common_images/logo100px.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/race-list-filter.css" />
+    <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card-big.css" />
+    <link rel="stylesheet" href="/css/race-cards.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+
+    <script type="module" src="/js/commonFunctions.js"></script>
+    <script src="/js/raceList.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+    <script defer="" src="/js/raceListToggleButton.js"></script>
+    <script defer="" src="/js/raceListToggleMap.js"></script>
+  </head>
+  <body>
+    <!-- Page content -->
+    <main> <section class="ad-banner">
+  <div class="ad-banner-controls">
+    <button class="minimize-button" aria-label="Minimize ad">
+      <ion-icon name="chevron-down-outline"></ion-icon>
+    </button>
+  </div>
+
+  <div class="ad-content">
+    <!-- Default content shown while ad loads -->
+    <div class="ad-placeholder">
+      <div class="ad-placeholder-content">
+        <span class="ad-placeholder-text">Annons</span>
+        <div class="ad-placeholder-fallback">
+          <!-- Add a test image or text for local development -->
+          <div class="test-ad-content">Test Ad Banner - Local Development</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AdSense ad -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <ins
+      class="adsbygoogle"
+      style="display: block"
+      data-ad-client="ca-pub-7076760775175370"
+      data-ad-slot="2240363608"
+      data-ad-format="auto"
+      data-full-width-responsive="true"
+    ></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</section> <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Lopskalender</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Logg inn
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Alt</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/terminliste"
+      ><span class="nav-item">Terminliste</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/legg-til-lop"
+      ><span class="nav-item">Legg til løp</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/forum"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/mal-ruten-din"
+      ><span class="nav-item">Mål ruten din</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/treningsprogram"
+      ><span class="nav-item">Treningsprogram</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/fartkalkulator"
+      ><span class="nav-item">Fartkalkulator</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/estimer-sluttiden-din"
+      ><span class="nav-item">Estimér sluttiden din</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/om-oss"
+      ><span class="nav-item">Om oss</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/kontakt-oss"
+      ><span class="nav-item">Kontakt oss</span></a
+    >
+    
+    
+    
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Logg inn</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Passord"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Glemt passord?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Opprett konto i stedet
+            </a>
+          </div>
+          <button type="submit">Logg inn</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Opprett konto
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Glemt passord?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Opprett konto</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Ditt navn"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Passord"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Opprett konto</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Tilbake til innlogging
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Tilbakestill passord</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Send tilbakestillingslink</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Tilbake til innlogging
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Du er allerede logget inn som</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Fortsett som denne brukeren
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Logg ut og bytt bruker
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto opprettet!</h2>
+        <div class="logged-in-user-info">
+          <p>Du er nå logget inn som</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            En verifiseringslink har blitt sendt til din e-post
+          </p>
+          <p class="verification-notice">Vennligst bekreft e-postadressen din</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Fortsett som denne brukeren
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section> <section class="section-filters">
+  <div class="filter-date">
+    <label for="date-from">Fra:</label>
+    <input type="date" id="date-from" name="date-from" />
+
+    <label for="date-to">Til:</label>
+    <input type="date" id="date-to" name="date-to" />
+  </div>
+
+  <div class="filter-months right-scroller">
+    <button class="month-button active" data-month="all">
+      Hele året
+    </button>
+    
+    <button class="month-button" data-month="01">
+      Januar
+    </button>
+    
+    <button class="month-button" data-month="02">
+      Februar
+    </button>
+    
+    <button class="month-button" data-month="03">
+      Mars
+    </button>
+    
+    <button class="month-button" data-month="04">
+      April
+    </button>
+    
+    <button class="month-button" data-month="05">
+      Mai
+    </button>
+    
+    <button class="month-button" data-month="06">
+      Juni
+    </button>
+    
+    <button class="month-button" data-month="07">
+      Juli
+    </button>
+    
+    <button class="month-button" data-month="08">
+      August
+    </button>
+    
+    <button class="month-button" data-month="09">
+      September
+    </button>
+    
+    <button class="month-button" data-month="10">
+      Oktober
+    </button>
+    
+    <button class="month-button" data-month="11">
+      November
+    </button>
+    
+    <button class="month-button" data-month="12">
+      Desember
+    </button>
+    
+  </div>
+
+  <div class="filter-categories right-scroller">
+    <button class="category-button active" data-category="all">
+      Alle distanser
+    </button>
+    
+    <button class="category-button" data-category="5 km">
+      5 km
+    </button>
+    
+    <button class="category-button" data-category="10 km">
+      10 km
+    </button>
+    
+    <button class="category-button" data-category="Halvmaraton">
+      Halvmaraton
+    </button>
+    
+    <button class="category-button" data-category="Maraton">
+      Maraton
+    </button>
+    
+    <button class="category-button" data-category="50 miles">
+      50 miles
+    </button>
+    
+    <button class="category-button" data-category="100 miles">
+      100 miles
+    </button>
+    
+    <button class="category-button" data-category="200 miles">
+      200 miles
+    </button>
+    
+    <button class="category-button" data-category="50 km">
+      50 km
+    </button>
+    
+    <button class="category-button" data-category="100 km">
+      100 km
+    </button>
+    
+    <button class="category-button" data-category="Milløp">
+      Milløp
+    </button>
+    
+    <button class="category-button" data-category="1500 meter">
+      1500 meter
+    </button>
+    
+    <button class="category-button" data-category="3000 meter">
+      3000 meter
+    </button>
+    
+    <button class="category-button" data-category="5000 meter">
+      5000 meter
+    </button>
+    
+    <button class="category-button" data-category="10000 meter">
+      10000 meter
+    </button>
+    
+  </div>
+
+  <div class="filter-dropdowns right-scroller">
+    <div class="filter-county">
+      <select id="county" name="county">
+        <option value="">Alle fylker</option>
+        
+        <option value="Leirvik">
+          Leirvik
+        </option>
+         
+        <option value="Oslo">Oslo</option>
+        
+        <option value="Rogaland">Rogaland</option>
+        
+        <option value="Møre og Romsdal">Møre og Romsdal</option>
+        
+        <option value="Nordland">Nordland</option>
+        
+        <option value="Viken">Viken</option>
+        
+        <option value="Innlandet">Innlandet</option>
+        
+        <option value="Vestfold og Telemark">Vestfold og Telemark</option>
+        
+        <option value="Agder">Agder</option>
+        
+        <option value="Vestland">Vestland</option>
+        
+        <option value="Trøndelag">Trøndelag</option>
+        
+        <option value="Troms og Finnmark">Troms og Finnmark</option>
+        
+      </select>
+    </div>
+
+    <div class="filter-race-type">
+      <select id="race-type" name="race-type">
+        <option value="">Alle løpstyper</option>
+        
+        <option value="Landevei">Landevei</option>
+        
+        <option value="Terreng">Terreng</option>
+        
+        <option value="Trail/Fjelløp">Trail/Fjelløp</option>
+        
+        <option value="Løpebane">Løpebane</option>
+        
+        <option value="Backyard Ultra">Backyard Ultra</option>
+        
+        <option value="Frontyard Ultra">Frontyard Ultra</option>
+        
+        <option value="Stafett">Stafett</option>
+        
+        <option value="Tidsløp">Tidsløp</option>
+        
+        <option value="Annet">Annet</option>
+        
+      </select>
+    </div>
+    <div class="browse-all-filters">
+      <a
+        href="/lopskalender/bla-etter-kategori"
+        class="browse-link"
+      >
+        <div class="browse-link-icon">
+          <ion-icon name="git-network-outline"></ion-icon>
+        </div>
+        <div class="browse-link-text">Bla etter kategori</div>
+      </a>
+    </div>
+    <div class="toggle-button desktop" id="toggleMapButton">
+      <button>
+        <ion-icon
+          name="radio-button-on-outline"
+          id="onIcon"
+          role="img"
+          class="md hydrated"
+          aria-label="radio button on outline"
+        ></ion-icon>
+        <ion-icon
+          name="radio-button-off-outline"
+          id="offIcon"
+          role="img"
+          class="md hydrated"
+          aria-label="radio button off outline"
+        ></ion-icon>
+        Kart
+      </button>
+    </div>
+  </div>
+</section> <section class="section section-race-cards">
+
+  <h1 class="section-header section-header-race-cards race-list-title">50 km Landsveg løp i Leirvik: Løpskalender og Terminliste</h1>
+  <p class="race-list-paragraph">Letar du etter et 50 km Landsveg løp i Leirvik?  Vår løpekalender og terminliste løping viser deg alle kommende løpekonkurranser i området.  Enten du er erfaren løper eller nybegynner, finner du det perfekte løpet for deg her.  Sjekk vår løpsliste for tilgjengelige datoer og meld deg på ditt neste løp i norge.  Denne løpskalenderen inkluderer også informasjon om løp i andre kategorier, som for eksempel (eksempel: terrengløp), men her fokuserer vi på 50 km Landsveg løp i Leirvik.  Finn ditt neste eventyr i løping i norge!</p>
+
+  <h2 class="section-header">
+    Alle
+    <span id="race-cards-title-category"></span>
+    løp
+    <span id="race-cards-title-separator">i</span>
+    <span id="race-cards-title-region">Norge</span>
+    <span id="date-range"></span>
+  </h2>
+
+  <button class="toggle-button mobile" id="toggleMapButtonMobile">
+    <div class="icon-container">
+      <ion-icon name="map-outline" role="img" class="md hydrated" aria-label="map outline"></ion-icon>
+    </div>
+    <p>Kart</p>
+  </button>
+
+
+  <div class="race-cards-selector">
+    <div
+      class="race-cards-grid"
+        id="race-cards-container"
+        {/*
+        prettier-ignore
+        */}
+        
+        data-preselected-filters='{"category": "50 km", "city": "Leirvik", "county": "Leirvik", "race_type": "Landsv\u00e4g"}'
+        
+      >
+         <a
+  href="/løpssider/vinterkarusellen_3_lop"
+  class="race-card"
+  data-name="Vinterkarusellen 3. løp"
+  data-date="20241207"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.29047600000001"
+  data-longitude="5.3178483"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/vinterkarusellen_3_lop/vinterkarusellen_3_lop_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Vinterkarusellen 3. løp"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          7 des.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Vinterkarusellen 3. løp</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Fana Stadion 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Da er påmelding for sesongens 3. løp i Vinterkarusellen åpnet! Adventløpet finner sted mandag 9. desember og som vanlig vil det bli servert ...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/bergen_advents_maraton"
+  class="race-card"
+  data-name="Bergen Advents Maraton"
+  data-date="20241207"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="10km, half marathon"
+  data-latitude="60.39126279999999"
+  data-longitude="5.3220544"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/bergen_advents_maraton/bergen_advents_maraton_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Bergen Advents Maraton"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          7 des.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Bergen Advents Maraton</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Bergen, Vestland 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Halvmaraton
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Årets siste løp i Maratonkarusellen arrangeres lørdag 7. desember 2024, og Bergen Adventsmaraton blir løp nr. 106 i rekken. Dette arrangemen...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/vinterkarusellen_lop_3"
+  class="race-card"
+  data-name="Vinterkarusellen Løp 3"
+  data-date="20241209"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.29047600000001"
+  data-longitude="5.3178483"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/vinterkarusellen_lop_3/vinterkarusellen_lop_3_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Vinterkarusellen Løp 3"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          9 des.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Vinterkarusellen Løp 3</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Fana Stadion 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Da er påmelding for sesongens 3. løp åpnet. Adventløpet går mandag 9. desember på Fana Stadion, hvor deltakerne kan glede seg til gløgg, sol...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/askoybrolopet"
+  class="race-card"
+  data-name="Askøybroløpet"
+  data-date="20241211"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="4,6km"
+  data-latitude="60.4618726"
+  data-longitude="5.0893297"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/askoybrolopet/askoybrolopet_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Askøybroløpet"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          11 des.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Askøybroløpet</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Askøy 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                4,6 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Askøybroløpet er et årlig løp som finner sted på Askøy, like utenfor Bergen. Løpet har en flott rute som tar deltakerne over den ikoniske As...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/vinterkarusellen_4_lop"
+  class="race-card"
+  data-name="Vinterkarusellen 4. løp"
+  data-date="20241228"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.29047600000001"
+  data-longitude="5.3178483"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/vinterkarusellen_4_lop/vinterkarusellen_4_lop_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Vinterkarusellen 4. løp"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          28 des.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Vinterkarusellen 4. løp</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Fana Stadion 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Vinterkarusellen er en populær løpsserie som finner sted i vintermånedene, inkludert Vinterkarusellen 4. løp. Den inkluderer flere distanser...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/vinterkarusellen_lop_4"
+  class="race-card"
+  data-name="Vinterkarusellen Løp 4"
+  data-date="20250106"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.39126279999999"
+  data-longitude="5.3220544"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/vinterkarusellen_lop_4/vinterkarusellen_lop_4_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Vinterkarusellen Løp 4"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          6 jan.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Vinterkarusellen Løp 4</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Gneist Arena 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Vinterkarusellen er en populær løpsserie som inkluderer flere distanser, og det er alltid god stemning og fine forhold under arrangementene....
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/vinterkarusellen_6_lop"
+  class="race-card"
+  data-name="Vinterkarusellen 6. løp"
+  data-date="20250118"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.29047600000001"
+  data-longitude="5.3178483"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/vinterkarusellen_6_lop/vinterkarusellen_6_lop_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Vinterkarusellen 6. løp"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          18 jan.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Vinterkarusellen 6. løp</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Fana Stadion 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Til tross for vinterferie var det god oppslutning også på det 6. løpet av Vinterkarusellen. Forholdene var bedre enn på lenge, og vi fikk ma...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/asane_lopskarusell_1"
+  class="race-card"
+  data-name="Åsane Løpskarusell 1"
+  data-date="20250123"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.47115030000001"
+  data-longitude="5.3273573"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/asane_lopskarusell_1/asane_lopskarusell_1_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Åsane Løpskarusell 1"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          23 jan.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Åsane Løpskarusell 1</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Garasjen til Ikea 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Åsane Løpskarusell 1 er en del av en serie løp som arrangeres i Åsane, med ulike distanser og datoer gjennom sesongen. Løpene finner sted på...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/vinterkarusellen_lop_5"
+  class="race-card"
+  data-name="Vinterkarusellen Løp 5"
+  data-date="20250127"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.29047600000001"
+  data-longitude="5.3178483"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/vinterkarusellen_lop_5/vinterkarusellen_lop_5_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Vinterkarusellen Løp 5"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          27 jan.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Vinterkarusellen Løp 5</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Fana Stadion 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Vinterkarusellen Løp 5 er en del av en serie løp som arrangeres i vintermånedene. Løpet har en distanse på 5 km og en dobbel distanse på 10 ...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/vinterkarusellen_7_lop"
+  class="race-card"
+  data-name="Vinterkarusellen 7. løp"
+  data-date="20250201"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km"
+  data-latitude="60.29047600000001"
+  data-longitude="5.3178483"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/vinterkarusellen_7_lop/vinterkarusellen_7_lop_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Vinterkarusellen 7. løp"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          1 feb.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Vinterkarusellen 7. løp</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Fana Stadion 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Vinterkarusellen 7. løp er en del av en populær løpsserie som tiltrekker seg mange deltakere. Løpet går i vinterkulden, men forholdene er of...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/vinterkarusellen_4_lop_2"
+  class="race-card"
+  data-name="Vinterkarusellen 4. løp"
+  data-date="20250208"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.29047600000001"
+  data-longitude="5.3178483"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/vinterkarusellen_4_lop_2/vinterkarusellen_4_lop_2_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Vinterkarusellen 4. løp"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          8 feb.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Vinterkarusellen 4. løp</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Fana Stadion 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Vinterkarusellen 4. løp er en del av den populære løpsserien Vinterkarusellen, som tiltrekker seg mange deltakere hver sesong. Løpet avholde...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/vinterkarusellen_8_lop"
+  class="race-card"
+  data-name="Vinterkarusellen 8. løp"
+  data-date="20250213"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.29047600000001"
+  data-longitude="5.3178483"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/vinterkarusellen_8_lop/vinterkarusellen_8_lop_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Vinterkarusellen 8. løp"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          13 feb.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Vinterkarusellen 8. løp</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Fana Stadion 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Velkommen til Vinterkarusellen på Fana Stadion, hvor sesongens 8. løp avsluttes. Det er meldt fint vårvær med behagelige 11 grader, sol og l...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/asane_lopskarusell_2"
+  class="race-card"
+  data-name="Åsane Løpskarusell 2"
+  data-date="20250213"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.47115030000001"
+  data-longitude="5.3273573"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/asane_lopskarusell_2/asane_lopskarusell_2_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Åsane Løpskarusell 2"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          13 feb.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Åsane Løpskarusell 2</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Bergen, Vestland 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Åsane Løpskarusell 2 er en del av en serie løp som arrangeres i løpet av året. Løpene finner sted på forskjellige datoer, og deltakerne kan ...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/vinterkarusellen_lop_6"
+  class="race-card"
+  data-name="Vinterkarusellen Løp 6"
+  data-date="20250217"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.29047600000001"
+  data-longitude="5.3178483"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/vinterkarusellen_lop_6/vinterkarusellen_lop_6_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Vinterkarusellen Løp 6"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          17 feb.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Vinterkarusellen Løp 6</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Fana Stadion 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Vinterkarusellen er en populær løpsserie som finner sted i vintermånedene. Løpet har tiltrukket seg mange deltakere, med over 1000 fullføren...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/asane_lopskarusell_3"
+  class="race-card"
+  data-name="Åsane Løpskarusell 3"
+  data-date="20250306"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.47115030000001"
+  data-longitude="5.3273573"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/asane_lopskarusell_3/asane_lopskarusell_3_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Åsane Løpskarusell 3"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          6 mars
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Åsane Løpskarusell 3</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Bergen, Vestland 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Løp 3 i Åsane Løpskarusell finner sted 22. februar 2024. Startskuddet går alltid kl 19:00 for de som skal løpe 10 km og kl 19:05 for de som ...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/vinterkarusellen_5_lop_2"
+  class="race-card"
+  data-name="Vinterkarusellen 5. løp"
+  data-date="20250308"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.29047600000001"
+  data-longitude="5.3178483"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/vinterkarusellen_5_lop_2/vinterkarusellen_5_lop_2_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Vinterkarusellen 5. løp"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          8 mars
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Vinterkarusellen 5. løp</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Fana Stadion 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Vinterkarusellen er en populær løpsserie som tiltrekker seg mange deltakere hvert år. Løpene foregår i vintermånedene, og tilbyr distanser p...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/vinterkarusellen_10_lop"
+  class="race-card"
+  data-name="Vinterkarusellen 10. løp"
+  data-date="20250308"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.29047600000001"
+  data-longitude="5.3178483"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/vinterkarusellen_10_lop/vinterkarusellen_10_lop_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Vinterkarusellen 10. løp"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          8 mars
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Vinterkarusellen 10. løp</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Fana Stadion 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Vinterkarusellen 10. løp er en del av Necon Vinterkarusell, hvor deltagerne kan velge mellom 5 km og 10 km distanser. Løpet finner sted i vi...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/vinterkarusellen_lop_7"
+  class="race-card"
+  data-name="Vinterkarusellen Løp 7"
+  data-date="20250310"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km"
+  data-latitude="60.29047600000001"
+  data-longitude="5.3178483"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/vinterkarusellen_lop_7/vinterkarusellen_lop_7_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Vinterkarusellen Løp 7"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          10 mars
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Vinterkarusellen Løp 7</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Fana Stadion 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Vinterkarusellen er en populær løpsserie som tiltrekker seg mange deltakere. Det er gode forhold for løping, selv i vinterkulden, og arrange...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/industrilopet"
+  class="race-card"
+  data-name="Industriløpet"
+  data-date="20250315"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="59.90020889999999"
+  data-longitude="5.282346899999999"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/industrilopet/industrilopet_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Industriløpet"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          15 mars
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Industriløpet</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Stord, Vestland 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Industriløpet er en løpekonkurranse for ansatte ved Aker Solutions Stord, med påmelding som dekkes av Velferdsforeninga. Påmeldingen er åpen...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/asane_lopskarusell_4"
+  class="race-card"
+  data-name="Åsane Løpskarusell 4"
+  data-date="20250327"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.47115030000001"
+  data-longitude="5.3273573"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/asane_lopskarusell_4/asane_lopskarusell_4_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Åsane Løpskarusell 4"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          27 mars
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Åsane Løpskarusell 4</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Garasjen til Ikea 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Åsane Løpskarusell 4 finner sted den 14. mars 2024. Startskuddet går kl. 19:00 for de som skal løpe 10 km og kl. 19:05 for de som skal løpe ...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/vinterkarusellen_lop_8"
+  class="race-card"
+  data-name="Vinterkarusellen Løp 8"
+  data-date="20250331"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km"
+  data-latitude="60.29047600000001"
+  data-longitude="5.3178483"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/vinterkarusellen_lop_8/vinterkarusellen_lop_8_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Vinterkarusellen Løp 8"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          31 mars
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Vinterkarusellen Løp 8</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Fana Stadion 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Vinterkarusellen Løp 8 er en del av en serie løp som finner sted i vintermånedene. Løpet har en variert og spennende trase som gir deltakern...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/halandsvannet_halvmaraton"
+  class="race-card"
+  data-name="Hålandsvannet Halvmaraton"
+  data-date="20250412"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="7km, 14km, half marathon"
+  data-latitude="58.99967460000001"
+  data-longitude="5.6187068"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/halandsvannet_halvmaraton/halandsvannet_halvmaraton_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Hålandsvannet Halvmaraton"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          12 apr.
+        </div>
+        <div class="race-location">
+          Rogaland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Hålandsvannet Halvmaraton</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Randaberg 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                7 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                14 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Halvmaraton
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Hålandsvannet Halvmaraton er et mosjonsløp for alle, hvor du kan velge å løpe én, to eller tre runder rundt det vakre Hålandsvannet. Arrange...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/bykarusellen_perselop"
+  class="race-card"
+  data-name="Bykarusellen Perseløp"
+  data-date="20250423"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km"
+  data-latitude="60.38142339999999"
+  data-longitude="5.330000399999999"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/bykarusellen_perselop/bykarusellen_perselop_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Bykarusellen Perseløp"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          23 apr.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Bykarusellen Perseløp</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Marineholmen 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Bykarusellen Perseløp er et av Bergens raskeste gateløp. Distansen er 5 km med fellesstart kl. 18.00. Løypen er kontrollmålt, og det er fart...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/fjordkraft_bergen_city_marathon"
+  class="race-card"
+  data-name="Fjordkraft Bergen City Marathon"
+  data-date="20250426"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="2km, 5km, half marathon, marathon, relay"
+  data-latitude="60.3966766"
+  data-longitude="5.3236684"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/fjordkraft_bergen_city_marathon/fjordkraft_bergen_city_marathon_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Fjordkraft Bergen City Marathon"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          26 apr.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Fjordkraft Bergen City Marathon</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Bryggen, Bergen 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                2 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Halvmaraton
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Maraton
+              </span>
+            </div>
+             
+            <div class="distance-item">
+              <span class="race-distance">...</span>
+            </div>
+             
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Velkommen til Fjordkraft Bergen City Marathon (FBCM) lørdag 26. april 2025. Dette er den 13. utgaven av FBCM, et flott løp i en vakker og in...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/holmestrand_maraton"
+  class="race-card"
+  data-name="Holmestrand Maraton"
+  data-date="20250426"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km, half marathon, 26km, marathon, 52,2km"
+  data-latitude="60.3898141"
+  data-longitude="5.3333388"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/holmestrand_maraton/holmestrand_maraton_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Holmestrand Maraton"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          26 apr.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Holmestrand Maraton</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Sentrum 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Halvmaraton
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                26 km
+              </span>
+            </div>
+             
+            <div class="distance-item">
+              <span class="race-distance">...</span>
+            </div>
+             
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Holmestrand Maraton er en løpekonkurranse som startet som et initiativ for folkehelsa, med fokus på at man i fellesskap kan sette seg mål og...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/strandamila"
+  class="race-card"
+  data-name="Strandamilå"
+  data-date="20250501"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="10km"
+  data-latitude="59.0274138"
+  data-longitude="6.0306975"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/strandamila/strandamila_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Strandamilå"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          1 mai
+        </div>
+        <div class="race-location">
+          Rogaland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Strandamilå</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Jørpeland Flerbrukshall 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Strandamilå 1. mai 2024 er en 10 kilometer lang løpsbegivenhet som markerer den 44. gangen løpet blir arrangert. Siden 1980 har Strandamilå ...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/sunnhordland_lopsfest"
+  class="race-card"
+  data-name="Sunnhordland Løpsfest"
+  data-date="20250503"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km, half marathon"
+  data-latitude="59.7840973"
+  data-longitude="5.5041249"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/sunnhordland_lopsfest/sunnhordland_lopsfest_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Sunnhordland Løpsfest"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          3 mai
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Sunnhordland Løpsfest</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Borggata på Vikjo 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Halvmaraton
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Velkommen til Sunnhordland løpsfest 2025! Stord friidrett ønskjer velkommen til ein skikkeleg løpsfest i Leirvik sentrum laurdag 3. mai 2025...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/soreidelopet"
+  class="race-card"
+  data-name="Søreideløpet"
+  data-date="20250507"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="4km"
+  data-latitude="60.3180443"
+  data-longitude="5.2709019"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/soreidelopet/soreidelopet_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Søreideløpet"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          7 mai
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Søreideløpet</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Søreide skole 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                4 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Søreideløpet 2024 arrangeres onsdag 8. mai kl. 18:30, med start og målgang på Søreide skole. Dette er et mosjonsløp med åpen påmelding for a...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/asanelopet"
+  class="race-card"
+  data-name="Åsaneløpet"
+  data-date="20250508"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.47115030000001"
+  data-longitude="5.3273573"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/asanelopet/asanelopet_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Åsaneløpet"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          8 mai
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Åsaneløpet</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Åsane 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Bli med på mosjonsløp for hele familien i Åsane. Velg mellom 5 eller 10 km løp, og barna kan delta i barneløpet. Alle barna får medalje, og ...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/valestrandsmarka_rundt_3_lop"
+  class="race-card"
+  data-name="Valestrandsmarka Rundt 3. løp"
+  data-date="20250509"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="4,4km"
+  data-latitude="60.53728369999999"
+  data-longitude="5.5330403"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/valestrandsmarka_rundt_3_lop/valestrandsmarka_rundt_3_lop_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Valestrandsmarka Rundt 3. løp"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          9 mai
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Valestrandsmarka Rundt 3. løp</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Osterøy, Vestland 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                4,4 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Valestrandsmarka Rundt 3. løp fant sted den 10. mai 2024, med 47 deltakere og fine forhold med skyet vær og 13 grader. Det ble ikke utdelt n...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/nidaros_lopefest"
+  class="race-card"
+  data-name="Nidaros Løpefest"
+  data-date="20250524"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.39319579999999"
+  data-longitude="5.339618"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/nidaros_lopefest/nidaros_lopefest_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Nidaros Løpefest"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          24 mai
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Nidaros Løpefest</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Skansen 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Nidaros Løpefest er et arrangement som finner sted i Trondheim, Norge, den 21. mai 2022. Løypa vår er absolutt en av landets aller raskeste,...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/straumemila"
+  class="race-card"
+  data-name="Straumemila"
+  data-date="20250525"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.3512922"
+  data-longitude="5.135115"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/straumemila/straumemila_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Straumemila"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          25 mai
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Straumemila</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Øygarden, Vestland 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Straumemila løpfestival er en gledens festival for alle. I 2025 vil Straumemila løpfestival bli avholdt 25. mai, og den finner sted i Straum...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/sommerkarusellen_1_lop"
+  class="race-card"
+  data-name="Sommerkarusellen - 1. løp"
+  data-date="20250602"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.29047600000001"
+  data-longitude="5.3178483"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/sommerkarusellen_1_lop/sommerkarusellen_1_lop_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Sommerkarusellen - 1. løp"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          2 juni
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Sommerkarusellen - 1. løp</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Fana Stadion 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Sommerkarusellen er en populær løpsserie som finner sted hvert år, med flere løp i løpet av sommeren hvor deltakerne kan velge mellom forskj...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/sommerkarusellen_2_lop"
+  class="race-card"
+  data-name="Sommerkarusellen - 2. løp"
+  data-date="20250616"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.29047600000001"
+  data-longitude="5.3178483"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/sommerkarusellen_2_lop/sommerkarusellen_2_lop_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Sommerkarusellen - 2. løp"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          16 juni
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Sommerkarusellen - 2. løp</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Fana Stadion 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Gneist friidrett ønsker velkommen til Sommerkarusellen 2024, en populær løpsserie som finner sted i løpet av sommermånedene. Det blir arrang...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/sommerkarusellen_3_lop"
+  class="race-card"
+  data-name="Sommerkarusellen 3. løp"
+  data-date="20250630"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="2km, 5km, 10km"
+  data-latitude="60.29047600000001"
+  data-longitude="5.3178483"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/sommerkarusellen_3_lop/sommerkarusellen_3_lop_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Sommerkarusellen 3. løp"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          30 juni
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Sommerkarusellen 3. løp</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Fana Stadion 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                2 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Sommerkarusellen er en årlig løpskarusell som tilbyr flere løp gjennom sommermånedene. Det siste løpet før sommerferien hadde høy deltakelse...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/sommerkarusellen_4_lop"
+  class="race-card"
+  data-name="Sommerkarusellen 4. løp"
+  data-date="20250804"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.29047600000001"
+  data-longitude="5.3178483"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/sommerkarusellen_4_lop/sommerkarusellen_4_lop_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Sommerkarusellen 4. løp"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          4 aug.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Sommerkarusellen 4. løp</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Fana Stadion 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Gneist friidrett ønsker velkommen til Sommerkarusellen 2024, som består av 5 løp, hvor 3 av dem arrangeres før sommerferien og 2 etter. Løps...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/sommerkarusellen_5_lop"
+  class="race-card"
+  data-name="Sommerkarusellen 5. løp"
+  data-date="20250818"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.29047600000001"
+  data-longitude="5.3178483"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/sommerkarusellen_5_lop/sommerkarusellen_5_lop_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Sommerkarusellen 5. løp"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          18 aug.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Sommerkarusellen 5. løp</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Fana Stadion 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Sommerkarusellen er en løpsserie som finner sted over flere uker, med forskjellige distanser tilgjengelig for deltakerne. Hvert løp har en 5...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/asane_lopskarusell_5"
+  class="race-card"
+  data-name="Åsane Løpskarusell 5"
+  data-date="20250828"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.47115030000001"
+  data-longitude="5.3273573"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/asane_lopskarusell_5/asane_lopskarusell_5_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Åsane Løpskarusell 5"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          28 aug.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Åsane Løpskarusell 5</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Bergen, Vestland 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Åsane Løpskarusell 5 tilbyr kontrollmålte løyper av en sertifisert løypemåler hos NFIF. Distanse(r) som tilbys er 5 km og 10 km, målt av Iva...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/ole_bull_lopet"
+  class="race-card"
+  data-name="Ole Bull-løpet"
+  data-date="20250829"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="4,4km"
+  data-latitude="60.53728369999999"
+  data-longitude="5.5330403"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/ole_bull_lopet/ole_bull_lopet_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Ole Bull-løpet"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          29 aug.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Ole Bull-løpet</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Osterøy 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                4,4 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Ole Bull-løpet er et mosjonsløp som finner sted i Osterøy, Hordaland, med en distanse på 4,4 km. Løpet ble avholdt den 23. august 2019 og ti...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/bykarusellen_perselop_3"
+  class="race-card"
+  data-name="Bykarusellen Perseløp 3"
+  data-date="20250903"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.38142339999999"
+  data-longitude="5.330000399999999"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/bykarusellen_perselop_3/bykarusellen_perselop_3_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Bykarusellen Perseløp 3"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          3 sep.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Bykarusellen Perseløp 3</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Marineholmen 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Velkommen til sesongens andre løp i Bykarusellen Perseløp 2023! Datoen er 24. mai og distansen er 5 km! Start og mål er ved Marineholmen ved...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/knarvik_halvmaraton"
+  class="race-card"
+  data-name="Knarvik Halvmaraton"
+  data-date="20250905"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="4km, 5km, half marathon, marathon"
+  data-latitude="60.55197519999999"
+  data-longitude="5.2874269"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/knarvik_halvmaraton/knarvik_halvmaraton_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Knarvik Halvmaraton"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          5 sep.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Knarvik Halvmaraton</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Knarvik Stadion 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                4 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Halvmaraton
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Maraton
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Knarvik Halvmaraton har start og mål på same plass inne på Knarvik Stadion. Løypa går på vegar i Knarvik og inn i Brekkeløypa, der det er gr...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/knarvikmila_10_5_3_km"
+  class="race-card"
+  data-name="Knarvikmila 10/5/3 km"
+  data-date="20250905"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="3km, 5km, 10km"
+  data-latitude="60.55197519999999"
+  data-longitude="5.2874269"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/knarvikmila_10_5_3_km/knarvikmila_10_5_3_km_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Knarvikmila 10/5/3 km"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          5 sep.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Knarvikmila 10/5/3 km</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Knarvik Stadion 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                3 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Knarvikmila 3 km har start og mål på Knarvik Stadion, og løypa går på vegar i Knarvik og inn i Brekkeløypa, hvor det er grus. Resten av løyp...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/fjordkraft_bergen_city_milen"
+  class="race-card"
+  data-name="Fjordkraft Bergen City Milen"
+  data-date="20250913"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="10km"
+  data-latitude="60.3931057"
+  data-longitude="5.3240249"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/fjordkraft_bergen_city_milen/fjordkraft_bergen_city_milen_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Fjordkraft Bergen City Milen"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          13 sep.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Fjordkraft Bergen City Milen</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Torgallmenningen 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Det er en glede å kunne ønske velkommen til Fjordkraft Bergen City Milen, et flatt 10 km-løp i Bergen sentrum. Løpet arrangeres for sjette g...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/asane_lopskarusell_6"
+  class="race-card"
+  data-name="Åsane Løpskarusell 6"
+  data-date="20250918"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="5km, 10km"
+  data-latitude="60.47115030000001"
+  data-longitude="5.3273573"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/asane_lopskarusell_6/asane_lopskarusell_6_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Åsane Løpskarusell 6"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          18 sep.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Åsane Løpskarusell 6</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Garasjen til Ikea 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Åsane Løpskarusell er en spennende løpsserie som finner sted i Bergen, Norge, fra januar til oktober 2024. Deltakerne kan velge mellom dista...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a>  <a
+  href="/løpssider/loddefjordlopet"
+  class="race-card"
+  data-name="Loddefjordløpet"
+  data-date="20250928"
+  data-county="Leirvik"
+  data-category=""
+  data-race-type="Landsväg"
+  data-distance="2km, 5km"
+  data-latitude="60.3652172"
+  data-longitude="5.1967029"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="/løpssider/loddefjordlopet/loddefjordlopet_1.webp"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Bilde til Loddefjordløpet"
+        loading="lazy"
+        class="background-img"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          28 sep.
+        </div>
+        <div class="race-location">
+          Vestland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Loddefjordløpet</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Alvøen idrettspark 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                2 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landevei
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Loddefjordløpet er et årlig løp som finner sted i Bergen, Hordaland, og har vært arrangert av Loddefjord IL friidrett i mer enn 40 år. Årets...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mer info & påmelding</div>
+  </div>
+</a> 
+        <!-- Add pagination controls -->
+  <div class="pagination-info">
+    <span id="event-range">av</span> 
+    <span id="total-events">Løp</span> 
+  </div>
+  <div class="pagination">
+    <button id="prev-page">Forrige</button>
+    <div id="page-numbers"></div>
+      <button id="next-page">Neste</button>
+    </div>
+  </div>
+
+    
+    <div class="map-placeholder"   id="map-placeholder"    data-latitude="61.114952"
+    data-longitude="9.808722"
+      data-zoom="4"
+    >
+      <!-- Map will be inserted here -->
+    </div>
+  </div>
+
+
+</section> </main>
+
+    
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

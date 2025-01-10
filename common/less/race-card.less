@@ -1,0 +1,261 @@
+@import '_variables.less';
+.race-card {
+  position: relative;
+  contain: layout style paint;
+  margin: 1rem;
+  overflow: hidden;
+  @media (max-width: @small-tablet) {
+    margin-left: 0;
+  }
+  padding: 0 1rem 1rem 1rem;
+  color: black;
+  text-decoration: none;
+  img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+  .race-card-upper-box {
+    height: 19rem; // Smaller height
+    width: 100%; // Smaller width
+    /* Adjust as necessary */
+
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 4px;
+    overflow: hidden;
+
+    .race-card-content {
+      position: relative;
+      z-index: 2;
+      /* Ensure content is above the overlay */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1rem;
+
+      height: 100%;
+      font-size: 1.5rem; // Slightly smaller font size
+    }
+
+    .race-info-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+
+      .race-date {
+        background: var(--info-highlight-background);
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+      }
+
+      .race-location {
+        background: var(--info-highlight-background2);
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        color: black;
+
+        text-align: right;
+        text-wrap: nowrap;
+      }
+    }
+  }
+
+  .race-info-bottom {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 1.5rem;
+
+    @content-bottom-margin: 0.6rem;
+    .upper-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      margin-top: 0.7rem;
+      position: relative;
+      font-size: 1.5rem;
+
+      .left-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        max-width: calc(
+          100% - 120px
+        ); // Adjust this value based on the minimum width needed for the right container
+        /*         overflow: hidden; */
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        .race-name {
+          height: 2rem;
+          margin-bottom: @content-bottom-margin;
+          font-size: 1.6rem;
+          display: flex;
+          align-items: center;
+        }
+
+        .race-location {
+          margin-bottom: @content-bottom-margin;
+        }
+
+        .race-location.with-spacing {
+          margin-top: 2.7rem;
+        }
+      }
+
+      .right-container {
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        @left-container-padding: 0.8rem;
+        .race-distances {
+          display: flex;
+          margin-bottom: @content-bottom-margin;
+          align-items: center;
+          flex-wrap: wrap;
+          justify-content: flex-end;
+          background: var(--color-background);
+          z-index: 2;
+          padding-left: @left-container-padding;
+          gap: 0.5rem;
+
+          .distance-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: flex-end;
+          }
+
+          .distance-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .race-distance {
+            background: var(--info-highlight-background);
+
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 3rem;
+            text-align: center;
+            line-height: 1;
+          }
+
+          .icon {
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+          }
+        }
+        .race-distances.with-spacing {
+          margin-top: 2.2rem;
+        }
+
+        .race-type {
+          margin-bottom: @content-bottom-margin;
+          padding-left: @left-container-padding;
+          background: var(--color-background);
+          z-index: 8;
+        }
+      }
+    }
+
+    .race-summary {
+      margin-bottom: 0.3rem;
+      line-height: 1.4;
+      align-self: flex-end;
+      font-size: 1.6rem;
+
+      // Add these properties to cap at 3 lines
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  .cta-button {
+    position: relative;
+    margin-top: 4.2rem;
+    height: 7rem;
+    width: 100%;
+    overflow: hidden;
+  }
+  .cta-button.with-spacing {
+    margin-top: 2rem;
+  }
+
+  @margin-bottom: 0.5rem;
+
+  .more-info-button {
+    position: absolute;
+    top: 0;
+    left: 30%;
+    width: 70%;
+    bottom: 2rem;
+    padding: 1rem 0 1rem 1rem;
+    font-size: 1.6rem;
+    color: var(--color-primary-dark);
+    background-color: var(--color-background-shade);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    margin-bottom: @margin-bottom;
+    transition: background-color 0.3s, transform 0.3s;
+
+    /* Create a triangle cut-out in the upper right corner */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 5rem 5rem 0;
+      border-color: transparent var(--color-background) transparent transparent;
+      z-index: 8;
+    }
+
+    /* Adding the right arrow */
+    &::after {
+      content: '→';
+      font-size: 2.5rem;
+      margin: 0 0 0.5rem 1%;
+      transition: margin-left 0.3s;
+    }
+  }
+
+  &:hover,
+  &:active {
+    background-color: var(--color-background-shade);
+    .race-type,
+    .race-distances {
+      background: var(--color-background-shade) !important;
+    }
+    .more-info-button {
+      background-color: var(--color-background);
+      border-bottom: 2px solid #000;
+      margin-bottom: ~'calc(@{margin-bottom} - 2px)';
+      &::before {
+        border-color: transparent var(--color-background-shade) transparent
+          transparent;
+      }
+      &::after {
+        margin-left: 2%;
+      }
+    }
+  }
+}

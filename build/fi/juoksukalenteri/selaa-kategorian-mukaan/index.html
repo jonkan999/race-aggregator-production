@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Selaa kaikkia juoksukilpailut</title>
+    <meta name="description" content="Löydä juoksukilpailu alueittain, tyypeittäin tai kategorioittain" />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/race-list-filter.css" />
+    <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card-big.css" />
+    <link rel="stylesheet" href="/css/race-cards.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+    <script src="/js/raceList.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+    <script defer="" src="/js/raceListToggleButton.js"></script>
+    <script defer="" src="/js/raceListToggleMap.js"></script>
+  </head>
+  <body>
+    <!-- Page content -->
+    <main>
+       <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">juoksen</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Kirjaudu sisään
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Kaikki</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/juoksukalenteri"
+      ><span class="nav-item">Juoksukalenteri</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/lisaa-kilpailu"
+      ><span class="nav-item">Lisää kilpailu</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/foorumi"
+      ><span class="nav-item">Foorumi</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/mittaa-kierroksesi"
+      ><span class="nav-item">Mittaa kierroksesi</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/harjoitusohjelmat"
+      ><span class="nav-item">Harjoitusohjelmat</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/vauhtimuunnin"
+      ><span class="nav-item">Vauhtimuunnin</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/arvioi-rotuaikasi"
+      ><span class="nav-item">Arvioi rotuaikasi</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/tietoa-meista"
+      ><span class="nav-item">Tietoa meistä</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/ota-yhteytta"
+      ><span class="nav-item">Ota yhteyttä</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Kirjaudu sisään</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Sähköpostisi"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Salasana"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Unohditko salasanan?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Luo tili sen sijaan
+            </a>
+          </div>
+          <button type="submit">Kirjaudu sisään</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Luo tili
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Unohditko salasanan?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Luo tili</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Nimesi"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Sähköpostisi"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Salasana"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Luo tili</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Takaisin kirjautumiseen
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Palauta salasana</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Sähköpostisi"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Lähetä palautuslinkki</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Takaisin kirjautumiseen
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Olet jo kirjautunut sisään käyttäjänä</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Jatka tämän käyttäjänä
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Kirjaudu ulos ja vaihda käyttäjää
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Tili luotu!</h2>
+        <div class="logged-in-user-info">
+          <p>Olet nyt kirjautuneena sisään käyttäjänä</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            Vahvistuslinkki on lähetetty sähköpostiisi
+          </p>
+          <p class="verification-notice">Ole hyvä ja vahvista sähköpostiosoitteesi</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Jatka tämän käyttäjänä
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+      <div class="browse-container">
+        <nav class="breadcrumbs" aria-label="breadcrumb">
+  <ol>
+    
+    <li >
+      
+      <a href="/juoksukalenteri">Juoksukalenteri</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li aria-current="page" >
+      
+      <span>Selaa kategorian mukaan</span>
+      
+    </li>
+    
+  </ol>
+</nav>
+        <nav class="browse-nav">
+          <a
+            href="/juoksukalenteri/selaa-kategorian-mukaan"
+            class="active"
+          >
+            Yleiskatsaus
+          </a>
+          <a
+            href="/juoksukalenteri/selaa-kategorian-mukaan/counties.html"
+            class=""
+          >
+            Lääni
+          </a>
+          <a
+            href="/juoksukalenteri/selaa-kategorian-mukaan/cities.html"
+            class=""
+          >
+            Kaupungit
+          </a>
+          <a
+            href="/juoksukalenteri/selaa-kategorian-mukaan/types.html"
+            class=""
+          >
+            Lopptyypit
+          </a>
+          <a
+            href="/juoksukalenteri/selaa-kategorian-mukaan/categories.html"
+            class=""
+          >
+            Kategoria
+          </a>
+        </nav>
+
+        
+<div class="browse-overview">
+  <h1>Selaa kaikkia juoksukilpailut</h1>
+  <p class="browse-description">Löydä juoksukilpailu alueittain, tyypeittäin tai kategorioittain</p>
+
+  <section class="browse-section">
+    <h2>Selaa maakuntia</h2>
+    <div class="browse-grid">
+      
+      <h3>
+        <a href="/juoksukalenteri/etela-karjala" class="browse-card">
+          Etelä-Karjala
+          <span class="count"
+            >(2 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/etela-pohjanmaa" class="browse-card">
+          Etelä-Pohjanmaa
+          <span class="count"
+            >(5 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/etela-savo" class="browse-card">
+          Etelä-Savo
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kainuu" class="browse-card">
+          Kainuu
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/keski-pohjanmaa" class="browse-card">
+          Keski-Pohjanmaa
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/keski-suomi" class="browse-card">
+          Keski-Suomi
+          <span class="count"
+            >(8 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kymenlaakso" class="browse-card">
+          Kymenlaakso
+          <span class="count"
+            >(2 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/lappi" class="browse-card">
+          Lappi
+          <span class="count"
+            >(2 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/pirkanmaa" class="browse-card">
+          Pirkanmaa
+          <span class="count"
+            >(7 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/pohjanmaa" class="browse-card">
+          Pohjanmaa
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/pohjois-pohjanmaa" class="browse-card">
+          Pohjois-Pohjanmaa
+          <span class="count"
+            >(4 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/pohjois-savo" class="browse-card">
+          Pohjois-Savo
+          <span class="count"
+            >(4 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/satakunta" class="browse-card">
+          Satakunta
+          <span class="count"
+            >(3 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/uusimaa" class="browse-card">
+          Uusimaa
+          <span class="count"
+            >(26 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/varsinais-suomi" class="browse-card">
+          Varsinais-Suomi
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+    </div>
+  </section>
+
+  <section class="browse-section">
+    <h2>Selaa kaupunkia</h2>
+    <div class="browse-grid">
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/anjala" class="browse-card">
+          Anjala
+          <span class="count"
+            >(3 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/ekenas" class="browse-card">
+          Ekenäs
+          <span class="count"
+            >(5 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/espoo" class="browse-card">
+          Espoo
+          <span class="count"
+            >(21 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/hamina" class="browse-card">
+          Hamina
+          <span class="count"
+            >(3 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/haukipudas" class="browse-card">
+          Haukipudas
+          <span class="count"
+            >(3 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/heinola" class="browse-card">
+          Heinola
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/helsinki" class="browse-card">
+          Helsinki
+          <span class="count"
+            >(20 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/hollola" class="browse-card">
+          Hollola
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/hyvinkaa" class="browse-card">
+          Hyvinkää
+          <span class="count"
+            >(13 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/ilmajoki" class="browse-card">
+          Ilmajoki
+          <span class="count"
+            >(4 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/imatra" class="browse-card">
+          Imatra
+          <span class="count"
+            >(2 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/joutseno" class="browse-card">
+          Joutseno
+          <span class="count"
+            >(2 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/jyvaskyla" class="browse-card">
+          Jyväskylä
+          <span class="count"
+            >(8 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/jamsa" class="browse-card">
+          Jämsä
+          <span class="count"
+            >(6 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/jarvenpaa" class="browse-card">
+          Järvenpää
+          <span class="count"
+            >(20 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/kaarela" class="browse-card">
+          Kaarela
+          <span class="count"
+            >(20 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/kaarina" class="browse-card">
+          Kaarina
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/kajaani" class="browse-card">
+          Kajaani
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/kallio" class="browse-card">
+          Kallio
+          <span class="count"
+            >(20 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/kangasala" class="browse-card">
+          Kangasala
+          <span class="count"
+            >(7 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/kankaanpaa" class="browse-card">
+          Kankaanpää
+          <span class="count"
+            >(3 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/karhula" class="browse-card">
+          Karhula
+          <span class="count"
+            >(3 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/kempele" class="browse-card">
+          Kempele
+          <span class="count"
+            >(3 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/kerava" class="browse-card">
+          Kerava
+          <span class="count"
+            >(20 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/keuruu" class="browse-card">
+          Keuruu
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/kiiminki" class="browse-card">
+          Kiiminki
+          <span class="count"
+            >(3 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/kirkkonummi" class="browse-card">
+          Kirkkonummi
+          <span class="count"
+            >(22 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/kokkola" class="browse-card">
+          Kokkola
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/korsholm" class="browse-card">
+          Korsholm
+          <span class="count"
+            >(2 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/kotka" class="browse-card">
+          Kotka
+          <span class="count"
+            >(2 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/kouvola" class="browse-card">
+          Kouvola
+          <span class="count"
+            >(3 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/kuopio" class="browse-card">
+          Kuopio
+          <span class="count"
+            >(4 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/kurikka" class="browse-card">
+          Kurikka
+          <span class="count"
+            >(4 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/lahti" class="browse-card">
+          Lahti
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/lappeenranta" class="browse-card">
+          Lappeenranta
+          <span class="count"
+            >(2 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/lapua" class="browse-card">
+          Lapua
+          <span class="count"
+            >(5 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/laukaa" class="browse-card">
+          Laukaa
+          <span class="count"
+            >(3 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/lauttasaari" class="browse-card">
+          Lauttasaari
+          <span class="count"
+            >(21 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/lempaala" class="browse-card">
+          Lempäälä
+          <span class="count"
+            >(7 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/leppavirta" class="browse-card">
+          Leppävirta
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/lieto" class="browse-card">
+          Lieto
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/lohja" class="browse-card">
+          Lohja
+          <span class="count"
+            >(15 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/loviisa" class="browse-card">
+          Loviisa
+          <span class="count"
+            >(5 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/lansi-turunmaa" class="browse-card">
+          Länsi-Turunmaa
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/mellunkyla" class="browse-card">
+          Mellunkylä
+          <span class="count"
+            >(17 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/mikkeli" class="browse-card">
+          Mikkeli
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/munkkiniemi" class="browse-card">
+          Munkkiniemi
+          <span class="count"
+            >(20 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/mantsala" class="browse-card">
+          Mäntsälä
+          <span class="count"
+            >(12 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/naantali" class="browse-card">
+          Naantali
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/nastola" class="browse-card">
+          Nastola
+          <span class="count"
+            >(2 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/nokia" class="browse-card">
+          Nokia
+          <span class="count"
+            >(7 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/nurmijarvi" class="browse-card">
+          Nurmijärvi
+          <span class="count"
+            >(20 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/nurmo" class="browse-card">
+          Nurmo
+          <span class="count"
+            >(4 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/orimattila" class="browse-card">
+          Orimattila
+          <span class="count"
+            >(4 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/oulu" class="browse-card">
+          Oulu
+          <span class="count"
+            >(3 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/paimio" class="browse-card">
+          Paimio
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/parainen" class="browse-card">
+          Parainen
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/pedersore" class="browse-card">
+          Pedersöre
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/pieksamaki" class="browse-card">
+          Pieksämäki
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/pietarsaari" class="browse-card">
+          Pietarsaari
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/pirkkala" class="browse-card">
+          Pirkkala
+          <span class="count"
+            >(7 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/pori" class="browse-card">
+          Pori
+          <span class="count"
+            >(3 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/porvoo" class="browse-card">
+          Porvoo
+          <span class="count"
+            >(18 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/raahe" class="browse-card">
+          Raahe
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/raisio" class="browse-card">
+          Raisio
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/rauma" class="browse-card">
+          Rauma
+          <span class="count"
+            >(3 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/riihimaki" class="browse-card">
+          Riihimäki
+          <span class="count"
+            >(3 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/rovaniemi" class="browse-card">
+          Rovaniemi
+          <span class="count"
+            >(2 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/salo" class="browse-card">
+          Salo
+          <span class="count"
+            >(2 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/seinajoki" class="browse-card">
+          Seinäjoki
+          <span class="count"
+            >(4 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/siilinjarvi" class="browse-card">
+          Siilinjärvi
+          <span class="count"
+            >(3 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/sipoo" class="browse-card">
+          Sipoo
+          <span class="count"
+            >(20 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/sotkamo" class="browse-card">
+          Sotkamo
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/tampere" class="browse-card">
+          Tampere
+          <span class="count"
+            >(7 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/turku" class="browse-card">
+          Turku
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/tuusula" class="browse-card">
+          Tuusula
+          <span class="count"
+            >(17 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/ulvila" class="browse-card">
+          Ulvila
+          <span class="count"
+            >(3 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/valkeakoski" class="browse-card">
+          Valkeakoski
+          <span class="count"
+            >(7 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/vammala" class="browse-card">
+          Vammala
+          <span class="count"
+            >(7 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/vantaa" class="browse-card">
+          Vantaa
+          <span class="count"
+            >(17 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/vasa" class="browse-card">
+          Vasa
+          <span class="count"
+            >(2 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/vihti" class="browse-card">
+          Vihti
+          <span class="count"
+            >(21 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/vuosaari" class="browse-card">
+          Vuosaari
+          <span class="count"
+            >(17 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/ylivieska" class="browse-card">
+          Ylivieska
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/ylojarvi" class="browse-card">
+          Ylöjärvi
+          <span class="count"
+            >(7 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaupungit/aanekoski" class="browse-card">
+          Äänekoski
+          <span class="count"
+            >(3 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+    </div>
+  </section>
+
+  <section class="browse-section">
+    <h2>Selaa juoksukilpailutyypin mukaan</h2>
+    <div class="browse-grid">
+      
+      <h3>
+        <a href="/juoksukalenteri/kaikki-maakunnat/aikajakso" class="browse-card">
+          Aikajakso
+          <span class="count"
+            >(2 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaikki-maakunnat/backyard-ultra" class="browse-card">
+          Backyard Ultra
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaikki-maakunnat/juoksurata" class="browse-card">
+          Juoksurata
+          <span class="count"
+            >(2 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaikki-maakunnat/maantie" class="browse-card">
+          Maantie
+          <span class="count"
+            >(50 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaikki-maakunnat/maasto" class="browse-card">
+          Maasto
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaikki-maakunnat/muut" class="browse-card">
+          Muut
+          <span class="count"
+            >(8 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/juoksukalenteri/kaikki-maakunnat/polku" class="browse-card">
+          Polku
+          <span class="count"
+            >(4 juoksukilpailu)</span
+          >
+        </a>
+      </h3>
+      
+    </div>
+  </section>
+
+  <section class="browse-section">
+    <h2>Selaa kategoriat mukaan</h2>
+    <div class="browse-grid">
+      
+      <a href="/juoksukalenteri/kaikki-maakunnat/kaikki-juoksutyylit/10-km" class="browse-card">
+        <h3>
+          10 km
+          <span class="count"
+            >(36 juoksukilpailu)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/juoksukalenteri/kaikki-maakunnat/kaikki-juoksutyylit/100-km" class="browse-card">
+        <h3>
+          100 km
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/juoksukalenteri/kaikki-maakunnat/kaikki-juoksutyylit/10000-meter" class="browse-card">
+        <h3>
+          10000 meter
+          <span class="count"
+            >(34 juoksukilpailu)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/juoksukalenteri/kaikki-maakunnat/kaikki-juoksutyylit/1500-meter" class="browse-card">
+        <h3>
+          1500 meter
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/juoksukalenteri/kaikki-maakunnat/kaikki-juoksutyylit/3000-meter" class="browse-card">
+        <h3>
+          3000 meter
+          <span class="count"
+            >(4 juoksukilpailu)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/juoksukalenteri/kaikki-maakunnat/kaikki-juoksutyylit/5-km" class="browse-card">
+        <h3>
+          5 km
+          <span class="count"
+            >(45 juoksukilpailu)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/juoksukalenteri/kaikki-maakunnat/kaikki-juoksutyylit/50-km" class="browse-card">
+        <h3>
+          50 km
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/juoksukalenteri/kaikki-maakunnat/kaikki-juoksutyylit/5000-meter" class="browse-card">
+        <h3>
+          5000 meter
+          <span class="count"
+            >(33 juoksukilpailu)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/juoksukalenteri/kaikki-maakunnat/kaikki-juoksutyylit/marathon" class="browse-card">
+        <h3>
+          Marathon
+          <span class="count"
+            >(1 juoksukilpailu)</span
+          >
+        </h3>
+      </a>
+      
+    </div>
+  </section>
+</div>
+
+      </div>
+
+       
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

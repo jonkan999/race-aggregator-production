@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Alt om løb i Danmark</title>
+    <meta
+      name="description"
+      content="Lobskalender | Mest omfattende løbercommunity i Danmark"
+    />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/hero.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <link rel="stylesheet" href="/css/selected-forum-posts.css" />
+    <link rel="stylesheet" href="/css/selected-forum-post-card.css" />
+    <link rel="stylesheet" href="/css/about-contact.css" />
+    <link rel="stylesheet" href="/css/privacy.css" />
+     
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    
+  </head>
+  <body>
+    <!-- Page content -->
+    <main> <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Lobskalender</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Log ind
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Alt</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/lobekalender"
+      ><span class="nav-item">Løbekalender</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/tilfoj-lob"
+      ><span class="nav-item">Tilføj løb</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/forum"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/mal-din-rute"
+      ><span class="nav-item">Mål din rute</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/traningsprogram"
+      ><span class="nav-item">Træningsprogram</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/fartomformer"
+      ><span class="nav-item">Fartomformer</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/vurder-din-sluttid"
+      ><span class="nav-item">Vurder din sluttid</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/om-os"
+      ><span class="nav-item">Om os</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/kontakt-os"
+      ><span class="nav-item">Kontakt os</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Log ind</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Din e-mail"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Adgangskode"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Glemt adgangskode?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Opret konto i stedet
+            </a>
+          </div>
+          <button type="submit">Log ind</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Opret konto
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Glemt adgangskode?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Opret konto</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Dit navn"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Din e-mail"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Adgangskode"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Opret konto</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Tilbage til login
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Nulstil adgangskode</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Din e-mail"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Send nulstillingslink</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Tilbage til login
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Du er allerede logget ind som</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Fortsæt som denne bruger
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Log ud og skift bruger
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto oprettet!</h2>
+        <div class="logged-in-user-info">
+          <p>Du er nu logget ind som</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            En verificeringslink er blevet sendt til din e-mail
+          </p>
+          <p class="verification-notice">Venligst verificer din e-mailadresse</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Fortsæt som denne bruger
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section> <section class="section section-hero background-container">
+  <div class="overlay gradient"></div>
+  <!-- cycle through 4 inspirational hero pictures one marathon one trail and one "fun run" hero1 hero2 hero3 -->
+  <picture>
+    <source
+      srcset="/images/hero_xlarge.webp"
+      media="(min-width: 1280px)"
+    />
+    <source
+      srcset="/images/hero_large.webp"
+      media="(min-width: 960px)"
+    />
+    <source
+      srcset="/images/hero_medium.webp"
+      media="(min-width: 640px)"
+    />
+    <source
+      srcset="/images/hero_small.webp"
+      media="(max-width: 320px)"
+    />
+    <img src="/images/hero_xlarge.webp" alt="Hero Image" class="background-img" />
+  </picture>
+
+  <div class="hero-content">
+    <div class="title-container">
+      <h1 class="native-title">Alt om løb i
+      <span class="native-country new-amsterdam">Danmark</span></h1>
+    </div>
+    <ul class="bullet-list">
+      <li>
+        <a href="/lobekalender" class="full-link"> 
+          <ion-icon name="search-outline" role="img"></ion-icon>
+          Find dit næste løb
+
+        </a>
+      </li>
+      <li>
+        <a href="/tilfoj-lob" class="full-link">
+          - Eller tilføj dette
+
+        </a>
+      </li>
+      <li>
+        <a href="/forum" class="full-link">
+          <ion-icon name="chatbox-ellipses-outline" role="img"></ion-icon>  
+          Læs det seneste eller tal ud i vores forum
+
+        </a>
+      </li>
+    </ul>
+  </div>
+<!--     <button onclick="location.href='/race-list'">Find Løb</button>
+    <button onclick="location.href='/add-races'">Tilføj et Løb</button> -->
+  </div>
+</section> <section class="section section-selected-races">
+  <h2 class="section-header">Udvalgte Løb</h2>
+  <div class="race-card-big-container right-scroller">
+      <a
+  href="/løbsider/lnbk_ringkobing_fjord_winter_edition"
+  class="race-card-big race-card"
+  data-name="LNBK Ringkøbing Fjord Winter Edition"
+  data-date="20250111"
+  data-county="Midtjylland"
+  data-category=""
+  data-race-type="Terræn"
+  data-distance="50km, 100km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/lnbk_ringkobing_fjord_winter_edition/lnbk_ringkobing_fjord_winter_edition_1.webp"
+        alt="Billede tilLNBK Ringkøbing Fjord Winter Edition"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          11 jan.
+        </div>
+        <div class="race-location">
+          Midtjylland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Terræn
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                50 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                100 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">LNBK Ringkøbing Fjord Winter Edition</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Til løbsiden</div>
+    </div>
+  </div>
+</a>    <a
+  href="/løbsider/vintercup_vestfyn_brylle"
+  class="race-card-big race-card"
+  data-name="Vintercup Vestfyn Brylle"
+  data-date="20250112"
+  data-county="Syddanmark"
+  data-category=""
+  data-race-type="Andet"
+  data-distance="5km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/vintercup_vestfyn_brylle/vintercup_vestfyn_brylle_1.webp"
+        alt="Billede tilVintercup Vestfyn Brylle"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          12 jan.
+        </div>
+        <div class="race-location">
+          Syddanmark
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Andet
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Vintercup Vestfyn Brylle</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Til løbsiden</div>
+    </div>
+  </div>
+</a>    <a
+  href="/løbsider/taastrup_lobet_594"
+  class="race-card-big race-card"
+  data-name="Taastrup Løbet 594"
+  data-date="20250112"
+  data-county="København"
+  data-category=""
+  data-race-type="Landsvej"
+  data-distance="2km, 5km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/taastrup_lobet_594/taastrup_lobet_594_1.webp"
+        alt="Billede tilTaastrup Løbet 594"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          12 jan.
+        </div>
+        <div class="race-location">
+          København
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landsvej
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                2 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Taastrup Løbet 594</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Til løbsiden</div>
+    </div>
+  </div>
+</a>    <a
+  href="/løbsider/epic_north_run"
+  class="race-card-big race-card"
+  data-name="EPIC NORTH RUN"
+  data-date="20250118"
+  data-county="Midtjylland"
+  data-category=""
+  data-race-type="Landsvej"
+  data-distance=""
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/epic_north_run/epic_north_run_1.webp"
+        alt="Billede tilEPIC NORTH RUN"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          18 jan.
+        </div>
+        <div class="race-location">
+          Midtjylland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landsvej
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Blandet afstand
+              </span>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">EPIC NORTH RUN</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Til løbsiden</div>
+    </div>
+  </div>
+</a>    <a
+  href="/løbsider/limited_winter_run"
+  class="race-card-big race-card"
+  data-name="Limited Winter Run"
+  data-date="20250118"
+  data-county="Midtjylland"
+  data-category=""
+  data-race-type="Landsvej"
+  data-distance="10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/limited_winter_run/limited_winter_run_1.webp"
+        alt="Billede tilLimited Winter Run"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          18 jan.
+        </div>
+        <div class="race-location">
+          Midtjylland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landsvej
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Limited Winter Run</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Til løbsiden</div>
+    </div>
+  </div>
+</a>    <a
+  href="/løbsider/guut100_winter_edition"
+  class="race-card-big race-card"
+  data-name="GUUT100 Winter Edition"
+  data-date="20250118"
+  data-county="København"
+  data-category=""
+  data-race-type="Trailløb"
+  data-distance="103,3km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/guut100_winter_edition/guut100_winter_edition_1.webp"
+        alt="Billede tilGUUT100 Winter Edition"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          18 jan.
+        </div>
+        <div class="race-location">
+          København
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trailløb
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                103,3 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">GUUT100 Winter Edition</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Til løbsiden</div>
+    </div>
+  </div>
+</a>    <a
+  href="/løbsider/brownbear_5k"
+  class="race-card-big race-card"
+  data-name="BrownBear 5k"
+  data-date="20250118"
+  data-county="Midtjylland"
+  data-category=""
+  data-race-type="Trailløb"
+  data-distance="5km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/brownbear_5k/brownbear_5k_1.webp"
+        alt="Billede tilBrownBear 5k"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          18 jan.
+        </div>
+        <div class="race-location">
+          Midtjylland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trailløb
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">BrownBear 5k</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Til løbsiden</div>
+    </div>
+  </div>
+</a>    <a
+  href="/løbsider/sydvest_crosslob_ormen_i_lustrup"
+  class="race-card-big race-card"
+  data-name="Sydvest Crossløb - Ormen i Lustrup"
+  data-date="20250118"
+  data-county="Syddanmark"
+  data-category=""
+  data-race-type="Terræn"
+  data-distance="7,5km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/sydvest_crosslob_ormen_i_lustrup/sydvest_crosslob_ormen_i_lustrup_1.webp"
+        alt="Billede tilSydvest Crossløb - Ormen i Lustrup"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          18 jan.
+        </div>
+        <div class="race-location">
+          Syddanmark
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Terræn
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                7,5 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Sydvest Crossløb - Ormen i Lustrup</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Til løbsiden</div>
+    </div>
+  </div>
+</a>    <a
+  href="/løbsider/dgi_storstrommen_crosslob"
+  class="race-card-big race-card"
+  data-name="DGI Storstrømmen Crossløb"
+  data-date="20250119"
+  data-county="Sjælland"
+  data-category=""
+  data-race-type="Terræn"
+  data-distance="4km, 8km, 12km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/dgi_storstrommen_crosslob/dgi_storstrommen_crosslob_1.webp"
+        alt="Billede tilDGI Storstrømmen Crossløb"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          19 jan.
+        </div>
+        <div class="race-location">
+          Sjælland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Terræn
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                4 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                8 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                12 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">DGI Storstrømmen Crossløb</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Til løbsiden</div>
+    </div>
+  </div>
+</a>    <a
+  href="/løbsider/nytarsforsaet_lobet_vol_2"
+  class="race-card-big race-card"
+  data-name="Nytårsforsæt Løbet Vol. 2"
+  data-date="20250122"
+  data-county="Nordjylland"
+  data-category=""
+  data-race-type="Landsvej"
+  data-distance="5km, half marathon"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/nytarsforsaet_lobet_vol_2/nytarsforsaet_lobet_vol_2_1.webp"
+        alt="Billede tilNytårsforsæt Løbet Vol. 2"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          22 jan.
+        </div>
+        <div class="race-location">
+          Nordjylland
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Landsvej
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Halvmarathon
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Nytårsforsæt Løbet Vol. 2</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Til løbsiden</div>
+    </div>
+  </div>
+</a>  
+  </div>
+  <div class="selected-races-button-container">
+    <!-- eslint-disable-next-line -->
+    <button class="selected-races-button" id="selected-races-button">
+      Vis alle løb
+    </button>
+    <script>
+      // JavaScript logic to handle the button click
+      document.getElementById('selected-races-button').onclick = function () {
+        location.href =
+          '/lobekalender';
+      };
+    </script>
+  </div>
+</section> <section class="section section-selected-forum-posts">
+  <h2 class="section-header">Forum</h2>
+  <div class="selected-forum-posts-container">
+     <a href="/forum/skador/c2d708ad-4f40-4024-9dd3-057891e81408/" class="forum-post-card">
+  <div class="forum-post-upper-box">
+    <div class="forum-post-content">
+      <div class="forum-info-top">
+        <div class="icon-category-container">
+          <div class="forum-post-icon">
+            <ion-icon name="chatbubbles-outline"></ion-icon>
+          </div>
+          <div class="forum-author">/Træningstips</div>
+        </div>
+        <div class="forum-time">• 2024-08-25</div>
+      </div>
+
+      <div class="forum-info-middle">Som overskriften lyder, jeg har begyndt at få ondt i hælen når jeg løber. Tips til rehabøvelser?</div>
+    </div>
+  </div>
+
+  <div class="forum-comments">
+    2 Kommentarer
+  </div>
+</a>  <a href="/forum/resor/ba58801a-004f-4cd4-9746-b3505ad792d7/" class="forum-post-card">
+  <div class="forum-post-upper-box">
+    <div class="forum-post-content">
+      <div class="forum-info-top">
+        <div class="icon-category-container">
+          <div class="forum-post-icon">
+            <ion-icon name="chatbubbles-outline"></ion-icon>
+          </div>
+          <div class="forum-author">/Rejser og rejserelateret</div>
+        </div>
+        <div class="forum-time">• 2024-08-26</div>
+      </div>
+
+      <div class="forum-info-middle">Jeg planlægger en løb/vandringstur i Sverige og ville gerne høre jeres anbefalinger om de bedste ruter. Tager gerne imod tips om ruter over hele Sverige.</div>
+    </div>
+  </div>
+
+  <div class="forum-comments">
+    2 Kommentarer
+  </div>
+</a> 
+  </div>
+  <div class="selected-races-button-container">
+    <button class="selected-races-button" id="forum-button">
+      Vis Alle Indlæg
+    </button>
+    <script>
+      // JavaScript logic to handle the button click
+      document.getElementById('forum-button').onclick = function () {
+        location.href = '/forum';
+      };
+    </script>
+  </div>
+</section> </main>
+
+     
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="/js/index.js"></script>
+    
+  </body>
+</html>

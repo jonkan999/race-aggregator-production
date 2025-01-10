@@ -1,0 +1,104 @@
+<section class="section section-race-cards">
+  <!-- Static SEO-friendly version (initially visible) -->
+  <h1
+    id="race-cards-title"
+    class="section-header section-header-race-cards static-header"
+  >
+    {{ race_list_title }} {{ '' | get_years }}
+  </h1>
+
+  <!-- Dynamic version (initially hidden) -->
+  <h1
+    id="race-cards-title-dynamic"
+    class="section-header section-header-race-cards dynamic-header"
+    style="display: none"
+  >
+    {{ section_race_card_category_prefix }}
+    <span id="race-cards-title-category"></span>
+    {{ section_race_card_category_suffix }}
+    <span id="race-cards-title-separator"
+      >{{ section_race_card_header_separator }}</span
+    >
+    <span id="race-cards-title-region"
+      >{{ section_race_card_header_region_default }}</span
+    >
+    <span id="date-range"></span>
+  </h1>
+
+  <!-- Add a descriptive paragraph for additional SEO value -->
+  <p class="section-description static-description">
+    {{ race_list_meta_description_1 }} {{ race_list_meta_description_2 }}
+  </p>
+
+  <div class="race-cards-selector">
+    <div
+      class="race-cards-grid"
+      id="race-cards-container"
+      {%
+      if
+      preselected_filters
+      %}
+      data-preselected-filters="{{ preselected_filters|tojson }}"
+      {%
+      endif
+      %}
+    >
+      {# First page content #} {% for race in races[:2] %} {% with unpack=true
+      %} {% include 'components/race-card.html' %} {% endwith %} {% endfor %} {#
+      Selected races section #} {% set selected_races =
+      get_selected_races(races) %} {% if races|length >= 3 and selected_races %}
+      <section class="section section-selected-races in-grid">
+        <div class="section-header-container">
+          <h2 class="section-header">{{ selected_races_title }}</h2>
+          <div class="scroll-buttons">
+            <button class="scroll-button prev" aria-label="Previous" disabled>
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </button>
+            <button class="scroll-button next" aria-label="Next">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+        <div class="race-card-big-container right-scroller">
+          {% for race in selected_races %} {% include
+          'components/race-card-big.html' %} {% endfor %}
+        </div>
+      </section>
+      {% endif %} {# Remaining regular cards #} {% for race in races[2:] %} {%
+      with unpack=loop.index < 25 %} {# 1 because we already showed 2 cards
+      above #} {% include 'components/race-card.html' %} {% endwith %} {% endfor
+      %}
+
+      <!-- Add pagination controls -->
+      <div class="pagination-info">
+        <span id="event-range">{{ pagination.results_text }}</span>
+        <span id="total-events">{{ pagination.events_text }}</span>
+      </div>
+      <div class="pagination">
+        <button id="prev-page">{{ pagination.previous_text }}</button>
+        <div id="page-numbers"></div>
+        <button id="next-page">{{ pagination.next_text }}</button>
+      </div>
+    </div>
+    <div
+      class="map-placeholder"
+      id="map-placeholder"
+      data-latitude="{{ mapbox_center.latitude }}"
+      data-longitude="{{ mapbox_center.longitude }}"
+      data-zoom="{{ race_page_map_zoom }}"
+    >
+      <!-- Map will be inserted here -->
+    </div>
+  </div>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>{{ map_toggle_mobile }}</p>
+</button>

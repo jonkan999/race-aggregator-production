@@ -1,0 +1,37 @@
+{% extends "browse/browse_layout.html" %} {% block browse_content %}
+<div class="browse-categories">
+  <h1>{{ browse_categories.title }}</h1>
+  <p class="browse-description">{{ browse_categories.meta_description }}</p>
+
+  <div class="browse-grid">
+    {% for category, data in structure.categories|dictsort %}
+    <div class="category-card">
+      <h2>
+        <a href="{{ data.href }}"> {{ category }} </a>
+        <span class="count">({{ data.count }} {{ local_name_for_race }})</span>
+      </h2>
+
+      <div class="category-stats">
+        <div class="popular-types">
+          <ul>
+            {% for type, type_data in structure.types|dictsort %} {% if
+            type_data.categories[category].count > 0 %}
+            <li>
+              <h3>
+                <a href="{{ type_data.categories[category].href }}">
+                  {{ type }}
+                </a>
+                <span class="count"
+                  >({{ type_data.categories[category].count }})</span
+                >
+              </h3>
+            </li>
+            {% endif %} {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

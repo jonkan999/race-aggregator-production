@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Bladre blant alle løp</title>
+    <meta name="description" content="Finn løp etter fylke, type eller kategori" />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/race-list-filter.css" />
+    <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card-big.css" />
+    <link rel="stylesheet" href="/css/race-cards.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+    <script src="/js/raceList.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+    <script defer="" src="/js/raceListToggleButton.js"></script>
+    <script defer="" src="/js/raceListToggleMap.js"></script>
+  </head>
+  <body>
+    <!-- Page content -->
+    <main>
+       <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Lopskalender</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Logg inn
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Alt</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/terminliste"
+      ><span class="nav-item">Terminliste</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/legg-til-lop"
+      ><span class="nav-item">Legg til løp</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/forum"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/mal-ruten-din"
+      ><span class="nav-item">Mål ruten din</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/treningsprogram"
+      ><span class="nav-item">Treningsprogram</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/fartkalkulator"
+      ><span class="nav-item">Fartkalkulator</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/estimer-sluttiden-din"
+      ><span class="nav-item">Estimér sluttiden din</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/om-oss"
+      ><span class="nav-item">Om oss</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/kontakt-oss"
+      ><span class="nav-item">Kontakt oss</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Logg inn</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Passord"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Glemt passord?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Opprett konto i stedet
+            </a>
+          </div>
+          <button type="submit">Logg inn</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Opprett konto
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Glemt passord?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Opprett konto</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Ditt navn"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Passord"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Opprett konto</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Tilbake til innlogging
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Tilbakestill passord</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Send tilbakestillingslink</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Tilbake til innlogging
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Du er allerede logget inn som</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Fortsett som denne brukeren
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Logg ut og bytt bruker
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto opprettet!</h2>
+        <div class="logged-in-user-info">
+          <p>Du er nå logget inn som</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            En verifiseringslink har blitt sendt til din e-post
+          </p>
+          <p class="verification-notice">Vennligst bekreft e-postadressen din</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Fortsett som denne brukeren
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+      <div class="browse-container">
+        <nav class="breadcrumbs" aria-label="breadcrumb">
+  <ol>
+    
+    <li >
+      
+      <a href="/terminliste">Terminliste</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li aria-current="page" >
+      
+      <span>Bla etter kategori</span>
+      
+    </li>
+    
+  </ol>
+</nav>
+        <nav class="browse-nav">
+          <a
+            href="/terminliste/bla-etter-kategori"
+            class="active"
+          >
+            Oversikt
+          </a>
+          <a
+            href="/terminliste/bla-etter-kategori/counties.html"
+            class=""
+          >
+            Fylker
+          </a>
+          <a
+            href="/terminliste/bla-etter-kategori/cities.html"
+            class=""
+          >
+            Byer
+          </a>
+          <a
+            href="/terminliste/bla-etter-kategori/types.html"
+            class=""
+          >
+            Løpstyper
+          </a>
+          <a
+            href="/terminliste/bla-etter-kategori/categories.html"
+            class=""
+          >
+            Kategorier
+          </a>
+        </nav>
+
+        
+<div class="browse-overview">
+  <h1>Bladre blant alle løp</h1>
+  <p class="browse-description">Finn løp etter fylke, type eller kategori</p>
+
+  <section class="browse-section">
+    <h2>Bladre etter fylke</h2>
+    <div class="browse-grid">
+      
+      <h3>
+        <a href="/terminliste/agder" class="browse-card">
+          Agder
+          <span class="count"
+            >(13 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/innlandet" class="browse-card">
+          Innlandet
+          <span class="count"
+            >(32 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/more-og-romsdal" class="browse-card">
+          Møre og Romsdal
+          <span class="count"
+            >(15 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/nordland" class="browse-card">
+          Nordland
+          <span class="count"
+            >(11 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/oslo" class="browse-card">
+          Oslo
+          <span class="count"
+            >(26 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/rogaland" class="browse-card">
+          Rogaland
+          <span class="count"
+            >(23 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/troms-og-finnmark" class="browse-card">
+          Troms og Finnmark
+          <span class="count"
+            >(15 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/trondelag" class="browse-card">
+          Trøndelag
+          <span class="count"
+            >(20 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/vestfold-og-telemark" class="browse-card">
+          Vestfold og Telemark
+          <span class="count"
+            >(10 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/vestland" class="browse-card">
+          Vestland
+          <span class="count"
+            >(75 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/viken" class="browse-card">
+          Viken
+          <span class="count"
+            >(64 løp)</span
+          >
+        </a>
+      </h3>
+      
+    </div>
+  </section>
+
+  <section class="browse-section">
+    <h2>Bladre etter by</h2>
+    <div class="browse-grid">
+      
+      <h3>
+        <a href="/terminliste/byer/alta" class="browse-card">
+          Alta
+          <span class="count"
+            >(6 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/arendal" class="browse-card">
+          Arendal
+          <span class="count"
+            >(10 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/askim" class="browse-card">
+          Askim
+          <span class="count"
+            >(71 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/askoy" class="browse-card">
+          Askøy
+          <span class="count"
+            >(68 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/bergen" class="browse-card">
+          Bergen
+          <span class="count"
+            >(73 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/bodo" class="browse-card">
+          Bodø
+          <span class="count"
+            >(8 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/drammen" class="browse-card">
+          Drammen
+          <span class="count"
+            >(77 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/drobak" class="browse-card">
+          Drøbak
+          <span class="count"
+            >(78 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/elverum" class="browse-card">
+          Elverum
+          <span class="count"
+            >(33 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/fredrikstad" class="browse-card">
+          Fredrikstad
+          <span class="count"
+            >(55 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/gjovik" class="browse-card">
+          Gjøvik
+          <span class="count"
+            >(40 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/halden" class="browse-card">
+          Halden
+          <span class="count"
+            >(24 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/hamar" class="browse-card">
+          Hamar
+          <span class="count"
+            >(39 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/harstad" class="browse-card">
+          Harstad
+          <span class="count"
+            >(5 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/haugesund" class="browse-card">
+          Haugesund
+          <span class="count"
+            >(25 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/horten" class="browse-card">
+          Horten
+          <span class="count"
+            >(64 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/honefoss" class="browse-card">
+          Hønefoss
+          <span class="count"
+            >(97 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/jessheim" class="browse-card">
+          Jessheim
+          <span class="count"
+            >(84 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/kongsberg" class="browse-card">
+          Kongsberg
+          <span class="count"
+            >(59 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/kongsvinger" class="browse-card">
+          Kongsvinger
+          <span class="count"
+            >(60 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/kristiansand" class="browse-card">
+          Kristiansand
+          <span class="count"
+            >(13 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/kristiansund" class="browse-card">
+          Kristiansund
+          <span class="count"
+            >(7 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/larvik" class="browse-card">
+          Larvik
+          <span class="count"
+            >(21 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/leirvik" class="browse-card">
+          Leirvik
+          <span class="count"
+            >(71 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/lillehammer" class="browse-card">
+          Lillehammer
+          <span class="count"
+            >(29 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/lillestrom" class="browse-card">
+          Lillestrøm
+          <span class="count"
+            >(74 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/mandal" class="browse-card">
+          Mandal
+          <span class="count"
+            >(12 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/molde" class="browse-card">
+          Molde
+          <span class="count"
+            >(14 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/moss" class="browse-card">
+          Moss
+          <span class="count"
+            >(66 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/narvik" class="browse-card">
+          Narvik
+          <span class="count"
+            >(4 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/nesoddtangen" class="browse-card">
+          Nesoddtangen
+          <span class="count"
+            >(75 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/oslo" class="browse-card">
+          Oslo
+          <span class="count"
+            >(75 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/porsgrunn" class="browse-card">
+          Porsgrunn
+          <span class="count"
+            >(19 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/sandefjord" class="browse-card">
+          Sandefjord
+          <span class="count"
+            >(29 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/sandnes" class="browse-card">
+          Sandnes
+          <span class="count"
+            >(22 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/sarpsborg" class="browse-card">
+          Sarpsborg
+          <span class="count"
+            >(56 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/ski" class="browse-card">
+          Ski
+          <span class="count"
+            >(76 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/skien" class="browse-card">
+          Skien
+          <span class="count"
+            >(24 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/stavanger" class="browse-card">
+          Stavanger
+          <span class="count"
+            >(23 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/steinkjer" class="browse-card">
+          Steinkjer
+          <span class="count"
+            >(16 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/stjordalshalsen" class="browse-card">
+          Stjørdalshalsen
+          <span class="count"
+            >(17 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/tromso" class="browse-card">
+          Tromsø
+          <span class="count"
+            >(8 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/trondheim" class="browse-card">
+          Trondheim
+          <span class="count"
+            >(18 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/tonsberg" class="browse-card">
+          Tønsberg
+          <span class="count"
+            >(56 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/vennesla" class="browse-card">
+          Vennesla
+          <span class="count"
+            >(13 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/ytrebygda" class="browse-card">
+          Ytrebygda
+          <span class="count"
+            >(68 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/byer/alesund" class="browse-card">
+          Ålesund
+          <span class="count"
+            >(15 løp)</span
+          >
+        </a>
+      </h3>
+      
+    </div>
+  </section>
+
+  <section class="browse-section">
+    <h2>Bladre etter løptyp</h2>
+    <div class="browse-grid">
+      
+      <h3>
+        <a href="/terminliste/alle-fylker/annet" class="browse-card">
+          Annet
+          <span class="count"
+            >(20 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/alle-fylker/backyard-ultra" class="browse-card">
+          Backyard Ultra
+          <span class="count"
+            >(3 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/alle-fylker/landevei" class="browse-card">
+          Landevei
+          <span class="count"
+            >(160 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/alle-fylker/lopebane" class="browse-card">
+          Løpebane
+          <span class="count"
+            >(13 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/alle-fylker/stafett" class="browse-card">
+          Stafett
+          <span class="count"
+            >(11 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/alle-fylker/terreng" class="browse-card">
+          Terreng
+          <span class="count"
+            >(67 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/alle-fylker/tidslop" class="browse-card">
+          Tidsløp
+          <span class="count"
+            >(3 løp)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/terminliste/alle-fylker/trailfjellop" class="browse-card">
+          Trail/Fjelløp
+          <span class="count"
+            >(28 løp)</span
+          >
+        </a>
+      </h3>
+      
+    </div>
+  </section>
+
+  <section class="browse-section">
+    <h2>Bladre etter kategori</h2>
+    <div class="browse-grid">
+      
+      <a href="/terminliste/alle-fylker/alle-lopstyper/10-km" class="browse-card">
+        <h3>
+          10 km
+          <span class="count"
+            >(129 løp)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/terminliste/alle-fylker/alle-lopstyper/100-km" class="browse-card">
+        <h3>
+          100 km
+          <span class="count"
+            >(6 løp)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/terminliste/alle-fylker/alle-lopstyper/100-miles" class="browse-card">
+        <h3>
+          100 miles
+          <span class="count"
+            >(5 løp)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/terminliste/alle-fylker/alle-lopstyper/10000-meter" class="browse-card">
+        <h3>
+          10000 meter
+          <span class="count"
+            >(117 løp)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/terminliste/alle-fylker/alle-lopstyper/1500-meter" class="browse-card">
+        <h3>
+          1500 meter
+          <span class="count"
+            >(4 løp)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/terminliste/alle-fylker/alle-lopstyper/200-miles" class="browse-card">
+        <h3>
+          200 miles
+          <span class="count"
+            >(1 løp)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/terminliste/alle-fylker/alle-lopstyper/3000-meter" class="browse-card">
+        <h3>
+          3000 meter
+          <span class="count"
+            >(19 løp)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/terminliste/alle-fylker/alle-lopstyper/5-km" class="browse-card">
+        <h3>
+          5 km
+          <span class="count"
+            >(163 løp)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/terminliste/alle-fylker/alle-lopstyper/50-km" class="browse-card">
+        <h3>
+          50 km
+          <span class="count"
+            >(16 løp)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/terminliste/alle-fylker/alle-lopstyper/50-miles" class="browse-card">
+        <h3>
+          50 miles
+          <span class="count"
+            >(14 løp)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/terminliste/alle-fylker/alle-lopstyper/5000-meter" class="browse-card">
+        <h3>
+          5000 meter
+          <span class="count"
+            >(115 løp)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/terminliste/alle-fylker/alle-lopstyper/halvmaraton" class="browse-card">
+        <h3>
+          Halvmaraton
+          <span class="count"
+            >(72 løp)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/terminliste/alle-fylker/alle-lopstyper/maraton" class="browse-card">
+        <h3>
+          Maraton
+          <span class="count"
+            >(38 løp)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/terminliste/alle-fylker/alle-lopstyper/millop" class="browse-card">
+        <h3>
+          Milløp
+          <span class="count"
+            >(129 løp)</span
+          >
+        </h3>
+      </a>
+      
+    </div>
+  </section>
+</div>
+
+      </div>
+
+       
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

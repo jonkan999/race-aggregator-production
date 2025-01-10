@@ -1,0 +1,39 @@
+.section-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: black;
+  overflow: hidden;
+  /* Ensure the overlay stays within the bounds */
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--color-primary-overlay-hard), var(--color-primary-overlay-medium));
+  z-index: 1;
+  pointer-events: none;
+  /* Allow interaction with content below the overlay */
+}
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  /* Ensure image is below the overlay */
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  /* Ensure content is above the overlay and image */
+}
