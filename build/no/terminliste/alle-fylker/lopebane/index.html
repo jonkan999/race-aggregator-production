@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste", "@type": "WebPage", "name": "Terminliste"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/lopebane", "@type": "WebPage", "name": "L\u00f8pebane"}, "position": 2}]}, "visual": [{"href": "/terminliste", "name": "Terminliste"}, {"href": "/terminliste/lopebane", "name": "L\u00f8pebane"}]}
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "SiteNavigationElement", "description": "Vis 9 5 km L\u00f8p", "name": "5 km", "numberOfItems": 9, "url": "https://lopskalender.com/terminliste/alle-fylker/lopebane/5-km"}, {"@type": "SiteNavigationElement", "description": "Vis 7 10 km L\u00f8p", "name": "10 km", "numberOfItems": 7, "url": "https://lopskalender.com/terminliste/alle-fylker/lopebane/10-km"}, {"@type": "SiteNavigationElement", "description": "Vis 2 maraton L\u00f8p", "name": "Maraton", "numberOfItems": 2, "url": "https://lopskalender.com/terminliste/alle-fylker/lopebane/maraton"}], "numberOfItems": 3}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "SiteNavigationElement", "description": "Vis 8 5 km L\u00f8p", "name": "5 km", "numberOfItems": 8, "url": "https://lopskalender.com/terminliste/alle-fylker/lopebane/5-km"}, {"@type": "SiteNavigationElement", "description": "Vis 6 10 km L\u00f8p", "name": "10 km", "numberOfItems": 6, "url": "https://lopskalender.com/terminliste/alle-fylker/lopebane/10-km"}, {"@type": "SiteNavigationElement", "description": "Vis 2 maraton L\u00f8p", "name": "Maraton", "numberOfItems": 2, "url": "https://lopskalender.com/terminliste/alle-fylker/lopebane/maraton"}], "numberOfItems": 3}
     </script>
       
     <script type="application/ld+json">
@@ -15,6 +16,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -22,24 +24,48 @@
     />
     <title>Løpskalender Løpebane: Finn ditt neste løp i Norge!</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -48,26 +74,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -320,10 +384,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Fra:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Til:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -567,13 +631,13 @@
       
       <li>
         <a href="/terminliste/alle-fylker/lopebane/5-km" class="race-type-link">
-          5 km (9)
+          5 km (8)
         </a>
       </li>
       
       <li>
         <a href="/terminliste/alle-fylker/lopebane/10-km" class="race-type-link">
-          10 km (7)
+          10 km (6)
         </a>
       </li>
       
@@ -587,7 +651,7 @@
   </nav>
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     løp
@@ -600,18 +664,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -620,7 +672,9 @@
       data-preselected-filters="{&quot;category&quot;: null, &quot;county&quot;: null, &quot;race_type&quot;: &quot;L\u00f8pebane&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/hagemanns_hill_mile"
   class="race-card"
   data-name="Hagemanns Hill Mile"
@@ -631,15 +685,23 @@
   data-distance="6,7km, 200km"
   data-latitude="59.03523369999999"
   data-longitude="5.9398998"
+  data-location="Solbakken Kunstgressbane"
+  data-description="HAGEMANNS HILL MILE er et spennende løp som finner sted på Solbakken Kunstgressbane i Svelvik. Dette løpet gir deltakerne en unik mulighet t"
+  data-image-path="/løpssider/hagemanns_hill_mile/hagemanns_hill_mile"
+  data-type="track"
+  data-type-display="Løpebane"
+  data-date-display="11 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/hagemanns_hill_mile/hagemanns_hill_mile_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/hagemanns_hill_mile/hagemanns_hill_mile_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Hagemanns Hill Mile"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -660,7 +722,7 @@
       <div class="left-container">
         <h3 class="race-name">Hagemanns Hill Mile</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -671,7 +733,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -707,11 +769,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/bislett_indoor_marathon"
   class="race-card"
   data-name="Bislett Indoor Marathon"
@@ -722,15 +787,23 @@
   data-distance="3km, 5km, 10km, half marathon, marathon, 50km"
   data-latitude="59.92555209999999"
   data-longitude="10.7342752"
+  data-location="Bislett Stadion"
+  data-description="Bislett Indoor Marathon er en innendørs løpekonkurranse som finner sted på Bislett stadion i Oslo. Deltakerne kan velge mellom flere distans"
+  data-image-path="/løpssider/bislett_indoor_marathon/bislett_indoor_marathon"
+  data-type="track"
+  data-type-display="Løpebane"
+  data-date-display="7 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/bislett_indoor_marathon/bislett_indoor_marathon_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/bislett_indoor_marathon/bislett_indoor_marathon_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Bislett Indoor Marathon"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -818,7 +891,8 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Utvalgte Løp</h2>
@@ -845,9 +919,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/hagemanns_hill_mile/hagemanns_hill_mile_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/hagemanns_hill_mile/hagemanns_hill_mile_1.webp"
         alt="Bilde til Hagemanns Hill Mile"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -912,9 +988,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/bislett_indoor_marathon/bislett_indoor_marathon_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/bislett_indoor_marathon/bislett_indoor_marathon_1.webp"
         alt="Bilde til Bislett Indoor Marathon"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1001,9 +1079,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/bergen_5000_challenge/bergen_5000_challenge_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/bergen_5000_challenge/bergen_5000_challenge_1.webp"
         alt="Bilde til Bergen 5000 Challenge"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1062,9 +1142,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/osteroy_stadion_lop/osteroy_stadion_lop_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/osteroy_stadion_lop/osteroy_stadion_lop_1.webp"
         alt="Bilde til Osterøy Stadion Løp"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1123,9 +1205,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/stadionmila/stadionmila_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/stadionmila/stadionmila_1.webp"
         alt="Bilde til Stadionmila"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1180,7 +1264,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/bergen_5000_challenge"
   class="race-card"
   data-name="Bergen 5000 Challenge"
@@ -1191,15 +1278,23 @@
   data-distance="5km"
   data-latitude="60.29047600000001"
   data-longitude="5.3178483"
+  data-location="Fana stadion"
+  data-description="Søndag 22.09.2024 fra kl. 17:00 på Fana stadion, utfordre deg selv, venner, familie, kollegaer eller lag til høstens raskeste 5000m løp i Be"
+  data-image-path="/løpssider/bergen_5000_challenge/bergen_5000_challenge"
+  data-type="track"
+  data-type-display="Løpebane"
+  data-date-display="6 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/bergen_5000_challenge/bergen_5000_challenge_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/bergen_5000_challenge/bergen_5000_challenge_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Bergen 5000 Challenge"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1220,7 +1315,7 @@
       <div class="left-container">
         <h3 class="race-name">Bergen 5000 Challenge</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1231,7 +1326,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1261,11 +1356,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/osteroy_stadion_lop"
   class="race-card"
   data-name="Osterøy Stadion Løp"
@@ -1276,15 +1375,23 @@
   data-distance="10km"
   data-latitude="67.297898"
   data-longitude="14.4185548"
+  data-location="Furubakken idrettsplass"
+  data-description="Osterøy IL/Friidrett er arrangør av fleire mosjonsløp og løpskarusellar, inkludert Osterøy Stadion Løp. Deltakere kan glede seg til gratis s"
+  data-image-path="/løpssider/osteroy_stadion_lop/osteroy_stadion_lop"
+  data-type="track"
+  data-type-display="Løpebane"
+  data-date-display="10 mai"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/osteroy_stadion_lop/osteroy_stadion_lop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/osteroy_stadion_lop/osteroy_stadion_lop_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Osterøy Stadion Løp"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1305,7 +1412,7 @@
       <div class="left-container">
         <h3 class="race-name">Osterøy Stadion Løp</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1316,7 +1423,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1346,11 +1453,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/stadionmila"
   class="race-card"
   data-name="Stadionmila"
@@ -1361,15 +1472,23 @@
   data-distance="3km, 10km"
   data-latitude="58.14878669999999"
   data-longitude="8.0212265"
+  data-location="Kristiansand stadion"
+  data-description="Årets stadionmil arrangeres søndag 12. mai på Kristiansand stadion. Vi har lagt opp til mosjonsløp på 10 000 m på tidlig ettermiddag og kvel"
+  data-image-path="/løpssider/stadionmila/stadionmila"
+  data-type="track"
+  data-type-display="Løpebane"
+  data-date-display="11 mai"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/stadionmila/stadionmila_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/stadionmila/stadionmila_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Stadionmila"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1390,7 +1509,7 @@
       <div class="left-container">
         <h3 class="race-name">Stadionmila</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1401,7 +1520,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1437,11 +1556,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/hell_lopefestival"
   class="race-card"
   data-name="Hell Løpefestival"
@@ -1452,15 +1575,23 @@
   data-distance="5km, 6km, 10km, 12km, 24km, marathon"
   data-latitude="63.47404049999999"
   data-longitude="10.9299839"
+  data-location="Øverlands Minde"
+  data-description="Hell løpefestival arrangeres 14.-15. juni 2025 på Øverlands Minde i Stjørdal. Festivalen består av flere løp, inkludert Stjørdalsmila på 5 k"
+  data-image-path="/løpssider/hell_lopefestival/hell_lopefestival"
+  data-type="track"
+  data-type-display="Løpebane"
+  data-date-display="14 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/hell_lopefestival/hell_lopefestival_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/hell_lopefestival/hell_lopefestival_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Hell Løpefestival"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1548,7 +1679,11 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/bislettmila"
   class="race-card"
   data-name="Bislettmila"
@@ -1559,15 +1694,23 @@
   data-distance="5km, 10km"
   data-latitude="59.92555209999999"
   data-longitude="10.7342752"
+  data-location="Bislett Stadion"
+  data-description="Bislettmila er et lavterskel friidrettsstevne hvor både elite og mosjonister har mulighet til å løpe på Bislett Stadion. Det settes opp elit"
+  data-image-path="/løpssider/bislettmila/bislettmila"
+  data-type="track"
+  data-type-display="Løpebane"
+  data-date-display="16 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/bislettmila/bislettmila_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/bislettmila/bislettmila_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Bislettmila"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1588,7 +1731,7 @@
       <div class="left-container">
         <h3 class="race-name">Bislettmila</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1599,7 +1742,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1635,11 +1778,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/valestrandsmarka_rundt_6_lop"
   class="race-card"
   data-name="Valestrandsmarka Rundt 6. løp"
@@ -1650,15 +1797,23 @@
   data-distance="4,4km"
   data-latitude="60.53728369999999"
   data-longitude="5.5330403"
+  data-location="Osterøy, Vestland"
+  data-description="Løpa 14. og 28. april er utsett grunna utskifting av kunstgras og oppgradering av idrettsplassen. Dato for løp i 2023 er utsett til 14. apri"
+  data-image-path="/løpssider/valestrandsmarka_rundt_6_lop/valestrandsmarka_rundt_6_lop"
+  data-type="track"
+  data-type-display="Løpebane"
+  data-date-display="27 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/valestrandsmarka_rundt_6_lop/valestrandsmarka_rundt_6_lop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/valestrandsmarka_rundt_6_lop/valestrandsmarka_rundt_6_lop_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Valestrandsmarka Rundt 6. løp"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1679,7 +1834,7 @@
       <div class="left-container">
         <h3 class="race-name">Valestrandsmarka Rundt 6. løp</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1690,7 +1845,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1720,102 +1875,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
-  href="/løpssider/qvaentrimmila"
-  class="race-card"
-  data-name="Qvæntrimmila"
-  data-date="20250807"
-  data-county="Troms og Finnmark"
-  data-category=""
-  data-race-type="Løpebane"
-  data-distance="4km, 10km"
-  data-latitude="70.078897"
-  data-longitude="29.7397095"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/løpssider/qvaentrimmila/qvaentrimmila_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Bilde til Qvæntrimmila"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          7 aug.
-        </div>
-        <div class="race-location">
-          Troms og Finnmark
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Qvæntrimmila</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Vadsø stadion 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                4 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Løpebane
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      I år som i fjor blir årets Qvæntrim arrangert i forbindelse med Varangerfestivalen. Løypa er den samme som i fjor, offisielt oppmålt til 10 ...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Mer info & påmelding</div>
-  </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/flyplassmila"
   class="race-card"
   data-name="Flyplassmila"
@@ -1826,15 +1894,23 @@
   data-distance="5km, 10km"
   data-latitude="59.7929881"
   data-longitude="5.3423921"
+  data-location="Stord Lufthamn"
+  data-description="Flyplassmila er kjent som "verdens raskeste løypetrasé" og finner sted på rullebanen til Stord Lufthamn, Sørstokken. Deltakerne kan velge me"
+  data-image-path="/løpssider/flyplassmila/flyplassmila"
+  data-type="track"
+  data-type-display="Løpebane"
+  data-date-display="20 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/flyplassmila/flyplassmila_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/flyplassmila/flyplassmila_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Flyplassmila"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1855,7 +1931,7 @@
       <div class="left-container">
         <h3 class="race-name">Flyplassmila</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1866,7 +1942,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1902,11 +1978,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/bergen_5000_challenge_2"
   class="race-card"
   data-name="Bergen 5000 Challenge"
@@ -1917,15 +1997,23 @@
   data-distance="5km"
   data-latitude="60.29047600000001"
   data-longitude="5.3178483"
+  data-location="Fana stadion"
+  data-description="Bergen 5000 Challenge finner sted søndag 22. september 2024 fra kl. 17:00 på Fana stadion. Utfordre deg selv, venner, familie, kollegaer ell"
+  data-image-path="/løpssider/bergen_5000_challenge_2/bergen_5000_challenge_2"
+  data-type="track"
+  data-type-display="Løpebane"
+  data-date-display="21 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/bergen_5000_challenge_2/bergen_5000_challenge_2_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/bergen_5000_challenge_2/bergen_5000_challenge_2_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Bergen 5000 Challenge"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1946,7 +2034,7 @@
       <div class="left-container">
         <h3 class="race-name">Bergen 5000 Challenge</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1957,7 +2045,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1987,11 +2075,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/hagemanns_rundbanelop"
   class="race-card"
   data-name="Hagemanns Rundbaneløp"
@@ -2002,15 +2094,23 @@
   data-distance="52,5km"
   data-latitude="59.6284918"
   data-longitude="10.3582011"
+  data-location="Svelvik sykkelklubb"
+  data-description="Hagemanns Rundbaneløp 2025 vil foregå i rundløypa til Svelvik sykkelklubb. Løpet er for alle og deltakerne kan ta så mange runder de ønsker,"
+  data-image-path="/løpssider/hagemanns_rundbanelop/hagemanns_rundbanelop"
+  data-type="track"
+  data-type-display="Løpebane"
+  data-date-display="4 okt."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/hagemanns_rundbanelop/hagemanns_rundbanelop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/hagemanns_rundbanelop/hagemanns_rundbanelop_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Hagemanns Rundbaneløp"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2031,7 +2131,7 @@
       <div class="left-container">
         <h3 class="race-name">Hagemanns Rundbaneløp</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2042,7 +2142,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2072,11 +2172,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/bislett_24_hour_indoor"
   class="race-card"
   data-name="Bislett 24 Hour Indoor"
@@ -2087,15 +2191,23 @@
   data-distance="24km, 130km, 150km"
   data-latitude="59.92555209999999"
   data-longitude="10.7342752"
+  data-location="Bislett stadion, Louises gate 1, 0168 Oslo"
+  data-description="Bislett 24-timers er et unikt innendørs løp som finner sted på den berømte Bislett stadion i Oslo. Deltakerne har 24 timer på seg til å løpe"
+  data-image-path="/løpssider/bislett_24_hour_indoor/bislett_24_hour_indoor"
+  data-type="track"
+  data-type-display="Løpebane"
+  data-date-display="22 nov."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/bislett_24_hour_indoor/bislett_24_hour_indoor_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/bislett_24_hour_indoor/bislett_24_hour_indoor_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Bislett 24 Hour Indoor"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2173,9 +2285,10 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">av</span>
         <span id="total-events">Løp</span>
@@ -2197,17 +2310,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

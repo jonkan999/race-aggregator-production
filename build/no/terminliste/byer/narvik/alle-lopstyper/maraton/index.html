@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste", "@type": "WebPage", "name": "Terminliste"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer", "@type": "WebPage", "name": "Byer"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer/narvik", "@type": "WebPage", "name": "Narvik"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer/narvik/maraton", "@type": "WebPage", "name": "Maraton"}, "position": 4}]}, "visual": [{"href": "/terminliste", "name": "Terminliste"}, {"href": "/terminliste/byer/narvik", "name": "Byer: Narvik"}, {"href": "/terminliste/byer/narvik/maraton", "name": "Maraton"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>Maraton i Narvik: Finn ditt neste løp i løpskalenderen</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Fra:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Til:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -567,7 +631,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     løp
@@ -580,18 +644,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -600,7 +652,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Narvik&quot;, &quot;race_type&quot;: null, &quot;category&quot;: &quot;Maraton&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/steinsland_bygdemaraton"
   class="race-card"
   data-name="Steinsland Bygdemaraton"
@@ -611,15 +665,23 @@
   data-distance="10km, half marathon, marathon"
   data-latitude="68.6213254"
   data-longitude="16.5848857"
+  data-location="Steinsland"
+  data-description="Steinsland Bygdemaraton går igjennom tre kommuner: Vennesla, Iveland og Birkenes. I år blir det også arrangert 1/2 maraton, i tillegg til ma"
+  data-image-path="/løpssider/steinsland_bygdemaraton/steinsland_bygdemaraton"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="3 mai"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/steinsland_bygdemaraton/steinsland_bygdemaraton_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/steinsland_bygdemaraton/steinsland_bygdemaraton_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Steinsland Bygdemaraton"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -697,7 +759,10 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/tjomsevannet_rundt"
   class="race-card"
   data-name="Tjomsevannet Rundt"
@@ -708,15 +773,23 @@
   data-distance="0,4km, 1,5km, 6,5km"
   data-latitude="68.4648965"
   data-longitude="17.0353778"
+  data-location="Stadion, foran klubbhuset"
+  data-description="Tjomsevannet Rundt er et populært løp som finner sted rundt Tjomsevannet. Løypen er naturskjønn og gir deltakerne muligheten til å nyte vakr"
+  data-image-path="/løpssider/tjomsevannet_rundt/tjomsevannet_rundt"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="29 mai"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/tjomsevannet_rundt/tjomsevannet_rundt_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/tjomsevannet_rundt/tjomsevannet_rundt_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Tjomsevannet Rundt"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -794,7 +867,8 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Utvalgte Løp</h2>
@@ -821,9 +895,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/steinsland_bygdemaraton/steinsland_bygdemaraton_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/steinsland_bygdemaraton/steinsland_bygdemaraton_1.webp"
         alt="Bilde til Steinsland Bygdemaraton"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -894,9 +970,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/tjomsevannet_rundt/tjomsevannet_rundt_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/tjomsevannet_rundt/tjomsevannet_rundt_1.webp"
         alt="Bilde til Tjomsevannet Rundt"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -967,9 +1045,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/arctic_run/arctic_run_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/arctic_run/arctic_run_1.webp"
         alt="Bilde til Arctic Run"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1040,9 +1120,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/nordmarka_ultra_challenge/nordmarka_ultra_challenge_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/nordmarka_ultra_challenge/nordmarka_ultra_challenge_1.webp"
         alt="Bilde til Nordmarka Ultra Challenge"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1103,7 +1185,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/arctic_run"
   class="race-card"
   data-name="Arctic Run"
@@ -1114,15 +1199,23 @@
   data-distance="10km, half marathon, marathon"
   data-latitude="68.695833"
   data-longitude="15.413056"
+  data-location="Vesterålen"
+  data-description="Drømmer kan gå i oppfyllelse. Legg ut på The Arctic Run - et maratonløp som følger en unik sti rundt en vakker øy på nøyaktig 42 km, i herli"
+  data-image-path="/løpssider/arctic_run/arctic_run"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="7 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/arctic_run/arctic_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/arctic_run/arctic_run_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Arctic Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1200,7 +1293,11 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/nordmarka_ultra_challenge"
   class="race-card"
   data-name="Nordmarka Ultra Challenge"
@@ -1211,15 +1308,23 @@
   data-distance="55km, 100km, 200km"
   data-latitude="68.7605808"
   data-longitude="16.0945939"
+  data-location="Skar i Maridalen"
+  data-description="Nordmarka Ultra Challenge 200 km er en formidabel utfordring som tar deg gjennom de vakre skogsområdene Nordmarka, Lillomarka og Romeriksåse"
+  data-image-path="/løpssider/nordmarka_ultra_challenge/nordmarka_ultra_challenge"
+  data-type="terrain"
+  data-type-display="Terreng"
+  data-date-display="25 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/nordmarka_ultra_challenge/nordmarka_ultra_challenge_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/nordmarka_ultra_challenge/nordmarka_ultra_challenge_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Nordmarka Ultra Challenge"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1297,9 +1402,10 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">av</span>
         <span id="total-events">Løp</span>
@@ -1321,17 +1427,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

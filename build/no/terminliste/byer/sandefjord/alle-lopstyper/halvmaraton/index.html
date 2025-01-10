@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste", "@type": "WebPage", "name": "Terminliste"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer", "@type": "WebPage", "name": "Byer"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer/sandefjord", "@type": "WebPage", "name": "Sandefjord"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://lopskalender.com/terminliste/byer/sandefjord/halvmaraton", "@type": "WebPage", "name": "Halvmaraton"}, "position": 4}]}, "visual": [{"href": "/terminliste", "name": "Terminliste"}, {"href": "/terminliste/byer/sandefjord", "name": "Byer: Sandefjord"}, {"href": "/terminliste/byer/sandefjord/halvmaraton", "name": "Halvmaraton"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>Halvmaraton i Sandefjord: Løpskalender og Terminliste for Løpekonkurranser</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Fra:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Til:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -567,7 +631,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     løp
@@ -580,18 +644,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -600,7 +652,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Sandefjord&quot;, &quot;race_type&quot;: null, &quot;category&quot;: &quot;Halvmaraton&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/fredrikstadlopet"
   class="race-card"
   data-name="Fredrikstadløpet"
@@ -611,15 +665,23 @@
   data-distance="3km, 5km, half marathon"
   data-latitude="59.20000770000001"
   data-longitude="10.9601756"
+  data-location="Bak Kongstenhallen"
+  data-description="Fredrikstadløpet har internasjonal status og er for alle kategorier løpere. Det er et Kvalitetsløp, noe som innebærer at løypa er kontrollmå"
+  data-image-path="/løpssider/fredrikstadlopet/fredrikstadlopet"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="6 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/fredrikstadlopet/fredrikstadlopet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/fredrikstadlopet/fredrikstadlopet_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Fredrikstadløpet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -697,7 +759,10 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/paskeharemaraton"
   class="race-card"
   data-name="PåskeHareMaraton"
@@ -708,15 +773,23 @@
   data-distance="marathon"
   data-latitude="59.716419"
   data-longitude="10.836031"
+  data-location="Löplabbet i Ski"
+  data-description="Löplabbets PåskeHareMaraton er et årlig løp som arrangeres tirsdag i "den stille uken" før påske. Løpet går mellom Löplabbets butikker i Ski"
+  data-image-path="/løpssider/paskeharemaraton/paskeharemaraton"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="15 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/paskeharemaraton/paskeharemaraton_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/paskeharemaraton/paskeharemaraton_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til PåskeHareMaraton"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -737,7 +810,7 @@
       <div class="left-container">
         <h3 class="race-name">PåskeHareMaraton</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -748,7 +821,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -778,11 +851,12 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Utvalgte Løp</h2>
@@ -809,9 +883,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/fredrikstadlopet/fredrikstadlopet_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/fredrikstadlopet/fredrikstadlopet_1.webp"
         alt="Bilde til Fredrikstadløpet"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -882,9 +958,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/paskeharemaraton/paskeharemaraton_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/paskeharemaraton/paskeharemaraton_1.webp"
         alt="Bilde til PåskeHareMaraton"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -943,9 +1021,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/monolittstafetten/monolittstafetten_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/monolittstafetten/monolittstafetten_1.webp"
         alt="Bilde til Monolittstafetten"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1004,9 +1084,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/titanlopet/titanlopet_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/titanlopet/titanlopet_1.webp"
         alt="Bilde til Titanløpet"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1077,9 +1159,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/skogvokteren_ultra/skogvokteren_ultra_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/skogvokteren_ultra/skogvokteren_ultra_1.webp"
         alt="Bilde til Skogvokteren Ultra"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1128,7 +1212,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/monolittstafetten"
   class="race-card"
   data-name="Monolittstafetten"
@@ -1139,15 +1226,23 @@
   data-distance="10km"
   data-latitude="59.1193795"
   data-longitude="11.3879916"
+  data-location="Torget i Halden"
+  data-description="Monolittstafetten går av stabelen 27. april 2024, og er et stafettløp med rivalisering og glimt i øyet. Du kan delta både i Monolittløpet og"
+  data-image-path="/løpssider/monolittstafetten/monolittstafetten"
+  data-type="relay"
+  data-type-display="Stafett"
+  data-date-display="26 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/monolittstafetten/monolittstafetten_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/monolittstafetten/monolittstafetten_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Monolittstafetten"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1168,7 +1263,7 @@
       <div class="left-container">
         <h3 class="race-name">Monolittstafetten</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1179,7 +1274,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1209,11 +1304,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/titanlopet"
   class="race-card"
   data-name="Titanløpet"
@@ -1224,15 +1323,23 @@
   data-distance="4,1km, 6,1km, 10km"
   data-latitude="59.22053689999999"
   data-longitude="10.9347012"
+  data-location="Fredrikstad"
+  data-description="Titanløpet 2025 finner sted mandag 28. april 2025 i Fredrikstad, Norge. Dette er byens eldste løp og har i år samlet 37 løpere. Løypetraseen"
+  data-image-path="/løpssider/titanlopet/titanlopet"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="28 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/titanlopet/titanlopet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/titanlopet/titanlopet_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Titanløpet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1310,7 +1417,11 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/skogvokteren_ultra"
   class="race-card"
   data-name="Skogvokteren Ultra"
@@ -1321,15 +1432,23 @@
   data-distance="88km"
   data-latitude="59.1385567"
   data-longitude="9.6555147"
+  data-location="Porsgrunn – rådhustrappa"
+  data-description="Skogvokteren Ultra 2024 arrangeres av Grenland Ultra Runners og Gjerpen IF, og inkluderer Norgesmesterskapet i terrengultra. Løpet finner st"
+  data-image-path="/løpssider/skogvokteren_ultra/skogvokteren_ultra"
+  data-type="terrain"
+  data-type-display="Terreng"
+  data-date-display="3 mai"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/skogvokteren_ultra/skogvokteren_ultra_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/skogvokteren_ultra/skogvokteren_ultra_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Skogvokteren Ultra"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1350,7 +1469,7 @@
       <div class="left-container">
         <h3 class="race-name">Skogvokteren Ultra</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1361,7 +1480,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1391,11 +1510,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/albylopet"
   class="race-card"
   data-name="Albyløpet"
@@ -1406,15 +1529,23 @@
   data-distance="3km"
   data-latitude="59.1642332"
   data-longitude="10.3513752"
+  data-location="Hovedporten på Alby"
+  data-description="Albyløpet arrangeres fra Hovedporten på Alby, Jeløy, fredag 3. mai 2024. Løpet har en lik løypelengde på 3 km for alle løpere, med puljestar"
+  data-image-path="/løpssider/albylopet/albylopet"
+  data-type="terrain"
+  data-type-display="Terreng"
+  data-date-display="9 mai"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/albylopet/albylopet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/albylopet/albylopet_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Albyløpet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1435,7 +1566,7 @@
       <div class="left-container">
         <h3 class="race-name">Albyløpet</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1446,7 +1577,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1476,11 +1607,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/kanada_rundt"
   class="race-card"
   data-name="Kanada Rundt"
@@ -1491,15 +1626,23 @@
   data-distance="6km, 12km"
   data-latitude="59.8947884"
   data-longitude="10.2832073"
+  data-location="Sylling"
+  data-description="Kanada Rundt er et årlig gateløp i Sylling som har blitt arrangert siden 1981. Tirsdag 13. mai 2025 vil løpet finne sted for 43. gang, og de"
+  data-image-path="/løpssider/kanada_rundt/kanada_rundt"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="13 mai"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/kanada_rundt/kanada_rundt_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/kanada_rundt/kanada_rundt_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Kanada Rundt"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1520,7 +1663,7 @@
       <div class="left-container">
         <h3 class="race-name">Kanada Rundt</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1531,7 +1674,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1567,11 +1710,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/obos_fornebulopet"
   class="race-card"
   data-name="OBOS Fornebuløpet"
@@ -1582,15 +1729,23 @@
   data-distance="3km, 5km, 10km"
   data-latitude="59.90314100000001"
   data-longitude="10.6238873"
+  data-location="Telenor Arena"
+  data-description="Velkommen til Norges mest populære midtukeløp, OBOS Fornebuløpet, som arrangeres i naturskjønne omgivelser på Fornebulandet. Løpet passer fo"
+  data-image-path="/løpssider/obos_fornebulopet/obos_fornebulopet"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="21 mai"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/obos_fornebulopet/obos_fornebulopet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/obos_fornebulopet/obos_fornebulopet_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til OBOS Fornebuløpet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1668,7 +1823,11 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/berghem_ultra_trail"
   class="race-card"
   data-name="Bèrghem Ultra Trail"
@@ -1679,15 +1838,23 @@
   data-distance="50 miles, 100 miles"
   data-latitude="59.7290387"
   data-longitude="11.0406595"
+  data-location="Ytre Enebakk-Lørenskog"
+  data-description="Velkommen til Bèrghem Ultra Runners Club – stedet for ultra løping og naturopplevelser i Norge. Vi spesialiserer oss på ultra løpsarrangemen"
+  data-image-path="/løpssider/berghem_ultra_trail/berghem_ultra_trail"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="24 mai"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/berghem_ultra_trail/berghem_ultra_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/berghem_ultra_trail/berghem_ultra_trail_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Bèrghem Ultra Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1708,7 +1875,7 @@
       <div class="left-container">
         <h3 class="race-name">Bèrghem Ultra Trail</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1719,7 +1886,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1755,11 +1922,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/barskingen_ocr_hinderlop"
   class="race-card"
   data-name="Barskingen OCR Hinderløp"
@@ -1770,15 +1941,23 @@
   data-distance="5km, 8km"
   data-latitude="59.675388"
   data-longitude="10.2446039"
+  data-location="Rakkestads skoger"
+  data-description="Barskingen OCR er et 5 og 8 km langt hinderløp med 14 års aldersgrense. Deltakerne vil bli svette, møkkete, lattermilde og slitne, samtidig "
+  data-image-path="/løpssider/barskingen_ocr_hinderlop/barskingen_ocr_hinderlop"
+  data-type="other"
+  data-type-display="Annet"
+  data-date-display="31 mai"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/barskingen_ocr_hinderlop/barskingen_ocr_hinderlop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/barskingen_ocr_hinderlop/barskingen_ocr_hinderlop_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Barskingen OCR Hinderløp"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1799,7 +1978,7 @@
       <div class="left-container">
         <h3 class="race-name">Barskingen OCR Hinderløp</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1810,7 +1989,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1846,11 +2025,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/rocket_run"
   class="race-card"
   data-name="Rocket Run"
@@ -1861,15 +2044,23 @@
   data-distance="100km"
   data-latitude="59.1385567"
   data-longitude="9.6555147"
+  data-location="Porsgrunn, Telemark"
+  data-description="Rocket Run er en ellevill 24-timers løpekonkurranse som kombinerer glede og fellesskap. Det hele startet som en liten idé og har utviklet se"
+  data-image-path="/løpssider/rocket_run/rocket_run"
+  data-type="time"
+  data-type-display="Tidsløp"
+  data-date-display="13 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/rocket_run/rocket_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/rocket_run/rocket_run_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Rocket Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1890,7 +2081,7 @@
       <div class="left-container">
         <h3 class="race-name">Rocket Run</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1901,7 +2092,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1931,11 +2122,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/bylopet"
   class="race-card"
   data-name="Byløpet"
@@ -1946,15 +2141,23 @@
   data-distance="0,5km, 5km, 10km, half marathon"
   data-latitude="59.207322"
   data-longitude="9.6085266"
+  data-location="Skien sentrum (ved Arkaden)"
+  data-description="Byløpet er en arena der du som er interessert i friidrett kan utfolde deg. Vi har tilrettelagte ordninger for parautøvere og personer med ne"
+  data-image-path="/løpssider/bylopet/bylopet"
+  data-type="other"
+  data-type-display="Annet"
+  data-date-display="14 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/bylopet/bylopet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/bylopet/bylopet_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Byløpet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2038,7 +2241,11 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/bamford_frontyard"
   class="race-card"
   data-name="Bamford Frontyard"
@@ -2049,15 +2256,23 @@
   data-distance="3km, 45km"
   data-latitude="59.76310119999999"
   data-longitude="10.5111909"
+  data-location="Nærsnes"
+  data-description="Bamford Frontyard handler ikke om å være først, men er et sosialt lavterskelløp som arrangeres på Nærsnes. Dette løpet har en flott barneløy"
+  data-image-path="/løpssider/bamford_frontyard/bamford_frontyard"
+  data-type="other"
+  data-type-display="Annet"
+  data-date-display="24 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/bamford_frontyard/bamford_frontyard_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/bamford_frontyard/bamford_frontyard_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Bamford Frontyard"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2078,7 +2293,7 @@
       <div class="left-container">
         <h3 class="race-name">Bamford Frontyard</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2089,7 +2304,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2125,11 +2340,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/christian_frederik_lopet"
   class="race-card"
   data-name="Christian Frederik-løpet"
@@ -2140,15 +2359,23 @@
   data-distance="5km, 10km"
   data-latitude="59.42604910000001"
   data-longitude="10.6985069"
+  data-location="Moss"
+  data-description="Christian Frederik-løpet er et mosjonsløp i Moss, som ble arrangert første gang 20. august 2011 av Moss Idrettslag og Moss 2014. I dag er de"
+  data-image-path="/løpssider/christian_frederik_lopet/christian_frederik_lopet"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="16 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/christian_frederik_lopet/christian_frederik_lopet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/christian_frederik_lopet/christian_frederik_lopet_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Christian Frederik-løpet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2169,7 +2396,7 @@
       <div class="left-container">
         <h3 class="race-name">Christian Frederik-løpet</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2180,7 +2407,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2216,11 +2443,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/vossaton"
   class="race-card"
   data-name="Vossaton"
@@ -2231,15 +2462,23 @@
   data-distance="5km, 22km"
   data-latitude="59.35589530000001"
   data-longitude="9.1930921"
+  data-location="Gjernes"
+  data-description="Vel møtt til heile familien – til barneløp, 5km og halvmaraton i spektakulær løype rundt Vangsvatnet. Halvmaraton startar kl 11.00, barneløp"
+  data-image-path="/løpssider/vossaton/vossaton"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="23 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/vossaton/vossaton_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/vossaton/vossaton_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Vossaton"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2260,7 +2499,7 @@
       <div class="left-container">
         <h3 class="race-name">Vossaton</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2271,7 +2510,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2307,11 +2546,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/kambomila"
   class="race-card"
   data-name="Kambomila"
@@ -2322,15 +2565,23 @@
   data-distance="5,8km, 10,2km"
   data-latitude="59.452609"
   data-longitude="10.7094665"
+  data-location="Noreødegården"
+  data-description="Kombomila (fellesstart) finner sted onsdag 27. august kl. 18:30 på Noreødegården. Deltakerne kan velge mellom distansene 10,2 km og 5,8 km. "
+  data-image-path="/løpssider/kambomila/kambomila"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="27 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/kambomila/kambomila_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/kambomila/kambomila_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Kambomila"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2351,7 +2602,7 @@
       <div class="left-container">
         <h3 class="race-name">Kambomila</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2362,7 +2613,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2398,11 +2649,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/oslo_lopsfestival_fornebu_rundt"
   class="race-card"
   data-name="Oslo Løpsfestival - Fornebu Rundt"
@@ -2413,15 +2668,23 @@
   data-distance="10km"
   data-latitude="59.8972947"
   data-longitude="10.6142325"
+  data-location="Nansenparken"
+  data-description="Oslo Løpsfestival består av åtte løp langs hovedstadens fine stier og vakre veier. Du kan løpe når du vil – alene eller sammen med andre, en"
+  data-image-path="/løpssider/oslo_lopsfestival_fornebu_rundt/oslo_lopsfestival_fornebu_rundt"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="31 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/oslo_lopsfestival_fornebu_rundt/oslo_lopsfestival_fornebu_rundt_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/oslo_lopsfestival_fornebu_rundt/oslo_lopsfestival_fornebu_rundt_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Oslo Løpsfestival - Fornebu Rundt"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2442,7 +2705,7 @@
       <div class="left-container">
         <h3 class="race-name">Oslo Løpsfestival - Fornebu Rundt</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2453,7 +2716,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2483,11 +2746,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/rodseterpytten_rundt"
   class="race-card"
   data-name="Rødseterpytten Rundt"
@@ -2498,15 +2765,23 @@
   data-distance="1km, 7,5km, 9km"
   data-latitude="59.57288260000001"
   data-longitude="10.6139897"
+  data-location="Filtvet Fremad Stadion"
+  data-description="Høstens triveligste mosjonsfestival! Rødseterpytten Rundt med barneløp arrangeres på Filtvet Fremad Stadion søndag 8. oktober for 12. år på "
+  data-image-path="/løpssider/rodseterpytten_rundt/rodseterpytten_rundt"
+  data-type="other"
+  data-type-display="Annet"
+  data-date-display="7 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/rodseterpytten_rundt/rodseterpytten_rundt_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/rodseterpytten_rundt/rodseterpytten_rundt_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Rødseterpytten Rundt"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2584,7 +2859,11 @@
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løpssider/hagemanns_rundbanelop"
   class="race-card"
   data-name="Hagemanns Rundbaneløp"
@@ -2595,15 +2874,23 @@
   data-distance="52,5km"
   data-latitude="59.6284918"
   data-longitude="10.3582011"
+  data-location="Svelvik sykkelklubb"
+  data-description="Hagemanns Rundbaneløp 2025 vil foregå i rundløypa til Svelvik sykkelklubb. Løpet er for alle og deltakerne kan ta så mange runder de ønsker,"
+  data-image-path="/løpssider/hagemanns_rundbanelop/hagemanns_rundbanelop"
+  data-type="track"
+  data-type-display="Løpebane"
+  data-date-display="4 okt."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løpssider/hagemanns_rundbanelop/hagemanns_rundbanelop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løpssider/hagemanns_rundbanelop/hagemanns_rundbanelop_1.webp"
+        width="600"
+        height="400"
         alt="Bilde til Hagemanns Rundbaneløp"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2624,7 +2911,7 @@
       <div class="left-container">
         <h3 class="race-name">Hagemanns Rundbaneløp</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2635,7 +2922,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2665,13 +2952,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & påmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">av</span>
         <span id="total-events">Løp</span>
@@ -2693,17 +2981,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>
