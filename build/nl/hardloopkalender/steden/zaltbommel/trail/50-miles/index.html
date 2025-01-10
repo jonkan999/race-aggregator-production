@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://hardlooplijst.nl/hardloopkalender", "@type": "WebPage", "name": "Hardloopkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.nl/hardloopkalender/steden", "@type": "WebPage", "name": "Steden"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.nl/hardloopkalender/steden/zaltbommel", "@type": "WebPage", "name": "Zaltbommel"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.nl/hardloopkalender/steden/zaltbommel/trail", "@type": "WebPage", "name": "Trail"}, "position": 4}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.nl/hardloopkalender/steden/zaltbommel/trail/50-miles", "@type": "WebPage", "name": "50 miles"}, "position": 5}]}, "visual": [{"href": "/hardloopkalender", "name": "Hardloopkalender"}, {"href": "/hardloopkalender/steden/zaltbommel", "name": "Steden: Zaltbommel"}, {"href": "/hardloopkalender/steden/zaltbommel/trail", "name": "Trail"}, {"href": "/hardloopkalender/steden/zaltbommel/trail/50-miles", "name": "50 miles"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>50 Miles Trail Runs in Zaltbommel: Vind jouw volgende hardloopwedstrijd!</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Van:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Tot:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -574,7 +638,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     wedstrijd
@@ -587,18 +651,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kaart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -607,7 +659,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Zaltbommel&quot;, &quot;race_type&quot;: &quot;Trail&quot;, &quot;category&quot;: &quot;50 miles&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/rdg_night_trail"
   class="race-card"
   data-name="RDG Night Trail"
@@ -618,15 +672,23 @@
   data-distance="3km, 5km, 11km, 15km"
   data-latitude="51.7295132"
   data-longitude="5.344305"
+  data-location="Clubhuis van MHC Rosmalen"
+  data-description="Triathlonvereniging RDG organiseert in samenwerking met Run2Day Den Bosch op zaterdagavond 18 januari 2025 haar derde RDG Night Trail. Dit e"
+  data-image-path="/looppaginas/rdg_night_trail/rdg_night_trail"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="18 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/rdg_night_trail/rdg_night_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/rdg_night_trail/rdg_night_trail_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarRDG Night Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -710,7 +772,10 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/nighttrail_en_zonheuvel"
   class="race-card"
   data-name="NightTrail en Zonheuvel"
@@ -721,15 +786,23 @@
   data-distance="1,6km, 5km, 10km"
   data-latitude="52.0490311"
   data-longitude="5.3536851"
+  data-location="Landgoed Zonheuvel"
+  data-description="Op zaterdag 8 februari 2025 organiseert de TRCU de jaarlijkse Zonheuvel Nighttrail, een bijzonder hardloopevenement midden in de natuur van "
+  data-image-path="/looppaginas/nighttrail_en_zonheuvel/nighttrail_en_zonheuvel"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="8 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/nighttrail_en_zonheuvel/nighttrail_en_zonheuvel_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/nighttrail_en_zonheuvel/nighttrail_en_zonheuvel_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarNightTrail en Zonheuvel"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -807,7 +880,8 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Geselecteerde Races</h2>
@@ -834,9 +908,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/rdg_night_trail/rdg_night_trail_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/rdg_night_trail/rdg_night_trail_1.webp"
         alt="Afbeelding naarRDG Night Trail"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -913,9 +989,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/nighttrail_en_zonheuvel/nighttrail_en_zonheuvel_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/nighttrail_en_zonheuvel/nighttrail_en_zonheuvel_1.webp"
         alt="Afbeelding naarNightTrail en Zonheuvel"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -986,9 +1064,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trcu_nighttrail/trcu_nighttrail_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trcu_nighttrail/trcu_nighttrail_1.webp"
         alt="Afbeelding naarTRCU Nighttrail"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1053,9 +1133,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/petzl_night_trail/petzl_night_trail_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/petzl_night_trail/petzl_night_trail_1.webp"
         alt="Afbeelding naarPetzl Night Trail"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1126,9 +1208,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/leersumse_veld_trail/leersumse_veld_trail_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/leersumse_veld_trail/leersumse_veld_trail_1.webp"
         alt="Afbeelding naarLeersumse Veld Trail"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1183,7 +1267,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trcu_nighttrail"
   class="race-card"
   data-name="TRCU Nighttrail"
@@ -1194,15 +1281,23 @@
   data-distance="5km, 10km"
   data-latitude="52.0504985"
   data-longitude="5.3501765"
+  data-location="Maarten Maartenshuis"
+  data-description="De TRCU Nighttrail is een uniek evenement op de Utrechtse Heuvelrug, dat deelnemers een uitdagende trailrunervaring biedt in een sfeervolle "
+  data-image-path="/looppaginas/trcu_nighttrail/trcu_nighttrail"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="8 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trcu_nighttrail/trcu_nighttrail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trcu_nighttrail/trcu_nighttrail_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTRCU Nighttrail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1223,7 +1318,7 @@
       <div class="left-container">
         <h3 class="race-name">TRCU Nighttrail</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1234,7 +1329,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1270,11 +1365,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/petzl_night_trail"
   class="race-card"
   data-name="Petzl Night Trail"
@@ -1285,15 +1384,23 @@
   data-distance="6km, 12km, 18km"
   data-latitude="52.0299492"
   data-longitude="5.458665799999999"
+  data-location="Landgoed Ginkelduin"
+  data-description="De Petzl Night Trail wordt georganiseerd in een prachtig gebied, midden op de Utrechtse Heuvelrug. De deelnemers lopen in het donker over na"
+  data-image-path="/looppaginas/petzl_night_trail/petzl_night_trail"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="14 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/petzl_night_trail/petzl_night_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/petzl_night_trail/petzl_night_trail_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarPetzl Night Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1371,7 +1478,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/leersumse_veld_trail"
   class="race-card"
   data-name="Leersumse Veld Trail"
@@ -1382,15 +1493,23 @@
   data-distance="11km, marathon"
   data-latitude="52.0120583"
   data-longitude="5.4295484"
+  data-location="Leersum"
+  data-description="Het hardloopevenement Leersumse Veld Trail vindt plaats op zaterdag 2 maart 2024 in Leersum, gemeente Utrechtse Heuvelrug (UT). De race bied"
+  data-image-path="/looppaginas/leersumse_veld_trail/leersumse_veld_trail"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="15 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/leersumse_veld_trail/leersumse_veld_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/leersumse_veld_trail/leersumse_veld_trail_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarLeersumse Veld Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1411,7 +1530,7 @@
       <div class="left-container">
         <h3 class="race-name">Leersumse Veld Trail</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1422,7 +1541,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1458,11 +1577,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/maashorst_trailrun"
   class="race-card"
   data-name="Maashorst Trailrun"
@@ -1473,15 +1596,23 @@
   data-distance="1km, 2km, 5km, 12km, 22km"
   data-latitude="51.6720734"
   data-longitude="5.5811405"
+  data-location="Hullie aan de Canadasweg in Uden"
+  data-description="Doe jij ook mee met de Maashorst Trailrun? Ontdek natuurgebied De Maashorst tijdens de Maashorst Trailrun op zondag 6 april, waar de 5e edit"
+  data-image-path="/looppaginas/maashorst_trailrun/maashorst_trailrun"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="6 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/maashorst_trailrun/maashorst_trailrun_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/maashorst_trailrun/maashorst_trailrun_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarMaashorst Trailrun"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1561,7 +1692,7 @@
       </div>
     </div>
     <div class="race-summary">
-      Doe jij ook mee met de Maashorst Trailrun? Ontdek natuurgebied De Maashorst tijdens de 5e editie op zondag 6 april. Lopers krijgen een volle...
+      Doe jij ook mee met de Maashorst Trailrun? Ontdek natuurgebied De Maashorst tijdens de Maashorst Trailrun op zondag 6 april, waar de 5e edit...
     </div>
   </div>
   <div
@@ -1569,7 +1700,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/groene_woud_lentetrail"
   class="race-card"
   data-name="Groene Woud Lentetrail"
@@ -1580,15 +1715,23 @@
   data-distance="9km, 15km, half marathon"
   data-latitude="51.5441654"
   data-longitude="5.285152999999999"
+  data-location="Zorgboerderij Het Scheiend, Nieuwedijk 51 5688 LK Oirschot"
+  data-description="De Groene Woud Lente Trail, georganiseerd door de stichting Loopgroep Bali Runners en Atletiek Oirschot, vindt plaats op zondag 13 april 202"
+  data-image-path="/looppaginas/groene_woud_lentetrail/groene_woud_lentetrail"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="13 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/groene_woud_lentetrail/groene_woud_lentetrail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/groene_woud_lentetrail/groene_woud_lentetrail_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarGroene Woud Lentetrail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1666,7 +1809,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/amerongse_koploop"
   class="race-card"
   data-name="Amerongse Koploop"
@@ -1677,15 +1824,23 @@
   data-distance="6km, 10km, 16km, 25km"
   data-latitude="52.0038084"
   data-longitude="5.4536934"
+  data-location="Bertus Leendersweg, Amerongen"
+  data-description="Op zaterdag 19 april 2025 vindt de 25ste editie van de Amerongse Koploop plaats. Dit evenement is een gezellige en uitdagende trail door de "
+  data-image-path="/looppaginas/amerongse_koploop/amerongse_koploop"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="19 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/amerongse_koploop/amerongse_koploop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/amerongse_koploop/amerongse_koploop_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarAmerongse Koploop"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1769,7 +1924,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/utrechtse_heuvelrug_ultra"
   class="race-card"
   data-name="Utrechtse Heuvelrug Ultra"
@@ -1780,15 +1939,23 @@
   data-distance="50km, 75km, 100km, 109km"
   data-latitude="52.0299492"
   data-longitude="5.458665799999999"
+  data-location="Molecaten Landgoed Ginkelduin"
+  data-description="De Utrechtse Heuvelrug is een prachtig uitgestrekt gebied met ontzettend veel afwisselende natuur. De UHUT bestaat uit 2 rondes van 50 km, m"
+  data-image-path="/looppaginas/utrechtse_heuvelrug_ultra/utrechtse_heuvelrug_ultra"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="24 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/utrechtse_heuvelrug_ultra/utrechtse_heuvelrug_ultra_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/utrechtse_heuvelrug_ultra/utrechtse_heuvelrug_ultra_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarUtrechtse Heuvelrug Ultra"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1872,7 +2039,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/uilentoren_loop_leersum"
   class="race-card"
   data-name="Uilentoren Loop Leersum"
@@ -1883,15 +2054,23 @@
   data-distance="5km, 10km, 15km"
   data-latitude="52.018287"
   data-longitude="5.4287391"
+  data-location="Uilentoren, Leersum"
+  data-description="Het parcours van de Uilentoren Loop in Leersum biedt een prachtige en uitdagende hardloopervaring door de schilderachtige omgeving. Het parc"
+  data-image-path="/looppaginas/uilentoren_loop_leersum/uilentoren_loop_leersum"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="7 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/uilentoren_loop_leersum/uilentoren_loop_leersum_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/uilentoren_loop_leersum/uilentoren_loop_leersum_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarUilentoren Loop Leersum"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1969,7 +2148,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/leersumse_veld_ultra"
   class="race-card"
   data-name="Leersumse Veld Ultra"
@@ -1980,15 +2163,23 @@
   data-distance="50km, 55km"
   data-latitude="52.0120583"
   data-longitude="5.4295484"
+  data-location="Leersum"
+  data-description="De Leersumse Veld Ultra is een uitdagende trailrun die volledig over natuurlijke paden met de nodige hoogtemeters gaat. De route loopt van L"
+  data-image-path="/looppaginas/leersumse_veld_ultra/leersumse_veld_ultra"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="27 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/leersumse_veld_ultra/leersumse_veld_ultra_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/leersumse_veld_ultra/leersumse_veld_ultra_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarLeersumse Veld Ultra"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2009,7 +2200,7 @@
       <div class="left-container">
         <h3 class="race-name">Leersumse Veld Ultra</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2020,7 +2211,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2056,11 +2247,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/petzl_night_trail_2"
   class="race-card"
   data-name="Petzl Night Trail"
@@ -2071,15 +2266,23 @@
   data-distance="6km, 12km, 18km"
   data-latitude="52.0299492"
   data-longitude="5.458665799999999"
+  data-location="Landgoed Ginkelduin"
+  data-description="De Petzl Night Trail is een uitdagend trailrun evenement dat plaatsvindt op het prachtige Landgoed Ginkelduin, midden op de Utrechtse Heuvel"
+  data-image-path="/looppaginas/petzl_night_trail_2/petzl_night_trail_2"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="3 okt."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/petzl_night_trail_2/petzl_night_trail_2_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/petzl_night_trail_2/petzl_night_trail_2_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarPetzl Night Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2157,7 +2360,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/night_trail_run_utrecht"
   class="race-card"
   data-name="Night Trail Run Utrecht"
@@ -2168,15 +2375,23 @@
   data-distance="5km, 7km, 7,5km, 10km, 15km"
   data-latitude="52.0347902"
   data-longitude="5.059144400000001"
+  data-location="De Skispiste Nieuwegein, Nedereindseweg 501a, 3546 PM Utrecht"
+  data-description="Op vrijdagavond 21 november 2025 organiseren BodyRun en IJ-Run samen voor de zesde keer de Utrecht Night Trail met afstanden van 15 km en 7,"
+  data-image-path="/looppaginas/night_trail_run_utrecht/night_trail_run_utrecht"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="21 nov."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/night_trail_run_utrecht/night_trail_run_utrecht_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/night_trail_run_utrecht/night_trail_run_utrecht_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarNight Trail Run Utrecht"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2264,7 +2479,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/utrechtse_heuvelrug_ultra_2"
   class="race-card"
   data-name="Utrechtse Heuvelrug Ultra"
@@ -2275,15 +2494,23 @@
   data-distance="50km, 100km"
   data-latitude="52.0299492"
   data-longitude="5.458665799999999"
+  data-location="Molecaten Park Landgoed Ginkelduin"
+  data-description="Met start en finish bij Molecaten Landgoed Ginkelduin in Leersum bevinden we ons in de kern van de Utrechtse Heuvelrug. De deelnemers kunnen"
+  data-image-path="/looppaginas/utrechtse_heuvelrug_ultra_2/utrechtse_heuvelrug_ultra_2"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="29 nov."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/utrechtse_heuvelrug_ultra_2/utrechtse_heuvelrug_ultra_2_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/utrechtse_heuvelrug_ultra_2/utrechtse_heuvelrug_ultra_2_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarUtrechtse Heuvelrug Ultra"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2304,7 +2531,7 @@
       <div class="left-container">
         <h3 class="race-name">Utrechtse Heuvelrug Ultra</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2315,7 +2542,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2351,13 +2578,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">van</span>
         <span id="total-events">Evenementen</span>
@@ -2379,17 +2607,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kaart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>
