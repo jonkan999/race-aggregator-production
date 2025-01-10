@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://juoksen.fi/juoksukalenteri", "@type": "WebPage", "name": "Juoksukalenteri"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://juoksen.fi/juoksukalenteri/kaupungit", "@type": "WebPage", "name": "Kaupungit"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://juoksen.fi/juoksukalenteri/kaupungit/valkeakoski", "@type": "WebPage", "name": "Valkeakoski"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://juoksen.fi/juoksukalenteri/kaupungit/valkeakoski/muut", "@type": "WebPage", "name": "Muut"}, "position": 4}]}, "visual": [{"href": "/juoksukalenteri", "name": "Juoksukalenteri"}, {"href": "/juoksukalenteri/kaupungit/valkeakoski", "name": "Kaupungit: Valkeakoski"}, {"href": "/juoksukalenteri/kaupungit/valkeakoski/muut", "name": "Muut"}]}
@@ -15,6 +16,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -22,24 +24,48 @@
     />
     <title>Juoksukilpailut Valkeakoskella: Muut juoksutapahtumat</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -48,26 +74,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -320,10 +384,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Alkaen:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Saakka:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -567,7 +631,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Kaikki
     <span id="race-cards-title-category"></span>
     juoksukilpailu
@@ -580,18 +644,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kartta</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -600,7 +652,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Valkeakoski&quot;, &quot;race_type&quot;: &quot;Muut&quot;, &quot;category&quot;: null}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/kilpailusivut/teivocup_vi"
   class="race-card"
   data-name="Teivocup VI"
@@ -611,15 +665,23 @@
   data-distance="5km"
   data-latitude="61.5291781"
   data-longitude="23.6262663"
+  data-location="Teivon ravikeskuksen kupeessa"
+  data-description="Teivocup on talvikauden testijuoksukilpailusarja, joka juostaan Teivon raviradan tienoilla marraskuu-huhtikuu -välisenä aikana kerran kuussa"
+  data-image-path="/kilpailusivut/teivocup_vi/teivocup_vi"
+  data-type="other"
+  data-type-display="Muut"
+  data-date-display="5 huhti."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/kilpailusivut/teivocup_vi/teivocup_vi_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/kilpailusivut/teivocup_vi/teivocup_vi_1.webp"
+        width="600"
+        height="400"
         alt="Kuva {x}Teivocup VI"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -640,7 +702,7 @@
       <div class="left-container">
         <h3 class="race-name">Teivocup VI</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -651,7 +713,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -681,11 +743,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/kilpailusivut/juoksukurssi_kevat"
   class="race-card"
   data-name="Juoksukurssi kevät"
@@ -696,15 +761,23 @@
   data-distance=""
   data-latitude="61.339614"
   data-longitude="23.7467695"
+  data-location="Hakkarin liikuntahalli"
+  data-description="Tervetuloa mukaan kevään juoksukouluun Rajamäellä, jota vetää Suomen huippujuoksija Suvi Selvenius! Harjoitus koostuu yhteisestä alkulämmitt"
+  data-image-path="/kilpailusivut/juoksukurssi_kevat/juoksukurssi_kevat"
+  data-type="other"
+  data-type-display="Muut"
+  data-date-display="6 huhti."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/kilpailusivut/juoksukurssi_kevat/juoksukurssi_kevat_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/kilpailusivut/juoksukurssi_kevat/juoksukurssi_kevat_1.webp"
+        width="600"
+        height="400"
         alt="Kuva {x}Juoksukurssi kevät"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -770,7 +843,8 @@
   >
     <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Valitut Kilpailut</h2>
@@ -797,9 +871,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/kilpailusivut/teivocup_vi/teivocup_vi_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/kilpailusivut/teivocup_vi/teivocup_vi_1.webp"
         alt="Kuva {x}Teivocup VI"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -858,9 +934,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/kilpailusivut/juoksukurssi_kevat/juoksukurssi_kevat_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/kilpailusivut/juoksukurssi_kevat/juoksukurssi_kevat_1.webp"
         alt="Kuva {x}Juoksukurssi kevät"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -919,9 +997,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/kilpailusivut/raholan_kymppi/raholan_kymppi_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/kilpailusivut/raholan_kymppi/raholan_kymppi_1.webp"
         alt="Kuva {x}RAHOLAN KYMPPI"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -976,7 +1056,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/kilpailusivut/raholan_kymppi"
   class="race-card"
   data-name="RAHOLAN KYMPPI"
@@ -987,15 +1070,23 @@
   data-distance="52km, 73km"
   data-latitude="61.51017929999999"
   data-longitude="23.6161214"
+  data-location="Tesoma Ice Hall car park, Tuomarinkatu 7, 33310 Tampere"
+  data-description="RAHOLAN KYMPPI on juoksutapahtuma, joka järjestetään 11. toukokuuta 2024. Tapahtuma tarjoaa juoksijoille mahdollisuuden kilpailla eri matkoi"
+  data-image-path="/kilpailusivut/raholan_kymppi/raholan_kymppi"
+  data-type="other"
+  data-type-display="Muut"
+  data-date-display="10 tou"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/kilpailusivut/raholan_kymppi/raholan_kymppi_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/kilpailusivut/raholan_kymppi/raholan_kymppi_1.webp"
+        width="600"
+        height="400"
         alt="Kuva {x}RAHOLAN KYMPPI"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1016,7 +1107,7 @@
       <div class="left-container">
         <h3 class="race-name">RAHOLAN KYMPPI</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1027,7 +1118,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1063,13 +1154,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">/</span>
         <span id="total-events">juoksukilpailu</span>
@@ -1091,17 +1183,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kartta</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

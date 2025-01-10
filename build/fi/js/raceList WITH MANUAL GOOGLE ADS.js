@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const distanceMapping = {"1,5km": ["1500 meter"], "10,3km": ["10 km"], "10,6km": ["10 km"], "108km": ["100 km"], "10km": ["10000 meter", "10 km"], "3km": ["3000 meter"], "4,5km": ["5 km"], "4,6km": ["5 km"], "40km": ["Marathon"], "4km": ["5 km"], "5,5km": ["5 km"], "5,8km": ["5 km"], "52km": ["50 km"], "5km": ["5000 meter", "5 km"], "6km": ["5 km"]};
+  const distanceMapping = {"1,5km": ["1500 meter"], "10,3km": ["10 km"], "10,5km": ["10 km"], "10,6km": ["10 km"], "108km": ["100 km"], "10km": ["10 km", "10000 meter"], "3km": ["3000 meter"], "4,5km": ["5 km"], "4,6km": ["5 km"], "40km": ["Marathon"], "4km": ["5 km"], "5,5km": ["5 km"], "5,8km": ["5 km"], "52km": ["50 km"], "5km": ["5000 meter", "5 km"], "6km": ["5 km"]};
   const raceCards = document.querySelectorAll(".race-card");
   const itemsPerPage = 20;
   let currentPage = 1;
