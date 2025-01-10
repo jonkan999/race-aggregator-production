@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Lisää uusi kilpailu</title>
+    <meta
+      name="description"
+      content=""
+    />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/add-race.css" />
+    <link rel="stylesheet" href="/css/add-race-preview.css" />
+
+    <script type="module" src="/js/commonFunctions.js"></script>
+    <script type="module" src="/js/addRace.js"></script>
+    <script type="module" src="/js/addRaceMap.js"></script>
+    <script type="module" src="/js/firebaseConfig.js"></script>
+    <script type="module" src="/js/submitRace.js"></script>
+  </head>
+  <body>
+    <!-- Page content -->
+    <main><section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">juoksen</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Kirjaudu sisään
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Kaikki</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/juoksukalenteri"
+      ><span class="nav-item">Juoksukalenteri</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/lisaa-kilpailu"
+      ><span class="nav-item">Lisää kilpailu</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/foorumi"
+      ><span class="nav-item">Foorumi</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/mittaa-kierroksesi"
+      ><span class="nav-item">Mittaa kierroksesi</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/harjoitusohjelmat"
+      ><span class="nav-item">Harjoitusohjelmat</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/vauhtimuunnin"
+      ><span class="nav-item">Vauhtimuunnin</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/arvioi-rotuaikasi"
+      ><span class="nav-item">Arvioi rotuaikasi</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/tietoa-meista"
+      ><span class="nav-item">Tietoa meistä</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/ota-yhteytta"
+      ><span class="nav-item">Ota yhteyttä</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Kirjaudu sisään</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Sähköpostisi"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Salasana"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Unohditko salasanan?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Luo tili sen sijaan
+            </a>
+          </div>
+          <button type="submit">Kirjaudu sisään</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Luo tili
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Unohditko salasanan?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Luo tili</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Nimesi"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Sähköpostisi"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Salasana"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Luo tili</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Takaisin kirjautumiseen
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Palauta salasana</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Sähköpostisi"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Lähetä palautuslinkki</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Takaisin kirjautumiseen
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Olet jo kirjautunut sisään käyttäjänä</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Jatka tämän käyttäjänä
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Kirjaudu ulos ja vaihda käyttäjää
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Tili luotu!</h2>
+        <div class="logged-in-user-info">
+          <p>Olet nyt kirjautuneena sisään käyttäjänä</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            Vahvistuslinkki on lähetetty sähköpostiisi
+          </p>
+          <p class="verification-notice">Ole hyvä ja vahvista sähköpostiosoitteesi</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Jatka tämän käyttäjänä
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section>
+<div class="section-separator-top"></div>
+<section class="section-add-race">
+  <h1 class="section-header">Lisää uusi kilpailu</h1>
+
+  <form id="add-race-form" enctype="multipart/form-data">
+    <!-- Basic Race Information -->
+    <div class="form-group">
+      <label for="race-name">Kilpailun nimi:</label>
+      <input
+        type="text"
+        id="race-name"
+        name="race-name"
+        placeholder="t ex Helsingin ympäri"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="race-type">Alustan tyyppi / Kilpailun tyyppi</label>
+      <select id="race-type" name="race-type" required>
+        <option value="">Valitse alusta / juoksutyypin</option>
+        
+        <option value="road">road</option>
+        
+        <option value="terrain">terrain</option>
+        
+        <option value="trail">trail</option>
+        
+        <option value="track">track</option>
+        
+        <option value="backyard">backyard</option>
+        
+        <option value="frontyard">frontyard</option>
+        
+        <option value="relay">relay</option>
+        
+        <option value="time">time</option>
+        
+        <option value="other">other</option>
+        
+      </select>
+    </div>
+
+    <!-- Date and Time -->
+    <div class="form-group">
+      <label for="race-date">Päivämäärä</label>
+      <input type="date" id="race-date" name="race-date" required />
+      <div class="multi-day-toggle">
+        <label for="multi-day-toggle">Monipäiväinen tapahtuma</label>
+        <input type="checkbox" id="multi-day-toggle" name="multi-day-toggle" />
+      </div>
+      <div id="end-date-container" style="display: none">
+        <label for="race-end-date">Lopetuspäivämäärä</label>
+        <input type="date" id="race-end-date" name="race-end-date" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="race-start-time"
+        >Aloitusaika:
+        <span class="optional">(Valinnainen)</span></label
+      >
+      <input
+        type="time"
+        id="race-start-time"
+        name="race-start-time"
+        placeholder="09:00"
+        step="1"
+        data-format="24h"
+      />
+    </div>
+
+    <!-- Location -->
+    <div class="form-group map-container">
+      <label>Aseta reittisi klikkaamalla karttaa</label>
+      <div
+        id="map-placeholder"
+        data-latitude="62.1452865"
+        data-longitude="27.6450702"
+        data-zoom="6"
+      >
+        <!-- Map will be inserted here -->
+      </div>
+      <input type="hidden" id="latitude" name="latitude" />
+      <input type="hidden" id="longitude" name="longitude" />
+      <div id="coordinates-display"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="race-location">Paikan nimi, jossa kilpailu järjestetään:</label>
+      <input
+        type="text"
+        id="race-location"
+        name="race-location"
+        placeholder="t ex Helsingin"
+        required
+      />
+    </div>
+
+    <!-- Distances -->
+    <div class="form-group">
+      <label>Etäisyydet:</label>
+      <div class="distance-input-container">
+        <input
+          type="number"
+          id="distance-input"
+          placeholder="Anna etäisyys km:ssä"
+          min="0"
+          step="0.1"
+        />
+        <button type="button" id="add-distance">
+          Lisää
+        </button>
+      </div>
+      <div class="quick-distance-buttons">
+        <button type="button" class="quick-distance" data-distance="21.1">
+          Puolimaraton
+        </button>
+        <button type="button" class="quick-distance" data-distance="42.2">
+          Maraton
+        </button>
+        <button type="button" class="quick-distance" data-distance="backyard">
+          Backyard Ultra
+        </button>
+        <button type="button" class="quick-distance" data-distance="frontyard">
+          Frontyard Ultra
+        </button>
+        <button type="button" class="quick-distance" data-distance="80.5">
+          50 miles
+        </button>
+        <button type="button" class="quick-distance" data-distance="160.9">
+          100 miles
+        </button>
+      </div>
+      <div id="distances-container"></div>
+      <input type="hidden" id="race-distances" name="race-distances" />
+    </div>
+
+    <!-- Organizer Information -->
+    <div class="form-group">
+      <label for="race-organizer"
+        >Järjestäjä:
+        <span class="optional">(Valinnainen)</span></label
+      >
+      <input
+        type="text"
+        id="race-organizer"
+        name="race-organizer"
+        placeholder="Järjestäjän nimi"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="race-contact">Sähköposti yhteyshenkilölle:</label>
+      <input
+        type="email"
+        id="race-contact"
+        name="race-contact"
+        placeholder="info@LoppKartan.se"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="race-website"
+        >Järjestäjän kotisivu:
+        <span class="optional">(Valinnainen)</span></label
+      >
+      <input
+        type="url"
+        id="race-website"
+        name="race-website"
+        placeholder="https://jarjestajan-nimi.fi/"
+      />
+    </div>
+
+    <!-- Additional Details -->
+    <div class="form-group">
+      <label for="race-price-range"
+        >Hinta-alue:
+        <span class="optional">(Valinnainen)</span></label
+      >
+      <input
+        type="text"
+        id="race-price-range"
+        name="race-price-range"
+        placeholder="esim. 200-500 kr"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="race-summary">Kuvaile kilpailua</label>
+      <textarea
+        id="race-summary"
+        name="race-summary"
+        placeholder="Helsingin ympäri on mailan mittainen rata, jossa on pitkiä, tasaisia suoria ..."
+        required
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="race-additional"
+        >Muu tarvittava tieto
+        <span class="optional">(Valinnainen)</span></label
+      >
+      <textarea
+        id="race-additional"
+        name="race-additional"
+        placeholder="esim. lähtö ja maali, lähtöryhmät ym."
+      ></textarea>
+    </div>
+
+    <!-- Images -->
+    <div class="form-group picture-upload-container">
+      <label for="race-images">Lataa kuvia (Mielellään vähintään 4)</label>
+      <input
+        type="file"
+        id="race-images"
+        class="picture-upload-input"
+        multiple
+        accept="image/*"
+      />
+      <label for="race-images" class="picture-upload-button"
+        >Valitse kuvat</label
+      >
+    </div>
+
+    <!-- Drag and Drop Image Upload -->
+    <div id="fileUploadStatus"></div>
+    <div class="image-container"></div>
+    <button type="button" id="clearImagesButton">
+      Selkeät kuvat
+    </button>
+
+    <!-- New Info Disclaimer -->
+    <div class="info-disclaimer">
+      <p>
+        Onko jotain muuta, mitä haluaisit lisätä juoksusi aikana?
+        <a href="/ota-meihin-yhteytta.html"
+          >ota yhteyttä meihin</a
+        >
+        niin yritämme auttaa!
+      </p>
+    </div>
+
+    <!-- Form Actions -->
+    <div class="form-actions">
+      <!--       <button type="button" id="preview-button">
+        Esikatselu kilpailusta
+      </button> -->
+      <button type="button" id="submit-race-button">Lähetä</button>
+    </div>
+  </form>
+
+  <button type="button" id="clear-form">Tyhjennä lomake</button>
+</section>
+
+</main>
+
+    
+  </body>
+</html>

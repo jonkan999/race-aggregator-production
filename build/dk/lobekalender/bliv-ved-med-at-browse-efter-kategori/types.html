@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Bladr gennem alle løb</title>
+    <meta name="description" content="Find løb efter region, type eller kategori" />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/race-list-filter.css" />
+    <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card-big.css" />
+    <link rel="stylesheet" href="/css/race-cards.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+    <script src="/js/raceList.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+    <script defer="" src="/js/raceListToggleButton.js"></script>
+    <script defer="" src="/js/raceListToggleMap.js"></script>
+  </head>
+  <body>
+    <!-- Page content -->
+    <main>
+       <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Lobskalender</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Log ind
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Alt</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/lobekalender"
+      ><span class="nav-item">Løbekalender</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/tilfoj-lob"
+      ><span class="nav-item">Tilføj løb</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/forum"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/mal-din-rute"
+      ><span class="nav-item">Mål din rute</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/traningsprogram"
+      ><span class="nav-item">Træningsprogram</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/fartomformer"
+      ><span class="nav-item">Fartomformer</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/vurder-din-sluttid"
+      ><span class="nav-item">Vurder din sluttid</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/om-os"
+      ><span class="nav-item">Om os</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/kontakt-os"
+      ><span class="nav-item">Kontakt os</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Log ind</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Din e-mail"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Adgangskode"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Glemt adgangskode?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Opret konto i stedet
+            </a>
+          </div>
+          <button type="submit">Log ind</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Opret konto
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Glemt adgangskode?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Opret konto</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Dit navn"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Din e-mail"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Adgangskode"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Opret konto</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Tilbage til login
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Nulstil adgangskode</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Din e-mail"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Send nulstillingslink</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Tilbage til login
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Du er allerede logget ind som</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Fortsæt som denne bruger
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Log ud og skift bruger
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto oprettet!</h2>
+        <div class="logged-in-user-info">
+          <p>Du er nu logget ind som</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            En verificeringslink er blevet sendt til din e-mail
+          </p>
+          <p class="verification-notice">Venligst verificer din e-mailadresse</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Fortsæt som denne bruger
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+      <div class="browse-container">
+        <nav class="breadcrumbs" aria-label="breadcrumb">
+  <ol>
+    
+    <li >
+      
+      <a href="/lobekalender">Løbekalender</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li >
+      
+      <a href="/lobekalender/bliv-ved-med-at-browse-efter-kategori">Bliv ved med at browse efter kategori</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li aria-current="page" >
+      
+      <span>Løbetyper</span>
+      
+    </li>
+    
+  </ol>
+</nav>
+        <nav class="browse-nav">
+          <a
+            href="/lobekalender/bliv-ved-med-at-browse-efter-kategori"
+            class=""
+          >
+            Oversigt
+          </a>
+          <a
+            href="/lobekalender/bliv-ved-med-at-browse-efter-kategori/counties.html"
+            class=""
+          >
+            Amter
+          </a>
+          <a
+            href="/lobekalender/bliv-ved-med-at-browse-efter-kategori/cities.html"
+            class=""
+          >
+            Byer
+          </a>
+          <a
+            href="/lobekalender/bliv-ved-med-at-browse-efter-kategori/types.html"
+            class="active"
+          >
+            Løbetyper
+          </a>
+          <a
+            href="/lobekalender/bliv-ved-med-at-browse-efter-kategori/categories.html"
+            class=""
+          >
+            Kategorier
+          </a>
+        </nav>
+
+        
+<div class="browse-types">
+  <h1>Bläddra efter løbtype</h1>
+  <p class="browse-description">Find løb efter type af løb.</p>
+
+  <div class="browse-grid">
+    
+    <div class="type-card">
+      <div class="type-header">
+        <h2>
+          <a href="/lobekalender/alle-kommuner/andet"> Andet </a>
+          <span class="count">(39 lopp)</span>
+        </h2>
+      </div>
+
+      
+      <div class="categories">
+        <h3></h3>
+        <ul class="category-list">
+           
+          <li>
+            <a href="/lobekalender/alle-kommuner/andet/10-km"> 10 km </a>
+            <span class="count">(11)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/andet/100-km"> 100 km </a>
+            <span class="count">(1)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/andet/10000-meter"> 10000 meter </a>
+            <span class="count">(11)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/andet/200-miles"> 200 miles </a>
+            <span class="count">(1)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/andet/3000-meter"> 3000 meter </a>
+            <span class="count">(3)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/andet/5-km"> 5 km </a>
+            <span class="count">(19)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/andet/50-km"> 50 km </a>
+            <span class="count">(2)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/andet/50-miles"> 50 miles </a>
+            <span class="count">(2)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/andet/5000-meter"> 5000 meter </a>
+            <span class="count">(15)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/andet/halvmarathon"> Halvmarathon </a>
+            <span class="count">(4)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/andet/millopp"> Millopp </a>
+            <span class="count">(11)</span>
+          </li>
+           
+        </ul>
+      </div>
+      
+    </div>
+    
+    <div class="type-card">
+      <div class="type-header">
+        <h2>
+          <a href="/lobekalender/alle-kommuner/backyard-ultra"> Backyard Ultra </a>
+          <span class="count">(8 lopp)</span>
+        </h2>
+      </div>
+
+      
+      <div class="categories">
+        <h3></h3>
+        <ul class="category-list">
+           
+          <li>
+            <a href="/lobekalender/alle-kommuner/backyard-ultra/100-km"> 100 km </a>
+            <span class="count">(2)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/backyard-ultra/100-miles"> 100 miles </a>
+            <span class="count">(1)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/backyard-ultra/5-km"> 5 km </a>
+            <span class="count">(1)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/backyard-ultra/50-km"> 50 km </a>
+            <span class="count">(1)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/backyard-ultra/50-miles"> 50 miles </a>
+            <span class="count">(2)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/backyard-ultra/marathon"> Marathon </a>
+            <span class="count">(1)</span>
+          </li>
+           
+        </ul>
+      </div>
+      
+    </div>
+    
+    <div class="type-card">
+      <div class="type-header">
+        <h2>
+          <a href="/lobekalender/alle-kommuner/landsvej"> Landsvej </a>
+          <span class="count">(54 lopp)</span>
+        </h2>
+      </div>
+
+      
+      <div class="categories">
+        <h3></h3>
+        <ul class="category-list">
+           
+          <li>
+            <a href="/lobekalender/alle-kommuner/landsvej/10-km"> 10 km </a>
+            <span class="count">(19)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/landsvej/100-km"> 100 km </a>
+            <span class="count">(2)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/landsvej/10000-meter"> 10000 meter </a>
+            <span class="count">(18)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/landsvej/3000-meter"> 3000 meter </a>
+            <span class="count">(2)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/landsvej/5-km"> 5 km </a>
+            <span class="count">(21)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/landsvej/50-km"> 50 km </a>
+            <span class="count">(1)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/landsvej/50-miles"> 50 miles </a>
+            <span class="count">(4)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/landsvej/5000-meter"> 5000 meter </a>
+            <span class="count">(15)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/landsvej/halvmarathon"> Halvmarathon </a>
+            <span class="count">(35)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/landsvej/millopp"> Millopp </a>
+            <span class="count">(19)</span>
+          </li>
+           
+        </ul>
+      </div>
+      
+    </div>
+    
+    <div class="type-card">
+      <div class="type-header">
+        <h2>
+          <a href="/lobekalender/alle-kommuner/stafett"> Stafett </a>
+          <span class="count">(4 lopp)</span>
+        </h2>
+      </div>
+
+      
+      <div class="categories">
+        <h3></h3>
+        <ul class="category-list">
+           
+          <li>
+            <a href="/lobekalender/alle-kommuner/stafett/10-km"> 10 km </a>
+            <span class="count">(1)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/stafett/10000-meter"> 10000 meter </a>
+            <span class="count">(1)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/stafett/3000-meter"> 3000 meter </a>
+            <span class="count">(1)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/stafett/5-km"> 5 km </a>
+            <span class="count">(1)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/stafett/millopp"> Millopp </a>
+            <span class="count">(1)</span>
+          </li>
+           
+        </ul>
+      </div>
+      
+    </div>
+    
+    <div class="type-card">
+      <div class="type-header">
+        <h2>
+          <a href="/lobekalender/alle-kommuner/terran"> Terræn </a>
+          <span class="count">(78 lopp)</span>
+        </h2>
+      </div>
+
+      
+      <div class="categories">
+        <h3></h3>
+        <ul class="category-list">
+           
+          <li>
+            <a href="/lobekalender/alle-kommuner/terran/10-km"> 10 km </a>
+            <span class="count">(31)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/terran/100-km"> 100 km </a>
+            <span class="count">(2)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/terran/100-miles"> 100 miles </a>
+            <span class="count">(1)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/terran/10000-meter"> 10000 meter </a>
+            <span class="count">(24)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/terran/1500-meter"> 1500 meter </a>
+            <span class="count">(2)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/terran/3000-meter"> 3000 meter </a>
+            <span class="count">(10)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/terran/5-km"> 5 km </a>
+            <span class="count">(52)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/terran/50-km"> 50 km </a>
+            <span class="count">(3)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/terran/50-miles"> 50 miles </a>
+            <span class="count">(4)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/terran/5000-meter"> 5000 meter </a>
+            <span class="count">(30)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/terran/halvmarathon"> Halvmarathon </a>
+            <span class="count">(24)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/terran/marathon"> Marathon </a>
+            <span class="count">(1)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/terran/millopp"> Millopp </a>
+            <span class="count">(31)</span>
+          </li>
+           
+        </ul>
+      </div>
+      
+    </div>
+    
+    <div class="type-card">
+      <div class="type-header">
+        <h2>
+          <a href="/lobekalender/alle-kommuner/tidslopp"> Tidslopp </a>
+          <span class="count">(2 lopp)</span>
+        </h2>
+      </div>
+
+      
+      <div class="categories">
+        <h3></h3>
+        <ul class="category-list">
+           
+          <li>
+            <a href="/lobekalender/alle-kommuner/tidslopp/3000-meter"> 3000 meter </a>
+            <span class="count">(1)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/tidslopp/5-km"> 5 km </a>
+            <span class="count">(1)</span>
+          </li>
+           
+        </ul>
+      </div>
+      
+    </div>
+    
+    <div class="type-card">
+      <div class="type-header">
+        <h2>
+          <a href="/lobekalender/alle-kommuner/traillob"> Trailløb </a>
+          <span class="count">(41 lopp)</span>
+        </h2>
+      </div>
+
+      
+      <div class="categories">
+        <h3></h3>
+        <ul class="category-list">
+           
+          <li>
+            <a href="/lobekalender/alle-kommuner/traillob/10-km"> 10 km </a>
+            <span class="count">(12)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/traillob/100-km"> 100 km </a>
+            <span class="count">(6)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/traillob/100-miles"> 100 miles </a>
+            <span class="count">(1)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/traillob/10000-meter"> 10000 meter </a>
+            <span class="count">(5)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/traillob/200-miles"> 200 miles </a>
+            <span class="count">(1)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/traillob/3000-meter"> 3000 meter </a>
+            <span class="count">(5)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/traillob/5-km"> 5 km </a>
+            <span class="count">(17)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/traillob/50-km"> 50 km </a>
+            <span class="count">(8)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/traillob/50-miles"> 50 miles </a>
+            <span class="count">(8)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/traillob/5000-meter"> 5000 meter </a>
+            <span class="count">(8)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/traillob/halvmarathon"> Halvmarathon </a>
+            <span class="count">(17)</span>
+          </li>
+            
+          <li>
+            <a href="/lobekalender/alle-kommuner/traillob/millopp"> Millopp </a>
+            <span class="count">(12)</span>
+          </li>
+           
+        </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+      </div>
+
+       
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

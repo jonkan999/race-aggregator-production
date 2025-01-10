@@ -1,0 +1,197 @@
+@import '_variables.less';
+@import 'race-time-estimator.less';
+
+.section-training-plans {
+  &:extend(.section-race-estimator all);
+
+  // Plan Overview Styles
+  .plan-overview {
+    background: white;
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 2.4rem 0;
+
+    h3 {
+      font-size: 2.4rem;
+      color: var(--color-primary);
+      margin-bottom: 2rem;
+    }
+
+    .plan-focus,
+    .plan-description {
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .plan-highlights {
+      margin: 2rem 0;
+
+      ul {
+        padding-left: 2rem;
+        li {
+          margin-bottom: 1rem;
+          line-height: 1.5;
+        }
+      }
+    }
+
+    .plan-structure,
+    .plan-distribution {
+      margin-top: 1.5rem;
+
+      strong {
+        color: var(--color-grey-dark-2);
+      }
+    }
+  }
+
+  // Training Schedule Styles
+  #training-schedule {
+    margin-top: 3rem;
+    font-size: 1.6rem;
+    line-height: 1.5;
+
+    .week-container {
+      background: white;
+      padding: 2.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 3rem;
+
+      .week-header {
+        margin-bottom: 2.5rem;
+
+        h4 {
+          font-size: 2.2rem;
+          color: var(--color-primary);
+          margin-bottom: 0.8rem;
+        }
+
+        .week-focus {
+          color: var(--color-grey-dark-2);
+          font-style: italic;
+        }
+      }
+
+      .sessions-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        .session {
+          background: var(--color-background-light);
+          padding: 2rem;
+          border-radius: var(--border-radius);
+          transition: transform 0.2s ease;
+
+          &:hover {
+            transform: translateX(4px);
+          }
+
+          .session-header {
+            margin-bottom: 1.2rem;
+            font-size: 1.8rem;
+
+            strong {
+              color: var(--color-primary);
+              margin-right: 0.5rem;
+            }
+          }
+
+          .session-details {
+            p {
+              margin-bottom: 1.5rem;
+              color: var(--color-grey-dark-2);
+            }
+
+            .workout-specs {
+              list-style: none;
+              padding: 0;
+              display: flex;
+              gap: 2rem;
+              flex-wrap: wrap;
+
+              li {
+                strong {
+                  color: var(--color-grey-dark-2);
+                  margin-right: 0.5rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Action Buttons
+  .plan-actions {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    justify-content: center;
+
+    .btn {
+      margin-top: 2rem;
+      min-width: 15rem;
+    }
+  }
+}
+
+// Responsive Adjustments
+@media (max-width: @landscape-tablet) {
+  .section-training-plans {
+    .plan-overview {
+      padding: 2rem;
+    }
+
+    #training-schedule {
+      .week-container {
+        padding: 2rem;
+
+        .sessions-container {
+          .session {
+            padding: 1.5rem;
+
+            .session-details {
+              .workout-specs {
+                flex-direction: column;
+                gap: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .plan-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+}
+
+@media (max-width: @landscape-tablet) {
+  .section-training-plans {
+    .plan-overview {
+      h3 {
+        font-size: 2rem;
+      }
+    }
+
+    #training-schedule {
+      .week-container {
+        .week-header h4 {
+          font-size: 1.8rem;
+        }
+
+        .session {
+          .session-header {
+            font-size: 1.6rem;
+          }
+        }
+      }
+    }
+  }
+}

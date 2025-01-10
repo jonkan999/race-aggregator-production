@@ -1,0 +1,3963 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Bläddra bland alla lopp</title>
+    <meta name="description" content="Hitta lopp efter län, typ eller kategori" />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/race-list-filter.css" />
+    <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card-big.css" />
+    <link rel="stylesheet" href="/css/race-cards.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+  </head>
+  <body>
+    <!-- Page content -->
+    <main>
+       <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Loppkartan</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Logga in
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Allt</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/loppkalender"
+      ><span class="nav-item">Loppkalender</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/lagg-till-lopp"
+      ><span class="nav-item">Lägg till lopp</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/forum"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/mat-din-runda"
+      ><span class="nav-item">Mät din runda</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/traningsprogram"
+      ><span class="nav-item">Träningsprogram</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/fartomvandlare"
+      ><span class="nav-item">Fartomvandlare</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/uppskatta-din-sluttid"
+      ><span class="nav-item">Uppskatta din sluttid</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/om-oss"
+      ><span class="nav-item">Om oss</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/kontakta-oss"
+      ><span class="nav-item">Kontakta oss</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Logga in</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Lösenord"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Glömt lösenord?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Skapa konto istället
+            </a>
+          </div>
+          <button type="submit">Logga in</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Skapa konto
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Glömt lösenord?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Skapa konto</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Ditt namn"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Lösenord"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Skapa konto</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Tillbaka till inloggning
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Återställ lösenord</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Skicka återställningslänk</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Tillbaka till inloggning
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Du är redan inloggad som</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Fortsätt som denna användare
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Logga ut och byt användare
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto skapat!</h2>
+        <div class="logged-in-user-info">
+          <p>Du är nu inloggad som</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            En verifieringslänk har skickats till din e-post
+          </p>
+          <p class="verification-notice">Vänligen verifiera din e-postadress</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Fortsätt som denna användare
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+      <div class="browse-container">
+        <nav class="breadcrumbs" aria-label="breadcrumb">
+  <ol>
+    
+    <li >
+      
+      <a href="/loppkalender">Loppkalender</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li >
+      
+      <a href="/loppkalender/bladdra-efter-kategori">Bläddra efter kategori</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li aria-current="page" >
+      
+      <span>Län</span>
+      
+    </li>
+    
+  </ol>
+</nav>
+        <nav class="browse-nav">
+          <a
+            href="/loppkalender/bladdra-efter-kategori"
+            class=""
+          >
+            Översikt
+          </a>
+          <a
+            href="/loppkalender/bladdra-efter-kategori/counties.html"
+            class="active"
+          >
+            Län
+          </a>
+          <a
+            href="/loppkalender/bladdra-efter-kategori/cities.html"
+            class=""
+          >
+            Städer
+          </a>
+          <a
+            href="/loppkalender/bladdra-efter-kategori/types.html"
+            class=""
+          >
+            Lopptyper
+          </a>
+          <a
+            href="/loppkalender/bladdra-efter-kategori/categories.html"
+            class=""
+          >
+            Kategorier
+          </a>
+        </nav>
+
+        
+<div class="browse-counties">
+  <h1>Bläddra efter län</h1>
+  <p class="browse-description">Hitta lopp i ditt län.</p>
+
+  <div class="browse-grid">
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/loppkalender/blekinge">Blekinge</a>
+          <span class="count"
+            >(7 lopp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/blekinge">Alla loppstyper</a>
+            <span class="count">(7)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a
+                href="/loppkalender/blekinge/alla-loppstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/blekinge/alla-loppstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/blekinge/alla-loppstyper/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                            
+            <li>
+              <a
+                href="/loppkalender/blekinge/alla-loppstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/loppkalender/blekinge/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/blekinge/alla-loppstyper/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/blekinge/alla-loppstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/blekinge/alla-loppstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/blekinge/alla-loppstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(4)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/blekinge/landsvag">Landsväg</a>
+            <span class="count">(4)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/blekinge/landsvag/10-km">10 km</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/blekinge/landsvag/10000-meter">10000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+                    
+            <li>
+              <a href="/loppkalender/blekinge/landsvag/5-km">5 km</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/blekinge/landsvag/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/blekinge/landsvag/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/blekinge/landsvag/millopp">Millopp</a>
+              <span class="count">(3)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/blekinge/loparbana">Löparbana</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/loppkalender/blekinge/loparbana/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/blekinge/loparbana/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                           
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/blekinge/trail">Trail</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/blekinge/trail/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/blekinge/trail/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/loppkalender/blekinge/trail/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/blekinge/trail/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/blekinge/trail/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/blekinge/trail/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/loppkalender/dalarna">Dalarna</a>
+          <span class="count"
+            >(13 lopp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/dalarna">Alla loppstyper</a>
+            <span class="count">(13)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                               
+            <li>
+              <a
+                href="/loppkalender/dalarna/alla-loppstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/loppkalender/dalarna/alla-loppstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/loppkalender/dalarna/alla-loppstyper/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/loppkalender/dalarna/alla-loppstyper/marathon"
+              >
+                Marathon
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/loppkalender/dalarna/alla-loppstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/loppkalender/dalarna/alla-loppstyper/100-miles"
+              >
+                100 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                    
+            <li>
+              <a
+                href="/loppkalender/dalarna/alla-loppstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/loppkalender/dalarna/alla-loppstyper/100-km"
+              >
+                100 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/loppkalender/dalarna/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/loppkalender/dalarna/alla-loppstyper/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/loppkalender/dalarna/alla-loppstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/loppkalender/dalarna/alla-loppstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/loppkalender/dalarna/alla-loppstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(2)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/dalarna/backyard-ultra">Backyard Ultra</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a href="/loppkalender/dalarna/backyard-ultra/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                         
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/dalarna/loparbana">Löparbana</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/loppkalender/dalarna/loparbana/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/dalarna/loparbana/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                           
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/dalarna/terrang">Terräng</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/dalarna/terrang/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/dalarna/terrang/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/dalarna/terrang/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/loppkalender/dalarna/terrang/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/dalarna/terrang/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/dalarna/terrang/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/dalarna/terrang/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/dalarna/terrang/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/dalarna/terrang/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/dalarna/trail">Trail</a>
+            <span class="count">(6)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/dalarna/trail/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/dalarna/trail/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/dalarna/trail/100-miles">100 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/dalarna/trail/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/loppkalender/dalarna/trail/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/dalarna/trail/50-km">50 km</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/dalarna/trail/50-miles">50 miles</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/dalarna/trail/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/dalarna/trail/marathon">Marathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/dalarna/trail/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/loppkalender/gotland">Gotland</a>
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/gotland">Alla loppstyper</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                                                       
+            <li>
+              <a
+                href="/loppkalender/gotland/alla-loppstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/loppkalender/gotland/alla-loppstyper/100-miles"
+              >
+                100 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                                             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/gotland/terrang">Terräng</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                        
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/gotland/trail">Trail</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                 
+            <li>
+              <a href="/loppkalender/gotland/trail/100-miles">100 miles</a>
+              <span class="count">(1)</span>
+            </li>
+                          
+            <li>
+              <a href="/loppkalender/gotland/trail/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+                     
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/loppkalender/gavleborg">Gävleborg</a>
+          <span class="count"
+            >(3 lopp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/gavleborg">Alla loppstyper</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a
+                href="/loppkalender/gavleborg/alla-loppstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                                                                                                                                                                                                             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/gavleborg/backyard-ultra">Backyard Ultra</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a href="/loppkalender/gavleborg/backyard-ultra/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                         
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/gavleborg/terrang">Terräng</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                        
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/gavleborg/trail">Trail</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a href="/loppkalender/gavleborg/trail/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                         
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/loppkalender/halland">Halland</a>
+          <span class="count"
+            >(5 lopp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/halland">Alla loppstyper</a>
+            <span class="count">(5)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a
+                href="/loppkalender/halland/alla-loppstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/halland/alla-loppstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/halland/alla-loppstyper/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/halland/alla-loppstyper/marathon"
+              >
+                Marathon
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                                                            
+            <li>
+              <a
+                href="/loppkalender/halland/alla-loppstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/loppkalender/halland/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                            
+            <li>
+              <a
+                href="/loppkalender/halland/alla-loppstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/halland/alla-loppstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/halland/backyard-ultra">Backyard Ultra</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                   
+            <li>
+              <a href="/loppkalender/halland/backyard-ultra/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/halland/backyard-ultra/marathon">Marathon</a>
+              <span class="count">(2)</span>
+            </li>
+               
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/halland/terrang">Terräng</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/halland/terrang/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/halland/terrang/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a href="/loppkalender/halland/terrang/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/halland/trail">Trail</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a href="/loppkalender/halland/trail/5-km">5 km</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/halland/trail/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/halland/trail/5000-meter">5000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+                   
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/loppkalender/jamtland">Jämtland</a>
+          <span class="count"
+            >(7 lopp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/jamtland">Alla loppstyper</a>
+            <span class="count">(7)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a
+                href="/loppkalender/jamtland/alla-loppstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/jamtland/alla-loppstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/jamtland/alla-loppstyper/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/jamtland/alla-loppstyper/marathon"
+              >
+                Marathon
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/jamtland/alla-loppstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                            
+            <li>
+              <a
+                href="/loppkalender/jamtland/alla-loppstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/jamtland/alla-loppstyper/100-km"
+              >
+                100 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/jamtland/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/jamtland/alla-loppstyper/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/jamtland/alla-loppstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/jamtland/alla-loppstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/jamtland/alla-loppstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/jamtland/loparbana">Löparbana</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/loppkalender/jamtland/loparbana/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/jamtland/loparbana/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                           
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/jamtland/terrang">Terräng</a>
+            <span class="count">(4)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/jamtland/terrang/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/jamtland/terrang/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/jamtland/terrang/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/loppkalender/jamtland/terrang/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/jamtland/terrang/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/jamtland/terrang/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/jamtland/terrang/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/jamtland/terrang/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/jamtland/terrang/marathon">Marathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/jamtland/terrang/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/jamtland/trail">Trail</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                     
+            <li>
+              <a href="/loppkalender/jamtland/trail/marathon">Marathon</a>
+              <span class="count">(1)</span>
+            </li>
+               
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/loppkalender/kalmar">Kalmar</a>
+          <span class="count"
+            >(10 lopp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/kalmar">Alla loppstyper</a>
+            <span class="count">(10)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a
+                href="/loppkalender/kalmar/alla-loppstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/kalmar/alla-loppstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/kalmar/alla-loppstyper/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/kalmar/alla-loppstyper/marathon"
+              >
+                Marathon
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/kalmar/alla-loppstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/kalmar/alla-loppstyper/100-miles"
+              >
+                100 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/loppkalender/kalmar/alla-loppstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/loppkalender/kalmar/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/kalmar/alla-loppstyper/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/loppkalender/kalmar/alla-loppstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/kalmar/alla-loppstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(3)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/kalmar/landsvag">Landsväg</a>
+            <span class="count">(4)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/kalmar/landsvag/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/kalmar/landsvag/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/loppkalender/kalmar/landsvag/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/kalmar/landsvag/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/kalmar/landsvag/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/kalmar/landsvag/marathon">Marathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/kalmar/landsvag/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/kalmar/terrang">Terräng</a>
+            <span class="count">(5)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/kalmar/terrang/10-km">10 km</a>
+              <span class="count">(3)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/kalmar/terrang/100-miles">100 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/kalmar/terrang/10000-meter">10000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/kalmar/terrang/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/kalmar/terrang/5-km">5 km</a>
+              <span class="count">(3)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/kalmar/terrang/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/kalmar/terrang/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/kalmar/terrang/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/kalmar/terrang/marathon">Marathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/kalmar/terrang/millopp">Millopp</a>
+              <span class="count">(3)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/kalmar/trail">Trail</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                             
+            <li>
+              <a href="/loppkalender/kalmar/trail/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+                       
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/loppkalender/kronoberg">Kronoberg</a>
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/kronoberg">Alla loppstyper</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                               
+            <li>
+              <a
+                href="/loppkalender/kronoberg/alla-loppstyper/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/kronoberg/alla-loppstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                            
+            <li>
+              <a
+                href="/loppkalender/kronoberg/alla-loppstyper/100-km"
+              >
+                100 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/kronoberg/alla-loppstyper/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                 
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/kronoberg/loparbana">Löparbana</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/loppkalender/kronoberg/loparbana/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                               
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/kronoberg/tidslopp">Tidslopp</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+               
+            <li>
+              <a href="/loppkalender/kronoberg/tidslopp/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a href="/loppkalender/kronoberg/tidslopp/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/kronoberg/tidslopp/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+                 
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/loppkalender/norrbotten">Norrbotten</a>
+          <span class="count"
+            >(1 lopp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/norrbotten">Alla loppstyper</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                   
+            <li>
+              <a
+                href="/loppkalender/norrbotten/alla-loppstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/loppkalender/norrbotten/alla-loppstyper/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                            
+            <li>
+              <a
+                href="/loppkalender/norrbotten/alla-loppstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                     
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/norrbotten/ovrigt">Övrigt</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a href="/loppkalender/norrbotten/ovrigt/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/norrbotten/ovrigt/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/norrbotten/ovrigt/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+                 
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/loppkalender/skane">Skåne</a>
+          <span class="count"
+            >(16 lopp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/skane">Alla loppstyper</a>
+            <span class="count">(16)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                       
+            <li>
+              <a
+                href="/loppkalender/skane/alla-loppstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/skane/alla-loppstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/skane/alla-loppstyper/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/skane/alla-loppstyper/marathon"
+              >
+                Marathon
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/skane/alla-loppstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/skane/alla-loppstyper/100-miles"
+              >
+                100 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/skane/alla-loppstyper/200-miles"
+              >
+                200 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/skane/alla-loppstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/skane/alla-loppstyper/100-km"
+              >
+                100 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/skane/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                                                    
+            <li>
+              <a
+                href="/loppkalender/skane/alla-loppstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/skane/alla-loppstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/skane/alla-loppstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(3)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/skane/landsvag">Landsväg</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                   
+            <li>
+              <a href="/loppkalender/skane/landsvag/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/skane/landsvag/marathon">Marathon</a>
+              <span class="count">(1)</span>
+            </li>
+               
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/skane/loparbana">Löparbana</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                        
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/skane/stafett">Stafett</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                   
+            <li>
+              <a href="/loppkalender/skane/stafett/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/skane/stafett/marathon">Marathon</a>
+              <span class="count">(1)</span>
+            </li>
+               
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/skane/terrang">Terräng</a>
+            <span class="count">(4)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/skane/terrang/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/skane/terrang/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/skane/terrang/100-miles">100 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/skane/terrang/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/skane/terrang/200-miles">200 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/skane/terrang/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/skane/terrang/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/skane/terrang/50-km">50 km</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/skane/terrang/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/skane/terrang/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/skane/terrang/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/skane/terrang/marathon">Marathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/skane/terrang/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/skane/trail">Trail</a>
+            <span class="count">(5)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/skane/trail/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/skane/trail/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/loppkalender/skane/trail/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/skane/trail/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/skane/trail/halvmarathon">Halvmarathon</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/skane/trail/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/skane/ovrigt">Övrigt</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/skane/ovrigt/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/skane/ovrigt/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/skane/ovrigt/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/skane/ovrigt/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/skane/ovrigt/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/skane/ovrigt/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/loppkalender/stockholm">Stockholm</a>
+          <span class="count"
+            >(36 lopp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/stockholm">Alla loppstyper</a>
+            <span class="count">(36)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                       
+            <li>
+              <a
+                href="/loppkalender/stockholm/alla-loppstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(10)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/stockholm/alla-loppstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(18)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/stockholm/alla-loppstyper/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(6)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/stockholm/alla-loppstyper/marathon"
+              >
+                Marathon
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/stockholm/alla-loppstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/stockholm/alla-loppstyper/100-miles"
+              >
+                100 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                    
+            <li>
+              <a
+                href="/loppkalender/stockholm/alla-loppstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/stockholm/alla-loppstyper/100-km"
+              >
+                100 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/stockholm/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(18)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/stockholm/alla-loppstyper/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/stockholm/alla-loppstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/stockholm/alla-loppstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(9)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/stockholm/alla-loppstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(15)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/stockholm/backyard-ultra">Backyard Ultra</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                        
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/stockholm/landsvag">Landsväg</a>
+            <span class="count">(14)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/stockholm/landsvag/10-km">10 km</a>
+              <span class="count">(8)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/stockholm/landsvag/10000-meter">10000 meter</a>
+              <span class="count">(8)</span>
+            </li>
+                    
+            <li>
+              <a href="/loppkalender/stockholm/landsvag/5-km">5 km</a>
+              <span class="count">(6)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/stockholm/landsvag/5000-meter">5000 meter</a>
+              <span class="count">(5)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/stockholm/landsvag/halvmarathon">Halvmarathon</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/stockholm/landsvag/marathon">Marathon</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/stockholm/landsvag/millopp">Millopp</a>
+              <span class="count">(8)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/stockholm/loparbana">Löparbana</a>
+            <span class="count">(6)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/loppkalender/stockholm/loparbana/1500-meter">1500 meter</a>
+              <span class="count">(4)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/stockholm/loparbana/3000-meter">3000 meter</a>
+              <span class="count">(4)</span>
+            </li>
+                      
+            <li>
+              <a href="/loppkalender/stockholm/loparbana/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+                 
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/stockholm/stafett">Stafett</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/stockholm/stafett/10-km">10 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/stockholm/stafett/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a href="/loppkalender/stockholm/stafett/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/stockholm/stafett/millopp">Millopp</a>
+              <span class="count">(2)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/stockholm/terrang">Terräng</a>
+            <span class="count">(7)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/stockholm/terrang/10-km">10 km</a>
+              <span class="count">(4)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/stockholm/terrang/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/stockholm/terrang/100-miles">100 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/stockholm/terrang/10000-meter">10000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+                    
+            <li>
+              <a href="/loppkalender/stockholm/terrang/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/stockholm/terrang/50-km">50 km</a>
+              <span class="count">(5)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/stockholm/terrang/50-miles">50 miles</a>
+              <span class="count">(4)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/stockholm/terrang/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/stockholm/terrang/halvmarathon">Halvmarathon</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/stockholm/terrang/millopp">Millopp</a>
+              <span class="count">(4)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/stockholm/trail">Trail</a>
+            <span class="count">(6)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/stockholm/trail/10-km">10 km</a>
+              <span class="count">(4)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/stockholm/trail/10000-meter">10000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/stockholm/trail/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/stockholm/trail/5-km">5 km</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/stockholm/trail/5000-meter">5000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/stockholm/trail/millopp">Millopp</a>
+              <span class="count">(4)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/loppkalender/sodermanland">Södermanland</a>
+          <span class="count"
+            >(5 lopp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/sodermanland">Alla loppstyper</a>
+            <span class="count">(5)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                                                                   
+            <li>
+              <a
+                href="/loppkalender/sodermanland/alla-loppstyper/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/sodermanland/alla-loppstyper/marathon"
+              >
+                Marathon
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/sodermanland/alla-loppstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                    
+            <li>
+              <a
+                href="/loppkalender/sodermanland/alla-loppstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/sodermanland/alla-loppstyper/100-km"
+              >
+                100 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                                                                     
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/sodermanland/backyard-ultra">Backyard Ultra</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                        
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/sodermanland/loparbana">Löparbana</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                        
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/sodermanland/terrang">Terräng</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+               
+            <li>
+              <a href="/loppkalender/sodermanland/terrang/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+                          
+            <li>
+              <a href="/loppkalender/sodermanland/terrang/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/sodermanland/terrang/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+                     
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/sodermanland/trail">Trail</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                   
+            <li>
+              <a href="/loppkalender/sodermanland/trail/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/sodermanland/trail/marathon">Marathon</a>
+              <span class="count">(1)</span>
+            </li>
+               
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/sodermanland/ovrigt">Övrigt</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                        
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/loppkalender/uppsala">Uppsala</a>
+          <span class="count"
+            >(3 lopp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/uppsala">Alla loppstyper</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                                                                                           
+            <li>
+              <a
+                href="/loppkalender/uppsala/alla-loppstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                
+            <li>
+              <a
+                href="/loppkalender/uppsala/alla-loppstyper/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/loppkalender/uppsala/alla-loppstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                     
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/uppsala/landsvag">Landsväg</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/loppkalender/uppsala/landsvag/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/uppsala/landsvag/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/uppsala/landsvag/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+                       
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/uppsala/loparbana">Löparbana</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/loppkalender/uppsala/loparbana/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                               
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/loppkalender/varmland">Värmland</a>
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/varmland">Alla loppstyper</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                                                                                   
+            <li>
+              <a
+                href="/loppkalender/varmland/alla-loppstyper/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                     
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/varmland/loparbana">Löparbana</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/loppkalender/varmland/loparbana/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                               
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/loppkalender/vasterbotten">Västerbotten</a>
+          <span class="count"
+            >(1 lopp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/vasterbotten">Alla loppstyper</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                                                                                   
+            <li>
+              <a
+                href="/loppkalender/vasterbotten/alla-loppstyper/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a
+                href="/loppkalender/vasterbotten/alla-loppstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/vasterbotten/loparbana">Löparbana</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/loppkalender/vasterbotten/loparbana/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/vasterbotten/loparbana/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                           
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/loppkalender/vasternorrland">Västernorrland</a>
+          <span class="count"
+            >(1 lopp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/vasternorrland">Alla loppstyper</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                                                                                                            
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/vasternorrland/terrang">Terräng</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                        
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/loppkalender/vastmanland">Västmanland</a>
+          <span class="count"
+            >(2 lopp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/vastmanland">Alla loppstyper</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                                                                                                                               
+            <li>
+              <a
+                href="/loppkalender/vastmanland/alla-loppstyper/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                 
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/vastmanland/terrang">Terräng</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                        
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/vastmanland/ovrigt">Övrigt</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/loppkalender/vastmanland/ovrigt/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                               
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/loppkalender/vastra-gotaland">Västra Götaland</a>
+          <span class="count"
+            >(15 lopp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/vastra-gotaland">Alla loppstyper</a>
+            <span class="count">(15)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                       
+            <li>
+              <a
+                href="/loppkalender/vastra-gotaland/alla-loppstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(6)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/vastra-gotaland/alla-loppstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/vastra-gotaland/alla-loppstyper/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                                                                    
+            <li>
+              <a
+                href="/loppkalender/vastra-gotaland/alla-loppstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                                                                                
+            <li>
+              <a
+                href="/loppkalender/vastra-gotaland/alla-loppstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/vastra-gotaland/alla-loppstyper/100-km"
+              >
+                100 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/vastra-gotaland/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/vastra-gotaland/alla-loppstyper/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/vastra-gotaland/alla-loppstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/vastra-gotaland/alla-loppstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/loppkalender/vastra-gotaland/alla-loppstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(4)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/vastra-gotaland/backyard-ultra">Backyard Ultra</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a href="/loppkalender/vastra-gotaland/backyard-ultra/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                         
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/vastra-gotaland/landsvag">Landsväg</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/vastra-gotaland/landsvag/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/vastra-gotaland/landsvag/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/vastra-gotaland/landsvag/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/vastra-gotaland/landsvag/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/vastra-gotaland/landsvag/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/vastra-gotaland/landsvag/halvmarathon">Halvmarathon</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/vastra-gotaland/landsvag/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/vastra-gotaland/loparbana">Löparbana</a>
+            <span class="count">(4)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/loppkalender/vastra-gotaland/loparbana/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/vastra-gotaland/loparbana/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                           
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/vastra-gotaland/terrang">Terräng</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/vastra-gotaland/terrang/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/vastra-gotaland/terrang/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/loppkalender/vastra-gotaland/terrang/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/vastra-gotaland/terrang/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/vastra-gotaland/terrang/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/vastra-gotaland/terrang/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/vastra-gotaland/trail">Trail</a>
+            <span class="count">(5)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/vastra-gotaland/trail/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/vastra-gotaland/trail/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/vastra-gotaland/trail/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/loppkalender/vastra-gotaland/trail/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/vastra-gotaland/trail/50-km">50 km</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/vastra-gotaland/trail/50-miles">50 miles</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/vastra-gotaland/trail/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/vastra-gotaland/trail/halvmarathon">Halvmarathon</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/vastra-gotaland/trail/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/vastra-gotaland/ovrigt">Övrigt</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/vastra-gotaland/ovrigt/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/vastra-gotaland/ovrigt/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/vastra-gotaland/ovrigt/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/vastra-gotaland/ovrigt/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/vastra-gotaland/ovrigt/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/vastra-gotaland/ovrigt/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/loppkalender/orebro">Örebro</a>
+          <span class="count"
+            >(9 lopp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/orebro">Alla loppstyper</a>
+            <span class="count">(9)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                   
+            <li>
+              <a
+                href="/loppkalender/orebro/alla-loppstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/orebro/alla-loppstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/orebro/alla-loppstyper/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                            
+            <li>
+              <a
+                href="/loppkalender/orebro/alla-loppstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                    
+            <li>
+              <a
+                href="/loppkalender/orebro/alla-loppstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                            
+            <li>
+              <a
+                href="/loppkalender/orebro/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/orebro/alla-loppstyper/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/orebro/alla-loppstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/orebro/alla-loppstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/orebro/alla-loppstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/orebro/backyard-ultra">Backyard Ultra</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                         
+            <li>
+              <a href="/loppkalender/orebro/backyard-ultra/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/orebro/backyard-ultra/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                         
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/orebro/loparbana">Löparbana</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/loppkalender/orebro/loparbana/1500-meter">1500 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/orebro/loparbana/3000-meter">3000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/orebro/loparbana/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/orebro/loparbana/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                   
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/orebro/terrang">Terräng</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                             
+            <li>
+              <a href="/loppkalender/orebro/terrang/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/orebro/terrang/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+                     
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/orebro/tidslopp">Tidslopp</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                         
+            <li>
+              <a href="/loppkalender/orebro/tidslopp/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/orebro/tidslopp/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                         
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/orebro/trail">Trail</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/orebro/trail/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/orebro/trail/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/orebro/trail/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                      
+            <li>
+              <a href="/loppkalender/orebro/trail/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/orebro/trail/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/loppkalender/ostergotland">Östergötland</a>
+          <span class="count"
+            >(4 lopp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/ostergotland">Alla loppstyper</a>
+            <span class="count">(4)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                       
+            <li>
+              <a
+                href="/loppkalender/ostergotland/alla-loppstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/loppkalender/ostergotland/alla-loppstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/loppkalender/ostergotland/alla-loppstyper/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                                
+            <li>
+              <a
+                href="/loppkalender/ostergotland/alla-loppstyper/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/loppkalender/ostergotland/alla-loppstyper/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/loppkalender/ostergotland/alla-loppstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/loppkalender/ostergotland/alla-loppstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/ostergotland/loparbana">Löparbana</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/ostergotland/loparbana/10-km">10 km</a>
+              <span class="count">(2)</span>
+            </li>
+                    
+            <li>
+              <a href="/loppkalender/ostergotland/loparbana/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                              
+            <li>
+              <a href="/loppkalender/ostergotland/loparbana/millopp">Millopp</a>
+              <span class="count">(2)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/loppkalender/ostergotland/trail">Trail</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/loppkalender/ostergotland/trail/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/ostergotland/trail/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/loppkalender/ostergotland/trail/5-km">5 km</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/loppkalender/ostergotland/trail/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/loppkalender/ostergotland/trail/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/loppkalender/ostergotland/trail/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+      </div>
+
+       
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

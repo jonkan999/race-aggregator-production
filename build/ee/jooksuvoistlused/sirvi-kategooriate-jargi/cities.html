@@ -1,0 +1,2705 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Sirvi kõiki jooksuüritusi</title>
+    <meta name="description" content="Leia võistlusi maakonna, tüübi või kategooria järgi" />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/race-list-filter.css" />
+    <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card-big.css" />
+    <link rel="stylesheet" href="/css/race-cards.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+    <script src="/js/raceList.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+    <script defer="" src="/js/raceListToggleButton.js"></script>
+    <script defer="" src="/js/raceListToggleMap.js"></script>
+  </head>
+  <body>
+    <!-- Page content -->
+    <main>
+       <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Jooksma</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Logi sisse
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Kõik</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/jooksuvoistlused"
+      ><span class="nav-item">Jooksuvõistlused</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/lisa-voistlus"
+      ><span class="nav-item">Lisa võistlus</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/foorum"
+      ><span class="nav-item">Foorum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/mooda-oma-ringi"
+      ><span class="nav-item">Mõõda oma ringi</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/treeningprogrammid"
+      ><span class="nav-item">Treeningprogrammid</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/fartomvandlare"
+      ><span class="nav-item">Fartomvandlare</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/hinda-oma-loppaega"
+      ><span class="nav-item">Hinda oma lõppaega</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/meist"
+      ><span class="nav-item">Meist</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/vota-meiega-uhendust"
+      ><span class="nav-item">Võta meiega ühendust</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Logi sisse</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Teie e-post"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Salasõna"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Unustasid parooli?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Loo konto selle asemel
+            </a>
+          </div>
+          <button type="submit">Logi sisse</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Loo konto
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Unustasid parooli?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Loo konto</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Teie nimi"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Teie e-post"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Salasõna"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Loo konto</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Tagasi sisselogimise juurde
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Paranda parool</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Teie e-post"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Saada parooli taastamise link</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Tagasi sisselogimise juurde
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Sa oled juba sisse logitud kui</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Jätka selle kasutajana
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Logi välja ja vaheta kasutajat
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto loodud!</h2>
+        <div class="logged-in-user-info">
+          <p>Oled nüüd sisse logitud kui</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            Verifitseerimislink on saadetud sinu e-posti aadressile
+          </p>
+          <p class="verification-notice">Palun kinnitage oma e-posti aadress.</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Jätka selle kasutajana
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+      <div class="browse-container">
+        <nav class="breadcrumbs" aria-label="breadcrumb">
+  <ol>
+    
+    <li >
+      
+      <a href="/jooksuvoistlused">Jooksuvõistlused</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li >
+      
+      <a href="/jooksuvoistlused/sirvi-kategooriate-jargi">Sirvi kategooriate järgi</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li aria-current="page" >
+      
+      <span>Linnad</span>
+      
+    </li>
+    
+  </ol>
+</nav>
+        <nav class="browse-nav">
+          <a
+            href="/jooksuvoistlused/sirvi-kategooriate-jargi"
+            class=""
+          >
+            Ülevaade
+          </a>
+          <a
+            href="/jooksuvoistlused/sirvi-kategooriate-jargi/counties.html"
+            class=""
+          >
+            Maakond
+          </a>
+          <a
+            href="/jooksuvoistlused/sirvi-kategooriate-jargi/cities.html"
+            class="active"
+          >
+            Linnad
+          </a>
+          <a
+            href="/jooksuvoistlused/sirvi-kategooriate-jargi/types.html"
+            class=""
+          >
+            Jooksutüübid
+          </a>
+          <a
+            href="/jooksuvoistlused/sirvi-kategooriate-jargi/categories.html"
+            class=""
+          >
+            Kategooriad
+          </a>
+        </nav>
+
+        
+<div class="browse-cities">
+  <h1>Sirvi linnade järgi</h1>
+  <p class="browse-description">Leia jooksud oma linnas.</p>
+
+  <div class="browse-grid">
+    
+    <div class="city-card">
+      <div class="city-header">
+        <h2>
+          <a href="/jooksuvoistlused/linnad/haapsalu">Haapsalu</a>
+          <span class="count"
+            >(1 jooksuvõistlused)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/haapsalu">Kõik jooksutüübid</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                   
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/haapsalu/koik-jooksutuubid/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/haapsalu/koik-jooksutuubid/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                    
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/haapsalu/koik-jooksutuubid/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/haapsalu/koik-jooksutuubid/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/haapsalu/koik-jooksutuubid/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/haapsalu/tanava">Tänava</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/haapsalu/tanava/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/haapsalu/tanava/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/haapsalu/tanava/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/jooksuvoistlused/linnad/haapsalu/tanava/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/haapsalu/tanava/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="city-card">
+      <div class="city-header">
+        <h2>
+          <a href="/jooksuvoistlused/linnad/johvi">Jõhvi</a>
+          <span class="count"
+            >(4 jooksuvõistlused)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/johvi">Kõik jooksutüübid</a>
+            <span class="count">(4)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                               
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/johvi/koik-jooksutuubid/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/johvi/koik-jooksutuubid/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                    
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/johvi/koik-jooksutuubid/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/johvi/koik-jooksutuubid/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/johvi/koik-jooksutuubid/100-km"
+              >
+                100 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/johvi/koik-jooksutuubid/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                    
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/johvi/koik-jooksutuubid/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/johvi/koik-jooksutuubid/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/johvi/aja-jooksul">Aja jooksul</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/johvi/jooksurada">Jooksurada</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+               
+            <li>
+              <a href="/jooksuvoistlused/linnad/johvi/jooksurada/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/jooksuvoistlused/linnad/johvi/jooksurada/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/jooksuvoistlused/linnad/johvi/jooksurada/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+                   
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/johvi/maastiku">Maastiku</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/jooksuvoistlused/linnad/johvi/maastiku/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                       
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/johvi/tanava">Tänava</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/johvi/tanava/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/johvi/tanava/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/johvi/tanava/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/jooksuvoistlused/linnad/johvi/tanava/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/johvi/tanava/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="city-card">
+      <div class="city-header">
+        <h2>
+          <a href="/jooksuvoistlused/linnad/kohtla-jarve">Kohtla-Järve</a>
+          <span class="count"
+            >(5 jooksuvõistlused)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/kohtla-jarve">Kõik jooksutüübid</a>
+            <span class="count">(5)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                               
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/kohtla-jarve/koik-jooksutuubid/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/kohtla-jarve/koik-jooksutuubid/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                    
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/kohtla-jarve/koik-jooksutuubid/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/kohtla-jarve/koik-jooksutuubid/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/kohtla-jarve/koik-jooksutuubid/100-km"
+              >
+                100 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/kohtla-jarve/koik-jooksutuubid/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                    
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/kohtla-jarve/koik-jooksutuubid/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/kohtla-jarve/koik-jooksutuubid/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/kohtla-jarve/aja-jooksul">Aja jooksul</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/kohtla-jarve/jooksurada">Jooksurada</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+               
+            <li>
+              <a href="/jooksuvoistlused/linnad/kohtla-jarve/jooksurada/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/jooksuvoistlused/linnad/kohtla-jarve/jooksurada/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/jooksuvoistlused/linnad/kohtla-jarve/jooksurada/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+                   
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/kohtla-jarve/maastiku">Maastiku</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/jooksuvoistlused/linnad/kohtla-jarve/maastiku/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                       
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/kohtla-jarve/tanava">Tänava</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/kohtla-jarve/tanava/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/kohtla-jarve/tanava/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/kohtla-jarve/tanava/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/jooksuvoistlused/linnad/kohtla-jarve/tanava/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/kohtla-jarve/tanava/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="city-card">
+      <div class="city-header">
+        <h2>
+          <a href="/jooksuvoistlused/linnad/kuressaare">Kuressaare</a>
+          <span class="count"
+            >(2 jooksuvõistlused)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/kuressaare">Kõik jooksutüübid</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                       
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/kuressaare/koik-jooksutuubid/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/kuressaare/koik-jooksutuubid/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                                                        
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/kuressaare/koik-jooksutuubid/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/kuressaare/koik-jooksutuubid/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/kuressaare/koik-jooksutuubid/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/kuressaare/koik-jooksutuubid/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(2)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/kuressaare/maastiku">Maastiku</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/kuressaare/maastiku/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/kuressaare/maastiku/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/jooksuvoistlused/linnad/kuressaare/maastiku/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a href="/jooksuvoistlused/linnad/kuressaare/maastiku/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/kuressaare/tanava">Tänava</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/kuressaare/tanava/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/kuressaare/tanava/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/kuressaare/tanava/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/jooksuvoistlused/linnad/kuressaare/tanava/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/kuressaare/tanava/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="city-card">
+      <div class="city-header">
+        <h2>
+          <a href="/jooksuvoistlused/linnad/maardu">Maardu</a>
+          <span class="count"
+            >(30 jooksuvõistlused)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/maardu">Kõik jooksutüübid</a>
+            <span class="count">(30)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                               
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/maardu/koik-jooksutuubid/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(19)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/maardu/koik-jooksutuubid/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(12)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/maardu/koik-jooksutuubid/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                                                                            
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/maardu/koik-jooksutuubid/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(12)</span>
+            </li>
+                                                    
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/maardu/koik-jooksutuubid/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(13)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/maardu/koik-jooksutuubid/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(9)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/maardu/jooksurada">Jooksurada</a>
+            <span class="count">(6)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/maardu/jooksurada/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/jooksuvoistlused/linnad/maardu/jooksurada/5-km">5 km</a>
+              <span class="count">(5)</span>
+            </li>
+                  
+            <li>
+              <a href="/jooksuvoistlused/linnad/maardu/jooksurada/5000-meter">5000 meter</a>
+              <span class="count">(4)</span>
+            </li>
+              
+            <li>
+              <a href="/jooksuvoistlused/linnad/maardu/jooksurada/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/jooksuvoistlused/linnad/maardu/jooksurada/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/maardu/maastiku">Maastiku</a>
+            <span class="count">(8)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/maardu/maastiku/10-km">10 km</a>
+              <span class="count">(4)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/maardu/maastiku/10000-meter">10000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/maardu/maastiku/5-km">5 km</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/jooksuvoistlused/linnad/maardu/maastiku/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/jooksuvoistlused/linnad/maardu/maastiku/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/jooksuvoistlused/linnad/maardu/maastiku/millopp">Millopp</a>
+              <span class="count">(4)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/maardu/muud">Muud</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/maardu/tanava">Tänava</a>
+            <span class="count">(14)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/maardu/tanava/10-km">10 km</a>
+              <span class="count">(7)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/maardu/tanava/10000-meter">10000 meter</a>
+              <span class="count">(7)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/maardu/tanava/5-km">5 km</a>
+              <span class="count">(11)</span>
+            </li>
+                  
+            <li>
+              <a href="/jooksuvoistlused/linnad/maardu/tanava/5000-meter">5000 meter</a>
+              <span class="count">(8)</span>
+            </li>
+              
+            <li>
+              <a href="/jooksuvoistlused/linnad/maardu/tanava/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/jooksuvoistlused/linnad/maardu/tanava/millopp">Millopp</a>
+              <span class="count">(7)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="city-card">
+      <div class="city-header">
+        <h2>
+          <a href="/jooksuvoistlused/linnad/narva">Narva</a>
+          <span class="count"
+            >(2 jooksuvõistlused)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/narva">Kõik jooksutüübid</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                       
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/narva/koik-jooksutuubid/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/narva/koik-jooksutuubid/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/narva/koik-jooksutuubid/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/narva/koik-jooksutuubid/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/narva/koik-jooksutuubid/100-km"
+              >
+                100 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/narva/koik-jooksutuubid/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/narva/koik-jooksutuubid/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/narva/koik-jooksutuubid/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/narva/jooksurada">Jooksurada</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+               
+            <li>
+              <a href="/jooksuvoistlused/linnad/narva/jooksurada/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/jooksuvoistlused/linnad/narva/jooksurada/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/jooksuvoistlused/linnad/narva/jooksurada/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+                   
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/narva/tanava">Tänava</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/narva/tanava/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/narva/tanava/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/narva/tanava/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/jooksuvoistlused/linnad/narva/tanava/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/narva/tanava/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="city-card">
+      <div class="city-header">
+        <h2>
+          <a href="/jooksuvoistlused/linnad/parnu">Pärnu</a>
+          <span class="count"
+            >(6 jooksuvõistlused)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/parnu">Kõik jooksutüübid</a>
+            <span class="count">(6)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/parnu/koik-jooksutuubid/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/parnu/koik-jooksutuubid/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                                                                                            
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/parnu/koik-jooksutuubid/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/parnu/koik-jooksutuubid/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/parnu/koik-jooksutuubid/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/parnu/koik-jooksutuubid/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(4)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/parnu/jooksurada">Jooksurada</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/jooksuvoistlused/linnad/parnu/jooksurada/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/jooksuvoistlused/linnad/parnu/jooksurada/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                 
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/parnu/maastiku">Maastiku</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/parnu/maastiku/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/parnu/maastiku/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/parnu/maastiku/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/jooksuvoistlused/linnad/parnu/maastiku/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/parnu/maastiku/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/parnu/tanava">Tänava</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/parnu/tanava/10-km">10 km</a>
+              <span class="count">(3)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/parnu/tanava/10000-meter">10000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/jooksuvoistlused/linnad/parnu/tanava/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/jooksuvoistlused/linnad/parnu/tanava/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/jooksuvoistlused/linnad/parnu/tanava/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/parnu/tanava/millopp">Millopp</a>
+              <span class="count">(3)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="city-card">
+      <div class="city-header">
+        <h2>
+          <a href="/jooksuvoistlused/linnad/rakvere">Rakvere</a>
+          <span class="count"
+            >(9 jooksuvõistlused)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/rakvere">Kõik jooksutüübid</a>
+            <span class="count">(9)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                               
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/rakvere/koik-jooksutuubid/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(7)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/rakvere/koik-jooksutuubid/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/rakvere/koik-jooksutuubid/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                            
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/rakvere/koik-jooksutuubid/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                                                    
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/rakvere/koik-jooksutuubid/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/rakvere/koik-jooksutuubid/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(4)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/rakvere/aja-jooksul">Aja jooksul</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/rakvere/jooksurada">Jooksurada</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/rakvere/maastiku">Maastiku</a>
+            <span class="count">(4)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/rakvere/maastiku/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/rakvere/maastiku/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/rakvere/maastiku/5-km">5 km</a>
+              <span class="count">(4)</span>
+            </li>
+                  
+            <li>
+              <a href="/jooksuvoistlused/linnad/rakvere/maastiku/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/jooksuvoistlused/linnad/rakvere/maastiku/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/jooksuvoistlused/linnad/rakvere/maastiku/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/rakvere/tanava">Tänava</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/rakvere/tanava/10-km">10 km</a>
+              <span class="count">(3)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/rakvere/tanava/10000-meter">10000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/rakvere/tanava/5-km">5 km</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/jooksuvoistlused/linnad/rakvere/tanava/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/rakvere/tanava/millopp">Millopp</a>
+              <span class="count">(3)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="city-card">
+      <div class="city-header">
+        <h2>
+          <a href="/jooksuvoistlused/linnad/sillamae">Sillamäe</a>
+          <span class="count"
+            >(4 jooksuvõistlused)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/sillamae">Kõik jooksutüübid</a>
+            <span class="count">(4)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                               
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/sillamae/koik-jooksutuubid/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/sillamae/koik-jooksutuubid/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                    
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/sillamae/koik-jooksutuubid/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/sillamae/koik-jooksutuubid/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/sillamae/koik-jooksutuubid/100-km"
+              >
+                100 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/sillamae/koik-jooksutuubid/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                    
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/sillamae/koik-jooksutuubid/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/sillamae/koik-jooksutuubid/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/sillamae/aja-jooksul">Aja jooksul</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/sillamae/jooksurada">Jooksurada</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+               
+            <li>
+              <a href="/jooksuvoistlused/linnad/sillamae/jooksurada/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/jooksuvoistlused/linnad/sillamae/jooksurada/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/jooksuvoistlused/linnad/sillamae/jooksurada/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+                   
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/sillamae/maastiku">Maastiku</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/jooksuvoistlused/linnad/sillamae/maastiku/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                       
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/sillamae/tanava">Tänava</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/sillamae/tanava/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/sillamae/tanava/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/sillamae/tanava/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/jooksuvoistlused/linnad/sillamae/tanava/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/sillamae/tanava/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="city-card">
+      <div class="city-header">
+        <h2>
+          <a href="/jooksuvoistlused/linnad/tallinna">Tallinna</a>
+          <span class="count"
+            >(31 jooksuvõistlused)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/tallinna">Kõik jooksutüübid</a>
+            <span class="count">(31)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                               
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/tallinna/koik-jooksutuubid/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(20)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/tallinna/koik-jooksutuubid/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(11)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/tallinna/koik-jooksutuubid/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                                                                            
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/tallinna/koik-jooksutuubid/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(11)</span>
+            </li>
+                                                    
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/tallinna/koik-jooksutuubid/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(15)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/tallinna/koik-jooksutuubid/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(10)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/tallinna/jooksurada">Jooksurada</a>
+            <span class="count">(8)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/tallinna/jooksurada/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/jooksuvoistlused/linnad/tallinna/jooksurada/5-km">5 km</a>
+              <span class="count">(6)</span>
+            </li>
+                  
+            <li>
+              <a href="/jooksuvoistlused/linnad/tallinna/jooksurada/5000-meter">5000 meter</a>
+              <span class="count">(5)</span>
+            </li>
+              
+            <li>
+              <a href="/jooksuvoistlused/linnad/tallinna/jooksurada/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/jooksuvoistlused/linnad/tallinna/jooksurada/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/tallinna/maastiku">Maastiku</a>
+            <span class="count">(4)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/tallinna/maastiku/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/tallinna/maastiku/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/tallinna/maastiku/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                      
+            <li>
+              <a href="/jooksuvoistlused/linnad/tallinna/maastiku/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/tallinna/muud">Muud</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/tallinna/tanava">Tänava</a>
+            <span class="count">(17)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/tallinna/tanava/10-km">10 km</a>
+              <span class="count">(9)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/tallinna/tanava/10000-meter">10000 meter</a>
+              <span class="count">(9)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/tallinna/tanava/5-km">5 km</a>
+              <span class="count">(13)</span>
+            </li>
+                  
+            <li>
+              <a href="/jooksuvoistlused/linnad/tallinna/tanava/5000-meter">5000 meter</a>
+              <span class="count">(10)</span>
+            </li>
+              
+            <li>
+              <a href="/jooksuvoistlused/linnad/tallinna/tanava/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/jooksuvoistlused/linnad/tallinna/tanava/millopp">Millopp</a>
+              <span class="count">(9)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="city-card">
+      <div class="city-header">
+        <h2>
+          <a href="/jooksuvoistlused/linnad/tartu">Tartu</a>
+          <span class="count"
+            >(7 jooksuvõistlused)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/tartu">Kõik jooksutüübid</a>
+            <span class="count">(7)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/tartu/koik-jooksutuubid/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/tartu/koik-jooksutuubid/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                                                                                            
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/tartu/koik-jooksutuubid/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/tartu/koik-jooksutuubid/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/tartu/koik-jooksutuubid/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(3)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/tartu/jooksurada">Jooksurada</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/tartu/jooksurada/10-km">10 km</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/tartu/jooksurada/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                          
+            <li>
+              <a href="/jooksuvoistlused/linnad/tartu/jooksurada/millopp">Millopp</a>
+              <span class="count">(2)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/tartu/maastiku">Maastiku</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/tartu/maastiku/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/tartu/maastiku/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/tartu/maastiku/5-km">5 km</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/jooksuvoistlused/linnad/tartu/maastiku/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/tartu/maastiku/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/tartu/tanava">Tänava</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/tartu/tanava/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/tartu/tanava/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                          
+            <li>
+              <a href="/jooksuvoistlused/linnad/tartu/tanava/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="city-card">
+      <div class="city-header">
+        <h2>
+          <a href="/jooksuvoistlused/linnad/valga">Valga</a>
+          <span class="count"
+            >(3 jooksuvõistlused)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/valga">Kõik jooksutüübid</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                       
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/valga/koik-jooksutuubid/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/valga/koik-jooksutuubid/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                                                        
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/valga/koik-jooksutuubid/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/valga/koik-jooksutuubid/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/valga/koik-jooksutuubid/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/valga/jooksurada">Jooksurada</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/valga/jooksurada/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                              
+            <li>
+              <a href="/jooksuvoistlused/linnad/valga/jooksurada/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/valga/tanava">Tänava</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/valga/tanava/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/valga/tanava/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/valga/tanava/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/jooksuvoistlused/linnad/valga/tanava/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/valga/tanava/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="city-card">
+      <div class="city-header">
+        <h2>
+          <a href="/jooksuvoistlused/linnad/viljandi">Viljandi</a>
+          <span class="count"
+            >(4 jooksuvõistlused)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/viljandi">Kõik jooksutüübid</a>
+            <span class="count">(4)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                       
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/viljandi/koik-jooksutuubid/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/viljandi/koik-jooksutuubid/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                                                        
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/viljandi/koik-jooksutuubid/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/viljandi/koik-jooksutuubid/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/viljandi/koik-jooksutuubid/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/viljandi/jooksurada">Jooksurada</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/viljandi/tanava">Tänava</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/viljandi/tanava/10-km">10 km</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/viljandi/tanava/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/viljandi/tanava/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/jooksuvoistlused/linnad/viljandi/tanava/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/jooksuvoistlused/linnad/viljandi/tanava/millopp">Millopp</a>
+              <span class="count">(2)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="city-card">
+      <div class="city-header">
+        <h2>
+          <a href="/jooksuvoistlused/linnad/voru">Võru</a>
+          <span class="count"
+            >(2 jooksuvõistlused)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/voru">Kõik jooksutüübid</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/voru/koik-jooksutuubid/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                    
+            <li>
+              <a
+                href="/jooksuvoistlused/linnad/voru/koik-jooksutuubid/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                     
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/jooksuvoistlused/linnad/voru/jooksurada">Jooksurada</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/jooksuvoistlused/linnad/voru/jooksurada/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                              
+            <li>
+              <a href="/jooksuvoistlused/linnad/voru/jooksurada/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+      </div>
+
+       
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

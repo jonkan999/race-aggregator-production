@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Sirvi kõiki jooksuüritusi</title>
+    <meta name="description" content="Leia võistlusi maakonna, tüübi või kategooria järgi" />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/race-list-filter.css" />
+    <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card-big.css" />
+    <link rel="stylesheet" href="/css/race-cards.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+    <script src="/js/raceList.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+    <script defer="" src="/js/raceListToggleButton.js"></script>
+    <script defer="" src="/js/raceListToggleMap.js"></script>
+  </head>
+  <body>
+    <!-- Page content -->
+    <main>
+       <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Jooksma</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Logi sisse
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Kõik</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/jooksuvoistlused"
+      ><span class="nav-item">Jooksuvõistlused</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/lisa-voistlus"
+      ><span class="nav-item">Lisa võistlus</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/foorum"
+      ><span class="nav-item">Foorum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/mooda-oma-ringi"
+      ><span class="nav-item">Mõõda oma ringi</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/treeningprogrammid"
+      ><span class="nav-item">Treeningprogrammid</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/fartomvandlare"
+      ><span class="nav-item">Fartomvandlare</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/hinda-oma-loppaega"
+      ><span class="nav-item">Hinda oma lõppaega</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/meist"
+      ><span class="nav-item">Meist</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/vota-meiega-uhendust"
+      ><span class="nav-item">Võta meiega ühendust</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Logi sisse</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Teie e-post"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Salasõna"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Unustasid parooli?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Loo konto selle asemel
+            </a>
+          </div>
+          <button type="submit">Logi sisse</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Loo konto
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Unustasid parooli?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Loo konto</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Teie nimi"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Teie e-post"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Salasõna"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Loo konto</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Tagasi sisselogimise juurde
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Paranda parool</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Teie e-post"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Saada parooli taastamise link</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Tagasi sisselogimise juurde
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Sa oled juba sisse logitud kui</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Jätka selle kasutajana
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Logi välja ja vaheta kasutajat
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto loodud!</h2>
+        <div class="logged-in-user-info">
+          <p>Oled nüüd sisse logitud kui</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            Verifitseerimislink on saadetud sinu e-posti aadressile
+          </p>
+          <p class="verification-notice">Palun kinnitage oma e-posti aadress.</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Jätka selle kasutajana
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+      <div class="browse-container">
+        <nav class="breadcrumbs" aria-label="breadcrumb">
+  <ol>
+    
+    <li >
+      
+      <a href="/jooksuvoistlused">Jooksuvõistlused</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li aria-current="page" >
+      
+      <span>Sirvi kategooriate järgi</span>
+      
+    </li>
+    
+  </ol>
+</nav>
+        <nav class="browse-nav">
+          <a
+            href="/jooksuvoistlused/sirvi-kategooriate-jargi"
+            class="active"
+          >
+            Ülevaade
+          </a>
+          <a
+            href="/jooksuvoistlused/sirvi-kategooriate-jargi/counties.html"
+            class=""
+          >
+            Maakond
+          </a>
+          <a
+            href="/jooksuvoistlused/sirvi-kategooriate-jargi/cities.html"
+            class=""
+          >
+            Linnad
+          </a>
+          <a
+            href="/jooksuvoistlused/sirvi-kategooriate-jargi/types.html"
+            class=""
+          >
+            Jooksutüübid
+          </a>
+          <a
+            href="/jooksuvoistlused/sirvi-kategooriate-jargi/categories.html"
+            class=""
+          >
+            Kategooriad
+          </a>
+        </nav>
+
+        
+<div class="browse-overview">
+  <h1>Sirvi kõiki jooksuüritusi</h1>
+  <p class="browse-description">Leia võistlusi maakonna, tüübi või kategooria järgi</p>
+
+  <section class="browse-section">
+    <h2>Sirvi maakondi</h2>
+    <div class="browse-grid">
+      
+      <h3>
+        <a href="/jooksuvoistlused/harju-maakond" class="browse-card">
+          Harju maakond
+          <span class="count"
+            >(28 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/ida-viru-maakond" class="browse-card">
+          Ida-Viru maakond
+          <span class="count"
+            >(4 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/jarva-maakond" class="browse-card">
+          Järva maakond
+          <span class="count"
+            >(1 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/laane-maakond" class="browse-card">
+          Lääne maakond
+          <span class="count"
+            >(1 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/laane-viru-maakond" class="browse-card">
+          Lääne-Viru maakond
+          <span class="count"
+            >(4 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/parnu-maakond" class="browse-card">
+          Pärnu maakond
+          <span class="count"
+            >(4 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/rapla-maakond" class="browse-card">
+          Rapla maakond
+          <span class="count"
+            >(10 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/saaremaa" class="browse-card">
+          Saaremaa
+          <span class="count"
+            >(2 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/tartu-maakond" class="browse-card">
+          Tartu maakond
+          <span class="count"
+            >(5 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/valga-maakond" class="browse-card">
+          Valga maakond
+          <span class="count"
+            >(3 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/viljandi-maakond" class="browse-card">
+          Viljandi maakond
+          <span class="count"
+            >(2 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+    </div>
+  </section>
+
+  <section class="browse-section">
+    <h2>Sirvi linnade järgi</h2>
+    <div class="browse-grid">
+      
+      <h3>
+        <a href="/jooksuvoistlused/linnad/haapsalu" class="browse-card">
+          Haapsalu
+          <span class="count"
+            >(1 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/linnad/johvi" class="browse-card">
+          Jõhvi
+          <span class="count"
+            >(4 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/linnad/kohtla-jarve" class="browse-card">
+          Kohtla-Järve
+          <span class="count"
+            >(5 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/linnad/kuressaare" class="browse-card">
+          Kuressaare
+          <span class="count"
+            >(2 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/linnad/maardu" class="browse-card">
+          Maardu
+          <span class="count"
+            >(30 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/linnad/narva" class="browse-card">
+          Narva
+          <span class="count"
+            >(2 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/linnad/parnu" class="browse-card">
+          Pärnu
+          <span class="count"
+            >(6 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/linnad/rakvere" class="browse-card">
+          Rakvere
+          <span class="count"
+            >(9 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/linnad/sillamae" class="browse-card">
+          Sillamäe
+          <span class="count"
+            >(4 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/linnad/tallinna" class="browse-card">
+          Tallinna
+          <span class="count"
+            >(31 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/linnad/tartu" class="browse-card">
+          Tartu
+          <span class="count"
+            >(7 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/linnad/valga" class="browse-card">
+          Valga
+          <span class="count"
+            >(3 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/linnad/viljandi" class="browse-card">
+          Viljandi
+          <span class="count"
+            >(4 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/linnad/voru" class="browse-card">
+          Võru
+          <span class="count"
+            >(2 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+    </div>
+  </section>
+
+  <section class="browse-section">
+    <h2>Sirvi jooksutüübi järgi</h2>
+    <div class="browse-grid">
+      
+      <h3>
+        <a href="/jooksuvoistlused/koik-maakonnad/aja-jooksul" class="browse-card">
+          Aja jooksul
+          <span class="count"
+            >(1 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/koik-maakonnad/jooksurada" class="browse-card">
+          Jooksurada
+          <span class="count"
+            >(15 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/koik-maakonnad/maastiku" class="browse-card">
+          Maastiku
+          <span class="count"
+            >(16 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/koik-maakonnad/muud" class="browse-card">
+          Muud
+          <span class="count"
+            >(2 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+      <h3>
+        <a href="/jooksuvoistlused/koik-maakonnad/tanava" class="browse-card">
+          Tänava
+          <span class="count"
+            >(30 jooksuvõistlused)</span
+          >
+        </a>
+      </h3>
+      
+    </div>
+  </section>
+
+  <section class="browse-section">
+    <h2>Sirvi kategooriate järgi</h2>
+    <div class="browse-grid">
+      
+      <a href="/jooksuvoistlused/koik-maakonnad/koik-jooksutuubid/10-km" class="browse-card">
+        <h3>
+          10 km
+          <span class="count"
+            >(31 jooksuvõistlused)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/jooksuvoistlused/koik-maakonnad/koik-jooksutuubid/100-km" class="browse-card">
+        <h3>
+          100 km
+          <span class="count"
+            >(1 jooksuvõistlused)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/jooksuvoistlused/koik-maakonnad/koik-jooksutuubid/10000-meter" class="browse-card">
+        <h3>
+          10000 meter
+          <span class="count"
+            >(26 jooksuvõistlused)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/jooksuvoistlused/koik-maakonnad/koik-jooksutuubid/3000-meter" class="browse-card">
+        <h3>
+          3000 meter
+          <span class="count"
+            >(2 jooksuvõistlused)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/jooksuvoistlused/koik-maakonnad/koik-jooksutuubid/5-km" class="browse-card">
+        <h3>
+          5 km
+          <span class="count"
+            >(40 jooksuvõistlused)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/jooksuvoistlused/koik-maakonnad/koik-jooksutuubid/50-km" class="browse-card">
+        <h3>
+          50 km
+          <span class="count"
+            >(1 jooksuvõistlused)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/jooksuvoistlused/koik-maakonnad/koik-jooksutuubid/50-miles" class="browse-card">
+        <h3>
+          50 miles
+          <span class="count"
+            >(1 jooksuvõistlused)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/jooksuvoistlused/koik-maakonnad/koik-jooksutuubid/5000-meter" class="browse-card">
+        <h3>
+          5000 meter
+          <span class="count"
+            >(28 jooksuvõistlused)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/jooksuvoistlused/koik-maakonnad/koik-jooksutuubid/halvmarathon" class="browse-card">
+        <h3>
+          Halvmarathon
+          <span class="count"
+            >(3 jooksuvõistlused)</span
+          >
+        </h3>
+      </a>
+      
+      <a href="/jooksuvoistlused/koik-maakonnad/koik-jooksutuubid/millopp" class="browse-card">
+        <h3>
+          Millopp
+          <span class="count"
+            >(31 jooksuvõistlused)</span
+          >
+        </h3>
+      </a>
+      
+    </div>
+  </section>
+</div>
+
+      </div>
+
+       
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

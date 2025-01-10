@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Privacy Policy</title>
+    <meta
+      name="description"
+      content="Privacy Policy and GDPR compliance information for
+our race calendar service"
+    />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/hero.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <link rel="stylesheet" href="/css/selected-forum-posts.css" />
+    <link rel="stylesheet" href="/css/selected-forum-post-card.css" />
+    <link rel="stylesheet" href="/css/about-contact.css" />
+    <link rel="stylesheet" href="/css/privacy.css" />
+     
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    
+  </head>
+  <body>
+    <!-- Page content -->
+    <main> <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Lopskalender</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Logg inn
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Alt</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/terminliste"
+      ><span class="nav-item">Terminliste</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/legg-til-lop"
+      ><span class="nav-item">Legg til løp</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/forum"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/mal-ruten-din"
+      ><span class="nav-item">Mål ruten din</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/treningsprogram"
+      ><span class="nav-item">Treningsprogram</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/fartkalkulator"
+      ><span class="nav-item">Fartkalkulator</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/estimer-sluttiden-din"
+      ><span class="nav-item">Estimér sluttiden din</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/om-oss"
+      ><span class="nav-item">Om oss</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/kontakt-oss"
+      ><span class="nav-item">Kontakt oss</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Logg inn</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Passord"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Glemt passord?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Opprett konto i stedet
+            </a>
+          </div>
+          <button type="submit">Logg inn</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Opprett konto
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Glemt passord?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Opprett konto</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Ditt navn"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Passord"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Opprett konto</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Tilbake til innlogging
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Tilbakestill passord</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Send tilbakestillingslink</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Tilbake til innlogging
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Du er allerede logget inn som</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Fortsett som denne brukeren
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Logg ut og bytt bruker
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto opprettet!</h2>
+        <div class="logged-in-user-info">
+          <p>Du er nå logget inn som</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            En verifiseringslink har blitt sendt til din e-post
+          </p>
+          <p class="verification-notice">Vennligst bekreft e-postadressen din</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Fortsett som denne brukeren
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-privacy">
+  <div class="container">
+    <h1>Privacy Policy</h1>
+
+    <div class="privacy-content">
+      <div class="last-updated">Last Updated: </div>
+
+      <div class="privacy-section">
+        <h2>1. Information We Collect</h2>
+        <p>We collect information that you provide directly to us when you:</p>
+        <ul>
+          <li>Create an account</li>
+          <li>Submit race information</li>
+          <li>Post in our forum</li>
+          <li>Contact us</li>
+        </ul>
+      </div>
+
+      <div class="privacy-section">
+        <h2>2. Cookies and Tracking</h2>
+        <p>We use cookies to:</p>
+        <ul>
+          <li>Remember your preferences</li>
+          <li>Maintain your session</li>
+          <li>Analyze site traffic (Google Analytics)</li>
+          <li>Display relevant advertisements</li>
+        </ul>
+      </div>
+
+      <div class="privacy-section">
+        <h2>3. How We Use Your Information</h2>
+        <p>Your information helps us to:</p>
+        <ul>
+          <li>Provide and improve our services</li>
+          <li>Send important notifications</li>
+          <li>Respond to your requests</li>
+          <li>Prevent fraud and abuse</li>
+        </ul>
+      </div>
+
+      <div class="privacy-section">
+        <h2>4. Your Rights</h2>
+        <p>Under GDPR, you have the right to:</p>
+        <ul>
+          <li>Access your personal data</li>
+          <li>Correct inaccurate data</li>
+          <li>Request deletion of your data</li>
+          <li>Object to data processing</li>
+          <li>Data portability</li>
+        </ul>
+      </div>
+
+      <div class="privacy-section">
+        <h2>5. Contact Us</h2>
+        <p>For privacy-related questions, contact us at:</p>
+        <a href="mailto:loppkartan@gmail.com">loppkartan@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+ </main>
+
+     
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="/js/index.js"></script>
+    
+  </body>
+</html>

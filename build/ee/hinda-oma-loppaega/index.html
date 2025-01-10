@@ -1,0 +1,406 @@
+<section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Jooksma</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Logi sisse
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Kõik</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/jooksuvoistlused"
+      ><span class="nav-item">Jooksuvõistlused</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/lisa-voistlus"
+      ><span class="nav-item">Lisa võistlus</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/foorum"
+      ><span class="nav-item">Foorum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/mooda-oma-ringi"
+      ><span class="nav-item">Mõõda oma ringi</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/treeningprogrammid"
+      ><span class="nav-item">Treeningprogrammid</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/fartomvandlare"
+      ><span class="nav-item">Fartomvandlare</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/hinda-oma-loppaega"
+      ><span class="nav-item">Hinda oma lõppaega</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/meist"
+      ><span class="nav-item">Meist</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/vota-meiega-uhendust"
+      ><span class="nav-item">Võta meiega ühendust</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Logi sisse</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Teie e-post"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Salasõna"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Unustasid parooli?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Loo konto selle asemel
+            </a>
+          </div>
+          <button type="submit">Logi sisse</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Loo konto
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Unustasid parooli?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Loo konto</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Teie nimi"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Teie e-post"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Salasõna"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Loo konto</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Tagasi sisselogimise juurde
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Paranda parool</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Teie e-post"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Saada parooli taastamise link</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Tagasi sisselogimise juurde
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Sa oled juba sisse logitud kui</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Jätka selle kasutajana
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Logi välja ja vaheta kasutajat
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto loodud!</h2>
+        <div class="logged-in-user-info">
+          <p>Oled nüüd sisse logitud kui</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            Verifitseerimislink on saadetud sinu e-posti aadressile
+          </p>
+          <p class="verification-notice">Palun kinnitage oma e-posti aadress.</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Jätka selle kasutajana
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section><!DOCTYPE html>
+<html lang="et">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Hinda oma lõppaege</title>
+    <meta
+      name="description"
+      content="Eelneva jooksu põhjal saad sa hinnata oma lõpp-aega teiste distantside jaoks."
+    />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+     
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/hero.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <link rel="stylesheet" href="/css/selected-forum-posts.css" />
+    <link rel="stylesheet" href="/css/selected-forum-post-card.css" />
+    <link rel="stylesheet" href="/css/about-contact.css" />
+    <link rel="stylesheet" href="/css/privacy.css" />
+    
+<link rel="stylesheet" href="/css/race-time-estimator.css" />
+ 
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    
+  </head>
+  <body>
+    <!-- Page content -->
+    <main>
+<section class="section-race-estimator">
+  <div class="container">
+    <h1 class="heading-primary">Hinda oma lõppaege</h1>
+    <p class="description">Eelneva jooksu põhjal saad sa hinnata oma lõpp-aega teiste distantside jaoks.</p>
+
+    <div class="calculator-container">
+      <form class="calculator-form" id="race-calculator">
+        <!-- Known Distance -->
+        <div class="form-group">
+          <label for="known-distance">Vali distants, kus sul on varasem tulemus</label>
+          <select id="known-distance" name="known-distance" class="form-select">
+            <option value="5000" selected="selected">5 km</option>
+            <option value="10000">10 km</option>
+            <option value="21097">
+              Poolmaraton
+            </option>
+            <option value="42194">
+              Maraton
+            </option>
+          </select>
+        </div>
+
+        <!-- Known Time -->
+        <div class="form-group">
+          <label for="known-time">Sisesta oma aeg</label>
+          <div class="time-inputs">
+            <div class="time-input">
+              <input
+                type="number"
+                id="hours"
+                class="form-input"
+                min="0"
+                value="0"
+              />
+              <span class="unit">h</span>
+            </div>
+            <div class="time-input">
+              <input
+                type="number"
+                id="minutes"
+                class="form-input"
+                min="0"
+                max="59"
+                value="30"
+              />
+              <span class="unit">m</span>
+            </div>
+            <div class="time-input">
+              <input
+                type="number"
+                id="seconds"
+                class="form-input"
+                min="0"
+                max="59"
+                value="0"
+              />
+              <span class="unit">s</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add this after the time inputs and before the button -->
+        <div class="form-group">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="is-hilly" class="form-checkbox" />
+            <label for="is-hilly">Künklik rada</label>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn--full" id="calculate-button">
+          Arvuta ajad
+        </button>
+      </form>
+    </div>
+    <div class="results-container hidden">
+      <h2 class="heading-secondary">Hinnatud ajad</h2>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Distants</th>
+            <th>Hinnanguline lõpuaeg</th>
+            <th>Min/km</th>
+            <th>Min/km</th>
+          </tr>
+        </thead>
+        <tbody id="results-body">
+          <!-- Results will be inserted here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+</main>
+
+      
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="/js/index.js"></script>
+    
+<script type="module" src="/js/racePredictions.js"></script>
+
+  </body>
+</html>

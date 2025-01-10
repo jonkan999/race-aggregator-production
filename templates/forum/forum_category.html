@@ -1,0 +1,122 @@
+{% extends "forum/forum_layout.html" %} {% block content %}
+<div class="forum-container forum-section" data-category="{{ category.slug }}">
+  {% if breadcrumbs %}
+  <nav class="breadcrumbs" aria-label="breadcrumb">
+    <ol>
+      {% for crumb in breadcrumbs %}
+      <li {% if loop.last %}aria-current="page" {% endif %}>
+        {% if not loop.last %}
+        <a href="{{ crumb.item }}">{{ crumb.name }}</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        {% else %}
+        <span>{{ crumb.name }}</span>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </nav>
+  {% endif %}
+  <div class="forum-header">
+    <h1 class="text-left">{{ category.name }}</h1>
+    <p class="category-description">{{ category.description }}</p>
+  </div>
+
+  {% if threads %}
+  <div class="threads-container">
+    <div class="recent-threads">
+      {% for thread in threads[:3] %}
+      <div class="forum-post-card">
+        <a href="/forum/{{ category.slug }}/{{ thread.threadId }}">
+          <div class="forum-post-upper-box">
+            <div class="forum-post-content">
+              <div class="forum-info-top">
+                <div class="icon-category-container thread-info">
+                  <div class="forum-user">
+                    <div class="forum-post-icon">
+                      <ion-icon name="chatbubbles-outline"></ion-icon>
+                    </div>
+                    <div class="forum-user">/{{ thread.authorName }}</div>
+                  </div>
+                  <div class="forum-user-title">{{ thread.title }}</div>
+                </div>
+                <div class="forum-time">• {{ thread.createdAt }}</div>
+              </div>
+              <div class="forum-info-middle">
+                {{ thread.content[:100] }}{% if thread.content|length > 100
+                %}...{% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="forum-comments">
+            {{ thread.replyCount }} {{ forum.reply_label }}
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% if threads|length > 3 %}
+    <div class="threads-expanded hidden">
+      {% for thread in threads[3:] %}
+      <div class="forum-post-card">
+        <a href="/forum/{{ category.slug }}/{{ thread.threadId }}">
+          <div class="forum-post-upper-box">
+            <div class="forum-post-content">
+              <div class="forum-info-top">
+                <div class="icon-category-container">
+                  <div class="forum-post-icon">
+                    <ion-icon name="chatbubbles-outline"></ion-icon>
+                  </div>
+                  <div class="forum-category">/{{ thread.categorySlug }}</div>
+                </div>
+                <div class="forum-time">• {{ thread.createdAt }}</div>
+              </div>
+              <div class="forum-info-middle">{{ thread.content }}</div>
+            </div>
+          </div>
+          <div class="forum-comments">
+            {{ thread.replyCount }} {{ forum.reply_label }}
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="thread-controls">
+      <div
+        class="thread-count-indicator"
+        data-showing-text="{{ forum.showing_threads_count }}"
+      >
+        {{ forum.showing_threads_count.replace('{x}', '3').replace('{y}',
+        threads|length|string) }}
+      </div>
+      <button class="expand-threads-btn">
+        <span class="show-more">{{ forum.show_more_threads }}</span>
+        <span class="show-less hidden">{{ forum.show_less_threads }}</span>
+      </button>
+    </div>
+    {% endif %}
+  </div>
+  {% else %}
+  <div class="empty-state">{{ forum.empty_category_state }}</div>
+  {% endif %}
+
+  <div class="thread-input-container" id="thread-input-container">
+    <h2>{{ forum.create_new_thread }}</h2>
+    <input
+      type="text"
+      id="thread-title-input"
+      placeholder="{{ forum.new_thread_title_placeholder }}"
+      disabled
+    />
+    <textarea
+      id="thread-input"
+      placeholder="{{ forum.new_thread_content_placeholder }}"
+      disabled
+    ></textarea>
+    <button id="thread-submit">{{ forum.create_thread_button }}</button>
+    <div id="login-prompt" class="login-prompt">{{ forum.login_prompt }}</div>
+  </div>
+</div>
+{% endblock %}

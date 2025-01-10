@@ -1,0 +1,67 @@
+{% extends "index_layout.html" %} {% block title %}Privacy Policy{% endblock %}
+{% block meta_description %}Privacy Policy and GDPR compliance information for
+our race calendar service{% endblock %} {% block content %} {% include
+'sections/header-menu.html' %}
+
+<section class="section-privacy">
+  <div class="container">
+    <h1>Privacy Policy</h1>
+
+    <div class="privacy-content">
+      <div class="last-updated">Last Updated: {{ last_updated_date }}</div>
+
+      <div class="privacy-section">
+        <h2>1. Information We Collect</h2>
+        <p>We collect information that you provide directly to us when you:</p>
+        <ul>
+          <li>Create an account</li>
+          <li>Submit race information</li>
+          <li>Post in our forum</li>
+          <li>Contact us</li>
+        </ul>
+      </div>
+
+      <div class="privacy-section">
+        <h2>2. Cookies and Tracking</h2>
+        <p>We use cookies to:</p>
+        <ul>
+          <li>Remember your preferences</li>
+          <li>Maintain your session</li>
+          <li>Analyze site traffic (Google Analytics)</li>
+          <li>Display relevant advertisements</li>
+        </ul>
+      </div>
+
+      <div class="privacy-section">
+        <h2>3. How We Use Your Information</h2>
+        <p>Your information helps us to:</p>
+        <ul>
+          <li>Provide and improve our services</li>
+          <li>Send important notifications</li>
+          <li>Respond to your requests</li>
+          <li>Prevent fraud and abuse</li>
+        </ul>
+      </div>
+
+      <div class="privacy-section">
+        <h2>4. Your Rights</h2>
+        <p>Under GDPR, you have the right to:</p>
+        <ul>
+          <li>Access your personal data</li>
+          <li>Correct inaccurate data</li>
+          <li>Request deletion of your data</li>
+          <li>Object to data processing</li>
+          <li>Data portability</li>
+        </ul>
+      </div>
+
+      <div class="privacy-section">
+        <h2>5. Contact Us</h2>
+        <p>For privacy-related questions, contact us at:</p>
+        <a href="mailto:loppkartan@gmail.com">loppkartan@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include 'components/footer.html' %} {% endblock %}

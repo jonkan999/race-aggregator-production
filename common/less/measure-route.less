@@ -1,0 +1,117 @@
+@import '_variables.less';
+
+.section-measure-route {
+  padding: 6.4rem 0;
+  padding-top: calc(var(--header-size) + 4rem) !important;
+
+  .container {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 3.2rem;
+  }
+
+  .heading-primary {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+  }
+
+  .description {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .route-controls {
+    position: relative;
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    align-items: center;
+
+    .control-button {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 5px;
+      background-color: var(--color-primary);
+      color: white;
+      cursor: pointer;
+      font-size: 1.6rem;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: var(--color-primary-shade);
+      }
+
+      .icon {
+        width: 2rem;
+        height: 2rem;
+        fill: currentColor;
+      }
+    }
+
+    .distance-display {
+      position: absolute;
+      bottom: -3rem;
+      left: 50%;
+      transform: translate(-50%, 100%);
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--color-primary);
+      z-index: 2;
+      background-color: white; /* Changed from var(--color-white) to white */
+      padding: 0.5rem 0;
+      border-radius: 5px;
+      width: 60%;
+      text-align: center;
+    }
+  }
+
+  .measure-map {
+    width: 100%;
+    height: 65vh;
+    overflow: hidden;
+    z-index: 1;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: @landscape-tablet) {
+  .section-measure-route {
+    padding: 1rem;
+
+    .container {
+      padding: 0 1.5rem;
+    }
+
+    .route-controls {
+      flex-direction: row-reverse;
+      button {
+        flex-grow: 1;
+        line-height: 1.4;
+      }
+    }
+  }
+}
+
+.marker-measure {
+  width: 14px !important;
+  height: 14px !important;
+
+  .marker-inner {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary);
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// Update polyline style
+.leaflet-interactive {
+  stroke-width: 3;
+  stroke: var(--color-primary);
+}

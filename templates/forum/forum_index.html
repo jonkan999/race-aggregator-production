@@ -1,0 +1,83 @@
+{% extends "forum/forum_layout.html" %} {% block content %}
+<div class="forum-container forum-section">
+  {% if breadcrumbs %}
+  <nav class="breadcrumbs" aria-label="breadcrumb">
+    <ol>
+      {% for crumb in breadcrumbs %}
+      <li {% if loop.last %}aria-current="page" {% endif %}>
+        {% if not loop.last %}
+        <a href="{{ crumb.item }}">{{ crumb.name }}</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        {% else %}
+        <span>{{ crumb.name }}</span>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </nav>
+  {% endif %}
+  <h1 class="text-left">{{ forum.title }}</h1>
+  {% for category in forum_categories %}
+  <div class="category-card">
+    <div class="category-main">
+      <a
+        href="/{{ navigation.forum | slugify(country_code) }}/{{ category.slug }}"
+        class="category-title"
+      >
+        <h2>/ {{ category.name }}</h2>
+      </a>
+      <p class="category-description">{{ category.description }}</p>
+    </div>
+    <div class="category-stats">
+      <div class="thread-count">
+        {{ category.thread_count }} {{ forum.posts_label }}
+      </div>
+    </div>
+    {% if category.latest_thread %}
+    <div class="latest-activity">
+      <div class="forum-post-card">
+        <a
+          href="/forum/{{ category.slug }}/{{ category.latest_thread.threadId }}"
+        >
+          <div class="forum-post-upper-box">
+            <div class="forum-post-content">
+              <div class="forum-info-top">
+                <div class="icon-category-container thread-info">
+                  <div class="forum-user">
+                    <div class="forum-post-icon">
+                      <ion-icon name="chatbubbles-outline"></ion-icon>
+                    </div>
+                    <div class="forum-user">
+                      /{{ category.latest_thread.authorName }}
+                    </div>
+                  </div>
+                  <div class="forum-user-title">
+                    {{ category.latest_thread.title }}
+                  </div>
+                </div>
+                <div class="forum-time">
+                  • {{ category.latest_thread.createdAt }}
+                </div>
+              </div>
+              <div class="forum-info-middle">
+                {{ category.latest_thread.content[:100] }}{% if
+                category.latest_thread.content|length > 100 %}...{% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="forum-comments">
+            {{ category.latest_thread.replyCount }} {{ forum.reply_label }}
+          </div>
+        </a>
+      </div>
+      <div class="latest-meta">
+        <span class="latest-author">{{ category.latest_thread.author }}</span>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

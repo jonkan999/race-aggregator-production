@@ -1,0 +1,79 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  /* font-size: 10px; */
+  /* 10 / 16 = 0,625 percentage of users browser font-size setting */
+  font-size: 62.5%;
+}
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media (max-width: 75em) {
+  html {
+    font-size: 50%;
+  }
+}
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #000;
+  background-color: var(--color-background);
+}
+input:focus,
+select:focus {
+  outline: none;
+}
+/* Create a semi-transparent overlay color based on the primary color */
+/* Create a semi-transparent overlay color based on the primary color */
+/* Create a semi-transparent overlay color based on the primary color */
+:root {
+  --color-background: #fff;
+  --color-background-shade: #f7f7f7;
+  --color-primary: #00492f;
+  --color-primary-shade: #001a11;
+  --color-primary-overlay-hard: #e6edea;
+  --color-primary-overlay-medium: rgba(230, 237, 234, 0.5);
+  --color-primary-shade-overlay: rgba(0, 26, 17, 0.15);
+  --color-primary-tint-overlay: rgba(208, 255, 239, 0.15);
+  --color-accent: #1db47f;
+  --color-highlight: #ffdf01;
+  --color-warning: #eea222;
+  --color-success: #00925e;
+  --color-secondary-accent: #00a96d;
+  --color-secondary-highlight: #fcc409;
+  --color-divider-grey: #ccc;
+  --color-white-text: #f1f3f4;
+  --header-size: 7rem;
+  --mobile-standard-box-width: 390px;
+}
+.section {
+  border-bottom: 0.3rem solid var(--color-divider-grey);
+}
+@media (max-width: 59em) {
+  .section {
+    padding-left: 10rem !important;
+  }
+}
+@media (max-width: 44em) {
+  .section {
+    padding-left: 3rem !important;
+  }
+}
+.new-amsterdam {
+  font-family: "New Amsterdam", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.2rem;
+}
+.container {
+  /* 1140px */
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}

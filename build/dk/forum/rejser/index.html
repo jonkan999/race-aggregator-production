@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Forum - Tal om løb og løberlivet med andre løbere i Danmark</title>
+    <meta name="description" content="Tal om løb og løberlivet med andre løbere i vores forum. Alt om træning, konkurrencer, skader, kost, tøj, udstyr og meget mere." />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/forum.css" />
+    <link rel="stylesheet" href="/css/selected-forum-post-card.css" />
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+    <script type="module" src="/js/forumFirebase.js"></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Forum",
+            "item": "https://loppkartan.se/forum"
+          },          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Rejser & Rejserelateret",
+            "item": "https://loppkartan.se/forum/rejser"
+          }        ]
+      }
+    </script>
+  </head>
+  <body>
+<section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Lobskalender</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Log ind
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    <a class="nav-container" href="/">
+      <span class="nav-item">Alt</span>
+    </a>
+    <a class="nav-container" href="/lobekalender"
+      ><span class="nav-item">Løbekalender</span></a
+    >
+    <a class="nav-container" href="/tilfoj-lob"
+      ><span class="nav-item">Tilføj løb</span></a
+    >
+    <a class="nav-container" href="/forum"
+      ><span class="nav-item">Forum</span></a
+    >
+    <a class="nav-container" href="/mal-din-rute"
+      ><span class="nav-item">Mål din rute</span></a
+    >
+    <a class="nav-container" href="/traningsprogram"
+      ><span class="nav-item">Træningsprogram</span></a
+    >
+    <a class="nav-container" href="/fartomformer"
+      ><span class="nav-item">Fartomformer</span></a
+    >
+    <a class="nav-container" href="/vurder-din-sluttid"
+      ><span class="nav-item">Vurder din sluttid</span></a
+    >
+    <a class="nav-container" href="/om-os"
+      ><span class="nav-item">Om os</span></a
+    >
+    <a class="nav-container" href="/kontakt-os"
+      ><span class="nav-item">Kontakt os</span></a
+    >
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Log ind</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Din e-mail"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Adgangskode"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Glemt adgangskode?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Opret konto i stedet
+            </a>
+          </div>
+          <button type="submit">Log ind</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Opret konto
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Glemt adgangskode?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Opret konto</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Dit navn"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Din e-mail"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Adgangskode"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Opret konto</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Tilbage til login
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Nulstil adgangskode</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Din e-mail"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Send nulstillingslink</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Tilbage til login
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Du er allerede logget ind som</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Fortsæt som denne bruger
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Log ud og skift bruger
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto oprettet!</h2>
+        <div class="logged-in-user-info">
+          <p>Du er nu logget ind som</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            En verificeringslink er blevet sendt til din e-mail
+          </p>
+          <p class="verification-notice">Venligst verificer din e-mailadresse</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Fortsæt som denne bruger
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- Page content -->
+    <main><div class="forum-container forum-section" data-category="rejser">
+  <nav class="breadcrumbs" aria-label="breadcrumb">
+    <ol>
+      <li >
+        <a href="/forum">Forum</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+      </li>
+      <li aria-current="page" >
+        <span>Rejser & Rejserelateret</span>
+      </li>
+    </ol>
+  </nav>
+  <div class="forum-header">
+    <h1 class="text-left">Rejser & Rejserelateret</h1>
+    <p class="category-description">Diskuter rejser og rejserelateret løb</p>
+  </div>
+
+  <div class="empty-state">Ingen tråde endnu. Sæt gang i diskussionen ved at oprette den første tråd!</div>
+
+  <div class="thread-input-container" id="thread-input-container">
+    <h2>Opret ny tråd</h2>
+    <input
+      type="text"
+      id="thread-title-input"
+      placeholder="Titel på din nye tråd"
+      disabled
+    />
+    <textarea
+      id="thread-input"
+      placeholder="Skriv dit første indlæg..."
+      disabled
+    ></textarea>
+    <button id="thread-submit">Opret ny tråd</button>
+    <div id="login-prompt" class="login-prompt">Log ind for at deltage i diskussionen</div>
+  </div>
+</div>
+</main>
+
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

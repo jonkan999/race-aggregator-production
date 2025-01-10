@@ -1,0 +1,180 @@
+{% extends "index_layout.html" %} {% block title %}{{ training_plans.title }}{%
+endblock %} {% block meta_description %}{{ training_plans.description }}{%
+endblock %} {% block styles %} {{ super() }}
+<link rel="stylesheet" href="/css/training-plans.css" />
+{% endblock %} {% block body_scripts %} {{ super() }}
+<script type="module" src="/js/trainingPlans.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+{% endblock %} {% block content %} {%
+include 'sections/header-menu.html' %}
+<section class="section-training-plans">
+  <div class="container">
+    <h1 class="heading-primary">{{ training_plans.title }}</h1>
+    <p class="description">{{ training_plans.description }}</p>
+    <div class="info-disclaimer">
+      <p>
+        {{ training_plans.disclaimer_text_tp_1 }}
+        <a href="/{{ auxiliary_pages.contact | slugify(country_code) }}.html"
+          >{{ training_plans.disclaimer_link_tp }}</a
+        >
+        {{ training_plans.disclaimer_text_tp_2 }}
+      </p>
+    </div>
+    <div class="calculator-container">
+      <form class="calculator-form" id="training-calculator">
+        <!-- Target Race Date -->
+        <div class="form-group">
+          <label for="race-date"
+            >{{ training_plans.form.race_date_label }}</label
+          >
+          <input
+            type="date"
+            id="race-date"
+            name="race-date"
+            class="form-select"
+            min="{{ today_date }}"
+            required
+          />
+        </div>
+
+        <!-- Target Race Distance -->
+        <div class="form-group">
+          <label for="target-distance"
+            >{{ training_plans.form.target_distance_label }}</label
+          >
+          <select
+            id="target-distance"
+            name="target-distance"
+            class="form-select"
+            required
+          >
+            <option value="">
+              {{ training_plans.form.target_distance.placeholder }}
+            </option>
+            {% for value, label in
+            training_plans.form.target_distance.options.items() %}
+            <option value="{{ value }}">{{ label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- Target Finish Time -->
+        <div class="form-group">
+          <label for="target-time"
+            >{{ training_plans.form.target_time_label }}</label
+          >
+          <div class="time-inputs">
+            <div class="time-input">
+              <input
+                type="number"
+                id="hours"
+                class="form-input"
+                min="0"
+                value="0"
+              />
+              <span class="unit"
+                >{{ training_plans.form.hours_placeholder }}</span
+              >
+            </div>
+            <div class="time-input">
+              <input
+                type="number"
+                id="minutes"
+                class="form-input"
+                min="0"
+                max="59"
+                value="30"
+              />
+              <span class="unit"
+                >{{ training_plans.form.minutes_placeholder }}</span
+              >
+            </div>
+            <div class="time-input">
+              <input
+                type="number"
+                id="seconds"
+                class="form-input"
+                min="0"
+                max="59"
+                value="0"
+              />
+              <span class="unit"
+                >{{ training_plans.form.seconds_placeholder }}</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Training Days Per Week -->
+        <div class="form-group">
+          <label for="training-days"
+            >{{ training_plans.form.training_days_label }}</label
+          >
+          <select
+            id="training-days"
+            name="training-days"
+            class="form-select"
+            required
+          >
+            {% for value, label in
+            training_plans.form.training_days.options.items() %}
+            <option value="{{ value }}">{{ label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- Time Available Per Session -->
+        <div class="form-group">
+          <label for="session-time"
+            >{{ training_plans.form.session_time_label }}</label
+          >
+          <select
+            id="session-time"
+            name="session-time"
+            class="form-select"
+            required
+          >
+            {% for value, label in
+            training_plans.form.session_time.options.items() %}
+            <option value="{{ value }}">{{ label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- Hilly Course -->
+        <div class="form-group">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="is-hilly" class="form-checkbox" />
+            <label for="is-hilly"
+              >{{ training_plans.form.is_hilly_label }}</label
+            >
+          </div>
+        </div>
+
+        <button type="button" class="btn btn--full" id="generate-plan">
+          {{ training_plans.form.submit_button }}
+        </button>
+      </form>
+    </div>
+    <!-- Action Buttons -->
+    <div class="plan-actions">
+      <button type="button" class="btn btn--outline" id="regenerate-plan">
+        {{ training_plans.results.regenerate_button }}
+      </button>
+      <button type="button" class="btn btn--outline" id="export-pdf">
+        {{ training_plans.results.export_button }}
+      </button>
+    </div>
+
+    <!-- Results Container -->
+    <div class="results-container hidden">
+      <h2 class="heading-secondary">{{ training_plans.results.title }}</h2>
+
+      <!-- Selected Plan Details -->
+      <div class="selected-plan hidden">
+        <div id="training-schedule"></div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

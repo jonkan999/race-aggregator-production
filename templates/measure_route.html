@@ -1,0 +1,42 @@
+{% extends "index_layout.html" %} {% block title %}{{ measure_route_title }}{%
+endblock %} {% block meta_description %}{{ measure_route_description }}{%
+endblock %} {% block styles %} {{ super() }}
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+<link rel="stylesheet" href="/css/measure-route.css" />
+{% endblock %} {% block body_scripts %} {{ super() }}
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script type="module" src="/js/measureRoute.js"></script>
+{% endblock %} {% block content %} {% include 'sections/header-menu.html' %}
+<section class="section-measure-route">
+  <div class="container">
+    <h1 class="heading-primary">{{ measure_route_title }}</h1>
+    <p class="description">{{ measure_route_description }}</p>
+
+    <div class="route-controls">
+      <button id="remove-last" class="control-button">
+        <ion-icon name="arrow-undo-outline"></ion-icon>
+        {{ remove_last_point }}
+      </button>
+      <button id="clear-route" class="control-button">
+        <ion-icon name="trash-outline"></ion-icon>
+        {{ clear_route }}
+      </button>
+      <div class="distance-display">
+        <span>{{ total_distance }}: </span>
+        <span id="total-distance">0.00 km</span>
+      </div>
+    </div>
+
+    <div
+      id="map-placeholder"
+      class="measure-map"
+      data-latitude="{{ mapbox_center.latitude }}"
+      data-longitude="{{ mapbox_center.longitude }}"
+      data-zoom="{{ race_page_map_zoom }}"
+    ></div>
+  </div>
+</section>
+{% endblock %}

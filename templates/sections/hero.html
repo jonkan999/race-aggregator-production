@@ -1,0 +1,55 @@
+<section class="section section-hero background-container">
+  <div class="overlay gradient"></div>
+  <!-- cycle through 4 inspirational hero pictures one marathon one trail and one "fun run" hero1 hero2 hero3 -->
+  <picture>
+    <source
+      srcset="/images/hero_xlarge.webp"
+      media="(min-width: {{ sizes.xlarge }}px)"
+    />
+    <source
+      srcset="/images/hero_large.webp"
+      media="(min-width: {{ sizes.large }}px)"
+    />
+    <source
+      srcset="/images/hero_medium.webp"
+      media="(min-width: {{ sizes.medium }}px)"
+    />
+    <source
+      srcset="/images/hero_small.webp"
+      media="(max-width: {{ sizes.small }}px)"
+    />
+    <img src="/images/hero_xlarge.webp" alt="Hero Image" class="background-img" />
+  </picture>
+
+  <div class="hero-content">
+    <div class="title-container">
+      <h1 class="native-title">{{ title }}
+      <span class="native-country new-amsterdam">{{ country_native }}</span></h1>
+    </div>
+    <ul class="bullet-list">
+      <li>
+        <a href="/{{ navigation['race-list'] | slugify(country_code) }}" class="full-link"> 
+          <ion-icon name="search-outline" role="img"></ion-icon>
+          {{main_bullet_1}}
+
+        </a>
+      </li>
+      <li>
+        <a href="/{{ navigation['add-race'] | slugify(country_code) }}" class="full-link">
+          {{main_bullet_2}}
+
+        </a>
+      </li>
+      <li>
+        <a href="/{{ navigation['forum'] | slugify(country_code) }}" class="full-link">
+          <ion-icon name="chatbox-ellipses-outline" role="img"></ion-icon>  
+          {{main_bullet_4}}
+
+        </a>
+      </li>
+    </ul>
+  </div>
+<!--     <button onclick="location.href='/race-list'">{{ cta_search }}</button>
+    <button onclick="location.href='/add-races'">{{ cta_add }}</button> -->
+  </div>
+</section>

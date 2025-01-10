@@ -1,0 +1,34 @@
+{% extends "browse/browse_layout.html" %} {% block browse_content %}
+<div class="browse-types">
+  <h1>{{ browse_types.title }}</h1>
+  <p class="browse-description">{{ browse_types.meta_description }}</p>
+
+  <div class="browse-grid">
+    {% for type, data in structure.types|dictsort %}
+    <div class="type-card">
+      <div class="type-header">
+        <h2>
+          <a href="{{ data.href }}"> {{ type }} </a>
+          <span class="count">({{ data.count }} lopp)</span>
+        </h2>
+      </div>
+
+      {% if data.categories %}
+      <div class="categories">
+        <h3>{{ browse_types.categories_title }}</h3>
+        <ul class="category-list">
+          {% for category, cat_data in data.categories|dictsort %} {% if
+          cat_data.count > 0 %}
+          <li>
+            <a href="{{ cat_data.href }}"> {{ category }} </a>
+            <span class="count">({{ cat_data.count }})</span>
+          </li>
+          {% endif %} {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,3048 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Durchsuchen Sie alle Veranstaltungen</title>
+    <meta name="description" content="Finde Veranstaltungen nach Bundesland, Typ oder Kategorie" />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/race-list-filter.css" />
+    <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card-big.css" />
+    <link rel="stylesheet" href="/css/race-cards.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+    <script src="/js/raceList.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+    <script defer="" src="/js/raceListToggleButton.js"></script>
+    <script defer="" src="/js/raceListToggleMap.js"></script>
+  </head>
+  <body>
+    <!-- Page content -->
+    <main>
+       <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">laufrennen</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Anmelden
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Alles</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/laufkalender"
+      ><span class="nav-item">Laufkalender</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/lauf-hinzufuegen"
+      ><span class="nav-item">Lauf hinzufügen</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/forum"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/miss-deine-runde"
+      ><span class="nav-item">Miss deine Runde</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/trainingsprogramme"
+      ><span class="nav-item">Trainingsprogramme</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/geschwindigkeitsumrechner"
+      ><span class="nav-item">Geschwindigkeitsumrechner</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/schaetze-deine-endzeit-ein"
+      ><span class="nav-item">Schätze deine Endzeit ein</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/ueber-uns"
+      ><span class="nav-item">Über uns</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/kontaktiere-uns"
+      ><span class="nav-item">Kontaktiere uns</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Anmelden</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Deine E-Mail"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Passwort"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Hast du dein Passwort vergessen?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Konto erstellen statt
+            </a>
+          </div>
+          <button type="submit">Anmelden</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Konto erstellen
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Hast du dein Passwort vergessen?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto erstellen</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Ihr Name"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Deine E-Mail"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Passwort"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Konto erstellen</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Zurück zur Anmeldung
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Passwort zurücksetzen</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Deine E-Mail"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Senden Sie den Wiederherstellungslink</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Zurück zur Anmeldung
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Du bist bereits eingeloggt als</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Fortfahren als dieser Benutzer
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Abmelden und Benutzer wechseln
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto erstellt!</h2>
+        <div class="logged-in-user-info">
+          <p>Du bist jetzt angemeldet als</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            Ein Verifizierungslink wurde an deine E-Mail-Adresse gesendet.
+          </p>
+          <p class="verification-notice">Bitte verifizieren Sie Ihre E-Mail-Adresse</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Fortfahren als dieser Benutzer
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+      <div class="browse-container">
+        <nav class="breadcrumbs" aria-label="breadcrumb">
+  <ol>
+    
+    <li >
+      
+      <a href="/laufkalender">Laufkalender</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li >
+      
+      <a href="/laufkalender/kategorie-durchsuchen">Kategorie durchsuchen</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li aria-current="page" >
+      
+      <span>Landkreise</span>
+      
+    </li>
+    
+  </ol>
+</nav>
+        <nav class="browse-nav">
+          <a
+            href="/laufkalender/kategorie-durchsuchen"
+            class=""
+          >
+            Übersicht
+          </a>
+          <a
+            href="/laufkalender/kategorie-durchsuchen/counties.html"
+            class="active"
+          >
+            Landkreise
+          </a>
+          <a
+            href="/laufkalender/kategorie-durchsuchen/cities.html"
+            class=""
+          >
+            Städte
+          </a>
+          <a
+            href="/laufkalender/kategorie-durchsuchen/types.html"
+            class=""
+          >
+            Lauftypen
+          </a>
+          <a
+            href="/laufkalender/kategorie-durchsuchen/categories.html"
+            class=""
+          >
+            Kategorien
+          </a>
+        </nav>
+
+        
+<div class="browse-counties">
+  <h1>Bläddra nach Bundesländern</h1>
+  <p class="browse-description">Finde Läufe in deinem Bundesland.</p>
+
+  <div class="browse-grid">
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/laufkalender/baden-wuerttemberg">Baden-Württemberg</a>
+          <span class="count"
+            >(18 Rennen)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/baden-wuerttemberg">Alle Laufarten</a>
+            <span class="count">(18)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a
+                href="/laufkalender/baden-wuerttemberg/alle-laufarten/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(12)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/laufkalender/baden-wuerttemberg/alle-laufarten/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(13)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/laufkalender/baden-wuerttemberg/alle-laufarten/marathon"
+              >
+                Marathon
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/laufkalender/baden-wuerttemberg/alle-laufarten/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/laufkalender/baden-wuerttemberg/alle-laufarten/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(13)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/laufkalender/baden-wuerttemberg/alle-laufarten/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/laufkalender/baden-wuerttemberg/alle-laufarten/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(11)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/laufkalender/baden-wuerttemberg/alle-laufarten/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(12)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/baden-wuerttemberg/gelaende">Gelände</a>
+            <span class="count">(7)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/baden-wuerttemberg/gelaende/10-km">10 km</a>
+              <span class="count">(5)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/baden-wuerttemberg/gelaende/10000-meter">10000 meter</a>
+              <span class="count">(5)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/baden-wuerttemberg/gelaende/5-km">5 km</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/baden-wuerttemberg/gelaende/50-km">50 km</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/baden-wuerttemberg/gelaende/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/baden-wuerttemberg/gelaende/marathon">Marathon</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/baden-wuerttemberg/gelaende/millopp">Millopp</a>
+              <span class="count">(5)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/baden-wuerttemberg/strasse">Straße</a>
+            <span class="count">(9)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/baden-wuerttemberg/strasse/10-km">10 km</a>
+              <span class="count">(7)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/baden-wuerttemberg/strasse/10000-meter">10000 meter</a>
+              <span class="count">(7)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/baden-wuerttemberg/strasse/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/baden-wuerttemberg/strasse/5-km">5 km</a>
+              <span class="count">(9)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/baden-wuerttemberg/strasse/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/baden-wuerttemberg/strasse/5000-meter">5000 meter</a>
+              <span class="count">(9)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/baden-wuerttemberg/strasse/millopp">Millopp</a>
+              <span class="count">(7)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/baden-wuerttemberg/trail">Trail</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/baden-wuerttemberg/trail/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                      
+            <li>
+              <a href="/laufkalender/baden-wuerttemberg/trail/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/baden-wuerttemberg/trail/marathon">Marathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/baden-wuerttemberg/trail/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/laufkalender/bayern">Bayern</a>
+          <span class="count"
+            >(18 Rennen)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/bayern">Alle Laufarten</a>
+            <span class="count">(18)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                               
+            <li>
+              <a
+                href="/laufkalender/bayern/alle-laufarten/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(6)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/laufkalender/bayern/alle-laufarten/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(6)</span>
+            </li>
+                                                    
+            <li>
+              <a
+                href="/laufkalender/bayern/alle-laufarten/marathon"
+              >
+                Marathon
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                    
+            <li>
+              <a
+                href="/laufkalender/bayern/alle-laufarten/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(6)</span>
+            </li>
+                                                                        
+            <li>
+              <a
+                href="/laufkalender/bayern/alle-laufarten/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/laufkalender/bayern/alle-laufarten/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(5)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/bayern/gelaende">Gelände</a>
+            <span class="count">(11)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/bayern/gelaende/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/bayern/gelaende/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/bayern/gelaende/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/bayern/gelaende/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/bayern/gelaende/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/bayern/sonstiges">Sonstiges</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/bayern/sonstiges/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/laufkalender/bayern/sonstiges/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                      
+            <li>
+              <a href="/laufkalender/bayern/sonstiges/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/bayern/strasse">Straße</a>
+            <span class="count">(4)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/bayern/strasse/10-km">10 km</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/bayern/strasse/10000-meter">10000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/bayern/strasse/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/bayern/strasse/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/bayern/strasse/marathon">Marathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/bayern/strasse/millopp">Millopp</a>
+              <span class="count">(3)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/bayern/trail">Trail</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/bayern/trail/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/bayern/trail/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/bayern/trail/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/bayern/trail/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/bayern/trail/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/laufkalender/berlin">Berlin</a>
+          <span class="count"
+            >(9 Rennen)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/berlin">Alle Laufarten</a>
+            <span class="count">(9)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                       
+            <li>
+              <a
+                href="/laufkalender/berlin/alle-laufarten/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/berlin/alle-laufarten/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                                                            
+            <li>
+              <a
+                href="/laufkalender/berlin/alle-laufarten/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/berlin/alle-laufarten/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/berlin/alle-laufarten/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/berlin/alle-laufarten/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/berlin/alle-laufarten/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(5)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/berlin/sonstiges">Sonstiges</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/berlin/strasse">Straße</a>
+            <span class="count">(6)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/berlin/strasse/10-km">10 km</a>
+              <span class="count">(5)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/berlin/strasse/10000-meter">10000 meter</a>
+              <span class="count">(5)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/berlin/strasse/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/berlin/strasse/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/berlin/strasse/5-km">5 km</a>
+              <span class="count">(5)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/berlin/strasse/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/berlin/strasse/millopp">Millopp</a>
+              <span class="count">(5)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/laufkalender/brandenburg">Brandenburg</a>
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/brandenburg">Alle Laufarten</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                       
+            <li>
+              <a
+                href="/laufkalender/brandenburg/alle-laufarten/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                                                                                                         
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/brandenburg/gelaende">Gelände</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/laufkalender/brandenburg/gelaende/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                       
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/brandenburg/strasse">Straße</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/laufkalender/brandenburg/strasse/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                       
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/laufkalender/bremen">Bremen</a>
+          <span class="count"
+            >(5 Rennen)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/bremen">Alle Laufarten</a>
+            <span class="count">(5)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a
+                href="/laufkalender/bremen/alle-laufarten/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/laufkalender/bremen/alle-laufarten/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                                            
+            <li>
+              <a
+                href="/laufkalender/bremen/alle-laufarten/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/laufkalender/bremen/alle-laufarten/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                                            
+            <li>
+              <a
+                href="/laufkalender/bremen/alle-laufarten/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/laufkalender/bremen/alle-laufarten/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(2)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/bremen/gelaende">Gelände</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/bremen/gelaende/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/bremen/gelaende/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/bremen/gelaende/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/bremen/gelaende/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/bremen/gelaende/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/bremen/sonstiges">Sonstiges</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/laufkalender/bremen/sonstiges/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/bremen/sonstiges/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                   
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/bremen/strasse">Straße</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/bremen/strasse/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/bremen/strasse/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/bremen/strasse/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/bremen/strasse/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/bremen/strasse/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/bremen/strasse/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/laufkalender/hamburg">Hamburg</a>
+          <span class="count"
+            >(4 Rennen)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/hamburg">Alle Laufarten</a>
+            <span class="count">(4)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                       
+            <li>
+              <a
+                href="/laufkalender/hamburg/alle-laufarten/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/hamburg/alle-laufarten/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                                            
+            <li>
+              <a
+                href="/laufkalender/hamburg/alle-laufarten/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/hamburg/alle-laufarten/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/hamburg/alle-laufarten/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/hamburg/alle-laufarten/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/hamburg/alle-laufarten/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/hamburg/gelaende">Gelände</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/hamburg/gelaende/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/laufkalender/hamburg/gelaende/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                      
+            <li>
+              <a href="/laufkalender/hamburg/gelaende/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/hamburg/strasse">Straße</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/hamburg/strasse/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/hamburg/strasse/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/hamburg/strasse/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/hamburg/strasse/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/hamburg/strasse/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/hamburg/strasse/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/hamburg/strasse/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/laufkalender/hessen">Hessen</a>
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/hessen">Alle Laufarten</a>
+            <span class="count">(13)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                               
+            <li>
+              <a
+                href="/laufkalender/hessen/alle-laufarten/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/laufkalender/hessen/alle-laufarten/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(7)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/laufkalender/hessen/alle-laufarten/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/laufkalender/hessen/alle-laufarten/marathon"
+              >
+                Marathon
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/laufkalender/hessen/alle-laufarten/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/laufkalender/hessen/alle-laufarten/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(7)</span>
+            </li>
+                                                    
+            <li>
+              <a
+                href="/laufkalender/hessen/alle-laufarten/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/laufkalender/hessen/alle-laufarten/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/laufkalender/hessen/alle-laufarten/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(6)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/hessen/gelaende">Gelände</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/hessen/gelaende/10-km">10 km</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/hessen/gelaende/10000-meter">10000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/hessen/gelaende/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/hessen/gelaende/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/hessen/gelaende/halvmarathon">Halvmarathon</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/hessen/gelaende/millopp">Millopp</a>
+              <span class="count">(2)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/hessen/staffel">Staffel</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/hessen/staffel/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                      
+            <li>
+              <a href="/laufkalender/hessen/staffel/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/laufkalender/hessen/staffel/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/hessen/strasse">Straße</a>
+            <span class="count">(8)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/hessen/strasse/10-km">10 km</a>
+              <span class="count">(4)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/hessen/strasse/10000-meter">10000 meter</a>
+              <span class="count">(4)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/hessen/strasse/3000-meter">3000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/hessen/strasse/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/hessen/strasse/50-km">50 km</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/hessen/strasse/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/hessen/strasse/halvmarathon">Halvmarathon</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/hessen/strasse/marathon">Marathon</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/hessen/strasse/millopp">Millopp</a>
+              <span class="count">(4)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/hessen/trail">Trail</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/laufkalender/niedersachsen">Niedersachsen</a>
+          <span class="count"
+            >(33 Rennen)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/niedersachsen">Alle Laufarten</a>
+            <span class="count">(33)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a
+                href="/laufkalender/niedersachsen/alle-laufarten/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(25)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/laufkalender/niedersachsen/alle-laufarten/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(17)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/laufkalender/niedersachsen/alle-laufarten/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/laufkalender/niedersachsen/alle-laufarten/marathon"
+              >
+                Marathon
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/laufkalender/niedersachsen/alle-laufarten/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/laufkalender/niedersachsen/alle-laufarten/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(17)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/laufkalender/niedersachsen/alle-laufarten/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/laufkalender/niedersachsen/alle-laufarten/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(15)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/laufkalender/niedersachsen/alle-laufarten/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(10)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/niedersachsen/gelaende">Gelände</a>
+            <span class="count">(12)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/niedersachsen/gelaende/10-km">10 km</a>
+              <span class="count">(5)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/niedersachsen/gelaende/10000-meter">10000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/niedersachsen/gelaende/1500-meter">1500 meter</a>
+              <span class="count">(3)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/niedersachsen/gelaende/5-km">5 km</a>
+              <span class="count">(8)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/niedersachsen/gelaende/5000-meter">5000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/niedersachsen/gelaende/millopp">Millopp</a>
+              <span class="count">(5)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/niedersachsen/sonstiges">Sonstiges</a>
+            <span class="count">(8)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/niedersachsen/sonstiges/10-km">10 km</a>
+              <span class="count">(5)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/niedersachsen/sonstiges/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/niedersachsen/sonstiges/5-km">5 km</a>
+              <span class="count">(8)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/niedersachsen/sonstiges/5000-meter">5000 meter</a>
+              <span class="count">(4)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/niedersachsen/sonstiges/millopp">Millopp</a>
+              <span class="count">(5)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/niedersachsen/strasse">Straße</a>
+            <span class="count">(13)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/niedersachsen/strasse/10-km">10 km</a>
+              <span class="count">(7)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/niedersachsen/strasse/10000-meter">10000 meter</a>
+              <span class="count">(7)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/niedersachsen/strasse/5-km">5 km</a>
+              <span class="count">(9)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/niedersachsen/strasse/50-km">50 km</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/niedersachsen/strasse/5000-meter">5000 meter</a>
+              <span class="count">(8)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/niedersachsen/strasse/halvmarathon">Halvmarathon</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/niedersachsen/strasse/marathon">Marathon</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/niedersachsen/strasse/millopp">Millopp</a>
+              <span class="count">(7)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/laufkalender/nordrhein-westfalen">Nordrhein-Westfalen</a>
+          <span class="count"
+            >(25 Rennen)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/nordrhein-westfalen">Alle Laufarten</a>
+            <span class="count">(25)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a
+                href="/laufkalender/nordrhein-westfalen/alle-laufarten/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(18)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/laufkalender/nordrhein-westfalen/alle-laufarten/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(16)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/laufkalender/nordrhein-westfalen/alle-laufarten/marathon"
+              >
+                Marathon
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/laufkalender/nordrhein-westfalen/alle-laufarten/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(16)</span>
+            </li>
+                                                            
+            <li>
+              <a
+                href="/laufkalender/nordrhein-westfalen/alle-laufarten/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(12)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/laufkalender/nordrhein-westfalen/alle-laufarten/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(14)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/nordrhein-westfalen/gelaende">Gelände</a>
+            <span class="count">(6)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/nordrhein-westfalen/gelaende/10-km">10 km</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/nordrhein-westfalen/gelaende/10000-meter">10000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/nordrhein-westfalen/gelaende/5-km">5 km</a>
+              <span class="count">(6)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/nordrhein-westfalen/gelaende/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/nordrhein-westfalen/gelaende/millopp">Millopp</a>
+              <span class="count">(3)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/nordrhein-westfalen/sonstiges">Sonstiges</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/nordrhein-westfalen/sonstiges/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/nordrhein-westfalen/sonstiges/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/nordrhein-westfalen/sonstiges/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/nordrhein-westfalen/sonstiges/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/nordrhein-westfalen/sonstiges/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/nordrhein-westfalen/strasse">Straße</a>
+            <span class="count">(17)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/nordrhein-westfalen/strasse/10-km">10 km</a>
+              <span class="count">(12)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/nordrhein-westfalen/strasse/10000-meter">10000 meter</a>
+              <span class="count">(11)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/nordrhein-westfalen/strasse/5-km">5 km</a>
+              <span class="count">(10)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/nordrhein-westfalen/strasse/5000-meter">5000 meter</a>
+              <span class="count">(8)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/nordrhein-westfalen/strasse/marathon">Marathon</a>
+              <span class="count">(5)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/nordrhein-westfalen/strasse/millopp">Millopp</a>
+              <span class="count">(12)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/laufkalender/rheinland-pfalz">Rheinland-Pfalz</a>
+          <span class="count"
+            >(20 Rennen)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/rheinland-pfalz">Alle Laufarten</a>
+            <span class="count">(20)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                               
+            <li>
+              <a
+                href="/laufkalender/rheinland-pfalz/alle-laufarten/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(8)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/laufkalender/rheinland-pfalz/alle-laufarten/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(7)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/laufkalender/rheinland-pfalz/alle-laufarten/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/laufkalender/rheinland-pfalz/alle-laufarten/marathon"
+              >
+                Marathon
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                    
+            <li>
+              <a
+                href="/laufkalender/rheinland-pfalz/alle-laufarten/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(7)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/laufkalender/rheinland-pfalz/alle-laufarten/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                    
+            <li>
+              <a
+                href="/laufkalender/rheinland-pfalz/alle-laufarten/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/laufkalender/rheinland-pfalz/alle-laufarten/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(6)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/rheinland-pfalz/gelaende">Gelände</a>
+            <span class="count">(11)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/rheinland-pfalz/gelaende/10-km">10 km</a>
+              <span class="count">(4)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/rheinland-pfalz/gelaende/10000-meter">10000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/rheinland-pfalz/gelaende/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/rheinland-pfalz/gelaende/5-km">5 km</a>
+              <span class="count">(4)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/rheinland-pfalz/gelaende/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/rheinland-pfalz/gelaende/millopp">Millopp</a>
+              <span class="count">(4)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/rheinland-pfalz/sonstiges">Sonstiges</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/rheinland-pfalz/sonstiges/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/rheinland-pfalz/sonstiges/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a href="/laufkalender/rheinland-pfalz/sonstiges/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/rheinland-pfalz/strasse">Straße</a>
+            <span class="count">(7)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/rheinland-pfalz/strasse/10-km">10 km</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/rheinland-pfalz/strasse/10000-meter">10000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/rheinland-pfalz/strasse/5-km">5 km</a>
+              <span class="count">(4)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/rheinland-pfalz/strasse/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/rheinland-pfalz/strasse/halvmarathon">Halvmarathon</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/rheinland-pfalz/strasse/millopp">Millopp</a>
+              <span class="count">(2)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/rheinland-pfalz/trail">Trail</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                             
+            <li>
+              <a href="/laufkalender/rheinland-pfalz/trail/marathon">Marathon</a>
+              <span class="count">(1)</span>
+            </li>
+               
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/laufkalender/saarland">Saarland</a>
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/saarland">Alle Laufarten</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                       
+            <li>
+              <a
+                href="/laufkalender/saarland/alle-laufarten/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/saarland/alle-laufarten/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                                            
+            <li>
+              <a
+                href="/laufkalender/saarland/alle-laufarten/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                                            
+            <li>
+              <a
+                href="/laufkalender/saarland/alle-laufarten/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(2)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/saarland/gelaende">Gelände</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/saarland/gelaende/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/saarland/gelaende/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/saarland/gelaende/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                      
+            <li>
+              <a href="/laufkalender/saarland/gelaende/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/saarland/strasse">Straße</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/saarland/strasse/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/saarland/strasse/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a href="/laufkalender/saarland/strasse/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/laufkalender/sachsen">Sachsen</a>
+          <span class="count"
+            >(2 Rennen)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/sachsen">Alle Laufarten</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                   
+            <li>
+              <a
+                href="/laufkalender/sachsen/alle-laufarten/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                            
+            <li>
+              <a
+                href="/laufkalender/sachsen/alle-laufarten/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                            
+            <li>
+              <a
+                href="/laufkalender/sachsen/alle-laufarten/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/sachsen/gelaende">Gelände</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/sachsen/strasse">Straße</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/sachsen/strasse/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/sachsen/strasse/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a href="/laufkalender/sachsen/strasse/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/laufkalender/sachsen-anhalt">Sachsen-Anhalt</a>
+          <span class="count"
+            >(3 Rennen)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/sachsen-anhalt">Alle Laufarten</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                       
+            <li>
+              <a
+                href="/laufkalender/sachsen-anhalt/alle-laufarten/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/sachsen-anhalt/alle-laufarten/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                            
+            <li>
+              <a
+                href="/laufkalender/sachsen-anhalt/alle-laufarten/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/sachsen-anhalt/alle-laufarten/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/laufkalender/sachsen-anhalt/alle-laufarten/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/sachsen-anhalt/alle-laufarten/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/sachsen-anhalt/gelaende">Gelände</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/sachsen-anhalt/strasse">Straße</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/sachsen-anhalt/strasse/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/sachsen-anhalt/strasse/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/sachsen-anhalt/strasse/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/sachsen-anhalt/strasse/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/sachsen-anhalt/strasse/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/sachsen-anhalt/strasse/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/laufkalender/schleswig-holstein">Schleswig-Holstein</a>
+          <span class="count"
+            >(6 Rennen)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/schleswig-holstein">Alle Laufarten</a>
+            <span class="count">(6)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                       
+            <li>
+              <a
+                href="/laufkalender/schleswig-holstein/alle-laufarten/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/schleswig-holstein/alle-laufarten/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/laufkalender/schleswig-holstein/alle-laufarten/marathon"
+              >
+                Marathon
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/laufkalender/schleswig-holstein/alle-laufarten/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                
+            <li>
+              <a
+                href="/laufkalender/schleswig-holstein/alle-laufarten/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/schleswig-holstein/alle-laufarten/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/schleswig-holstein/gelaende">Gelände</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/schleswig-holstein/gelaende/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/schleswig-holstein/gelaende/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/schleswig-holstein/gelaende/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/schleswig-holstein/gelaende/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/schleswig-holstein/gelaende/millopp">Millopp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/schleswig-holstein/strasse">Straße</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/laufkalender/schleswig-holstein/strasse/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/schleswig-holstein/strasse/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/schleswig-holstein/strasse/marathon">Marathon</a>
+              <span class="count">(1)</span>
+            </li>
+               
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/laufkalender/thueringen">Thüringen</a>
+          <span class="count"
+            >(13 Rennen)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/thueringen">Alle Laufarten</a>
+            <span class="count">(13)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                       
+            <li>
+              <a
+                href="/laufkalender/thueringen/alle-laufarten/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(7)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/thueringen/alle-laufarten/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(8)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/thueringen/alle-laufarten/halvmarathon"
+              >
+                Halvmarathon
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/thueringen/alle-laufarten/marathon"
+              >
+                Marathon
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/laufkalender/thueringen/alle-laufarten/millopp"
+              >
+                Millopp
+              </a>
+              <span class="count">(8)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/laufkalender/thueringen/alle-laufarten/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/thueringen/alle-laufarten/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                        
+            <li>
+              <a
+                href="/laufkalender/thueringen/alle-laufarten/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(7)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/thueringen/gelaende">Gelände</a>
+            <span class="count">(6)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/thueringen/gelaende/10-km">10 km</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/thueringen/gelaende/10000-meter">10000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/thueringen/gelaende/5-km">5 km</a>
+              <span class="count">(3)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/thueringen/gelaende/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/laufkalender/thueringen/gelaende/millopp">Millopp</a>
+              <span class="count">(3)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/laufkalender/thueringen/strasse">Straße</a>
+            <span class="count">(7)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/laufkalender/thueringen/strasse/10-km">10 km</a>
+              <span class="count">(5)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/thueringen/strasse/10000-meter">10000 meter</a>
+              <span class="count">(4)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/thueringen/strasse/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/thueringen/strasse/5-km">5 km</a>
+              <span class="count">(4)</span>
+            </li>
+                
+            <li>
+              <a href="/laufkalender/thueringen/strasse/5000-meter">5000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/thueringen/strasse/halvmarathon">Halvmarathon</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/thueringen/strasse/marathon">Marathon</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/laufkalender/thueringen/strasse/millopp">Millopp</a>
+              <span class="count">(5)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+      </div>
+
+       
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

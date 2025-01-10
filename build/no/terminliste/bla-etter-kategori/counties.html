@@ -1,0 +1,3767 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Bladre blant alle løp</title>
+    <meta name="description" content="Finn løp etter fylke, type eller kategori" />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/race-list-filter.css" />
+    <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card-big.css" />
+    <link rel="stylesheet" href="/css/race-cards.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+    <script src="/js/raceList.js"></script>
+    <script defer="" type="module" src="/js/raceListMap.js"></script>
+    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
+    <script defer="" src="/js/raceListToggleButton.js"></script>
+    <script defer="" src="/js/raceListToggleMap.js"></script>
+  </head>
+  <body>
+    <!-- Page content -->
+    <main>
+       <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Lopskalender</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Logg inn
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Alt</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/terminliste"
+      ><span class="nav-item">Terminliste</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/legg-til-lop"
+      ><span class="nav-item">Legg til løp</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/forum"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/mal-ruten-din"
+      ><span class="nav-item">Mål ruten din</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/treningsprogram"
+      ><span class="nav-item">Treningsprogram</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/fartkalkulator"
+      ><span class="nav-item">Fartkalkulator</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/estimer-sluttiden-din"
+      ><span class="nav-item">Estimér sluttiden din</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/om-oss"
+      ><span class="nav-item">Om oss</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/kontakt-oss"
+      ><span class="nav-item">Kontakt oss</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Logg inn</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Passord"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Glemt passord?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Opprett konto i stedet
+            </a>
+          </div>
+          <button type="submit">Logg inn</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Opprett konto
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Glemt passord?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Opprett konto</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Ditt navn"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Passord"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Opprett konto</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Tilbake til innlogging
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Tilbakestill passord</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Din e-post"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Send tilbakestillingslink</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Tilbake til innlogging
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Du er allerede logget inn som</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Fortsett som denne brukeren
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Logg ut og bytt bruker
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto opprettet!</h2>
+        <div class="logged-in-user-info">
+          <p>Du er nå logget inn som</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            En verifiseringslink har blitt sendt til din e-post
+          </p>
+          <p class="verification-notice">Vennligst bekreft e-postadressen din</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Fortsett som denne brukeren
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+      <div class="browse-container">
+        <nav class="breadcrumbs" aria-label="breadcrumb">
+  <ol>
+    
+    <li >
+      
+      <a href="/terminliste">Terminliste</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li >
+      
+      <a href="/terminliste/bla-etter-kategori">Bla etter kategori</a>
+      <span class="separator"
+        ><ion-icon name="chevron-forward-outline"></ion-icon
+      ></span>
+      
+    </li>
+    
+    <li aria-current="page" >
+      
+      <span>Fylker</span>
+      
+    </li>
+    
+  </ol>
+</nav>
+        <nav class="browse-nav">
+          <a
+            href="/terminliste/bla-etter-kategori"
+            class=""
+          >
+            Oversikt
+          </a>
+          <a
+            href="/terminliste/bla-etter-kategori/counties.html"
+            class="active"
+          >
+            Fylker
+          </a>
+          <a
+            href="/terminliste/bla-etter-kategori/cities.html"
+            class=""
+          >
+            Byer
+          </a>
+          <a
+            href="/terminliste/bla-etter-kategori/types.html"
+            class=""
+          >
+            Løpstyper
+          </a>
+          <a
+            href="/terminliste/bla-etter-kategori/categories.html"
+            class=""
+          >
+            Kategorier
+          </a>
+        </nav>
+
+        
+<div class="browse-counties">
+  <h1>Bladre etter fylke</h1>
+  <p class="browse-description">Finn løp i ditt fylke.</p>
+
+  <div class="browse-grid">
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/terminliste/agder">Agder</a>
+          <span class="count"
+            >(13 løp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/agder">Alle løpstyper</a>
+            <span class="count">(13)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                               
+            <li>
+              <a
+                href="/terminliste/agder/alle-lopstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(8)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/terminliste/agder/alle-lopstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(7)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/terminliste/agder/alle-lopstyper/halvmaraton"
+              >
+                Halvmaraton
+              </a>
+              <span class="count">(9)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/terminliste/agder/alle-lopstyper/maraton"
+              >
+                Maraton
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                                                                                                                    
+            <li>
+              <a
+                href="/terminliste/agder/alle-lopstyper/millop"
+              >
+                Milløp
+              </a>
+              <span class="count">(7)</span>
+            </li>
+                                                    
+            <li>
+              <a
+                href="/terminliste/agder/alle-lopstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/terminliste/agder/alle-lopstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(7)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/terminliste/agder/alle-lopstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(7)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/agder/landevei">Landevei</a>
+            <span class="count">(9)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/agder/landevei/10-km">10 km</a>
+              <span class="count">(6)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/agder/landevei/10000-meter">10000 meter</a>
+              <span class="count">(6)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/agder/landevei/3000-meter">3000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/agder/landevei/5-km">5 km</a>
+              <span class="count">(7)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/agder/landevei/5000-meter">5000 meter</a>
+              <span class="count">(7)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/agder/landevei/halvmaraton">Halvmaraton</a>
+              <span class="count">(7)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/agder/landevei/maraton">Maraton</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/agder/landevei/millop">Milløp</a>
+              <span class="count">(6)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/agder/lopebane">Løpebane</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/agder/lopebane/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/agder/lopebane/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/agder/lopebane/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                          
+            <li>
+              <a href="/terminliste/agder/lopebane/millop">Milløp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/agder/terreng">Terreng</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a href="/terminliste/agder/terreng/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                         
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/agder/trailfjellop">Trail/Fjelløp</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                   
+            <li>
+              <a href="/terminliste/agder/trailfjellop/halvmaraton">Halvmaraton</a>
+              <span class="count">(2)</span>
+            </li>
+                 
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/terminliste/innlandet">Innlandet</a>
+          <span class="count"
+            >(32 løp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/innlandet">Alle løpstyper</a>
+            <span class="count">(32)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                       
+            <li>
+              <a
+                href="/terminliste/innlandet/alle-lopstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(9)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/innlandet/alle-lopstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(13)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/innlandet/alle-lopstyper/halvmaraton"
+              >
+                Halvmaraton
+              </a>
+              <span class="count">(8)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/innlandet/alle-lopstyper/maraton"
+              >
+                Maraton
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/innlandet/alle-lopstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/innlandet/alle-lopstyper/100-miles"
+              >
+                100 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                    
+            <li>
+              <a
+                href="/terminliste/innlandet/alle-lopstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/innlandet/alle-lopstyper/100-km"
+              >
+                100 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/innlandet/alle-lopstyper/millop"
+              >
+                Milløp
+              </a>
+              <span class="count">(13)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/innlandet/alle-lopstyper/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                    
+            <li>
+              <a
+                href="/terminliste/innlandet/alle-lopstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(7)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/innlandet/alle-lopstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(9)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/innlandet/annet">Annet</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/innlandet/annet/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/innlandet/annet/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/innlandet/annet/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/innlandet/annet/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/innlandet/annet/millop">Milløp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/innlandet/backyard-ultra">Backyard Ultra</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                        
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/innlandet/landevei">Landevei</a>
+            <span class="count">(13)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/innlandet/landevei/10-km">10 km</a>
+              <span class="count">(8)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/innlandet/landevei/10000-meter">10000 meter</a>
+              <span class="count">(6)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/innlandet/landevei/5-km">5 km</a>
+              <span class="count">(5)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/innlandet/landevei/5000-meter">5000 meter</a>
+              <span class="count">(5)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/innlandet/landevei/halvmaraton">Halvmaraton</a>
+              <span class="count">(3)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/innlandet/landevei/millop">Milløp</a>
+              <span class="count">(8)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/innlandet/stafett">Stafett</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                        
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/innlandet/terreng">Terreng</a>
+            <span class="count">(12)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/innlandet/terreng/10-km">10 km</a>
+              <span class="count">(4)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/innlandet/terreng/100-miles">100 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/innlandet/terreng/10000-meter">10000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/innlandet/terreng/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/innlandet/terreng/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/innlandet/terreng/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/innlandet/terreng/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/innlandet/terreng/halvmaraton">Halvmaraton</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/innlandet/terreng/maraton">Maraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/innlandet/terreng/millop">Milløp</a>
+              <span class="count">(4)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/innlandet/trailfjellop">Trail/Fjelløp</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+               
+            <li>
+              <a href="/terminliste/innlandet/trailfjellop/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a href="/terminliste/innlandet/trailfjellop/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/innlandet/trailfjellop/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/innlandet/trailfjellop/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/innlandet/trailfjellop/halvmaraton">Halvmaraton</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/innlandet/trailfjellop/maraton">Maraton</a>
+              <span class="count">(1)</span>
+            </li>
+               
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/terminliste/more-og-romsdal">Møre og Romsdal</a>
+          <span class="count"
+            >(15 løp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/more-og-romsdal">Alle løpstyper</a>
+            <span class="count">(15)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a
+                href="/terminliste/more-og-romsdal/alle-lopstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(7)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/terminliste/more-og-romsdal/alle-lopstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(6)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/terminliste/more-og-romsdal/alle-lopstyper/halvmaraton"
+              >
+                Halvmaraton
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/terminliste/more-og-romsdal/alle-lopstyper/maraton"
+              >
+                Maraton
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/terminliste/more-og-romsdal/alle-lopstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                            
+            <li>
+              <a
+                href="/terminliste/more-og-romsdal/alle-lopstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/terminliste/more-og-romsdal/alle-lopstyper/millop"
+              >
+                Milløp
+              </a>
+              <span class="count">(6)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/terminliste/more-og-romsdal/alle-lopstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/terminliste/more-og-romsdal/alle-lopstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                            
+            <li>
+              <a
+                href="/terminliste/more-og-romsdal/alle-lopstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(6)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/more-og-romsdal/landevei">Landevei</a>
+            <span class="count">(6)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/more-og-romsdal/landevei/10-km">10 km</a>
+              <span class="count">(4)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/more-og-romsdal/landevei/10000-meter">10000 meter</a>
+              <span class="count">(4)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/more-og-romsdal/landevei/5-km">5 km</a>
+              <span class="count">(5)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/more-og-romsdal/landevei/5000-meter">5000 meter</a>
+              <span class="count">(4)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/more-og-romsdal/landevei/halvmaraton">Halvmaraton</a>
+              <span class="count">(3)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/more-og-romsdal/landevei/millop">Milløp</a>
+              <span class="count">(4)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/more-og-romsdal/terreng">Terreng</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a href="/terminliste/more-og-romsdal/terreng/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                         
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/more-og-romsdal/trailfjellop">Trail/Fjelløp</a>
+            <span class="count">(7)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/more-og-romsdal/trailfjellop/10-km">10 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/more-og-romsdal/trailfjellop/10000-meter">10000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/more-og-romsdal/trailfjellop/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/more-og-romsdal/trailfjellop/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/more-og-romsdal/trailfjellop/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/more-og-romsdal/trailfjellop/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/more-og-romsdal/trailfjellop/halvmaraton">Halvmaraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/more-og-romsdal/trailfjellop/maraton">Maraton</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/more-og-romsdal/trailfjellop/millop">Milløp</a>
+              <span class="count">(2)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/terminliste/nordland">Nordland</a>
+          <span class="count"
+            >(11 løp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/nordland">Alle løpstyper</a>
+            <span class="count">(11)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                   
+            <li>
+              <a
+                href="/terminliste/nordland/alle-lopstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/terminliste/nordland/alle-lopstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/terminliste/nordland/alle-lopstyper/halvmaraton"
+              >
+                Halvmaraton
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/terminliste/nordland/alle-lopstyper/maraton"
+              >
+                Maraton
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                                                                                            
+            <li>
+              <a
+                href="/terminliste/nordland/alle-lopstyper/millop"
+              >
+                Milløp
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/terminliste/nordland/alle-lopstyper/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                    
+            <li>
+              <a
+                href="/terminliste/nordland/alle-lopstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(4)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/nordland/annet">Annet</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a href="/terminliste/nordland/annet/5-km">5 km</a>
+              <span class="count">(3)</span>
+            </li>
+                         
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/nordland/landevei">Landevei</a>
+            <span class="count">(4)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/nordland/landevei/10-km">10 km</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/nordland/landevei/10000-meter">10000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/nordland/landevei/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                          
+            <li>
+              <a href="/terminliste/nordland/landevei/halvmaraton">Halvmaraton</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/nordland/landevei/maraton">Maraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/nordland/landevei/millop">Milløp</a>
+              <span class="count">(3)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/nordland/lopebane">Løpebane</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/nordland/lopebane/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/nordland/lopebane/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a href="/terminliste/nordland/lopebane/millop">Milløp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/nordland/tidslop">Tidsløp</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a href="/terminliste/nordland/tidslop/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                         
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/nordland/trailfjellop">Trail/Fjelløp</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                   
+            <li>
+              <a href="/terminliste/nordland/trailfjellop/halvmaraton">Halvmaraton</a>
+              <span class="count">(1)</span>
+            </li>
+                 
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/terminliste/oslo">Oslo</a>
+          <span class="count"
+            >(26 løp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/oslo">Alle løpstyper</a>
+            <span class="count">(26)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                   
+            <li>
+              <a
+                href="/terminliste/oslo/alle-lopstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(7)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/terminliste/oslo/alle-lopstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(6)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/terminliste/oslo/alle-lopstyper/halvmaraton"
+              >
+                Halvmaraton
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/terminliste/oslo/alle-lopstyper/maraton"
+              >
+                Maraton
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/terminliste/oslo/alle-lopstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/terminliste/oslo/alle-lopstyper/100-miles"
+              >
+                100 miles
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/terminliste/oslo/alle-lopstyper/200-miles"
+              >
+                200 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/terminliste/oslo/alle-lopstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                            
+            <li>
+              <a
+                href="/terminliste/oslo/alle-lopstyper/millop"
+              >
+                Milløp
+              </a>
+              <span class="count">(6)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/terminliste/oslo/alle-lopstyper/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/terminliste/oslo/alle-lopstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/terminliste/oslo/alle-lopstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                                    
+            <li>
+              <a
+                href="/terminliste/oslo/alle-lopstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(5)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/oslo/landevei">Landevei</a>
+            <span class="count">(10)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/oslo/landevei/10-km">10 km</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/oslo/landevei/10000-meter">10000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/oslo/landevei/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/oslo/landevei/5-km">5 km</a>
+              <span class="count">(5)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/oslo/landevei/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/oslo/landevei/halvmaraton">Halvmaraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/oslo/landevei/maraton">Maraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/oslo/landevei/millop">Milløp</a>
+              <span class="count">(3)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/oslo/lopebane">Løpebane</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/oslo/lopebane/10-km">10 km</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/oslo/lopebane/100-miles">100 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/oslo/lopebane/10000-meter">10000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/oslo/lopebane/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/oslo/lopebane/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/oslo/lopebane/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/oslo/lopebane/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/oslo/lopebane/halvmaraton">Halvmaraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/oslo/lopebane/maraton">Maraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/oslo/lopebane/millop">Milløp</a>
+              <span class="count">(2)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/oslo/stafett">Stafett</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                        
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/oslo/terreng">Terreng</a>
+            <span class="count">(10)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/oslo/terreng/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/oslo/terreng/100-miles">100 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/oslo/terreng/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/oslo/terreng/200-miles">200 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/oslo/terreng/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/oslo/terreng/50-miles">50 miles</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/oslo/terreng/halvmaraton">Halvmaraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/oslo/terreng/maraton">Maraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/oslo/terreng/millop">Milløp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/oslo/trailfjellop">Trail/Fjelløp</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                   
+            <li>
+              <a href="/terminliste/oslo/trailfjellop/halvmaraton">Halvmaraton</a>
+              <span class="count">(1)</span>
+            </li>
+                 
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/terminliste/rogaland">Rogaland</a>
+          <span class="count"
+            >(23 løp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/rogaland">Alle løpstyper</a>
+            <span class="count">(23)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                           
+            <li>
+              <a
+                href="/terminliste/rogaland/alle-lopstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(9)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/terminliste/rogaland/alle-lopstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(11)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/terminliste/rogaland/alle-lopstyper/halvmaraton"
+              >
+                Halvmaraton
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/terminliste/rogaland/alle-lopstyper/maraton"
+              >
+                Maraton
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/terminliste/rogaland/alle-lopstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/terminliste/rogaland/alle-lopstyper/100-miles"
+              >
+                100 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                                                                            
+            <li>
+              <a
+                href="/terminliste/rogaland/alle-lopstyper/millop"
+              >
+                Milløp
+              </a>
+              <span class="count">(11)</span>
+            </li>
+                                                                                                            
+            <li>
+              <a
+                href="/terminliste/rogaland/alle-lopstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(6)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/terminliste/rogaland/alle-lopstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(9)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/rogaland/annet">Annet</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                        
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/rogaland/backyard-ultra">Backyard Ultra</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                               
+            <li>
+              <a href="/terminliste/rogaland/backyard-ultra/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+                     
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/rogaland/landevei">Landevei</a>
+            <span class="count">(11)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/rogaland/landevei/10-km">10 km</a>
+              <span class="count">(5)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/rogaland/landevei/10000-meter">10000 meter</a>
+              <span class="count">(5)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/rogaland/landevei/5-km">5 km</a>
+              <span class="count">(6)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/rogaland/landevei/5000-meter">5000 meter</a>
+              <span class="count">(5)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/rogaland/landevei/halvmaraton">Halvmaraton</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/rogaland/landevei/millop">Milløp</a>
+              <span class="count">(5)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/rogaland/lopebane">Løpebane</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                        
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/rogaland/stafett">Stafett</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/rogaland/stafett/10-km">10 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/rogaland/stafett/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/rogaland/stafett/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a href="/terminliste/rogaland/stafett/millop">Milløp</a>
+              <span class="count">(2)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/rogaland/terreng">Terreng</a>
+            <span class="count">(6)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/rogaland/terreng/10-km">10 km</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/rogaland/terreng/10000-meter">10000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/rogaland/terreng/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/rogaland/terreng/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/rogaland/terreng/halvmaraton">Halvmaraton</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/rogaland/terreng/millop">Milløp</a>
+              <span class="count">(3)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/rogaland/trailfjellop">Trail/Fjelløp</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/rogaland/trailfjellop/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/rogaland/trailfjellop/100-miles">100 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/rogaland/trailfjellop/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a href="/terminliste/rogaland/trailfjellop/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/rogaland/trailfjellop/maraton">Maraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/rogaland/trailfjellop/millop">Milløp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/terminliste/troms-og-finnmark">Troms og Finnmark</a>
+          <span class="count"
+            >(15 løp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/troms-og-finnmark">Alle løpstyper</a>
+            <span class="count">(15)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                       
+            <li>
+              <a
+                href="/terminliste/troms-og-finnmark/alle-lopstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(7)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/troms-og-finnmark/alle-lopstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(9)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/troms-og-finnmark/alle-lopstyper/halvmaraton"
+              >
+                Halvmaraton
+              </a>
+              <span class="count">(8)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/troms-og-finnmark/alle-lopstyper/maraton"
+              >
+                Maraton
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/troms-og-finnmark/alle-lopstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                                
+            <li>
+              <a
+                href="/terminliste/troms-og-finnmark/alle-lopstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/troms-og-finnmark/alle-lopstyper/100-km"
+              >
+                100 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/troms-og-finnmark/alle-lopstyper/millop"
+              >
+                Milløp
+              </a>
+              <span class="count">(9)</span>
+            </li>
+                                                                                                
+            <li>
+              <a
+                href="/terminliste/troms-og-finnmark/alle-lopstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/troms-og-finnmark/alle-lopstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(8)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/troms-og-finnmark/annet">Annet</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/troms-og-finnmark/annet/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/troms-og-finnmark/annet/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/troms-og-finnmark/annet/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/troms-og-finnmark/annet/5000-meter">5000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/troms-og-finnmark/annet/halvmaraton">Halvmaraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/troms-og-finnmark/annet/maraton">Maraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/troms-og-finnmark/annet/millop">Milløp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/troms-og-finnmark/landevei">Landevei</a>
+            <span class="count">(6)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/troms-og-finnmark/landevei/10-km">10 km</a>
+              <span class="count">(5)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/troms-og-finnmark/landevei/10000-meter">10000 meter</a>
+              <span class="count">(5)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/troms-og-finnmark/landevei/5-km">5 km</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/troms-og-finnmark/landevei/5000-meter">5000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/troms-og-finnmark/landevei/halvmaraton">Halvmaraton</a>
+              <span class="count">(5)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/troms-og-finnmark/landevei/maraton">Maraton</a>
+              <span class="count">(4)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/troms-og-finnmark/landevei/millop">Milløp</a>
+              <span class="count">(5)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/troms-og-finnmark/lopebane">Løpebane</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/troms-og-finnmark/lopebane/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/troms-og-finnmark/lopebane/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/troms-og-finnmark/lopebane/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                        
+            <li>
+              <a href="/terminliste/troms-og-finnmark/lopebane/millop">Milløp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/troms-og-finnmark/stafett">Stafett</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a href="/terminliste/troms-og-finnmark/stafett/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/troms-og-finnmark/stafett/halvmaraton">Halvmaraton</a>
+              <span class="count">(1)</span>
+            </li>
+                 
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/troms-og-finnmark/terreng">Terreng</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/troms-og-finnmark/terreng/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/troms-og-finnmark/terreng/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+                          
+            <li>
+              <a href="/terminliste/troms-og-finnmark/terreng/50-km">50 km</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/troms-og-finnmark/terreng/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/troms-og-finnmark/terreng/millop">Milløp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/troms-og-finnmark/trailfjellop">Trail/Fjelløp</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/troms-og-finnmark/trailfjellop/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/troms-og-finnmark/trailfjellop/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a href="/terminliste/troms-og-finnmark/trailfjellop/halvmaraton">Halvmaraton</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/troms-og-finnmark/trailfjellop/millop">Milløp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/terminliste/trondelag">Trøndelag</a>
+          <span class="count"
+            >(20 løp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/trondelag">Alle løpstyper</a>
+            <span class="count">(20)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                       
+            <li>
+              <a
+                href="/terminliste/trondelag/alle-lopstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(12)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/trondelag/alle-lopstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(8)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/trondelag/alle-lopstyper/halvmaraton"
+              >
+                Halvmaraton
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/trondelag/alle-lopstyper/maraton"
+              >
+                Maraton
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/trondelag/alle-lopstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                                                                            
+            <li>
+              <a
+                href="/terminliste/trondelag/alle-lopstyper/100-km"
+              >
+                100 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/trondelag/alle-lopstyper/millop"
+              >
+                Milløp
+              </a>
+              <span class="count">(8)</span>
+            </li>
+                                                                    
+            <li>
+              <a
+                href="/terminliste/trondelag/alle-lopstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/trondelag/alle-lopstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(9)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/trondelag/alle-lopstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(8)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/trondelag/annet">Annet</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/trondelag/annet/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/trondelag/annet/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/trondelag/annet/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/trondelag/annet/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/trondelag/annet/millop">Milløp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/trondelag/backyard-ultra">Backyard Ultra</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                        
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/trondelag/landevei">Landevei</a>
+            <span class="count">(9)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/trondelag/landevei/10-km">10 km</a>
+              <span class="count">(4)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/trondelag/landevei/10000-meter">10000 meter</a>
+              <span class="count">(4)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/trondelag/landevei/5-km">5 km</a>
+              <span class="count">(6)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/trondelag/landevei/5000-meter">5000 meter</a>
+              <span class="count">(6)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/trondelag/landevei/halvmaraton">Halvmaraton</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/trondelag/landevei/maraton">Maraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/trondelag/landevei/millop">Milløp</a>
+              <span class="count">(4)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/trondelag/lopebane">Løpebane</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/trondelag/lopebane/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/trondelag/lopebane/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/trondelag/lopebane/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/trondelag/lopebane/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/trondelag/lopebane/maraton">Maraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/trondelag/lopebane/millop">Milløp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/trondelag/stafett">Stafett</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a href="/terminliste/trondelag/stafett/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                         
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/trondelag/terreng">Terreng</a>
+            <span class="count">(6)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/trondelag/terreng/10-km">10 km</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/trondelag/terreng/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/trondelag/terreng/10000-meter">10000 meter</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/trondelag/terreng/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/trondelag/terreng/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/trondelag/terreng/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/trondelag/terreng/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/trondelag/terreng/halvmaraton">Halvmaraton</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/trondelag/terreng/maraton">Maraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/trondelag/terreng/millop">Milløp</a>
+              <span class="count">(2)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/terminliste/vestfold-og-telemark">Vestfold og Telemark</a>
+          <span class="count"
+            >(10 løp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/vestfold-og-telemark">Alle løpstyper</a>
+            <span class="count">(10)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                               
+            <li>
+              <a
+                href="/terminliste/vestfold-og-telemark/alle-lopstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(4)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/terminliste/vestfold-og-telemark/alle-lopstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/terminliste/vestfold-og-telemark/alle-lopstyper/halvmaraton"
+              >
+                Halvmaraton
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                                    
+            <li>
+              <a
+                href="/terminliste/vestfold-og-telemark/alle-lopstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                                                                            
+            <li>
+              <a
+                href="/terminliste/vestfold-og-telemark/alle-lopstyper/100-km"
+              >
+                100 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/terminliste/vestfold-og-telemark/alle-lopstyper/millop"
+              >
+                Milløp
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                    
+            <li>
+              <a
+                href="/terminliste/vestfold-og-telemark/alle-lopstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/terminliste/vestfold-og-telemark/alle-lopstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                
+            <li>
+              <a
+                href="/terminliste/vestfold-og-telemark/alle-lopstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/vestfold-og-telemark/annet">Annet</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/vestfold-og-telemark/annet/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/vestfold-og-telemark/annet/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/vestfold-og-telemark/annet/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/vestfold-og-telemark/annet/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/vestfold-og-telemark/annet/halvmaraton">Halvmaraton</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/vestfold-og-telemark/annet/millop">Milløp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/vestfold-og-telemark/landevei">Landevei</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a href="/terminliste/vestfold-og-telemark/landevei/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/vestfold-og-telemark/landevei/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/vestfold-og-telemark/landevei/halvmaraton">Halvmaraton</a>
+              <span class="count">(1)</span>
+            </li>
+                 
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/vestfold-og-telemark/terreng">Terreng</a>
+            <span class="count">(5)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                         
+            <li>
+              <a href="/terminliste/vestfold-og-telemark/terreng/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/vestfold-og-telemark/terreng/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/vestfold-og-telemark/terreng/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+                     
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/vestfold-og-telemark/tidslop">Tidsløp</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+               
+            <li>
+              <a href="/terminliste/vestfold-og-telemark/tidslop/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+                            
+            <li>
+              <a href="/terminliste/vestfold-og-telemark/tidslop/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+                     
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/terminliste/vestland">Vestland</a>
+          <span class="count"
+            >(75 løp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/vestland">Alle løpstyper</a>
+            <span class="count">(75)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                       
+            <li>
+              <a
+                href="/terminliste/vestland/alle-lopstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(55)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/vestland/alle-lopstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(35)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/vestland/alle-lopstyper/halvmaraton"
+              >
+                Halvmaraton
+              </a>
+              <span class="count">(10)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/vestland/alle-lopstyper/maraton"
+              >
+                Maraton
+              </a>
+              <span class="count">(5)</span>
+            </li>
+                                                                                                                            
+            <li>
+              <a
+                href="/terminliste/vestland/alle-lopstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                    
+            <li>
+              <a
+                href="/terminliste/vestland/alle-lopstyper/millop"
+              >
+                Milløp
+              </a>
+              <span class="count">(35)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/vestland/alle-lopstyper/1500-meter"
+              >
+                1500 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/vestland/alle-lopstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/vestland/alle-lopstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(42)</span>
+            </li>
+                                        
+            <li>
+              <a
+                href="/terminliste/vestland/alle-lopstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(35)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/vestland/annet">Annet</a>
+            <span class="count">(2)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                     
+            <li>
+              <a href="/terminliste/vestland/annet/1500-meter">1500 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                               
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/vestland/landevei">Landevei</a>
+            <span class="count">(51)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/vestland/landevei/10-km">10 km</a>
+              <span class="count">(32)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/vestland/landevei/10000-meter">10000 meter</a>
+              <span class="count">(32)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/vestland/landevei/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/vestland/landevei/5-km">5 km</a>
+              <span class="count">(43)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/vestland/landevei/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/vestland/landevei/5000-meter">5000 meter</a>
+              <span class="count">(38)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/vestland/landevei/halvmaraton">Halvmaraton</a>
+              <span class="count">(7)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/vestland/landevei/maraton">Maraton</a>
+              <span class="count">(4)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/vestland/landevei/millop">Milløp</a>
+              <span class="count">(32)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/vestland/lopebane">Løpebane</a>
+            <span class="count">(4)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/vestland/lopebane/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/vestland/lopebane/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/vestland/lopebane/5-km">5 km</a>
+              <span class="count">(4)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/vestland/lopebane/5000-meter">5000 meter</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/vestland/lopebane/millop">Milløp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/vestland/stafett">Stafett</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a href="/terminliste/vestland/stafett/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                         
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/vestland/terreng">Terreng</a>
+            <span class="count">(13)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/vestland/terreng/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/vestland/terreng/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/vestland/terreng/5-km">5 km</a>
+              <span class="count">(5)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/vestland/terreng/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/vestland/terreng/halvmaraton">Halvmaraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/vestland/terreng/maraton">Maraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/vestland/terreng/millop">Milløp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/vestland/trailfjellop">Trail/Fjelløp</a>
+            <span class="count">(4)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/vestland/trailfjellop/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/vestland/trailfjellop/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/vestland/trailfjellop/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/vestland/trailfjellop/halvmaraton">Halvmaraton</a>
+              <span class="count">(2)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/vestland/trailfjellop/millop">Milløp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+    <div class="county-card">
+      <div class="county-header">
+        <h2>
+          <a href="/terminliste/viken">Viken</a>
+          <span class="count"
+            >(64 løp)</span
+          >
+        </h2>
+      </div>
+
+      <div class="race-types">
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/viken">Alle løpstyper</a>
+            <span class="count">(64)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                                           
+            <li>
+              <a
+                href="/terminliste/viken/alle-lopstyper/5-km"
+              >
+                5 km
+              </a>
+              <span class="count">(41)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/terminliste/viken/alle-lopstyper/10-km"
+              >
+                10 km
+              </a>
+              <span class="count">(28)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/terminliste/viken/alle-lopstyper/halvmaraton"
+              >
+                Halvmaraton
+              </a>
+              <span class="count">(15)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/terminliste/viken/alle-lopstyper/maraton"
+              >
+                Maraton
+              </a>
+              <span class="count">(13)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/terminliste/viken/alle-lopstyper/50-miles"
+              >
+                50 miles
+              </a>
+              <span class="count">(3)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/terminliste/viken/alle-lopstyper/100-miles"
+              >
+                100 miles
+              </a>
+              <span class="count">(1)</span>
+            </li>
+                                                                            
+            <li>
+              <a
+                href="/terminliste/viken/alle-lopstyper/50-km"
+              >
+                50 km
+              </a>
+              <span class="count">(10)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/terminliste/viken/alle-lopstyper/100-km"
+              >
+                100 km
+              </a>
+              <span class="count">(2)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/terminliste/viken/alle-lopstyper/millop"
+              >
+                Milløp
+              </a>
+              <span class="count">(28)</span>
+            </li>
+                                                                            
+            <li>
+              <a
+                href="/terminliste/viken/alle-lopstyper/3000-meter"
+              >
+                3000 meter
+              </a>
+              <span class="count">(10)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/terminliste/viken/alle-lopstyper/5000-meter"
+              >
+                5000 meter
+              </a>
+              <span class="count">(29)</span>
+            </li>
+                                            
+            <li>
+              <a
+                href="/terminliste/viken/alle-lopstyper/10000-meter"
+              >
+                10000 meter
+              </a>
+              <span class="count">(24)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+
+         
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/viken/annet">Annet</a>
+            <span class="count">(6)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/viken/annet/10-km">10 km</a>
+              <span class="count">(2)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/viken/annet/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/viken/annet/3000-meter">3000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/annet/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/annet/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/viken/annet/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/viken/annet/maraton">Maraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/annet/millop">Milløp</a>
+              <span class="count">(2)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/viken/landevei">Landevei</a>
+            <span class="count">(38)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/viken/landevei/10-km">10 km</a>
+              <span class="count">(23)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/landevei/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+                
+            <li>
+              <a href="/terminliste/viken/landevei/10000-meter">10000 meter</a>
+              <span class="count">(21)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/viken/landevei/3000-meter">3000 meter</a>
+              <span class="count">(9)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/landevei/5-km">5 km</a>
+              <span class="count">(33)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/landevei/50-km">50 km</a>
+              <span class="count">(7)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/landevei/50-miles">50 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/landevei/5000-meter">5000 meter</a>
+              <span class="count">(26)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/landevei/halvmaraton">Halvmaraton</a>
+              <span class="count">(11)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/landevei/maraton">Maraton</a>
+              <span class="count">(9)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/landevei/millop">Milløp</a>
+              <span class="count">(23)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/viken/lopebane">Løpebane</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                             
+            <li>
+              <a href="/terminliste/viken/lopebane/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+                       
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/viken/stafett">Stafett</a>
+            <span class="count">(3)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/viken/stafett/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/viken/stafett/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/viken/stafett/5-km">5 km</a>
+              <span class="count">(2)</span>
+            </li>
+                      
+            <li>
+              <a href="/terminliste/viken/stafett/maraton">Maraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/stafett/millop">Milløp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/viken/terreng">Terreng</a>
+            <span class="count">(9)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/viken/terreng/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+                          
+            <li>
+              <a href="/terminliste/viken/terreng/5-km">5 km</a>
+              <span class="count">(3)</span>
+            </li>
+                  
+            <li>
+              <a href="/terminliste/viken/terreng/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/terreng/halvmaraton">Halvmaraton</a>
+              <span class="count">(3)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/terreng/maraton">Maraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/terreng/millop">Milløp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/viken/tidslop">Tidsløp</a>
+            <span class="count">(1)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+                           
+            <li>
+              <a href="/terminliste/viken/tidslop/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+                         
+          </ul>
+          
+        </div>
+          
+        <div class="type-group">
+          <h3>
+            <a href="/terminliste/viken/trailfjellop">Trail/Fjelløp</a>
+            <span class="count">(6)</span>
+          </h3>
+
+          
+          <ul class="category-list">
+             
+            <li>
+              <a href="/terminliste/viken/trailfjellop/10-km">10 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/trailfjellop/100-km">100 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/trailfjellop/100-miles">100 miles</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/trailfjellop/10000-meter">10000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+                    
+            <li>
+              <a href="/terminliste/viken/trailfjellop/5-km">5 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/trailfjellop/50-km">50 km</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/trailfjellop/50-miles">50 miles</a>
+              <span class="count">(2)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/trailfjellop/5000-meter">5000 meter</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/trailfjellop/halvmaraton">Halvmaraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/trailfjellop/maraton">Maraton</a>
+              <span class="count">(1)</span>
+            </li>
+              
+            <li>
+              <a href="/terminliste/viken/trailfjellop/millop">Milløp</a>
+              <span class="count">(1)</span>
+            </li>
+             
+          </ul>
+          
+        </div>
+         
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+      </div>
+
+       
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

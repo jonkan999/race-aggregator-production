@@ -1,0 +1,38 @@
+name: Deploy to Development
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        country: [se, no, fi, dk, de, nl, be, ee]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      - name: Deploy to Firebase Dev
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          COUNTRY: ${{ matrix.country }}
+        run: |
+          # Verify build directory exists
+          if [ ! -d "build/$COUNTRY" ]; then
+            echo "No build directory found for $COUNTRY"
+            exit 1
+          fi
+
+          # Deploy to Firebase dev target
+          firebase deploy --token "$FIREBASE_TOKEN" --only hosting:${COUNTRY}dev

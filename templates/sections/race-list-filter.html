@@ -1,0 +1,85 @@
+<section class="section-filters">
+  <div class="filter-date">
+    <label for="date-from">{{ filter_date_from }}:</label>
+    <input type="date" id="date-from" name="date-from" class="date-input" />
+
+    <label for="date-to">{{ filter_date_to }}:</label>
+    <input type="date" id="date-to" name="date-to" class="date-input" />
+  </div>
+
+  <div class="filter-months right-scroller">
+    <button class="month-button active" data-month="all">
+      {{ filter_months }}
+    </button>
+    {% for month_key, month_value in month_mapping.items() %}
+    <button class="month-button" data-month="{{ month_key }}">
+      {{ month_value }}
+    </button>
+    {% endfor %}
+  </div>
+
+  <div class="filter-categories right-scroller">
+    <button class="category-button active" data-category="all">
+      {{ filter_distance }}
+    </button>
+    {% for category in distance_filter.available_categories %}
+    <button class="category-button" data-category="{{ category }}">
+      {{ category }}
+    </button>
+    {% endfor %}
+  </div>
+
+  <div class="filter-dropdowns right-scroller">
+    <div class="filter-county">
+      <select id="county" name="county">
+        <option value="">{{ filter_county }}</option>
+        {% if preselected_filters and preselected_filters.city %}
+        <option value="{{ preselected_filters.city }}">
+          {{ preselected_filters.city }}
+        </option>
+        {% endif %} {% for county_key, county_value in county_mapping.items() %}
+        <option value="{{ county_value }}">{{ county_value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="filter-race-type">
+      <select id="race-type" name="race-type">
+        <option value="">{{ filter_race_type }}</option>
+        {% for type_key, type_value in type_options.items() %}
+        <option value="{{ type_value }}">{{ type_value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="browse-all-filters">
+      <a
+        href="/{{ race_list_name|slugify(country_code) }}/{{ browse_by_category.button|slugify(country_code) }}"
+        class="browse-link"
+      >
+        <div class="browse-link-icon">
+          <ion-icon name="git-network-outline"></ion-icon>
+        </div>
+        <div class="browse-link-text">{{ browse_by_category.button }}</div>
+      </a>
+    </div>
+    <div class="toggle-button desktop" id="toggleMapButton">
+      <button>
+        <ion-icon
+          name="radio-button-on-outline"
+          id="onIcon"
+          role="img"
+          class="md hydrated"
+          aria-label="radio button on outline"
+        ></ion-icon>
+        <ion-icon
+          name="radio-button-off-outline"
+          id="offIcon"
+          role="img"
+          class="md hydrated"
+          aria-label="radio button off outline"
+        ></ion-icon>
+        {{ map_toggle_mobile }}
+      </button>
+    </div>
+  </div>
+</section>

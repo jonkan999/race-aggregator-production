@@ -1,0 +1,77 @@
+<a
+  href="/{{ race_page_folder_name }}/{{ race.domain_name|default('missing-domain') }}"
+  class="race-card-big race-card"
+  data-name="{{ race.name|default('') }}"
+  data-date="{{ race.date|default('') }}"
+  data-county="{{ county_mapping[race.county] if race.county else country_native }}"
+  data-category="{{ race.category|default('') }}"
+  data-race-type="{{ race.type_local|default('') }}"
+  data-distance="{{ race.distance_verbose if race.distance_verbose else '' }}"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/{{ race_page_folder_name }}/{{ race.domain_name }}/{{ race.domain_name }}_1.webp"
+        alt="{{ alt_prefix }}{{ race.name }}"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          {{ race.date | convert_date(month_mapping_short) }}
+        </div>
+        <div class="race-location">
+          {{ county_mapping[race.county] if race.county else country_native }}
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        {% if race.type %}
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          {{ type_options[race.type]|default(race.type) }}
+        </div>
+        {% endif %}
+        <div class="race-distances">
+          <div class="distance-container">
+            {% if race.distance_verbose %} {% set distances =
+            race.distance_verbose.split(', ') %} {% for distance in
+            distances[:5] %}
+            <div class="distance-item">
+              <span class="race-distance">
+                {{ distance |
+                map_verbose_distance(verbose_local_distance_mapping) }}
+              </span>
+            </div>
+            {% endfor %} {% if distances|length > 5 %}
+            <div class="distance-item">
+              <span class="race-distance">...</span>
+            </div>
+            {% endif %} {% else %}
+            <div class="distance-item">
+              <span class="race-distance">
+                {{ '' | map_verbose_distance(verbose_local_distance_mapping) }}
+              </span>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">{{ race.name|default('Unnamed Race') }}</h3>
+    <div class="cta-button">
+      <div class="more-info-button">{{ to_race_page_cta}}</div>
+    </div>
+  </div>
+</a>

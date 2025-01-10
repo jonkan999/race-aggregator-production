@@ -1,0 +1,34 @@
+{% extends "index_layout.html" %} {% block title %}{{ pace_calculator_title }}{%
+endblock %} {% block meta_description %}{{ pace_calculator_description }}{%
+endblock %} {% block styles %} {{ super() }}
+<link rel="stylesheet" href="/css/pace-calculator.css" />
+{% endblock %} {% block body_scripts %} {{ super() }}
+<script type="module" src="/js/paceCalculator.js"></script>
+{% endblock %} {% include 'sections/header-menu.html' %} {% block content %}
+<section class="section-pace-calculator">
+  <div class="container">
+    <h1 class="heading-primary">{{ pace_calculator_title }}</h1>
+    <p class="description">{{ pace_calculator_description }}</p>
+    <p class="conversion-note">{{ pace_conversion_note }}</p>
+
+    <div class="pace-table-container">
+      <table class="pace-table">
+        <thead>
+          <tr>
+            <th>{{ pace_table_header_kph }}</th>
+            <th>{{ pace_table_header_min_km }}</th>
+            <th>{{ pace_table_header_min_mile }}</th>
+            <th>{{ pace_table_header_5k }}</th>
+            <th>{{ pace_table_header_10k }}</th>
+            <th>{{ pace_table_header_half }}</th>
+            <th>{{ pace_table_header_full }}</th>
+          </tr>
+        </thead>
+        <tbody id="pace-table-body">
+          <!-- Table will be populated by JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock %}

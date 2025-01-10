@@ -1,0 +1,130 @@
+<section class="section section-race-cards">
+  {% if breadcrumbs.visual %}
+  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+    <ol>
+      {% for crumb in breadcrumbs.visual %}
+      <li {% if loop.last %}aria-current="page" {% endif %}>
+        {% if not loop.last %}
+        <a href="{{ crumb.href }}">{{ crumb.name }}</a>
+        <span class="separator"
+          ><ion-icon name="chevron-forward-outline"></ion-icon
+        ></span>
+        {% else %}
+        <span>{{ crumb.name }}</span>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </nav>
+  {% endif %}
+
+  <h1
+    class="section-header section-header-race-cards race-list-title no-padding-top"
+  >
+    {{ seo_h1 }}
+  </h1>
+  <p class="race-list-paragraph seo-paragraph">{{ seo_paragraph }}</p>
+
+  {% if schema_data.navigation and schema_data.navigation.itemListElement %}
+  <h3 class="race-type-list-title">{{ popular_subcategories_title }}</h3>
+  <nav class="race-type-navigation" aria-label="race types and categories">
+    <ul class="race-type-list">
+      {% for item in schema_data.navigation.itemListElement %}
+      <li>
+        <a href="/{{ item.url.split(base_url)[1] }}" class="race-type-link">
+          {{ item.name }} ({{ item.numberOfItems }})
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+  {% endif %}
+
+  <h2 class="section-header">
+    {{ section_race_card_category_prefix }}
+    <span id="race-cards-title-category"></span>
+    {{ section_race_card_category_suffix }}
+    <span id="race-cards-title-separator"
+      >{{ section_race_card_header_separator }}</span
+    >
+    <span id="race-cards-title-region"
+      >{{ section_race_card_header_region_default }}</span
+    >
+    <span id="date-range"></span>
+  </h2>
+
+  <button class="toggle-button mobile" id="toggleMapButtonMobile">
+    <div class="icon-container">
+      <ion-icon
+        name="map-outline"
+        role="img"
+        class="md hydrated"
+        aria-label="map outline"
+      ></ion-icon>
+    </div>
+    <p>{{ map_toggle_mobile }}</p>
+  </button>
+
+  <div class="race-cards-selector">
+    <div
+      class="race-cards-grid"
+      id="race-cards-container"
+      {%
+      if
+      preselected_filters
+      %}
+      data-preselected-filters="{{ preselected_filters }}"
+      {%
+      endif
+      %}
+    >
+      {# First two race cards #} {% for race in races[:2] %} {% include
+      'components/race-card.html' %} {% endfor %} {# Only show selected races if
+      we have 3 or more races #} {% if races|length >= 3 and
+      schema_data.raceList and schema_data.raceList.itemListElement %}
+      <section class="section section-selected-races in-grid">
+        <div class="section-header-container">
+          <h2 class="section-header">{{ selected_races_title }}</h2>
+          <div class="scroll-buttons">
+            <button class="scroll-button prev" aria-label="Previous" disabled>
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </button>
+            <button class="scroll-button next" aria-label="Next">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+        <div class="race-card-big-container right-scroller">
+          {% for item in schema_data.raceList.itemListElement %} {% set
+          featured_race = races|selectattr('domain_name', 'eq',
+          item.item.identifier)|first %} {% if featured_race %} {% with
+          race=featured_race %} {% include 'components/race-card-big.html' %} {%
+          endwith %} {% endif %} {% endfor %}
+        </div>
+      </section>
+      {% endif %} {# Remaining race cards #} {% for race in races[2:] %} {%
+      include 'components/race-card.html' %} {% endfor %}
+
+      <!-- Add pagination controls -->
+      <div class="pagination-info">
+        <span id="event-range">{{ pagination.results_text }}</span>
+        <span id="total-events">{{ pagination.events_text }}</span>
+      </div>
+      <div class="pagination">
+        <button id="prev-page">{{ pagination.previous_text }}</button>
+        <div id="page-numbers"></div>
+        <button id="next-page">{{ pagination.next_text }}</button>
+      </div>
+    </div>
+
+    <div
+      class="map-placeholder"
+      id="map-placeholder"
+      data-latitude="{{ mapbox_center.latitude }}"
+      data-longitude="{{ mapbox_center.longitude }}"
+      data-zoom="{{ race_page_map_zoom }}"
+    >
+      <!-- Map will be inserted here -->
+    </div>
+  </div>
+</section>
