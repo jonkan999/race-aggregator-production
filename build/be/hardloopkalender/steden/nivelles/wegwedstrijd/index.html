@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender", "@type": "WebPage", "name": "Hardloopkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/steden", "@type": "WebPage", "name": "Steden"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/steden/nivelles", "@type": "WebPage", "name": "Nivelles"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/steden/nivelles/wegwedstrijd", "@type": "WebPage", "name": "Wegwedstrijd"}, "position": 4}]}, "visual": [{"href": "/hardloopkalender", "name": "Hardloopkalender"}, {"href": "/hardloopkalender/steden/nivelles", "name": "Steden: Nivelles"}, {"href": "/hardloopkalender/steden/nivelles/wegwedstrijd", "name": "Wegwedstrijd"}]}
@@ -15,6 +16,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -22,24 +24,48 @@
     />
     <title>Wegwedstrijden in Nivelles: Vind jouw volgende hardloopwedstrijd!</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -48,26 +74,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -320,10 +384,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Van:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Tot:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -660,7 +724,7 @@
   </nav>
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     wedstrijd
@@ -673,18 +737,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kaart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -693,7 +745,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Nivelles&quot;, &quot;race_type&quot;: &quot;Wegwedstrijd&quot;, &quot;category&quot;: null}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/sainte_gertrude_jogging"
   class="race-card"
   data-name="Sainte-Gertrude Jogging"
@@ -704,15 +758,23 @@
   data-distance="4km, 4,5km, 10,5km"
   data-latitude="50.5945297"
   data-longitude="4.3198871"
+  data-location="Collège Sainte-Gertrude"
+  data-description="De Jogging du Collège Sainte-Gertrude, 31e editie, vindt plaats op 28 januari 2023, met de start om 15:00 uur. De afstand is "Libre" met een"
+  data-image-path="/looppaginas/sainte_gertrude_jogging/sainte_gertrude_jogging"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="25 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/sainte_gertrude_jogging/sainte_gertrude_jogging_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/sainte_gertrude_jogging/sainte_gertrude_jogging_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarSainte-Gertrude Jogging"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -790,7 +852,10 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/la_farciennoise"
   class="race-card"
   data-name="La Farciennoise"
@@ -801,15 +866,23 @@
   data-distance="5km, 10km"
   data-latitude="50.4313036"
   data-longitude="4.5476347"
+  data-location="Farciennes"
+  data-description="La Farciennoise is een hardloopevenement dat plaatsvindt op 2 maart 2024 in Farciennes. Het evenement biedt meerdere afstanden voor deelneme"
+  data-image-path="/looppaginas/la_farciennoise/la_farciennoise"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="1 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/la_farciennoise/la_farciennoise_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/la_farciennoise/la_farciennoise_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarLa Farciennoise"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -830,7 +903,7 @@
       <div class="left-container">
         <h3 class="race-name">La Farciennoise</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -841,7 +914,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -877,11 +950,12 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Geselecteerde Races</h2>
@@ -908,9 +982,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/sainte_gertrude_jogging/sainte_gertrude_jogging_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/sainte_gertrude_jogging/sainte_gertrude_jogging_1.webp"
         alt="Afbeelding naarSainte-Gertrude Jogging"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -981,9 +1057,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/la_farciennoise/la_farciennoise_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/la_farciennoise/la_farciennoise_1.webp"
         alt="Afbeelding naarLa Farciennoise"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1048,9 +1126,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/chast_run/chast_run_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/chast_run/chast_run_1.webp"
         alt="Afbeelding naarChast'Run"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1121,9 +1201,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/dendermonde_loopt/dendermonde_loopt_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/dendermonde_loopt/dendermonde_loopt_1.webp"
         alt="Afbeelding naarDendermonde Loopt"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1200,9 +1282,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/jogging_du_pisselet/jogging_du_pisselet_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/jogging_du_pisselet/jogging_du_pisselet_1.webp"
         alt="Afbeelding naarJogging du Pisselet"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1257,7 +1341,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/chast_run"
   class="race-card"
   data-name="Chast'Run"
@@ -1268,15 +1355,23 @@
   data-distance="4km, 10km, 20km"
   data-latitude="50.5762776"
   data-longitude="4.648442699999999"
+  data-location="Domaine des possibles (Route de Gembloux, 2, 1450 Chastre)"
+  data-description="De Chast'Run is een jogging evenement dat plaatsvindt op 9 maart 2025 in een prachtige landelijke omgeving in Chastre, België. Deelnemers ku"
+  data-image-path="/looppaginas/chast_run/chast_run"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="9 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/chast_run/chast_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/chast_run/chast_run_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarChast'Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1354,7 +1449,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/dendermonde_loopt"
   class="race-card"
   data-name="Dendermonde Loopt"
@@ -1365,15 +1464,23 @@
   data-distance="2,5km, 5km, 10km, 16,1km"
   data-latitude="50.8464703"
   data-longitude="4.352433899999999"
+  data-location="Grote Markt"
+  data-description="Na twee geslaagde edities van Dendermonde Loopt kijken we al uit naar een derde editie op zondag 16 maart 2025! De deelnemers kunnen kiezen "
+  data-image-path="/looppaginas/dendermonde_loopt/dendermonde_loopt"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="16 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/dendermonde_loopt/dendermonde_loopt_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/dendermonde_loopt/dendermonde_loopt_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarDendermonde Loopt"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1457,7 +1564,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/jogging_du_pisselet"
   class="race-card"
   data-name="Jogging du Pisselet"
@@ -1468,15 +1579,23 @@
   data-distance="6km, 12km"
   data-latitude="50.6608267"
   data-longitude="4.5417449"
+  data-location="Rue Croix-Thomas sur la Place de l'Eglise"
+  data-description="Le Jogging du Pisselet est un événement de course qui se déroulera en 2025 avec un parcours très apprécié, empruntant les vallées du Pissele"
+  data-image-path="/looppaginas/jogging_du_pisselet/jogging_du_pisselet"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="22 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/jogging_du_pisselet/jogging_du_pisselet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/jogging_du_pisselet/jogging_du_pisselet_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarJogging du Pisselet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1497,7 +1616,7 @@
       <div class="left-container">
         <h3 class="race-name">Jogging du Pisselet</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1508,7 +1627,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1544,11 +1663,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/arrow_venloop"
   class="race-card"
   data-name="Arrow Venloop"
@@ -1559,15 +1682,23 @@
   data-distance="5km, 10km, marathon"
   data-latitude="50.503887"
   data-longitude="4.469936"
+  data-location="Venlo"
+  data-description="De Arrow Venloop is van origine een hardloopevenement dat jaarlijks in maart wordt georganiseerd in Venlo. Het evenement is door de jaren he"
+  data-image-path="/looppaginas/arrow_venloop/arrow_venloop"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="30 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/arrow_venloop/arrow_venloop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/arrow_venloop/arrow_venloop_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarArrow Venloop"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1645,7 +1776,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/jogging_d_oisquercq"
   class="race-card"
   data-name="Jogging d'Oisquercq"
@@ -1656,15 +1791,23 @@
   data-distance="5,4km, 11,2km"
   data-latitude="50.66989"
   data-longitude="4.21985"
+  data-location="Ecole Communale d'Oisquercq"
+  data-description="De 'Jogging d'Oisquercq' is een hardloopwedstrijd die plaatsvindt in de pittoreske omgeving van Oisquercq. De deelnemers kunnen kiezen uit v"
+  data-image-path="/looppaginas/jogging_d_oisquercq/jogging_d_oisquercq"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="5 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/jogging_d_oisquercq/jogging_d_oisquercq_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/jogging_d_oisquercq/jogging_d_oisquercq_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarJogging d'Oisquercq"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1685,7 +1828,7 @@
       <div class="left-container">
         <h3 class="race-name">Jogging d'Oisquercq</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1696,7 +1839,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1732,11 +1875,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/10km_ulb"
   class="race-card"
   data-name="10km ULB"
@@ -1747,15 +1894,23 @@
   data-distance="5km, 10km"
   data-latitude="50.8141076"
   data-longitude="4.3840619"
+  data-location="ULB - Campus Solbosch"
+  data-description="La course des 10 km de l'ULB est une initiative originale, organisée par le Cercle des Sciences et ULB Sports. La treizième édition se dérou"
+  data-image-path="/looppaginas/10km_ulb/10km_ulb"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="13 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/10km_ulb/10km_ulb_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/10km_ulb/10km_ulb_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naar10km ULB"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1776,7 +1931,7 @@
       <div class="left-container">
         <h3 class="race-name">10km ULB</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1787,7 +1942,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1823,11 +1978,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/gentinnes_jogging"
   class="race-card"
   data-name="Gentinnes Jogging"
@@ -1838,15 +1997,23 @@
   data-distance="6km, 12km"
   data-latitude="50.5804109"
   data-longitude="4.5993073"
+  data-location="La Petite Ecole de Gentinnes, Rue des Maieurs, 41450 Chastre, België"
+  data-description="De Jogging de Gentinnes vindt plaats op 14 april 2024, met de opening van het secretariaat om 09:00 uur. Het startpunt is bij La Petite Ecol"
+  data-image-path="/looppaginas/gentinnes_jogging/gentinnes_jogging"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="13 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/gentinnes_jogging/gentinnes_jogging_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/gentinnes_jogging/gentinnes_jogging_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarGentinnes Jogging"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1867,7 +2034,7 @@
       <div class="left-container">
         <h3 class="race-name">Gentinnes Jogging</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1878,7 +2045,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1914,11 +2081,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/corrida_des_sorcieres"
   class="race-card"
   data-name="Corrida des Sorcières"
@@ -1929,15 +2100,23 @@
   data-distance="3,5km, 7km, 10,5km"
   data-latitude="50.5563651"
   data-longitude="4.7328479"
+  data-location="Gembloux, Wallonie"
+  data-description="La Corrida des Sorcières keert terug voor zijn 4e editie! Dit unieke evenement vindt plaats op 26 april 2024 in Lonzée, waar zowel beginnend"
+  data-image-path="/looppaginas/corrida_des_sorcieres/corrida_des_sorcieres"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="25 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/corrida_des_sorcieres/corrida_des_sorcieres_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/corrida_des_sorcieres/corrida_des_sorcieres_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarCorrida des Sorcières"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2015,7 +2194,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/brasserrun_walk"
   class="race-card"
   data-name="Brasserrun & Walk"
@@ -2026,15 +2209,23 @@
   data-distance="1,5km, 5km, 10km, 15km"
   data-latitude="50.8329789"
   data-longitude="4.193482299999999"
+  data-location="Sporthal Caerenbergveld - Kerkhofstraat 13, 1703, Schepdaal"
+  data-description="Brasserrun & Walk 2024 - 10e editie - vindt plaats op 04-05-2024, georganiseerd door sportvereniging De BrasserRunners in samenwerking met d"
+  data-image-path="/looppaginas/brasserrun_walk/brasserrun_walk"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="3 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/brasserrun_walk/brasserrun_walk_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/brasserrun_walk/brasserrun_walk_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarBrasserrun & Walk"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2118,7 +2309,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/netherlands_marathon"
   class="race-card"
   data-name="Netherlands Marathon"
@@ -2129,15 +2324,23 @@
   data-distance="5km, 10km, marathon"
   data-latitude="50.503887"
   data-longitude="4.469936"
+  data-location="Maastricht"
+  data-description="Tijdens de Run Day van het Long Course Weekend Netherlands in Maastricht loop je door het schitterende landschap van en rond deze iconische "
+  data-image-path="/looppaginas/netherlands_marathon/netherlands_marathon"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="18 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/netherlands_marathon/netherlands_marathon_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/netherlands_marathon/netherlands_marathon_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarNetherlands Marathon"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2215,7 +2418,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/20km_de_brussels"
   class="race-card"
   data-name="20km de Brussels"
@@ -2226,15 +2433,23 @@
   data-distance="20,1km"
   data-latitude="50.8412962"
   data-longitude="4.350248"
+  data-location="Bruxelles, Bruxelles"
+  data-description="De 20 km van Brussel (Frans: 20 km de Bruxelles, Nederlands: 20 km door Brussel) is een hardloopwedstrijd van 20,1 km die elk jaar in Brusse"
+  data-image-path="/looppaginas/20km_de_brussels/20km_de_brussels"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="25 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/20km_de_brussels/20km_de_brussels_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/20km_de_brussels/20km_de_brussels_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naar20km de Brussels"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2255,7 +2470,7 @@
       <div class="left-container">
         <h3 class="race-name">20km de Brussels</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2266,7 +2481,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2296,11 +2511,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/jogging_du_buchet"
   class="race-card"
   data-name="Jogging du Buchet"
@@ -2311,15 +2530,23 @@
   data-distance="5,5km, 10km"
   data-latitude="50.503887"
   data-longitude="4.469936"
+  data-location="België"
+  data-description="Ontdek de Jogging du Buchet, in België op 09 mei 2024 (do). Beschikbare races zijn 5,5 km en 10 km, wat deelnemers de kans biedt om hun hard"
+  data-image-path="/looppaginas/jogging_du_buchet/jogging_du_buchet"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="29 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/jogging_du_buchet/jogging_du_buchet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/jogging_du_buchet/jogging_du_buchet_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarJogging du Buchet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2340,7 +2567,7 @@
       <div class="left-container">
         <h3 class="race-name">Jogging du Buchet</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2351,7 +2578,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2387,11 +2614,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/jogging_jean_aerts"
   class="race-card"
   data-name="Jogging Jean Aerts"
@@ -2402,15 +2633,23 @@
   data-distance="6,2km, 13,6km"
   data-latitude="50.660611"
   data-longitude="4.51335"
+  data-location="Place communale de Céroux"
+  data-description="Ontdek de Jogging "Jean Aerts", die plaatsvindt op 18 mei 2024 in België. Deze race biedt een uitdagend parcours dat door de heuvelachtige c"
+  data-image-path="/looppaginas/jogging_jean_aerts/jogging_jean_aerts"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="7 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/jogging_jean_aerts/jogging_jean_aerts_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/jogging_jean_aerts/jogging_jean_aerts_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarJogging Jean Aerts"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2431,7 +2670,7 @@
       <div class="left-container">
         <h3 class="race-name">Jogging Jean Aerts</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2442,7 +2681,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2478,11 +2717,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/jogging_d_ottignies"
   class="race-card"
   data-name="Jogging d'Ottignies"
@@ -2493,15 +2736,23 @@
   data-distance="5km, 5,7km, 10km, 10,7km"
   data-latitude="50.6630401"
   data-longitude="4.5569959"
+  data-location="Centre sportif des Coquerées, rue des Coquerées, 50A"
+  data-description="De 'Jogging d'Ottignies' is een jaarlijks hardloopevenement dat plaatsvindt in het centrum van Ottignies-Louvain-la-Neuve, België. De vijfde"
+  data-image-path="/looppaginas/jogging_d_ottignies/jogging_d_ottignies"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="14 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/jogging_d_ottignies/jogging_d_ottignies_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/jogging_d_ottignies/jogging_d_ottignies_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarJogging d'Ottignies"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2585,7 +2836,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/springfest_run"
   class="race-card"
   data-name="Springfest Run"
@@ -2596,15 +2851,23 @@
   data-distance="5km"
   data-latitude="50.503887"
   data-longitude="4.469936"
+  data-location="Sheridan Community Center"
+  data-description="Doe mee aan de Springfest 5K Run/Walk op 25 mei 2024 in Sheridan, Montcalm! Ervaar een vlakke, schilderachtige route en competeer voor prijz"
+  data-image-path="/looppaginas/springfest_run/springfest_run"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="20 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/springfest_run/springfest_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/springfest_run/springfest_run_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarSpringfest Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2625,7 +2888,7 @@
       <div class="left-container">
         <h3 class="race-name">Springfest Run</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2636,7 +2899,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2666,11 +2929,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/foxrun"
   class="race-card"
   data-name="Foxrun"
@@ -2681,15 +2948,23 @@
   data-distance="4km, 9km, 20km, 35km, trail"
   data-latitude="50.8414179"
   data-longitude="4.499030299999999"
+  data-location="Vosberg 44, 1970 Wezembeek-Oppem"
+  data-description="FOXRUN - 2de editie op zaterdag 15 juni 2024 in Wezembeek-Oppem, België. Dit evenement belooft een geweldige ervaring met een geweldige sfee"
+  data-image-path="/looppaginas/foxrun/foxrun"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="21 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/foxrun/foxrun_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/foxrun/foxrun_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarFoxrun"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2777,7 +3052,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/foulees_estivales_art"
   class="race-card"
   data-name="Foulées Estivales Art"
@@ -2788,15 +3067,23 @@
   data-distance="5km, 5,3km, 13km"
   data-latitude="50.8016172"
   data-longitude="4.4295577"
+  data-location="Collège Saint-Hubert, Avenue Charle-Albert, 91170 Watermael-Boitsfort"
+  data-description="De Foulées Estivales Art is een hardloopwedstrijd die plaatsvindt in de prachtige Forêt de Soignes. De deelnemers kunnen kiezen uit parcours"
+  data-image-path="/looppaginas/foulees_estivales_art/foulees_estivales_art"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="22 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/foulees_estivales_art/foulees_estivales_art_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/foulees_estivales_art/foulees_estivales_art_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarFoulées Estivales Art"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2874,7 +3161,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/corrida_d_ete_limelette"
   class="race-card"
   data-name="Corrida d'Été Limelette"
@@ -2885,15 +3176,23 @@
   data-distance="1km, 3,5km, 7km, 10,5km"
   data-latitude="50.6712752"
   data-longitude="4.569871399999999"
+  data-location="Ottignies-Louvain-la-Neuve"
+  data-description="La Corrida d'été de Limelette est une course à pied originale, festive, populaire et familiale qui a pour but de dynamiser la région. Elle s"
+  data-image-path="/looppaginas/corrida_d_ete_limelette/corrida_d_ete_limelette"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="28 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/corrida_d_ete_limelette/corrida_d_ete_limelette_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/corrida_d_ete_limelette/corrida_d_ete_limelette_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarCorrida d'Été Limelette"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2977,7 +3276,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/jogging_de_nil_saint_vincent"
   class="race-card"
   data-name="Jogging de Nil-Saint-Vincent"
@@ -2988,15 +3291,23 @@
   data-distance="10,9km"
   data-latitude="50.637958"
   data-longitude="4.6671381"
+  data-location="Place du Tram"
+  data-description="Ontdek het evenement Jogging de Nil-Saint-Vincent, dat plaatsvindt op 24 augustus 2024 in België. Deze 32e editie van de race start om 15:00"
+  data-image-path="/looppaginas/jogging_de_nil_saint_vincent/jogging_de_nil_saint_vincent"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="23 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/jogging_de_nil_saint_vincent/jogging_de_nil_saint_vincent_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/jogging_de_nil_saint_vincent/jogging_de_nil_saint_vincent_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarJogging de Nil-Saint-Vincent"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -3017,7 +3328,7 @@
       <div class="left-container">
         <h3 class="race-name">Jogging de Nil-Saint-Vincent</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -3028,7 +3339,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -3058,11 +3369,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/jogging_court_saint_etienne"
   class="race-card"
   data-name="Jogging Court-Saint-Etienne"
@@ -3073,15 +3388,23 @@
   data-distance="6,2km, 11,7km"
   data-latitude="50.64557"
   data-longitude="4.56582"
+  data-location="Court-St.-Étienne, Wallonie"
+  data-description="De Jogging de Court-Saint-Etienne vindt plaats op 28 september 2025 in Court-Saint-Etienne. De race biedt deelnemers de keuze uit twee afsta"
+  data-image-path="/looppaginas/jogging_court_saint_etienne/jogging_court_saint_etienne"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="28 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/jogging_court_saint_etienne/jogging_court_saint_etienne_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/jogging_court_saint_etienne/jogging_court_saint_etienne_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarJogging Court-Saint-Etienne"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -3102,7 +3425,7 @@
       <div class="left-container">
         <h3 class="race-name">Jogging Court-Saint-Etienne</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -3113,7 +3436,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -3149,11 +3472,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/foulees_des_flosses"
   class="race-card"
   data-name="Foulées des Flosses"
@@ -3164,15 +3491,23 @@
   data-distance="7,7km, 16km"
   data-latitude="50.503887"
   data-longitude="4.469936"
+  data-location="Sportcity athletics track"
+  data-description="« Les Foulées des Flosses » biedt een gematigd heuvelachtige race, voornamelijk in het bos (80%). De race vindt plaats op 26 oktober 2025 en"
+  data-image-path="/looppaginas/foulees_des_flosses/foulees_des_flosses"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="26 okt."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/foulees_des_flosses/foulees_des_flosses_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/foulees_des_flosses/foulees_des_flosses_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarFoulées des Flosses"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -3193,7 +3528,7 @@
       <div class="left-container">
         <h3 class="race-name">Foulées des Flosses</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -3204,7 +3539,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -3240,11 +3575,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/la_quievrainoise"
   class="race-card"
   data-name="La Quiévrainoise"
@@ -3255,15 +3594,23 @@
   data-distance="5km, 10km"
   data-latitude="50.8477399"
   data-longitude="4.3396158"
+  data-location="Centre d'Animation, Rue de l'Abattoir"
+  data-description="La Quiévrainoise, c’est bien plus qu’une simple course à pied. C’est un véritable événement festif qui rassemble des coureurs de tous niveau"
+  data-image-path="/looppaginas/la_quievrainoise/la_quievrainoise"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="7 dec."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/la_quievrainoise/la_quievrainoise_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/la_quievrainoise/la_quievrainoise_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarLa Quiévrainoise"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -3284,7 +3631,7 @@
       <div class="left-container">
         <h3 class="race-name">La Quiévrainoise</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -3295,7 +3642,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -3331,13 +3678,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">van</span>
         <span id="total-events">Evenementen</span>
@@ -3359,17 +3707,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kaart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

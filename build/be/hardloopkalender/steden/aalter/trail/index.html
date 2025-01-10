@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender", "@type": "WebPage", "name": "Hardloopkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/steden", "@type": "WebPage", "name": "Steden"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/steden/aalter", "@type": "WebPage", "name": "Aalter"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/steden/aalter/trail", "@type": "WebPage", "name": "Trail"}, "position": 4}]}, "visual": [{"href": "/hardloopkalender", "name": "Hardloopkalender"}, {"href": "/hardloopkalender/steden/aalter", "name": "Steden: Aalter"}, {"href": "/hardloopkalender/steden/aalter/trail", "name": "Trail"}]}
@@ -15,6 +16,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -22,24 +24,48 @@
     />
     <title>Trail Runs in Aalter: Vind jouw volgende hardloopwedstrijd!</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -48,26 +74,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -320,10 +384,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Van:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Tot:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -654,7 +718,7 @@
   </nav>
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     wedstrijd
@@ -667,18 +731,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kaart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -687,7 +739,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Aalter&quot;, &quot;race_type&quot;: &quot;Trail&quot;, &quot;category&quot;: null}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/verloren_kost_trail"
   class="race-card"
   data-name="Verloren Kost Trail"
@@ -698,15 +752,23 @@
   data-distance="7km, 15km, half marathon"
   data-latitude="51.0782411"
   data-longitude="3.0951039"
+  data-location="Houtland Tennis Clubhuis, Aartrijkestraat 140, 8820 Torhout"
+  data-description="De Verloren Kost Trail is een unieke hardloopervaring die plaatsvindt op zondag 26 januari in de prachtige omgeving van Torhout, België. Dez"
+  data-image-path="/looppaginas/verloren_kost_trail/verloren_kost_trail"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="26 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/verloren_kost_trail/verloren_kost_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/verloren_kost_trail/verloren_kost_trail_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarVerloren Kost Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -784,7 +846,10 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/cavatrail_2_0"
   class="race-card"
   data-name="Cavatrail 2.0"
@@ -795,15 +860,23 @@
   data-distance="8km, 16km, 24km"
   data-latitude="51.1658599"
   data-longitude="3.5629479"
+  data-location="Provinciaal Domein Het Leen Eeklo"
+  data-description="In 2025 gaat de 11de editie van de cavalopers door op zondag 2 februari. Met een vernieuwd jong bestuur blijft deze mooie trail behouden en "
+  data-image-path="/looppaginas/cavatrail_2_0/cavatrail_2_0"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="2 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/cavatrail_2_0/cavatrail_2_0_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/cavatrail_2_0/cavatrail_2_0_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarCavatrail 2.0"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -881,7 +954,8 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Geselecteerde Races</h2>
@@ -908,9 +982,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/verloren_kost_trail/verloren_kost_trail_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/verloren_kost_trail/verloren_kost_trail_1.webp"
         alt="Afbeelding naarVerloren Kost Trail"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -981,9 +1057,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/cavatrail_2_0/cavatrail_2_0_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/cavatrail_2_0/cavatrail_2_0_1.webp"
         alt="Afbeelding naarCavatrail 2.0"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1054,9 +1132,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_provinciaal_het_leen/trail_provinciaal_het_leen_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_provinciaal_het_leen/trail_provinciaal_het_leen_1.webp"
         alt="Afbeelding naarTrail Provinciaal Het Leen"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1127,9 +1207,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/tvv_palliatieve_kortemark/tvv_palliatieve_kortemark_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/tvv_palliatieve_kortemark/tvv_palliatieve_kortemark_1.webp"
         alt="Afbeelding naarTVV Palliatieve Kortemark"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1216,9 +1298,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_ryckevelde/trail_ryckevelde_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_ryckevelde/trail_ryckevelde_1.webp"
         alt="Afbeelding naarTrail Ryckevelde"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1279,7 +1363,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_provinciaal_het_leen"
   class="race-card"
   data-name="Trail Provinciaal Het Leen"
@@ -1290,15 +1377,23 @@
   data-distance="8km, 16km, 24km"
   data-latitude="51.16723950000001"
   data-longitude="3.5737971"
+  data-location="Provinciaal Domein Het Leen, Gentsesteenweg 809, 9900 Eeklo"
+  data-description="Op zondag 2 februari 2025 vindt de 11de editie van de Trail Provinciaal Domein Het Leen plaats in Eeklo, België. Deze editie, ook wel Cavatr"
+  data-image-path="/looppaginas/trail_provinciaal_het_leen/trail_provinciaal_het_leen"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="2 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_provinciaal_het_leen/trail_provinciaal_het_leen_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_provinciaal_het_leen/trail_provinciaal_het_leen_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail Provinciaal Het Leen"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1376,7 +1471,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/tvv_palliatieve_kortemark"
   class="race-card"
   data-name="TVV Palliatieve Kortemark"
@@ -1387,15 +1486,23 @@
   data-distance="1,5km, 5km, 10km, 15km, 20km, 25km"
   data-latitude="51.0309454"
   data-longitude="3.0438624"
+  data-location="naast gemeentehuis Kortemark"
+  data-description="De TVV Palliatieve Kortemark is een trail run die plaatsvond op zondag 18 februari 2024 in Kortemark, België. Deze race biedt tal van kleine"
+  data-image-path="/looppaginas/tvv_palliatieve_kortemark/tvv_palliatieve_kortemark"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="16 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/tvv_palliatieve_kortemark/tvv_palliatieve_kortemark_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/tvv_palliatieve_kortemark/tvv_palliatieve_kortemark_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTVV Palliatieve Kortemark"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1483,7 +1590,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_ryckevelde"
   class="race-card"
   data-name="Trail Ryckevelde"
@@ -1494,15 +1605,23 @@
   data-distance="7km, 18km, 30km"
   data-latitude="51.20156129999999"
   data-longitude="3.3212461"
+  data-location="oude legerkazerne te Sijsele"
+  data-description="De Trail Ryckevelde is een unieke trail door het prachtige domein Ryckevelde, die plaatsvindt op zaterdag 22 februari 2025 in Damme. De weds"
+  data-image-path="/looppaginas/trail_ryckevelde/trail_ryckevelde"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="22 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_ryckevelde/trail_ryckevelde_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_ryckevelde/trail_ryckevelde_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail Ryckevelde"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1580,7 +1699,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/presto_trail_run"
   class="race-card"
   data-name="Presto Trail Run"
@@ -1591,15 +1714,23 @@
   data-distance="0,5km, 7,5km, 12,5km, 20km"
   data-latitude="51.0789257"
   data-longitude="3.0593517"
+  data-location="Kasteel van Wijnendale"
+  data-description="De Presto Trail Run vindt plaats op zaterdag 16 maart 2024 te Torhout, België, en markeert de transformatie van de traditionele Presto-Loop "
+  data-image-path="/looppaginas/presto_trail_run/presto_trail_run"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="15 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/presto_trail_run/presto_trail_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/presto_trail_run/presto_trail_run_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarPresto Trail Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1683,7 +1814,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/natuurloop_beernem"
   class="race-card"
   data-name="Natuurloop Beernem"
@@ -1694,15 +1829,23 @@
   data-distance="7km, 14km, 24km"
   data-latitude="51.1119889"
   data-longitude="3.3157317"
+  data-location="sporthal Sint-Amandus Reigerlostraat 67"
+  data-description="Op zaterdag 29 maart 2025 vindt de 13e Natuurloop Beernem plaats, waar je kunt genieten van onverhard loopplezier in en rond de prachtige bo"
+  data-image-path="/looppaginas/natuurloop_beernem/natuurloop_beernem"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="29 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/natuurloop_beernem/natuurloop_beernem_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/natuurloop_beernem/natuurloop_beernem_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarNatuurloop Beernem"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1729,7 +1872,7 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Sporthal Sint-Amandus (Reigerlostraat 67, Beernem) 
+          sporthal Sint-Amandus Reigerlostraat 67 
         </div>
       </div>
       <div class="right-container">
@@ -1772,7 +1915,7 @@
       </div>
     </div>
     <div class="race-summary">
-      Op zaterdag 29 maart 2025 vindt de 13e Natuurloop Beernem plaats. Schrijf je online in en geniet van onverhard loopplezier in en rond de pra...
+      Op zaterdag 29 maart 2025 vindt de 13e Natuurloop Beernem plaats, waar je kunt genieten van onverhard loopplezier in en rond de prachtige bo...
     </div>
   </div>
   <div
@@ -1780,7 +1923,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/flandrienloop_oudenaarde"
   class="race-card"
   data-name="Flandrienloop Oudenaarde"
@@ -1791,15 +1938,23 @@
   data-distance="6km, 10km, 26km"
   data-latitude="50.8459758"
   data-longitude="3.6022745"
+  data-location="Oudenaarde"
+  data-description="De Flandrienloop in Oudenaarde is een uitdagend hardloopevenement dat deelnemers de kans biedt om de beroemde hellingen van de Vlaamse Arden"
+  data-image-path="/looppaginas/flandrienloop_oudenaarde/flandrienloop_oudenaarde"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="27 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/flandrienloop_oudenaarde/flandrienloop_oudenaarde_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/flandrienloop_oudenaarde/flandrienloop_oudenaarde_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarFlandrienloop Oudenaarde"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1877,7 +2032,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_kuurne"
   class="race-card"
   data-name="Trail Kuurne"
@@ -1888,15 +2047,23 @@
   data-distance="5,6km, 7,5km, 11,2km, 14,5km"
   data-latitude="50.8540688"
   data-longitude="3.2872085"
+  data-location="Kuurne"
+  data-description="Op zondag 12 oktober 2025 plannen wij de 3de editie van de 11.trail Kuurne. De 11.trail Kuurne is een urban trail ten voordele van 11.11.11:"
+  data-image-path="/looppaginas/trail_kuurne/trail_kuurne"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="12 okt."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_kuurne/trail_kuurne_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_kuurne/trail_kuurne_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail Kuurne"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1980,7 +2147,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_knokke_heist"
   class="race-card"
   data-name="Trail Knokke-Heist"
@@ -1991,15 +2162,23 @@
   data-distance="8km, 17km, 24km"
   data-latitude="51.3374482"
   data-longitude="3.2913033"
+  data-location="Burgemeester Graaf Leopold Lippenspark"
+  data-description="Op zondag 24 november 2024 vindt de Trail Knokke-Heist plaats, een uniek evenement dat deelnemers de mogelijkheid biedt om 8, 17 of 24 km te"
+  data-image-path="/looppaginas/trail_knokke_heist/trail_knokke_heist"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="23 nov."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_knokke_heist/trail_knokke_heist_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_knokke_heist/trail_knokke_heist_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail Knokke-Heist"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2077,9 +2256,10 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">van</span>
         <span id="total-events">Evenementen</span>
@@ -2101,17 +2281,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kaart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

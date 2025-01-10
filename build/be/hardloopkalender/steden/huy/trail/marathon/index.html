@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender", "@type": "WebPage", "name": "Hardloopkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/steden", "@type": "WebPage", "name": "Steden"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/steden/huy", "@type": "WebPage", "name": "Huy"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/steden/huy/trail", "@type": "WebPage", "name": "Trail"}, "position": 4}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/steden/huy/trail/marathon", "@type": "WebPage", "name": "Marathon"}, "position": 5}]}, "visual": [{"href": "/hardloopkalender", "name": "Hardloopkalender"}, {"href": "/hardloopkalender/steden/huy", "name": "Steden: Huy"}, {"href": "/hardloopkalender/steden/huy/trail", "name": "Trail"}, {"href": "/hardloopkalender/steden/huy/trail/marathon", "name": "Marathon"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>Marathon Trail Runs in Huy: Vind jouw volgende hardloopwedstrijd | Loopkalender</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Van:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Tot:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -634,7 +698,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     wedstrijd
@@ -647,18 +711,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kaart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -667,7 +719,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Huy&quot;, &quot;race_type&quot;: &quot;Trail&quot;, &quot;category&quot;: &quot;Marathon&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/night_trail_du_samson"
   class="race-card"
   data-name="Night Trail Du Samson"
@@ -678,15 +732,23 @@
   data-distance="10km, 15km, 25km"
   data-latitude="50.4077938"
   data-longitude="5.0716051"
+  data-location="Hall des sports des Gesves"
+  data-description="De Night Trail Du Samson vindt plaats op zaterdag 25 januari 2025 in Gesves, België. De race biedt verschillende afstanden van 10 km, 15 km "
+  data-image-path="/looppaginas/night_trail_du_samson/night_trail_du_samson"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="25 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/night_trail_du_samson/night_trail_du_samson_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/night_trail_du_samson/night_trail_du_samson_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarNight Trail Du Samson"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -764,7 +826,10 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/la_sebastian"
   class="race-card"
   data-name="La Sebastian"
@@ -775,15 +840,23 @@
   data-distance="6km, 13km"
   data-latitude="50.5022173"
   data-longitude="4.876087699999999"
+  data-location="Vedrin, België"
+  data-description="Jogging "La Sébastian" vindt plaats op 25 februari 2024 en is de 19e editie van deze race, een eerbetoon aan Sebastian Minet. De deelnemers "
+  data-image-path="/looppaginas/la_sebastian/la_sebastian"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="9 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/la_sebastian/la_sebastian_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/la_sebastian/la_sebastian_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarLa Sebastian"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -804,7 +877,7 @@
       <div class="left-container">
         <h3 class="race-name">La Sebastian</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -815,7 +888,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -851,11 +924,12 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Geselecteerde Races</h2>
@@ -882,9 +956,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/night_trail_du_samson/night_trail_du_samson_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/night_trail_du_samson/night_trail_du_samson_1.webp"
         alt="Afbeelding naarNight Trail Du Samson"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -955,9 +1031,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/la_sebastian/la_sebastian_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/la_sebastian/la_sebastian_1.webp"
         alt="Afbeelding naarLa Sebastian"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1022,9 +1100,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_des_chevreuils/trail_des_chevreuils_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_des_chevreuils/trail_des_chevreuils_1.webp"
         alt="Afbeelding naarTrail des Chevreuils"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1101,9 +1181,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/mad_elf_run/mad_elf_run_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/mad_elf_run/mad_elf_run_1.webp"
         alt="Afbeelding naarMad Elf Run"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1174,9 +1256,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/la_bouquetin/la_bouquetin_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/la_bouquetin/la_bouquetin_1.webp"
         alt="Afbeelding naarLA BOUQUETIN"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1231,7 +1315,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_des_chevreuils"
   class="race-card"
   data-name="Trail des Chevreuils"
@@ -1242,15 +1329,23 @@
   data-distance="1,8km, 9km, 18km, 31km"
   data-latitude="50.6060418"
   data-longitude="5.1764462"
+  data-location="Hall Omnisport de Fallais, Rue de Dreye 13, 4260 Fallais (Braives)"
+  data-description="Le Trail des Chevreuils se déroule au cœur du Parc Naturel des vallées de la Burdinale et de la Mehaigne, entre les villes de Huy, Andenne e"
+  data-image-path="/looppaginas/trail_des_chevreuils/trail_des_chevreuils"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="9 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_des_chevreuils/trail_des_chevreuils_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_des_chevreuils/trail_des_chevreuils_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail des Chevreuils"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1334,7 +1429,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/mad_elf_run"
   class="race-card"
   data-name="Mad Elf Run"
@@ -1345,15 +1444,23 @@
   data-distance="10km, 23km, marathon"
   data-latitude="50.4794834"
   data-longitude="5.6472392"
+  data-location="Brasserie Elfique, Raborive 24920 Aywaille, België"
+  data-description="Pour bien commencer l’année 2024, la Brasserie Elfique vous prépare la 2e édition de son trail Mad Elf Run. Venez découvrir les sentiers enc"
+  data-image-path="/looppaginas/mad_elf_run/mad_elf_run"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="15 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/mad_elf_run/mad_elf_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/mad_elf_run/mad_elf_run_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarMad Elf Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1431,7 +1538,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/la_bouquetin"
   class="race-card"
   data-name="LA BOUQUETIN"
@@ -1442,15 +1553,23 @@
   data-distance="22km, 23km"
   data-latitude="50.4233936"
   data-longitude="5.530431999999999"
+  data-location="Hall Omnisports de Hamoir"
+  data-description="Op zondag 4 februari 2024 vindt de Trail La Bouquetin plaats in Hamoir, België. De race biedt een uitdagende afstand van 23 kilometer met ee"
+  data-image-path="/looppaginas/la_bouquetin/la_bouquetin"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="23 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/la_bouquetin/la_bouquetin_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/la_bouquetin/la_bouquetin_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarLA BOUQUETIN"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1471,7 +1590,7 @@
       <div class="left-container">
         <h3 class="race-name">LA BOUQUETIN</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1482,7 +1601,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1518,11 +1637,112 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
+  href="/looppaginas/loop_trail"
+  class="race-card"
+  data-name="LOOP TRAIL"
+  data-date="20250419"
+  data-county="Luik"
+  data-category=""
+  data-race-type="Trail"
+  data-distance="110km"
+  data-latitude="50.5453134"
+  data-longitude="5.524289"
+  data-location="Neupré-Plainevaux"
+  data-description="Op zaterdag 19 april 2025 vindt de LOOP Trail plaats in Neupré-Plainevaux, een uitdagende endurance race in een lusvormige route. De deelnem"
+  data-image-path="/looppaginas/loop_trail/loop_trail"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="19 apr."
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/loop_trail/loop_trail_1.webp"
+        width="600"
+        height="400"
+        alt="Afbeelding naarLOOP TRAIL"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          19 apr.
+        </div>
+        <div class="race-location">
+          Luik
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">LOOP TRAIL</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Neupré-Plainevaux 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                110 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Op zaterdag 19 april 2025 vindt de LOOP Trail plaats in Neupré-Plainevaux, een uitdagende endurance race in een lusvormige route. De deelnem...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Meer info & aanmelding</div>
+  </div>
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/verlaine_s_trail_runners"
   class="race-card"
   data-name="Verlaine's Trail Runners"
@@ -1533,15 +1753,23 @@
   data-distance="11km, 22km, 36km"
   data-latitude="50.3926151"
   data-longitude="5.4994184"
+  data-location="Chemin de la Pyramide, 6940 Durbuy, België"
+  data-description="Amis traileurs, wij zijn blij om de 3e editie van de Verlaine's Runners trail te organiseren! De race vindt plaats op 20 april 2024 en biedt"
+  data-image-path="/looppaginas/verlaine_s_trail_runners/verlaine_s_trail_runners"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="19 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/verlaine_s_trail_runners/verlaine_s_trail_runners_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/verlaine_s_trail_runners/verlaine_s_trail_runners_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarVerlaine's Trail Runners"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1619,92 +1847,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
-  href="/looppaginas/loop_trail"
-  class="race-card"
-  data-name="LOOP TRAIL"
-  data-date="20250419"
-  data-county="Luik"
-  data-category=""
-  data-race-type="Trail"
-  data-distance="110km"
-  data-latitude="50.5453134"
-  data-longitude="5.524289"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/looppaginas/loop_trail/loop_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Afbeelding naarLOOP TRAIL"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          19 apr.
-        </div>
-        <div class="race-location">
-          Luik
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">LOOP TRAIL</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Neupré-Plainevaux 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                110 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Trail
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Op zaterdag 19 april 2025 vindt de LOOP Trail plaats in Neupré-Plainevaux, een uitdagende endurance race in een lusvormige route. De deelnem...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Meer info & aanmelding</div>
-  </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_de_la_crapule"
   class="race-card"
   data-name="Trail de la Crapule"
@@ -1715,15 +1862,23 @@
   data-distance="9km, 15km, 32km"
   data-latitude="50.5672767"
   data-longitude="5.1655285"
+  data-location="Huccorgne"
+  data-description="Le Trail de la Crapule is een hardloopwedstrijd die plaatsvindt op 27 april 2025 in Huccorgne, met verschillende parcours van 9 tot 32 km, g"
+  data-image-path="/looppaginas/trail_de_la_crapule/trail_de_la_crapule"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="27 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_de_la_crapule/trail_de_la_crapule_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_de_la_crapule/trail_de_la_crapule_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail de la Crapule"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1801,32 +1956,44 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_du_neblon"
   class="race-card"
   data-name="Trail du Néblon"
-  data-date="20250511"
+  data-date="20250510"
   data-county="Marche-en-Famenne"
   data-category=""
   data-race-type="Trail"
   data-distance="10km, half marathon"
   data-latitude="50.3520176"
   data-longitude="5.455651899999999"
+  data-location="Durbuy, België"
+  data-description="De Trail du Néblon vindt plaats op zondag 14 mei 2023 in Durbuy, België, en biedt afstanden van 10 km en 21 km, beide startend om 08.30 uur."
+  data-image-path="/looppaginas/trail_du_neblon/trail_du_neblon"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="10 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_du_neblon/trail_du_neblon_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_du_neblon/trail_du_neblon_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail du Néblon"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
       <div class="race-info-top">
         <div class="race-date">
-          11 mei
+          10 mei
         </div>
         <div class="race-location">
           Marche-en-Famenne
@@ -1841,7 +2008,7 @@
       <div class="left-container">
         <h3 class="race-name">Trail du Néblon</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1852,7 +2019,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1888,11 +2055,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/champions_trail"
   class="race-card"
   data-name="Champions Trail"
@@ -1903,15 +2074,23 @@
   data-distance="8km, 14km, 22km"
   data-latitude="50.4952788"
   data-longitude="4.900837999999999"
+  data-location="Institut de la Providence Champion"
+  data-description="Champions Trail vindt plaats op zaterdag 17 mei 2025 in Champion, België. De race biedt afstanden van 8 km, 14 km en 22 km, met starttijden "
+  data-image-path="/looppaginas/champions_trail/champions_trail"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="17 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/champions_trail/champions_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/champions_trail/champions_trail_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarChampions Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1989,7 +2168,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_du_fond_d_oxhe"
   class="race-card"
   data-name="Trail du Fond d'Oxhe"
@@ -2000,15 +2183,23 @@
   data-distance="9km, 15km, 23km, 32km"
   data-latitude="50.5610679"
   data-longitude="5.3605038"
+  data-location="Ecole d'Hermalle-sous-Huy, Rue du Pont 74480 Engis"
+  data-description="De Trail du Fond d'Oxhe vindt plaats op zondag 29 september 2024 in Hermalle-sous-Huy, een pittoresk dorpje aan de Maas. De parcours lopen d"
+  data-image-path="/looppaginas/trail_du_fond_d_oxhe/trail_du_fond_d_oxhe"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="14 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_du_fond_d_oxhe/trail_du_fond_d_oxhe_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_du_fond_d_oxhe/trail_du_fond_d_oxhe_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail du Fond d'Oxhe"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2092,7 +2283,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/crapule_night_trail"
   class="race-card"
   data-name="Crapule Night Trail"
@@ -2103,15 +2298,23 @@
   data-distance="9km, 15km, 22km"
   data-latitude="50.5672767"
   data-longitude="5.1655285"
+  data-location="Huccorgne"
+  data-description="La Crapule Night Trail vindt plaats op 11 oktober 2024 in Huccorgne, een klein dorpje gelegen in het hart van een natuurreservaat. De race b"
+  data-image-path="/looppaginas/crapule_night_trail/crapule_night_trail"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="10 okt."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/crapule_night_trail/crapule_night_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/crapule_night_trail/crapule_night_trail_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarCrapule Night Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2189,7 +2392,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_des_lumecons"
   class="race-card"
   data-name="Trail des Lumeçons"
@@ -2200,15 +2407,23 @@
   data-distance="10km, 17km, 27km"
   data-latitude="50.46493340000001"
   data-longitude="4.864973099999999"
+  data-location="Namur"
+  data-description="De Trail des Lumeçons vindt plaats op 25 oktober 2024 in België en biedt deelnemers de keuze uit drie afstanden: 10 km, 17 km en 27 km. Deze"
+  data-image-path="/looppaginas/trail_des_lumecons/trail_des_lumecons"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="31 okt."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_des_lumecons/trail_des_lumecons_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_des_lumecons/trail_des_lumecons_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail des Lumeçons"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2286,7 +2501,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/la_belle_hivernoise"
   class="race-card"
   data-name="LA BELLE HIVERNOISE"
@@ -2297,15 +2516,23 @@
   data-distance="1,5km, 3,8km, 12,7km, 22km"
   data-latitude="50.6112229"
   data-longitude="5.5872582"
+  data-location="Hall des Sports, rue Sous le Bois, 24031 Angleur, België"
+  data-description="La Belle Hivernoise is een hardloopwedstrijd die plaatsvindt op zondag 15 december 2024 in Angleur, België. De race biedt een unieke winters"
+  data-image-path="/looppaginas/la_belle_hivernoise/la_belle_hivernoise"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="21 dec."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/la_belle_hivernoise/la_belle_hivernoise_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/la_belle_hivernoise/la_belle_hivernoise_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarLA BELLE HIVERNOISE"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2389,9 +2616,10 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">van</span>
         <span id="total-events">Evenementen</span>
@@ -2413,17 +2641,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kaart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

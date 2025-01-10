@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender", "@type": "WebPage", "name": "Hardloopkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/steden", "@type": "WebPage", "name": "Steden"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/steden/riemst", "@type": "WebPage", "name": "Riemst"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/steden/riemst/marathon", "@type": "WebPage", "name": "Marathon"}, "position": 4}]}, "visual": [{"href": "/hardloopkalender", "name": "Hardloopkalender"}, {"href": "/hardloopkalender/steden/riemst", "name": "Steden: Riemst"}, {"href": "/hardloopkalender/steden/riemst/marathon", "name": "Marathon"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>Marathon hardloopwedstrijden in Riemst | Loopkalender 2024</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Van:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Tot:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -625,7 +689,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     wedstrijd
@@ -638,18 +702,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kaart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -658,7 +710,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Riemst&quot;, &quot;race_type&quot;: null, &quot;category&quot;: &quot;Marathon&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/coalminers_trail"
   class="race-card"
   data-name="Coalminers' Trail"
@@ -669,15 +723,23 @@
   data-distance="10km, 13km, 19km, 28km"
   data-latitude="50.997887"
   data-longitude="5.5352216"
+  data-location="Thor Park, 3600 Genk, België"
+  data-description="De Coalminers’ Trail is één van de meest uitdagendste loop- en wandel trails van Vlaanderen! Op zaterdag 31 augustus krijg je de kans om de "
+  data-image-path="/looppaginas/coalminers_trail/coalminers_trail"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="18 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/coalminers_trail/coalminers_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/coalminers_trail/coalminers_trail_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarCoalminers' Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -761,7 +823,10 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trailrun_bergerven"
   class="race-card"
   data-name="Trailrun Bergerven"
@@ -772,15 +837,23 @@
   data-distance="6,5km, 8km, 14km, 24km, 40km"
   data-latitude="51.055037"
   data-longitude="5.699863499999999"
+  data-location="Kanaalstraat 6, 3650 Dilsen-Stokkem"
+  data-description="Trailrun Bergerven is een unieke trailrun met 4 afstanden in het gebied Bergerven, het meest noordelijke deel van het Nationaal Park Hoge Ke"
+  data-image-path="/looppaginas/trailrun_bergerven/trailrun_bergerven"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="25 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trailrun_bergerven/trailrun_bergerven_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trailrun_bergerven/trailrun_bergerven_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrailrun Bergerven"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -868,7 +941,8 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Geselecteerde Races</h2>
@@ -895,9 +969,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/coalminers_trail/coalminers_trail_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/coalminers_trail/coalminers_trail_1.webp"
         alt="Afbeelding naarCoalminers' Trail"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -974,9 +1050,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trailrun_bergerven/trailrun_bergerven_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trailrun_bergerven/trailrun_bergerven_1.webp"
         alt="Afbeelding naarTrailrun Bergerven"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1059,9 +1137,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/zatopek_en_famille/zatopek_en_famille_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/zatopek_en_famille/zatopek_en_famille_1.webp"
         alt="Afbeelding naarZatopek en Famille"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1138,9 +1218,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/jogging_en_duo/jogging_en_duo_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/jogging_en_duo/jogging_en_duo_1.webp"
         alt="Afbeelding naarJogging en Duo"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1199,9 +1281,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/corrid_amour/corrid_amour_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/corrid_amour/corrid_amour_1.webp"
         alt="Afbeelding naarCorrid'Amour"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1262,7 +1346,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/zatopek_en_famille"
   class="race-card"
   data-name="Zatopek en Famille"
@@ -1273,15 +1360,23 @@
   data-distance="5km, 6km, 10km, 18km"
   data-latitude="50.7372407"
   data-longitude="5.707722599999999"
+  data-location="Hall Omnisport de Visé"
+  data-description="La Zatopek en Famille is een uniek hardloopevenement dat deelname aanmoedigt van alle gezinsleden, ongeacht hun hardloopvaardigheden. De rac"
+  data-image-path="/looppaginas/zatopek_en_famille/zatopek_en_famille"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="2 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/zatopek_en_famille/zatopek_en_famille_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/zatopek_en_famille/zatopek_en_famille_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarZatopek en Famille"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1365,7 +1460,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/jogging_en_duo"
   class="race-card"
   data-name="Jogging en Duo"
@@ -1376,15 +1475,23 @@
   data-distance="11km"
   data-latitude="50.59027020000001"
   data-longitude="5.7217867"
+  data-location="Hall omnisport d’Olne"
+  data-description="De Jogging en Duo 2025 is een trailrun van 11 km die op zondag 9 februari 2025 om 10:00 uur van start gaat in de hall omnisport d’Olne, Chem"
+  data-image-path="/looppaginas/jogging_en_duo/jogging_en_duo"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="9 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/jogging_en_duo/jogging_en_duo_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/jogging_en_duo/jogging_en_duo_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarJogging en Duo"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1405,7 +1512,7 @@
       <div class="left-container">
         <h3 class="race-name">Jogging en Duo</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1416,7 +1523,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1446,11 +1553,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/corrid_amour"
   class="race-card"
   data-name="Corrid'Amour"
@@ -1461,15 +1572,23 @@
   data-distance="3km, 6km, 9km"
   data-latitude="50.6106457"
   data-longitude="5.8544571"
+  data-location="Place du Sablon"
+  data-description="L'asbl JIVS@Sauvenière vous invite à participer à sa corrida du 14 février, la Corrid'Amour. Départ à 19h30 avec des distances SOLO de 3, 6 "
+  data-image-path="/looppaginas/corrid_amour/corrid_amour"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="14 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/corrid_amour/corrid_amour_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/corrid_amour/corrid_amour_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarCorrid'Amour"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1547,7 +1666,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/maasmechelen_marathon"
   class="race-card"
   data-name="Maasmechelen Marathon"
@@ -1558,15 +1681,23 @@
   data-distance="8km, 14km, half marathon, marathon"
   data-latitude="50.97237399999999"
   data-longitude="5.6984362"
+  data-location="Maasmechelen, Vlaanderen"
+  data-description="Trek op zondag 23 februari je loopschoenen aan voor de meest betoverende marathon van België: de Nationaal Park Marathon Hoge Kempen. Deze o"
+  data-image-path="/looppaginas/maasmechelen_marathon/maasmechelen_marathon"
+  data-type="terrain"
+  data-type-display="Cross"
+  data-date-display="23 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/maasmechelen_marathon/maasmechelen_marathon_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/maasmechelen_marathon/maasmechelen_marathon_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarMaasmechelen Marathon"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1650,7 +1781,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_forestois"
   class="race-card"
   data-name="Trail Forestois"
@@ -1661,15 +1796,23 @@
   data-distance="8,5km, 16km, 22km"
   data-latitude="50.5790522"
   data-longitude="5.671253099999999"
+  data-location="Trooz"
+  data-description="Trail Forestois is een hardloop-/sportevenement dat plaatsvindt op 22 maart 2025 in Trooz. Deelnemers kunnen kiezen uit verschillende afstan"
+  data-image-path="/looppaginas/trail_forestois/trail_forestois"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="22 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_forestois/trail_forestois_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_forestois/trail_forestois_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail Forestois"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1747,7 +1890,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/trail_liege_metropole"
   class="race-card"
   data-name="Trail Liège Métropole"
@@ -1758,15 +1905,23 @@
   data-distance="3km, 7km, 8km, 15km, half marathon, marathon"
   data-latitude="50.6432884"
   data-longitude="5.566277899999999"
+  data-location="Liège, Wallonie"
+  data-description="In 2024, de 15e editie van de 15km van Liège Métropole vindt plaats, de meest populaire hardloopwedstrijd in Wallonië. Door deze race te ste"
+  data-image-path="/looppaginas/trail_liege_metropole/trail_liege_metropole"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="13 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/trail_liege_metropole/trail_liege_metropole_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/trail_liege_metropole/trail_liege_metropole_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTrail Liège Métropole"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1854,7 +2009,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/loop_trail"
   class="race-card"
   data-name="LOOP TRAIL"
@@ -1865,15 +2024,23 @@
   data-distance="110km"
   data-latitude="50.5453134"
   data-longitude="5.524289"
+  data-location="Neupré-Plainevaux"
+  data-description="Op zaterdag 19 april 2025 vindt de LOOP Trail plaats in Neupré-Plainevaux, een uitdagende endurance race in een lusvormige route. De deelnem"
+  data-image-path="/looppaginas/loop_trail/loop_trail"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="19 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/loop_trail/loop_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/loop_trail/loop_trail_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarLOOP TRAIL"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1894,7 +2061,7 @@
       <div class="left-container">
         <h3 class="race-name">LOOP TRAIL</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1905,7 +2072,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1935,11 +2102,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/bloesemrun_zepperen"
   class="race-card"
   data-name="Bloesemrun Zepperen"
@@ -1950,15 +2121,23 @@
   data-distance="0,6km, 0,8km, 1km, 5,4km, 10km"
   data-latitude="50.82116"
   data-longitude="5.247669999999999"
+  data-location="Zepperen"
+  data-description="De loopwedstrijd Bloesemrun in Zepperen is het resultaat van een unieke samenwerking tussen serviceclub Kiwanis Sint-Truiden Haspengouw en a"
+  data-image-path="/looppaginas/bloesemrun_zepperen/bloesemrun_zepperen"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="21 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/bloesemrun_zepperen/bloesemrun_zepperen_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/bloesemrun_zepperen/bloesemrun_zepperen_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarBloesemrun Zepperen"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2046,7 +2225,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/maasmarathon"
   class="race-card"
   data-name="Maasmarathon"
@@ -2057,15 +2240,23 @@
   data-distance="5km, 9,1km, half marathon, marathon"
   data-latitude="50.7378047"
   data-longitude="5.6956089"
+  data-location="Visé (België)"
+  data-description="De Maasmarathon is een unieke grensoverschrijdende marathonwedstrijd in het hart van Europa, die door het Belgische en Nederlandse plattelan"
+  data-image-path="/looppaginas/maasmarathon/maasmarathon"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="4 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/maasmarathon/maasmarathon_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/maasmarathon/maasmarathon_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarMaasmarathon"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2149,7 +2340,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/ekiden_liege"
   class="race-card"
   data-name="Ekiden Liège"
@@ -2160,15 +2355,23 @@
   data-distance="5km, 7,2km, 10km, marathon"
   data-latitude="50.6161258"
   data-longitude="5.592911399999999"
+  data-location="Belle-Île Liège"
+  data-description="L'Ekiden de Liège is een evenement dat je niet mag missen in je Belgische hardloopkalender. Dit unieke estafetteparcours van 42 km, verdeeld"
+  data-image-path="/looppaginas/ekiden_liege/ekiden_liege"
+  data-type="relay"
+  data-type-display="Estafette"
+  data-date-display="18 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/ekiden_liege/ekiden_liege_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/ekiden_liege/ekiden_liege_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarEkiden Liège"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2252,7 +2455,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/100_km_celestes"
   class="race-card"
   data-name="100 KM CÉLESTES"
@@ -2263,15 +2470,23 @@
   data-distance="100km"
   data-latitude="50.5833028"
   data-longitude="5.7842194"
+  data-location="Terrain de football de Soiron, Rte Croix Maga 2-20, 4860 Pepinster"
+  data-description="Op zondag 8 juni 2025 vindt de 100 KM CÉLESTES plaats, een prachtige natuurloop met ongeveer 3.300 m D+. Het parcours is niet gemarkeerd en "
+  data-image-path="/looppaginas/100_km_celestes/100_km_celestes"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="8 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/100_km_celestes/100_km_celestes_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/100_km_celestes/100_km_celestes_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naar100 KM CÉLESTES"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2292,7 +2507,7 @@
       <div class="left-container">
         <h3 class="race-name">100 KM CÉLESTES</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2303,7 +2518,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2333,11 +2548,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/burchtloop_brustem"
   class="race-card"
   data-name="Burchtloop Brustem"
@@ -2348,15 +2567,23 @@
   data-distance="5km, 10km"
   data-latitude="50.80565"
   data-longitude="5.22187"
+  data-location="Sint-Truiden, Vlaanderen"
+  data-description="À Brustem, un village qui révèle ses charmes sans effort, la Burchtloop est organisée cette année pour la cinquième fois. Cet événement, dev"
+  data-image-path="/looppaginas/burchtloop_brustem/burchtloop_brustem"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="14 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/burchtloop_brustem/burchtloop_brustem_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/burchtloop_brustem/burchtloop_brustem_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarBurchtloop Brustem"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2377,7 +2604,7 @@
       <div class="left-container">
         <h3 class="race-name">Burchtloop Brustem</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2388,7 +2615,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2424,11 +2651,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/provincie_trail_limburg"
   class="race-card"
   data-name="Provincie Trail Limburg"
@@ -2439,15 +2670,23 @@
   data-distance="17km, 25km, marathon, 60km"
   data-latitude="50.7476962"
   data-longitude="5.8153925"
+  data-location="Voeren, Vlaanderen"
+  data-description="De Trans Limburg Trail is de wandeling die de prachtigste landschappen en de mooiste kastelen van Belgisch en Nederlands-Limburg combineert."
+  data-image-path="/looppaginas/provincie_trail_limburg/provincie_trail_limburg"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="6 juli"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/provincie_trail_limburg/provincie_trail_limburg_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/provincie_trail_limburg/provincie_trail_limburg_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarProvincie Trail Limburg"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2531,7 +2770,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/loon_loopt"
   class="race-card"
   data-name="Loon Loopt"
@@ -2542,15 +2785,23 @@
   data-distance="0,5km, 1km, 5km, 10km"
   data-latitude="50.8033729"
   data-longitude="5.3334245"
+  data-location="Borgloon"
+  data-description="Stap in de hardloopschoenen van legendes en laat jouw sporen achter in de betoverende heuvels van Borgloon, de onbetwiste bakermat van snelh"
+  data-image-path="/looppaginas/loon_loopt/loon_loopt"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="7 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/loon_loopt/loon_loopt_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/loon_loopt/loon_loopt_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarLoon Loopt"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2634,7 +2885,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/kerkenloop_kortessem"
   class="race-card"
   data-name="Kerkenloop Kortessem"
@@ -2645,15 +2900,23 @@
   data-distance="1km, 2,5km, 5km, 5,6km, 13km, 13,5km, 13,9km"
   data-latitude="50.8582458"
   data-longitude="5.392275300000001"
+  data-location="Atletiekpiste Kortessem - Sportpark de Weyer"
+  data-description="De Kerkenloop is een van de mooiste loopwedstrijden in het najaar, met start en aankomst op de piste. Het parcours loopt door het glooiende "
+  data-image-path="/looppaginas/kerkenloop_kortessem/kerkenloop_kortessem"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="19 okt."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/kerkenloop_kortessem/kerkenloop_kortessem_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/kerkenloop_kortessem/kerkenloop_kortessem_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarKerkenloop Kortessem"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2741,7 +3004,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/bear_trail_grizzly_100"
   class="race-card"
   data-name="Bear Trail Grizzly 100"
@@ -2752,15 +3019,23 @@
   data-distance="16km, 25km, 39km, 58km, 83km, 100km"
   data-latitude="50.7587829"
   data-longitude="5.7611628"
+  data-location="'S-Gravenvoeren"
+  data-description="De Bear Trail Grizzly 100 is een uitdagende trailrun die plaatsvindt in de prachtige natuur van België, met verschillende afstanden zoals 10"
+  data-image-path="/looppaginas/bear_trail_grizzly_100/bear_trail_grizzly_100"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="25 okt."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/bear_trail_grizzly_100/bear_trail_grizzly_100_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/bear_trail_grizzly_100/bear_trail_grizzly_100_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarBear Trail Grizzly 100"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2787,7 +3062,7 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          'S Gravenvoeren 
+          'S-Gravenvoeren 
         </div>
       </div>
       <div class="right-container">
@@ -2840,7 +3115,7 @@
       </div>
     </div>
     <div class="race-summary">
-      De Bear Trail & Grizzly 100 is een adembenemende trailrace die eind oktober 2025 plaatsvindt in Voeren, Limburg, België. De race biedt versc...
+      De Bear Trail Grizzly 100 is een uitdagende trailrun die plaatsvindt in de prachtige natuur van België, met verschillende afstanden zoals 10...
     </div>
   </div>
   <div
@@ -2848,7 +3123,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/la_belle_hivernoise"
   class="race-card"
   data-name="LA BELLE HIVERNOISE"
@@ -2859,15 +3138,23 @@
   data-distance="1,5km, 3,8km, 12,7km, 22km"
   data-latitude="50.6112229"
   data-longitude="5.5872582"
+  data-location="Hall des Sports, rue Sous le Bois, 24031 Angleur, België"
+  data-description="La Belle Hivernoise is een hardloopwedstrijd die plaatsvindt op zondag 15 december 2024 in Angleur, België. De race biedt een unieke winters"
+  data-image-path="/looppaginas/la_belle_hivernoise/la_belle_hivernoise"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="21 dec."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/la_belle_hivernoise/la_belle_hivernoise_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/la_belle_hivernoise/la_belle_hivernoise_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarLA BELLE HIVERNOISE"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2951,9 +3238,10 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">van</span>
         <span id="total-events">Evenementen</span>
@@ -2975,17 +3263,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kaart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

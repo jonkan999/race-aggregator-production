@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender", "@type": "WebPage", "name": "Hardloopkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/steden", "@type": "WebPage", "name": "Steden"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/steden/diksmuide", "@type": "WebPage", "name": "Diksmuide"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://hardlooplijst.be/hardloopkalender/steden/diksmuide/millopp", "@type": "WebPage", "name": "Millopp"}, "position": 4}]}, "visual": [{"href": "/hardloopkalender", "name": "Hardloopkalender"}, {"href": "/hardloopkalender/steden/diksmuide", "name": "Steden: Diksmuide"}, {"href": "/hardloopkalender/steden/diksmuide/millopp", "name": "Millopp"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>Millopp in Diksmuide: Vind jouw volgende hardloopwedstrijd!</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Van:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Tot:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -625,7 +689,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     wedstrijd
@@ -638,18 +702,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kaart</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -658,7 +710,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Diksmuide&quot;, &quot;race_type&quot;: null, &quot;category&quot;: &quot;Millopp&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/fintro_run_corrida"
   class="race-card"
   data-name="Fintro Run Corrida"
@@ -669,15 +723,23 @@
   data-distance="5km, 10km"
   data-latitude="51.1500304"
   data-longitude="2.7624407"
+  data-location="Sporthal De Bamburg"
+  data-description="De Fintro Run Corrida Lombardsijde is een natuurrun die plaatsvindt op zaterdag 13 januari 2024 in Lombardsijde, deelgemeente van Middelkerk"
+  data-image-path="/looppaginas/fintro_run_corrida/fintro_run_corrida"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="11 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/fintro_run_corrida/fintro_run_corrida_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/fintro_run_corrida/fintro_run_corrida_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarFintro Run Corrida"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -698,7 +760,7 @@
       <div class="left-container">
         <h3 class="race-name">Fintro Run Corrida</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -709,7 +771,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -745,11 +807,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/tvv_palliatieve_kortemark"
   class="race-card"
   data-name="TVV Palliatieve Kortemark"
@@ -760,15 +825,23 @@
   data-distance="1,5km, 5km, 10km, 15km, 20km, 25km"
   data-latitude="51.0309454"
   data-longitude="3.0438624"
+  data-location="naast gemeentehuis Kortemark"
+  data-description="De TVV Palliatieve Kortemark is een trail run die plaatsvond op zondag 18 februari 2024 in Kortemark, België. Deze race biedt tal van kleine"
+  data-image-path="/looppaginas/tvv_palliatieve_kortemark/tvv_palliatieve_kortemark"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="16 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/tvv_palliatieve_kortemark/tvv_palliatieve_kortemark_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/tvv_palliatieve_kortemark/tvv_palliatieve_kortemark_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarTVV Palliatieve Kortemark"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -856,7 +929,8 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Geselecteerde Races</h2>
@@ -883,9 +957,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/fintro_run_corrida/fintro_run_corrida_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/fintro_run_corrida/fintro_run_corrida_1.webp"
         alt="Afbeelding naarFintro Run Corrida"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -950,9 +1026,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/tvv_palliatieve_kortemark/tvv_palliatieve_kortemark_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/tvv_palliatieve_kortemark/tvv_palliatieve_kortemark_1.webp"
         alt="Afbeelding naarTVV Palliatieve Kortemark"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1039,9 +1117,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/daiselrun_moorslede/daiselrun_moorslede_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/daiselrun_moorslede/daiselrun_moorslede_1.webp"
         alt="Afbeelding naarDaiselrun Moorslede"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1106,9 +1186,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/kust_trail_run/kust_trail_run_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/kust_trail_run/kust_trail_run_1.webp"
         alt="Afbeelding naarKust Trail Run"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1179,9 +1261,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/north_c_trail/north_c_trail_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/north_c_trail/north_c_trail_1.webp"
         alt="Afbeelding naarNorth C Trail"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1248,7 +1332,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/daiselrun_moorslede"
   class="race-card"
   data-name="Daiselrun Moorslede"
@@ -1259,15 +1346,23 @@
   data-distance="6km, 12,5km"
   data-latitude="50.8664292"
   data-longitude="3.0850644"
+  data-location="GC d' Oude Schole - Strobomestraat 11a"
+  data-description="Sinds 2022 vindt de Daiselrun plaats in het landelijke Slypskapelle, Moorslede! De eerste wedstrijd start om 13h45 en het programma omvat je"
+  data-image-path="/looppaginas/daiselrun_moorslede/daiselrun_moorslede"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="1 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/daiselrun_moorslede/daiselrun_moorslede_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/daiselrun_moorslede/daiselrun_moorslede_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarDaiselrun Moorslede"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1288,7 +1383,7 @@
       <div class="left-container">
         <h3 class="race-name">Daiselrun Moorslede</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1299,7 +1394,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1335,11 +1430,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/kust_trail_run"
   class="race-card"
   data-name="Kust Trail Run"
@@ -1350,15 +1449,23 @@
   data-distance="5,5km, 10km, half marathon"
   data-latitude="51.2322346"
   data-longitude="2.9360329"
+  data-location="Hendrik Baelskaai (begin van de kaai)"
+  data-description="De Kust Trail Run is een hardloop evenement dat plaatsvindt aan de Oosteroever van Oostende op zondag 2 maart 2025. De deelnemers kunnen kie"
+  data-image-path="/looppaginas/kust_trail_run/kust_trail_run"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="2 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/kust_trail_run/kust_trail_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/kust_trail_run/kust_trail_run_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarKust Trail Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1436,7 +1543,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/north_c_trail"
   class="race-card"
   data-name="North C Trail"
@@ -1447,15 +1558,23 @@
   data-distance="13km, 22km, 31km, 40km"
   data-latitude="51.1203111"
   data-longitude="2.6336328"
+  data-location="Eugenie Terlinckplein, 8670 Koksijde"
+  data-description="Reeds voor de 11de keer zijn we te vinden op de zeedijk te Koksijde voor een nieuwe editie van de Runners' Lab North C Trail. Op 9 maart 202"
+  data-image-path="/looppaginas/north_c_trail/north_c_trail"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="9 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/north_c_trail/north_c_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/north_c_trail/north_c_trail_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarNorth C Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1539,7 +1658,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/presto_trail_run"
   class="race-card"
   data-name="Presto Trail Run"
@@ -1550,15 +1673,23 @@
   data-distance="0,5km, 7,5km, 12,5km, 20km"
   data-latitude="51.0789257"
   data-longitude="3.0593517"
+  data-location="Kasteel van Wijnendale"
+  data-description="De Presto Trail Run vindt plaats op zaterdag 16 maart 2024 te Torhout, België, en markeert de transformatie van de traditionele Presto-Loop "
+  data-image-path="/looppaginas/presto_trail_run/presto_trail_run"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="15 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/presto_trail_run/presto_trail_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/presto_trail_run/presto_trail_run_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarPresto Trail Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1642,7 +1773,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/lenteloop_oudenburg"
   class="race-card"
   data-name="Lenteloop Oudenburg"
@@ -1653,15 +1788,23 @@
   data-distance="5km, 10km"
   data-latitude="51.182154"
   data-longitude="3.0088659"
+  data-location="Sporthal Ter Beke, Bekestraat 168"
+  data-description="De 19de Lenteloop Oudenburg vindt plaats op zaterdag 15 maart 2025 en wordt georganiseerd door de sportdienst in samenwerking met de sportra"
+  data-image-path="/looppaginas/lenteloop_oudenburg/lenteloop_oudenburg"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="15 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/lenteloop_oudenburg/lenteloop_oudenburg_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/lenteloop_oudenburg/lenteloop_oudenburg_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarLenteloop Oudenburg"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1682,7 +1825,7 @@
       <div class="left-container">
         <h3 class="race-name">Lenteloop Oudenburg</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1693,7 +1836,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1729,11 +1872,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/cogge_geeraert_halve_marathon"
   class="race-card"
   data-name="Cogge Geeraert Halve Marathon"
@@ -1744,15 +1891,23 @@
   data-distance="half marathon, marathon"
   data-latitude="51.0720716"
   data-longitude="2.6618861"
+  data-location="Grote Markt, Veurne"
+  data-description="De Cogge Geeraert Halve Marathon leidt je van de Grote Markt in Veurne naar het Marktplein in Nieuwpoort. Je loopt langs het kanaal Veurne –"
+  data-image-path="/looppaginas/cogge_geeraert_halve_marathon/cogge_geeraert_halve_marathon"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="16 maart"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/cogge_geeraert_halve_marathon/cogge_geeraert_halve_marathon_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/cogge_geeraert_halve_marathon/cogge_geeraert_halve_marathon_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarCogge Geeraert Halve Marathon"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1773,7 +1928,7 @@
       <div class="left-container">
         <h3 class="race-name">Cogge Geeraert Halve Marathon</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1784,7 +1939,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1820,11 +1975,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/eernegemse_kasseiloop"
   class="race-card"
   data-name="Eernegemse Kasseiloop"
@@ -1835,15 +1994,23 @@
   data-distance="5km, 10km"
   data-latitude="51.1332268"
   data-longitude="3.0357451"
+  data-location="Kruispunt Bruggestraat - Belleboslaan"
+  data-description="De 20ste Eernegemse Kasseiloop vindt plaats op Paasmaandag 21 april 2025, met diverse loopafstanden voor alle leeftijden, waaronder een kleu"
+  data-image-path="/looppaginas/eernegemse_kasseiloop/eernegemse_kasseiloop"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="21 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/eernegemse_kasseiloop/eernegemse_kasseiloop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/eernegemse_kasseiloop/eernegemse_kasseiloop_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarEernegemse Kasseiloop"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1864,7 +2031,7 @@
       <div class="left-container">
         <h3 class="race-name">Eernegemse Kasseiloop</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1875,7 +2042,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1911,11 +2078,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/port_oostende_charity_run"
   class="race-card"
   data-name="Port Oostende Charity Run"
@@ -1926,15 +2097,23 @@
   data-distance="4km, 8km, 12km"
   data-latitude="51.2262681"
   data-longitude="2.9313562"
+  data-location="Havengebied Oostende"
+  data-description="Op zaterdag 4 mei 2024 zal de tweede editie van de Port Oostende Charity Run plaatsvinden. Individueel of in teams van maximaal 3 personen ("
+  data-image-path="/looppaginas/port_oostende_charity_run/port_oostende_charity_run"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="3 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/port_oostende_charity_run/port_oostende_charity_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/port_oostende_charity_run/port_oostende_charity_run_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarPort Oostende Charity Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1961,7 +2140,7 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Havengebied van Oostende 
+          Havengebied Oostende 
         </div>
       </div>
       <div class="right-container">
@@ -2004,7 +2183,7 @@
       </div>
     </div>
     <div class="race-summary">
-      Port Oostende organiseert de Port Oostende Charity Run ten behoeve van 4Brain, een non-profitorganisatie die zich richt op het informeren va...
+      Op zaterdag 4 mei 2024 zal de tweede editie van de Port Oostende Charity Run plaatsvinden. Individueel of in teams van maximaal 3 personen (...
     </div>
   </div>
   <div
@@ -2012,7 +2191,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/dwars_over_de_mandel"
   class="race-card"
   data-name="Dwars over de Mandel"
@@ -2023,15 +2206,23 @@
   data-distance="1km, 1,3km, 3,5km, 10km"
   data-latitude="50.94280999999999"
   data-longitude="3.1247575"
+  data-location="Zuidstraat 27, Klein Seminarie Roeselare"
+  data-description="Op vrijdagavond 9 mei 2025 kan je opnieuw meelopen in de nieuwe editie Dwars over de Mandel, de beproefde stratenloop door Roeselare, sporti"
+  data-image-path="/looppaginas/dwars_over_de_mandel/dwars_over_de_mandel"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="9 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/dwars_over_de_mandel/dwars_over_de_mandel_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/dwars_over_de_mandel/dwars_over_de_mandel_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarDwars over de Mandel"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2115,7 +2306,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/sint_andreasloop"
   class="race-card"
   data-name="Sint Andreasloop"
@@ -2126,15 +2321,23 @@
   data-distance="6,6km, 9,9km"
   data-latitude="51.2032338"
   data-longitude="2.9095004"
+  data-location="Sint Andreasinstituut"
+  data-description="Sint Andreasloop is een loopwedstrijd die plaatsvindt op 23 mei 2025 in Oostende. De start en finish bevinden zich in het Sint Andreasinstit"
+  data-image-path="/looppaginas/sint_andreasloop/sint_andreasloop"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="23 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/sint_andreasloop/sint_andreasloop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/sint_andreasloop/sint_andreasloop_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarSint Andreasloop"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2155,7 +2358,7 @@
       <div class="left-container">
         <h3 class="race-name">Sint Andreasloop</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2166,7 +2369,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2202,11 +2405,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/heuvelland_wine_trail"
   class="race-card"
   data-name="Heuvelland Wine Trail"
@@ -2214,18 +2421,26 @@
   data-county="Ieper"
   data-category=""
   data-race-type="Trail"
-  data-distance="9km, 20km, 29km"
-  data-latitude="50.7971484"
-  data-longitude="2.7464372"
+  data-distance="10km, 20km, 30km"
+  data-latitude="50.7848555"
+  data-longitude="2.7589538"
+  data-location="Rodebergstraat 69A8954 Westouter België"
+  data-description="De Heuvelland Wine Trail is een uitdagend hardloopevenement dat plaatsvindt op 2 juni 2024 in Westouter, België. De race biedt afstanden van"
+  data-image-path="/looppaginas/heuvelland_wine_trail/heuvelland_wine_trail"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="24 mei"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/heuvelland_wine_trail/heuvelland_wine_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/heuvelland_wine_trail/heuvelland_wine_trail_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarHeuvelland Wine Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2252,7 +2467,7 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Westouter 
+          Rodebergstraat 69A8954 Westouter België 
         </div>
       </div>
       <div class="right-container">
@@ -2266,7 +2481,7 @@
               
             <div class="distance-item">
               <span class="race-distance">
-                9 km
+                10 km
               </span>
             </div>
             
@@ -2278,7 +2493,7 @@
             
             <div class="distance-item">
               <span class="race-distance">
-                29 km
+                30 km
               </span>
             </div>
               
@@ -2295,7 +2510,7 @@
       </div>
     </div>
     <div class="race-summary">
-      De Heuvelland Entre Deux Monts Wine Trail is een uitdagend hardloopevenement dat deelnemers meeneemt door de schilderachtige wijngaarden van...
+      De Heuvelland Wine Trail is een uitdagend hardloopevenement dat plaatsvindt op 2 juni 2024 in Westouter, België. De race biedt afstanden van...
     </div>
   </div>
   <div
@@ -2303,7 +2518,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/dwars_door_zilten"
   class="race-card"
   data-name="Dwars Door Zilten"
@@ -2314,15 +2533,23 @@
   data-distance="3,5km, 10,5km"
   data-latitude="50.95714599999999"
   data-longitude="3.0979729"
+  data-location="Openbaar Centrum Sint-Idesbald De Zilten 52"
+  data-description="De 37ste Dwars door de Zilten vindt plaats in Roeselare op woensdag 29 mei 2024. Deze jaarlijkse loopwedstrijd, georganiseerd door het OC Si"
+  data-image-path="/looppaginas/dwars_door_zilten/dwars_door_zilten"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="4 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/dwars_door_zilten/dwars_door_zilten_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/dwars_door_zilten/dwars_door_zilten_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarDwars Door Zilten"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2343,7 +2570,7 @@
       <div class="left-container">
         <h3 class="race-name">Dwars Door Zilten</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2354,7 +2581,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2390,11 +2617,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/oostendeloop"
   class="race-card"
   data-name="Oostendeloop"
@@ -2405,15 +2636,23 @@
   data-distance="1km, 3,8km, 5km, 7km, 7,6km, 10km, 11,4km, 14km, half marathon"
   data-latitude="51.2224169"
   data-longitude="2.9136681"
+  data-location="AZ Oostende afdeling Serruys ter hoogte van de Koningelaan"
+  data-description="Kom de unieke sfeer meebeleven tijdens de zomerse strandloop op het sportstrand van Oostende en schrijf je in voor 5 km of 10 km. Voor de jo"
+  data-image-path="/looppaginas/oostendeloop/oostendeloop"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="6 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/oostendeloop/oostendeloop_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/oostendeloop/oostendeloop_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarOostendeloop"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2501,7 +2740,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/zesheuveltjesloop_18de"
   class="race-card"
   data-name="Zesheuveltjesloop 18de"
@@ -2512,15 +2755,23 @@
   data-distance="10,5km"
   data-latitude="50.8153861"
   data-longitude="3.0174227"
+  data-location="kantine Sparta Kruiseke, Tabakstraat 8940 Wervik"
+  data-description="De 18de Zesheuveltjesloop vindt plaats op vrijdagavond 6 juni 2025 om 19:30 uur in Sparta Kruiseke, Wervik. Zoals de naam al doet vermoeden,"
+  data-image-path="/looppaginas/zesheuveltjesloop_18de/zesheuveltjesloop_18de"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="6 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/zesheuveltjesloop_18de/zesheuveltjesloop_18de_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/zesheuveltjesloop_18de/zesheuveltjesloop_18de_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarZesheuveltjesloop 18de"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2541,7 +2792,7 @@
       <div class="left-container">
         <h3 class="race-name">Zesheuveltjesloop 18de</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2552,7 +2803,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2582,11 +2833,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/hermesloop_oostende"
   class="race-card"
   data-name="Hermesloop Oostende"
@@ -2597,15 +2852,23 @@
   data-distance="5km, 10km"
   data-latitude="51.2055973"
   data-longitude="2.904439"
+  data-location="Jozef Verhellestadion, Torhoutsesteenweg 584, Oostende"
+  data-description="De Hermesloop vindt plaats op 30 augustus 2025, met start en finish in het Jozef Verhelle stadion, gelegen aan de Torhoutsesteenweg 584 in O"
+  data-image-path="/looppaginas/hermesloop_oostende/hermesloop_oostende"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="30 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/hermesloop_oostende/hermesloop_oostende_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/hermesloop_oostende/hermesloop_oostende_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarHermesloop Oostende"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2626,7 +2889,7 @@
       <div class="left-container">
         <h3 class="race-name">Hermesloop Oostende</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2637,7 +2900,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2673,11 +2936,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/kemmelberg_trail"
   class="race-card"
   data-name="Kemmelberg Trail"
@@ -2688,15 +2955,23 @@
   data-distance="5km, 7km, 10km, 12km, 20km, half marathon, 28km, 29km, 32km"
   data-latitude="50.7832795"
   data-longitude="2.8286179"
+  data-location="Kemmel"
+  data-description="Op Zaterdag 9 september trekken we naar het West-Vlaamse Heuvelland voor de 4de editie van de Kemmelberg Trail. Deze uitdagende en prachtige"
+  data-image-path="/looppaginas/kemmelberg_trail/kemmelberg_trail"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="6 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/kemmelberg_trail/kemmelberg_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/kemmelberg_trail/kemmelberg_trail_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarKemmelberg Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2784,7 +3059,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/in_flanders_fields_marathon"
   class="race-card"
   data-name="In Flanders Fields Marathon"
@@ -2795,15 +3074,23 @@
   data-distance="marathon"
   data-latitude="51.0317365"
   data-longitude="2.8638919"
+  data-location="Markt van Diksmuide"
+  data-description="De "In Flanders Fields-marathon" vindt plaats op zondag 15 september 2024 en loopt van Diksmuide naar Ieper, met de start op de markt van Di"
+  data-image-path="/looppaginas/in_flanders_fields_marathon/in_flanders_fields_marathon"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="21 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/in_flanders_fields_marathon/in_flanders_fields_marathon_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/in_flanders_fields_marathon/in_flanders_fields_marathon_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarIn Flanders Fields Marathon"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2824,7 +3111,7 @@
       <div class="left-container">
         <h3 class="race-name">In Flanders Fields Marathon</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2835,7 +3122,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2865,11 +3152,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/nieuwpoort_marathon_de_l_ourthe"
   class="race-card"
   data-name="Nieuwpoort Marathon de l'Ourthe"
@@ -2880,15 +3171,23 @@
   data-distance="5km, 10km, marathon"
   data-latitude="51.1336433"
   data-longitude="2.7489987"
+  data-location="Vismijn Van Nieuwpoort, Kaaiplein 28620, Nieuwpoort"
+  data-description="De Nieuwpoort Marathon markeert de afsluiting van het Long Course Weekend Belgium, waardoor het een echt internationaal evenement is. Het pa"
+  data-image-path="/looppaginas/nieuwpoort_marathon_de_l_ourthe/nieuwpoort_marathon_de_l_ourthe"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="28 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/nieuwpoort_marathon_de_l_ourthe/nieuwpoort_marathon_de_l_ourthe_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/nieuwpoort_marathon_de_l_ourthe/nieuwpoort_marathon_de_l_ourthe_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarNieuwpoort Marathon de l'Ourthe"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2966,7 +3265,11 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/looppaginas/olgo_run_oostende"
   class="race-card"
   data-name="OLGO Run Oostende"
@@ -2977,15 +3280,23 @@
   data-distance="3,5km, 7km, 10,5km"
   data-latitude="51.2158599"
   data-longitude="2.9094439"
+  data-location="OLGO Gerststraat Gerstraat 109, 8400 Oostende"
+  data-description="OLGO Run Oostende vindt plaats op vrijdag 6 oktober 2023 in Oostende, België. De race biedt verschillende afstanden, waaronder een kidsrun v"
+  data-image-path="/looppaginas/olgo_run_oostende/olgo_run_oostende"
+  data-type="road"
+  data-type-display="Wegwedstrijd"
+  data-date-display="3 okt."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/looppaginas/olgo_run_oostende/olgo_run_oostende_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/looppaginas/olgo_run_oostende/olgo_run_oostende_1.webp"
+        width="600"
+        height="400"
         alt="Afbeelding naarOLGO Run Oostende"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -3063,9 +3374,10 @@
   >
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">van</span>
         <span id="total-events">Evenementen</span>
@@ -3087,17 +3399,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kaart</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>
