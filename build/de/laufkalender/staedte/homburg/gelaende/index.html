@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://laufrennen.de/laufkalender", "@type": "WebPage", "name": "Laufkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://laufrennen.de/laufkalender/staedte", "@type": "WebPage", "name": "St\u00e4dte"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://laufrennen.de/laufkalender/staedte/homburg", "@type": "WebPage", "name": "Homburg"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://laufrennen.de/laufkalender/staedte/homburg/gelaende", "@type": "WebPage", "name": "Gel\u00e4nde"}, "position": 4}]}, "visual": [{"href": "/laufkalender", "name": "Laufkalender"}, {"href": "/laufkalender/staedte/homburg", "name": "St\u00e4dte: Homburg"}, {"href": "/laufkalender/staedte/homburg/gelaende", "name": "Gel\u00e4nde"}]}
@@ -15,6 +16,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -22,24 +24,48 @@
     />
     <title>Laufwettbewerbe in Homburg: Gelände-Läufe im Laufkalender</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -48,26 +74,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -320,10 +384,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Von:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Bis:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -578,7 +642,7 @@
   </nav>
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     Rennen
@@ -591,18 +655,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Karte</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -611,7 +663,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Homburg&quot;, &quot;race_type&quot;: &quot;Gel\u00e4nde&quot;, &quot;category&quot;: null}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/oie_nahe_crosslauf"
   class="race-card"
   data-name="OIE-Nahe-Crosslauf"
@@ -622,15 +676,23 @@
   data-distance="3,2km"
   data-latitude="49.7150382"
   data-longitude="7.179337899999999"
+  data-location="Sportplatz Schwollen"
+  data-description="Der 2. Lauf der 15. OIE Nahe-Crosslauf-Serie findet am 23. November 2024 in Schwollen statt. Die Laufstrecke führt über Waldwege, die gut mi"
+  data-image-path="/Rennseiten/oie_nahe_crosslauf/oie_nahe_crosslauf"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="25 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/oie_nahe_crosslauf/oie_nahe_crosslauf_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/oie_nahe_crosslauf/oie_nahe_crosslauf_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuOIE-Nahe-Crosslauf"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -651,7 +713,7 @@
       <div class="left-container">
         <h3 class="race-name">OIE-Nahe-Crosslauf</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -662,7 +724,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -692,11 +754,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/kaltenstein_crosslauf"
   class="race-card"
   data-name="Kaltenstein Crosslauf"
@@ -707,15 +772,23 @@
   data-distance="4km, 6km, 10km"
   data-latitude="49.4447122"
   data-longitude="6.8999406"
+  data-location="Sportplatz Lebach"
+  data-description="Der Kaltenstein-Crosslauf wurde vom Januar auf den März verlegt und findet in Lebach statt. Bei guten Laufbedingungen und relativ warmen Tem"
+  data-image-path="/Rennseiten/kaltenstein_crosslauf/kaltenstein_crosslauf"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="26 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/kaltenstein_crosslauf/kaltenstein_crosslauf_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/kaltenstein_crosslauf/kaltenstein_crosslauf_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuKaltenstein Crosslauf"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -793,7 +866,8 @@
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Ausgewählte Rennen</h2>
@@ -820,9 +894,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/oie_nahe_crosslauf/oie_nahe_crosslauf_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/oie_nahe_crosslauf/oie_nahe_crosslauf_1.webp"
         alt="Bild zuOIE-Nahe-Crosslauf"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -881,9 +957,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/kaltenstein_crosslauf/kaltenstein_crosslauf_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/kaltenstein_crosslauf/kaltenstein_crosslauf_1.webp"
         alt="Bild zuKaltenstein Crosslauf"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -954,9 +1032,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/oie_crosslaufserie/oie_crosslaufserie_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/oie_crosslaufserie/oie_crosslaufserie_1.webp"
         alt="Bild zuOIE Crosslaufserie"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1005,7 +1085,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/oie_crosslaufserie"
   class="race-card"
   data-name="OIE Crosslaufserie"
@@ -1016,15 +1099,23 @@
   data-distance="3,2km"
   data-latitude="49.70567699999999"
   data-longitude="7.1742678"
+  data-location="Schwollen"
+  data-description="Der 2. Lauf der 15. OIE Nahe-Crosslauf-Serie findet am 23. November 2024 in Schwollen statt. Die Laufstrecke führt über Waldwege und ist gut"
+  data-image-path="/Rennseiten/oie_crosslaufserie/oie_crosslaufserie"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="8 Feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/oie_crosslaufserie/oie_crosslaufserie_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/oie_crosslaufserie/oie_crosslaufserie_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuOIE Crosslaufserie"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1045,7 +1136,7 @@
       <div class="left-container">
         <h3 class="race-name">OIE Crosslaufserie</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1056,7 +1147,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1086,13 +1177,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">von</span>
         <span id="total-events">Läufe</span>
@@ -1114,17 +1206,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Karte</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

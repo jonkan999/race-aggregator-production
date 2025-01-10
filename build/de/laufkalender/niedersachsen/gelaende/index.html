@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://laufrennen.de/laufkalender", "@type": "WebPage", "name": "Laufkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://laufrennen.de/laufkalender/niedersachsen", "@type": "WebPage", "name": "Niedersachsen"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://laufrennen.de/laufkalender/niedersachsen/gelaende", "@type": "WebPage", "name": "Gel\u00e4nde"}, "position": 3}]}, "visual": [{"href": "/laufkalender", "name": "Laufkalender"}, {"href": "/laufkalender/niedersachsen", "name": "Niedersachsen"}, {"href": "/laufkalender/niedersachsen/gelaende", "name": "Gel\u00e4nde"}]}
@@ -15,6 +16,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -22,24 +24,48 @@
     />
     <title>Laufkalender Niedersachsen: Gelände-Laufwettbewerbe finden</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -48,26 +74,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -320,10 +384,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Von:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Bis:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -590,7 +654,7 @@
   </nav>
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     Rennen
@@ -603,18 +667,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Karte</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -623,7 +675,9 @@
       data-preselected-filters="{&quot;category&quot;: null, &quot;county&quot;: &quot;Niedersachsen&quot;, &quot;race_type&quot;: &quot;Gel\u00e4nde&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/gottinger_cross_serie_3_lauf"
   class="race-card"
   data-name="Göttinger Cross-Serie 3. Lauf"
@@ -634,15 +688,23 @@
   data-distance="0,9km, 1,8km, 5km, 10km"
   data-latitude="51.5192509"
   data-longitude="9.926678599999999"
+  data-location="Jahnstadion Göttingen"
+  data-description="Die 61. Göttinger Cross-Serie (3. Lauf) findet am Samstag, den 11. Januar 2025, im Jahnstadion Göttingen statt. Diese Veranstaltung wird vom"
+  data-image-path="/Rennseiten/gottinger_cross_serie_3_lauf/gottinger_cross_serie_3_lauf"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="11 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/gottinger_cross_serie_3_lauf/gottinger_cross_serie_3_lauf_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/gottinger_cross_serie_3_lauf/gottinger_cross_serie_3_lauf_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuGöttinger Cross-Serie 3. Lauf"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -726,7 +788,10 @@
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/kreismeisterschaften_crosslauf"
   class="race-card"
   data-name="Kreismeisterschaften Crosslauf"
@@ -737,15 +802,23 @@
   data-distance=""
   data-latitude="52.4080279"
   data-longitude="10.9408887"
+  data-location="Velpke"
+  data-description="Die Kreismeisterschaften Crosslauf 2024 finden am Samstag, den 17. Februar 2024, in Velpke statt und werden vom Helmstedt organisiert. Die L"
+  data-image-path="/Rennseiten/kreismeisterschaften_crosslauf/kreismeisterschaften_crosslauf"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="11 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/kreismeisterschaften_crosslauf/kreismeisterschaften_crosslauf_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/kreismeisterschaften_crosslauf/kreismeisterschaften_crosslauf_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuKreismeisterschaften Crosslauf"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -811,7 +884,8 @@
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Ausgewählte Rennen</h2>
@@ -838,9 +912,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/gottinger_cross_serie_3_lauf/gottinger_cross_serie_3_lauf_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/gottinger_cross_serie_3_lauf/gottinger_cross_serie_3_lauf_1.webp"
         alt="Bild zuGöttinger Cross-Serie 3. Lauf"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -917,9 +993,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/kreismeisterschaften_crosslauf/kreismeisterschaften_crosslauf_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/kreismeisterschaften_crosslauf/kreismeisterschaften_crosslauf_1.webp"
         alt="Bild zuKreismeisterschaften Crosslauf"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -978,9 +1056,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/sandkruger_schleife/sandkruger_schleife_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/sandkruger_schleife/sandkruger_schleife_1.webp"
         alt="Bild zuSandkruger Schleife"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1051,9 +1131,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/krahen_cross/krahen_cross_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/krahen_cross/krahen_cross_1.webp"
         alt="Bild zuKrähen-Cross"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1124,9 +1206,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/auricher_crosslauf/auricher_crosslauf_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/auricher_crosslauf/auricher_crosslauf_1.webp"
         alt="Bild zuAuricher Crosslauf"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1187,7 +1271,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/sandkruger_schleife"
   class="race-card"
   data-name="Sandkruger Schleife"
@@ -1198,15 +1285,23 @@
   data-distance="1km, 5km, 13km"
   data-latitude="53.0583323"
   data-longitude="8.2471814"
+  data-location="Sportzentrum Schultredde"
+  data-description="Herzlich Willkommen zur 28. Auflage der Sandkruger Schleife! Am Sonntag, den 12. Januar 2025, freuen wir uns darauf, zahlreiche Läuferinnen "
+  data-image-path="/Rennseiten/sandkruger_schleife/sandkruger_schleife"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="12 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/sandkruger_schleife/sandkruger_schleife_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/sandkruger_schleife/sandkruger_schleife_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuSandkruger Schleife"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1284,7 +1379,11 @@
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/krahen_cross"
   class="race-card"
   data-name="Krähen-Cross"
@@ -1295,15 +1394,23 @@
   data-distance="5,1km, 10,2km, 15,3km"
   data-latitude="52.6380924"
   data-longitude="9.2084155"
+  data-location="Nienburger Waldgebiet "Krähe""
+  data-description="Start der Volkslaufsaison im Nienburger Waldgebiet "Krähe" - Anmeldung für Läufer ist ab sofort möglich. Am 21. Januar 2024 werden verschied"
+  data-image-path="/Rennseiten/krahen_cross/krahen_cross"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="19 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/krahen_cross/krahen_cross_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/krahen_cross/krahen_cross_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuKrähen-Cross"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1381,7 +1488,11 @@
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/auricher_crosslauf"
   class="race-card"
   data-name="Auricher Crosslauf"
@@ -1392,15 +1503,23 @@
   data-distance="1,5km, 5km, 10km"
   data-latitude="53.476406"
   data-longitude="7.5217179"
+  data-location="Aurich-Wallinghausen"
+  data-description="Der Auricher Crosslauf findet am Samstag, den 25. Januar 2025, in Aurich-Wallinghausen, Hoheberger Weg 165, bei der Gaststätte "Mutter Janss"
+  data-image-path="/Rennseiten/auricher_crosslauf/auricher_crosslauf"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="25 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/auricher_crosslauf/auricher_crosslauf_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/auricher_crosslauf/auricher_crosslauf_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuAuricher Crosslauf"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1478,7 +1597,11 @@
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/silbersee_crosslauf"
   class="race-card"
   data-name="Silbersee Crosslauf"
@@ -1489,15 +1612,23 @@
   data-distance="1,5km, 2,6km, 5,8km"
   data-latitude="53.306255"
   data-longitude="7.620229699999999"
+  data-location="Silbersee im Heseler Wald"
+  data-description="Der 44. Ostfriesland-Crosslauf findet am Samstag, dem 02. März 2024, am Silbersee im Heseler Wald (L24 Hesel-Remels) statt. Der Start erfolg"
+  data-image-path="/Rennseiten/silbersee_crosslauf/silbersee_crosslauf"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="2 Feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/silbersee_crosslauf/silbersee_crosslauf_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/silbersee_crosslauf/silbersee_crosslauf_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuSilbersee Crosslauf"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1575,7 +1706,11 @@
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/kreismeisterschaften_crosslauf_2"
   class="race-card"
   data-name="Kreismeisterschaften Crosslauf"
@@ -1586,15 +1721,23 @@
   data-distance=""
   data-latitude="52.4080279"
   data-longitude="10.9408887"
+  data-location="Velpke"
+  data-description="Die Kreismeisterschaften Crosslauf 2024 finden am Samstag, den 17. Februar 2024, in Velpke statt und werden vom Helmstedt veranstaltet. Die "
+  data-image-path="/Rennseiten/kreismeisterschaften_crosslauf_2/kreismeisterschaften_crosslauf_2"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="8 Feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/kreismeisterschaften_crosslauf_2/kreismeisterschaften_crosslauf_2_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/kreismeisterschaften_crosslauf_2/kreismeisterschaften_crosslauf_2_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuKreismeisterschaften Crosslauf"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1660,7 +1803,11 @@
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/harlingerland_cross_waldlauf"
   class="race-card"
   data-name="Harlingerland Cross-Waldlauf"
@@ -1671,15 +1818,23 @@
   data-distance="2,4km, 4,8km, 4,9km, 9,6km, 9,8km"
   data-latitude="53.6077643"
   data-longitude="7.5870234"
+  data-location="Moorweg/Esens"
+  data-description="Der 38. RVB Harlingerland Cross-Waldlauf findet am 17. Februar 2024 im Schafhauser Wald nahe Esens statt. Aufgrund der Wetterlage musste die"
+  data-image-path="/Rennseiten/harlingerland_cross_waldlauf/harlingerland_cross_waldlauf"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="15 Feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/harlingerland_cross_waldlauf/harlingerland_cross_waldlauf_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/harlingerland_cross_waldlauf/harlingerland_cross_waldlauf_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuHarlingerland Cross-Waldlauf"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1767,7 +1922,11 @@
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/nlv_blv_meisterschaft_cross"
   class="race-card"
   data-name="NLV BLV Meisterschaft Cross"
@@ -1778,15 +1937,23 @@
   data-distance="3,5km, 6,7km"
   data-latitude="52.9851263"
   data-longitude="10.7627547"
+  data-location="Rosche"
+  data-description="Die NLV BLV Meisterschaft Cross findet am Sonntag, den 18. Februar 2024, in Rosche auf der Sportanlage Schulstraße statt. Dieser herausforde"
+  data-image-path="/Rennseiten/nlv_blv_meisterschaft_cross/nlv_blv_meisterschaft_cross"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="16 Feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/nlv_blv_meisterschaft_cross/nlv_blv_meisterschaft_cross_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/nlv_blv_meisterschaft_cross/nlv_blv_meisterschaft_cross_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuNLV BLV Meisterschaft Cross"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1807,7 +1974,7 @@
       <div class="left-container">
         <h3 class="race-name">NLV BLV Meisterschaft Cross</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1818,7 +1985,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1854,11 +2021,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/ostfriesland_crosslauf"
   class="race-card"
   data-name="Ostfriesland Crosslauf"
@@ -1869,15 +2040,23 @@
   data-distance="1,5km, 2,6km, 5,8km, 11,4km"
   data-latitude="53.306255"
   data-longitude="7.620229699999999"
+  data-location="Silbersee im Heseler Wald"
+  data-description="Der 44. Ostfriesland-Crosslauf findet am Samstag, dem 02. März 2024, in Hesel statt und wird vom SV Holtland e.V. 1961 organisiert. Die Vera"
+  data-image-path="/Rennseiten/ostfriesland_crosslauf/ostfriesland_crosslauf"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="22 Feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/ostfriesland_crosslauf/ostfriesland_crosslauf_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/ostfriesland_crosslauf/ostfriesland_crosslauf_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuOstfriesland Crosslauf"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1961,7 +2140,11 @@
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/oste_cup_crosslauf"
   class="race-card"
   data-name="Oste-Cup Crosslauf"
@@ -1972,15 +2155,23 @@
   data-distance=""
   data-latitude="53.2939692"
   data-longitude="9.2759477"
+  data-location="Zeven"
+  data-description="Der Oste-Cup Lauf 3 Crosslauf um den Bahberg findet am Sonntag, den 10. März 2024 in Zeven statt und wird vom TuS Zeven veranstaltet sowie a"
+  data-image-path="/Rennseiten/oste_cup_crosslauf/oste_cup_crosslauf"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="23 Feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/oste_cup_crosslauf/oste_cup_crosslauf_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/oste_cup_crosslauf/oste_cup_crosslauf_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuOste-Cup Crosslauf"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2046,7 +2237,11 @@
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/Rennseiten/bothfelder_crosslauf"
   class="race-card"
   data-name="Bothfelder Crosslauf"
@@ -2057,15 +2252,23 @@
   data-distance="2,8km"
   data-latitude="52.4193242"
   data-longitude="9.8035365"
+  data-location="Sportplatz in Bothfeld"
+  data-description="Im Jahr 2025 richtet der TuS Bothfeld seinen 10. Bothfelder Crosslauf aus! Die Läufe beginnen in der Nähe des Sportplatzes und enden auf dem"
+  data-image-path="/Rennseiten/bothfelder_crosslauf/bothfelder_crosslauf"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="1 März"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/Rennseiten/bothfelder_crosslauf/bothfelder_crosslauf_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/bothfelder_crosslauf/bothfelder_crosslauf_1.webp"
+        width="600"
+        height="400"
         alt="Bild zuBothfelder Crosslauf"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2086,7 +2289,7 @@
       <div class="left-container">
         <h3 class="race-name">Bothfelder Crosslauf</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2097,7 +2300,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2127,13 +2330,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">von</span>
         <span id="total-events">Läufe</span>
@@ -2155,17 +2359,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Karte</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>
