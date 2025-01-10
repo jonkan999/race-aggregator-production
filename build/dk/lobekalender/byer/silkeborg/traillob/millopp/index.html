@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender", "@type": "WebPage", "name": "L\u00f8bekalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer", "@type": "WebPage", "name": "Byer"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer/silkeborg", "@type": "WebPage", "name": "Silkeborg"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer/silkeborg/traillob", "@type": "WebPage", "name": "Traill\u00f8b"}, "position": 4}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer/silkeborg/traillob/millopp", "@type": "WebPage", "name": "Millopp"}, "position": 5}]}, "visual": [{"href": "/lobekalender", "name": "L\u00f8bekalender"}, {"href": "/lobekalender/byer/silkeborg", "name": "Byer: Silkeborg"}, {"href": "/lobekalender/byer/silkeborg/traillob", "name": "Traill\u00f8b"}, {"href": "/lobekalender/byer/silkeborg/traillob/millopp", "name": "Millopp"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>Millopp Trailløb i Silkeborg: Find dit næste løb i løbskalenderen</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Fra:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Til:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -564,7 +628,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     løb
@@ -577,18 +641,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kort</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -597,7 +649,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Silkeborg&quot;, &quot;race_type&quot;: &quot;Traill\u00f8b&quot;, &quot;category&quot;: &quot;Millopp&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/brownbear_5k"
   class="race-card"
   data-name="BrownBear 5k"
@@ -608,15 +662,23 @@
   data-distance="5km"
   data-latitude="56.26392"
   data-longitude="9.501785"
+  data-location="Summit West Base area"
+  data-description="BrownBear 5k er en spændende løboplevelse, der starter og slutter ved Summit West Base området. Ruten byder på en naturskøn blanding af sing"
+  data-image-path="/løbsider/brownbear_5k/brownbear_5k"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="18 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/brownbear_5k/brownbear_5k_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/brownbear_5k/brownbear_5k_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilBrownBear 5k"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -637,7 +699,7 @@
       <div class="left-container">
         <h3 class="race-name">BrownBear 5k</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -648,7 +710,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -678,11 +740,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/nordjysk_trail_cup_hammer_bakker"
   class="race-card"
   data-name="Nordjysk Trail Cup - Hammer Bakker"
@@ -693,15 +758,23 @@
   data-distance="7km, 14km, half marathon"
   data-latitude="56.26392"
   data-longitude="9.501785"
+  data-location="Foran den Ældre- og handicapforvaltningen (den gamle SOSU skole), Storemosevej i Hammer Bakker"
+  data-description="Oplev skønne Hammer Bakker, med løbeskoene på d. 11. februar 2023. Ruten er på 7.032,3 m / ca. 250 højdemeter og består af et transportstykk"
+  data-image-path="/løbsider/nordjysk_trail_cup_hammer_bakker/nordjysk_trail_cup_hammer_bakker"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="8 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/nordjysk_trail_cup_hammer_bakker/nordjysk_trail_cup_hammer_bakker_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/nordjysk_trail_cup_hammer_bakker/nordjysk_trail_cup_hammer_bakker_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilNordjysk Trail Cup - Hammer Bakker"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -779,7 +852,8 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Udvalgte Løb</h2>
@@ -806,9 +880,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/brownbear_5k/brownbear_5k_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/brownbear_5k/brownbear_5k_1.webp"
         alt="Billede tilBrownBear 5k"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -867,9 +943,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/nordjysk_trail_cup_hammer_bakker/nordjysk_trail_cup_hammer_bakker_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/nordjysk_trail_cup_hammer_bakker/nordjysk_trail_cup_hammer_bakker_1.webp"
         alt="Billede tilNordjysk Trail Cup - Hammer Bakker"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -940,9 +1018,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/sukkertop_trail/sukkertop_trail_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/sukkertop_trail/sukkertop_trail_1.webp"
         alt="Billede tilSukkertop Trail"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1007,9 +1087,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/craft_paradise_trail/craft_paradise_trail_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/craft_paradise_trail/craft_paradise_trail_1.webp"
         alt="Billede tilCraft Paradise Trail"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1080,9 +1162,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/hedelands_naturtrail/hedelands_naturtrail_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/hedelands_naturtrail/hedelands_naturtrail_1.webp"
         alt="Billede tilHedelands Naturtrail"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1143,7 +1227,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/trails_kob_3_betal_2"
   class="race-card"
   data-name="TRAILS - Køb 3, betal 2"
@@ -1154,15 +1241,23 @@
   data-distance="5km, 10km, 15km"
   data-latitude="56.26392"
   data-longitude="9.501785"
+  data-location="None"
+  data-description="TRAILS - Køb 3, betal 2 er et trailløb med fokus på unikke og udfordrende ruter, hvor alle kan deltage, uanset niveau! I Danmark finder vi n"
+  data-image-path="/løbsider/trails_kob_3_betal_2/trails_kob_3_betal_2"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="9 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/trails_kob_3_betal_2/trails_kob_3_betal_2_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/trails_kob_3_betal_2/trails_kob_3_betal_2_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilTRAILS - Køb 3, betal 2"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1236,7 +1331,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/sukkertop_trail"
   class="race-card"
   data-name="Sukkertop Trail"
@@ -1247,15 +1346,23 @@
   data-distance="10,5km, half marathon"
   data-latitude="56.0394789"
   data-longitude="9.6938743"
+  data-location="Klostermøllevej 48A, Skanderborg"
+  data-description="Sukkertop Trail 2025 er en spændende løbebegivenhed, der finder sted i Klostermølle Naturcenter, beliggende på Klostermøllevej 48A i Skander"
+  data-image-path="/løbsider/sukkertop_trail/sukkertop_trail"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="6 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/sukkertop_trail/sukkertop_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/sukkertop_trail/sukkertop_trail_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilSukkertop Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1276,7 +1383,7 @@
       <div class="left-container">
         <h3 class="race-name">Sukkertop Trail</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1287,7 +1394,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1323,11 +1430,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/craft_paradise_trail"
   class="race-card"
   data-name="Craft Paradise Trail"
@@ -1338,15 +1449,23 @@
   data-distance="7km, 14km, half marathon"
   data-latitude="56.176362"
   data-longitude="9.5549216"
+  data-location="Silkeborg"
+  data-description="FANG FORÅRET PÅ SMÅ STIER I EN STORSLÅET NATUR. Craft Paradise Trail er en forårsklassiker for danske trailløbere, der finder sted den 12. a"
+  data-image-path="/løbsider/craft_paradise_trail/craft_paradise_trail"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="12 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/craft_paradise_trail/craft_paradise_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/craft_paradise_trail/craft_paradise_trail_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilCraft Paradise Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1424,7 +1543,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/hedelands_naturtrail"
   class="race-card"
   data-name="Hedelands Naturtrail"
@@ -1435,15 +1558,23 @@
   data-distance="5km, 10km, half marathon"
   data-latitude="56.26392"
   data-longitude="9.501785"
+  data-location="Skihytten i Hedeland"
+  data-description="Hedelands Naturtrail afholdes i den smukke Hedeland Naturpark, hvor deltagerne kan udforske fantastiske trailruter. En stor del af løbet for"
+  data-image-path="/løbsider/hedelands_naturtrail/hedelands_naturtrail"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="13 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/hedelands_naturtrail/hedelands_naturtrail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/hedelands_naturtrail/hedelands_naturtrail_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilHedelands Naturtrail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1521,7 +1652,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/julso_ultra_dm_lang_trail"
   class="race-card"
   data-name="Julsø Ultra DM Lang Trail"
@@ -1532,15 +1667,23 @@
   data-distance="30km, 60km, 100km"
   data-latitude="56.176362"
   data-longitude="9.5549216"
+  data-location="Silkeborg"
+  data-description="Julsø Ultra DM Lang Trail er Danmarksmesterskaberne i lang trail og tilbyder en udfordrende løbeoplevelse med en spektakulær rute gennem nat"
+  data-image-path="/løbsider/julso_ultra_dm_lang_trail/julso_ultra_dm_lang_trail"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="3 maj"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/julso_ultra_dm_lang_trail/julso_ultra_dm_lang_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/julso_ultra_dm_lang_trail/julso_ultra_dm_lang_trail_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilJulsø Ultra DM Lang Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1618,7 +1761,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/salomon_hammer_trail"
   class="race-card"
   data-name="Salomon Hammer Trail"
@@ -1629,15 +1776,23 @@
   data-distance="10km, half marathon, 25km, marathon, 50km, 50 miles, 100 miles"
   data-latitude="56.26392"
   data-longitude="9.501785"
+  data-location="Nordbornholm"
+  data-description="Salomon Hammer Trail er Danmarks mest udfordrende trail løb, der afvikles hvert år på Nordbornholm. Arrangeret af Tejn IF, tilbyder løbet di"
+  data-image-path="/løbsider/salomon_hammer_trail/salomon_hammer_trail"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="3 maj"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/salomon_hammer_trail/salomon_hammer_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/salomon_hammer_trail/salomon_hammer_trail_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilSalomon Hammer Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1725,7 +1880,114 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
+  href="/løbsider/south_coast_ultra"
+  class="race-card"
+  data-name="South Coast Ultra"
+  data-date="20250816"
+  data-county="Midtjylland"
+  data-category=""
+  data-race-type="Trailløb"
+  data-distance="50km, 100km"
+  data-latitude="56.26392"
+  data-longitude="9.501785"
+  data-location="Eastbourne"
+  data-description="South Coast Ultra Challenge er en fantastisk mulighed for at udfordre dig selv med en 100 km rute, som skal gennemføres inden for 24 timer, "
+  data-image-path="/løbsider/south_coast_ultra/south_coast_ultra"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="16 aug."
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/south_coast_ultra/south_coast_ultra_1.webp"
+        width="600"
+        height="400"
+        alt="Billede tilSouth Coast Ultra"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          16 aug.
+        </div>
+        <div class="race-location">
+          Midtjylland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">South Coast Ultra</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Eastbourne 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                50 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                100 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trailløb
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      South Coast Ultra Challenge er en fantastisk mulighed for at udfordre dig selv med en 100 km rute, som skal gennemføres inden for 24 timer, ...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mere info & tilmelding</div>
+  </div>
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/brooks_outdoor_ultra_trail"
   class="race-card"
   data-name="BROOKS Outdoor Ultra Trail"
@@ -1736,15 +1998,23 @@
   data-distance="22km, marathon, 50 miles"
   data-latitude="56.0369062"
   data-longitude="9.5151811"
+  data-location="Velling Koller ved Bryrup"
+  data-description="Brooks Outdoor Ultra Trail finder sted den 16. august 2025 og er et ægte trailløb med rødder i hjertet af Jylland. Løbet tilbyder en variere"
+  data-image-path="/løbsider/brooks_outdoor_ultra_trail/brooks_outdoor_ultra_trail"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="16 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/brooks_outdoor_ultra_trail/brooks_outdoor_ultra_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/brooks_outdoor_ultra_trail/brooks_outdoor_ultra_trail_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilBROOKS Outdoor Ultra Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1822,100 +2092,10 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
-  href="/løbsider/south_coast_ultra"
-  class="race-card"
-  data-name="South Coast Ultra"
-  data-date="20250816"
-  data-county="Midtjylland"
-  data-category=""
-  data-race-type="Trailløb"
-  data-distance="50km, 100km"
-  data-latitude="56.26392"
-  data-longitude="9.501785"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/løbsider/south_coast_ultra/south_coast_ultra_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Billede tilSouth Coast Ultra"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          16 aug.
-        </div>
-        <div class="race-location">
-          Midtjylland
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
+</a>
+ 
 
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">South Coast Ultra</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Eastbourne 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                50 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                100 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Trailløb
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      South Coast Ultra Challenge er en fantastisk mulighed for at udfordre dig selv med en 100 km rute, som skal gennemføres inden for 24 timer, ...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Mere info & tilmelding</div>
-  </div>
-</a> 
-
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">af</span>
         <span id="total-events">Løb</span>
@@ -1937,17 +2117,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kort</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

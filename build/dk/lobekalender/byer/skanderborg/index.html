@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender", "@type": "WebPage", "name": "L\u00f8bekalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer", "@type": "WebPage", "name": "Byer"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer/skanderborg", "@type": "WebPage", "name": "Skanderborg"}, "position": 3}]}, "visual": [{"href": "/lobekalender", "name": "L\u00f8bekalender"}, {"href": "/lobekalender/byer/skanderborg", "name": "Byer: Skanderborg"}]}
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "SiteNavigationElement", "description": "Visning 10 5 km L\u00f8b", "name": "5 km", "numberOfItems": 10, "url": "https://lobskalender.dk/lobekalender/byer/skanderborg/alle-lobstyper/5-km"}, {"@type": "SiteNavigationElement", "description": "Visning 10 terr\u00e6n L\u00f8b", "name": "Terr\u00e6n", "numberOfItems": 10, "url": "https://lobskalender.dk/lobekalender/byer/skanderborg/terran"}, {"@type": "SiteNavigationElement", "description": "Visning 10 halvmarathon L\u00f8b", "name": "Halvmarathon", "numberOfItems": 10, "url": "https://lobskalender.dk/lobekalender/byer/skanderborg/alle-lobstyper/halvmarathon"}, {"@type": "SiteNavigationElement", "description": "Visning 7 10 km L\u00f8b", "name": "10 km", "numberOfItems": 7, "url": "https://lobskalender.dk/lobekalender/byer/skanderborg/alle-lobstyper/10-km"}, {"@type": "SiteNavigationElement", "description": "Visning 7 landsvej L\u00f8b", "name": "Landsvej", "numberOfItems": 7, "url": "https://lobskalender.dk/lobekalender/byer/skanderborg/landsvej"}], "numberOfItems": 5}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "SiteNavigationElement", "description": "Visning 10 5 km L\u00f8b", "name": "5 km", "numberOfItems": 10, "url": "https://lobskalender.dk/lobekalender/byer/skanderborg/alle-lobstyper/5-km"}, {"@type": "SiteNavigationElement", "description": "Visning 10 terr\u00e6n L\u00f8b", "name": "Terr\u00e6n", "numberOfItems": 10, "url": "https://lobskalender.dk/lobekalender/byer/skanderborg/terran"}, {"@type": "SiteNavigationElement", "description": "Visning 10 halvmarathon L\u00f8b", "name": "Halvmarathon", "numberOfItems": 10, "url": "https://lobskalender.dk/lobekalender/byer/skanderborg/alle-lobstyper/halvmarathon"}, {"@type": "SiteNavigationElement", "description": "Visning 8 10 km L\u00f8b", "name": "10 km", "numberOfItems": 8, "url": "https://lobskalender.dk/lobekalender/byer/skanderborg/alle-lobstyper/10-km"}, {"@type": "SiteNavigationElement", "description": "Visning 7 landsvej L\u00f8b", "name": "Landsvej", "numberOfItems": 7, "url": "https://lobskalender.dk/lobekalender/byer/skanderborg/landsvej"}], "numberOfItems": 5}
     </script>
       
     <script type="application/ld+json">
@@ -15,6 +16,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -22,24 +24,48 @@
     />
     <title>Løb i Skanderborg: Find dit næste løb i løbskalenderen</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -48,26 +74,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -320,10 +384,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Fra:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Til:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -573,7 +637,7 @@
       
       <li>
         <a href="/lobekalender/byer/skanderborg/alle-lobstyper/10-km" class="race-type-link">
-          10 km (7)
+          10 km (8)
         </a>
       </li>
       
@@ -587,7 +651,7 @@
   </nav>
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     løb
@@ -600,18 +664,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kort</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -620,7 +672,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Skanderborg&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/vinterlobet_ceres_park"
   class="race-card"
   data-name="Vinterløbet - Ceres Park"
@@ -631,15 +685,23 @@
   data-distance="5km, 10km, 15km"
   data-latitude="56.13260039999999"
   data-longitude="10.1940607"
+  data-location="Stadion Allé 70, 8000 Aarhus"
+  data-description="Vinterløbet - Ceres Park afholdes den 26. januar 2025 og inviterer alle til at deltage, uanset niveau. I over 40 år har Aarhus Motion haft æ"
+  data-image-path="/løbsider/vinterlobet_ceres_park/vinterlobet_ceres_park"
+  data-type="other"
+  data-type-display="Andet"
+  data-date-display="26 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/vinterlobet_ceres_park/vinterlobet_ceres_park_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/vinterlobet_ceres_park/vinterlobet_ceres_park_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilVinterløbet - Ceres Park"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -717,7 +779,10 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/vinterlobet_hermans"
   class="race-card"
   data-name="Vinterløbet - Hermans"
@@ -728,15 +793,23 @@
   data-distance="5km, 10km"
   data-latitude="56.1371612"
   data-longitude="10.1976938"
+  data-location="Hermans, Tivoli Friheden"
+  data-description="Vinterløbet - Hermans 2025 finder sted søndag d. 23. februar kl. 09:45 ved Kulturhuset Hermans, smukt beliggende i Tivoli Friheden. Startsku"
+  data-image-path="/løbsider/vinterlobet_hermans/vinterlobet_hermans"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="23 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/vinterlobet_hermans/vinterlobet_hermans_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/vinterlobet_hermans/vinterlobet_hermans_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilVinterløbet - Hermans"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -757,7 +830,7 @@
       <div class="left-container">
         <h3 class="race-name">Vinterløbet - Hermans</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -768,7 +841,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -804,11 +877,12 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Udvalgte Løb</h2>
@@ -835,9 +909,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/vinterlobet_ceres_park/vinterlobet_ceres_park_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/vinterlobet_ceres_park/vinterlobet_ceres_park_1.webp"
         alt="Billede tilVinterløbet - Ceres Park"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -908,9 +984,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/vinterlobet_hermans/vinterlobet_hermans_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/vinterlobet_hermans/vinterlobet_hermans_1.webp"
         alt="Billede tilVinterløbet - Hermans"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -975,9 +1053,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/mudrace_dark_edition/mudrace_dark_edition_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/mudrace_dark_edition/mudrace_dark_edition_1.webp"
         alt="Billede tilMudrace Dark Edition"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1036,9 +1116,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/vinterlobet_mindeparken/vinterlobet_mindeparken_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/vinterlobet_mindeparken/vinterlobet_mindeparken_1.webp"
         alt="Billede tilVinterløbet - Mindeparken"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1109,9 +1191,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/wayout_backyard_ultra/wayout_backyard_ultra_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/wayout_backyard_ultra/wayout_backyard_ultra_1.webp"
         alt="Billede tilWayout Backyard Ultra"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1160,7 +1244,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/mudrace_dark_edition"
   class="race-card"
   data-name="Mudrace Dark Edition"
@@ -1171,15 +1258,23 @@
   data-distance="5km"
   data-latitude="56.037247"
   data-longitude="9.9297989"
+  data-location="Skanderborg"
+  data-description="Velkommen til Ladies Mud Race Dark Edition! Er du klar til et løb, der påvirker alle dine sanser? Deltagerne skal tilbagelægge ca. 5 km i bæ"
+  data-image-path="/løbsider/mudrace_dark_edition/mudrace_dark_edition"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="4 marts"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/mudrace_dark_edition/mudrace_dark_edition_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/mudrace_dark_edition/mudrace_dark_edition_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilMudrace Dark Edition"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1200,7 +1295,7 @@
       <div class="left-container">
         <h3 class="race-name">Mudrace Dark Edition</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1211,7 +1306,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1241,11 +1336,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/vinterlobet_mindeparken"
   class="race-card"
   data-name="Vinterløbet - Mindeparken"
@@ -1256,15 +1355,23 @@
   data-distance="5km, 10km, 15km"
   data-latitude="56.1371498"
   data-longitude="10.1976892"
+  data-location="Skovbrynet 1, 8000 Aarhus C"
+  data-description="De sidste 40 år har Aarhus Motion haft æren af at kunne indbyde til vinterløb, hvor alle kan deltage uanset niveau. Vinterløbene er både for"
+  data-image-path="/løbsider/vinterlobet_mindeparken/vinterlobet_mindeparken"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="9 marts"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/vinterlobet_mindeparken/vinterlobet_mindeparken_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/vinterlobet_mindeparken/vinterlobet_mindeparken_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilVinterløbet - Mindeparken"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1342,7 +1449,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/wayout_backyard_ultra"
   class="race-card"
   data-name="Wayout Backyard Ultra"
@@ -1353,15 +1464,23 @@
   data-distance="6,7km"
   data-latitude="56.132234"
   data-longitude="9.573953000000001"
+  data-location="Fort Østerlund Outdoor Center"
+  data-description="WAYOUT BACKYARD ULTRA (WBU) finder sted ved Fort Østerlund Outdoor Center i Silkeborg den 28. marts 2025. Løbsformatet er en Backyard Ultra,"
+  data-image-path="/løbsider/wayout_backyard_ultra/wayout_backyard_ultra"
+  data-type="backyard"
+  data-type-display="Backyard Ultra"
+  data-date-display="28 marts"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/wayout_backyard_ultra/wayout_backyard_ultra_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/wayout_backyard_ultra/wayout_backyard_ultra_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilWayout Backyard Ultra"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1382,7 +1501,7 @@
       <div class="left-container">
         <h3 class="race-name">Wayout Backyard Ultra</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1393,7 +1512,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1423,11 +1542,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/vinterlobet_eskelunden"
   class="race-card"
   data-name="Vinterløbet - Eskelunden"
@@ -1438,15 +1561,23 @@
   data-distance="5km, 10km, 15km"
   data-latitude="56.14031749999999"
   data-longitude="10.1635352"
+  data-location="Eskelundvej 13"
+  data-description="Vinterløbet - Eskelunden er en årlig løbeevent, der finder sted i de naturskønne omgivelser i Eskelunden. Løbet byder på en smuk rute, der s"
+  data-image-path="/løbsider/vinterlobet_eskelunden/vinterlobet_eskelunden"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="30 marts"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/vinterlobet_eskelunden/vinterlobet_eskelunden_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/vinterlobet_eskelunden/vinterlobet_eskelunden_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilVinterløbet - Eskelunden"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1524,7 +1655,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/skvaet_skovlob"
   class="race-card"
   data-name="Skvæt Skovløb"
@@ -1535,15 +1670,23 @@
   data-distance="5km, 7km, 7,5km, 8km, 10km, half marathon"
   data-latitude="56.0455055"
   data-longitude="9.9455931"
+  data-location="Niels Ebbesen Hallen, Højvangens Torv 4, 8660 Skanderborg"
+  data-description="Skvæt Skov Løbet er en løbeevent, der tilbyder forskellige distancer, herunder 5 km, 8 km, 10 km og halvmarathon (HM). Løbet finder sted i n"
+  data-image-path="/løbsider/skvaet_skovlob/skvaet_skovlob"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="6 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/skvaet_skovlob/skvaet_skovlob_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/skvaet_skovlob/skvaet_skovlob_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilSkvæt Skovløb"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1631,7 +1774,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/sukkertop_trail"
   class="race-card"
   data-name="Sukkertop Trail"
@@ -1642,15 +1789,23 @@
   data-distance="10,5km, half marathon"
   data-latitude="56.0394789"
   data-longitude="9.6938743"
+  data-location="Klostermøllevej 48A, Skanderborg"
+  data-description="Sukkertop Trail 2025 er en spændende løbebegivenhed, der finder sted i Klostermølle Naturcenter, beliggende på Klostermøllevej 48A i Skander"
+  data-image-path="/løbsider/sukkertop_trail/sukkertop_trail"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="6 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/sukkertop_trail/sukkertop_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/sukkertop_trail/sukkertop_trail_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilSukkertop Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1671,7 +1826,7 @@
       <div class="left-container">
         <h3 class="race-name">Sukkertop Trail</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1682,7 +1837,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1718,11 +1873,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/craft_paradise_trail"
   class="race-card"
   data-name="Craft Paradise Trail"
@@ -1733,15 +1892,23 @@
   data-distance="7km, 14km, half marathon"
   data-latitude="56.176362"
   data-longitude="9.5549216"
+  data-location="Silkeborg"
+  data-description="FANG FORÅRET PÅ SMÅ STIER I EN STORSLÅET NATUR. Craft Paradise Trail er en forårsklassiker for danske trailløbere, der finder sted den 12. a"
+  data-image-path="/løbsider/craft_paradise_trail/craft_paradise_trail"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="12 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/craft_paradise_trail/craft_paradise_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/craft_paradise_trail/craft_paradise_trail_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilCraft Paradise Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1819,7 +1986,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/midtjysk_mini_major"
   class="race-card"
   data-name="Midtjysk Mini Major"
@@ -1830,15 +2001,23 @@
   data-distance=""
   data-latitude="56.1364181"
   data-longitude="10.1164482"
+  data-location="Gruspladsen, Søholmvej 3, Viby J"
+  data-description="Midtjysk Mini Major er en del af Brabrand Sø Halvmarathon Martinsen, der finder sted lørdag den 30. august 2025. Løbet foregår på Gruspladse"
+  data-image-path="/løbsider/midtjysk_mini_major/midtjysk_mini_major"
+  data-type="other"
+  data-type-display="Andet"
+  data-date-display="14 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/midtjysk_mini_major/midtjysk_mini_major_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/midtjysk_mini_major/midtjysk_mini_major_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilMidtjysk Mini Major"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1904,32 +2083,44 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/brabrand_so_halvmarthon"
   class="race-card"
   data-name="Brabrand Sø Halvmarthon"
-  data-date="20250417"
+  data-date="20250416"
   data-county="Midtjylland"
   data-category=""
   data-race-type="Landsvej"
-  data-distance="half marathon"
-  data-latitude="56.142002"
-  data-longitude="10.0928152"
+  data-distance="10,1km, 11,1km, half marathon"
+  data-latitude="56.1249954"
+  data-longitude="10.1940413"
+  data-location="Parkeringsplasen SÃ¸holmvej 80, 8260 Viby J."
+  data-description="Brabrand Sø Halvmarathon er et spændende halvmarathonløb, der foregår rundt om den smukke Brabrand Sø ved Aarhus. Deltagerne løber to runder"
+  data-image-path="/løbsider/brabrand_so_halvmarthon/brabrand_so_halvmarthon"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="16 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/brabrand_so_halvmarthon/brabrand_so_halvmarthon_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/brabrand_so_halvmarthon/brabrand_so_halvmarthon_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilBrabrand Sø Halvmarthon"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
       <div class="race-info-top">
         <div class="race-date">
-          17 apr.
+          16 apr.
         </div>
         <div class="race-location">
           Midtjylland
@@ -1944,24 +2135,36 @@
       <div class="left-container">
         <h3 class="race-name">Brabrand Sø Halvmarthon</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Parkeringspladsen Søholmvej 80, 8260 Viby J. 
+          Parkeringsplasen SÃ¸holmvej 80, 8260 Viby J. 
         </div>
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
           </svg>
           <div class="distance-container">
               
+            <div class="distance-item">
+              <span class="race-distance">
+                10,1 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                11,1 km
+              </span>
+            </div>
+            
             <div class="distance-item">
               <span class="race-distance">
                 Halvmarathon
@@ -1981,15 +2184,19 @@
       </div>
     </div>
     <div class="race-summary">
-      Brabrand Sø Halvmarthon afvikles i smukke omgivelser rundt om Brabrand Sø ved Århus. Løbet består af to runder, hvor den første omgang stræk...
+      Brabrand Sø Halvmarathon er et spændende halvmarathonløb, der foregår rundt om den smukke Brabrand Sø ved Aarhus. Deltagerne løber to runder...
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/tranbjerg_cannonball"
   class="race-card"
   data-name="Tranbjerg Cannonball"
@@ -2000,15 +2207,23 @@
   data-distance="5,3km"
   data-latitude="56.0938453"
   data-longitude="10.1267088"
+  data-location="AIA-Tranbjerg, Grønløkke Allé 7A, Tranbjerg J"
+  data-description="Tranbjerg Løber Cannonball 2025 er en spændende løbeevent, der finder sted søndag den 27. april 2025. Deltagerne kan se frem til en udfordre"
+  data-image-path="/løbsider/tranbjerg_cannonball/tranbjerg_cannonball"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="27 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/tranbjerg_cannonball/tranbjerg_cannonball_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/tranbjerg_cannonball/tranbjerg_cannonball_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilTranbjerg Cannonball"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2029,7 +2244,7 @@
       <div class="left-container">
         <h3 class="race-name">Tranbjerg Cannonball</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2040,7 +2255,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2070,96 +2285,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
-  href="/løbsider/peder_skram_lobet"
-  class="race-card"
-  data-name="Peder Skram Løbet"
-  data-date="20250503"
-  data-county="Midtjylland"
-  data-category=""
-  data-race-type="Andet"
-  data-distance=""
-  data-latitude="55.963168"
-  data-longitude="9.758441399999999"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/løbsider/peder_skram_lobet/peder_skram_lobet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Billede tilPeder Skram Løbet"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          3 maj
-        </div>
-        <div class="race-location">
-          Midtjylland
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Peder Skram Løbet</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Østbirk Hallen 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Blandet afstand
-              </span>
-            </div>
-            
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Andet
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Peder Skram Løbet 2025 finder sted den 3. maj i Østbirk Hallen, beliggende på Storegade 47 i Østbirk. Dette løb er en fantastisk mulighed fo...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Mere info & tilmelding</div>
-  </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/julso_ultra_dm_lang_trail"
   class="race-card"
   data-name="Julsø Ultra DM Lang Trail"
@@ -2170,15 +2304,23 @@
   data-distance="30km, 60km, 100km"
   data-latitude="56.176362"
   data-longitude="9.5549216"
+  data-location="Silkeborg"
+  data-description="Julsø Ultra DM Lang Trail er Danmarksmesterskaberne i lang trail og tilbyder en udfordrende løbeoplevelse med en spektakulær rute gennem nat"
+  data-image-path="/løbsider/julso_ultra_dm_lang_trail/julso_ultra_dm_lang_trail"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="3 maj"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/julso_ultra_dm_lang_trail/julso_ultra_dm_lang_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/julso_ultra_dm_lang_trail/julso_ultra_dm_lang_trail_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilJulsø Ultra DM Lang Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2256,7 +2398,108 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
+  href="/løbsider/peder_skram_lobet"
+  class="race-card"
+  data-name="Peder Skram Løbet"
+  data-date="20250503"
+  data-county="Midtjylland"
+  data-category=""
+  data-race-type="Andet"
+  data-distance=""
+  data-latitude="55.963168"
+  data-longitude="9.758441399999999"
+  data-location="Østbirk Hallen"
+  data-description="Peder Skram Løbet 2025 finder sted den 3. maj i Østbirk Hallen, beliggende på Storegade 47 i Østbirk. Dette løb er en fantastisk mulighed fo"
+  data-image-path="/løbsider/peder_skram_lobet/peder_skram_lobet"
+  data-type="other"
+  data-type-display="Andet"
+  data-date-display="3 maj"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/peder_skram_lobet/peder_skram_lobet_1.webp"
+        width="600"
+        height="400"
+        alt="Billede tilPeder Skram Løbet"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          3 maj
+        </div>
+        <div class="race-location">
+          Midtjylland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Peder Skram Løbet</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Østbirk Hallen 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Blandet afstand
+              </span>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Andet
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Peder Skram Løbet 2025 finder sted den 3. maj i Østbirk Hallen, beliggende på Storegade 47 i Østbirk. Dette løb er en fantastisk mulighed fo...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mere info & tilmelding</div>
+  </div>
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/den_genfundne_bro_lobet"
   class="race-card"
   data-name="Den Genfundne Bro Løbet"
@@ -2267,15 +2510,23 @@
   data-distance="1,8km, 7,5km, half marathon"
   data-latitude="55.9683393"
   data-longitude="9.6137704"
+  data-location="Brædstrup Stadion"
+  data-description="Den Genfundne Bro Løbet er en spændende løbeevent, der finder sted i Bakkelandet omkring Brædstrup. Deltagerne kan se frem til en naturskøn "
+  data-image-path="/løbsider/den_genfundne_bro_lobet/den_genfundne_bro_lobet"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="17 maj"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/den_genfundne_bro_lobet/den_genfundne_bro_lobet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/den_genfundne_bro_lobet/den_genfundne_bro_lobet_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilDen Genfundne Bro Løbet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2353,7 +2604,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/everesting"
   class="race-card"
   data-name="Everesting"
@@ -2364,15 +2619,23 @@
   data-distance="8,8km, 430km"
   data-latitude="56.09067349999999"
   data-longitude="9.766591499999999"
+  data-location="Ry"
+  data-description="Everesting er den mest udfordrende klatreudfordring i verden. Konceptet er enkelt: Vælg en hvilken som helst bakke og gentag den i en enkelt"
+  data-image-path="/løbsider/everesting/everesting"
+  data-type="other"
+  data-type-display="Andet"
+  data-date-display="7 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/everesting/everesting_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/everesting/everesting_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilEveresting"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2393,7 +2656,7 @@
       <div class="left-container">
         <h3 class="race-name">Everesting</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2404,7 +2667,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2440,11 +2703,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/royal_run_horsens_korsor_ribe_viborg"
   class="race-card"
   data-name="Royal Run Horsens, Korsør, Ribe, Viborg"
@@ -2455,15 +2722,23 @@
   data-distance="1,6km, 5km, 10km"
   data-latitude="55.8581302"
   data-longitude="9.8475881"
+  data-location="Horsens"
+  data-description="Royal Run 2025 er mere end blot et løb; det er Kongens møde med danskerne og en fest for fællesskabet. Den 9. juni 2025 vil Horsens, med sin"
+  data-image-path="/løbsider/royal_run_horsens_korsor_ribe_viborg/royal_run_horsens_korsor_ribe_viborg"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="9 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/royal_run_horsens_korsor_ribe_viborg/royal_run_horsens_korsor_ribe_viborg_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/royal_run_horsens_korsor_ribe_viborg/royal_run_horsens_korsor_ribe_viborg_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilRoyal Run Horsens, Korsør, Ribe, Viborg"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2541,98 +2816,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
-  href="/løbsider/nas_nordisk_adventurerun"
-  class="race-card"
-  data-name="NAS Nordisk AdventureRun"
-  data-date="20250614"
-  data-county="Midtjylland"
-  data-category=""
-  data-race-type="Terræn"
-  data-distance="2km, 50km"
-  data-latitude="56.1717325"
-  data-longitude="9.557614599999999"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/løbsider/nas_nordisk_adventurerun/nas_nordisk_adventurerun_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Billede tilNAS Nordisk AdventureRun"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          14 juni
-        </div>
-        <div class="race-location">
-          Midtjylland
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">NAS Nordisk AdventureRun</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-           Silkeborg 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                50 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Terræn
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      NAS Nordisk AdventureRun er en to-dages begivenhed med orientering, oplevelser og trailløb, der finder sted den 14. og 15. juni 2025. Deltag...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Mere info & tilmelding</div>
-  </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/name_it_kids_run"
   class="race-card"
   data-name="Name It Kids Run"
@@ -2643,15 +2831,23 @@
   data-distance="1,6km"
   data-latitude="56.1516094"
   data-longitude="10.2015481"
+  data-location="Rådhusparken/Musikhusparken"
+  data-description="Lørdag d. 14. juni afholdes det traditionsrige og enormt populære børneløb, Name It Kids Run, i forbindelse med BESTSELLER Aarhus City Half."
+  data-image-path="/løbsider/name_it_kids_run/name_it_kids_run"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="14 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/name_it_kids_run/name_it_kids_run_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/name_it_kids_run/name_it_kids_run_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilName It Kids Run"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2672,7 +2868,7 @@
       <div class="left-container">
         <h3 class="race-name">Name It Kids Run</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2683,7 +2879,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2713,11 +2909,130 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
+  href="/løbsider/nas_nordisk_adventurerun"
+  class="race-card"
+  data-name="NAS Nordisk AdventureRun"
+  data-date="20250614"
+  data-county="Midtjylland"
+  data-category=""
+  data-race-type="Terræn"
+  data-distance="2km, 17,5km, 30km, 60km"
+  data-latitude="56.176362"
+  data-longitude="9.5549216"
+  data-location="Silkeborg"
+  data-description="NAS Nordisk AdventureRun er et to-dages løb, der finder sted den 14. og 15. juni 2025, hvor deltagerne skal navigere gennem Søhøjlandets kup"
+  data-image-path="/løbsider/nas_nordisk_adventurerun/nas_nordisk_adventurerun"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="14 juni"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/nas_nordisk_adventurerun/nas_nordisk_adventurerun_1.webp"
+        width="600"
+        height="400"
+        alt="Billede tilNAS Nordisk AdventureRun"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          14 juni
+        </div>
+        <div class="race-location">
+          Midtjylland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">NAS Nordisk AdventureRun</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Silkeborg 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                2 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                17,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                30 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                60 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Terræn
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      NAS Nordisk AdventureRun er et to-dages løb, der finder sted den 14. og 15. juni 2025, hvor deltagerne skal navigere gennem Søhøjlandets kup...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mere info & tilmelding</div>
+  </div>
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/bestseller_aarhus_half"
   class="race-card"
   data-name="BESTSELLER Aarhus Half"
@@ -2728,15 +3043,23 @@
   data-distance="11,5km, half marathon"
   data-latitude="56.1516094"
   data-longitude="10.2015481"
+  data-location="Rådhusparken/Musikhusparken"
+  data-description="BESTSELLER Aarhus City Half 2025 er udsolgt, men du kan tilmelde dig ventelisten! Dette event byder på en 100% afspærret rute, hvor du løber"
+  data-image-path="/løbsider/bestseller_aarhus_half/bestseller_aarhus_half"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="15 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/bestseller_aarhus_half/bestseller_aarhus_half_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/bestseller_aarhus_half/bestseller_aarhus_half_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilBESTSELLER Aarhus Half"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2757,7 +3080,7 @@
       <div class="left-container">
         <h3 class="race-name">BESTSELLER Aarhus Half</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2768,7 +3091,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2804,11 +3127,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/horsens_backyard_ultra"
   class="race-card"
   data-name="Horsens Backyard Ultra"
@@ -2819,15 +3146,23 @@
   data-distance="6,7km"
   data-latitude="55.8581302"
   data-longitude="9.8475881"
+  data-location="Horsens Firmaidræt"
+  data-description="Horsens Backyard Ultra skydes i gang lørdag d. 21. juni kl. 10:00 fra løbets base ved Horsens Firmaidræt og Horsens All Runners klublokale p"
+  data-image-path="/løbsider/horsens_backyard_ultra/horsens_backyard_ultra"
+  data-type="backyard"
+  data-type-display="Backyard Ultra"
+  data-date-display="21 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/horsens_backyard_ultra/horsens_backyard_ultra_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/horsens_backyard_ultra/horsens_backyard_ultra_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilHorsens Backyard Ultra"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2848,7 +3183,7 @@
       <div class="left-container">
         <h3 class="race-name">Horsens Backyard Ultra</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -2859,7 +3194,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2889,11 +3224,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/brooks_outdoor_ultra_trail"
   class="race-card"
   data-name="BROOKS Outdoor Ultra Trail"
@@ -2904,15 +3243,23 @@
   data-distance="22km, marathon, 50 miles"
   data-latitude="56.0369062"
   data-longitude="9.5151811"
+  data-location="Velling Koller ved Bryrup"
+  data-description="Brooks Outdoor Ultra Trail finder sted den 16. august 2025 og er et ægte trailløb med rødder i hjertet af Jylland. Løbet tilbyder en variere"
+  data-image-path="/løbsider/brooks_outdoor_ultra_trail/brooks_outdoor_ultra_trail"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="16 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/brooks_outdoor_ultra_trail/brooks_outdoor_ultra_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/brooks_outdoor_ultra_trail/brooks_outdoor_ultra_trail_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilBROOKS Outdoor Ultra Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2990,7 +3337,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/brabrand_so_halvmarathon"
   class="race-card"
   data-name="Brabrand Sø Halvmarathon"
@@ -3001,15 +3352,23 @@
   data-distance="half marathon"
   data-latitude="56.142002"
   data-longitude="10.0928152"
+  data-location="Parkeringspladsen Søholmvej 80, 8260 Viby J."
+  data-description="Brabrand Sø Halvmarathon er et spændende halvmarathonløb, der foregår rundt om den smukke Brabrand Sø ved Aarhus. Deltagerne løber to runder"
+  data-image-path="/løbsider/brabrand_so_halvmarathon/brabrand_so_halvmarathon"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="30 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/brabrand_so_halvmarathon/brabrand_so_halvmarathon_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/brabrand_so_halvmarathon/brabrand_so_halvmarathon_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilBrabrand Sø Halvmarathon"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -3030,7 +3389,7 @@
       <div class="left-container">
         <h3 class="race-name">Brabrand Sø Halvmarathon</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -3041,7 +3400,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -3071,11 +3430,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/reborn_trail_horsens"
   class="race-card"
   data-name="Reborn TRAIL - Horsens"
@@ -3086,15 +3449,23 @@
   data-distance="4km, 7km, 14km"
   data-latitude="55.8581302"
   data-longitude="9.8475881"
+  data-location="Horsens"
+  data-description="Reborn TRAIL - Horsens er et forhindringsløb, hvor stemningen på race-site altid emmer af fest og excitement. Deltagerne kan se frem til en "
+  data-image-path="/løbsider/reborn_trail_horsens/reborn_trail_horsens"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="7 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/reborn_trail_horsens/reborn_trail_horsens_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/reborn_trail_horsens/reborn_trail_horsens_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilReborn TRAIL - Horsens"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -3172,7 +3543,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/halvmaraton_den_genfundne_bro"
   class="race-card"
   data-name="Halvmaraton Den Genfundne Bro"
@@ -3183,15 +3558,23 @@
   data-distance="half marathon"
   data-latitude="55.972889"
   data-longitude="9.6896718"
+  data-location=" Brædstrup"
+  data-description="Canonball Halvmaraton Den Genfundne Bro Løbet finder sted lørdag den 26. november 2023 kl. 10.00 i Brædstrup, Central Jylland. Deltagerne ka"
+  data-image-path="/løbsider/halvmaraton_den_genfundne_bro/halvmaraton_den_genfundne_bro"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="13 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/halvmaraton_den_genfundne_bro/halvmaraton_den_genfundne_bro_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/halvmaraton_den_genfundne_bro/halvmaraton_den_genfundne_bro_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilHalvmaraton Den Genfundne Bro"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -3212,7 +3595,7 @@
       <div class="left-container">
         <h3 class="race-name">Halvmaraton Den Genfundne Bro</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -3223,7 +3606,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -3253,11 +3636,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/horsens_skive_lobet"
   class="race-card"
   data-name="Horsens Skive Løbet"
@@ -3268,15 +3655,23 @@
   data-distance=""
   data-latitude="55.8581302"
   data-longitude="9.8475881"
+  data-location=" Road Cycling"
+  data-description="Horsens Skive Løbet forgår i skønne omgivelser med ruter langs Limfjorden, langs engene ved Karup Å og i Krabbesholm Skov, der løbes på asfa"
+  data-image-path="/løbsider/horsens_skive_lobet/horsens_skive_lobet"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="13 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/horsens_skive_lobet/horsens_skive_lobet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/horsens_skive_lobet/horsens_skive_lobet_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilHorsens Skive Løbet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -3342,9 +3737,13 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
-  href="/løbsider/mud_race_aarhus"
-  class="race-card"
+</a>
+   
+      
+<!-- Packed version for remaining cards -->
+<div
+  class="race-card packed"
+  data-href="/løbsider/mud_race_aarhus"
   data-name="Mud Race Aarhus"
   data-date="20250927"
   data-county="Midtjylland"
@@ -3353,89 +3752,27 @@
   data-distance="5km, 8km"
   data-latitude="56.1814452"
   data-longitude="10.1756436"
+  data-location="Århus Firma Sport"
+  data-description="Mud Race Aarhus inviterer dig til en sjov og mudret off-road race, hvor du kan udfordre dig selv i en uforglemmelig oplevelse. Løbet henvend"
+  data-image-path="/løbsider/mud_race_aarhus/mud_race_aarhus"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="27 sep."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/løbsider/mud_race_aarhus/mud_race_aarhus_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Billede tilMud Race Aarhus"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          27 sep.
-        </div>
-        <div class="race-location">
-          Midtjylland
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Mud Race Aarhus</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Århus Firma Sport 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                8 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Terræn
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Mud Race Aarhus inviterer dig til en sjov og mudret off-road race, hvor du kan udfordre dig selv i en uforglemmelig oplevelse. Løbet henvend...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Mud Race Aarhus</div>
+    <div class="race-date">
+      27 sep.
     </div>
   </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Mere info & tilmelding</div>
-  </div>
-</a>  <a
-  href="/løbsider/brabrand_so_halvmarathon_2"
-  class="race-card"
+</div>
+   
+      
+<!-- Packed version for remaining cards -->
+<div
+  class="race-card packed"
+  data-href="/løbsider/brabrand_so_halvmarathon_2"
   data-name="Brabrand Sø Halvmarathon"
   data-date="20251018"
   data-county="Midtjylland"
@@ -3444,83 +3781,24 @@
   data-distance="half marathon"
   data-latitude="56.142002"
   data-longitude="10.0928152"
+  data-location="Parkeringsplasen Søholmvej 80, 8260 Viby J"
+  data-description="Brabrand Sø Halvmarathon byder på en smuk rute rundt om Brabrand Søen med start ved Parkeringspladsen Søholmvej 80 i Viby J. Løbet består af"
+  data-image-path="/løbsider/brabrand_so_halvmarathon_2/brabrand_so_halvmarathon_2"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="18 okt."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/løbsider/brabrand_so_halvmarathon_2/brabrand_so_halvmarathon_2_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Billede tilBrabrand Sø Halvmarathon"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          18 okt.
-        </div>
-        <div class="race-location">
-          Midtjylland
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Brabrand Sø Halvmarathon</div>
+    <div class="race-date">
+      18 okt.
     </div>
-    <div class="overlay soft"></div>
   </div>
+</div>
+ 
 
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Brabrand Sø Halvmarathon</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Parkeringsplasen Søholmvej 80, 8260 Viby J 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                Halvmarathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Landsvej
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Brabrand Sø Halvmarathon byder på en smuk rute rundt om Brabrand Søen med start ved Parkeringspladsen Søholmvej 80 i Viby J. Løbet består af...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Mere info & tilmelding</div>
-  </div>
-</a> 
-
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">af</span>
         <span id="total-events">Løb</span>
@@ -3542,17 +3820,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kort</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

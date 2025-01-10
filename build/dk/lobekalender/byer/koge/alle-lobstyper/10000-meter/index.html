@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender", "@type": "WebPage", "name": "L\u00f8bekalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer", "@type": "WebPage", "name": "Byer"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer/koge", "@type": "WebPage", "name": "K\u00f8ge"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer/koge/10000-meter", "@type": "WebPage", "name": "10000 meter"}, "position": 4}]}, "visual": [{"href": "/lobekalender", "name": "L\u00f8bekalender"}, {"href": "/lobekalender/byer/koge", "name": "Byer: K\u00f8ge"}, {"href": "/lobekalender/byer/koge/10000-meter", "name": "10000 meter"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>10000 Meter Løb i Køge | Find dit næste løb i vores løbskalender</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Fra:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Til:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -555,7 +619,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     løb
@@ -568,18 +632,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kort</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -588,7 +640,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;K\u00f8ge&quot;, &quot;race_type&quot;: null, &quot;category&quot;: &quot;10000 meter&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/taastrup_lobet_594"
   class="race-card"
   data-name="Taastrup Løbet 594"
@@ -599,15 +653,23 @@
   data-distance="2km, 5km, 10km"
   data-latitude="55.6521072"
   data-longitude="12.3173596"
+  data-location="TIK Klubhuset, Parkvej 78, 2630 Taastrup"
+  data-description="Taastrup Løbet er Danmarks mest afholdte motionsløb og har uden afbrydelser været løbet hver eneste måned siden 1975. Løbet finder sted på e"
+  data-image-path="/løbsider/taastrup_lobet_594/taastrup_lobet_594"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="12 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/taastrup_lobet_594/taastrup_lobet_594_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/taastrup_lobet_594/taastrup_lobet_594_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilTaastrup Løbet 594"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -685,7 +747,10 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/taastrup_lobet_595"
   class="race-card"
   data-name="Taastrup Løbet 595"
@@ -696,15 +761,23 @@
   data-distance="2km, 5km, 10km"
   data-latitude="55.651951"
   data-longitude="12.3174801"
+  data-location="Taastrup Idræts Center, Parkvej 78, Taastrup"
+  data-description="Taastrup Løbet, som er Danmarks mest afholdte motionsløb, har været afholdt uden afbrydelser hver eneste måned siden 1975. Løbet finder sted"
+  data-image-path="/løbsider/taastrup_lobet_595/taastrup_lobet_595"
+  data-type="other"
+  data-type-display="Andet"
+  data-date-display="9 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/taastrup_lobet_595/taastrup_lobet_595_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/taastrup_lobet_595/taastrup_lobet_595_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilTaastrup Løbet 595"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -782,7 +855,8 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Udvalgte Løb</h2>
@@ -809,9 +883,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/taastrup_lobet_594/taastrup_lobet_594_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/taastrup_lobet_594/taastrup_lobet_594_1.webp"
         alt="Billede tilTaastrup Løbet 594"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -882,9 +958,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/taastrup_lobet_595/taastrup_lobet_595_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/taastrup_lobet_595/taastrup_lobet_595_1.webp"
         alt="Billede tilTaastrup Løbet 595"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -955,9 +1033,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/roskilde_fjord_rundt/roskilde_fjord_rundt_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/roskilde_fjord_rundt/roskilde_fjord_rundt_1.webp"
         alt="Billede tilRoskilde Fjord Rundt"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1016,9 +1096,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/taastrup_lobet_596/taastrup_lobet_596_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/taastrup_lobet_596/taastrup_lobet_596_1.webp"
         alt="Billede tilTaastrup Løbet 596"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1089,9 +1171,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/vikingesporet/vikingesporet_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/vikingesporet/vikingesporet_1.webp"
         alt="Billede tilVikingesporet"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1158,7 +1242,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/roskilde_fjord_rundt"
   class="race-card"
   data-name="Roskilde Fjord Rundt"
@@ -1169,15 +1256,23 @@
   data-distance="50 miles"
   data-latitude="55.6480306"
   data-longitude="12.0772028"
+  data-location="Spejderhytten Hjalte Gruppe, Havnevej 20, Roskilde"
+  data-description="Deltag i ultraløbet rundt om Roskilde Fjord i 3. udgave af løbet og oplev den nye 50 Miles rute omkring fjorden. Af nye højdepunkter kan næv"
+  data-image-path="/løbsider/roskilde_fjord_rundt/roskilde_fjord_rundt"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="8 marts"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/roskilde_fjord_rundt/roskilde_fjord_rundt_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/roskilde_fjord_rundt/roskilde_fjord_rundt_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilRoskilde Fjord Rundt"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1198,7 +1293,7 @@
       <div class="left-container">
         <h3 class="race-name">Roskilde Fjord Rundt</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1209,7 +1304,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1239,11 +1334,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/taastrup_lobet_596"
   class="race-card"
   data-name="Taastrup Løbet 596"
@@ -1254,15 +1353,23 @@
   data-distance="2km, 5km, 10km"
   data-latitude="55.6521072"
   data-longitude="12.3173596"
+  data-location="TIK Klubhuset, Parkvej 78, 2630 Taastrup"
+  data-description="Taastrup løbet, som er Danmarks mest afholdte motionsløb, er uden afbrydelser blevet afholdt hver eneste måned siden 1975. Løbet finder sted"
+  data-image-path="/løbsider/taastrup_lobet_596/taastrup_lobet_596"
+  data-type="other"
+  data-type-display="Andet"
+  data-date-display="9 marts"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/taastrup_lobet_596/taastrup_lobet_596_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/taastrup_lobet_596/taastrup_lobet_596_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilTaastrup Løbet 596"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1340,7 +1447,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/vikingesporet"
   class="race-card"
   data-name="Vikingesporet"
@@ -1351,15 +1462,23 @@
   data-distance="2km, 5km, 10km, half marathon"
   data-latitude="55.6501515"
   data-longitude="12.0790694"
+  data-location="Vikingeskibsmuseet, Roskilde"
+  data-description="Vikingesporet Roskilde er et forårs trail-løb, hvor deltagerne kan vælge mellem distancerne 10 km og 21,1 km, primært på jord- og grusstier."
+  data-image-path="/løbsider/vikingesporet/vikingesporet"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="27 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/vikingesporet/vikingesporet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/vikingesporet/vikingesporet_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilVikingesporet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1443,7 +1562,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/cannonball_hvalso"
   class="race-card"
   data-name="Cannonball Hvalsø"
@@ -1454,15 +1577,23 @@
   data-distance="5,3km, half marathon, marathon, 85km, ultra"
   data-latitude="55.60169399999999"
   data-longitude="11.857395"
+  data-location="Hvalsø IF Fodbold, Møllebjergvej 28, 4330 Hvalsø"
+  data-description="Hvalsø Løbeklub afholder Hvalsø Cannonball, hvor der i 2025 er planlagt flere spændende løb. Den 11. januar 2025 starter Hvalsø Cannonball #"
+  data-image-path="/løbsider/cannonball_hvalso/cannonball_hvalso"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="24 maj"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/cannonball_hvalso/cannonball_hvalso_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/cannonball_hvalso/cannonball_hvalso_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilCannonball Hvalsø"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1550,7 +1681,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/k9_biathlon_ledreborg"
   class="race-card"
   data-name="K9 Biathlon Ledreborg"
@@ -1561,15 +1696,23 @@
   data-distance="2km, 3km, 4km, 6km, 8km, 10km"
   data-latitude="55.6054955"
   data-longitude="11.9502876"
+  data-location="Ledreborg Slot"
+  data-description="For første gang nogensinde kan du deltage i K9 Biathlon for alle på Ledreborg Slot i forbindelse med Livsstilsdagene i Pinsen. Vi har sammen"
+  data-image-path="/løbsider/k9_biathlon_ledreborg/k9_biathlon_ledreborg"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="7 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/k9_biathlon_ledreborg/k9_biathlon_ledreborg_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/k9_biathlon_ledreborg/k9_biathlon_ledreborg_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilK9 Biathlon Ledreborg"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1657,7 +1800,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/aabenraa_bjergmarathon"
   class="race-card"
   data-name="Aabenraa Bjergmarathon"
@@ -1668,15 +1815,23 @@
   data-distance="1,5km, 1,6km, 5km, 10km, half marathon, marathon"
   data-latitude="55.6731252"
   data-longitude="12.3447473"
+  data-location="Storetorv square"
+  data-description="Aabenraa Bjergmarathon (Aabenraa Mountain Marathon) afholdes årligt i Aabenraa, en by med cirka 16.000 indbyggere i Syddanmark. Begivenheden"
+  data-image-path="/løbsider/aabenraa_bjergmarathon/aabenraa_bjergmarathon"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="21 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/aabenraa_bjergmarathon/aabenraa_bjergmarathon_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/aabenraa_bjergmarathon/aabenraa_bjergmarathon_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilAabenraa Bjergmarathon"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1764,7 +1919,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/hvalso_cannonball_ultra"
   class="race-card"
   data-name="Hvalsø Cannonball Ultra"
@@ -1775,15 +1934,23 @@
   data-distance="5,3km, half marathon, marathon, 85km, ultra"
   data-latitude="55.60169399999999"
   data-longitude="11.857395"
+  data-location="Hvalsø IF Fodbold, Møllebjergvej 28, 4330 Hvalsø"
+  data-description="Hvalsø Cannonball Ultra er en unik ultramarathon, der finder sted i de naturskønne områder omkring Hvalsø. Løbet tilbyder en udfordrende rut"
+  data-image-path="/løbsider/hvalso_cannonball_ultra/hvalso_cannonball_ultra"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="23 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/hvalso_cannonball_ultra/hvalso_cannonball_ultra_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/hvalso_cannonball_ultra/hvalso_cannonball_ultra_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilHvalsø Cannonball Ultra"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1871,7 +2038,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/colorfun_hvidovre"
   class="race-card"
   data-name="ColorFun Hvidovre"
@@ -1882,15 +2053,23 @@
   data-distance="5km"
   data-latitude="55.6274295"
   data-longitude="12.5021341"
+  data-location="Hvidovre Strandpark, Strandhavevej 59, Hvidovre"
+  data-description="ColorFun Hvidovre er et 5 km langt løb, hvor deltagerne undervejs løber gennem alle regnbuens farver. Eventet finder sted lørdag den 24. aug"
+  data-image-path="/løbsider/colorfun_hvidovre/colorfun_hvidovre"
+  data-type="other"
+  data-type-display="Andet"
+  data-date-display="30 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/colorfun_hvidovre/colorfun_hvidovre_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/colorfun_hvidovre/colorfun_hvidovre_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilColorFun Hvidovre"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1911,7 +2090,7 @@
       <div class="left-container">
         <h3 class="race-name">ColorFun Hvidovre</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1922,7 +2101,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1952,11 +2131,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/sydkystlobet"
   class="race-card"
   data-name="Sydkystløbet"
@@ -1967,15 +2150,23 @@
   data-distance="4,2km, 5km, 10km, half marathon"
   data-latitude="55.5976807"
   data-longitude="12.3775161"
+  data-location="Køge Bugt Strandpark"
+  data-description="Sydkystløbet finder sted søndag den 12. oktober 2025 i Køge Bugt Strandpark. Deltagerne kan se frem til at løbe i smukke og flade omgivelser"
+  data-image-path="/løbsider/sydkystlobet/sydkystlobet"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="12 okt."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/sydkystlobet/sydkystlobet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/sydkystlobet/sydkystlobet_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilSydkystløbet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -2059,9 +2250,10 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">af</span>
         <span id="total-events">Løb</span>
@@ -2083,17 +2275,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kort</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>
