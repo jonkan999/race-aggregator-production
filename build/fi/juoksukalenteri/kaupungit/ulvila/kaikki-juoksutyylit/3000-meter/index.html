@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://juoksen.fi/juoksukalenteri", "@type": "WebPage", "name": "Juoksukalenteri"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://juoksen.fi/juoksukalenteri/kaupungit", "@type": "WebPage", "name": "Kaupungit"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://juoksen.fi/juoksukalenteri/kaupungit/ulvila", "@type": "WebPage", "name": "Ulvila"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://juoksen.fi/juoksukalenteri/kaupungit/ulvila/3000-meter", "@type": "WebPage", "name": "3000 meter"}, "position": 4}]}, "visual": [{"href": "/juoksukalenteri", "name": "Juoksukalenteri"}, {"href": "/juoksukalenteri/kaupungit/ulvila", "name": "Kaupungit: Ulvila"}, {"href": "/juoksukalenteri/kaupungit/ulvila/3000-meter", "name": "3000 meter"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>3000 metriä Ulvilassa: Löydä juoksukilpailut ja juoksutapahtumat</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Alkaen:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Saakka:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -563,7 +627,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Kaikki
     <span id="race-cards-title-category"></span>
     juoksukilpailu
@@ -576,18 +640,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kartta</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -596,7 +648,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Ulvila&quot;, &quot;race_type&quot;: null, &quot;category&quot;: &quot;3000 meter&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/kilpailusivut/xii_apk_hallimaraton"
   class="race-card"
   data-name="XII APK Hallimaraton"
@@ -607,15 +661,23 @@
   data-distance="10km, half marathon, marathon"
   data-latitude="61.4765518"
   data-longitude="21.7649585"
+  data-location="Porin Karhuhalli, Urheilutie 1, 28500 Pori"
+  data-description="XII APK-hallimaraton 2025 järjestetään 8. helmikuuta 2025 Porin Karhuhallissa, jossa kilpailijat juoksevat 400 metrin sisäradalla. Kilpailus"
+  data-image-path="/kilpailusivut/xii_apk_hallimaraton/xii_apk_hallimaraton"
+  data-type="track"
+  data-type-display="Juoksurata"
+  data-date-display="8 helmi."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/kilpailusivut/xii_apk_hallimaraton/xii_apk_hallimaraton_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/kilpailusivut/xii_apk_hallimaraton/xii_apk_hallimaraton_1.webp"
+        width="600"
+        height="400"
         alt="Kuva {x}XII APK Hallimaraton"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -693,7 +755,10 @@
   >
     <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/kilpailusivut/xii_apk_hallimaraton_2"
   class="race-card"
   data-name="XII APK Hallimaraton"
@@ -704,15 +769,23 @@
   data-distance="10km, half marathon, marathon"
   data-latitude="61.476744"
   data-longitude="21.7646269"
+  data-location="Urheilutie 1, 28500 Pori"
+  data-description="XII APK-hallimaraton 2025 järjestetään 8. helmikuuta 2025 Porin Karhuhallissa. Kilpailussa on kolme eri matkaa: maraton (42.2 km), puolimara"
+  data-image-path="/kilpailusivut/xii_apk_hallimaraton_2/xii_apk_hallimaraton_2"
+  data-type="track"
+  data-type-display="Juoksurata"
+  data-date-display="8 maalis"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/kilpailusivut/xii_apk_hallimaraton_2/xii_apk_hallimaraton_2_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/kilpailusivut/xii_apk_hallimaraton_2/xii_apk_hallimaraton_2_1.webp"
+        width="600"
+        height="400"
         alt="Kuva {x}XII APK Hallimaraton"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -790,7 +863,8 @@
   >
     <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Valitut Kilpailut</h2>
@@ -817,9 +891,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/kilpailusivut/xii_apk_hallimaraton/xii_apk_hallimaraton_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/kilpailusivut/xii_apk_hallimaraton/xii_apk_hallimaraton_1.webp"
         alt="Kuva {x}XII APK Hallimaraton"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -890,9 +966,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/kilpailusivut/xii_apk_hallimaraton_2/xii_apk_hallimaraton_2_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/kilpailusivut/xii_apk_hallimaraton_2/xii_apk_hallimaraton_2_1.webp"
         alt="Kuva {x}XII APK Hallimaraton"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -963,9 +1041,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/kilpailusivut/ruosniemen_backyard_ultra/ruosniemen_backyard_ultra_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/kilpailusivut/ruosniemen_backyard_ultra/ruosniemen_backyard_ultra_1.webp"
         alt="Kuva {x}Ruosniemen Backyard Ultra"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1014,7 +1094,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/kilpailusivut/ruosniemen_backyard_ultra"
   class="race-card"
   data-name="Ruosniemen Backyard Ultra"
@@ -1025,15 +1108,23 @@
   data-distance="3km"
   data-latitude="61.5081935"
   data-longitude="21.854114"
+  data-location="Ruosniemen kuntorata / laskettelukeskus"
+  data-description="Ruosniemi Backyard Ultra 2024 järjestetään 29. maaliskuuta 2024 Ruosniemen kuntoradalla Poriissa. Tapahtumassa juostaan 6,706 km:n matka, jo"
+  data-image-path="/kilpailusivut/ruosniemen_backyard_ultra/ruosniemen_backyard_ultra"
+  data-type="backyard"
+  data-type-display="Backyard Ultra"
+  data-date-display="29 huhti."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/kilpailusivut/ruosniemen_backyard_ultra/ruosniemen_backyard_ultra_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/kilpailusivut/ruosniemen_backyard_ultra/ruosniemen_backyard_ultra_1.webp"
+        width="600"
+        height="400"
         alt="Kuva {x}Ruosniemen Backyard Ultra"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1054,7 +1145,7 @@
       <div class="left-container">
         <h3 class="race-name">Ruosniemen Backyard Ultra</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1065,7 +1156,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1095,13 +1186,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">/</span>
         <span id="total-events">juoksukilpailu</span>
@@ -1123,17 +1215,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kartta</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>
