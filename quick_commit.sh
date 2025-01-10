@@ -5,4 +5,10 @@ commit_message="${1:-Quick commit}"
 
 git add .
 git commit -m "$commit_message"
-git push -f
+
+# Check if upstream branch exists, if not set it up
+if ! git rev-parse --abbrev-ref --symbolic-full-name @{u} > /dev/null 2>&1; then
+    git push --set-upstream origin master
+else
+    git push -f
+fi
