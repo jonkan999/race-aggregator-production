@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender", "@type": "WebPage", "name": "L\u00f8bekalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/syddanmark", "@type": "WebPage", "name": "Syddanmark"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/syddanmark/landsvej", "@type": "WebPage", "name": "Landsvej"}, "position": 3}]}, "visual": [{"href": "/lobekalender", "name": "L\u00f8bekalender"}, {"href": "/lobekalender/syddanmark", "name": "Syddanmark"}, {"href": "/lobekalender/syddanmark/landsvej", "name": "Landsvej"}]}
@@ -15,6 +16,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -22,24 +24,48 @@
     />
     <title>Løbekonkurrencer på Landsvej i Syddanmark - Find dit næste løb!</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -48,26 +74,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -320,10 +384,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Fra:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Til:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -584,7 +648,7 @@
   </nav>
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     løb
@@ -597,18 +661,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kort</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -617,7 +669,9 @@
       data-preselected-filters="{&quot;category&quot;: null, &quot;county&quot;: &quot;Syddanmark&quot;, &quot;race_type&quot;: &quot;Landsvej&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/svendborg_halvmarathon"
   class="race-card"
   data-name="Svendborg Halvmarathon"
@@ -628,15 +682,23 @@
   data-distance="half marathon"
   data-latitude="54.937878"
   data-longitude="10.718582"
+  data-location="Rudkøbing"
+  data-description="Svendborg Halvmarathon tilbyder en unik mulighed for at løbe et halvmaraton i den smukke sydfynske natur, der blandt andet går over tre broe"
+  data-image-path="/løbsider/svendborg_halvmarathon/svendborg_halvmarathon"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="26 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/svendborg_halvmarathon/svendborg_halvmarathon_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/svendborg_halvmarathon/svendborg_halvmarathon_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilSvendborg Halvmarathon"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -657,7 +719,7 @@
       <div class="left-container">
         <h3 class="race-name">Svendborg Halvmarathon</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -668,7 +730,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -698,11 +760,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/vintercup_vestfyn_kerte"
   class="race-card"
   data-name="Vintercup Vestfyn Kerte"
@@ -713,15 +778,23 @@
   data-distance="5km, 10km"
   data-latitude="55.2648291"
   data-longitude="9.8938727"
+  data-location="Arena Assens"
+  data-description="Vintercup Vestfyn Kerte er et motionsløb med fokus på socialt samvær, der finder sted den 17. november 2024 kl. 10:00 i Arena Assens. Deltag"
+  data-image-path="/løbsider/vintercup_vestfyn_kerte/vintercup_vestfyn_kerte"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="16 marts"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/vintercup_vestfyn_kerte/vintercup_vestfyn_kerte_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/vintercup_vestfyn_kerte/vintercup_vestfyn_kerte_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilVintercup Vestfyn Kerte"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -742,7 +815,7 @@
       <div class="left-container">
         <h3 class="race-name">Vintercup Vestfyn Kerte</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -753,7 +826,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -789,11 +862,12 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Udvalgte Løb</h2>
@@ -820,9 +894,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/svendborg_halvmarathon/svendborg_halvmarathon_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/svendborg_halvmarathon/svendborg_halvmarathon_1.webp"
         alt="Billede tilSvendborg Halvmarathon"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -881,9 +957,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/vintercup_vestfyn_kerte/vintercup_vestfyn_kerte_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/vintercup_vestfyn_kerte/vintercup_vestfyn_kerte_1.webp"
         alt="Billede tilVintercup Vestfyn Kerte"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -948,9 +1026,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/skjern_bank_lobet/skjern_bank_lobet_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/skjern_bank_lobet/skjern_bank_lobet_1.webp"
         alt="Billede tilSkjern Bank Løbet"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1033,9 +1113,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/kolstrup_gods_halvmarathon/kolstrup_gods_halvmarathon_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/kolstrup_gods_halvmarathon/kolstrup_gods_halvmarathon_1.webp"
         alt="Billede tilKolstrup Gods Halvmarathon"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1094,9 +1176,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/fano_half/fano_half_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/fano_half/fano_half_1.webp"
         alt="Billede tilFanø Half"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1145,7 +1229,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/skjern_bank_lobet"
   class="race-card"
   data-name="Skjern Bank Løbet"
@@ -1156,15 +1243,23 @@
   data-distance="1km, 3km, 5km, 10km, half marathon"
   data-latitude="55.469732"
   data-longitude="8.699567499999999"
+  data-location="Bramming Kultur- og Fritidscenter"
+  data-description="Er du glad for løb, så kan du i april tage til Skjern Bank Løbet i Bramming. Her er der plads til alle, og du kan prøve kræfter med fire for"
+  data-image-path="/løbsider/skjern_bank_lobet/skjern_bank_lobet"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="13 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/skjern_bank_lobet/skjern_bank_lobet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/skjern_bank_lobet/skjern_bank_lobet_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilSkjern Bank Løbet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1252,7 +1347,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/kolstrup_gods_halvmarathon"
   class="race-card"
   data-name="Kolstrup Gods Halvmarathon"
@@ -1263,15 +1362,23 @@
   data-distance="half marathon"
   data-latitude="55.3462634"
   data-longitude="9.358532"
+  data-location="Kolstrup Landevej 2, 6070 Christiansfeld"
+  data-description="Kolstrup Gods Halvmarathon er et lille hyggeligt løb i det sønderjyske, med fokus på hygge og godt depot. Der er et max. på 49 deltagere, og"
+  data-image-path="/løbsider/kolstrup_gods_halvmarathon/kolstrup_gods_halvmarathon"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="19 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/kolstrup_gods_halvmarathon/kolstrup_gods_halvmarathon_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/kolstrup_gods_halvmarathon/kolstrup_gods_halvmarathon_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilKolstrup Gods Halvmarathon"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1292,7 +1399,7 @@
       <div class="left-container">
         <h3 class="race-name">Kolstrup Gods Halvmarathon</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1303,7 +1410,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1333,11 +1440,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/fano_half"
   class="race-card"
   data-name="Fanø Half"
@@ -1348,15 +1459,23 @@
   data-distance="half marathon"
   data-latitude="55.423863"
   data-longitude="8.398688"
+  data-location="Rindby"
+  data-description="Fanø Half er et fantastisk løb, der finder sted den 26. april 2025, i naturskønne omgivelser på Fanø. I samarbejde med Lighthouse Burgers og"
+  data-image-path="/løbsider/fano_half/fano_half"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="26 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/fano_half/fano_half_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/fano_half/fano_half_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilFanø Half"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1377,7 +1496,7 @@
       <div class="left-container">
         <h3 class="race-name">Fanø Half</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1388,7 +1507,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1418,11 +1537,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/lillebaelt_halvmarathon"
   class="race-card"
   data-name="Lillebælt Halvmarathon"
@@ -1433,15 +1556,23 @@
   data-distance="half marathon"
   data-latitude="55.497204"
   data-longitude="9.747171999999999"
+  data-location="Middelfart"
+  data-description="Lillebælt Halvmarathon er et årligt motionsløb med start og mål i Middelfart, der tiltrækker omkring 11.000 løbere. Løbet går over den gamle"
+  data-image-path="/løbsider/lillebaelt_halvmarathon/lillebaelt_halvmarathon"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="3 maj"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/lillebaelt_halvmarathon/lillebaelt_halvmarathon_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/lillebaelt_halvmarathon/lillebaelt_halvmarathon_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilLillebælt Halvmarathon"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1462,7 +1593,7 @@
       <div class="left-container">
         <h3 class="race-name">Lillebælt Halvmarathon</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1473,7 +1604,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1503,11 +1634,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/fynske_bank_de_3_broer"
   class="race-card"
   data-name="Fynske Bank De 3 Broer"
@@ -1518,15 +1653,23 @@
   data-distance="half marathon"
   data-latitude="54.9386724"
   data-longitude="10.708366"
+  data-location="Havnepladsen i Rudkøbing"
+  data-description="Fynske Bank De 3 Broer er et smukt halvmaraton, der finder sted den 21. juni 2025. Løbet starter på Havnepladsen i Rudkøbing og slutter på T"
+  data-image-path="/løbsider/fynske_bank_de_3_broer/fynske_bank_de_3_broer"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="21 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/fynske_bank_de_3_broer/fynske_bank_de_3_broer_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/fynske_bank_de_3_broer/fynske_bank_de_3_broer_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilFynske Bank De 3 Broer"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1547,7 +1690,7 @@
       <div class="left-container">
         <h3 class="race-name">Fynske Bank De 3 Broer</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1558,7 +1701,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1588,11 +1731,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/halvmaraton_hca_marathon"
   class="race-card"
   data-name="Halvmaraton & HCA Marathon"
@@ -1603,15 +1750,23 @@
   data-distance="10km, half marathon, marathon"
   data-latitude="55.39830600000001"
   data-longitude="10.3484032"
+  data-location="Odense Idrætspark"
+  data-description="Halvmaraton & HCA Marathon byder på en 21,097 km rundstrækning gennem Odenses gader, hvor der er masser af musik og tilskuere, der hepper på"
+  data-image-path="/løbsider/halvmaraton_hca_marathon/halvmaraton_hca_marathon"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="27 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/halvmaraton_hca_marathon/halvmaraton_hca_marathon_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/halvmaraton_hca_marathon/halvmaraton_hca_marathon_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilHalvmaraton & HCA Marathon"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1689,7 +1844,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/esbjerg_city_half"
   class="race-card"
   data-name="Esbjerg City Half"
@@ -1700,15 +1859,23 @@
   data-distance="10km, half marathon"
   data-latitude="55.494601"
   data-longitude="8.443275"
+  data-location="Gl. Vardevej"
+  data-description="Oplev Esbjerg i løbeskoene til Esbjerg City Half, der byder på både et halvmaraton og en 10 km rute. Turen går gennem byen, havnen og skoven"
+  data-image-path="/løbsider/esbjerg_city_half/esbjerg_city_half"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="5 okt."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/esbjerg_city_half/esbjerg_city_half_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/esbjerg_city_half/esbjerg_city_half_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilEsbjerg City Half"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1729,7 +1896,7 @@
       <div class="left-container">
         <h3 class="race-name">Esbjerg City Half</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1740,7 +1907,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1776,13 +1943,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">af</span>
         <span id="total-events">Løb</span>
@@ -1804,17 +1972,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kort</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

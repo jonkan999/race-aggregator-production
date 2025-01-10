@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender", "@type": "WebPage", "name": "L\u00f8bekalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer", "@type": "WebPage", "name": "Byer"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer/vordingborg", "@type": "WebPage", "name": "Vordingborg"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer/vordingborg/5000-meter", "@type": "WebPage", "name": "5000 meter"}, "position": 4}]}, "visual": [{"href": "/lobekalender", "name": "L\u00f8bekalender"}, {"href": "/lobekalender/byer/vordingborg", "name": "Byer: Vordingborg"}, {"href": "/lobekalender/byer/vordingborg/5000-meter", "name": "5000 meter"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>5000 meter løb i Vordingborg | Find dit næste løb i løbskalenderen</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Fra:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Til:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -555,7 +619,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     løb
@@ -568,18 +632,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kort</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -588,7 +640,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Vordingborg&quot;, &quot;race_type&quot;: null, &quot;category&quot;: &quot;5000 meter&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/dgi_storstrommen_crosslob"
   class="race-card"
   data-name="DGI Storstrømmen Crossløb"
@@ -599,15 +653,23 @@
   data-distance="4km, 8km, 12km"
   data-latitude="55.1326434"
   data-longitude="12.0084391"
+  data-location=" Præstø"
+  data-description="Ta' udfordringen op og prøv kræfter med vinterens fire fedeste crossløb! Crossløb er terrænløb på afmærkede ruter i Storstrømmens varierede "
+  data-image-path="/løbsider/dgi_storstrommen_crosslob/dgi_storstrommen_crosslob"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="19 jan."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/dgi_storstrommen_crosslob/dgi_storstrommen_crosslob_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/dgi_storstrommen_crosslob/dgi_storstrommen_crosslob_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilDGI Storstrømmen Crossløb"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -685,7 +747,10 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/ladies_mud_race_dark_edition"
   class="race-card"
   data-name="Ladies Mud Race Dark Edition"
@@ -696,15 +761,23 @@
   data-distance="5km"
   data-latitude="55.224613"
   data-longitude="11.759207"
+  data-location="Næstved"
+  data-description="Velkommen til Ladies Mud Race Dark Edition! Er du klar til et løb, der påvirker alle dine sanser? Deltagerne skal tilbagelægge ca. 5 km i bæ"
+  data-image-path="/løbsider/ladies_mud_race_dark_edition/ladies_mud_race_dark_edition"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="14 marts"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/ladies_mud_race_dark_edition/ladies_mud_race_dark_edition_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/ladies_mud_race_dark_edition/ladies_mud_race_dark_edition_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilLadies Mud Race Dark Edition"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -725,7 +798,7 @@
       <div class="left-container">
         <h3 class="race-name">Ladies Mud Race Dark Edition</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -736,7 +809,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -766,11 +839,12 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Udvalgte Løb</h2>
@@ -797,9 +871,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/dgi_storstrommen_crosslob/dgi_storstrommen_crosslob_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/dgi_storstrommen_crosslob/dgi_storstrommen_crosslob_1.webp"
         alt="Billede tilDGI Storstrømmen Crossløb"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -870,9 +946,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/ladies_mud_race_dark_edition/ladies_mud_race_dark_edition_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/ladies_mud_race_dark_edition/ladies_mud_race_dark_edition_1.webp"
         alt="Billede tilLadies Mud Race Dark Edition"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -931,9 +1009,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/broderuplobet/broderuplobet_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/broderuplobet/broderuplobet_1.webp"
         alt="Billede tilBrøderupløbet"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -998,9 +1078,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/mon_fra_havn_til_havn/mon_fra_havn_til_havn_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/mon_fra_havn_til_havn/mon_fra_havn_til_havn_1.webp"
         alt="Billede tilMøn fra havn til havn"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1087,9 +1169,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/etape_mon/etape_mon_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/etape_mon/etape_mon_1.webp"
         alt="Billede tilEtape Møn"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1156,7 +1240,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/broderuplobet"
   class="race-card"
   data-name="Brøderupløbet"
@@ -1167,15 +1254,23 @@
   data-distance="12km, half marathon"
   data-latitude="55.18315680000001"
   data-longitude="11.9837579"
+  data-location="Brøderup Efterskole"
+  data-description="Brøderupløbet er en årlig løbeevent, der finder sted i Brøderup. Deltagerne kan vælge mellem to grundlæggende distancer: 12 km (blå rute) og"
+  data-image-path="/løbsider/broderuplobet/broderuplobet"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="6 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/broderuplobet/broderuplobet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/broderuplobet/broderuplobet_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilBrøderupløbet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1196,7 +1291,7 @@
       <div class="left-container">
         <h3 class="race-name">Brøderupløbet</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1207,7 +1302,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1243,11 +1338,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/mon_fra_havn_til_havn"
   class="race-card"
   data-name="Møn fra havn til havn"
@@ -1258,15 +1357,23 @@
   data-distance="5km, 16km, 27km, 34km, marathon, 61km"
   data-latitude="54.8905"
   data-longitude="12.1327308"
+  data-location="Hårbølle Havn"
+  data-description="Møn fra havn til havn er et årligt tilbagevendende trailløb langs kysten på Møn med distancer fra 5-61 km. Deltagerne kan vælge mellem 7 for"
+  data-image-path="/løbsider/mon_fra_havn_til_havn/mon_fra_havn_til_havn"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="17 maj"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/mon_fra_havn_til_havn/mon_fra_havn_til_havn_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/mon_fra_havn_til_havn/mon_fra_havn_til_havn_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilMøn fra havn til havn"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1354,7 +1461,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/etape_mon"
   class="race-card"
   data-name="Etape Møn"
@@ -1365,15 +1476,23 @@
   data-distance="7km, 10,5km, half marathon, marathon"
   data-latitude="54.9963099"
   data-longitude="12.2827415"
+  data-location="Moena Mønshallerne"
+  data-description="Etape Møn er motionsløbet for dig, der har hang til terrænløb, smukke naturoplevelser og en hyggelig atmosfære. Løbet finder sted fra mandag"
+  data-image-path="/løbsider/etape_mon/etape_mon"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="28 juli"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/etape_mon/etape_mon_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/etape_mon/etape_mon_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilEtape Møn"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1457,7 +1576,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/endure_hjerl_hede_trail"
   class="race-card"
   data-name="Endure Hjerl Hede Trail"
@@ -1468,15 +1591,23 @@
   data-distance="1km, 2km, 5,4km, 11,5km, 15km, marathon"
   data-latitude="54.909426"
   data-longitude="11.7728179"
+  data-location="Gårdspladsen ved den gamle præstegård"
+  data-description="Kom og få en fantastisk løbeoplevelse i naturen omkring Hjerl Hede Frilandsmuseum og Flyndersø. Løbet afholdes lørdag den 17. august 2024, h"
+  data-image-path="/løbsider/endure_hjerl_hede_trail/endure_hjerl_hede_trail"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="15 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/endure_hjerl_hede_trail/endure_hjerl_hede_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/endure_hjerl_hede_trail/endure_hjerl_hede_trail_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilEndure Hjerl Hede Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1564,9 +1695,10 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">af</span>
         <span id="total-events">Løb</span>
@@ -1588,17 +1720,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kort</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

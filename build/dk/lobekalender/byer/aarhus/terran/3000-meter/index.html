@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender", "@type": "WebPage", "name": "L\u00f8bekalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer", "@type": "WebPage", "name": "Byer"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer/aarhus", "@type": "WebPage", "name": "Aarhus"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer/aarhus/terran", "@type": "WebPage", "name": "Terr\u00e6n"}, "position": 4}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer/aarhus/terran/3000-meter", "@type": "WebPage", "name": "3000 meter"}, "position": 5}]}, "visual": [{"href": "/lobekalender", "name": "L\u00f8bekalender"}, {"href": "/lobekalender/byer/aarhus", "name": "Byer: Aarhus"}, {"href": "/lobekalender/byer/aarhus/terran", "name": "Terr\u00e6n"}, {"href": "/lobekalender/byer/aarhus/terran/3000-meter", "name": "3000 meter"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>3000 meter Terræn Løb i Aarhus - Find dit næste løb i løbskalenderen</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Fra:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Til:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -564,7 +628,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     løb
@@ -577,18 +641,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kort</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -597,7 +649,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Aarhus&quot;, &quot;race_type&quot;: &quot;Terr\u00e6n&quot;, &quot;category&quot;: &quot;3000 meter&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/nordisk_adventurerun_mols_bjerge"
   class="race-card"
   data-name="Nordisk AdventureRun Mols Bjerge"
@@ -608,15 +662,23 @@
   data-distance="40km"
   data-latitude="56.183159"
   data-longitude="10.5288752"
+  data-location="Karpenhøj Naturcenter"
+  data-description="Nordisk AdventureRun Mols Bjerge 2025 (NAMB) finder sted fra den 1. februar 2025 til den 2. februar 2025 ved Karpenhøj Naturcenter. Dette lø"
+  data-image-path="/løbsider/nordisk_adventurerun_mols_bjerge/nordisk_adventurerun_mols_bjerge"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="1 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/nordisk_adventurerun_mols_bjerge/nordisk_adventurerun_mols_bjerge_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/nordisk_adventurerun_mols_bjerge/nordisk_adventurerun_mols_bjerge_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilNordisk AdventureRun Mols Bjerge"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -637,7 +699,7 @@
       <div class="left-container">
         <h3 class="race-name">Nordisk AdventureRun Mols Bjerge</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -648,7 +710,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -678,11 +740,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/vinterlobet_hermans"
   class="race-card"
   data-name="Vinterløbet - Hermans"
@@ -693,15 +758,23 @@
   data-distance="5km, 10km"
   data-latitude="56.1371612"
   data-longitude="10.1976938"
+  data-location="Hermans, Tivoli Friheden"
+  data-description="Vinterløbet - Hermans 2025 finder sted søndag d. 23. februar kl. 09:45 ved Kulturhuset Hermans, smukt beliggende i Tivoli Friheden. Startsku"
+  data-image-path="/løbsider/vinterlobet_hermans/vinterlobet_hermans"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="23 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/vinterlobet_hermans/vinterlobet_hermans_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/vinterlobet_hermans/vinterlobet_hermans_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilVinterløbet - Hermans"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -722,7 +795,7 @@
       <div class="left-container">
         <h3 class="race-name">Vinterløbet - Hermans</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -733,7 +806,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -769,11 +842,12 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Udvalgte Løb</h2>
@@ -800,9 +874,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/nordisk_adventurerun_mols_bjerge/nordisk_adventurerun_mols_bjerge_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/nordisk_adventurerun_mols_bjerge/nordisk_adventurerun_mols_bjerge_1.webp"
         alt="Billede tilNordisk AdventureRun Mols Bjerge"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -861,9 +937,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/vinterlobet_hermans/vinterlobet_hermans_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/vinterlobet_hermans/vinterlobet_hermans_1.webp"
         alt="Billede tilVinterløbet - Hermans"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -928,9 +1006,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/mudrace_dark_edition/mudrace_dark_edition_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/mudrace_dark_edition/mudrace_dark_edition_1.webp"
         alt="Billede tilMudrace Dark Edition"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -989,9 +1069,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/vinterlobet_mindeparken/vinterlobet_mindeparken_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/vinterlobet_mindeparken/vinterlobet_mindeparken_1.webp"
         alt="Billede tilVinterløbet - Mindeparken"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1062,9 +1144,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/vinterlobet_eskelunden/vinterlobet_eskelunden_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/vinterlobet_eskelunden/vinterlobet_eskelunden_1.webp"
         alt="Billede tilVinterløbet - Eskelunden"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1125,7 +1209,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/mudrace_dark_edition"
   class="race-card"
   data-name="Mudrace Dark Edition"
@@ -1136,15 +1223,23 @@
   data-distance="5km"
   data-latitude="56.037247"
   data-longitude="9.9297989"
+  data-location="Skanderborg"
+  data-description="Velkommen til Ladies Mud Race Dark Edition! Er du klar til et løb, der påvirker alle dine sanser? Deltagerne skal tilbagelægge ca. 5 km i bæ"
+  data-image-path="/løbsider/mudrace_dark_edition/mudrace_dark_edition"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="4 marts"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/mudrace_dark_edition/mudrace_dark_edition_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/mudrace_dark_edition/mudrace_dark_edition_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilMudrace Dark Edition"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1165,7 +1260,7 @@
       <div class="left-container">
         <h3 class="race-name">Mudrace Dark Edition</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1176,7 +1271,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1206,11 +1301,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/vinterlobet_mindeparken"
   class="race-card"
   data-name="Vinterløbet - Mindeparken"
@@ -1221,15 +1320,23 @@
   data-distance="5km, 10km, 15km"
   data-latitude="56.1371498"
   data-longitude="10.1976892"
+  data-location="Skovbrynet 1, 8000 Aarhus C"
+  data-description="De sidste 40 år har Aarhus Motion haft æren af at kunne indbyde til vinterløb, hvor alle kan deltage uanset niveau. Vinterløbene er både for"
+  data-image-path="/løbsider/vinterlobet_mindeparken/vinterlobet_mindeparken"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="9 marts"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/vinterlobet_mindeparken/vinterlobet_mindeparken_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/vinterlobet_mindeparken/vinterlobet_mindeparken_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilVinterløbet - Mindeparken"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1307,7 +1414,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/vinterlobet_eskelunden"
   class="race-card"
   data-name="Vinterløbet - Eskelunden"
@@ -1318,15 +1429,23 @@
   data-distance="5km, 10km, 15km"
   data-latitude="56.14031749999999"
   data-longitude="10.1635352"
+  data-location="Eskelundvej 13"
+  data-description="Vinterløbet - Eskelunden er en årlig løbeevent, der finder sted i de naturskønne omgivelser i Eskelunden. Løbet byder på en smuk rute, der s"
+  data-image-path="/løbsider/vinterlobet_eskelunden/vinterlobet_eskelunden"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="30 marts"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/vinterlobet_eskelunden/vinterlobet_eskelunden_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/vinterlobet_eskelunden/vinterlobet_eskelunden_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilVinterløbet - Eskelunden"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1404,7 +1523,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/skvaet_skovlob"
   class="race-card"
   data-name="Skvæt Skovløb"
@@ -1415,15 +1538,23 @@
   data-distance="5km, 7km, 7,5km, 8km, 10km, half marathon"
   data-latitude="56.0455055"
   data-longitude="9.9455931"
+  data-location="Niels Ebbesen Hallen, Højvangens Torv 4, 8660 Skanderborg"
+  data-description="Skvæt Skov Løbet er en løbeevent, der tilbyder forskellige distancer, herunder 5 km, 8 km, 10 km og halvmarathon (HM). Løbet finder sted i n"
+  data-image-path="/løbsider/skvaet_skovlob/skvaet_skovlob"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="6 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/skvaet_skovlob/skvaet_skovlob_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/skvaet_skovlob/skvaet_skovlob_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilSkvæt Skovløb"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1511,7 +1642,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/silkeborglobet"
   class="race-card"
   data-name="Silkeborgløbet"
@@ -1522,15 +1657,23 @@
   data-distance="2,5km, 5km, 10km, half marathon"
   data-latitude="56.2408092"
   data-longitude="10.2431388"
+  data-location="Indelukket"
+  data-description="Silkeborgløbet er byens traditionelle løb, der afholdes i de smukke skove omkring Silkeborg med start og mål i Indelukket. Det henvender sig"
+  data-image-path="/løbsider/silkeborglobet/silkeborglobet"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="26 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/silkeborglobet/silkeborglobet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/silkeborglobet/silkeborglobet_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilSilkeborgløbet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1614,7 +1757,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/tranbjerg_cannonball"
   class="race-card"
   data-name="Tranbjerg Cannonball"
@@ -1625,15 +1772,23 @@
   data-distance="5,3km"
   data-latitude="56.0938453"
   data-longitude="10.1267088"
+  data-location="AIA-Tranbjerg, Grønløkke Allé 7A, Tranbjerg J"
+  data-description="Tranbjerg Løber Cannonball 2025 er en spændende løbeevent, der finder sted søndag den 27. april 2025. Deltagerne kan se frem til en udfordre"
+  data-image-path="/løbsider/tranbjerg_cannonball/tranbjerg_cannonball"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="27 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/tranbjerg_cannonball/tranbjerg_cannonball_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/tranbjerg_cannonball/tranbjerg_cannonball_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilTranbjerg Cannonball"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1654,7 +1809,7 @@
       <div class="left-container">
         <h3 class="race-name">Tranbjerg Cannonball</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1665,7 +1820,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1695,11 +1850,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/mud_race_aarhus"
   class="race-card"
   data-name="Mud Race Aarhus"
@@ -1710,15 +1869,23 @@
   data-distance="5km, 8km"
   data-latitude="56.1814452"
   data-longitude="10.1756436"
+  data-location="Århus Firma Sport"
+  data-description="Mud Race Aarhus inviterer dig til en sjov og mudret off-road race, hvor du kan udfordre dig selv i en uforglemmelig oplevelse. Løbet henvend"
+  data-image-path="/løbsider/mud_race_aarhus/mud_race_aarhus"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="27 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/mud_race_aarhus/mud_race_aarhus_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/mud_race_aarhus/mud_race_aarhus_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilMud Race Aarhus"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1739,7 +1906,7 @@
       <div class="left-container">
         <h3 class="race-name">Mud Race Aarhus</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1750,7 +1917,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1786,13 +1953,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">af</span>
         <span id="total-events">Løb</span>
@@ -1814,17 +1982,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kort</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

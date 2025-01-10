@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender", "@type": "WebPage", "name": "L\u00f8bekalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer", "@type": "WebPage", "name": "Byer"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer/horsens", "@type": "WebPage", "name": "Horsens"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer/horsens/5-km", "@type": "WebPage", "name": "5 km"}, "position": 4}]}, "visual": [{"href": "/lobekalender", "name": "L\u00f8bekalender"}, {"href": "/lobekalender/byer/horsens", "name": "Byer: Horsens"}, {"href": "/lobekalender/byer/horsens/5-km", "name": "5 km"}]}
@@ -11,6 +12,7 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,24 +20,48 @@
     />
     <title>5 km Løb i Horsens | Find dit næste løb i vores løbskalender</title>
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +70,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +380,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Fra:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Til:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -555,7 +619,7 @@
 
   
 
-  <h2 class="section-header">
+  <h2 class="section-header phone-min-height-51rem">
     Alle
     <span id="race-cards-title-category"></span>
     løb
@@ -568,18 +632,6 @@
     <span id="date-range"></span>
   </h2>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kort</p>
-  </button>
-
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -588,7 +640,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Horsens&quot;, &quot;race_type&quot;: null, &quot;category&quot;: &quot;5 km&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/mudrace_dark_edition"
   class="race-card"
   data-name="Mudrace Dark Edition"
@@ -599,15 +653,23 @@
   data-distance="5km"
   data-latitude="56.037247"
   data-longitude="9.9297989"
+  data-location="Skanderborg"
+  data-description="Velkommen til Ladies Mud Race Dark Edition! Er du klar til et løb, der påvirker alle dine sanser? Deltagerne skal tilbagelægge ca. 5 km i bæ"
+  data-image-path="/løbsider/mudrace_dark_edition/mudrace_dark_edition"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="4 marts"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/mudrace_dark_edition/mudrace_dark_edition_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/mudrace_dark_edition/mudrace_dark_edition_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilMudrace Dark Edition"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -628,7 +690,7 @@
       <div class="left-container">
         <h3 class="race-name">Mudrace Dark Edition</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -639,7 +701,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -669,11 +731,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/hofde_ultra_trail"
   class="race-card"
   data-name="HØFDE Ultra Trail"
@@ -684,15 +749,23 @@
   data-distance="50km, 100km"
   data-latitude="55.6923769"
   data-longitude="9.6092129"
+  data-location="Ibæk Strandvej 341, 7100 Vejle, Denmark"
+  data-description="HØFDE Ultra Trail er et eventyr gennem det smukke landskab fra Fredericia til Vejle. Løbet strækker sig over 50 km med en varieret rute, der"
+  data-image-path="/løbsider/hofde_ultra_trail/hofde_ultra_trail"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="8 marts"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/hofde_ultra_trail/hofde_ultra_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/hofde_ultra_trail/hofde_ultra_trail_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilHØFDE Ultra Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -713,7 +786,7 @@
       <div class="left-container">
         <h3 class="race-name">HØFDE Ultra Trail</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -724,7 +797,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -760,11 +833,12 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Udvalgte Løb</h2>
@@ -791,9 +865,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/mudrace_dark_edition/mudrace_dark_edition_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/mudrace_dark_edition/mudrace_dark_edition_1.webp"
         alt="Billede tilMudrace Dark Edition"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -852,9 +928,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/hofde_ultra_trail/hofde_ultra_trail_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/hofde_ultra_trail/hofde_ultra_trail_1.webp"
         alt="Billede tilHØFDE Ultra Trail"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -919,9 +997,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/skvaet_skovlob/skvaet_skovlob_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/skvaet_skovlob/skvaet_skovlob_1.webp"
         alt="Billede tilSkvæt Skovløb"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1008,9 +1088,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/sukkertop_trail/sukkertop_trail_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/sukkertop_trail/sukkertop_trail_1.webp"
         alt="Billede tilSukkertop Trail"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1075,9 +1157,11 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/den_genfundne_bro_lobet/den_genfundne_bro_lobet_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/den_genfundne_bro_lobet/den_genfundne_bro_lobet_1.webp"
         alt="Billede tilDen Genfundne Bro Løbet"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
       />
     </picture>
@@ -1138,7 +1222,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/skvaet_skovlob"
   class="race-card"
   data-name="Skvæt Skovløb"
@@ -1149,15 +1236,23 @@
   data-distance="5km, 7km, 7,5km, 8km, 10km, half marathon"
   data-latitude="56.0455055"
   data-longitude="9.9455931"
+  data-location="Niels Ebbesen Hallen, Højvangens Torv 4, 8660 Skanderborg"
+  data-description="Skvæt Skov Løbet er en løbeevent, der tilbyder forskellige distancer, herunder 5 km, 8 km, 10 km og halvmarathon (HM). Løbet finder sted i n"
+  data-image-path="/løbsider/skvaet_skovlob/skvaet_skovlob"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="6 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/skvaet_skovlob/skvaet_skovlob_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/skvaet_skovlob/skvaet_skovlob_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilSkvæt Skovløb"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1245,7 +1340,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/sukkertop_trail"
   class="race-card"
   data-name="Sukkertop Trail"
@@ -1256,15 +1355,23 @@
   data-distance="10,5km, half marathon"
   data-latitude="56.0394789"
   data-longitude="9.6938743"
+  data-location="Klostermøllevej 48A, Skanderborg"
+  data-description="Sukkertop Trail 2025 er en spændende løbebegivenhed, der finder sted i Klostermølle Naturcenter, beliggende på Klostermøllevej 48A i Skander"
+  data-image-path="/løbsider/sukkertop_trail/sukkertop_trail"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="6 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/sukkertop_trail/sukkertop_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/sukkertop_trail/sukkertop_trail_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilSukkertop Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1285,7 +1392,7 @@
       <div class="left-container">
         <h3 class="race-name">Sukkertop Trail</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1296,7 +1403,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1332,11 +1439,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/den_genfundne_bro_lobet"
   class="race-card"
   data-name="Den Genfundne Bro Løbet"
@@ -1347,15 +1458,23 @@
   data-distance="1,8km, 7,5km, half marathon"
   data-latitude="55.9683393"
   data-longitude="9.6137704"
+  data-location="Brædstrup Stadion"
+  data-description="Den Genfundne Bro Løbet er en spændende løbeevent, der finder sted i Bakkelandet omkring Brædstrup. Deltagerne kan se frem til en naturskøn "
+  data-image-path="/løbsider/den_genfundne_bro_lobet/den_genfundne_bro_lobet"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="17 maj"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/den_genfundne_bro_lobet/den_genfundne_bro_lobet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/den_genfundne_bro_lobet/den_genfundne_bro_lobet_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilDen Genfundne Bro Løbet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1433,7 +1552,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/everesting"
   class="race-card"
   data-name="Everesting"
@@ -1444,15 +1567,23 @@
   data-distance="8,8km, 430km"
   data-latitude="56.09067349999999"
   data-longitude="9.766591499999999"
+  data-location="Ry"
+  data-description="Everesting er den mest udfordrende klatreudfordring i verden. Konceptet er enkelt: Vælg en hvilken som helst bakke og gentag den i en enkelt"
+  data-image-path="/løbsider/everesting/everesting"
+  data-type="other"
+  data-type-display="Andet"
+  data-date-display="7 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/everesting/everesting_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/everesting/everesting_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilEveresting"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1473,7 +1604,7 @@
       <div class="left-container">
         <h3 class="race-name">Everesting</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1484,7 +1615,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -1520,11 +1651,15 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/royal_run_horsens_korsor_ribe_viborg"
   class="race-card"
   data-name="Royal Run Horsens, Korsør, Ribe, Viborg"
@@ -1535,15 +1670,23 @@
   data-distance="1,6km, 5km, 10km"
   data-latitude="55.8581302"
   data-longitude="9.8475881"
+  data-location="Horsens"
+  data-description="Royal Run 2025 er mere end blot et løb; det er Kongens møde med danskerne og en fest for fællesskabet. Den 9. juni 2025 vil Horsens, med sin"
+  data-image-path="/løbsider/royal_run_horsens_korsor_ribe_viborg/royal_run_horsens_korsor_ribe_viborg"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="9 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/royal_run_horsens_korsor_ribe_viborg/royal_run_horsens_korsor_ribe_viborg_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/royal_run_horsens_korsor_ribe_viborg/royal_run_horsens_korsor_ribe_viborg_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilRoyal Run Horsens, Korsør, Ribe, Viborg"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1621,7 +1764,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/jellinglobet"
   class="race-card"
   data-name="Jellingløbet"
@@ -1632,15 +1779,23 @@
   data-distance="2,7km, 4km, 5,8km, 7,4km, 10,1km, trail"
   data-latitude="55.753119"
   data-longitude="9.4168679"
+  data-location=" Jelling"
+  data-description="Jellingløbet er et løb, der finder sted i Jelling, hvor deltagerne kan nyde en smuk rute gennem området. Løbet byder på en unik mulighed for"
+  data-image-path="/løbsider/jellinglobet/jellinglobet"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="11 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/jellinglobet/jellinglobet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/jellinglobet/jellinglobet_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilJellingløbet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1728,7 +1883,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/brooks_outdoor_ultra_trail"
   class="race-card"
   data-name="BROOKS Outdoor Ultra Trail"
@@ -1739,15 +1898,23 @@
   data-distance="22km, marathon, 50 miles"
   data-latitude="56.0369062"
   data-longitude="9.5151811"
+  data-location="Velling Koller ved Bryrup"
+  data-description="Brooks Outdoor Ultra Trail finder sted den 16. august 2025 og er et ægte trailløb med rødder i hjertet af Jylland. Løbet tilbyder en variere"
+  data-image-path="/løbsider/brooks_outdoor_ultra_trail/brooks_outdoor_ultra_trail"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="16 aug."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/brooks_outdoor_ultra_trail/brooks_outdoor_ultra_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/brooks_outdoor_ultra_trail/brooks_outdoor_ultra_trail_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilBROOKS Outdoor Ultra Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1825,7 +1992,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/reborn_trail_horsens"
   class="race-card"
   data-name="Reborn TRAIL - Horsens"
@@ -1836,15 +2007,23 @@
   data-distance="4km, 7km, 14km"
   data-latitude="55.8581302"
   data-longitude="9.8475881"
+  data-location="Horsens"
+  data-description="Reborn TRAIL - Horsens er et forhindringsløb, hvor stemningen på race-site altid emmer af fest og excitement. Deltagerne kan se frem til en "
+  data-image-path="/løbsider/reborn_trail_horsens/reborn_trail_horsens"
+  data-type="trail"
+  data-type-display="Trailløb"
+  data-date-display="7 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/reborn_trail_horsens/reborn_trail_horsens_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/reborn_trail_horsens/reborn_trail_horsens_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilReborn TRAIL - Horsens"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1922,7 +2101,11 @@
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/halvmaraton_den_genfundne_bro"
   class="race-card"
   data-name="Halvmaraton Den Genfundne Bro"
@@ -1933,15 +2116,23 @@
   data-distance="half marathon"
   data-latitude="55.972889"
   data-longitude="9.6896718"
+  data-location=" Brædstrup"
+  data-description="Canonball Halvmaraton Den Genfundne Bro Løbet finder sted lørdag den 26. november 2023 kl. 10.00 i Brædstrup, Central Jylland. Deltagerne ka"
+  data-image-path="/løbsider/halvmaraton_den_genfundne_bro/halvmaraton_den_genfundne_bro"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="13 sep."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/halvmaraton_den_genfundne_bro/halvmaraton_den_genfundne_bro_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/løbsider/halvmaraton_den_genfundne_bro/halvmaraton_den_genfundne_bro_1.webp"
+        width="600"
+        height="400"
         alt="Billede tilHalvmaraton Den Genfundne Bro"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1962,7 +2153,7 @@
       <div class="left-container">
         <h3 class="race-name">Halvmaraton Den Genfundne Bro</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -1973,7 +2164,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -2003,13 +2194,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a> 
+</a>
+ 
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">af</span>
         <span id="total-events">Løb</span>
@@ -2031,17 +2223,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kort</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>
