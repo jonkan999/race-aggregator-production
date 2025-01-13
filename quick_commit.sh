@@ -12,10 +12,6 @@ if ! git remote | grep -q 'origin'; then
     git remote add origin git@github.com:jonkan999/race-aggregator.git
 fi
 
-# Check if upstream branch exists, if not set it up
-if ! git rev-parse --abbrev-ref --symbolic-full-name @{u} > /dev/null 2>&1; then
-    echo "Setting up upstream branch..."
-    git push --set-upstream origin master
-else
-    git push -f
-fi
+# Force push regardless of upstream state
+echo "Force pushing to remote..."
+git push -f origin master
