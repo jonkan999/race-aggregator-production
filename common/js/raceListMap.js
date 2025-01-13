@@ -1,4 +1,6 @@
 let mapInitialized = false;
+let cachedVisibilityState = new Map(); // Move this to the top
+
 async function initializeMap() {
   if (mapInitialized) return;
   console.log('initializeMap');
@@ -216,14 +218,19 @@ async function initializeMap() {
 
     if (!isNaN(latitude) && !isNaN(longitude)) {
       const coordinates = [longitude, latitude];
+      const hash = generateRaceHash(latitude, longitude, name);
       const race = {
         mapboxCenter: coordinates,
         element: raceBox,
         name: name,
+        hash: hash,
       };
       races.push(race);
-      // Remove this line as clustering will handle marker creation
-      // addMarker(race, raceBox);
+      // Initialize cache entry
+      cachedVisibilityState.set(
+        hash,
+        raceBox.classList.contains('filtered-out')
+      );
     }
   });
 
@@ -354,44 +361,157 @@ async function initializeMap() {
     }
   }
 
-  // Update visibility handler
+  // Modify the updateClusters function
+  window.updateClusters = function updateClusters(showLoader = false) {
+    if (mapContainer && mapContainer.style.display === 'none') return;
+    if (!shouldUpdateClusters()) return;
+
+    // Comment out loader functionality for now since clustering is fast
+    // if (showLoader) {
+    //   showMapLoader();
+    // }
+
+    requestAnimationFrame(() => {
+      // Use cached visibility state instead of querying DOM
+      const visibleRaces = races.filter(
+        (race) => !cachedVisibilityState.get(race.hash)
+      );
+
+      // Calculate new marker state
+      const newState = {
+        singleMarkers: [],
+        clusterMarkers: [],
+      };
+
+      const currentZoom = map.getZoom();
+
+      if (currentZoom >= CLUSTER_ZOOM_THRESHOLD) {
+        newState.singleMarkers = visibleRaces.map((race) => ({
+          race,
+          coordinates: race.mapboxCenter,
+        }));
+      } else {
+        // Calculate clusters
+        const clusters = [];
+        visibleRaces.forEach((race) => {
+          const coordinates = race.mapboxCenter;
+
+          // Find existing cluster
+          let cluster = clusters.find((c) =>
+            shouldClusterMarkers(
+              { lng: coordinates[0], lat: coordinates[1] },
+              { lng: c.center[0], lat: c.center[1] },
+              map
+            )
+          );
+
+          if (cluster) {
+            cluster.races.push(race);
+          } else {
+            clusters.push({
+              center: coordinates,
+              races: [race],
+            });
+          }
+        });
+
+        // Convert clusters to marker state
+        clusters.forEach((cluster) => {
+          if (cluster.races.length === 1) {
+            newState.singleMarkers.push({
+              race: cluster.races[0],
+              coordinates: cluster.center,
+            });
+          } else {
+            newState.clusterMarkers.push({
+              coordinates: cluster.center,
+              races: cluster.races,
+            });
+          }
+        });
+      }
+
+      // Apply changes in batch
+      requestAnimationFrame(() => {
+        singleMarkers.forEach((marker) => marker.remove());
+        clusterMarkers.forEach((marker) => marker.remove());
+        singleMarkers = [];
+        clusterMarkers = [];
+
+        newState.singleMarkers.forEach(({ race, coordinates }) => {
+          const marker = addMarker(race, race.element);
+          if (marker) singleMarkers.push(marker);
+        });
+
+        newState.clusterMarkers.forEach(({ coordinates, races }) => {
+          const marker = addClusterMarker(coordinates, races);
+          if (marker) clusterMarkers.push(marker);
+        });
+
+        // Comment out loader hide
+        // if (showLoader) {
+        //   hideMapLoader();
+        // }
+      });
+    });
+  };
+
+  // Update the visibility handler to use the cache
   function updateMarkerVisibility() {
     races.forEach((race) => {
       const raceBox = race.element;
-      // Find the corresponding marker in either array
-      const marker = [...singleMarkers, ...clusterMarkers].find(
-        (m) => m.getElement().getAttribute('data-race-hash') === race.hash
+      cachedVisibilityState.set(
+        race.hash,
+        raceBox.classList.contains('filtered-out')
       );
+    });
 
-      if (marker && raceBox) {
-        if (raceBox.classList.contains('filtered-out')) {
-          marker.getElement().style.display = 'none';
-        } else {
-          marker.getElement().style.display = 'block';
-        }
-      }
+    // Update actual marker visibility using cached state
+    [...singleMarkers, ...clusterMarkers].forEach((marker) => {
+      const hash = marker.getElement().getAttribute('data-race-hash');
+      marker.getElement().style.display = cachedVisibilityState.get(hash)
+        ? 'none'
+        : 'block';
     });
   }
 
-  // Add click listeners to markers
-  [...singleMarkers, ...clusterMarkers].forEach((marker) => {
-    marker.getElement().addEventListener('click', () => {
-      handleMarkerClick(marker);
-    });
-  });
-
-  // Add a MutationObserver to watch for changes in race card visibility
+  // Modify the MutationObserver to ensure cache is updated before clustering
   const observer = new MutationObserver((mutations) => {
+    let needsUpdate = false;
+
     mutations.forEach((mutation) => {
       if (
         mutation.type === 'attributes' &&
         (mutation.attributeName === 'class' ||
           mutation.target.classList.contains('filtered-out'))
       ) {
-        updateMarkerVisibility();
-        updateClusters();
+        // Update cache for this specific race
+        const raceBox = mutation.target;
+        const hash = raceBox.getAttribute('data-race-hash');
+        if (hash) {
+          cachedVisibilityState.set(
+            hash,
+            raceBox.classList.contains('filtered-out')
+          );
+        }
+        needsUpdate = true;
       }
     });
+
+    if (needsUpdate) {
+      requestAnimationFrame(() => {
+        // Ensure cache is fully up to date
+        races.forEach((race) => {
+          const raceBox = race.element;
+          cachedVisibilityState.set(
+            race.hash,
+            raceBox.classList.contains('filtered-out')
+          );
+        });
+
+        updateClusters(true);
+      });
+    }
   });
 
   // Observe each race box for changes
@@ -507,74 +627,31 @@ async function initializeMap() {
     return !isMobile || (isMobile && isMapVisible);
   }
 
-  // Modify the updateClusters function
-  window.updateClusters = function updateClusters() {
-    // Don't update clusters if map is hidden
-    if (mapContainer && mapContainer.style.display === 'none') {
-      return;
+  // Add this near the top of the file with other utility functions
+  function showMapLoader() {
+    const mapContainer = document.getElementById('map-placeholder');
+    let loader = mapContainer.querySelector('.map-loader');
+
+    if (!loader) {
+      loader = document.createElement('div');
+      loader.className = 'map-loader';
+      loader.innerHTML = `
+        <div class="loader-content">
+          <div class="loader-spinner"></div>
+        </div>
+      `;
+      mapContainer.appendChild(loader);
     }
 
-    if (!shouldUpdateClusters()) {
-      return;
+    loader.style.display = 'flex';
+  }
+
+  function hideMapLoader() {
+    const loader = document.querySelector('.map-loader');
+    if (loader) {
+      loader.style.display = 'none';
     }
-
-    // Pre-filter visible races once
-    const visibleRaces = races.filter(
-      (race) => !race.element.classList.contains('filtered-out')
-    );
-
-    // Clear existing markers
-    singleMarkers.forEach((marker) => marker.remove());
-    clusterMarkers.forEach((marker) => marker.remove());
-    singleMarkers = [];
-    clusterMarkers = [];
-
-    const currentZoom = map.getZoom();
-
-    if (currentZoom >= CLUSTER_ZOOM_THRESHOLD) {
-      // Add individual markers when zoomed in
-      visibleRaces.forEach((race) => {
-        const marker = addMarker(race, race.element);
-        if (marker) singleMarkers.push(marker);
-      });
-      return; // Exit early if we're just adding individual markers
-    }
-
-    // Handle clustering
-    const clusters = [];
-    visibleRaces.forEach((race) => {
-      const coordinates = race.mapboxCenter;
-
-      // Find existing cluster
-      let cluster = clusters.find((c) =>
-        shouldClusterMarkers(
-          { lng: coordinates[0], lat: coordinates[1] },
-          { lng: c.center[0], lat: c.center[1] },
-          map
-        )
-      );
-
-      if (cluster) {
-        cluster.races.push(race);
-      } else {
-        clusters.push({
-          center: coordinates,
-          races: [race],
-        });
-      }
-    });
-
-    // Create markers from clusters
-    clusters.forEach((cluster) => {
-      if (cluster.races.length === 1) {
-        const marker = addMarker(cluster.races[0], cluster.races[0].element);
-        if (marker) singleMarkers.push(marker);
-      } else {
-        const marker = addClusterMarker(cluster.center, cluster.races);
-        if (marker) clusterMarkers.push(marker);
-      }
-    });
-  };
+  }
 
   // Add this function after the addMarker function
   function addClusterMarker(coordinates, cluster) {
@@ -812,11 +889,10 @@ async function initializeMap() {
   }
 
   // Modify map event listeners to update clusters
-  map.on('zoomend', updateClusters);
+  map.on('zoomend', () => updateClusters(false));
   map.on('load', () => {
-    // Only update clusters if map is visible
     if (mapContainer && mapContainer.style.display !== 'none') {
-      updateClusters();
+      updateClusters(false);
     }
   });
 

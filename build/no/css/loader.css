@@ -36,7 +36,9 @@ body.loaded .section-race-cards {
   overflow: visible;
   transition: opacity 0.3s ease;
 }
-#initial-loader {
+.loader-base,
+#initial-loader,
+.map-loader {
   position: fixed;
   top: 0;
   left: 0;
@@ -46,9 +48,18 @@ body.loaded .section-race-cards {
   z-index: 9999;
   display: flex;
   justify-content: center;
+  transition: opacity 0.3s ease;
+}
+#initial-loader {
   align-items: flex-start;
   padding-top: calc(var(--header-size) + 19.5rem);
-  transition: opacity 0.3s ease;
+}
+.map-loader {
+  position: absolute;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  align-items: center;
+  z-index: 1000;
 }
 #page-wrapper {
   position: relative;
