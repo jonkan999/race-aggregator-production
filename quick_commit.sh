@@ -8,9 +8,8 @@ git commit -m "$commit_message"
 
 # Check if remote 'origin' exists
 if ! git remote | grep -q 'origin'; then
-    echo "No remote 'origin' found. Please set it up with:"
-    echo "git remote add origin <your-repository-url>"
-    exit 1
+    echo "No remote 'origin' found. Setting it up..."
+    git remote add origin git@github.com:jonkan999/race-aggregator.git
 fi
 
 # Check if upstream branch exists, if not set it up
