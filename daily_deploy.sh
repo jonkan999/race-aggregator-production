@@ -2,7 +2,7 @@
 set -e  # Exit on any error
 
 # Define countries array
-COUNTRIES=('se' 'no' 'fi' 'dk' 'de' 'nl' 'be')
+COUNTRIES=('se' 'no' 'fi' 'dk' 'de' 'nl' 'be' 'ee')
 
 echo "Starting build process for all countries..."
 

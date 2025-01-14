@@ -42,6 +42,9 @@ def build_forum_pages(country_code, output_dir, jinja_env):
     # Create base context
     base_context = create_base_context(index_content, country_code)
     
+    # Get the localized forum slug
+    forum_slug = slugify(base_context['navigation']['forum'], country_code)
+    
     # Build forum index page
     build_forum_index(country_code, output_dir, jinja_env, base_context, db)
     
@@ -114,8 +117,8 @@ def build_forum_index(country_code, output_dir, jinja_env, base_context, db):
         **base_context
     )
     
-    # Write to file in forum directory
-    forum_dir = os.path.join(output_dir, 'forum')
+    # Write to file in forum directory using localized slug
+    forum_dir = os.path.join(output_dir, slugify(base_context['navigation']['forum'], country_code))
     os.makedirs(forum_dir, exist_ok=True)
     with open(os.path.join(forum_dir, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(output)
@@ -172,8 +175,8 @@ def build_category_page(country_code, output_dir, jinja_env, category, base_cont
         **base_context
     )
     
-    # Create output directory and write file
-    category_dir = os.path.join(output_dir, 'forum', category['slug'])
+    # Create output directory and write file using localized slug
+    category_dir = os.path.join(output_dir, slugify(base_context['navigation']['forum'], country_code), category['slug'])
     os.makedirs(category_dir, exist_ok=True)
     with open(os.path.join(category_dir, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(output)
@@ -217,7 +220,7 @@ def build_thread_pages(country_code, output_dir, jinja_env, category, base_conte
             )
             
             # Write to file
-            thread_dir = os.path.join(output_dir, 'forum', category['slug'], thread_data['threadId'])
+            thread_dir = os.path.join(output_dir, slugify(base_context['navigation']['forum'], country_code), category['slug'], thread_data['threadId'])
             os.makedirs(thread_dir, exist_ok=True)
             with open(os.path.join(thread_dir, 'index.html'), 'w', encoding='utf-8') as f:
                 f.write(output)
