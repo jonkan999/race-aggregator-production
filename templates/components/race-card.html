@@ -110,9 +110,9 @@
 </a>
 {% else %}
 <!-- Packed version for remaining cards -->
-<div
+<a
+  href="/{{ race_page_folder_name }}/{{ race.domain_name }}"
   class="race-card packed"
-  data-href="/{{ race_page_folder_name }}/{{ race.domain_name }}"
   data-name="{{ race.name|default('') }}"
   data-date="{{ race.date|default('') }}"
   data-county="{% if preselected_filters and preselected_filters.city %}{{ preselected_filters.city }}{% else %}{{ county_mapping[race.county] if race.county else country_native }}{% endif %}"
@@ -135,5 +135,5 @@
       {{ race.date | convert_date(month_mapping_short) }}
     </div>
   </div>
-</div>
+</a>
 {% endif %}
