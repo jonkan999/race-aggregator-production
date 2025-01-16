@@ -289,6 +289,29 @@ def generate_race_list_schema(index_content, country_code, filtered_races, race_
         ],
         "numberOfItems": min(len(valid_races), max_races)
     }
+def generate_schema_data(index_content, country_code, filtered_races, current_url, navigation, verbose_mapping, county=None, race_type=None, category=None):
+    return {
+            'breadcrumbs': generate_breadcrumbs(
+                index_content=index_content,
+                navigation=navigation,
+                country_code=country_code,
+                county=county,
+                race_type=race_type,
+                category=category
+            ),
+            'navigation': generate_navigation_schema(
+                index_content,
+                filtered_races,
+                current_url=current_url,
+                country_code=country_code,
+                verbose_mapping=verbose_mapping,
+                county=county,
+                race_type=race_type,
+                category=category
+            ) if filtered_races else None,  # Only generate if we have races
+            'raceList': generate_race_list_schema(index_content, country_code, filtered_races, index_content['race_page_folder_name']) if filtered_races else None
+        }
+
 
 def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country_code, free_tier=True):
 
@@ -418,28 +441,9 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
         current_url = f"{index_content['base_url'].rstrip('/')}/{slugify(navigation['race-list'], country_code)}"
         
         # Ensure all schema components are defined
-        schema_data = {
-            'breadcrumbs': generate_breadcrumbs(
-                index_content=index_content,
-                navigation=navigation,
-                country_code=country_code,
-                county=county,
-                race_type=race_type,
-                category=category
-            ),
-            'navigation': generate_navigation_schema(
-                index_content,
-                filtered_races,
-                current_url=current_url,
-                country_code=country_code,
-                verbose_mapping=verbose_mapping,
-                county=county,
-                race_type=race_type,
-                category=category
-            ) if filtered_races else None,  # Only generate if we have races
-            'raceList': generate_race_list_schema(index_content, country_code, filtered_races, index_content['race_page_folder_name']) if filtered_races else None
-        }
+        schema_data = generate_schema_data(index_content, country_code, filtered_races, current_url, navigation, verbose_mapping, county, race_type, category)
 
+        print(schema_data)
         # Before setting the context, encode the preselected filters properly
         import json
         import html

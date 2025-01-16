@@ -7,12 +7,26 @@
     {{ race_list_title }} {{ '' | get_years }}
   </h1>
 
-  <!-- Dynamic version (initially hidden) -->
-  <h1
-    id="race-cards-title-dynamic"
-    class="section-header section-header-race-cards dynamic-header"
-    style="display: none"
-  >
+  <p class="section-description static-description">
+    {{ race_list_meta_description_1 }} {{ race_list_meta_description_2 }}
+  </p>
+
+  {% if schema_data.navigation and schema_data.navigation.itemListElement %}
+  <h3 class="race-type-list-title">{{ popular_subcategories_title }}</h3>
+  <nav class="race-type-navigation" aria-label="race types and categories">
+    <ul class="race-type-list">
+      {% for item in schema_data.navigation.itemListElement %}
+      <li>
+        <a href="/{{ item.url.split(base_url)[1] }}" class="race-type-link">
+          {{ item.name }} ({{ item.numberOfItems }})
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+  {% endif %}
+
+  <h2 class="section-header phone-min-height-51rem">
     {{ section_race_card_category_prefix }}
     <span id="race-cards-title-category"></span>
     {{ section_race_card_category_suffix }}
@@ -23,12 +37,7 @@
       >{{ section_race_card_header_region_default }}</span
     >
     <span id="date-range"></span>
-  </h1>
-
-  <!-- Add a descriptive paragraph for additional SEO value -->
-  <p class="section-description static-description">
-    {{ race_list_meta_description_1 }} {{ race_list_meta_description_2 }}
-  </p>
+  </h2>
 
   <div class="race-cards-selector">
     <div
