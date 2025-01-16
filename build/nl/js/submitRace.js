@@ -1,4 +1,4 @@
-import { getFirebaseAuth } from './firebaseConfig.js';
+import { getFirebaseAuth, firebaseInit } from './firebaseConfig.js';
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -117,7 +117,9 @@ function getFormData() {
 
 export async function submitRace() {
   try {
-    const { auth, db } = await getFirebaseAuth();
+    const { auth } = await getFirebaseAuth();
+    const firebase = await firebaseInit;
+    const db = firebase.getDb();
     const { cleanFormData, mapCoordinates, raceImages } = getFormData();
     const submitterEmail = cleanFormData.contact;
 
@@ -356,7 +358,7 @@ async function processSubmission(db, userId) {
   }
 
   // Check for duplicates
-  const racesRef = collection(db, 'submissions_nl');
+  const racesRef = collection(db, `submissions_${country_code}`);
   const q = query(
     racesRef,
     where('name', '==', raceObject.name),

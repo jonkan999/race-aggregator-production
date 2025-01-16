@@ -138,7 +138,6 @@ def generate_country(country_code):
         race_type=None,  # or provide a specific race type if applicable
         category=None  # or provide a specific category if applicable
     )
-    print(schema_data)
 
     # Merge global content with country-specific content
     content = {
