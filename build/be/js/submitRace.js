@@ -176,7 +176,7 @@ export async function submitRace() {
       console.log('CASE 1: New user created successfully');
       console.log('- Sending password reset email');
       await sendPasswordResetEmail(auth, submitterEmail);
-      alert(messages.submission.newAccountCreated);
+      showTemporaryAlert(messages.submission.newAccountCreated);
       await processSubmission(db, userCredential.user.uid);
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
@@ -393,4 +393,17 @@ function clearFormAndStorage() {
   /*   localStorage.removeItem('raceFormData');
   localStorage.removeItem('raceCoordinates');
   localStorage.removeItem('raceImages'); */
+}
+
+function showTemporaryAlert(message, duration = 3000) {
+  const alertDiv = document.createElement('div');
+  alertDiv.className = 'custom-alert';
+  alertDiv.textContent = message;
+  document.body.appendChild(alertDiv);
+
+  setTimeout(() => {
+    alertDiv.style.opacity = '0';
+    alertDiv.style.transition = 'opacity 0.3s ease-out';
+    setTimeout(() => alertDiv.remove(), 300);
+  }, duration);
 }
