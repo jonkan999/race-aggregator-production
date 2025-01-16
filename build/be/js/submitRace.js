@@ -358,7 +358,7 @@ async function processSubmission(db, userId) {
   }
 
   // Check for duplicates
-  const racesRef = collection(db, `submissions_${country_code}`);
+  const racesRef = collection(db, 'submissions_be');
   const q = query(
     racesRef,
     where('name', '==', raceObject.name),
