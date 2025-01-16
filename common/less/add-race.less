@@ -338,3 +338,38 @@ textarea {
 #clear-form {
   margin-top: 1rem;
 }
+
+// Custom Alert styles
+.custom-alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-background);
+  padding: 1.5rem 2.5rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  animation: slideDown 0.3s ease-out;
+  font-size: 1.5rem;
+  border: 0.1rem solid var(--info-highlight-background2);
+  color: var(--color-text);
+
+  // Match your existing style patterns
+  @media (max-width: @landscape-tablet) {
+    width: 90%;
+    max-width: 40rem;
+    text-align: center;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    top: -10rem;
+    opacity: 0;
+  }
+  to {
+    top: 2rem;
+    opacity: 1;
+  }
+}
