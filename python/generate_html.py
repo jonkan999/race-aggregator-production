@@ -3,6 +3,7 @@ import yaml
 import json
 import shutil
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from build_seo_pages_county import generate_schema_data
 
 import subprocess
 from pathlib import Path
@@ -122,7 +123,23 @@ def generate_country(country_code):
     # Load country-specific forum data
     with open(os.path.join(country_dir, 'forum_posts.json')) as f:
         dummy_forum_posts = json.load(f)
-    
+    current_url = f"{index_content['base_url'].rstrip('/')}/{slugify(index_content['navigation']['race-list'], country_code)}"
+    # Generate the race list schema
+    with open(f'data/countries/{country_code}/distance_filter.yaml', 'r', encoding='utf-8') as f:
+        verbose_mapping = yaml.safe_load(f)
+    schema_data = generate_schema_data(
+        index_content=index_content,
+        country_code=country_code,
+        filtered_races=races,
+        current_url=current_url,
+        navigation=index_content.get('navigation', {}),
+        verbose_mapping=verbose_mapping,
+        county=None,  # or provide a specific county if applicable
+        race_type=None,  # or provide a specific race type if applicable
+        category=None  # or provide a specific category if applicable
+    )
+    print(schema_data)
+
     # Merge global content with country-specific content
     content = {
         **global_content, 
@@ -132,7 +149,7 @@ def generate_country(country_code):
         'race_type': index_content.get('race_type', 'Other'),
         'race_page_folder_name': index_content.get('race_page_folder_name'),
         'distance_filter': distance_filter,
-        
+        'schema_data': schema_data,  # Add the race list schema to the content
     }
 
     # Add responsive image sizes from config

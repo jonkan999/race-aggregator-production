@@ -156,6 +156,9 @@ async function initializeWhenReady() {
   const defaultRegionText = "Suomi";
   const defaultCountyText = "Kaikki läänit";
 
+  const country_code = "fi";
+  const language_code = "fi";
+
   const categoryMapping = {"10 km": {"range": [9, 11]}, "100 km": {"range": [90, 110]}, "100 miles": {"range": [150, 170]}, "10000 meter": {"range": [10, 10]}, "1500 meter": {"range": [1.5, 1.5]}, "200 miles": {"range": [300, 500]}, "3000 meter": {"range": [3, 3]}, "5 km": {"range": [4, 6]}, "50 km": {"range": [45, 55]}, "50 miles": {"range": [75, 100]}, "5000 meter": {"range": [5, 5]}, "Backyard Ultra": "backyard", "Halvmarathon": {"range": [20, 22]}, "Marathon": {"range": [40, 44]}};
 
   // Retrieve pre-selected filters from data attribute
@@ -641,19 +644,21 @@ async function initializeWhenReady() {
     const fromDate = dateFrom.value ? new Date(dateFrom.value) : null;
     const toDate = dateTo.value ? new Date(dateTo.value) : null;
 
-    if (fromDate && toDate) {
-      const fromYear = fromDate.getFullYear();
-      const fromMonth = fromDate.toLocaleString("default", { month: "long" });
-      const toYear = toDate.getFullYear();
-      const toMonth = toDate.toLocaleString("default", { month: "long" });
+    const userLocale = language_code;
 
-      if (fromYear === toYear && fromMonth === toMonth) {
-        dateRangeSpan.textContent = `${dateRangeSingle}${fromMonth} ${fromYear}`;
-      } else {
-        dateRangeSpan.textContent = `${dateRangeFrom}${fromMonth} ${fromYear}${dateRangeTo}${toMonth} ${toYear}`;
-      }
+    if (fromDate && toDate) {
+        const fromYear = fromDate.getFullYear();
+        const fromMonth = fromDate.toLocaleString(userLocale, { month: "long" });
+        const toYear = toDate.getFullYear();
+        const toMonth = toDate.toLocaleString(userLocale, { month: "long" });
+
+        if (fromYear === toYear && fromMonth === toMonth) {
+            dateRangeSpan.textContent = `${dateRangeSingle}${fromMonth} ${fromYear}`;
+        } else {
+            dateRangeSpan.textContent = `${dateRangeFrom}${fromMonth} ${fromYear}${dateRangeTo}${toMonth} ${toYear}`;
+        }
     } else {
-      dateRangeSpan.textContent = "";
+        dateRangeSpan.textContent = "";
     }
   }
 
@@ -873,7 +878,7 @@ async function initializeWhenReady() {
       staticHeader.style.display = 'none';
       dynamicHeader.style.display = 'block';
     }
-    if (staticDescription) {
+    if (staticDescription && dynamicHeader) {
       staticDescription.style.display = 'none';
     }
   }

@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ country_language_code }}">
   <head>
+    <!-- Schema Data (Important for SEO) -->
+    {% for schema_type, schema in schema_data.items() %} {% if schema is defined
+    and schema is not none %}
+    <script type="application/ld+json">
+      {{ schema | tojson | safe }}
+    </script>
+    {% endif %} {% endfor %}
     <meta charset="UTF-8" />
     <meta
       name="viewport"

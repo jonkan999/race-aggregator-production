@@ -156,6 +156,9 @@ async function initializeWhenReady() {
   const defaultRegionText = "{{ section_race_card_header_region_default }}";
   const defaultCountyText = "{{ filter_county }}";
 
+  const country_code = "{{ country_code }}";
+  const language_code = "{{ country_language_code }}";
+
   const categoryMapping = {{ category_mapping | tojson | safe }};
 
   // Retrieve pre-selected filters from data attribute
@@ -641,19 +644,21 @@ async function initializeWhenReady() {
     const fromDate = dateFrom.value ? new Date(dateFrom.value) : null;
     const toDate = dateTo.value ? new Date(dateTo.value) : null;
 
-    if (fromDate && toDate) {
-      const fromYear = fromDate.getFullYear();
-      const fromMonth = fromDate.toLocaleString("default", { month: "long" });
-      const toYear = toDate.getFullYear();
-      const toMonth = toDate.toLocaleString("default", { month: "long" });
+    const userLocale = language_code;
 
-      if (fromYear === toYear && fromMonth === toMonth) {
-        dateRangeSpan.textContent = `${dateRangeSingle}${fromMonth} ${fromYear}`;
-      } else {
-        dateRangeSpan.textContent = `${dateRangeFrom}${fromMonth} ${fromYear}${dateRangeTo}${toMonth} ${toYear}`;
-      }
+    if (fromDate && toDate) {
+        const fromYear = fromDate.getFullYear();
+        const fromMonth = fromDate.toLocaleString(userLocale, { month: "long" });
+        const toYear = toDate.getFullYear();
+        const toMonth = toDate.toLocaleString(userLocale, { month: "long" });
+
+        if (fromYear === toYear && fromMonth === toMonth) {
+            dateRangeSpan.textContent = `${dateRangeSingle}${fromMonth} ${fromYear}`;
+        } else {
+            dateRangeSpan.textContent = `${dateRangeFrom}${fromMonth} ${fromYear}${dateRangeTo}${toMonth} ${toYear}`;
+        }
     } else {
-      dateRangeSpan.textContent = "";
+        dateRangeSpan.textContent = "";
     }
   }
 
@@ -873,7 +878,7 @@ async function initializeWhenReady() {
       staticHeader.style.display = 'none';
       dynamicHeader.style.display = 'block';
     }
-    if (staticDescription) {
+    if (staticDescription && dynamicHeader) {
       staticDescription.style.display = 'none';
     }
   }
