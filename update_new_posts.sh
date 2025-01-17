@@ -13,7 +13,7 @@ GITHUB_TOKEN=$(cat $RACE_AGGREGATOR_PATH/project-root/credentials/github_token)
 # Change to work directory
 cd "$WORK_DIR"
 
-# Ensure we're on master and fully up to date
+# Ensure we're on master and fully up to date THIS IS NOT A GOOD IDEA it will overwrite all changes all the time
 git fetch origin
 git checkout master
 git reset --hard origin/master
