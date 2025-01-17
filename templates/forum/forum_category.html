@@ -1,4 +1,6 @@
-{% extends "forum/forum_layout.html" %} {% block content %}
+{% extends "forum/forum_layout.html" %} {% block title %}{{
+category_header_title }}{% endblock %} {% block meta_description %}{{
+category_meta_description }}{% endblock %} {% block content %}
 <div class="forum-container forum-section" data-category="{{ category.slug }}">
   {% if breadcrumbs %}
   <nav class="breadcrumbs" aria-label="breadcrumb">

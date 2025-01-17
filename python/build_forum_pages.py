@@ -165,12 +165,19 @@ def build_category_page(country_code, output_dir, jinja_env, category, base_cont
         print(f"Error getting threads for category {category['slug']}: {str(e)}")
         thread_count = {'visible': '0', 'total': '0'}
     
+    # Create meta information
+    forum_slug = slugify(base_context['navigation']['forum'], country_code)
+    category_header_title = f"{forum_slug} - {category['name']}"
+    category_meta_description = category_header_title
+    
     # Render category template with threads included in the context
     template = jinja_env.get_template('forum/forum_category.html')
     output = template.render(
         category=category,
-        threads=threads,  # Pass the threads directly
+        threads=threads,
         thread_count=thread_count,
+        category_header_title=category_header_title,
+        category_meta_description=category_meta_description,
         breadcrumbs=generate_forum_breadcrumbs(country_code, base_context['navigation'], category),
         **base_context
     )
@@ -208,13 +215,18 @@ def build_thread_pages(country_code, output_dir, jinja_env, category, base_conte
                 if 'createdAt' in post:
                     post['createdAt'] = post['createdAt'].strftime('%Y-%m-%d %H:%M')
             
+            # Create meta information
+            thread_header_title = thread_data['title']
+            thread_meta_description = thread_header_title
+            
             # Render thread template
             template = jinja_env.get_template('forum/forum_thread.html')
-
             output = template.render(
                 category=category,
                 thread=thread_data,
                 posts=[thread_data] + replies,
+                thread_header_title=thread_header_title,
+                thread_meta_description=thread_meta_description,
                 breadcrumbs=generate_forum_breadcrumbs(country_code, base_context['navigation'], category, thread_data),
                 **base_context
             )
