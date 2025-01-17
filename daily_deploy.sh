@@ -41,3 +41,8 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "Build, commit, and sync completed successfully!"
+
+# Run garbage collection
+echo "Running Git garbage collection..."
+git gc --prune=now --aggressive
+echo "Garbage collection completed!"
