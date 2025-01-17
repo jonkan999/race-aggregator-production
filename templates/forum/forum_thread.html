@@ -1,4 +1,6 @@
-{% extends "forum/forum_layout.html" %} {% block content %}
+{% extends "forum/forum_layout.html" %} {% block title %}{{ thread_header_title
+}}{% endblock %} {% block meta_description %}{{ thread_meta_description }}{%
+endblock %} {% block content %}
 <div
   class="forum-container forum-section thread-container"
   data-category="{{ category.slug }}"
