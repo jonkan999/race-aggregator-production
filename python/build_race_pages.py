@@ -28,6 +28,8 @@ build_dir = 'build'
 # Set up Jinja2 environment
 env = Environment(loader=FileSystemLoader(template_dir))
 
+already_ran_file = '.git/filter-repo/already_ran'
+
 # Add custom filters to the Jinja2 environment
 env.filters['timeago'] = timeago
 env.filters['convert_date'] = convert_date
@@ -297,11 +299,6 @@ def should_rebuild_race(race_dir, race, images_data):
 def clean_git_history_for_races(country_code, valid_domains, race_page_folder_name):
     """
     Clean Git history for race pages that are no longer included in the build.
-    
-    Args:
-        country_code: The country code (e.g., 'se', 'no')
-        valid_domains: Set of domain names that should remain
-        race_page_folder_name: Name of the race pages folder from index.yaml
     """
     race_pages_path = f"build/{country_code}/{race_page_folder_name}"
     
@@ -321,12 +318,23 @@ def clean_git_history_for_races(country_code, valid_domains, race_page_folder_na
                 paths_to_remove.add(path)
         
         if paths_to_remove:
-            print(f"\nCleaning Git history for {len(paths_to_remove)} outdated race paths...")
+            # Check if these paths actually exist in the filesystem
+            paths_that_exist = {path for path in paths_to_remove if os.path.exists(path)}
+            
+            if not paths_that_exist:
+                print("\nNo physical files to clean from Git history.")
+                return
+                
+            print(f"\nCleaning Git history for {len(paths_that_exist)} outdated race paths...")
             
             # Create temporary file with paths to remove
             with open('paths_to_remove.txt', 'w') as f:
-                for path in paths_to_remove:
+                for path in paths_that_exist:
                     f.write(f"{path}\n")
+            
+            # Remove the already_ran file if it exists
+            if os.path.exists(already_ran_file):
+                os.remove(already_ran_file)
             
             # Use git filter-repo to remove these paths from history
             subprocess.run([
@@ -338,9 +346,6 @@ def clean_git_history_for_races(country_code, valid_domains, race_page_folder_na
             
             # Clean up temporary file
             os.remove('paths_to_remove.txt')
-            
-            # Run garbage collection
-            subprocess.run(['git', 'gc', '--prune=now', '--aggressive'], check=True)
             
             print("Git history cleaned successfully!")
             
