@@ -1,4 +1,4 @@
-import { authService } from './firebaseAuthService.js';
+import { firebaseInit } from './firebaseConfig.js';
 import {
   collection,
   addDoc,
@@ -17,7 +17,8 @@ const threadId = container.getAttribute('data-thread-id');
 const country = 'fi';
 
 async function logNewPostToTriggerTable(postId, sourceForum) {
-  const db = await authService.getDb();
+  const firebase = await firebaseInit;
+  const db = firebase.getDb();
   const triggerRef = collection(db, 'new_forum_posts');
   const timestamp = new Date();
 

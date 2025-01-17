@@ -1,4 +1,4 @@
-import { authService } from './firebaseAuthService.js';
+import { firebaseInit } from './firebaseConfig.js';
 import {
   collection,
   addDoc,
@@ -19,8 +19,8 @@ export function initializeRaceForum() {
 
   async function initialize() {
     console.log('Initializing race forum...');
-    const auth = await authService.getAuth();
-    const db = await authService.getDb();
+    const firebase = await firebaseInit;
+    const db = firebase.getDb();
     console.log('Firebase DB initialized:', !!db);
 
     // Add click handler after we have auth
