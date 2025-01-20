@@ -4,11 +4,9 @@ const toggleButtonMobile = document.getElementById('toggleMapButtonMobile');
 const raceCardsSection = document.querySelector('.race-cards-grid');
 const mapSection = document.querySelector('.map-placeholder');
 const pagination = document.querySelector('.pagination');
-const headerRaceCards = document.getElementById('race-cards-title');
-const headerRaceCardsDynamic = document.getElementById(
-  'race-cards-title-dynamic'
+const headerRaceCards = document.querySelector(
+  '.section-race-cards-header-container'
 );
-const pDescription = document.querySelector('.static-description');
 
 // Set an initial state
 let isMapClose = true;
@@ -22,8 +20,6 @@ toggleButtonMobile.addEventListener('click', async function () {
     raceCardsSection.style.display = 'none';
     mapSection.style.display = 'block';
     headerRaceCards.style.display = 'none';
-    headerRaceCardsDynamic.style.display = 'none';
-    pDescription.style.display = 'none';
     pagination.style.display = 'none';
     toggleButtonMobile.innerHTML = `
       <div class="icon-container">
@@ -61,7 +57,7 @@ toggleButtonMobile.addEventListener('click', async function () {
     raceCardsSection.style.display = 'block';
     mapSection.style.display = 'none';
     pagination.style.display = 'flex';
-    headerRaceCardsDynamic.style.display = 'block';
+    headerRaceCards.style.display = 'block';
     toggleButtonMobile.innerHTML = `
       <div class="icon-container">
         <ion-icon name="map-outline"></ion-icon>
