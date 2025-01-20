@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [], "numberOfItems": 0}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Radebeuler Wintercross findet am Sonntag, den 3. M\u00e4rz 2024, in Radebeul statt und wird vom SSV Planeta Radebeul e.V. veranstaltet und ausgerichtet. Die Vera", "distance": null, "eventStatus": "Standard", "identifier": "wintercross_radebeul", "image": "/Rennseiten/wintercross_radebeul/wintercross_radebeul_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Junge Heide Dresden / Radebeul", "addressRegion": "Sachsen"}, "name": "Junge Heide Dresden / Radebeul"}, "name": "Wintercross Radebeul", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250309"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Schlossparcross Pulsnitz findet am Samstag, den 23. M\u00e4rz 2024, im Schlosspark Pulsnitz statt. Der Wettkampf wird vom HSV 1923 Pulsnitz e.V. Abteilung Leicht", "distance": "1,6km", "eventStatus": "Standard", "identifier": "schlossparcross_pulsnitz", "image": "/Rennseiten/schlossparcross_pulsnitz/schlossparcross_pulsnitz_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Pulsnitz", "addressRegion": "Sachsen"}, "name": "Pulsnitz"}, "name": "Schlossparcross Pulsnitz", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250322"}, "position": 2}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Talsperrenlauf ist seit 1995 ein beliebter Landschaftslauf und Mountainbike-Event, das durch das Erzgebirge und \u00fcber die Staumauern von drei Stauseen f\u00fchrt.", "distance": "3,4km, 7,5km, 8,5km, 14,9km", "eventStatus": "Standard", "identifier": "talsperrenlauf_trail", "image": "/Rennseiten/talsperrenlauf_trail/talsperrenlauf_trail_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Gemeinde Lichtenberg", "addressRegion": "Sachsen"}, "name": "Gemeinde Lichtenberg"}, "name": "Talsperrenlauf Trail", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250426"}, "position": 3}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der sechste Geithainer Herbstlauf findet am Sonntag, den 07. September 2025, statt und bietet verschiedene Strecken f\u00fcr L\u00e4ufer aller Altersgruppen. Die Distanze", "distance": "2,5km, 7km, 17km", "eventStatus": "Standard", "identifier": "herbstlauf_geithain", "image": "/Rennseiten/herbstlauf_geithain/herbstlauf_geithain_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Stadion Geithain, Paul-Guenther-Platz 1, 04643 Geithain", "addressRegion": "Sachsen"}, "name": "Stadion Geithain, Paul-Guenther-Platz 1, 04643 Geithain"}, "name": "Herbstlauf Geithain", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250907"}, "position": 4}], "numberOfItems": 4}
     </script>
      
 
@@ -23,6 +23,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Laufwettbewerbe in Sachsen: Gelände-Laufkalender & Rennliste</title>
+    <meta name="description" content="Finde deinen nächsten Geländelauf in Sachsen! Unser Laufkalender listet Laufwettkämpfe von 1500 Metern bis Marathon auf.  Durchsuche unsere Rennliste nach der perfekten Distanz." />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -588,60 +589,61 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/laufkalender">Laufkalender</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/laufkalender">Laufkalender</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/laufkalender/sachsen">Sachsen</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/laufkalender/sachsen">Sachsen</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li aria-current="page" >
+          
+          <span>Gelände</span>
+          
+        </li>
         
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>Gelände</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    Gelände-Laufwettbewerbe in Sachsen: Laufkalender & Rennliste
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Entdecke die besten Geländeläufe in Sachsen mit unserem Laufkalender!  Ob 5 km, 10 km, Halvmarathon, Marathon oder sogar ein anspruchsvoller 50 km Lauf – hier findest du die perfekte Herausforderung.  Unsere Rennliste umfasst verschiedene Distanzen und bietet dir einen umfassenden Überblick über alle Laufwettkämpfe und Laufrennen in Sachsen.  Filtere nach Kategorie (z.B. 5 km, 10 km, Halvmarathon) und finde schnell deinen nächsten Lauf.  Sichere dir jetzt deinen Startplatz!  Dies ist dein ultimativer Laufkalender und deine Rennliste für Läufe in Sachsen.</p>
-
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Alle
-    <span id="race-cards-title-category"></span>
-    Rennen
-    <span id="race-cards-title-separator"
-      >i</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Deutschland</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      Gelände-Laufwettbewerbe in Sachsen: Laufkalender & Rennliste
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Entdecke die besten Geländeläufe in Sachsen mit unserem Laufkalender!  Ob 5 km, 10 km, Halvmarathon, Marathon oder sogar ein anspruchsvoller 50 km Lauf – hier findest du die perfekte Herausforderung.  Unsere Rennliste umfasst verschiedene Distanzen und bietet dir einen umfassenden Überblick über alle Laufwettkämpfe und Laufrennen in Sachsen.  Filtere nach Kategorie (z.B. 5 km, 10 km, Halvmarathon) und finde schnell deinen nächsten Lauf.  Sichere dir jetzt deinen Startplatz!  Dies ist dein ultimativer Laufkalender und deine Rennliste für Läufe in Sachsen.</p>
 
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Alle
+      <span id="race-cards-title-category"></span>
+      Rennen
+      <span id="race-cards-title-separator"
+        >i</span
+      >
+      <span id="race-cards-title-region"
+        >Deutschland</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -653,31 +655,31 @@
          
 <!-- Full card content for first 20 cards -->
 <a
-  href="/Rennseiten/oberschwabische_crosslauf_2_lauf"
+  href="/Rennseiten/wintercross_radebeul"
   class="race-card"
-  data-name="Oberschwäbische Crosslauf 2. Lauf"
-  data-date="20250112"
+  data-name="Wintercross Radebeul"
+  data-date="20250309"
   data-county="Sachsen"
   data-category=""
   data-race-type="Gelände"
-  data-distance="0,5km, 1,2km, 3,6km, 7,2km"
-  data-latitude="50.8238005"
-  data-longitude="12.9187695"
-  data-location="Vogt, Deutschland"
-  data-description="Der Oberschwäbische Crosslauf 2. Lauf findet in Birkenhard statt und bietet verschiedene Streckenlängen für verschiedene Altersklassen. Die "
-  data-image-path="/Rennseiten/oberschwabische_crosslauf_2_lauf/oberschwabische_crosslauf_2_lauf"
+  data-distance=""
+  data-latitude="51.1071458"
+  data-longitude="13.71386"
+  data-location="Junge Heide Dresden / Radebeul"
+  data-description="Der Radebeuler Wintercross findet am Sonntag, den 3. März 2024, in Radebeul statt und wird vom SSV Planeta Radebeul e.V. veranstaltet und au"
+  data-image-path="/Rennseiten/wintercross_radebeul/wintercross_radebeul"
   data-type="terrain"
   data-type-display="Gelände"
-  data-date-display="12 jan."
+  data-date-display="9 März"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/Rennseiten/oberschwabische_crosslauf_2_lauf/oberschwabische_crosslauf_2_lauf_1.webp"
+        data-src="/Rennseiten/wintercross_radebeul/wintercross_radebeul_1.webp"
         width="600"
         height="400"
-        alt="Bild zuOberschwäbische Crosslauf 2. Lauf"
+        alt="Bild zuWintercross Radebeul"
         class="background-img"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
@@ -685,7 +687,7 @@
     <div class="race-card-content">
       <div class="race-info-top">
         <div class="race-date">
-          12 jan.
+          9 März
         </div>
         <div class="race-location">
           Sachsen
@@ -698,7 +700,103 @@
   <div class="race-info-bottom">
     <div class="upper-container">
       <div class="left-container">
-        <h3 class="race-name">Oberschwäbische Crosslauf 2. Lauf</h3>
+        <h3 class="race-name">Wintercross Radebeul</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Junge Heide Dresden / Radebeul 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Gemischte Distanz
+              </span>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Gelände
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Der Radebeuler Wintercross findet am Sonntag, den 3. März 2024, in Radebeul statt und wird vom SSV Planeta Radebeul e.V. veranstaltet und au...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
+  </div>
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
+  href="/Rennseiten/schlossparcross_pulsnitz"
+  class="race-card"
+  data-name="Schlossparcross Pulsnitz"
+  data-date="20250322"
+  data-county="Sachsen"
+  data-category=""
+  data-race-type="Gelände"
+  data-distance="1,6km"
+  data-latitude="51.18350840000001"
+  data-longitude="14.015403"
+  data-location="Pulsnitz"
+  data-description="Der Schlossparcross Pulsnitz findet am Samstag, den 23. März 2024, im Schlosspark Pulsnitz statt. Der Wettkampf wird vom HSV 1923 Pulsnitz e"
+  data-image-path="/Rennseiten/schlossparcross_pulsnitz/schlossparcross_pulsnitz"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="22 März"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/schlossparcross_pulsnitz/schlossparcross_pulsnitz_1.webp"
+        width="600"
+        height="400"
+        alt="Bild zuSchlossparcross Pulsnitz"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          22 März
+        </div>
+        <div class="race-location">
+          Sachsen
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Schlossparcross Pulsnitz</h3>
         <div
           class="race-location with-spacing"
         >
@@ -706,7 +804,7 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Vogt, Deutschland 
+          Pulsnitz 
         </div>
       </div>
       <div class="right-container">
@@ -720,25 +818,7 @@
               
             <div class="distance-item">
               <span class="race-distance">
-                0,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                1,2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                3,6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                7,2 km
+                1,6 km
               </span>
             </div>
               
@@ -755,7 +835,7 @@
       </div>
     </div>
     <div class="race-summary">
-      Der Oberschwäbische Crosslauf 2. Lauf findet in Birkenhard statt und bietet verschiedene Streckenlängen für verschiedene Altersklassen. Die ...
+      Der Schlossparcross Pulsnitz findet am Samstag, den 23. März 2024, im Schlosspark Pulsnitz statt. Der Wettkampf wird vom HSV 1923 Pulsnitz e...
     </div>
   </div>
   <div
@@ -764,7 +844,534 @@
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-     
+   
+      <section class="section section-selected-races in-grid">
+        <div class="section-header-container">
+          <h2 class="section-header">Ausgewählte Rennen</h2>
+          <div class="scroll-buttons">
+            <button class="scroll-button prev" aria-label="Previous" disabled>
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </button>
+            <button class="scroll-button next" aria-label="Next">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+        <div class="race-card-big-container right-scroller">
+              <a
+  href="/Rennseiten/wintercross_radebeul"
+  class="race-card-big race-card"
+  data-name="Wintercross Radebeul"
+  data-date="20250309"
+  data-county="Sachsen"
+  data-category=""
+  data-race-type="Gelände"
+  data-distance=""
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/wintercross_radebeul/wintercross_radebeul_1.webp"
+        alt="Bild zuWintercross Radebeul"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          9 März
+        </div>
+        <div class="race-location">
+          Sachsen
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Gelände
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Gemischte Distanz
+              </span>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Wintercross Radebeul</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Zur Rennseite</div>
+    </div>
+  </div>
+</a>       <a
+  href="/Rennseiten/schlossparcross_pulsnitz"
+  class="race-card-big race-card"
+  data-name="Schlossparcross Pulsnitz"
+  data-date="20250322"
+  data-county="Sachsen"
+  data-category=""
+  data-race-type="Gelände"
+  data-distance="1,6km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/schlossparcross_pulsnitz/schlossparcross_pulsnitz_1.webp"
+        alt="Bild zuSchlossparcross Pulsnitz"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          22 März
+        </div>
+        <div class="race-location">
+          Sachsen
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Gelände
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                1,6 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Schlossparcross Pulsnitz</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Zur Rennseite</div>
+    </div>
+  </div>
+</a>       <a
+  href="/Rennseiten/talsperrenlauf_trail"
+  class="race-card-big race-card"
+  data-name="Talsperrenlauf Trail"
+  data-date="20250426"
+  data-county="Sachsen"
+  data-category=""
+  data-race-type="Gelände"
+  data-distance="3,4km, 7,5km, 8,5km, 14,9km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/talsperrenlauf_trail/talsperrenlauf_trail_1.webp"
+        alt="Bild zuTalsperrenlauf Trail"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          26 apr.
+        </div>
+        <div class="race-location">
+          Sachsen
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Gelände
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                3,4 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                7,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                8,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                14,9 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Talsperrenlauf Trail</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Zur Rennseite</div>
+    </div>
+  </div>
+</a>       <a
+  href="/Rennseiten/herbstlauf_geithain"
+  class="race-card-big race-card"
+  data-name="Herbstlauf Geithain"
+  data-date="20250907"
+  data-county="Sachsen"
+  data-category=""
+  data-race-type="Gelände"
+  data-distance="2,5km, 7km, 17km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/herbstlauf_geithain/herbstlauf_geithain_1.webp"
+        alt="Bild zuHerbstlauf Geithain"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          7 sep.
+        </div>
+        <div class="race-location">
+          Sachsen
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Gelände
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                2,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                7 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                17 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Herbstlauf Geithain</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Zur Rennseite</div>
+    </div>
+  </div>
+</a>   
+        </div>
+      </section>
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
+  href="/Rennseiten/talsperrenlauf_trail"
+  class="race-card"
+  data-name="Talsperrenlauf Trail"
+  data-date="20250426"
+  data-county="Sachsen"
+  data-category=""
+  data-race-type="Gelände"
+  data-distance="3,4km, 7,5km, 8,5km, 14,9km"
+  data-latitude="50.8339885"
+  data-longitude="13.4218734"
+  data-location="Gemeinde Lichtenberg"
+  data-description="Der Talsperrenlauf ist seit 1995 ein beliebter Landschaftslauf und Mountainbike-Event, das durch das Erzgebirge und über die Staumauern von "
+  data-image-path="/Rennseiten/talsperrenlauf_trail/talsperrenlauf_trail"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="26 apr."
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/talsperrenlauf_trail/talsperrenlauf_trail_1.webp"
+        width="600"
+        height="400"
+        alt="Bild zuTalsperrenlauf Trail"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          26 apr.
+        </div>
+        <div class="race-location">
+          Sachsen
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Talsperrenlauf Trail</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Gemeinde Lichtenberg 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                3,4 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                7,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                8,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                14,9 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Gelände
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Der Talsperrenlauf ist seit 1995 ein beliebter Landschaftslauf und Mountainbike-Event, das durch das Erzgebirge und über die Staumauern von ...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
+  </div>
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
+  href="/Rennseiten/herbstlauf_geithain"
+  class="race-card"
+  data-name="Herbstlauf Geithain"
+  data-date="20250907"
+  data-county="Sachsen"
+  data-category=""
+  data-race-type="Gelände"
+  data-distance="2,5km, 7km, 17km"
+  data-latitude="51.0513006"
+  data-longitude="12.6953762"
+  data-location="Stadion Geithain, Paul-Guenther-Platz 1, 04643 Geithain"
+  data-description="Der sechste Geithainer Herbstlauf findet am Sonntag, den 07. September 2025, statt und bietet verschiedene Strecken für Läufer aller Altersg"
+  data-image-path="/Rennseiten/herbstlauf_geithain/herbstlauf_geithain"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="7 sep."
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/herbstlauf_geithain/herbstlauf_geithain_1.webp"
+        width="600"
+        height="400"
+        alt="Bild zuHerbstlauf Geithain"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          7 sep.
+        </div>
+        <div class="race-location">
+          Sachsen
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Herbstlauf Geithain</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Stadion Geithain, Paul-Guenther-Platz 1, 04643 Geithain 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                2,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                7 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                17 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Gelände
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Der sechste Geithainer Herbstlauf findet am Sonntag, den 07. September 2025, statt und bietet verschiedene Strecken für Läufer aller Altersg...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
+  </div>
+</a>
+ 
 
       <!-- Pagination controls -->
       <div class="pagination-info">
