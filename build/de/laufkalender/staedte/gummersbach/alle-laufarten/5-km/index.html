@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Crosslauf Meerhardt Extrem ist ein anspruchsvoller und landschaftlich sehr reizvoller Crosslauf aus Wald-, Forstwegen und sensationellen Trails. 100% Off Ro", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "meerhardt_extreme", "image": "/Rennseiten/meerhardt_extreme/meerhardt_extreme_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Gummersbach", "addressRegion": "Nordrhein-Westfalen"}, "name": "Gummersbach"}, "name": "Meerhardt Extreme", "sport": "Laufen, Trail", "startDate": "20250208"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der F\u00f6schber Radweglauf ist eine Laufveranstaltung, die Teilnehmer \u00fcber verschiedene Distanzen anzieht. Die 10 km und 5 km L\u00e4ufe sind flache, schnelle Wendepunk", "distance": "1km, 5km, 10km", "eventStatus": "Standard", "identifier": "foschber_radweglauf", "image": "/Rennseiten/foschber_radweglauf/foschber_radweglauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Niederfischbach", "addressRegion": "Rheinland-Pfalz"}, "name": "Niederfischbach"}, "name": "F\u00f6schber Radweglauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250308"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Crosslauf Meerhardt Extrem ist ein anspruchsvoller und landschaftlich sehr reizvoller Crosslauf aus Wald-, Forstwegen und sensationellen Trails. 100% Off Ro", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "meerhardt_extreme", "image": "/Rennseiten/meerhardt_extreme/meerhardt_extreme_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Gummersbach", "addressRegion": "Nordrhein-Westfalen"}, "name": "Gummersbach"}, "name": "Meerhardt Extreme", "sport": "Laufen, Trail", "startDate": "20250208"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der F\u00f6schber Radweglauf ist eine Laufveranstaltung, die Teilnehmer \u00fcber verschiedene Distanzen anzieht. Die 10 km und 5 km L\u00e4ufe sind flache, schnelle Wendepunk", "distance": "1km, 5km, 10km", "eventStatus": "Standard", "identifier": "foschber_radweglauf", "image": "/Rennseiten/foschber_radweglauf/foschber_radweglauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Niederfischbach", "addressRegion": "Rheinland-Pfalz"}, "name": "Niederfischbach"}, "name": "F\u00f6schber Radweglauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250308"}, "position": 2}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der K\u00f6nigsforst-Marathon wird organisiert vom TVR running team und findet seit 1973 im Fr\u00fchjahr im K\u00f6nigsforst in Bensberg/Bergisch Gladbach bei K\u00f6ln statt. Die", "distance": "half marathon, marathon, 63,3km", "eventStatus": "Standard", "identifier": "konigsforst_marathon_mit_halbmarathon_und_ultramarathon", "image": "/Rennseiten/konigsforst_marathon_mit_halbmarathon_und_ultramarathon/konigsforst_marathon_mit_halbmarathon_und_ultramarathon_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Bensberg/Bergisch Gladbach", "addressRegion": "Nordrhein-Westfalen"}, "name": "Bensberg/Bergisch Gladbach"}, "name": "K\u00f6nigsforst-Marathon mit Halbmarathon und Ultramarathon", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250316"}, "position": 3}], "numberOfItems": 3}
     </script>
      
 
@@ -463,8 +463,16 @@
       Marathon
     </button>
     
+    <button class="category-button" data-category="50 miles">
+      50 miles
+    </button>
+    
     <button class="category-button" data-category="50 km">
       50 km
+    </button>
+    
+    <button class="category-button" data-category="100 km">
+      100 km
     </button>
     
     <button class="category-button" data-category="Millopp">
@@ -858,7 +866,355 @@
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-     
+   
+      <section class="section section-selected-races in-grid">
+        <div class="section-header-container">
+          <h2 class="section-header">Ausgewählte Rennen</h2>
+          <div class="scroll-buttons">
+            <button class="scroll-button prev" aria-label="Previous" disabled>
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </button>
+            <button class="scroll-button next" aria-label="Next">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+        <div class="race-card-big-container right-scroller">
+              <a
+  href="/Rennseiten/meerhardt_extreme"
+  class="race-card-big race-card"
+  data-name="Meerhardt Extreme"
+  data-date="20250208"
+  data-county="Nordrhein-Westfalen"
+  data-category=""
+  data-race-type="Trail"
+  data-distance="5km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/meerhardt_extreme/meerhardt_extreme_1.webp"
+        alt="Bild zuMeerhardt Extreme"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          8 Feb.
+        </div>
+        <div class="race-location">
+          Nordrhein-Westfalen
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Meerhardt Extreme</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Zur Rennseite</div>
+    </div>
+  </div>
+</a>       <a
+  href="/Rennseiten/foschber_radweglauf"
+  class="race-card-big race-card"
+  data-name="Föschber Radweglauf"
+  data-date="20250308"
+  data-county="Rheinland-Pfalz"
+  data-category=""
+  data-race-type="Straße"
+  data-distance="1km, 5km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/foschber_radweglauf/foschber_radweglauf_1.webp"
+        alt="Bild zuFöschber Radweglauf"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          8 März
+        </div>
+        <div class="race-location">
+          Rheinland-Pfalz
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Straße
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                1 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Föschber Radweglauf</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Zur Rennseite</div>
+    </div>
+  </div>
+</a>       <a
+  href="/Rennseiten/konigsforst_marathon_mit_halbmarathon_und_ultramarathon"
+  class="race-card-big race-card"
+  data-name="Königsforst-Marathon mit Halbmarathon und Ultramarathon"
+  data-date="20250316"
+  data-county="Nordrhein-Westfalen"
+  data-category=""
+  data-race-type="Gelände"
+  data-distance="half marathon, marathon, 63,3km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/konigsforst_marathon_mit_halbmarathon_und_ultramarathon/konigsforst_marathon_mit_halbmarathon_und_ultramarathon_1.webp"
+        alt="Bild zuKönigsforst-Marathon mit Halbmarathon und Ultramarathon"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          16 März
+        </div>
+        <div class="race-location">
+          Nordrhein-Westfalen
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Gelände
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                Halbmarathon
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Marathon
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                63,3 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Königsforst-Marathon mit Halbmarathon und Ultramarathon</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Zur Rennseite</div>
+    </div>
+  </div>
+</a>   
+        </div>
+      </section>
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
+  href="/Rennseiten/konigsforst_marathon_mit_halbmarathon_und_ultramarathon"
+  class="race-card"
+  data-name="Königsforst-Marathon mit Halbmarathon und Ultramarathon"
+  data-date="20250316"
+  data-county="Nordrhein-Westfalen"
+  data-category=""
+  data-race-type="Gelände"
+  data-distance="half marathon, marathon, 63,3km"
+  data-latitude="50.9647506"
+  data-longitude="7.1548209"
+  data-location="Bensberg/Bergisch Gladbach"
+  data-description="Der Königsforst-Marathon wird organisiert vom TVR running team und findet seit 1973 im Frühjahr im Königsforst in Bensberg/Bergisch Gladbach"
+  data-image-path="/Rennseiten/konigsforst_marathon_mit_halbmarathon_und_ultramarathon/konigsforst_marathon_mit_halbmarathon_und_ultramarathon"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="16 März"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/konigsforst_marathon_mit_halbmarathon_und_ultramarathon/konigsforst_marathon_mit_halbmarathon_und_ultramarathon_1.webp"
+        width="600"
+        height="400"
+        alt="Bild zuKönigsforst-Marathon mit Halbmarathon und Ultramarathon"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          16 März
+        </div>
+        <div class="race-location">
+          Nordrhein-Westfalen
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Königsforst-Marathon mit Halbmarathon und Ultramarathon</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Bensberg/Bergisch Gladbach 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                Halbmarathon
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Marathon
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                63,3 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Gelände
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Der Königsforst-Marathon wird organisiert vom TVR running team und findet seit 1973 im Frühjahr im Königsforst in Bensberg/Bergisch Gladbach...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
+  </div>
+</a>
+ 
 
       <!-- Pagination controls -->
       <div class="pagination-info">

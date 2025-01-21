@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 3. Flemminger Wintercross findet am 08. Februar 2025 in Naumburg OT Flemmingen statt und bietet einen 15 km Crosslauf f\u00fcr alle Altersklassen. Die Wettkampfs", "distance": "14km, 15km", "eventStatus": "Standard", "identifier": "flemminger_wintercross", "image": "/Rennseiten/flemminger_wintercross/flemminger_wintercross_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Naumburger Stahl- und Metallhandel GmbH, Dorfstra\u00dfe 3 (Flemmingen), 06618 Naumburg (Saale)", "addressRegion": "Sachsen-Anhalt"}, "name": "Naumburger Stahl- und Metallhandel GmbH, Dorfstra\u00dfe 3 (Flemmingen), 06618 Naumburg (Saale)"}, "name": "Flemminger Wintercross", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250208"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 10. Hofwiesenparklauf - Osterland Cross findet am 08. M\u00e4rz 2025 im Stadion der Freundschaft Gera statt. Die Veranstaltung beginnt um 09:30 Uhr und endet um ", "distance": "1km, 2km, 5km, 10km", "eventStatus": "Standard", "identifier": "hofwiesenpark_cross", "image": "/Rennseiten/hofwiesenpark_cross/hofwiesenpark_cross_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Stadion der Freundschaft Gera", "addressRegion": "Th\u00fcringen"}, "name": "Stadion der Freundschaft Gera"}, "name": "Hofwiesenpark Cross", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250308"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 3. Flemminger Wintercross findet am 08. Februar 2025 in Naumburg OT Flemmingen statt und bietet einen 15 km Crosslauf f\u00fcr alle Altersklassen. Die Wettkampfs", "distance": "14km, 15km", "eventStatus": "Standard", "identifier": "flemminger_wintercross", "image": "/Rennseiten/flemminger_wintercross/flemminger_wintercross_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Naumburger Stahl- und Metallhandel GmbH, Dorfstra\u00dfe 3 (Flemmingen), 06618 Naumburg (Saale)", "addressRegion": "Sachsen-Anhalt"}, "name": "Naumburger Stahl- und Metallhandel GmbH, Dorfstra\u00dfe 3 (Flemmingen), 06618 Naumburg (Saale)"}, "name": "Flemminger Wintercross", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250208"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 10. Hofwiesenparklauf - Osterland Cross findet am 08. M\u00e4rz 2025 im Stadion der Freundschaft Gera statt. Die Veranstaltung beginnt um 09:30 Uhr und endet um ", "distance": "1km, 2km, 5km, 10km", "eventStatus": "Standard", "identifier": "hofwiesenpark_cross", "image": "/Rennseiten/hofwiesenpark_cross/hofwiesenpark_cross_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Stadion der Freundschaft Gera", "addressRegion": "Th\u00fcringen"}, "name": "Stadion der Freundschaft Gera"}, "name": "Hofwiesenpark Cross", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250308"}, "position": 2}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 11. Altenburger Sparkassen-Crosslauf findet am 13. April 2024 in Altenburg statt und l\u00e4dt alle Interessierten zu einem Lauf mit einem interessanten Strecken", "distance": "1km, 2km, 3,4km", "eventStatus": "Standard", "identifier": "altenburger_crosslauf", "image": "/Rennseiten/altenburger_crosslauf/altenburger_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Altenburger Skatbank-Arena in der Zwickauer Stra\u00dfe", "addressRegion": "Th\u00fcringen"}, "name": "Altenburger Skatbank-Arena in der Zwickauer Stra\u00dfe"}, "name": "Altenburger Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250329"}, "position": 3}], "numberOfItems": 3}
     </script>
      
 
@@ -467,8 +467,16 @@
       Marathon
     </button>
     
+    <button class="category-button" data-category="50 miles">
+      50 miles
+    </button>
+    
     <button class="category-button" data-category="50 km">
       50 km
+    </button>
+    
+    <button class="category-button" data-category="100 km">
+      100 km
     </button>
     
     <button class="category-button" data-category="Millopp">
@@ -868,7 +876,361 @@
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-     
+   
+      <section class="section section-selected-races in-grid">
+        <div class="section-header-container">
+          <h2 class="section-header">Ausgewählte Rennen</h2>
+          <div class="scroll-buttons">
+            <button class="scroll-button prev" aria-label="Previous" disabled>
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </button>
+            <button class="scroll-button next" aria-label="Next">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+        <div class="race-card-big-container right-scroller">
+              <a
+  href="/Rennseiten/flemminger_wintercross"
+  class="race-card-big race-card"
+  data-name="Flemminger Wintercross"
+  data-date="20250208"
+  data-county="Sachsen-Anhalt"
+  data-category=""
+  data-race-type="Gelände"
+  data-distance="14km, 15km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/flemminger_wintercross/flemminger_wintercross_1.webp"
+        alt="Bild zuFlemminger Wintercross"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          8 Feb.
+        </div>
+        <div class="race-location">
+          Sachsen-Anhalt
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Gelände
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                14 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                15 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Flemminger Wintercross</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Zur Rennseite</div>
+    </div>
+  </div>
+</a>       <a
+  href="/Rennseiten/hofwiesenpark_cross"
+  class="race-card-big race-card"
+  data-name="Hofwiesenpark Cross"
+  data-date="20250308"
+  data-county="Thüringen"
+  data-category=""
+  data-race-type="Gelände"
+  data-distance="1km, 2km, 5km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/hofwiesenpark_cross/hofwiesenpark_cross_1.webp"
+        alt="Bild zuHofwiesenpark Cross"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          8 März
+        </div>
+        <div class="race-location">
+          Thüringen
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Gelände
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                1 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                2 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Hofwiesenpark Cross</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Zur Rennseite</div>
+    </div>
+  </div>
+</a>       <a
+  href="/Rennseiten/altenburger_crosslauf"
+  class="race-card-big race-card"
+  data-name="Altenburger Crosslauf"
+  data-date="20250329"
+  data-county="Thüringen"
+  data-category=""
+  data-race-type="Gelände"
+  data-distance="1km, 2km, 3,4km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/altenburger_crosslauf/altenburger_crosslauf_1.webp"
+        alt="Bild zuAltenburger Crosslauf"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          29 März
+        </div>
+        <div class="race-location">
+          Thüringen
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Gelände
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                1 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                2 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                3,4 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Altenburger Crosslauf</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Zur Rennseite</div>
+    </div>
+  </div>
+</a>   
+        </div>
+      </section>
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
+  href="/Rennseiten/altenburger_crosslauf"
+  class="race-card"
+  data-name="Altenburger Crosslauf"
+  data-date="20250329"
+  data-county="Thüringen"
+  data-category=""
+  data-race-type="Gelände"
+  data-distance="1km, 2km, 3,4km"
+  data-latitude="50.9699744"
+  data-longitude="12.4352714"
+  data-location="Altenburger Skatbank-Arena in der Zwickauer Straße"
+  data-description="Der 11. Altenburger Sparkassen-Crosslauf findet am 13. April 2024 in Altenburg statt und lädt alle Interessierten zu einem Lauf mit einem in"
+  data-image-path="/Rennseiten/altenburger_crosslauf/altenburger_crosslauf"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="29 März"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/altenburger_crosslauf/altenburger_crosslauf_1.webp"
+        width="600"
+        height="400"
+        alt="Bild zuAltenburger Crosslauf"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          29 März
+        </div>
+        <div class="race-location">
+          Thüringen
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Altenburger Crosslauf</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Altenburger Skatbank-Arena in der Zwickauer Straße 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                1 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                2 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                3,4 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Gelände
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Der 11. Altenburger Sparkassen-Crosslauf findet am 13. April 2024 in Altenburg statt und lädt alle Interessierten zu einem Lauf mit einem in...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
+  </div>
+</a>
+ 
 
       <!-- Pagination controls -->
       <div class="pagination-info">

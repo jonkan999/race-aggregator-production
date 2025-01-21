@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [], "numberOfItems": 0}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 11. Altenburger Sparkassen-Crosslauf findet am 13. April 2024 in Altenburg statt und l\u00e4dt alle Interessierten zu einem Lauf mit einem interessanten Strecken", "distance": "1km, 2km, 3,4km", "eventStatus": "Standard", "identifier": "altenburger_crosslauf", "image": "/Rennseiten/altenburger_crosslauf/altenburger_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Altenburger Skatbank-Arena in der Zwickauer Stra\u00dfe", "addressRegion": "Th\u00fcringen"}, "name": "Altenburger Skatbank-Arena in der Zwickauer Stra\u00dfe"}, "name": "Altenburger Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250329"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Skatstadtmarathon findet am 14. Juni 2025 in Altenburg statt und bietet eine anspruchsvolle Herausforderung f\u00fcr L\u00e4ufer aller Altersgruppen und Leistungsnive", "distance": "3,6km, 5,4km, 13,3km, marathon", "eventStatus": "Standard", "identifier": "skatstadtmarathon", "image": "/Rennseiten/skatstadtmarathon/skatstadtmarathon_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Altenburg", "addressRegion": "Th\u00fcringen"}, "name": "Altenburg"}, "name": "Skatstadtmarathon", "sport": "Laufen, Stra\u00dfe", "startDate": "20250614"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -23,6 +23,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Laufwettbewerbe in Zwickau: Rennliste & Laufkalender für alle Laufarten</title>
+    <meta name="description" content="Finde deinen nächsten Lauf in Zwickau! Unser Laufkalender listet Laufwettkämpfe aller Kategorien – von 5 km bis Marathon – auf Straßen, im Gelände oder auf der Laufbahn.  Durchsuche unsere rennliste jetzt!" />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -466,8 +467,16 @@
       Marathon
     </button>
     
+    <button class="category-button" data-category="50 miles">
+      50 miles
+    </button>
+    
     <button class="category-button" data-category="50 km">
       50 km
+    </button>
+    
+    <button class="category-button" data-category="100 km">
+      100 km
     </button>
     
     <button class="category-button" data-category="Millopp">
@@ -588,51 +597,52 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/laufkalender">Laufkalender</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/laufkalender">Laufkalender</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li aria-current="page" >
+        <li aria-current="page" >
+          
+          <span>Städte: Zwickau</span>
+          
+        </li>
         
-        <span>Städte: Zwickau</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    Laufveranstaltungen in Zwickau: Dein Laufkalender für 5 km, 10 km, Halvmarathon, Marathon & mehr
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Entdecke die besten Laufrennen in Zwickau!  Unser Laufkalender bietet eine umfassende laufliste mit Laufwettbewerben für alle Leistungsstufen. Egal ob du einen 5 km Lauf, einen Halvmarathon oder einen Marathon suchst, ob Straße, Gelände, Trail oder Laufbahn – hier findest du die passenden Laufwettkämpfe.  Filtere nach Kategorie (Alle Kategorien: 5 km, 10 km, Halvmarathon, Marathon, 50 km, Millopp, 1500 meter, 3000 meter, 5000 meter, 10000 meter) und Laufart (Alle Laufarten: Straße, Gelände, Trail, Laufbahn, Backyard Ultra, Frontyard Ultra, Staffel, Zeitlauf, Sonstiges) und finde dein nächstes laufrennen in Zwickau.  Nutze unseren Laufkalender und unsere rennliste, um deinen perfekten Laufwettbewerb zu finden.</p>
-
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Alle
-    <span id="race-cards-title-category"></span>
-    Rennen
-    <span id="race-cards-title-separator"
-      >i</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Deutschland</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      Laufveranstaltungen in Zwickau: Dein Laufkalender für 5 km, 10 km, Halvmarathon, Marathon & mehr
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Entdecke die besten Laufrennen in Zwickau!  Unser Laufkalender bietet eine umfassende laufliste mit Laufwettbewerben für alle Leistungsstufen. Egal ob du einen 5 km Lauf, einen Halvmarathon oder einen Marathon suchst, ob Straße, Gelände, Trail oder Laufbahn – hier findest du die passenden Laufwettkämpfe.  Filtere nach Kategorie (Alle Kategorien: 5 km, 10 km, Halvmarathon, Marathon, 50 km, Millopp, 1500 meter, 3000 meter, 5000 meter, 10000 meter) und Laufart (Alle Laufarten: Straße, Gelände, Trail, Laufbahn, Backyard Ultra, Frontyard Ultra, Staffel, Zeitlauf, Sonstiges) und finde dein nächstes laufrennen in Zwickau.  Nutze unseren Laufkalender und unsere rennliste, um deinen perfekten Laufwettbewerb zu finden.</p>
 
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Alle
+      <span id="race-cards-title-category"></span>
+      Rennen
+      <span id="race-cards-title-separator"
+        >i</span
+      >
+      <span id="race-cards-title-region"
+        >Deutschland</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -644,31 +654,31 @@
          
 <!-- Full card content for first 20 cards -->
 <a
-  href="/Rennseiten/neujahrslauf_munchenbernsdorf"
+  href="/Rennseiten/altenburger_crosslauf"
   class="race-card"
-  data-name="Neujahrslauf Münchenbernsdorf"
-  data-date="20250112"
+  data-name="Altenburger Crosslauf"
+  data-date="20250329"
   data-county="Thüringen"
   data-category=""
-  data-race-type="Straße"
-  data-distance="1km, 3km, 5,5km, 7,7km, 10,8km"
-  data-latitude="50.8171623"
-  data-longitude="11.9383815"
-  data-location="Sportplatz Münchenbernsdorf, Gabelsberger Straße 19, 07589 Münchenbernsdorf"
-  data-description="Der 38. Neujahrslauf in Münchenbernsdorf findet am Sonntag, den 12. Januar 2025, statt. Die Veranstaltung wird vom SV 1924 Münchenbernsdorf "
-  data-image-path="/Rennseiten/neujahrslauf_munchenbernsdorf/neujahrslauf_munchenbernsdorf"
-  data-type="road"
-  data-type-display="Straße"
-  data-date-display="12 jan."
+  data-race-type="Gelände"
+  data-distance="1km, 2km, 3,4km"
+  data-latitude="50.9699744"
+  data-longitude="12.4352714"
+  data-location="Altenburger Skatbank-Arena in der Zwickauer Straße"
+  data-description="Der 11. Altenburger Sparkassen-Crosslauf findet am 13. April 2024 in Altenburg statt und lädt alle Interessierten zu einem Lauf mit einem in"
+  data-image-path="/Rennseiten/altenburger_crosslauf/altenburger_crosslauf"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="29 März"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/Rennseiten/neujahrslauf_munchenbernsdorf/neujahrslauf_munchenbernsdorf_1.webp"
+        data-src="/Rennseiten/altenburger_crosslauf/altenburger_crosslauf_1.webp"
         width="600"
         height="400"
-        alt="Bild zuNeujahrslauf Münchenbernsdorf"
+        alt="Bild zuAltenburger Crosslauf"
         class="background-img"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
@@ -676,7 +686,7 @@
     <div class="race-card-content">
       <div class="race-info-top">
         <div class="race-date">
-          12 jan.
+          29 März
         </div>
         <div class="race-location">
           Thüringen
@@ -689,7 +699,7 @@
   <div class="race-info-bottom">
     <div class="upper-container">
       <div class="left-container">
-        <h3 class="race-name">Neujahrslauf Münchenbernsdorf</h3>
+        <h3 class="race-name">Altenburger Crosslauf</h3>
         <div
           class="race-location with-spacing"
         >
@@ -697,7 +707,7 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Sportplatz Münchenbernsdorf, Gabelsberger Straße 19, 07589 Münchenbernsdorf 
+          Altenburger Skatbank-Arena in der Zwickauer Straße 
         </div>
       </div>
       <div class="right-container">
@@ -717,137 +727,13 @@
             
             <div class="distance-item">
               <span class="race-distance">
-                3 km
+                2 km
               </span>
             </div>
             
             <div class="distance-item">
               <span class="race-distance">
-                5,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                7,7 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der 38. Neujahrslauf in Münchenbernsdorf findet am Sonntag, den 12. Januar 2025, statt. Die Veranstaltung wird vom SV 1924 Münchenbernsdorf ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
-  </div>
-</a>
-   
-<!-- Full card content for first 20 cards -->
-<a
-  href="/Rennseiten/oberschwabische_crosslauf_2_lauf"
-  class="race-card"
-  data-name="Oberschwäbische Crosslauf 2. Lauf"
-  data-date="20250112"
-  data-county="Sachsen"
-  data-category=""
-  data-race-type="Gelände"
-  data-distance="0,5km, 1,2km, 3,6km, 7,2km"
-  data-latitude="50.8238005"
-  data-longitude="12.9187695"
-  data-location="Vogt, Deutschland"
-  data-description="Der Oberschwäbische Crosslauf 2. Lauf findet in Birkenhard statt und bietet verschiedene Streckenlängen für verschiedene Altersklassen. Die "
-  data-image-path="/Rennseiten/oberschwabische_crosslauf_2_lauf/oberschwabische_crosslauf_2_lauf"
-  data-type="terrain"
-  data-type-display="Gelände"
-  data-date-display="12 jan."
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/Rennseiten/oberschwabische_crosslauf_2_lauf/oberschwabische_crosslauf_2_lauf_1.webp"
-        width="600"
-        height="400"
-        alt="Bild zuOberschwäbische Crosslauf 2. Lauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          12 jan.
-        </div>
-        <div class="race-location">
-          Sachsen
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Oberschwäbische Crosslauf 2. Lauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Vogt, Deutschland 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                0,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                1,2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                3,6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                7,2 km
+                3,4 km
               </span>
             </div>
               
@@ -864,7 +750,121 @@
       </div>
     </div>
     <div class="race-summary">
-      Der Oberschwäbische Crosslauf 2. Lauf findet in Birkenhard statt und bietet verschiedene Streckenlängen für verschiedene Altersklassen. Die ...
+      Der 11. Altenburger Sparkassen-Crosslauf findet am 13. April 2024 in Altenburg statt und lädt alle Interessierten zu einem Lauf mit einem in...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
+  </div>
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
+  href="/Rennseiten/skatstadtmarathon"
+  class="race-card"
+  data-name="Skatstadtmarathon"
+  data-date="20250614"
+  data-county="Thüringen"
+  data-category=""
+  data-race-type="Straße"
+  data-distance="3,6km, 5,4km, 13,3km, marathon"
+  data-latitude="50.9931202"
+  data-longitude="12.4366572"
+  data-location="Altenburg"
+  data-description="Der Skatstadtmarathon findet am 14. Juni 2025 in Altenburg statt und bietet eine anspruchsvolle Herausforderung für Läufer aller Altersgrupp"
+  data-image-path="/Rennseiten/skatstadtmarathon/skatstadtmarathon"
+  data-type="road"
+  data-type-display="Straße"
+  data-date-display="14 Juni"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/skatstadtmarathon/skatstadtmarathon_1.webp"
+        width="600"
+        height="400"
+        alt="Bild zuSkatstadtmarathon"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          14 Juni
+        </div>
+        <div class="race-location">
+          Thüringen
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Skatstadtmarathon</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Altenburg 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                3,6 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                5,4 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                13,3 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Marathon
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Straße
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Der Skatstadtmarathon findet am 14. Juni 2025 in Altenburg statt und bietet eine anspruchsvolle Herausforderung für Läufer aller Altersgrupp...
     </div>
   </div>
   <div

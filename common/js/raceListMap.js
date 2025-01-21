@@ -797,7 +797,7 @@ async function initializeMap() {
     if (isPacked) {
       const raceBox = race.element;
       return `
-            <a href="${raceBox.dataset.href}" class="popup-container">
+            <a href="${raceBox.href}" class="popup-container">
                 <div class="popup-image">
                     <img src="${raceBox.dataset.imagePath}_1.webp" alt="${
         raceBox.dataset.name

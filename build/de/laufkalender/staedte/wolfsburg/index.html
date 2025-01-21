@@ -8,11 +8,11 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "SiteNavigationElement", "description": "Visa 2 gel\u00e4nde Lauf", "name": "Gel\u00e4nde", "numberOfItems": 2, "url": "https://laufrennen.de/laufkalender/staedte/wolfsburg/gelaende"}], "numberOfItems": 1}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "SiteNavigationElement", "description": "Visa 3 5 km Lauf", "name": "5 km", "numberOfItems": 3, "url": "https://laufrennen.de/laufkalender/staedte/wolfsburg/alle-laufarten/5-km"}], "numberOfItems": 1}
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Kreismeisterschaften Crosslauf 2024 finden am Samstag, den 17. Februar 2024, in Velpke statt und werden vom Helmstedt veranstaltet. Die Laufstrecke verl\u00e4uft", "distance": null, "eventStatus": "Standard", "identifier": "kreismeisterschaften_crosslauf_2", "image": "/Rennseiten/kreismeisterschaften_crosslauf_2/kreismeisterschaften_crosslauf_2_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Velpke", "addressRegion": "Niedersachsen"}, "name": "Velpke"}, "name": "Kreismeisterschaften Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250208"}, "position": 1}], "numberOfItems": 1}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Am 19.03.2023 fand der 25. Vorsfelder Stadtlauf als Auftakt des Laufcups Gifhorn Wolfsburg 2023 statt. Die L\u00e4ufer mussten viermal einen Rundkurs zu je 2,5 Kilom", "distance": "2,5km", "eventStatus": "Standard", "identifier": "vorsfelder_stadtlauf", "image": "/Rennseiten/vorsfelder_stadtlauf/vorsfelder_stadtlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Rathaus in Vorsfelde, Lange Str. 21, 38448 Wolfsburg", "addressRegion": "Niedersachsen"}, "name": "Rathaus in Vorsfelde, Lange Str. 21, 38448 Wolfsburg"}, "name": "Vorsfelder Stadtlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250316"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Offenen Kreismeisterschaften Crosslauf finden am Samstag, den 08. Februar 2025 in Braunschweig statt. Veranstaltet wird die Veranstaltung vom NLV Kreis Brau", "distance": "4km, 5km, 6km, trail", "eventStatus": "Standard", "identifier": "offene_kreismeisterschaften_crosslauf", "image": "/Rennseiten/offene_kreismeisterschaften_crosslauf/offene_kreismeisterschaften_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sportplatz Rote Wiese, Rote Wiese 9, 38124 BS", "addressRegion": "Niedersachsen"}, "name": "Sportplatz Rote Wiese, Rote Wiese 9, 38124 BS"}, "name": "Offene Kreismeisterschaften Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250330"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -23,6 +23,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Laufwettbewerbe in Wolfsburg: Finde dein nächstes Laufrennen</title>
+    <meta name="description" content="Entdecke die beste Auswahl an Laufwettkämpfen in Wolfsburg.  Finde deinen perfekten Lauf, egal ob 5 km, Marathon oder Trail, mit unserem Laufkalender und der aktuellen Rennliste." />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -466,8 +467,16 @@
       Marathon
     </button>
     
+    <button class="category-button" data-category="50 miles">
+      50 miles
+    </button>
+    
     <button class="category-button" data-category="50 km">
       50 km
+    </button>
+    
+    <button class="category-button" data-category="100 km">
+      100 km
     </button>
     
     <button class="category-button" data-category="Millopp">
@@ -588,64 +597,65 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/laufkalender">Laufkalender</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/laufkalender">Laufkalender</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li aria-current="page" >
+        <li aria-current="page" >
+          
+          <span>Städte: Wolfsburg</span>
+          
+        </li>
         
-        <span>Städte: Wolfsburg</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    Laufkalender Wolfsburg: Alle Laufrennen und Laufwettbewerbe
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Suchst du nach Laufwettbewerben in Wolfsburg?  Unser Laufkalender bietet dir eine umfassende Übersicht über alle laufenden Laufwettkämpfe in Wolfsburg.  Filtere nach Kategorie (z.B. 5 km, Halvmarathon, Marathon) und Laufart (z.B. Straße, Gelände, Trail). Ob du ein 10 km Laufrennen suchst oder einen anspruchsvollen Marathon, unsere Rennliste hilft dir, den perfekten Lauf für dich zu finden. Egal ob du an einem Zeitlauf oder einem Backyard Ultra teilnimmst, hier findest du alle Informationen. Entdecke jetzt die vielfältigen Möglichkeiten und finde dein nächstes Abenteuer!  Dies ist dein idealer Startpunkt für die Planung deiner nächsten Teilnahme an Laufwettbewerben und Laufrennen.  Nutze unseren Laufkalender und unsere Rennliste für deine Suche nach dem perfekten Lauf.</p>
-
-  
-  <h3 class="race-type-list-title">Beliebte Unterkategorien</h3>
-  <nav class="race-type-navigation" aria-label="race types and categories">
-    <ul class="race-type-list">
-      
-      <li>
-        <a href="/laufkalender/staedte/wolfsburg/gelaende" class="race-type-link">
-          Gelände (2)
-        </a>
-      </li>
-      
-    </ul>
-  </nav>
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Alle
-    <span id="race-cards-title-category"></span>
-    Rennen
-    <span id="race-cards-title-separator"
-      >i</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Deutschland</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      Laufkalender Wolfsburg: Alle Laufrennen und Laufwettbewerbe
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Suchst du nach Laufwettbewerben in Wolfsburg?  Unser Laufkalender bietet dir eine umfassende Übersicht über alle laufenden Laufwettkämpfe in Wolfsburg.  Filtere nach Kategorie (z.B. 5 km, Halvmarathon, Marathon) und Laufart (z.B. Straße, Gelände, Trail). Ob du ein 10 km Laufrennen suchst oder einen anspruchsvollen Marathon, unsere Rennliste hilft dir, den perfekten Lauf für dich zu finden. Egal ob du an einem Zeitlauf oder einem Backyard Ultra teilnimmst, hier findest du alle Informationen. Entdecke jetzt die vielfältigen Möglichkeiten und finde dein nächstes Abenteuer!  Dies ist dein idealer Startpunkt für die Planung deiner nächsten Teilnahme an Laufwettbewerben und Laufrennen.  Nutze unseren Laufkalender und unsere Rennliste für deine Suche nach dem perfekten Lauf.</p>
 
+    
+    <h3 class="race-type-list-title">Beliebte Unterkategorien</h3>
+    <nav class="race-type-navigation" aria-label="race types and categories">
+      <ul class="race-type-list">
+        
+        <li>
+          <a href="/laufkalender/staedte/wolfsburg/alle-laufarten/5-km" class="race-type-link">
+            5 km (3)
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Alle
+      <span id="race-cards-title-category"></span>
+      Rennen
+      <span id="race-cards-title-separator"
+        >i</span
+      >
+      <span id="race-cards-title-region"
+        >Deutschland</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -657,31 +667,31 @@
          
 <!-- Full card content for first 20 cards -->
 <a
-  href="/Rennseiten/kreismeisterschaften_crosslauf"
+  href="/Rennseiten/vorsfelder_stadtlauf"
   class="race-card"
-  data-name="Kreismeisterschaften Crosslauf"
-  data-date="20250111"
+  data-name="Vorsfelder Stadtlauf"
+  data-date="20250316"
   data-county="Niedersachsen"
   data-category=""
-  data-race-type="Gelände"
-  data-distance=""
-  data-latitude="52.4080279"
-  data-longitude="10.9408887"
-  data-location="Velpke"
-  data-description="Die Kreismeisterschaften Crosslauf 2024 finden am Samstag, den 17. Februar 2024, in Velpke statt und werden vom Helmstedt organisiert. Die L"
-  data-image-path="/Rennseiten/kreismeisterschaften_crosslauf/kreismeisterschaften_crosslauf"
-  data-type="terrain"
-  data-type-display="Gelände"
-  data-date-display="11 jan."
+  data-race-type="Straße"
+  data-distance="2,5km"
+  data-latitude="52.43983859999999"
+  data-longitude="10.8380712"
+  data-location="Rathaus in Vorsfelde, Lange Str. 21, 38448 Wolfsburg"
+  data-description="Am 19.03.2023 fand der 25. Vorsfelder Stadtlauf als Auftakt des Laufcups Gifhorn Wolfsburg 2023 statt. Die Läufer mussten viermal einen Rund"
+  data-image-path="/Rennseiten/vorsfelder_stadtlauf/vorsfelder_stadtlauf"
+  data-type="road"
+  data-type-display="Straße"
+  data-date-display="16 März"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/Rennseiten/kreismeisterschaften_crosslauf/kreismeisterschaften_crosslauf_1.webp"
+        data-src="/Rennseiten/vorsfelder_stadtlauf/vorsfelder_stadtlauf_1.webp"
         width="600"
         height="400"
-        alt="Bild zuKreismeisterschaften Crosslauf"
+        alt="Bild zuVorsfelder Stadtlauf"
         class="background-img"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
@@ -689,7 +699,7 @@
     <div class="race-card-content">
       <div class="race-info-top">
         <div class="race-date">
-          11 jan.
+          16 März
         </div>
         <div class="race-location">
           Niedersachsen
@@ -702,32 +712,32 @@
   <div class="race-info-bottom">
     <div class="upper-container">
       <div class="left-container">
-        <h3 class="race-name">Kreismeisterschaften Crosslauf</h3>
+        <h3 class="race-name">Vorsfelder Stadtlauf</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Velpke 
+          Rathaus in Vorsfelde, Lange Str. 21, 38448 Wolfsburg 
         </div>
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
           </svg>
           <div class="distance-container">
-            
+              
             <div class="distance-item">
               <span class="race-distance">
-                Gemischte Distanz
+                2,5 km
               </span>
             </div>
-            
+              
           </div>
         </div>
         
@@ -735,17 +745,17 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
           </svg>
-          Gelände
+          Straße
         </div>
         
       </div>
     </div>
     <div class="race-summary">
-      Die Kreismeisterschaften Crosslauf 2024 finden am Samstag, den 17. Februar 2024, in Velpke statt und werden vom Helmstedt organisiert. Die L...
+      Am 19.03.2023 fand der 25. Vorsfelder Stadtlauf als Auftakt des Laufcups Gifhorn Wolfsburg 2023 statt. Die Läufer mussten viermal einen Rund...
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
@@ -753,31 +763,31 @@
    
 <!-- Full card content for first 20 cards -->
 <a
-  href="/Rennseiten/kreismeisterschaften_crosslauf_2"
+  href="/Rennseiten/offene_kreismeisterschaften_crosslauf"
   class="race-card"
-  data-name="Kreismeisterschaften Crosslauf"
-  data-date="20250208"
+  data-name="Offene Kreismeisterschaften Crosslauf"
+  data-date="20250330"
   data-county="Niedersachsen"
   data-category=""
   data-race-type="Gelände"
-  data-distance=""
-  data-latitude="52.4080279"
-  data-longitude="10.9408887"
-  data-location="Velpke"
-  data-description="Die Kreismeisterschaften Crosslauf 2024 finden am Samstag, den 17. Februar 2024, in Velpke statt und werden vom Helmstedt veranstaltet. Die "
-  data-image-path="/Rennseiten/kreismeisterschaften_crosslauf_2/kreismeisterschaften_crosslauf_2"
+  data-distance="4km, 5km, 6km, trail"
+  data-latitude="52.2373236"
+  data-longitude="10.5356595"
+  data-location="Sportplatz Rote Wiese, Rote Wiese 9, 38124 BS"
+  data-description="Die Offenen Kreismeisterschaften Crosslauf finden am Samstag, den 08. Februar 2025 in Braunschweig statt. Veranstaltet wird die Veranstaltun"
+  data-image-path="/Rennseiten/offene_kreismeisterschaften_crosslauf/offene_kreismeisterschaften_crosslauf"
   data-type="terrain"
   data-type-display="Gelände"
-  data-date-display="8 Feb."
+  data-date-display="30 März"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/Rennseiten/kreismeisterschaften_crosslauf_2/kreismeisterschaften_crosslauf_2_1.webp"
+        data-src="/Rennseiten/offene_kreismeisterschaften_crosslauf/offene_kreismeisterschaften_crosslauf_1.webp"
         width="600"
         height="400"
-        alt="Bild zuKreismeisterschaften Crosslauf"
+        alt="Bild zuOffene Kreismeisterschaften Crosslauf"
         class="background-img"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
@@ -785,7 +795,7 @@
     <div class="race-card-content">
       <div class="race-info-top">
         <div class="race-date">
-          8 Feb.
+          30 März
         </div>
         <div class="race-location">
           Niedersachsen
@@ -798,32 +808,50 @@
   <div class="race-info-bottom">
     <div class="upper-container">
       <div class="left-container">
-        <h3 class="race-name">Kreismeisterschaften Crosslauf</h3>
+        <h3 class="race-name">Offene Kreismeisterschaften Crosslauf</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Velpke 
+          Sportplatz Rote Wiese, Rote Wiese 9, 38124 BS 
         </div>
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
           </svg>
           <div class="distance-container">
-            
+              
             <div class="distance-item">
               <span class="race-distance">
-                Gemischte Distanz
+                4 km
               </span>
             </div>
             
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                6 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                trail
+              </span>
+            </div>
+              
           </div>
         </div>
         
@@ -837,11 +865,11 @@
       </div>
     </div>
     <div class="race-summary">
-      Die Kreismeisterschaften Crosslauf 2024 finden am Samstag, den 17. Februar 2024, in Velpke statt und werden vom Helmstedt veranstaltet. Die ...
+      Die Offenen Kreismeisterschaften Crosslauf finden am Samstag, den 08. Februar 2025 in Braunschweig statt. Veranstaltet wird die Veranstaltun...
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>

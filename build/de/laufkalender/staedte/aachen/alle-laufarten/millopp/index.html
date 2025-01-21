@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [], "numberOfItems": 0}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Belgenbach-Trail ist das Lauferlebnis f\u00fcr Naturfreaks und bietet ein echtes Highlight f\u00fcr Anh\u00e4nger des Traillaufens sowie f\u00fcr diejenigen, die Waldwege und u", "distance": "5km, 9km, 9,5km, 18km, 30km", "eventStatus": "Standard", "identifier": "belgenbach_trail_extrem", "image": "/Rennseiten/belgenbach_trail_extrem/belgenbach_trail_extrem_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Monschauer Belgenbachtal", "addressRegion": "Nordrhein-Westfalen"}, "name": "Monschauer Belgenbachtal"}, "name": "Belgenbach Trail Extrem", "sport": "Laufen, Trail", "startDate": "20250309"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 52. Eschweiler Volkslauf findet am 16. M\u00e4rz 2025 statt und bietet L\u00e4ufe \u00fcber die bekannten Strecken im Eschweiler Stadtwald (~4km, ~10km, Halbmarathon) sowi", "distance": "4km, 10km", "eventStatus": "Standard", "identifier": "eschweiler_volkslauf", "image": "/Rennseiten/eschweiler_volkslauf/eschweiler_volkslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Waldstadion Eschweiler", "addressRegion": "Nordrhein-Westfalen"}, "name": "Waldstadion Eschweiler"}, "name": "Eschweiler Volkslauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250316"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -19,6 +19,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Millopp in Aachen: Laufkalender & Laufwettbewerbe finden</title>
+    <meta name="description" content="Entdecke alle Millopp Laufwettkämpfe in Aachen. Finde dein nächstes laufrennen mit unserem Laufkalender – von Straßenläufen bis Trailruns.  Laufliste und Rennliste für Aachen." />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -462,8 +463,16 @@
       Marathon
     </button>
     
+    <button class="category-button" data-category="50 miles">
+      50 miles
+    </button>
+    
     <button class="category-button" data-category="50 km">
       50 km
+    </button>
+    
+    <button class="category-button" data-category="100 km">
+      100 km
     </button>
     
     <button class="category-button" data-category="Millopp">
@@ -584,60 +593,61 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/laufkalender">Laufkalender</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/laufkalender">Laufkalender</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/laufkalender/staedte/aachen">Städte: Aachen</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/laufkalender/staedte/aachen">Städte: Aachen</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li aria-current="page" >
+          
+          <span>Millopp</span>
+          
+        </li>
         
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>Millopp</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    Millopp Läufe in Aachen: Dein Laufwettbewerbe-Überblick
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Suchst du nach Millopp Laufwettkämpfe in Aachen?  Unser Laufkalender bietet dir eine Übersicht über alle Laufarten, von Straßenläufen und Geländeläufen bis hin zu Trailruns und sogar Backyard Ultras.  Finde den perfekten Laufwettbewerb für dich in unserer Laufliste und Rennliste. Egal ob du ein erfahrener Läufer bist oder gerade erst anfängst, hier findest du den passenden Laufrennen.  Durchsuche unsere Auswahl an Laufwettbewerben und finde dein nächstes Abenteuer!</p>
-
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Alle
-    <span id="race-cards-title-category"></span>
-    Rennen
-    <span id="race-cards-title-separator"
-      >i</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Deutschland</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      Millopp Läufe in Aachen: Dein Laufwettbewerbe-Überblick
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Suchst du nach Millopp Laufwettkämpfe in Aachen?  Unser Laufkalender bietet dir eine Übersicht über alle Laufarten, von Straßenläufen und Geländeläufen bis hin zu Trailruns und sogar Backyard Ultras.  Finde den perfekten Laufwettbewerb für dich in unserer Laufliste und Rennliste. Egal ob du ein erfahrener Läufer bist oder gerade erst anfängst, hier findest du den passenden Laufrennen.  Durchsuche unsere Auswahl an Laufwettbewerben und finde dein nächstes Abenteuer!</p>
 
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Alle
+      <span id="race-cards-title-category"></span>
+      Rennen
+      <span id="race-cards-title-separator"
+        >i</span
+      >
+      <span id="race-cards-title-region"
+        >Deutschland</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -649,31 +659,31 @@
          
 <!-- Full card content for first 20 cards -->
 <a
-  href="/Rennseiten/degerlocher_lauf"
+  href="/Rennseiten/belgenbach_trail_extrem"
   class="race-card"
-  data-name="Degerlocher Lauf"
-  data-date="20250106"
+  data-name="Belgenbach Trail Extrem"
+  data-date="20250309"
   data-county="Nordrhein-Westfalen"
   data-category=""
-  data-race-type="Gelände"
-  data-distance="5,4km, 10km"
-  data-latitude="50.8364045"
-  data-longitude="6.0913751"
-  data-location="Stadion an der Hohen Eiche"
-  data-description="Der 41. Degerlocher Volkslauf über 10 km und der 13. Degerlocher 3-Königslauf über 5,4 km fanden mit 200 Startern und überwiegend trockenem "
-  data-image-path="/Rennseiten/degerlocher_lauf/degerlocher_lauf"
-  data-type="terrain"
-  data-type-display="Gelände"
-  data-date-display="6 jan."
+  data-race-type="Trail"
+  data-distance="5km, 9km, 9,5km, 18km, 30km"
+  data-latitude="50.5740509"
+  data-longitude="6.283109"
+  data-location="Monschauer Belgenbachtal"
+  data-description="Der Belgenbach-Trail ist das Lauferlebnis für Naturfreaks und bietet ein echtes Highlight für Anhänger des Traillaufens sowie für diejenigen"
+  data-image-path="/Rennseiten/belgenbach_trail_extrem/belgenbach_trail_extrem"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="9 März"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/Rennseiten/degerlocher_lauf/degerlocher_lauf_1.webp"
+        data-src="/Rennseiten/belgenbach_trail_extrem/belgenbach_trail_extrem_1.webp"
         width="600"
         height="400"
-        alt="Bild zuDegerlocher Lauf"
+        alt="Bild zuBelgenbach Trail Extrem"
         class="background-img"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
@@ -681,7 +691,7 @@
     <div class="race-card-content">
       <div class="race-info-top">
         <div class="race-date">
-          6 jan.
+          9 März
         </div>
         <div class="race-location">
           Nordrhein-Westfalen
@@ -694,7 +704,7 @@
   <div class="race-info-bottom">
     <div class="upper-container">
       <div class="left-container">
-        <h3 class="race-name">Degerlocher Lauf</h3>
+        <h3 class="race-name">Belgenbach Trail Extrem</h3>
         <div
           class="race-location with-spacing"
         >
@@ -702,7 +712,7 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Stadion an der Hohen Eiche 
+          Monschauer Belgenbachtal 
         </div>
       </div>
       <div class="right-container">
@@ -716,7 +726,125 @@
               
             <div class="distance-item">
               <span class="race-distance">
-                5,4 km
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                9 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                9,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                18 km
+              </span>
+            </div>
+             
+            <div class="distance-item">
+              <span class="race-distance">...</span>
+            </div>
+             
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Der Belgenbach-Trail ist das Lauferlebnis für Naturfreaks und bietet ein echtes Highlight für Anhänger des Traillaufens sowie für diejenigen...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
+  </div>
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
+  href="/Rennseiten/eschweiler_volkslauf"
+  class="race-card"
+  data-name="Eschweiler Volkslauf"
+  data-date="20250316"
+  data-county="Nordrhein-Westfalen"
+  data-category=""
+  data-race-type="Straße"
+  data-distance="4km, 10km"
+  data-latitude="50.8016356"
+  data-longitude="6.2472423"
+  data-location="Waldstadion Eschweiler"
+  data-description="Der 52. Eschweiler Volkslauf findet am 16. März 2025 statt und bietet Läufe über die bekannten Strecken im Eschweiler Stadtwald (~4km, ~10km"
+  data-image-path="/Rennseiten/eschweiler_volkslauf/eschweiler_volkslauf"
+  data-type="road"
+  data-type-display="Straße"
+  data-date-display="16 März"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/eschweiler_volkslauf/eschweiler_volkslauf_1.webp"
+        width="600"
+        height="400"
+        alt="Bild zuEschweiler Volkslauf"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          16 März
+        </div>
+        <div class="race-location">
+          Nordrhein-Westfalen
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Eschweiler Volkslauf</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Waldstadion Eschweiler 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                4 km
               </span>
             </div>
             
@@ -733,131 +861,13 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
           </svg>
-          Gelände
+          Straße
         </div>
         
       </div>
     </div>
     <div class="race-summary">
-      Der 41. Degerlocher Volkslauf über 10 km und der 13. Degerlocher 3-Königslauf über 5,4 km fanden mit 200 Startern und überwiegend trockenem ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
-  </div>
-</a>
-   
-<!-- Full card content for first 20 cards -->
-<a
-  href="/Rennseiten/gillrather_crosslauf"
-  class="race-card"
-  data-name="Gillrather Crosslauf"
-  data-date="20250111"
-  data-county="Nordrhein-Westfalen"
-  data-category=""
-  data-race-type="Gelände"
-  data-distance="0,6km, 1,3km, 2,6km, 4,6km, 9,2km"
-  data-latitude="50.9777147"
-  data-longitude="6.075950799999999"
-  data-location="Grundschule Gillrath, Bergstrasse 32, 52511 Geilenkirchen - Gillrath"
-  data-description="Der 48. Gillrather Crosslauf findet am Samstag, den 13. Januar 2024, im Waldgebiet Gillrath statt. Der Start und das Ziel befinden sich an e"
-  data-image-path="/Rennseiten/gillrather_crosslauf/gillrather_crosslauf"
-  data-type="terrain"
-  data-type-display="Gelände"
-  data-date-display="11 jan."
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/Rennseiten/gillrather_crosslauf/gillrather_crosslauf_1.webp"
-        width="600"
-        height="400"
-        alt="Bild zuGillrather Crosslauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          11 jan.
-        </div>
-        <div class="race-location">
-          Nordrhein-Westfalen
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Gillrather Crosslauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Grundschule Gillrath, Bergstrasse 32, 52511 Geilenkirchen - Gillrath 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                0,6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                1,3 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2,6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                4,6 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der 48. Gillrather Crosslauf findet am Samstag, den 13. Januar 2024, im Waldgebiet Gillrath statt. Der Start und das Ziel befinden sich an e...
+      Der 52. Eschweiler Volkslauf findet am 16. März 2025 statt und bietet Läufe über die bekannten Strecken im Eschweiler Stadtwald (~4km, ~10km...
     </div>
   </div>
   <div

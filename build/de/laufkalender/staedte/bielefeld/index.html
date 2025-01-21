@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Luisenturmlauf in Borgholzhausen bietet verschiedene Distanzen f\u00fcr L\u00e4ufer an, darunter einen Halbmarathon mit 21,1 km und einen 12,5 km Lauf. Die Strecke f\u00fc", "distance": "12,5km, half marathon", "eventStatus": "Standard", "identifier": "luisenturmlauf", "image": "/Rennseiten/luisenturmlauf/luisenturmlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Ravensberger Stadion", "addressRegion": "Nordrhein-Westfalen"}, "name": "Ravensberger Stadion"}, "name": "Luisenturmlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250302"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Wiehenl\u00e4ufer Benefizlauf findet am 3. Oktober 2024 in H\u00fcllhorst statt und unterst\u00fctzt den Ambulanten Kinder- und Jugendhospizdienst Minden-L\u00fcbbecke. Die Ver", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "wiehenlaufer_benefizlauf", "image": "/Rennseiten/wiehenlaufer_benefizlauf/wiehenlaufer_benefizlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "H\u00fcllhorst", "addressRegion": "Nordrhein-Westfalen"}, "name": "H\u00fcllhorst"}, "name": "Wiehenl\u00e4ufer Benefizlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20251003"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Luisenturmlauf in Borgholzhausen bietet verschiedene Distanzen f\u00fcr L\u00e4ufer an, darunter einen Halbmarathon mit 21,1 km und einen 12,5 km Lauf. Die Strecke f\u00fc", "distance": "12,5km, half marathon", "eventStatus": "Standard", "identifier": "luisenturmlauf", "image": "/Rennseiten/luisenturmlauf/luisenturmlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Ravensberger Stadion", "addressRegion": "Nordrhein-Westfalen"}, "name": "Ravensberger Stadion"}, "name": "Luisenturmlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250302"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Wiehenl\u00e4ufer Benefizlauf findet am 3. Oktober 2024 in H\u00fcllhorst statt und unterst\u00fctzt den Ambulanten Kinder- und Jugendhospizdienst Minden-L\u00fcbbecke. Die Ver", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "wiehenlaufer_benefizlauf", "image": "/Rennseiten/wiehenlaufer_benefizlauf/wiehenlaufer_benefizlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "H\u00fcllhorst", "addressRegion": "Nordrhein-Westfalen"}, "name": "H\u00fcllhorst"}, "name": "Wiehenl\u00e4ufer Benefizlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20251003"}, "position": 2}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Herbstlauf Detmold-Bibersfeld ist ein beliebter Lauf, der in der malerischen Umgebung von Detmold stattfindet. Die Strecke f\u00fchrt durch abwechslungsreiche La", "distance": null, "eventStatus": "Standard", "identifier": "herbstlauf_detmold_bibersfeld", "image": "/Rennseiten/herbstlauf_detmold_bibersfeld/herbstlauf_detmold_bibersfeld_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Detmold", "addressRegion": "Nordrhein-Westfalen"}, "name": "Detmold"}, "name": "Herbstlauf Detmold-Bibersfeld", "sport": "Laufen, Gel\u00e4nde", "startDate": "20251108"}, "position": 3}], "numberOfItems": 3}
     </script>
      
 
@@ -467,8 +467,16 @@
       Marathon
     </button>
     
+    <button class="category-button" data-category="50 miles">
+      50 miles
+    </button>
+    
     <button class="category-button" data-category="50 km">
       50 km
+    </button>
+    
+    <button class="category-button" data-category="100 km">
+      100 km
     </button>
     
     <button class="category-button" data-category="Millopp">
@@ -860,7 +868,325 @@
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-     
+   
+      <section class="section section-selected-races in-grid">
+        <div class="section-header-container">
+          <h2 class="section-header">Ausgewählte Rennen</h2>
+          <div class="scroll-buttons">
+            <button class="scroll-button prev" aria-label="Previous" disabled>
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </button>
+            <button class="scroll-button next" aria-label="Next">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+        <div class="race-card-big-container right-scroller">
+              <a
+  href="/Rennseiten/luisenturmlauf"
+  class="race-card-big race-card"
+  data-name="Luisenturmlauf"
+  data-date="20250302"
+  data-county="Nordrhein-Westfalen"
+  data-category=""
+  data-race-type="Straße"
+  data-distance="12,5km, half marathon"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/luisenturmlauf/luisenturmlauf_1.webp"
+        alt="Bild zuLuisenturmlauf"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          2 März
+        </div>
+        <div class="race-location">
+          Nordrhein-Westfalen
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Straße
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                12,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Halbmarathon
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Luisenturmlauf</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Zur Rennseite</div>
+    </div>
+  </div>
+</a>       <a
+  href="/Rennseiten/wiehenlaufer_benefizlauf"
+  class="race-card-big race-card"
+  data-name="Wiehenläufer Benefizlauf"
+  data-date="20251003"
+  data-county="Nordrhein-Westfalen"
+  data-category=""
+  data-race-type="Straße"
+  data-distance="5km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/wiehenlaufer_benefizlauf/wiehenlaufer_benefizlauf_1.webp"
+        alt="Bild zuWiehenläufer Benefizlauf"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          3 okt.
+        </div>
+        <div class="race-location">
+          Nordrhein-Westfalen
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Straße
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Wiehenläufer Benefizlauf</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Zur Rennseite</div>
+    </div>
+  </div>
+</a>       <a
+  href="/Rennseiten/herbstlauf_detmold_bibersfeld"
+  class="race-card-big race-card"
+  data-name="Herbstlauf Detmold-Bibersfeld"
+  data-date="20251108"
+  data-county="Nordrhein-Westfalen"
+  data-category=""
+  data-race-type="Gelände"
+  data-distance=""
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/herbstlauf_detmold_bibersfeld/herbstlauf_detmold_bibersfeld_1.webp"
+        alt="Bild zuHerbstlauf Detmold-Bibersfeld"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          8 nov.
+        </div>
+        <div class="race-location">
+          Nordrhein-Westfalen
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Gelände
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Gemischte Distanz
+              </span>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Herbstlauf Detmold-Bibersfeld</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Zur Rennseite</div>
+    </div>
+  </div>
+</a>   
+        </div>
+      </section>
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
+  href="/Rennseiten/herbstlauf_detmold_bibersfeld"
+  class="race-card"
+  data-name="Herbstlauf Detmold-Bibersfeld"
+  data-date="20251108"
+  data-county="Nordrhein-Westfalen"
+  data-category=""
+  data-race-type="Gelände"
+  data-distance=""
+  data-latitude="51.9384783"
+  data-longitude="8.868637999999999"
+  data-location="Detmold"
+  data-description="Der Herbstlauf Detmold-Bibersfeld ist ein beliebter Lauf, der in der malerischen Umgebung von Detmold stattfindet. Die Strecke führt durch a"
+  data-image-path="/Rennseiten/herbstlauf_detmold_bibersfeld/herbstlauf_detmold_bibersfeld"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="8 nov."
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="/Rennseiten/herbstlauf_detmold_bibersfeld/herbstlauf_detmold_bibersfeld_1.webp"
+        width="600"
+        height="400"
+        alt="Bild zuHerbstlauf Detmold-Bibersfeld"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          8 nov.
+        </div>
+        <div class="race-location">
+          Nordrhein-Westfalen
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Herbstlauf Detmold-Bibersfeld</h3>
+        <div
+          class="race-location "
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Detmold 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances "
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Gemischte Distanz
+              </span>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Gelände
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Der Herbstlauf Detmold-Bibersfeld ist ein beliebter Lauf, der in der malerischen Umgebung von Detmold stattfindet. Die Strecke führt durch a...
+    </div>
+  </div>
+  <div
+    class="cta-button "
+  >
+    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
+  </div>
+</a>
+ 
 
       <!-- Pagination controls -->
       <div class="pagination-info">
