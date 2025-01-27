@@ -276,7 +276,7 @@ async function initializeMap() {
       // Handle image URL
       let imageUrl;
       if (isPacked) {
-        imageUrl = `${raceBox.dataset.imagePath}_1.webp`;
+        imageUrl = `${raceBox.dataset.imagePath}`;
       } else {
         const imageElement = raceBox.querySelector('.background-img');
         imageUrl = imageElement
@@ -799,7 +799,7 @@ async function initializeMap() {
       return `
             <a href="${raceBox.href}" class="popup-container">
                 <div class="popup-image">
-                    <img src="${raceBox.dataset.imagePath}_1.webp" alt="${
+                    <img src="${raceBox.dataset.imagePath}" alt="${
         raceBox.dataset.name
       }">
                     <div class="overlay soft"></div>

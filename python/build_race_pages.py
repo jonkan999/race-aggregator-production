@@ -276,22 +276,22 @@ def process_race_image(img, race_dir, base_filename, max_file_size_kb=500):
     with open(output_path, 'wb') as f:
         f.write(buffer.getvalue())
 
-def should_rebuild_race(race_dir, race, images_data):
+def should_rebuild_race(race_dir, race):
     """
     Determine if a race page needs to be rebuilt by checking:
     1. If the directory exists
     2. If index.html exists
-    3. If all required images exist
+    3. If the race has images in its data
     """
+    # Check if directory and index.html exist
     if not os.path.exists(race_dir) or not os.path.exists(os.path.join(race_dir, 'index.html')):
         return True
         
-    # Check if race has images and if they all exist
-    if race['domain_name'] in images_data:
-        race_image_data = images_data[race['domain_name']]
-        for image_data in race_image_data['images'][:4]:
-            image_filename = f"{race['domain_name']}_{image_data['number']}.webp"
-            if not os.path.exists(os.path.join(race_dir, image_filename)):
+    # Check if race has images
+    if 'images' in race and race['images']:
+        # Verify that all images have firebase_url
+        for image in race['images'][:4]:
+            if not image.get('firebase_url'):
                 return True
     
     return False
@@ -360,10 +360,11 @@ def clean_git_history_for_races(country_code, valid_domains, race_page_folder_na
     except Exception as e:
         print(f"Unexpected error during Git cleanup: {e}")
 
-def generate_race_pages(country_code, domain_name=None):
+def generate_race_pages(country_code, domain_name=None, rebuild_all=False):
     """
     Generate race pages for a country. If domain_name is provided,
     only generate the page for that specific race.
+    rebuild_all forces rebuild of all pages regardless of current state.
     """
     # First generate the distance filter (only if building all races)
     if not domain_name:
@@ -397,28 +398,12 @@ def generate_race_pages(country_code, domain_name=None):
             index_content['race_page_folder_name']
         )
 
-    # Load image data (assuming it exists)
-    try:
-        with open(os.path.join(country_dir, 'final_images.json')) as f:
-            images_data = json.load(f)
-    except FileNotFoundError:
-        images_data = {}
-
     # Merge global content with country-specific content
     content = {**global_content, **index_content}
 
     # Create build directory
     country_build_dir = os.path.join(build_dir, country_code, content['race_page_folder_name'])
     os.makedirs(country_build_dir, exist_ok=True)
-
-    # If building all races, remove directories for races that no longer exist
-    if not domain_name:
-        valid_domains = {race['domain_name'] for race in all_races}
-        for dir_name in os.listdir(country_build_dir):
-            dir_path = os.path.join(country_build_dir, dir_name)
-            if os.path.isdir(dir_path) and dir_name not in valid_domains:
-                print(f"Removing outdated race directory: {dir_name}")
-                shutil.rmtree(dir_path)
 
     # Load templates
     race_page = env.get_template('race_page.html')
@@ -433,7 +418,7 @@ def generate_race_pages(country_code, domain_name=None):
         race_dir = os.path.join(country_build_dir, race['domain_name'])
         
         # Check if we need to rebuild this race page
-        if not should_rebuild_race(race_dir, race, images_data):
+        if not rebuild_all and not should_rebuild_race(race_dir, race):
             print(f"Skipping {race['name']} - already built")
             skipped_races += 1
             continue
@@ -443,27 +428,13 @@ def generate_race_pages(country_code, domain_name=None):
         # Create race-specific directory
         os.makedirs(race_dir, exist_ok=True)
 
-        # Clean the race-specific directory
-        clean_directory(race_dir)
-
-        # Process and save images
+        # Get images directly from race data
         race_images = []
-        if race['domain_name'] in images_data:
-            race_image_data = images_data[race['domain_name']]
-            for image_data in race_image_data['images'][:4]:
-                base_filename = f"{race['domain_name']}_{image_data['number']}"
-                
-                # Decode base64 image data
-                image_binary = base64.b64decode(image_data['base64'])
-                img = Image.open(io.BytesIO(image_binary))
-                
-                # Process and optimize image
-                process_race_image(img, race_dir, base_filename, max_file_size_kb=config['max_image_size'])
-                
-                # Add image data with only base filename
+        if 'images' in race:
+            for image in race['images'][:4]:  # Limit to first 4 images
                 race_images.append({
-                    'filename': f"{base_filename}.webp",
-                    'alt': image_data['alt_text']
+                    'firebase_url': image['firebase_url'],
+                    'alt': image['alt_text']
                 })
         
         # Fetch forum posts for this race
@@ -475,7 +446,7 @@ def generate_race_pages(country_code, domain_name=None):
             if len(sentences) > 1:
                 meta_description = f"{sentences[0]}. {sentences[1]}."
             else:
-                meta_description = race['description']  # Use the whole description if no periods
+                meta_description = race['description']
         else:
             meta_description = f"{race['name']} - {race['distance_verbose']}"
         
@@ -484,12 +455,11 @@ def generate_race_pages(country_code, domain_name=None):
             **content,
             'race': race,
             'images': race_images,
-            'image_sizes': config['responsive_image_widths'],  # Add sizes to context
             'css_path': '/css',
             'js_path': '/js',
             'race_date': convert_date(race['date'], content['month_mapping_short']),
             'mapbox_zoom': content['mapbox_zoom'],
-            'race_wall_posts': race_wall_posts,  # Add forum posts to context
+            'race_wall_posts': race_wall_posts,
             'meta_description': meta_description
         }
 
@@ -520,6 +490,7 @@ if __name__ == "__main__":
     parser.add_argument('--country', '-c', type=str, default='se', help='Country code (default: se)')
     parser.add_argument('domain', nargs='?', help='Specific domain name to generate (optional)')
     parser.add_argument('--filter', '-f', action='store_true', help='Generate distance filter only')
+    parser.add_argument('--rebuild-all', '-r', action='store_true', help='Force rebuild of all pages')
     
     args = parser.parse_args()
     country_code = args.country.lower()
@@ -529,23 +500,26 @@ if __name__ == "__main__":
         generate_distance_filter(country_code)
     elif args.domain:
         # Generate specific race page
-        generate_race_pages(country_code, args.domain)
+        generate_race_pages(country_code, args.domain, args.rebuild_all)
     else:
         # Generate all race pages
-        generate_race_pages(country_code)
+        generate_race_pages(country_code, None, args.rebuild_all)
 
 """ # Examples of usage:
 # Generate all race pages for Sweden (default)
 python build_race_pages.py
 
-# Generate all race pages for Norway
-python build_race_pages.py --country no
+# Generate all race pages for Sweden and force rebuild all
+python build_race_pages.py --rebuild-all
 
-# Generate specific race page for Sweden
-python build_race_pages.py ultravasan-90
+# Generate all race pages for Norway and force rebuild all
+python build_race_pages.py --country no --rebuild-all
 
-# Generate specific race page for Norway
-python build_race_pages.py --country no holmenkollmarsjen
+# Generate specific race page for Sweden and force rebuild
+python build_race_pages.py ultravasan-90 --rebuild-all
+
+# Generate specific race page for Norway and force rebuild
+python build_race_pages.py --country no holmenkollmarsjen --rebuild-all
 
 # Generate distance filter for Sweden
 python build_race_pages.py --filter
