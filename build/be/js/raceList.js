@@ -364,7 +364,7 @@ async function initializeWhenReady() {
         <picture>
           <img
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            data-src="${card.dataset.imagePath}_1.webp"
+            data-src="${card.dataset.imagePath}"
             width="600"
             height="400"
             alt="${card.dataset.name}"

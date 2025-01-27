@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender", "@type": "WebPage", "name": "Loppkalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender/stader", "@type": "WebPage", "name": "St\u00e4der"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender/stader/katrineholm", "@type": "WebPage", "name": "Katrineholm"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender/stader/katrineholm/trail", "@type": "WebPage", "name": "Trail"}, "position": 4}, {"@type": "ListItem", "item": {"@id": "https://loppkartan.se/loppkalender/stader/katrineholm/trail/50-km", "@type": "WebPage", "name": "50 km"}, "position": 5}]}, "visual": [{"href": "/loppkalender", "name": "Loppkalender"}, {"href": "/loppkalender/stader/katrineholm", "name": "St\u00e4der: Katrineholm"}, {"href": "/loppkalender/stader/katrineholm/trail", "name": "Trail"}, {"href": "/loppkalender/stader/katrineholm/trail/50-km", "name": "50 km"}]}
@@ -11,31 +12,57 @@
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>50 km Trail-lopp i Katrineholm | Loppkalender & Löparkalendern</title>
+    <meta name="description" content="Hitta ditt nästa 50 km Trail-lopp i Katrineholm!  Bläddra i vår loppkalender och hitta löpartävlingar som passar dig.  Lopplista med datum, anmälan och mer." />
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +71,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -161,6 +226,7 @@
     
     
     
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
   </nav>
 
   <!-- Login Modal -->
@@ -315,10 +381,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Från:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Till:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -545,81 +611,70 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/loppkalender">Loppkalender</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/loppkalender">Loppkalender</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/loppkalender/stader/katrineholm">Städer: Katrineholm</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/loppkalender/stader/katrineholm">Städer: Katrineholm</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/loppkalender/stader/katrineholm/trail">Trail</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li aria-current="page" >
+          
+          <span>50 km</span>
+          
+        </li>
         
-        <a href="/loppkalender/stader/katrineholm/trail">Trail</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
-        
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>50 km</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    50 km Trail-lopp i Katrineholm - Loppkalender & Löpartävlingar
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Letar du efter ett 50 km Trail-lopp i Katrineholm?  Vår loppkalender och löparkalender hjälper dig att hitta perfekta löplopp. Här hittar du en komplett lopplista med information om kommande löpartävlingar i Katrineholm och omgivningarna. Filtrera efter distans (50 km), typ (Trail) och plats (Katrineholm) för att hitta just ditt nästa äventyr.  Sök bland våra lopp och hitta din nästa utmaning!</p>
-
-  
-
-  <h2 class="section-header">
-    Alla
-    <span id="race-cards-title-category"></span>
-    lopp
-    <span id="race-cards-title-separator"
-      >i</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Sverige</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      50 km Trail-lopp i Katrineholm - Loppkalender & Löpartävlingar
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Letar du efter ett 50 km Trail-lopp i Katrineholm?  Vår loppkalender och löparkalender hjälper dig att hitta perfekta löplopp. Här hittar du en komplett lopplista med information om kommande löpartävlingar i Katrineholm och omgivningarna. Filtrera efter distans (50 km), typ (Trail) och plats (Katrineholm) för att hitta just ditt nästa äventyr.  Sök bland våra lopp och hitta din nästa utmaning!</p>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Karta</p>
-  </button>
+    
 
+    <h2 class="section-header phone-min-height-51rem">
+      Alla
+      <span id="race-cards-title-category"></span>
+      lopp
+      <span id="race-cards-title-separator"
+        >i</span
+      >
+      <span id="race-cards-title-region"
+        >Sverige</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -628,7 +683,9 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Katrineholm&quot;, &quot;race_type&quot;: &quot;Trail&quot;, &quot;category&quot;: &quot;50 km&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
   href="/loppsidor/sormlands_winter_trail"
   class="race-card"
   data-name="Sörmlands Winter Trail"
@@ -639,15 +696,23 @@
   data-distance="22km, marathon"
   data-latitude="58.6304568"
   data-longitude="16.7977532"
+  data-location="Nävekvarn"
+  data-description="Sörmlands Winter Trail erbjuder två utmanande och vackra vintertrail-loopar på 43 km och 22 km, med start och mål i Nävekvarn. Loppet följer"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fse%2Fsormlands_winter_trail%2Fsormlands_winter_trail_1.webp?alt=media"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="8 feb."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/loppsidor/sormlands_winter_trail/sormlands_winter_trail_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fse%2Fsormlands_winter_trail%2Fsormlands_winter_trail_1.webp?alt=media"
+        width="600"
+        height="400"
         alt="Bild till Sörmlands Winter Trail"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -668,7 +733,7 @@
       <div class="left-container">
         <h3 class="race-name">Sörmlands Winter Trail</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -679,7 +744,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -715,11 +780,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & anmälan</div>
   </div>
-</a>  <a
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/loppsidor/kolmarden_vertical"
   class="race-card"
   data-name="Kolmården Vertical"
@@ -730,15 +798,23 @@
   data-distance="5km, 6km"
   data-latitude="58.67365900000001"
   data-longitude="16.128747"
+  data-location="Hults Bruk"
+  data-description="Starten går vid den gamla fotbollsplanen vid Hults Bruk och tämligen omgående möter deltagarna en rejäl backe på körvägen mot Jakobsdal. Eft"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fse%2Fkolmarden_vertical%2Fkolmarden_vertical_1.webp?alt=media"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="23 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/loppsidor/kolmarden_vertical/kolmarden_vertical_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fse%2Fkolmarden_vertical%2Fkolmarden_vertical_1.webp?alt=media"
+        width="600"
+        height="400"
         alt="Bild till Kolmården Vertical"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -759,7 +835,7 @@
       <div class="left-container">
         <h3 class="race-name">Kolmården Vertical</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -770,7 +846,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -806,11 +882,12 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mer info & anmälan</div>
   </div>
-</a>   
+</a>
+   
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">Utvalda Lopp</h2>
@@ -837,10 +914,13 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/loppsidor/kolmardstrailen/kolmardstrailen_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fse%2Fkolmardstrailen%2Fkolmardstrailen_1.webp?alt=media"
         alt="Bild till KolmårdsTrailen"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="overlay softer"></div>
@@ -910,10 +990,13 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/loppsidor/sormlands_winter_trail/sormlands_winter_trail_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fse%2Fsormlands_winter_trail%2Fsormlands_winter_trail_1.webp?alt=media"
         alt="Bild till Sörmlands Winter Trail"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="overlay softer"></div>
@@ -977,10 +1060,13 @@
   <div class="race-card-big-upper-box background-container">
     <picture>
       <img
-        src="/loppsidor/kolmarden_vertical/kolmarden_vertical_1.webp"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fse%2Fkolmarden_vertical%2Fkolmarden_vertical_1.webp?alt=media"
         alt="Bild till Kolmården Vertical"
-        loading="lazy"
+        width="600"
+        height="400"
         class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="overlay softer"></div>
@@ -1034,7 +1120,10 @@
 </a>   
         </div>
       </section>
-         <a
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/loppsidor/kolmardstrailen"
   class="race-card"
   data-name="KolmårdsTrailen"
@@ -1045,15 +1134,23 @@
   data-distance="6km, 10km, half marathon"
   data-latitude="58.66012016958148"
   data-longitude="16.391103745554574"
+  data-location="Kolmården"
+  data-description="Trail-löpning i härlig Kolmårdsterräng. Här bjuds du på en utmanande och kuperad bana i naturskön terräng där vi lagt stor vikt på upplevels"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fse%2Fkolmardstrailen%2Fkolmardstrailen_1.webp?alt=media"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="10 maj"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/loppsidor/kolmardstrailen/kolmardstrailen_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fse%2Fkolmardstrailen%2Fkolmardstrailen_1.webp?alt=media"
+        width="600"
+        height="400"
         alt="Bild till KolmårdsTrailen"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -1131,9 +1228,125 @@
   >
     <div class="more-info-button">Mer info & anmälan</div>
   </div>
-</a> 
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
+  href="/loppsidor/sormlands_100_trail"
+  class="race-card"
+  data-name="Sörmlands 100 Trail"
+  data-date="20250905"
+  data-county="Södermanland"
+  data-category=""
+  data-race-type="Trail"
+  data-distance="2km, 8km, 22km, 50km, 105km, 100 miles, trail, ultra"
+  data-latitude="59.03363489999999"
+  data-longitude="16.7518899"
+  data-location="None"
+  data-description="Sörmlands 100 Trail Festival 2025 kommer att äga rum den 5–7 september 2025. För 2025 Sörmlands 100 kommer att göra några förändringar, och "
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fse%2Fsormlands_100_trail%2Fsormlands_100_trail_1.webp?alt=media"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="5 sep."
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fse%2Fsormlands_100_trail%2Fsormlands_100_trail_1.webp?alt=media"
+        width="600"
+        height="400"
+        alt="Bild till Sörmlands 100 Trail"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          5 sep.
+        </div>
+        <div class="race-location">
+          Södermanland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
 
-      <!-- Add pagination controls -->
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Sörmlands 100 Trail</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                2 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                8 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                22 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                50 km
+              </span>
+            </div>
+             
+            <div class="distance-item">
+              <span class="race-distance">...</span>
+            </div>
+             
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Sörmlands 100 Trail Festival 2025 kommer att äga rum den 5–7 september 2025. För 2025 Sörmlands 100 kommer att göra några förändringar, och ...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mer info & anmälan</div>
+  </div>
+</a>
+ 
+
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">av</span>
         <span id="total-events">Lopp</span>
@@ -1155,17 +1368,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Karta</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

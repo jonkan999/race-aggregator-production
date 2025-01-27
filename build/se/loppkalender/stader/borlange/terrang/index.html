@@ -8,11 +8,11 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [], "numberOfItems": 0}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "SiteNavigationElement", "description": "Visa 2 5 km Lopp", "name": "5 km", "numberOfItems": 2, "url": "https://loppkartan.se/loppkalender/stader/borlange/terrang/5-km"}, {"@type": "SiteNavigationElement", "description": "Visa 2 halvmarathon Lopp", "name": "Halvmarathon", "numberOfItems": 2, "url": "https://loppkartan.se/loppkalender/stader/borlange/terrang/halvmarathon"}], "numberOfItems": 2}
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Natten till den 12 juli 2025 \u00e4r det premi\u00e4r f\u00f6r Nordansj\u00f6 Nattultra, ett ultralopp p\u00e5 60 km i Norberg som vi utan tvekan menar kommer bli Sveriges i s\u00e4rklass sn", "distance": "60km", "eventStatus": "Standard", "identifier": "nattultra_nordansjo", "image": "/loppsidor/nattultra_nordansjo/nattultra_nordansjo_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "se", "addressLocality": "Norbergs OK, Engelbrektsgatan 73, 73831 Norberg", "addressRegion": "V\u00e4stmanlands"}, "name": "Norbergs OK, Engelbrektsgatan 73, 73831 Norberg"}, "name": "Nattultra Nordansj\u00f6", "sport": "L\u00f6pning, Terr\u00e4ng", "startDate": "20250712"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Stora St\u00f6ten Run \u00e4r ett fantastiskt l\u00f6plopp i Falun, Dalarna, som erbjuder deltagarna en unik upplevelse i V\u00e4rldsarvet Falun. Banan \u00e4r till stor del formad av m", "distance": "5,6km, 13,6km, 21,6km", "eventStatus": "Standard", "identifier": "stora_stoten_run", "image": "/loppsidor/stora_stoten_run/stora_stoten_run_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "se", "addressLocality": "Falu gruva", "addressRegion": "Dalarnas"}, "name": "Falu gruva"}, "name": "Stora St\u00f6ten Run", "sport": "L\u00f6pning, Terr\u00e4ng", "startDate": "20250809"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Flosj\u00f6n-Edstj\u00e4rn \u00e4r en halvmarathon som anordnas av Edstj\u00e4rns Idrottsklubb. Varje \u00e5r tar l\u00f6pare sig an den utmanande banan som snirklar sig genom den vackra nat", "distance": "6km, 9,5km, 15,5km, half marathon", "eventStatus": "Standard", "identifier": "flosjon_edstjarn", "image": "/loppsidor/flosjon_edstjarn/flosjon_edstjarn_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "se", "addressLocality": "Flosj\u00f6n", "addressRegion": "Dalarnas"}, "name": "Flosj\u00f6n"}, "name": "Flosj\u00f6n-Edstj\u00e4rn", "sport": "L\u00f6pning, Terr\u00e4ng", "startDate": "20250614"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Stora St\u00f6ten Run \u00e4r ett fantastiskt l\u00f6plopp i Falun, Dalarna, som erbjuder deltagarna en unik upplevelse i V\u00e4rldsarvet Falun. Banan \u00e4r till stor del formad av m", "distance": "5,6km, 13,6km, 21,6km", "eventStatus": "Standard", "identifier": "stora_stoten_run", "image": "/loppsidor/stora_stoten_run/stora_stoten_run_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "se", "addressLocality": "Falu gruva", "addressRegion": "Dalarnas"}, "name": "Falu gruva"}, "name": "Stora St\u00f6ten Run", "sport": "L\u00f6pning, Terr\u00e4ng", "startDate": "20250809"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -23,6 +23,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Terränglopp i Borlänge - Loppkalender & Löpartävlingar</title>
+    <meta name="description" content="Hitta alla terränglöp i Borlänge.  Bläddra i vår loppkalender och hitta ditt nästa löplopp.  Alla kategorier från 5 km till marathon finns med.  Löparkalendern för Borlänge!" />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -614,60 +615,80 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/loppkalender">Loppkalender</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/loppkalender">Loppkalender</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/loppkalender/stader/borlange">Städer: Borlänge</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/loppkalender/stader/borlange">Städer: Borlänge</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li aria-current="page" >
+          
+          <span>Terräng</span>
+          
+        </li>
         
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>Terräng</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    Terränglöp i Borlänge - Din Löparkalender
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Letar du efter terränglöp i Borlänge? Vår lopplista och löparkalender hjälper dig att hitta rätt löpartävlingar.  Oavsett om du söker ett kortare lopp som 5 km eller en längre utmaning som ett marathon, hittar du det här.  Vi listar löplopp i olika kategorier, från Millopp till 100 km.  Använd vår loppkalender för att planera din träning och hitta ditt nästa äventyr i Borlänge.  Hitta ditt perfekta lopp bland våra löpartävlingar – välkommen till loppkalendern!</p>
-
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Alla
-    <span id="race-cards-title-category"></span>
-    lopp
-    <span id="race-cards-title-separator"
-      >i</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Sverige</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      Terränglöp i Borlänge - Din Löparkalender
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Letar du efter terränglöp i Borlänge? Vår lopplista och löparkalender hjälper dig att hitta rätt löpartävlingar.  Oavsett om du söker ett kortare lopp som 5 km eller en längre utmaning som ett marathon, hittar du det här.  Vi listar löplopp i olika kategorier, från Millopp till 100 km.  Använd vår loppkalender för att planera din träning och hitta ditt nästa äventyr i Borlänge.  Hitta ditt perfekta lopp bland våra löpartävlingar – välkommen till loppkalendern!</p>
 
+    
+    <h3 class="race-type-list-title">Populära underkategorier</h3>
+    <nav class="race-type-navigation" aria-label="race types and categories">
+      <ul class="race-type-list">
+        
+        <li>
+          <a href="/loppkalender/stader/borlange/terrang/5-km" class="race-type-link">
+            5 km (2)
+          </a>
+        </li>
+        
+        <li>
+          <a href="/loppkalender/stader/borlange/terrang/halvmarathon" class="race-type-link">
+            Halvmarathon (2)
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Alla
+      <span id="race-cards-title-category"></span>
+      lopp
+      <span id="race-cards-title-separator"
+        >i</span
+      >
+      <span id="race-cards-title-region"
+        >Sverige</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -679,31 +700,31 @@
          
 <!-- Full card content for first 20 cards -->
 <a
-  href="/loppsidor/nattultra_nordansjo"
+  href="/loppsidor/flosjon_edstjarn"
   class="race-card"
-  data-name="Nattultra Nordansjö"
-  data-date="20250712"
-  data-county="Västmanland"
+  data-name="Flosjön-Edstjärn"
+  data-date="20250614"
+  data-county="Dalarna"
   data-category=""
   data-race-type="Terräng"
-  data-distance="60km"
-  data-latitude="60.0654408"
-  data-longitude="15.9231621"
-  data-location="Norbergs OK, Engelbrektsgatan 73, 73831 Norberg"
-  data-description="Natten till den 12 juli 2025 är det premiär för Nordansjö Nattultra, ett ultralopp på 60 km i Norberg som vi utan tvekan menar kommer bli Sv"
-  data-image-path="/loppsidor/nattultra_nordansjo/nattultra_nordansjo"
+  data-distance="6km, 9,5km, 15,5km, half marathon"
+  data-latitude="60.53471860000001"
+  data-longitude="14.8322917"
+  data-location="Flosjön"
+  data-description="Flosjön-Edstjärn är en halvmarathon som anordnas av Edstjärns Idrottsklubb. Varje år tar löpare sig an den utmanande banan som snirklar sig "
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fse%2Fflosjon_edstjarn%2Fflosjon_edstjarn_1.webp?alt=media"
   data-type="terrain"
   data-type-display="Terräng"
-  data-date-display="12 juli"
+  data-date-display="14 juni"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/loppsidor/nattultra_nordansjo/nattultra_nordansjo_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fse%2Fflosjon_edstjarn%2Fflosjon_edstjarn_1.webp?alt=media"
         width="600"
         height="400"
-        alt="Bild till Nattultra Nordansjö"
+        alt="Bild till Flosjön-Edstjärn"
         class="background-img"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
@@ -711,10 +732,10 @@
     <div class="race-card-content">
       <div class="race-info-top">
         <div class="race-date">
-          12 juli
+          14 juni
         </div>
         <div class="race-location">
-          Västmanland
+          Dalarna
         </div>
       </div>
     </div>
@@ -724,7 +745,7 @@
   <div class="race-info-bottom">
     <div class="upper-container">
       <div class="left-container">
-        <h3 class="race-name">Nattultra Nordansjö</h3>
+        <h3 class="race-name">Flosjön-Edstjärn</h3>
         <div
           class="race-location with-spacing"
         >
@@ -732,7 +753,7 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Norbergs OK, Engelbrektsgatan 73, 73831 Norberg 
+          Flosjön 
         </div>
       </div>
       <div class="right-container">
@@ -746,7 +767,25 @@
               
             <div class="distance-item">
               <span class="race-distance">
-                60 km
+                6 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                9,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                15,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Halvmarathon
               </span>
             </div>
               
@@ -763,7 +802,7 @@
       </div>
     </div>
     <div class="race-summary">
-      Natten till den 12 juli 2025 är det premiär för Nordansjö Nattultra, ett ultralopp på 60 km i Norberg som vi utan tvekan menar kommer bli Sv...
+      Flosjön-Edstjärn är en halvmarathon som anordnas av Edstjärns Idrottsklubb. Varje år tar löpare sig an den utmanande banan som snirklar sig ...
     </div>
   </div>
   <div
@@ -787,7 +826,7 @@
   data-longitude="15.6165187"
   data-location="Falu gruva"
   data-description="Stora Stöten Run är ett fantastiskt löplopp i Falun, Dalarna, som erbjuder deltagarna en unik upplevelse i Världsarvet Falun. Banan är till "
-  data-image-path="/loppsidor/stora_stoten_run/stora_stoten_run"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fse%2Fstora_stoten_run%2Fstora_stoten_run_1.webp?alt=media"
   data-type="terrain"
   data-type-display="Terräng"
   data-date-display="9 aug."
@@ -796,7 +835,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/loppsidor/stora_stoten_run/stora_stoten_run_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fse%2Fstora_stoten_run%2Fstora_stoten_run_1.webp?alt=media"
         width="600"
         height="400"
         alt="Bild till Stora Stöten Run"
