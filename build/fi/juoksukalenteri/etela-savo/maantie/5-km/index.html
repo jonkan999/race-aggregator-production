@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [], "numberOfItems": 0}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Mikkelin Talvijuoksusarja 5/6 j\u00e4rjestet\u00e4\u00e4n 9.3.2024 Mikkeliss\u00e4. Tapahtumassa on virallisesti mitatut reitit, jotka tarjoavat juoksijoille mahdollisuuden osallis", "distance": "1km, 3km, 6km, 10km", "eventStatus": "Standard", "identifier": "talvijuoksusarja_5_6", "image": "/kilpailusivut/talvijuoksusarja_5_6/talvijuoksusarja_5_6_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "fi", "addressLocality": "Mikkeli", "addressRegion": "Etel\u00e4-Savo"}, "name": "Mikkeli"}, "name": "Talvijuoksusarja 5/6", "sport": "Juoksu, Maantie", "startDate": "20250408"}, "position": 1}], "numberOfItems": 1}
     </script>
      
 
@@ -19,6 +19,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>5 km Maantiejuoksukilpailut Etelä-Savossa - Löydä oma juoksutapahtumasi</title>
+    <meta name="description" content="Etsi sopivia 5 km maantiejuoksukilpailuja Etelä-Savosta. Löydä juoksukilpailut, juoksukalenteri ja paljon muuta juoksijoille.  Tavoitteena nopeammaksi juoksijaksi?" />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -454,8 +455,16 @@
       10 km
     </button>
     
+    <button class="category-button" data-category="Halvmarathon">
+      Halvmarathon
+    </button>
+    
     <button class="category-button" data-category="Marathon">
       Marathon
+    </button>
+    
+    <button class="category-button" data-category="50 miles">
+      50 miles
     </button>
     
     <button class="category-button" data-category="50 km">
@@ -586,69 +595,70 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/juoksukalenteri">Juoksukalenteri</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/juoksukalenteri">Juoksukalenteri</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/juoksukalenteri/etela-savo">Etelä-Savo</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/juoksukalenteri/etela-savo">Etelä-Savo</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/juoksukalenteri/etela-savo/maantie">Maantie</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li aria-current="page" >
+          
+          <span>5 km</span>
+          
+        </li>
         
-        <a href="/juoksukalenteri/etela-savo/maantie">Maantie</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
-        
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>5 km</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    5 km Maantiejuoksut Etelä-Savossa: Löydä seuraava juoksukilpailusi
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Suunnitteletko osallistumista 5 km maantiejuoksukilpailuun Etelä-Savossa?  Tämä sivu tarjoaa kattavan listan juoksukilpailuista alueella.  Etsi itsellesi sopiva juoksutapahtuma ja aloita valmistautuminen. Löydä täydellinen juoksukilpailu  juoksukalenteristamme ja ota askel kohti nopeammaksi juoksijaksi tulemista.  Listaukseen sisältyy tietoa eri juoksukilpailuista ja juoksutapahtumista.  Tutustu myös muihin kilpailukalenterin vaihtoehtoihin, kuten eri matkoihin ja juoksutyyppeihin.  Löydä unelmiesi juoksu rotu!</p>
-
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Kaikki
-    <span id="race-cards-title-category"></span>
-    juoksukilpailu
-    <span id="race-cards-title-separator"
-      >None</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Suomi</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      5 km Maantiejuoksut Etelä-Savossa: Löydä seuraava juoksukilpailusi
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Suunnitteletko osallistumista 5 km maantiejuoksukilpailuun Etelä-Savossa?  Tämä sivu tarjoaa kattavan listan juoksukilpailuista alueella.  Etsi itsellesi sopiva juoksutapahtuma ja aloita valmistautuminen. Löydä täydellinen juoksukilpailu  juoksukalenteristamme ja ota askel kohti nopeammaksi juoksijaksi tulemista.  Listaukseen sisältyy tietoa eri juoksukilpailuista ja juoksutapahtumista.  Tutustu myös muihin kilpailukalenterin vaihtoehtoihin, kuten eri matkoihin ja juoksutyyppeihin.  Löydä unelmiesi juoksu rotu!</p>
 
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Kaikki
+      <span id="race-cards-title-category"></span>
+      juoksukilpailu
+      <span id="race-cards-title-separator"
+        >None</span
+      >
+      <span id="race-cards-title-region"
+        >Suomi</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -660,31 +670,31 @@
          
 <!-- Full card content for first 20 cards -->
 <a
-  href="/kilpailusivut/talvijuoksusarja_3_6"
+  href="/kilpailusivut/talvijuoksusarja_5_6"
   class="race-card"
-  data-name="Talvijuoksusarja 3/6"
-  data-date="20250111"
+  data-name="Talvijuoksusarja 5/6"
+  data-date="20250408"
   data-county="Etelä-Savo"
   data-category=""
   data-race-type="Maantie"
-  data-distance="2km, 4km, 6km, 10km"
+  data-distance="1km, 3km, 6km, 10km"
   data-latitude="61.68854769999999"
   data-longitude="27.2722598"
   data-location="Mikkeli"
-  data-description="Talvijuoksusarja 3.osakilpailu järjestetään 30.12.2023 Mikkelissä, ja se tarjoaa juoksijoille mahdollisuuden kilpailla 10 kilometrin matkall"
-  data-image-path="/kilpailusivut/talvijuoksusarja_3_6/talvijuoksusarja_3_6"
+  data-description="Mikkelin Talvijuoksusarja 5/6 järjestetään 9.3.2024 Mikkelissä. Tapahtumassa on virallisesti mitatut reitit, jotka tarjoavat juoksijoille ma"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Ftalvijuoksusarja_5_6%2Ftalvijuoksusarja_5_6_1.webp?alt=media"
   data-type="road"
   data-type-display="Maantie"
-  data-date-display="11 tam."
+  data-date-display="8 huhti."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/talvijuoksusarja_3_6/talvijuoksusarja_3_6_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Ftalvijuoksusarja_5_6%2Ftalvijuoksusarja_5_6_1.webp?alt=media"
         width="600"
         height="400"
-        alt="Kuva {x}Talvijuoksusarja 3/6"
+        alt="Kuva {x}Talvijuoksusarja 5/6"
         class="background-img"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
@@ -692,7 +702,7 @@
     <div class="race-card-content">
       <div class="race-info-top">
         <div class="race-date">
-          11 tam.
+          8 huhti.
         </div>
         <div class="race-location">
           Etelä-Savo
@@ -705,7 +715,7 @@
   <div class="race-info-bottom">
     <div class="upper-container">
       <div class="left-container">
-        <h3 class="race-name">Talvijuoksusarja 3/6</h3>
+        <h3 class="race-name">Talvijuoksusarja 5/6</h3>
         <div
           class="race-location with-spacing"
         >
@@ -727,13 +737,13 @@
               
             <div class="distance-item">
               <span class="race-distance">
-                2 km
+                1 km
               </span>
             </div>
             
             <div class="distance-item">
               <span class="race-distance">
-                4 km
+                3 km
               </span>
             </div>
             
@@ -762,7 +772,7 @@
       </div>
     </div>
     <div class="race-summary">
-      Talvijuoksusarja 3.osakilpailu järjestetään 30.12.2023 Mikkelissä, ja se tarjoaa juoksijoille mahdollisuuden kilpailla 10 kilometrin matkall...
+      Mikkelin Talvijuoksusarja 5/6 järjestetään 9.3.2024 Mikkelissä. Tapahtumassa on virallisesti mitatut reitit, jotka tarjoavat juoksijoille ma...
     </div>
   </div>
   <div

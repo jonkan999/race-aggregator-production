@@ -23,6 +23,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Juoksukilpailut Salossa: Maantiejuoksut – Löydä seuraava juoksutapahtuma</title>
+    <meta name="description" content="Löydä parhaat maantiejuoksukilpailut Salossa! Tutustu juoksukilpailujen valikoimaan, joka sisältää erilaisia matkoja 5 km:stä maratoniin. Täydellinen juoksukalenteri juoksijoille, jotka haluavat nopeammaksi juoksijaksi." />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -458,8 +459,16 @@
       10 km
     </button>
     
+    <button class="category-button" data-category="Halvmarathon">
+      Halvmarathon
+    </button>
+    
     <button class="category-button" data-category="Marathon">
       Marathon
+    </button>
+    
+    <button class="category-button" data-category="50 miles">
+      50 miles
     </button>
     
     <button class="category-button" data-category="50 km">
@@ -590,73 +599,74 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/juoksukalenteri">Juoksukalenteri</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/juoksukalenteri">Juoksukalenteri</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/juoksukalenteri/kaupungit/salo">Kaupungit: Salo</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/juoksukalenteri/kaupungit/salo">Kaupungit: Salo</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li aria-current="page" >
+          
+          <span>Maantie</span>
+          
+        </li>
         
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>Maantie</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    Maantiejuoksut Salossa – Juoksukilpailut ja juoksutapahtumat
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Etsitkö seuraavaa juoksukilpailua Salossa?  Tämä sivu listaa kaikki Salossa järjestettävät maantiejuoksut. Valitse itsellesi sopiva matka Kaikki kategoriat -valikoimasta, joka sisältää esimerkiksi 5 km, 10 km ja maratonmatkoja.  Löydä täydellinen juoksukilpailu ja aloita matka nopeammaksi juoksijaksi!  Tämä juoksukalenteri ja kilpailukalenteri auttaa sinua löytämään seuraavan juoksutapahtuman.  Oletpa sitten kokenut juoksija tai vasta aloittelija, löydät täältä itsellesi sopivan juoksukilpailun. Juoksu rotusi ei ole tässä rajoittava tekijä.</p>
-
-  
-  <h3 class="race-type-list-title">Suositut alaluokat</h3>
-  <nav class="race-type-navigation" aria-label="race types and categories">
-    <ul class="race-type-list">
-      
-      <li>
-        <a href="/juoksukalenteri/kaupungit/salo/maantie/10-km" class="race-type-link">
-          10 km (2)
-        </a>
-      </li>
-      
-    </ul>
-  </nav>
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Kaikki
-    <span id="race-cards-title-category"></span>
-    juoksukilpailu
-    <span id="race-cards-title-separator"
-      >None</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Suomi</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      Maantiejuoksut Salossa – Juoksukilpailut ja juoksutapahtumat
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Etsitkö seuraavaa juoksukilpailua Salossa?  Tämä sivu listaa kaikki Salossa järjestettävät maantiejuoksut. Valitse itsellesi sopiva matka Kaikki kategoriat -valikoimasta, joka sisältää esimerkiksi 5 km, 10 km ja maratonmatkoja.  Löydä täydellinen juoksukilpailu ja aloita matka nopeammaksi juoksijaksi!  Tämä juoksukalenteri ja kilpailukalenteri auttaa sinua löytämään seuraavan juoksutapahtuman.  Oletpa sitten kokenut juoksija tai vasta aloittelija, löydät täältä itsellesi sopivan juoksukilpailun. Juoksu rotusi ei ole tässä rajoittava tekijä.</p>
 
+    
+    <h3 class="race-type-list-title">Suositut alaluokat</h3>
+    <nav class="race-type-navigation" aria-label="race types and categories">
+      <ul class="race-type-list">
+        
+        <li>
+          <a href="/juoksukalenteri/kaupungit/salo/maantie/10-km" class="race-type-link">
+            10 km (2)
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Kaikki
+      <span id="race-cards-title-category"></span>
+      juoksukilpailu
+      <span id="race-cards-title-separator"
+        >None</span
+      >
+      <span id="race-cards-title-region"
+        >Suomi</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -680,7 +690,7 @@
   data-longitude="23.5620303"
   data-location="Kalliomäentie 4, 10470 Fiskari"
   data-description="Fiskarsin Maraton Raasepori järjestetään lauantaina, lähtö klo 10.00, kilpailutoimiston avautuessa klo 8.30. Kilpailussa on useita matkoja: "
-  data-image-path="/kilpailusivut/fiskarsin_maraton_raasepori/fiskarsin_maraton_raasepori"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Ffiskarsin_maraton_raasepori%2Ffiskarsin_maraton_raasepori_1.webp?alt=media"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="3 lok."
@@ -689,7 +699,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/fiskarsin_maraton_raasepori/fiskarsin_maraton_raasepori_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Ffiskarsin_maraton_raasepori%2Ffiskarsin_maraton_raasepori_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Fiskarsin Maraton Raasepori"
@@ -794,7 +804,7 @@
   data-longitude="22.3844244"
   data-location="Kaarinan keskuskenttä"
   data-description="Kaarinan Syysmaraton juostaan 19. lokakuuta 2024 Kaarinassa, kauniissa ja tasaisessa maastossa, joka kulkee noin 10,5 kilometrin kierroksell"
-  data-image-path="/kilpailusivut/kaarinan_syysmaraton/kaarinan_syysmaraton"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkaarinan_syysmaraton%2Fkaarinan_syysmaraton_1.webp?alt=media"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="18 lok."
@@ -803,7 +813,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/kaarinan_syysmaraton/kaarinan_syysmaraton_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkaarinan_syysmaraton%2Fkaarinan_syysmaraton_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Kaarinan Syysmaraton"
@@ -909,11 +919,12 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/fiskarsin_maraton_raasepori/fiskarsin_maraton_raasepori_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Ffiskarsin_maraton_raasepori%2Ffiskarsin_maraton_raasepori_1.webp?alt=media"
         alt="Kuva {x}Fiskarsin Maraton Raasepori"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="overlay softer"></div>
@@ -990,11 +1001,12 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/kaarinan_syysmaraton/kaarinan_syysmaraton_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkaarinan_syysmaraton%2Fkaarinan_syysmaraton_1.webp?alt=media"
         alt="Kuva {x}Kaarinan Syysmaraton"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="overlay softer"></div>
@@ -1059,11 +1071,12 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/fiskarsin_maraton_raasepori_2/fiskarsin_maraton_raasepori_2_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Ffiskarsin_maraton_raasepori_2%2Ffiskarsin_maraton_raasepori_2_1.webp?alt=media"
         alt="Kuva {x}Fiskarsin Maraton Raasepori"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="overlay softer"></div>
@@ -1140,11 +1153,12 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/kaarinan_syysmaraton_2/kaarinan_syysmaraton_2_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkaarinan_syysmaraton_2%2Fkaarinan_syysmaraton_2_1.webp?alt=media"
         alt="Kuva {x}Kaarinan Syysmaraton"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="overlay softer"></div>
@@ -1214,7 +1228,7 @@
   data-longitude="23.5620303"
   data-location="Fiskarin Urheilijoiden maja, Kalliomäentie 4"
   data-description="Fiskarsin Maraton Raaseporissa tarjoaa osallistujille monipuolisia matkoja, kuten 15 km, 7 km, 2 km ja 0,6 km. Reitti kulkee kokonaisuudessa"
-  data-image-path="/kilpailusivut/fiskarsin_maraton_raasepori_2/fiskarsin_maraton_raasepori_2"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Ffiskarsin_maraton_raasepori_2%2Ffiskarsin_maraton_raasepori_2_1.webp?alt=media"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="3 marr."
@@ -1223,7 +1237,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/fiskarsin_maraton_raasepori_2/fiskarsin_maraton_raasepori_2_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Ffiskarsin_maraton_raasepori_2%2Ffiskarsin_maraton_raasepori_2_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Fiskarsin Maraton Raasepori"
@@ -1329,7 +1343,7 @@
   data-longitude="22.3844244"
   data-location="Kaarinan keskuskenttä"
   data-description="Kaarinan Syysmaraton juostaan 19. lokakuuta Kaarinassa ja Piikkiössä, kauniissa ja tasaisessa maastossa noin 10,5 kilometrin kierroksella. K"
-  data-image-path="/kilpailusivut/kaarinan_syysmaraton_2/kaarinan_syysmaraton_2"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkaarinan_syysmaraton_2%2Fkaarinan_syysmaraton_2_1.webp?alt=media"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="18 marr."
@@ -1338,7 +1352,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/kaarinan_syysmaraton_2/kaarinan_syysmaraton_2_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkaarinan_syysmaraton_2%2Fkaarinan_syysmaraton_2_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Kaarinan Syysmaraton"

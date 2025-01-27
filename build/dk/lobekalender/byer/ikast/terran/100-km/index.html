@@ -1,41 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
   <head>
+    <!-- Schema Data (Important for SEO) -->
      
     <script type="application/ld+json">
       {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender", "@type": "WebPage", "name": "L\u00f8bekalender"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer", "@type": "WebPage", "name": "Byer"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer/ikast", "@type": "WebPage", "name": "Ikast"}, "position": 3}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer/ikast/terran", "@type": "WebPage", "name": "Terr\u00e6n"}, "position": 4}, {"@type": "ListItem", "item": {"@id": "https://lobskalender.dk/lobekalender/byer/ikast/terran/100-km", "@type": "WebPage", "name": "100 km"}, "position": 5}]}, "visual": [{"href": "/lobekalender", "name": "L\u00f8bekalender"}, {"href": "/lobekalender/byer/ikast", "name": "Byer: Ikast"}, {"href": "/lobekalender/byer/ikast/terran", "name": "Terr\u00e6n"}, {"href": "/lobekalender/byer/ikast/terran/100-km", "name": "100 km"}]}
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "RISEN-loppet er en \u00e5rlig l\u00f8b, der finder sted i Genarp. L\u00f8bet tilbyder distancer p\u00e5 10,7 km og 5,0 km, hvoraf 10,7 km ruten g\u00e5r til h\u00e4lften i Genarps by og til ", "distance": "5km, 10,7km", "eventStatus": "Standard", "identifier": "risen_loppet", "image": "/l\u00f8bsider/risen_loppet/risen_loppet_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "dk", "addressLocality": "Ekevallens IP", "addressRegion": "Midtjylland"}, "name": "Ekevallens IP"}, "name": "RISEN-loppet", "sport": "L\u00f8b, Terr\u00e6n", "startDate": "20250501"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "NAS Nordisk AdventureRun er en to-dages begivenhed med orientering, oplevelser og traill\u00f8b, der finder sted den 14. og 15. juni 2025. Deltagerne vil navigere ge", "distance": "2km, 50km", "eventStatus": "Standard", "identifier": "nas_nordisk_adventurerun", "image": "/l\u00f8bsider/nas_nordisk_adventurerun/nas_nordisk_adventurerun_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "dk", "addressLocality": " Silkeborg", "addressRegion": "Midtjylland"}, "name": " Silkeborg"}, "name": "NAS Nordisk AdventureRun", "sport": "L\u00f8b, Terr\u00e6n", "startDate": "20250614"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "East Coast Trail forener \u00e6gte vildmarksvandring med rigt historiske samfund fra Topsail Beach til Cape St. Francis og Cappahayden p\u00e5 Newfoundland \u0026 Labradors Av", "distance": "10,6km, 66km, 270km", "eventStatus": "Standard", "identifier": "east_coast_trail", "image": "/l\u00f8bsider/east_coast_trail/east_coast_trail_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "dk", "addressLocality": "Topsail Beach", "addressRegion": "Midtjylland"}, "name": "Topsail Beach"}, "name": "East Coast Trail", "sport": "L\u00f8b, Terr\u00e6n", "startDate": "20250423"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "RISEN-loppet er en \u00e5rlig l\u00f8b, der finder sted i Genarp. L\u00f8bet tilbyder distancer p\u00e5 10,7 km og 5,0 km, hvoraf 10,7 km ruten g\u00e5r til h\u00e4lften i Genarps by og til ", "distance": "5km, 10,7km", "eventStatus": "Standard", "identifier": "risen_loppet", "image": "/l\u00f8bsider/risen_loppet/risen_loppet_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "dk", "addressLocality": "Ekevallens IP", "addressRegion": "Midtjylland"}, "name": "Ekevallens IP"}, "name": "RISEN-loppet", "sport": "L\u00f8b, Terr\u00e6n", "startDate": "20250501"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>100 km Terræn Løbekonkurrencer i Ikast | Løbskalenderen</title>
+    <meta name="description" content="Find dit næste 100 km terræn løb i Ikast.  Se vores løbskalender med løbekonkurrencer og løbeløb.  Tilmeld dig et motionsløb i dag!" />
 
-    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
     <link
-      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
     />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-    <link rel="preconnect" href="https://tpc.googlesyndication.com" />
-    <link rel="preconnect" href="https://adservice.google.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-    <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-    <link rel="dns-prefetch" href="https://adservice.google.com" />
 
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <link rel="stylesheet" href="/css/breadcrumbs.css" />
     <link rel="stylesheet" href="/css/ads.css" />
     <link rel="stylesheet" href="/css/race-list-filter.css" />
@@ -44,26 +71,64 @@
     <link rel="stylesheet" href="/css/race-card-big.css" />
     <link rel="stylesheet" href="/css/race-cards.css" />
     <link rel="stylesheet" href="/css/race-card.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/commonFunctions.js"></script>
-    <script src="/js/raceList.js"></script>
-    <script defer="" type="module" src="/js/raceListMap.js"></script>
-    <script defer="" src="/js/raceListDisengeageFilters.js"></script>
-    <script defer="" src="/js/raceListToggleButton.js"></script>
-    <script defer="" src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
   </head>
   <body>
-    <!-- Page content -->
-    <main> <section class="section-header-menu">
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
   <div class="upper-header">
     <a href="/" class="logo-container">
       <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
@@ -316,10 +381,10 @@
 </section> <section class="section-filters">
   <div class="filter-date">
     <label for="date-from">Fra:</label>
-    <input type="date" id="date-from" name="date-from" />
+    <input type="date" id="date-from" name="date-from" class="date-input" />
 
     <label for="date-to">Til:</label>
-    <input type="date" id="date-to" name="date-to" />
+    <input type="date" id="date-to" name="date-to" class="date-input" />
   </div>
 
   <div class="filter-months right-scroller">
@@ -514,81 +579,70 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/lobekalender">Løbekalender</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/lobekalender">Løbekalender</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/lobekalender/byer/ikast">Byer: Ikast</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/lobekalender/byer/ikast">Byer: Ikast</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/lobekalender/byer/ikast/terran">Terræn</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li aria-current="page" >
+          
+          <span>100 km</span>
+          
+        </li>
         
-        <a href="/lobekalender/byer/ikast/terran">Terræn</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
-        
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>100 km</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    100 km Terræn Løb i Ikast: Løbekonkurrencer & Løbskalender
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Søger du et 100 km terræn løb i Ikast?  Vores løbskalender og konkurrencekalender for løb hjælper dig med at finde det perfekte løbeløb.  Brug filteret for at finde løbekonkurrencer der matcher dine præferencer.  Find dit næste løb i vores motionskalender!</p>
-
-  
-
-  <h2 class="section-header">
-    Alle
-    <span id="race-cards-title-category"></span>
-    løb
-    <span id="race-cards-title-separator"
-      >i</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Danmark</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      100 km Terræn Løb i Ikast: Løbekonkurrencer & Løbskalender
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Søger du et 100 km terræn løb i Ikast?  Vores løbskalender og konkurrencekalender for løb hjælper dig med at finde det perfekte løbeløb.  Brug filteret for at finde løbekonkurrencer der matcher dine præferencer.  Find dit næste løb i vores motionskalender!</p>
 
-  <button class="toggle-button mobile" id="toggleMapButtonMobile">
-    <div class="icon-container">
-      <ion-icon
-        name="map-outline"
-        role="img"
-        class="md hydrated"
-        aria-label="map outline"
-      ></ion-icon>
-    </div>
-    <p>Kort</p>
-  </button>
+    
 
+    <h2 class="section-header phone-min-height-51rem">
+      Alle
+      <span id="race-cards-title-category"></span>
+      løb
+      <span id="race-cards-title-separator"
+        >i</span
+      >
+      <span id="race-cards-title-region"
+        >Danmark</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -597,7 +651,117 @@
       data-preselected-filters="{&quot;county&quot;: &quot;Ikast&quot;, &quot;race_type&quot;: &quot;Terr\u00e6n&quot;, &quot;category&quot;: &quot;100 km&quot;}"
       
     >
-        <a
+         
+<!-- Full card content for first 20 cards -->
+<a
+  href="/løbsider/east_coast_trail"
+  class="race-card"
+  data-name="East Coast Trail"
+  data-date="20250423"
+  data-county="Midtjylland"
+  data-category=""
+  data-race-type="Terræn"
+  data-distance="10,6km, 66km, 270km"
+  data-latitude="56.26392"
+  data-longitude="9.501785"
+  data-location="Topsail Beach"
+  data-description="East Coast Trail forener ægte vildmarksvandring med rigt historiske samfund fra Topsail Beach til Cape St. Francis og Cappahayden på Newfoun"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Feast_coast_trail%2Feast_coast_trail_1.webp?alt=media"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="23 apr."
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Feast_coast_trail%2Feast_coast_trail_1.webp?alt=media"
+        width="600"
+        height="400"
+        alt="Billede tilEast Coast Trail"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          23 apr.
+        </div>
+        <div class="race-location">
+          Midtjylland
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">East Coast Trail</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Topsail Beach 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                10,6 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                66 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                270 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Terræn
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      East Coast Trail forener ægte vildmarksvandring med rigt historiske samfund fra Topsail Beach til Cape St. Francis og Cappahayden på Newfoun...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mere info & tilmelding</div>
+  </div>
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
   href="/løbsider/risen_loppet"
   class="race-card"
   data-name="RISEN-loppet"
@@ -608,15 +772,23 @@
   data-distance="5km, 10,7km"
   data-latitude="56.26392"
   data-longitude="9.501785"
+  data-location="Ekevallens IP"
+  data-description="RISEN-loppet er en årlig løb, der finder sted i Genarp. Løbet tilbyder distancer på 10,7 km og 5,0 km, hvoraf 10,7 km ruten går til hälften "
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Frisen_loppet%2Frisen_loppet_1.webp?alt=media"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="1 maj"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
-        src="/løbsider/risen_loppet/risen_loppet_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Frisen_loppet%2Frisen_loppet_1.webp?alt=media"
+        width="600"
+        height="400"
         alt="Billede tilRISEN-loppet"
-        loading="lazy"
         class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="race-card-content">
@@ -637,7 +809,7 @@
       <div class="left-container">
         <h3 class="race-name">RISEN-loppet</h3>
         <div
-          class="race-location "
+          class="race-location with-spacing"
         >
           
           <svg class="icon">
@@ -648,7 +820,7 @@
       </div>
       <div class="right-container">
         <div
-          class="race-distances "
+          class="race-distances with-spacing"
         >
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
@@ -684,104 +856,14 @@
     </div>
   </div>
   <div
-    class="cta-button "
+    class="cta-button with-spacing"
   >
     <div class="more-info-button">Mere info & tilmelding</div>
   </div>
-</a>  <a
-  href="/løbsider/nas_nordisk_adventurerun"
-  class="race-card"
-  data-name="NAS Nordisk AdventureRun"
-  data-date="20250614"
-  data-county="Midtjylland"
-  data-category=""
-  data-race-type="Terræn"
-  data-distance="2km, 50km"
-  data-latitude="56.1717325"
-  data-longitude="9.557614599999999"
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="/løbsider/nas_nordisk_adventurerun/nas_nordisk_adventurerun_1.webp"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-        alt="Billede tilNAS Nordisk AdventureRun"
-        loading="lazy"
-        class="background-img"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          14 juni
-        </div>
-        <div class="race-location">
-          Midtjylland
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
+</a>
+     
 
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">NAS Nordisk AdventureRun</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-           Silkeborg 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                50 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Terræn
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      NAS Nordisk AdventureRun er en to-dages begivenhed med orientering, oplevelser og trailløb, der finder sted den 14. og 15. juni 2025. Deltag...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Mere info & tilmelding</div>
-  </div>
-</a>     
-
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">af</span>
         <span id="total-events">Løb</span>
@@ -803,17 +885,19 @@
       <!-- Map will be inserted here -->
     </div>
   </div>
-</section> </main>
-
-    
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kort</p>
+</button> </main>
+      
+    </div>
   </body>
 </html>

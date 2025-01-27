@@ -23,6 +23,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Imatran Maantiejuoksukilpailut: Löydä seuraava juoksutapahtuma!</title>
+    <meta name="description" content="Löydä kaikki Imatran maantiejuoksukilpailut – 5 km:stä maratoniin ja pidemmälle. Tarkastele juoksukilpailuja, löydä sopivin juoksutapahtuma ja hio juoksuasi nopeammaksi juoksijaksi! Juoksukalenteri ja kilpailukalenteri helposti käytettävissä." />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -458,8 +459,16 @@
       10 km
     </button>
     
+    <button class="category-button" data-category="Halvmarathon">
+      Halvmarathon
+    </button>
+    
     <button class="category-button" data-category="Marathon">
       Marathon
+    </button>
+    
+    <button class="category-button" data-category="50 miles">
+      50 miles
     </button>
     
     <button class="category-button" data-category="50 km">
@@ -590,73 +599,74 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/juoksukalenteri">Juoksukalenteri</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/juoksukalenteri">Juoksukalenteri</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/juoksukalenteri/kaupungit/imatra">Kaupungit: Imatra</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/juoksukalenteri/kaupungit/imatra">Kaupungit: Imatra</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li aria-current="page" >
+          
+          <span>Maantie</span>
+          
+        </li>
         
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>Maantie</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    Imatran Maantiejuoksut: Juoksukilpailut ja Juoksutapahtumat
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Etsimässä seuraavaa juoksukilpailua Imatralla? Tämä sivu listaa kaikki Imatran maantiejuoksukilpailut, tarjoamalla laajan valikoiman eri matkoja – 5 km:stä maratoniin ja jopa pidempiin etäisyyksiin. Olipa kyseessä sitten kokenut juoksija tai vasta aloitteleva, löydät täältä varmasti itsellesi sopivan juoksutapahtuman.  Käytä suodattimia löytääksesi juuri sinulle sopivan juoksukilpailun.  Paranna juoksuasi ja tee itsestäsi nopeammaksi juoksijaksi! Sivustomme toimii myös kätevänä juoksukalenterina ja kilpailukalenterina.  Tutustu Imatran juoksu rotuun ja löydä seuraava juoksukilpailu!</p>
-
-  
-  <h3 class="race-type-list-title">Suositut alaluokat</h3>
-  <nav class="race-type-navigation" aria-label="race types and categories">
-    <ul class="race-type-list">
-      
-      <li>
-        <a href="/juoksukalenteri/kaupungit/imatra/maantie/10-km" class="race-type-link">
-          10 km (2)
-        </a>
-      </li>
-      
-    </ul>
-  </nav>
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Kaikki
-    <span id="race-cards-title-category"></span>
-    juoksukilpailu
-    <span id="race-cards-title-separator"
-      >None</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Suomi</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      Imatran Maantiejuoksut: Juoksukilpailut ja Juoksutapahtumat
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Etsimässä seuraavaa juoksukilpailua Imatralla? Tämä sivu listaa kaikki Imatran maantiejuoksukilpailut, tarjoamalla laajan valikoiman eri matkoja – 5 km:stä maratoniin ja jopa pidempiin etäisyyksiin. Olipa kyseessä sitten kokenut juoksija tai vasta aloitteleva, löydät täältä varmasti itsellesi sopivan juoksutapahtuman.  Käytä suodattimia löytääksesi juuri sinulle sopivan juoksukilpailun.  Paranna juoksuasi ja tee itsestäsi nopeammaksi juoksijaksi! Sivustomme toimii myös kätevänä juoksukalenterina ja kilpailukalenterina.  Tutustu Imatran juoksu rotuun ja löydä seuraava juoksukilpailu!</p>
 
+    
+    <h3 class="race-type-list-title">Suositut alaluokat</h3>
+    <nav class="race-type-navigation" aria-label="race types and categories">
+      <ul class="race-type-list">
+        
+        <li>
+          <a href="/juoksukalenteri/kaupungit/imatra/maantie/10-km" class="race-type-link">
+            10 km (2)
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Kaikki
+      <span id="race-cards-title-category"></span>
+      juoksukilpailu
+      <span id="race-cards-title-separator"
+        >None</span
+      >
+      <span id="race-cards-title-region"
+        >Suomi</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -680,7 +690,7 @@
   data-longitude="28.186444"
   data-location="Lappeenrannan Satamatori"
   data-description="Lappeenranta Half on ainutlaatuinen urheilutapahtuma, joka yhdistää kaksi perinteikästä Lappeenrantalaista urheiluseuraa. Kilpailu tarjoaa j"
-  data-image-path="/kilpailusivut/lappeenranta_half/lappeenranta_half"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Flappeenranta_half%2Flappeenranta_half_1.webp?alt=media"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="31 elo."
@@ -689,7 +699,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/lappeenranta_half/lappeenranta_half_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Flappeenranta_half%2Flappeenranta_half_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Lappeenranta Half"
@@ -776,7 +786,7 @@
   data-longitude="28.506324"
   data-location="Joutsenon Urheilukeskus, Penttiläntie 17, 54100 Joutseno"
   data-description="Kullervo-maraton palaa Joutsenoon kuuden vuoden tauon jälkeen sunnuntaina 21.9.2025. Tapahtuman kilpailukeskus sijaitsee Joutsenon Urheiluke"
-  data-image-path="/kilpailusivut/kullervo_marathon/kullervo_marathon"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkullervo_marathon%2Fkullervo_marathon_1.webp?alt=media"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="21 syys."
@@ -785,7 +795,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/kullervo_marathon/kullervo_marathon_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkullervo_marathon%2Fkullervo_marathon_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Kullervo Marathon"

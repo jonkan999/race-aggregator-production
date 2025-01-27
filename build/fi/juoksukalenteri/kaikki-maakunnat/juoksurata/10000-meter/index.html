@@ -19,6 +19,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>10 000 metrin juoksukilpailut Juoksuradalla: Löydä juoksutapahtumat Suomessa</title>
+    <meta name="description" content="Etsi 10 000 metrin juoksukilpailuja Juoksuradalta Suomesta. Löydä sopivat juoksukilpailut ja juoksutapahtumat helposti – kilpailukalenteri auttaa sinua löytämään seuraavan juoksukilpailun.  Juoksu kaikille tasoille." />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -454,8 +455,16 @@
       10 km
     </button>
     
+    <button class="category-button" data-category="Halvmarathon">
+      Halvmarathon
+    </button>
+    
     <button class="category-button" data-category="Marathon">
       Marathon
+    </button>
+    
+    <button class="category-button" data-category="50 miles">
+      50 miles
     </button>
     
     <button class="category-button" data-category="50 km">
@@ -586,60 +595,61 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/juoksukalenteri">Juoksukalenteri</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/juoksukalenteri">Juoksukalenteri</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/juoksukalenteri/juoksurata">Juoksurata</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/juoksukalenteri/juoksurata">Juoksurata</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li aria-current="page" >
+          
+          <span>10000 meter</span>
+          
+        </li>
         
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>10000 meter</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    10 000 Metrin Juoksukilpailut Juoksuradalla Suomessa
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Suomessa järjestetään monia 10 000 metrin juoksukilpailuja Juoksuradalla. Löydä itsellesi sopiva juoksutapahtuma kaikista Suomen läänistä, Ahvenanmaasta Lappiin.  Tämä juoksukalenteri auttaa juoksijaa löytämään seuraavan juoksukilpailun ja kehittymään nopeammaksi juoksijaksi. Olipa tavoitteenasi osallistua kilpailuun tai vain nauttia juoksusta, löydät täältä itsellesi sopivan juoksukilpailun.  Selaa juoksukilpailuja ja löydä seuraava juoksukilpailusi!</p>
-
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Kaikki
-    <span id="race-cards-title-category"></span>
-    juoksukilpailu
-    <span id="race-cards-title-separator"
-      >None</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Suomi</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      10 000 Metrin Juoksukilpailut Juoksuradalla Suomessa
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Suomessa järjestetään monia 10 000 metrin juoksukilpailuja Juoksuradalla. Löydä itsellesi sopiva juoksutapahtuma kaikista Suomen läänistä, Ahvenanmaasta Lappiin.  Tämä juoksukalenteri auttaa juoksijaa löytämään seuraavan juoksukilpailun ja kehittymään nopeammaksi juoksijaksi. Olipa tavoitteenasi osallistua kilpailuun tai vain nauttia juoksusta, löydät täältä itsellesi sopivan juoksukilpailun.  Selaa juoksukilpailuja ja löydä seuraava juoksukilpailusi!</p>
 
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Kaikki
+      <span id="race-cards-title-category"></span>
+      juoksukilpailu
+      <span id="race-cards-title-separator"
+        >None</span
+      >
+      <span id="race-cards-title-region"
+        >Suomi</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -663,7 +673,7 @@
   data-longitude="21.7649585"
   data-location="Porin Karhuhalli, Urheilutie 1, 28500 Pori"
   data-description="XII APK-hallimaraton 2025 järjestetään 8. helmikuuta 2025 Porin Karhuhallissa, jossa kilpailijat juoksevat 400 metrin sisäradalla. Kilpailus"
-  data-image-path="/kilpailusivut/xii_apk_hallimaraton/xii_apk_hallimaraton"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fxii_apk_hallimaraton%2Fxii_apk_hallimaraton_1.webp?alt=media"
   data-type="track"
   data-type-display="Juoksurata"
   data-date-display="8 helmi."
@@ -672,7 +682,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/xii_apk_hallimaraton/xii_apk_hallimaraton_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fxii_apk_hallimaraton%2Fxii_apk_hallimaraton_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}XII APK Hallimaraton"
@@ -771,7 +781,7 @@
   data-longitude="21.7646269"
   data-location="Urheilutie 1, 28500 Pori"
   data-description="XII APK-hallimaraton 2025 järjestetään 8. helmikuuta 2025 Porin Karhuhallissa. Kilpailussa on kolme eri matkaa: maraton (42.2 km), puolimara"
-  data-image-path="/kilpailusivut/xii_apk_hallimaraton_2/xii_apk_hallimaraton_2"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fxii_apk_hallimaraton_2%2Fxii_apk_hallimaraton_2_1.webp?alt=media"
   data-type="track"
   data-type-display="Juoksurata"
   data-date-display="8 maalis"
@@ -780,7 +790,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/xii_apk_hallimaraton_2/xii_apk_hallimaraton_2_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fxii_apk_hallimaraton_2%2Fxii_apk_hallimaraton_2_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}XII APK Hallimaraton"
@@ -864,7 +874,281 @@
     <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
 </a>
-     
+   
+      <section class="section section-selected-races in-grid">
+        <div class="section-header-container">
+          <h2 class="section-header">Valitut Kilpailut</h2>
+          <div class="scroll-buttons">
+            <button class="scroll-button prev" aria-label="Previous" disabled>
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </button>
+            <button class="scroll-button next" aria-label="Next">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+        <div class="race-card-big-container right-scroller">
+              <a
+  href="/kilpailusivut/xii_apk_hallimaraton"
+  class="race-card-big race-card"
+  data-name="XII APK Hallimaraton"
+  data-date="20250208"
+  data-county="Satakunta"
+  data-category=""
+  data-race-type="Juoksurata"
+  data-distance="10km, half marathon, marathon"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fxii_apk_hallimaraton%2Fxii_apk_hallimaraton_1.webp?alt=media"
+        alt="Kuva {x}XII APK Hallimaraton"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          8 helmi.
+        </div>
+        <div class="race-location">
+          Satakunta
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Juoksurata
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Puolimaraton
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Maraton
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">XII APK Hallimaraton</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Siirry kilpailusivulle</div>
+    </div>
+  </div>
+</a>       <a
+  href="/kilpailusivut/xii_apk_hallimaraton_2"
+  class="race-card-big race-card"
+  data-name="XII APK Hallimaraton"
+  data-date="20250308"
+  data-county="Satakunta"
+  data-category=""
+  data-race-type="Juoksurata"
+  data-distance="10km, half marathon, marathon"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fxii_apk_hallimaraton_2%2Fxii_apk_hallimaraton_2_1.webp?alt=media"
+        alt="Kuva {x}XII APK Hallimaraton"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          8 maalis
+        </div>
+        <div class="race-location">
+          Satakunta
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Juoksurata
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Puolimaraton
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Maraton
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">XII APK Hallimaraton</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Siirry kilpailusivulle</div>
+    </div>
+  </div>
+</a>   
+        </div>
+      </section>
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
+  href="/kilpailusivut/cooperin_testi_2"
+  class="race-card"
+  data-name="Cooperin Testi"
+  data-date="20250910"
+  data-county="Keski-Suomi"
+  data-category=""
+  data-race-type="Juoksurata"
+  data-distance="2,7km, 2,8km, 3km"
+  data-latitude="61.92410999999999"
+  data-longitude="25.748151"
+  data-location="None"
+  data-description="Cooperin testi eli Cooper-testi on testi, jolla mitataan maksimikestävyyttä. Sen kehitti yhdysvaltalainen sotilaslääkäri Kenneth H. Cooper v"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fcooperin_testi_2%2Fcooperin_testi_2_1.webp?alt=media"
+  data-type="track"
+  data-type-display="Juoksurata"
+  data-date-display="10 syys."
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fcooperin_testi_2%2Fcooperin_testi_2_1.webp?alt=media"
+        width="600"
+        height="400"
+        alt="Kuva {x}Cooperin Testi"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          10 syys.
+        </div>
+        <div class="race-location">
+          Keski-Suomi
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Cooperin Testi</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                2,7 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                2,8 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                3 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Juoksurata
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Cooperin testi eli Cooper-testi on testi, jolla mitataan maksimikestävyyttä. Sen kehitti yhdysvaltalainen sotilaslääkäri Kenneth H. Cooper v...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
+  </div>
+</a>
+ 
 
       <!-- Pagination controls -->
       <div class="pagination-info">

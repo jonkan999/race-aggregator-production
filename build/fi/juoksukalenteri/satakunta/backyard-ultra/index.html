@@ -23,6 +23,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Backyard Ultra juoksukilpailut Satakunnassa - Löydä seuraava juoksutapahtuma</title>
+    <meta name="description" content="Etsi Backyard Ultra juoksukilpailuja Satakunnasta. Löydä sopivat juoksukilpailut ja juoksutapahtumat helposti kilpailukalenteristamme.  Kaikki kategoriat, kuten 5 km, 10 km ja maraton, ovat mukana.  Juoksu rotu ja nopeammaksi juoksijaksi - tavoitteet toteutuvat!" />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -458,8 +459,16 @@
       10 km
     </button>
     
+    <button class="category-button" data-category="Halvmarathon">
+      Halvmarathon
+    </button>
+    
     <button class="category-button" data-category="Marathon">
       Marathon
+    </button>
+    
+    <button class="category-button" data-category="50 miles">
+      50 miles
     </button>
     
     <button class="category-button" data-category="50 km">
@@ -590,60 +599,61 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/juoksukalenteri">Juoksukalenteri</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/juoksukalenteri">Juoksukalenteri</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/juoksukalenteri/satakunta">Satakunta</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/juoksukalenteri/satakunta">Satakunta</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li aria-current="page" >
+          
+          <span>Backyard Ultra</span>
+          
+        </li>
         
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>Backyard Ultra</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    Backyard Ultra Juoksukilpailut Satakunnassa
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Suunnitteletko osallistumista Backyard Ultra juoksukilpailuun Satakunnassa?  Juoksukilpailut-sivultamme löydät kaikki ajankohtaiset juoksutapahtumat Satakunnasta.  Valitse haluamasi kilpailun pituus – vaihtoehtoja on monia, aina 1500 metristä maratonille ja pidemmällekin.  Olipa tavoitteesi juoksu rotu tai nopeammaksi juoksijaksi, löydät täältä sopivan juoksukilpailun kokeneelle juoksijalle tai vasta-alkajalle. Tutustu juoksukalenteriimme ja löydä seuraava juoksukilpailusi!</p>
-
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Kaikki
-    <span id="race-cards-title-category"></span>
-    juoksukilpailu
-    <span id="race-cards-title-separator"
-      >None</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Suomi</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      Backyard Ultra Juoksukilpailut Satakunnassa
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Suunnitteletko osallistumista Backyard Ultra juoksukilpailuun Satakunnassa?  Juoksukilpailut-sivultamme löydät kaikki ajankohtaiset juoksutapahtumat Satakunnasta.  Valitse haluamasi kilpailun pituus – vaihtoehtoja on monia, aina 1500 metristä maratonille ja pidemmällekin.  Olipa tavoitteesi juoksu rotu tai nopeammaksi juoksijaksi, löydät täältä sopivan juoksukilpailun kokeneelle juoksijalle tai vasta-alkajalle. Tutustu juoksukalenteriimme ja löydä seuraava juoksukilpailusi!</p>
 
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Kaikki
+      <span id="race-cards-title-category"></span>
+      juoksukilpailu
+      <span id="race-cards-title-separator"
+        >None</span
+      >
+      <span id="race-cards-title-region"
+        >Suomi</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -667,7 +677,7 @@
   data-longitude="21.854114"
   data-location="Ruosniemen kuntorata / laskettelukeskus"
   data-description="Ruosniemi Backyard Ultra 2024 järjestetään 29. maaliskuuta 2024 Ruosniemen kuntoradalla Poriissa. Tapahtumassa juostaan 6,706 km:n matka, jo"
-  data-image-path="/kilpailusivut/ruosniemen_backyard_ultra/ruosniemen_backyard_ultra"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fruosniemen_backyard_ultra%2Fruosniemen_backyard_ultra_1.webp?alt=media"
   data-type="backyard"
   data-type-display="Backyard Ultra"
   data-date-display="29 huhti."
@@ -676,7 +686,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/ruosniemen_backyard_ultra/ruosniemen_backyard_ultra_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fruosniemen_backyard_ultra%2Fruosniemen_backyard_ultra_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Ruosniemen Backyard Ultra"

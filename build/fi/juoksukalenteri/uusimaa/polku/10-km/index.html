@@ -19,6 +19,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>10 km Polkujuoksukilpailut Uudellamaalla - Löydä seuraava juoksutapahtumasi!</title>
+    <meta name="description" content="Etsi sopivia 10 km polkujuoksukilpailuja Uudeltamaalta. Löydä juoksukilpailut, juoksutapahtumat ja täydellinen juoksukilpailu kokemukseksi, olipa tavoitteesi sitten nopeammaksi juoksijaksi tuleminen tai vain hauskanpito. Tutustu juoksukalenteriin ja kilpailukalenteriin." />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -454,8 +455,16 @@
       10 km
     </button>
     
+    <button class="category-button" data-category="Halvmarathon">
+      Halvmarathon
+    </button>
+    
     <button class="category-button" data-category="Marathon">
       Marathon
+    </button>
+    
+    <button class="category-button" data-category="50 miles">
+      50 miles
     </button>
     
     <button class="category-button" data-category="50 km">
@@ -586,69 +595,70 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/juoksukalenteri">Juoksukalenteri</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/juoksukalenteri">Juoksukalenteri</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/juoksukalenteri/uusimaa">Uusimaa</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/juoksukalenteri/uusimaa">Uusimaa</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/juoksukalenteri/uusimaa/polku">Polku</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li aria-current="page" >
+          
+          <span>10 km</span>
+          
+        </li>
         
-        <a href="/juoksukalenteri/uusimaa/polku">Polku</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
-        
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>10 km</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    10 km Polkujuoksut Uudellamaalla
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Suunnitteletko seuraavaa juoksutapahtumaasi?  Tämä sivu listaa kaikki 10 km:n polkujuoksukilpailut Uudeltamaalta. Löydät täältä tietoa eri juoksukilpailuista ja juoksukilpailuista, joista valita. Olipa kyseessä sitten kokeneen juoksijan tai vasta-alkajien kilpailu, löydät täältä varmasti itsellesi sopivan juoksukilpailun.  Paranna juoksuasi ja etsi inspiraatiota matkallasi nopeammaksi juoksijaksi. Tarkista juoksukalenteri ja kilpailukalenteri ja löydä täydellinen juoksukilpailu.  Muita suodattimia ovat [esim. päivämäärä, vaikeustaso].</p>
-
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Kaikki
-    <span id="race-cards-title-category"></span>
-    juoksukilpailu
-    <span id="race-cards-title-separator"
-      >None</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Suomi</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      10 km Polkujuoksut Uudellamaalla
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Suunnitteletko seuraavaa juoksutapahtumaasi?  Tämä sivu listaa kaikki 10 km:n polkujuoksukilpailut Uudeltamaalta. Löydät täältä tietoa eri juoksukilpailuista ja juoksukilpailuista, joista valita. Olipa kyseessä sitten kokeneen juoksijan tai vasta-alkajien kilpailu, löydät täältä varmasti itsellesi sopivan juoksukilpailun.  Paranna juoksuasi ja etsi inspiraatiota matkallasi nopeammaksi juoksijaksi. Tarkista juoksukalenteri ja kilpailukalenteri ja löydä täydellinen juoksukilpailu.  Muita suodattimia ovat [esim. päivämäärä, vaikeustaso].</p>
 
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Kaikki
+      <span id="race-cards-title-category"></span>
+      juoksukilpailu
+      <span id="race-cards-title-separator"
+        >None</span
+      >
+      <span id="race-cards-title-region"
+        >Suomi</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -672,7 +682,7 @@
   data-longitude="26.4637073"
   data-location="Strömfors"
   data-description="Brannin Trail Run kutsuu sinut mukaansa ainutlaatuiselle reitille Strömforsin upeisiin maisemiin 10.5.2025! Tapahtuma tarjoaa huolellisesti "
-  data-image-path="/kilpailusivut/brannin_trail_run/brannin_trail_run"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fbrannin_trail_run%2Fbrannin_trail_run_1.webp?alt=media"
   data-type="trail"
   data-type-display="Polku"
   data-date-display="10 tou"
@@ -681,7 +691,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/brannin_trail_run/brannin_trail_run_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fbrannin_trail_run%2Fbrannin_trail_run_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Brannin Trail Run"
@@ -774,7 +784,7 @@
   data-longitude="24.0045814"
   data-location="Aktia Areena, Tykkitie 3, 10210 Inkoo"
   data-description="Inkoon Marathon on juoksutapahtuma, jossa reitti on 5 km lenkki, jota kierretään 1-3 kertaa sarjasta riippuen. Reitin alkuosa on noin 1 km p"
-  data-image-path="/kilpailusivut/inkoon_marathon/inkoon_marathon"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Finkoon_marathon%2Finkoon_marathon_1.webp?alt=media"
   data-type="trail"
   data-type-display="Polku"
   data-date-display="5 lok."
@@ -783,7 +793,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/inkoon_marathon/inkoon_marathon_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Finkoon_marathon%2Finkoon_marathon_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Inkoon Marathon"

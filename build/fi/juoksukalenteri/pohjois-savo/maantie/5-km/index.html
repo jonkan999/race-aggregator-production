@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Niilon Kymppi on Suonenjoella j\u00e4rjestett\u00e4v\u00e4 juoksutapahtuma, joka tarjoaa osallistujille mahdollisuuden kokea kauniit maisemat ja haastavan reitin. Tapahtuma on", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "niilon_kymppi", "image": "/kilpailusivut/niilon_kymppi/niilon_kymppi_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "fi", "addressLocality": "Suonenjoki", "addressRegion": "Pohjois-Savo"}, "name": "Suonenjoki"}, "name": "Niilon Kymppi", "sport": "Juoksu, Maantie", "startDate": "20250816"}, "position": 1}], "numberOfItems": 1}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Varkaus Puolikas on juoksutapahtuma, joka juostaan kauniissa Huruslahden rantamaisemissa virallisesti mitatulla reitill\u00e4. Tapahtumassa on tarjolla useita juoksu", "distance": "10,5km, half marathon, marathon", "eventStatus": "Standard", "identifier": "varkaus_puolikas", "image": "/kilpailusivut/varkaus_puolikas/varkaus_puolikas_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "fi", "addressLocality": "Uimahalli Ilopisara, Ahlstr\u00f6minkatu 11, 78250 Varkaus", "addressRegion": "Pohjois-Savo"}, "name": "Uimahalli Ilopisara, Ahlstr\u00f6minkatu 11, 78250 Varkaus"}, "name": "Varkaus Puolikas", "sport": "Juoksu, Maantie", "startDate": "20250510"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Kallavesj-Kymppi on 10 km pitk\u00e4 juoksukilpailu, joka pidet\u00e4\u00e4n helatorstaina 29.5.2025. Kilpailukeskus sijaitsee Kylpyl\u00e4hotelli Rauhalahdessa, Kuopiossa. Reitti ", "distance": "10km", "eventStatus": "Standard", "identifier": "kallavesj_kymppi", "image": "/kilpailusivut/kallavesj_kymppi/kallavesj_kymppi_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "fi", "addressLocality": "Kylpyl\u00e4hotelli Rauhalahti, Katiskaniementie 8, 70700 KUOPIO", "addressRegion": "Pohjois-Savo"}, "name": "Kylpyl\u00e4hotelli Rauhalahti, Katiskaniementie 8, 70700 KUOPIO"}, "name": "Kallavesj-Kymppi", "sport": "Juoksu, Maantie", "startDate": "20250529"}, "position": 2}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Niilon Kymppi on Suonenjoella j\u00e4rjestett\u00e4v\u00e4 juoksutapahtuma, joka tarjoaa osallistujille mahdollisuuden kokea kauniit maisemat ja haastavan reitin. Tapahtuma on", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "niilon_kymppi", "image": "/kilpailusivut/niilon_kymppi/niilon_kymppi_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "fi", "addressLocality": "Suonenjoki", "addressRegion": "Pohjois-Savo"}, "name": "Suonenjoki"}, "name": "Niilon Kymppi", "sport": "Juoksu, Maantie", "startDate": "20250816"}, "position": 3}], "numberOfItems": 3}
     </script>
      
 
@@ -19,6 +19,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>5 km Maantiejuoksukilpailut Pohjois-Savossa - Löydä juoksutapahtumat!</title>
+    <meta name="description" content="Etsi sopivat 5 km maantiejuoksukilpailut Pohjois-Savosta. Löydä juoksukilpailut, juoksukalenteri ja kilpailukalenteri – täydellinen opas juoksijalle, joka haluaa juosta nopeammaksi juoksijaksi." />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -454,8 +455,16 @@
       10 km
     </button>
     
+    <button class="category-button" data-category="Halvmarathon">
+      Halvmarathon
+    </button>
+    
     <button class="category-button" data-category="Marathon">
       Marathon
+    </button>
+    
+    <button class="category-button" data-category="50 miles">
+      50 miles
     </button>
     
     <button class="category-button" data-category="50 km">
@@ -586,69 +595,70 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/juoksukalenteri">Juoksukalenteri</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/juoksukalenteri">Juoksukalenteri</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/juoksukalenteri/pohjois-savo">Pohjois-Savo</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/juoksukalenteri/pohjois-savo">Pohjois-Savo</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/juoksukalenteri/pohjois-savo/maantie">Maantie</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li aria-current="page" >
+          
+          <span>5 km</span>
+          
+        </li>
         
-        <a href="/juoksukalenteri/pohjois-savo/maantie">Maantie</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
-        
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>5 km</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    5 km Maantiejuoksut Pohjois-Savossa: Juoksukilpailut ja Juoksutapahtumat
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Suunnitteletko osallistumista 5 km maantiejuoksukilpailuun Pohjois-Savossa?  Tämä sivu auttaa sinua löytämään täydellisen juoksutapahtuman.  Etsi juoksukilpailut ja juoksukilpailut haluamallasi etäisyydellä ja tyypillä.  Käytä suodattimia löytääksesi sopivat juoksutapahtumat.  Paranna juoksuasi ja tule nopeammaksi juoksijaksi osallistumalla näihin jännittäviin juoksukilpailuihin.  Tutustu juoksukalenteriin ja kilpailukalenteriin ja löydä seuraava juoksu!</p>
-
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Kaikki
-    <span id="race-cards-title-category"></span>
-    juoksukilpailu
-    <span id="race-cards-title-separator"
-      >None</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Suomi</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      5 km Maantiejuoksut Pohjois-Savossa: Juoksukilpailut ja Juoksutapahtumat
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Suunnitteletko osallistumista 5 km maantiejuoksukilpailuun Pohjois-Savossa?  Tämä sivu auttaa sinua löytämään täydellisen juoksutapahtuman.  Etsi juoksukilpailut ja juoksukilpailut haluamallasi etäisyydellä ja tyypillä.  Käytä suodattimia löytääksesi sopivat juoksutapahtumat.  Paranna juoksuasi ja tule nopeammaksi juoksijaksi osallistumalla näihin jännittäviin juoksukilpailuihin.  Tutustu juoksukalenteriin ja kilpailukalenteriin ja löydä seuraava juoksu!</p>
 
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Kaikki
+      <span id="race-cards-title-category"></span>
+      juoksukilpailu
+      <span id="race-cards-title-separator"
+        >None</span
+      >
+      <span id="race-cards-title-region"
+        >Suomi</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -672,7 +682,7 @@
   data-longitude="26.973221"
   data-location="None"
   data-description="Liity mukaan 4. tammikuuta 2025 jännittävään ja hauskaan 5K kävely-/juoksutapahtumaan sekä 1K lasten kävely-/juoksutapahtumaan, jossa on ene"
-  data-image-path="/kilpailusivut/karttula_new_year_run_2/karttula_new_year_run_2"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkarttula_new_year_run_2%2Fkarttula_new_year_run_2_1.webp?alt=media"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="31 tam."
@@ -681,7 +691,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/karttula_new_year_run_2/karttula_new_year_run_2_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkarttula_new_year_run_2%2Fkarttula_new_year_run_2_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Karttula New Year Run"
@@ -758,6 +768,439 @@
    
 <!-- Full card content for first 20 cards -->
 <a
+  href="/kilpailusivut/varkaus_puolikas"
+  class="race-card"
+  data-name="Varkaus Puolikas"
+  data-date="20250510"
+  data-county="Pohjois-Savo"
+  data-category=""
+  data-race-type="Maantie"
+  data-distance="10,5km, half marathon, marathon"
+  data-latitude="62.31252190000001"
+  data-longitude="27.8896139"
+  data-location="Uimahalli Ilopisara, Ahlströminkatu 11, 78250 Varkaus"
+  data-description="Varkaus Puolikas on juoksutapahtuma, joka juostaan kauniissa Huruslahden rantamaisemissa virallisesti mitatulla reitillä. Tapahtumassa on ta"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fvarkaus_puolikas%2Fvarkaus_puolikas_1.webp?alt=media"
+  data-type="road"
+  data-type-display="Maantie"
+  data-date-display="10 tou"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fvarkaus_puolikas%2Fvarkaus_puolikas_1.webp?alt=media"
+        width="600"
+        height="400"
+        alt="Kuva {x}Varkaus Puolikas"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          10 tou
+        </div>
+        <div class="race-location">
+          Pohjois-Savo
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Varkaus Puolikas</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Uimahalli Ilopisara, Ahlströminkatu 11, 78250 Varkaus 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                10,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Puolimaraton
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Maraton
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Maantie
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Varkaus Puolikas on juoksutapahtuma, joka juostaan kauniissa Huruslahden rantamaisemissa virallisesti mitatulla reitillä. Tapahtumassa on ta...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
+  </div>
+</a>
+   
+      <section class="section section-selected-races in-grid">
+        <div class="section-header-container">
+          <h2 class="section-header">Valitut Kilpailut</h2>
+          <div class="scroll-buttons">
+            <button class="scroll-button prev" aria-label="Previous" disabled>
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </button>
+            <button class="scroll-button next" aria-label="Next">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+        <div class="race-card-big-container right-scroller">
+              <a
+  href="/kilpailusivut/varkaus_puolikas"
+  class="race-card-big race-card"
+  data-name="Varkaus Puolikas"
+  data-date="20250510"
+  data-county="Pohjois-Savo"
+  data-category=""
+  data-race-type="Maantie"
+  data-distance="10,5km, half marathon, marathon"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fvarkaus_puolikas%2Fvarkaus_puolikas_1.webp?alt=media"
+        alt="Kuva {x}Varkaus Puolikas"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          10 tou
+        </div>
+        <div class="race-location">
+          Pohjois-Savo
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Maantie
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                10,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Puolimaraton
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Maraton
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Varkaus Puolikas</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Siirry kilpailusivulle</div>
+    </div>
+  </div>
+</a>       <a
+  href="/kilpailusivut/kallavesj_kymppi"
+  class="race-card-big race-card"
+  data-name="Kallavesj-Kymppi"
+  data-date="20250529"
+  data-county="Pohjois-Savo"
+  data-category=""
+  data-race-type="Maantie"
+  data-distance="10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkallavesj_kymppi%2Fkallavesj_kymppi_1.webp?alt=media"
+        alt="Kuva {x}Kallavesj-Kymppi"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          29 tou
+        </div>
+        <div class="race-location">
+          Pohjois-Savo
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Maantie
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Kallavesj-Kymppi</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Siirry kilpailusivulle</div>
+    </div>
+  </div>
+</a>       <a
+  href="/kilpailusivut/niilon_kymppi"
+  class="race-card-big race-card"
+  data-name="Niilon Kymppi"
+  data-date="20250816"
+  data-county="Pohjois-Savo"
+  data-category=""
+  data-race-type="Maantie"
+  data-distance="5km, 10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fniilon_kymppi%2Fniilon_kymppi_1.webp?alt=media"
+        alt="Kuva {x}Niilon Kymppi"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          16 elo.
+        </div>
+        <div class="race-location">
+          Pohjois-Savo
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Maantie
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Niilon Kymppi</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Siirry kilpailusivulle</div>
+    </div>
+  </div>
+</a>   
+        </div>
+      </section>
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
+  href="/kilpailusivut/kallavesj_kymppi"
+  class="race-card"
+  data-name="Kallavesj-Kymppi"
+  data-date="20250529"
+  data-county="Pohjois-Savo"
+  data-category=""
+  data-race-type="Maantie"
+  data-distance="10km"
+  data-latitude="62.8673008"
+  data-longitude="27.647135"
+  data-location="Kylpylähotelli Rauhalahti, Katiskaniementie 8, 70700 KUOPIO"
+  data-description="Kallavesj-Kymppi on 10 km pitkä juoksukilpailu, joka pidetään helatorstaina 29.5.2025. Kilpailukeskus sijaitsee Kylpylähotelli Rauhalahdessa"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkallavesj_kymppi%2Fkallavesj_kymppi_1.webp?alt=media"
+  data-type="road"
+  data-type-display="Maantie"
+  data-date-display="29 tou"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkallavesj_kymppi%2Fkallavesj_kymppi_1.webp?alt=media"
+        width="600"
+        height="400"
+        alt="Kuva {x}Kallavesj-Kymppi"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          29 tou
+        </div>
+        <div class="race-location">
+          Pohjois-Savo
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Kallavesj-Kymppi</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Kylpylähotelli Rauhalahti, Katiskaniementie 8, 70700 KUOPIO 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Maantie
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Kallavesj-Kymppi on 10 km pitkä juoksukilpailu, joka pidetään helatorstaina 29.5.2025. Kilpailukeskus sijaitsee Kylpylähotelli Rauhalahdessa...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
+  </div>
+</a>
+   
+      
+<!-- Full card content for first 20 cards -->
+<a
   href="/kilpailusivut/niilon_kymppi"
   class="race-card"
   data-name="Niilon Kymppi"
@@ -770,7 +1213,7 @@
   data-longitude="27.1221231"
   data-location="Suonenjoki"
   data-description="Niilon Kymppi on Suonenjoella järjestettävä juoksutapahtuma, joka tarjoaa osallistujille mahdollisuuden kokea kauniit maisemat ja haastavan "
-  data-image-path="/kilpailusivut/niilon_kymppi/niilon_kymppi"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fniilon_kymppi%2Fniilon_kymppi_1.webp?alt=media"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="16 elo."
@@ -779,7 +1222,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/niilon_kymppi/niilon_kymppi_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fniilon_kymppi%2Fniilon_kymppi_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Niilon Kymppi"
@@ -849,191 +1292,6 @@
     </div>
     <div class="race-summary">
       Niilon Kymppi on Suonenjoella järjestettävä juoksutapahtuma, joka tarjoaa osallistujille mahdollisuuden kokea kauniit maisemat ja haastavan ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
-  </div>
-</a>
-   
-      <section class="section section-selected-races in-grid">
-        <div class="section-header-container">
-          <h2 class="section-header">Valitut Kilpailut</h2>
-          <div class="scroll-buttons">
-            <button class="scroll-button prev" aria-label="Previous" disabled>
-              <ion-icon name="chevron-back-outline"></ion-icon>
-            </button>
-            <button class="scroll-button next" aria-label="Next">
-              <ion-icon name="chevron-forward-outline"></ion-icon>
-            </button>
-          </div>
-        </div>
-        <div class="race-card-big-container right-scroller">
-              <a
-  href="/kilpailusivut/niilon_kymppi"
-  class="race-card-big race-card"
-  data-name="Niilon Kymppi"
-  data-date="20250816"
-  data-county="Pohjois-Savo"
-  data-category=""
-  data-race-type="Maantie"
-  data-distance="5km, 10km"
->
-  <div class="race-card-big-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/niilon_kymppi/niilon_kymppi_1.webp"
-        alt="Kuva {x}Niilon Kymppi"
-        width="600"
-        height="400"
-        class="background-img selected-race-card-img"
-      />
-    </picture>
-    <div class="overlay softer"></div>
-
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          16 elo.
-        </div>
-        <div class="race-location">
-          Pohjois-Savo
-        </div>
-      </div>
-
-      <div class="race-info-bottom">
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maantie
-        </div>
-        
-        <div class="race-distances">
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="race-card-bottom">
-    <h3 class="race-name">Niilon Kymppi</h3>
-    <div class="cta-button">
-      <div class="more-info-button">Siirry kilpailusivulle</div>
-    </div>
-  </div>
-</a>   
-        </div>
-      </section>
-          
-      
-<!-- Full card content for first 20 cards -->
-<a
-  href="/kilpailusivut/karttula_new_year_run"
-  class="race-card"
-  data-name="Karttula New Year Run"
-  data-date="20251231"
-  data-county="Pohjois-Savo"
-  data-category=""
-  data-race-type="Maantie"
-  data-distance="1km, 5km"
-  data-latitude="62.89463480000001"
-  data-longitude="26.973221"
-  data-location="None"
-  data-description="Liity mukaan 4. tammikuuta 2025 jännittävään ja hauskaan 5K kävely-/juoksutapahtumaan sekä 1K lasten kävely-/juoksutapahtumaan Karttulassa. "
-  data-image-path="/kilpailusivut/karttula_new_year_run/karttula_new_year_run"
-  data-type="road"
-  data-type-display="Maantie"
-  data-date-display="31 joulu."
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/karttula_new_year_run/karttula_new_year_run_1.webp"
-        width="600"
-        height="400"
-        alt="Kuva {x}Karttula New Year Run"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          31 joulu.
-        </div>
-        <div class="race-location">
-          Pohjois-Savo
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Karttula New Year Run</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maantie
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Liity mukaan 4. tammikuuta 2025 jännittävään ja hauskaan 5K kävely-/juoksutapahtumaan sekä 1K lasten kävely-/juoksutapahtumaan Karttulassa. ...
     </div>
   </div>
   <div

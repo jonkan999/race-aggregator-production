@@ -23,6 +23,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Maantiejuoksukilpailut Haminassa - Löydä seuraava juoksutapahtuma!</title>
+    <meta name="description" content="Hae ja löydä kaikki maantiejuoksukilpailut Haminassa.  Valitse matkasi (esim. 5 km, 10 km, maraton) ja löydä täydellinen juoksukilpailu juoksijalle. Juoksukalenteri ja kilpailukalenteri sinulle!" />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -458,8 +459,16 @@
       10 km
     </button>
     
+    <button class="category-button" data-category="Halvmarathon">
+      Halvmarathon
+    </button>
+    
     <button class="category-button" data-category="Marathon">
       Marathon
+    </button>
+    
+    <button class="category-button" data-category="50 miles">
+      50 miles
     </button>
     
     <button class="category-button" data-category="50 km">
@@ -590,60 +599,61 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/juoksukalenteri">Juoksukalenteri</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/juoksukalenteri">Juoksukalenteri</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/juoksukalenteri/kaupungit/hamina">Kaupungit: Hamina</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/juoksukalenteri/kaupungit/hamina">Kaupungit: Hamina</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li aria-current="page" >
+          
+          <span>Maantie</span>
+          
+        </li>
         
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>Maantie</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    Maantiejuoksut Haminassa - Juoksukilpailut ja juoksutapahtumat
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Etsitkö seuraavaa juoksukilpailua?  Haminassa järjestetään monia maantiejuoksukilpailuja, joista löydät varmasti itsellesi sopivan. Valitse haluamasi matka, kuten 5 km tai maraton, ja löydä täydellinen juoksutapahtuma.  Olipa tavoitteesi sitten nopeammaksi juoksijaksi kehittyminen tai uusi juoksu rotu, Haminan maantiejuoksut tarjoavat haastavan ja palkitsevan kokemuksen juoksijoille kaiken tasoisille. Tutustu juoksukalenteriin ja kilpailukalenteriin ja löydä oma juoksukilpailusi!</p>
-
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Kaikki
-    <span id="race-cards-title-category"></span>
-    juoksukilpailu
-    <span id="race-cards-title-separator"
-      >None</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Suomi</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      Maantiejuoksut Haminassa - Juoksukilpailut ja juoksutapahtumat
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Etsitkö seuraavaa juoksukilpailua?  Haminassa järjestetään monia maantiejuoksukilpailuja, joista löydät varmasti itsellesi sopivan. Valitse haluamasi matka, kuten 5 km tai maraton, ja löydä täydellinen juoksutapahtuma.  Olipa tavoitteesi sitten nopeammaksi juoksijaksi kehittyminen tai uusi juoksu rotu, Haminan maantiejuoksut tarjoavat haastavan ja palkitsevan kokemuksen juoksijoille kaiken tasoisille. Tutustu juoksukalenteriin ja kilpailukalenteriin ja löydä oma juoksukilpailusi!</p>
 
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Kaikki
+      <span id="race-cards-title-category"></span>
+      juoksukilpailu
+      <span id="race-cards-title-separator"
+        >None</span
+      >
+      <span id="race-cards-title-region"
+        >Suomi</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -667,7 +677,7 @@
   data-longitude="26.6546148"
   data-location="Västilän urheilukenttä / kisakeskus"
   data-description="Voimantalon Juhlamaraton & Puolimaraton järjestetään 10. kesäkuuta Västilän Voimantalosta, jossa lähtö tapahtuu klo 12:00. Tapahtumassa on t"
-  data-image-path="/kilpailusivut/voimantalon_juhlamaraton_puolimaraton/voimantalon_juhlamaraton_puolimaraton"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fvoimantalon_juhlamaraton_puolimaraton%2Fvoimantalon_juhlamaraton_puolimaraton_1.webp?alt=media"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="7 kesä"
@@ -676,7 +686,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/voimantalon_juhlamaraton_puolimaraton/voimantalon_juhlamaraton_puolimaraton_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fvoimantalon_juhlamaraton_puolimaraton%2Fvoimantalon_juhlamaraton_puolimaraton_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Voimantalon Juhlamaraton & Puolimaraton"
@@ -763,7 +773,7 @@
   data-longitude="26.6243555"
   data-location="Kuusaan kylä"
   data-description="Kuusaa Maraton juostiin lauantaina 27.7.2024 Kuusaan kylässä Haapajärvellä. Tapahtuma on hyvässä maineessa ja tarjoaa mahdollisuuden osallis"
-  data-image-path="/kilpailusivut/kuusaa_marathon/kuusaa_marathon"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkuusaa_marathon%2Fkuusaa_marathon_1.webp?alt=media"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="26 heinä"
@@ -772,7 +782,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/kuusaa_marathon/kuusaa_marathon_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkuusaa_marathon%2Fkuusaa_marathon_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Kuusaa Marathon"

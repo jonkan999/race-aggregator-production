@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <!-- Schema Data (Important for SEO) -->
+     
+    <script type="application/ld+json">
+      {"schema": {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": {"@id": "https://juoksen.fi/juoksukalenteri", "@type": "WebPage", "name": "Juoksukalenteri"}, "position": 1}, {"@type": "ListItem", "item": {"@id": "https://juoksen.fi/juoksukalenteri/backyard-ultra", "@type": "WebPage", "name": "Backyard Ultra"}, "position": 2}, {"@type": "ListItem", "item": {"@id": "https://juoksen.fi/juoksukalenteri/backyard-ultra/50-miles", "@type": "WebPage", "name": "50 miles"}, "position": 3}]}, "visual": [{"href": "/juoksukalenteri", "name": "Juoksukalenteri"}, {"href": "/juoksukalenteri/backyard-ultra", "name": "Backyard Ultra"}, {"href": "/juoksukalenteri/backyard-ultra/50-miles", "name": "50 miles"}]}
+    </script>
+        
+    <script type="application/ld+json">
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Ruosniemi Backyard Ultra 2024 j\u00e4rjestet\u00e4\u00e4n 29. maaliskuuta 2024 Ruosniemen kuntoradalla Poriissa. Tapahtumassa juostaan 6,706 km:n matka, joka koostuu kolmesta ", "distance": "3km", "eventStatus": "Standard", "identifier": "ruosniemen_backyard_ultra", "image": "/kilpailusivut/ruosniemen_backyard_ultra/ruosniemen_backyard_ultra_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "fi", "addressLocality": "Ruosniemen kuntorata / laskettelukeskus", "addressRegion": "Satakunta"}, "name": "Ruosniemen kuntorata / laskettelukeskus"}, "name": "Ruosniemen Backyard Ultra", "sport": "Juoksu, Backyard Ultra", "startDate": "20250429"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "NUBU mini juostaan lauantaina 17.5.2025 klo 10-18 Nuuksiossa Kurjolammella. T\u00e4m\u00e4 tapahtuma tarjoaa mahdollisuuden kokeilla backyard-konseptia lyhyemm\u00e4ll\u00e4, 4,5 k", "distance": "4,5km", "eventStatus": "Standard", "identifier": "nubu_10_mini", "image": "/kilpailusivut/nubu_10_mini/nubu_10_mini_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "fi", "addressLocality": "Kurjolampi", "addressRegion": "Uusimaa"}, "name": "Kurjolampi"}, "name": "NUBU 10 Mini", "sport": "Juoksu, Backyard Ultra", "startDate": "20250517"}, "position": 2}], "numberOfItems": 2}
+    </script>
+     
+
+    <!-- Essential Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>50 Miles Backyard Ultra Juoksukilpailut Suomessa – Löydä Omasi!</title>
+    <meta name="description" content="Etsi 50 mailin Backyard Ultra juoksukilpailuja Suomesta. Löydä juoksutapahtumia kaikista lääneistä, kuten Ahvenanmaalta ja Uudeltamaalta. Täydellinen juoksukalenteri juoksijoille, jotka haluavat haastaa itsensä." />
+
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/css/general.css" as="style" />
+    <link rel="preload" href="/css/header-menu.css" as="style" />
+    <link rel="preload" href="/css/loader.css" as="style" />
+    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
+    <link
+      rel="preload"
+      href="/common_images/logo.svg"
+      as="image"
+      type="image/svg+xml"
+    />
+
+    <!-- Critical Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.mapbox.com" crossorigin />
+
+    <!-- Ad-related Preconnects -->
+    <link
+      rel="preconnect"
+      href="https://pagead2.googlesyndication.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://tpc.googlesyndication.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://adservice.google.com" crossorigin />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+
+    <!-- Critical CSS -->
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
+    <link rel="stylesheet" href="/css/breadcrumbs.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/race-list-filter.css" />
+    <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
+    <link rel="stylesheet" href="/css/selected-races.css" />
+    <link rel="stylesheet" href="/css/race-card-big.css" />
+    <link rel="stylesheet" href="/css/race-cards.css" />
+    <link rel="stylesheet" href="/css/race-card.css" />
+
+    <!-- Fonts (Deferred) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Mapbox Resources (Load only when needed) -->
+    <script
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
+    ></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+
+    <!-- Non-Critical Scripts (Deferred) -->
+    <script defer src="/js/raceList.js"></script>
+    <script defer type="module" src="/js/raceListMap.js"></script>
+    <script defer src="/js/raceListDisengeageFilters.js"></script>
+    <script defer src="/js/raceListToggleButton.js"></script>
+    <script defer src="/js/raceListToggleMapSEO.js"></script>
+
+    <!-- Ads Script -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- CSS Loading Tracker Script -->
+    <script src="/js/cssLoader.js"></script>
+  </head>
+  <body>
+    <div id="initial-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+  </div>
+</div>
+
+    <div id="page-wrapper">
+      <main> <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">juoksen</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Kirjaudu sisään
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Kaikki</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/juoksukalenteri"
+      ><span class="nav-item">Juoksukalenteri</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/lisaa-kilpailu"
+      ><span class="nav-item">Lisää kilpailu</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/foorumi"
+      ><span class="nav-item">Foorumi</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/mittaa-kierroksesi"
+      ><span class="nav-item">Mittaa kierroksesi</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/harjoitusohjelmat"
+      ><span class="nav-item">Harjoitusohjelmat</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/vauhtimuunnin"
+      ><span class="nav-item">Vauhtimuunnin</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/arvioi-rotuaikasi"
+      ><span class="nav-item">Arvioi rotuaikasi</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/tietoa-meista"
+      ><span class="nav-item">Tietoa meistä</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/ota-yhteytta"
+      ><span class="nav-item">Ota yhteyttä</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Kirjaudu sisään</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Sähköpostisi"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Salasana"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Unohditko salasanan?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Luo tili sen sijaan
+            </a>
+          </div>
+          <button type="submit">Kirjaudu sisään</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Luo tili
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Unohditko salasanan?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Luo tili</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Nimesi"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Sähköpostisi"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Salasana"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Luo tili</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Takaisin kirjautumiseen
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Palauta salasana</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Sähköpostisi"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Lähetä palautuslinkki</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Takaisin kirjautumiseen
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Olet jo kirjautunut sisään käyttäjänä</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Jatka tämän käyttäjänä
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Kirjaudu ulos ja vaihda käyttäjää
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Tili luotu!</h2>
+        <div class="logged-in-user-info">
+          <p>Olet nyt kirjautuneena sisään käyttäjänä</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            Vahvistuslinkki on lähetetty sähköpostiisi
+          </p>
+          <p class="verification-notice">Ole hyvä ja vahvista sähköpostiosoitteesi</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Jatka tämän käyttäjänä
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section> <section class="section-filters">
+  <div class="filter-date">
+    <label for="date-from">Alkaen:</label>
+    <input type="date" id="date-from" name="date-from" class="date-input" />
+
+    <label for="date-to">Saakka:</label>
+    <input type="date" id="date-to" name="date-to" class="date-input" />
+  </div>
+
+  <div class="filter-months right-scroller">
+    <button class="month-button active" data-month="all">
+      Koko vuosi
+    </button>
+    
+    <button class="month-button" data-month="01">
+      Tammikuu
+    </button>
+    
+    <button class="month-button" data-month="02">
+      Helmikuu
+    </button>
+    
+    <button class="month-button" data-month="03">
+      Maaliskuu
+    </button>
+    
+    <button class="month-button" data-month="04">
+      Huhtikuu
+    </button>
+    
+    <button class="month-button" data-month="05">
+      Touko
+    </button>
+    
+    <button class="month-button" data-month="06">
+      Kesäkuu
+    </button>
+    
+    <button class="month-button" data-month="07">
+      Heinäkuu
+    </button>
+    
+    <button class="month-button" data-month="08">
+      Elokuu
+    </button>
+    
+    <button class="month-button" data-month="09">
+      Syyskuu
+    </button>
+    
+    <button class="month-button" data-month="10">
+      Lokakuu
+    </button>
+    
+    <button class="month-button" data-month="11">
+      Marraskuu
+    </button>
+    
+    <button class="month-button" data-month="12">
+      Joulukuu
+    </button>
+    
+  </div>
+
+  <div class="filter-categories right-scroller">
+    <button class="category-button active" data-category="all">
+      Kaikki etäisyyksiä
+    </button>
+    
+    <button class="category-button" data-category="5 km">
+      5 km
+    </button>
+    
+    <button class="category-button" data-category="10 km">
+      10 km
+    </button>
+    
+    <button class="category-button" data-category="Halvmarathon">
+      Halvmarathon
+    </button>
+    
+    <button class="category-button" data-category="Marathon">
+      Marathon
+    </button>
+    
+    <button class="category-button" data-category="50 miles">
+      50 miles
+    </button>
+    
+    <button class="category-button" data-category="50 km">
+      50 km
+    </button>
+    
+    <button class="category-button" data-category="100 km">
+      100 km
+    </button>
+    
+    <button class="category-button" data-category="1500 meter">
+      1500 meter
+    </button>
+    
+    <button class="category-button" data-category="3000 meter">
+      3000 meter
+    </button>
+    
+    <button class="category-button" data-category="5000 meter">
+      5000 meter
+    </button>
+    
+    <button class="category-button" data-category="10000 meter">
+      10000 meter
+    </button>
+    
+  </div>
+
+  <div class="filter-dropdowns right-scroller">
+    <div class="filter-county">
+      <select id="county" name="county">
+        <option value="">Kaikki läänit</option>
+         
+        <option value="Ahvenanmaa">Ahvenanmaa</option>
+        
+        <option value="Etelä-Karjala">Etelä-Karjala</option>
+        
+        <option value="Etelä-Pohjanmaa">Etelä-Pohjanmaa</option>
+        
+        <option value="Etelä-Savo">Etelä-Savo</option>
+        
+        <option value="Häme">Häme</option>
+        
+        <option value="Kainuu">Kainuu</option>
+        
+        <option value="Keski-Pohjanmaa">Keski-Pohjanmaa</option>
+        
+        <option value="Keski-Suomi">Keski-Suomi</option>
+        
+        <option value="Kymenlaakso">Kymenlaakso</option>
+        
+        <option value="Lappi">Lappi</option>
+        
+        <option value="Pirkanmaa">Pirkanmaa</option>
+        
+        <option value="Pohjanmaa">Pohjanmaa</option>
+        
+        <option value="Pohjois-Karjala">Pohjois-Karjala</option>
+        
+        <option value="Pohjois-Pohjanmaa">Pohjois-Pohjanmaa</option>
+        
+        <option value="Pohjois-Savo">Pohjois-Savo</option>
+        
+        <option value="Päijät-Häme">Päijät-Häme</option>
+        
+        <option value="Satakunta">Satakunta</option>
+        
+        <option value="Uusimaa">Uusimaa</option>
+        
+        <option value="Varsinais-Suomi">Varsinais-Suomi</option>
+        
+      </select>
+    </div>
+
+    <div class="filter-race-type">
+      <select id="race-type" name="race-type">
+        <option value="">Kaikki juoksutyylit</option>
+        
+        <option value="Maantie">Maantie</option>
+        
+        <option value="Maasto">Maasto</option>
+        
+        <option value="Polku">Polku</option>
+        
+        <option value="Juoksurata">Juoksurata</option>
+        
+        <option value="Backyard Ultra">Backyard Ultra</option>
+        
+        <option value="Frontyard Ultra">Frontyard Ultra</option>
+        
+        <option value="Rele">Rele</option>
+        
+        <option value="Aikajakso">Aikajakso</option>
+        
+        <option value="Muut">Muut</option>
+        
+      </select>
+    </div>
+    <div class="browse-all-filters">
+      <a
+        href="/juoksukalenteri/selaa-kategorian-mukaan"
+        class="browse-link"
+      >
+        <div class="browse-link-icon">
+          <ion-icon name="git-network-outline"></ion-icon>
+        </div>
+        <div class="browse-link-text">Selaa kategorian mukaan</div>
+      </a>
+    </div>
+    <div class="toggle-button desktop" id="toggleMapButton">
+      <button>
+        <ion-icon
+          name="radio-button-on-outline"
+          id="onIcon"
+          role="img"
+          class="md hydrated"
+          aria-label="radio button on outline"
+        ></ion-icon>
+        <ion-icon
+          name="radio-button-off-outline"
+          id="offIcon"
+          role="img"
+          class="md hydrated"
+          aria-label="radio button off outline"
+        ></ion-icon>
+        Kartta
+      </button>
+    </div>
+  </div>
+</section> <section class="section section-race-cards">
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
+        
+        <li >
+          
+          <a href="/juoksukalenteri">Juoksukalenteri</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
+        
+        <li >
+          
+          <a href="/juoksukalenteri/backyard-ultra">Backyard Ultra</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
+        
+        <li aria-current="page" >
+          
+          <span>50 miles</span>
+          
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
+    >
+      50 Miles Backyard Ultra Juoksukilpailut Suomessa
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Suomessa järjestettävät 50 miles Backyard Ultra juoksukilpailut odottavat sinua!  Tämä juoksukalenteri auttaa sinua löytämään täydellisen juoksukilpailun, olipa kyseessä sitten ensimmäinen juoksutapahtumasi tai kokeneen juoksijan uusi haaste.  Etsi kilpailuja kaikista lääneistä, kuten Ahvenanmaalta ja Uudeltamaalta.  Paranna juoksuasi ja pääse nopeammaksi juoksijaksi!  Löydä seuraava juoksukilpailu ja osallistu tähän ainutlaatuiseen juoksu rotuun.</p>
+
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Kaikki
+      <span id="race-cards-title-category"></span>
+      juoksukilpailu
+      <span id="race-cards-title-separator"
+        >None</span
+      >
+      <span id="race-cards-title-region"
+        >Suomi</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
+  <div class="race-cards-selector">
+    <div
+      class="race-cards-grid"
+      id="race-cards-container"
+      
+      data-preselected-filters="{&quot;category&quot;: &quot;50 miles&quot;, &quot;county&quot;: null, &quot;race_type&quot;: &quot;Backyard Ultra&quot;}"
+      
+    >
+         
+<!-- Full card content for first 20 cards -->
+<a
+  href="/kilpailusivut/ruosniemen_backyard_ultra"
+  class="race-card"
+  data-name="Ruosniemen Backyard Ultra"
+  data-date="20250429"
+  data-county="Satakunta"
+  data-category=""
+  data-race-type="Backyard Ultra"
+  data-distance="3km"
+  data-latitude="61.5081935"
+  data-longitude="21.854114"
+  data-location="Ruosniemen kuntorata / laskettelukeskus"
+  data-description="Ruosniemi Backyard Ultra 2024 järjestetään 29. maaliskuuta 2024 Ruosniemen kuntoradalla Poriissa. Tapahtumassa juostaan 6,706 km:n matka, jo"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fruosniemen_backyard_ultra%2Fruosniemen_backyard_ultra_1.webp?alt=media"
+  data-type="backyard"
+  data-type-display="Backyard Ultra"
+  data-date-display="29 huhti."
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fruosniemen_backyard_ultra%2Fruosniemen_backyard_ultra_1.webp?alt=media"
+        width="600"
+        height="400"
+        alt="Kuva {x}Ruosniemen Backyard Ultra"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          29 huhti.
+        </div>
+        <div class="race-location">
+          Satakunta
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Ruosniemen Backyard Ultra</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Ruosniemen kuntorata / laskettelukeskus 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                3 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Backyard Ultra
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Ruosniemi Backyard Ultra 2024 järjestetään 29. maaliskuuta 2024 Ruosniemen kuntoradalla Poriissa. Tapahtumassa juostaan 6,706 km:n matka, jo...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
+  </div>
+</a>
+   
+<!-- Full card content for first 20 cards -->
+<a
+  href="/kilpailusivut/nubu_10_mini"
+  class="race-card"
+  data-name="NUBU 10 Mini"
+  data-date="20250517"
+  data-county="Uusimaa"
+  data-category=""
+  data-race-type="Backyard Ultra"
+  data-distance="4,5km"
+  data-latitude="60.3163539"
+  data-longitude="24.4417464"
+  data-location="Kurjolampi"
+  data-description="NUBU mini juostaan lauantaina 17.5.2025 klo 10-18 Nuuksiossa Kurjolammella. Tämä tapahtuma tarjoaa mahdollisuuden kokeilla backyard-konsepti"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fnubu_10_mini%2Fnubu_10_mini_1.webp?alt=media"
+  data-type="backyard"
+  data-type-display="Backyard Ultra"
+  data-date-display="17 tou"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fnubu_10_mini%2Fnubu_10_mini_1.webp?alt=media"
+        width="600"
+        height="400"
+        alt="Kuva {x}NUBU 10 Mini"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          17 tou
+        </div>
+        <div class="race-location">
+          Uusimaa
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">NUBU 10 Mini</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Kurjolampi 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                4,5 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Backyard Ultra
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      NUBU mini juostaan lauantaina 17.5.2025 klo 10-18 Nuuksiossa Kurjolammella. Tämä tapahtuma tarjoaa mahdollisuuden kokeilla backyard-konsepti...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
+  </div>
+</a>
+     
+
+      <!-- Pagination controls -->
+      <div class="pagination-info">
+        <span id="event-range">/</span>
+        <span id="total-events">juoksukilpailu</span>
+      </div>
+      <div class="pagination">
+        <button id="prev-page">Edellinen</button>
+        <div id="page-numbers"></div>
+        <button id="next-page">Seuraava</button>
+      </div>
+    </div>
+
+    <div
+      class="map-placeholder"
+      id="map-placeholder"
+      data-latitude="62.1452865"
+      data-longitude="27.6450702"
+      data-zoom="4"
+    >
+      <!-- Map will be inserted here -->
+    </div>
+  </div>
+</section>
+<button class="toggle-button mobile" id="toggleMapButtonMobile">
+  <div class="icon-container">
+    <ion-icon
+      name="map-outline"
+      role="img"
+      class="md hydrated"
+      aria-label="map outline"
+    ></ion-icon>
+  </div>
+  <p>Kartta</p>
+</button> </main>
+      
+    </div>
+  </body>
+</html>

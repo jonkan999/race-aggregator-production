@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Ruosniemi Backyard Ultra 2024 j\u00e4rjestet\u00e4\u00e4n 29. maaliskuuta 2024 Ruosniemen kuntoradalla Poriissa. Tapahtumassa juostaan 6,706 km:n matka, joka koostuu kolmesta ", "distance": "3km", "eventStatus": "Standard", "identifier": "ruosniemen_backyard_ultra", "image": "/kilpailusivut/ruosniemen_backyard_ultra/ruosniemen_backyard_ultra_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "fi", "addressLocality": "Ruosniemen kuntorata / laskettelukeskus", "addressRegion": "Satakunta"}, "name": "Ruosniemen kuntorata / laskettelukeskus"}, "name": "Ruosniemen Backyard Ultra", "sport": "Juoksu, Backyard Ultra", "startDate": "20250429"}, "position": 1}], "numberOfItems": 1}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Ruosniemi Backyard Ultra 2024 j\u00e4rjestet\u00e4\u00e4n 29. maaliskuuta 2024 Ruosniemen kuntoradalla Poriissa. Tapahtumassa juostaan 6,706 km:n matka, joka koostuu kolmesta ", "distance": "3km", "eventStatus": "Standard", "identifier": "ruosniemen_backyard_ultra", "image": "/kilpailusivut/ruosniemen_backyard_ultra/ruosniemen_backyard_ultra_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "fi", "addressLocality": "Ruosniemen kuntorata / laskettelukeskus", "addressRegion": "Satakunta"}, "name": "Ruosniemen kuntorata / laskettelukeskus"}, "name": "Ruosniemen Backyard Ultra", "sport": "Juoksu, Backyard Ultra", "startDate": "20250429"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "NUBU mini juostaan lauantaina 17.5.2025 klo 10-18 Nuuksiossa Kurjolammella. T\u00e4m\u00e4 tapahtuma tarjoaa mahdollisuuden kokeilla backyard-konseptia lyhyemm\u00e4ll\u00e4, 4,5 k", "distance": "4,5km", "eventStatus": "Standard", "identifier": "nubu_10_mini", "image": "/kilpailusivut/nubu_10_mini/nubu_10_mini_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "fi", "addressLocality": "Kurjolampi", "addressRegion": "Uusimaa"}, "name": "Kurjolampi"}, "name": "NUBU 10 Mini", "sport": "Juoksu, Backyard Ultra", "startDate": "20250517"}, "position": 2}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Nummela Backyard Ultra on ultrajuoksukilpailu, joka j\u00e4rjestet\u00e4\u00e4n Nummelanharjulla 11.10.2025. Juoksu p\u00e4\u00e4ttyy silloin, kun on en\u00e4\u00e4 yksi juoksija j\u00e4ljell\u00e4. Kilpai", "distance": "3,4km, 6,7km", "eventStatus": "Standard", "identifier": "nummela_backyard_ultra", "image": "/kilpailusivut/nummela_backyard_ultra/nummela_backyard_ultra_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "fi", "addressLocality": "Hiidenvedentie, 03100 Vihti", "addressRegion": "Uusimaa"}, "name": "Hiidenvedentie, 03100 Vihti"}, "name": "Nummela Backyard Ultra", "sport": "Juoksu, Backyard Ultra", "startDate": "20251011"}, "position": 3}], "numberOfItems": 3}
     </script>
      
 
@@ -23,6 +23,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Backyard Ultra juoksukilpailut Suomessa: Löydä seuraava juoksutapahtuma</title>
+    <meta name="description" content="Etsi sopivia Backyard Ultra juoksukilpailuja Suomessa. Suodata kilpailut kategorian (esim. 5 km, maraton), sijainnin (Kaikki läänit, kuten Uusimaa) ja muiden kriteerien mukaan. Löydä paras juoksukilpailu ja ryhdy nopeammaksi juoksijaksi!" />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -458,8 +459,16 @@
       10 km
     </button>
     
+    <button class="category-button" data-category="Halvmarathon">
+      Halvmarathon
+    </button>
+    
     <button class="category-button" data-category="Marathon">
       Marathon
+    </button>
+    
+    <button class="category-button" data-category="50 miles">
+      50 miles
     </button>
     
     <button class="category-button" data-category="50 km">
@@ -590,51 +599,52 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/juoksukalenteri">Juoksukalenteri</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/juoksukalenteri">Juoksukalenteri</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li aria-current="page" >
+        <li aria-current="page" >
+          
+          <span>Backyard Ultra</span>
+          
+        </li>
         
-        <span>Backyard Ultra</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    Backyard Ultra juoksukilpailut Suomessa – löydä oma juoksutapahtumasi
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Suunnitteletko osallistumista Backyard Ultra juoksukilpailuun? Tämä sivu auttaa sinua löytämään täydellisen juoksukilpailun.  Voit suodattaa juoksutapahtumia kategorian mukaan (Kaikki kategoriat, kuten 5 km, 10 km, maraton jne.), valitsemalla haluamasi kilpailutyypin (Backyard Ultra) ja sijainnin (Kaikki läänit, esimerkiksi Uusimaa tai Pirkanmaa).  Käytä tätä juoksukalenteria ja kilpailukalenteria löytääksesi seuraavan juoksukilpailun ja kehittyäksesi nopeammaksi juoksijaksi.  Sivustomme auttaa sekä kokeneita juoksijoita että aloittelevia juoksijoita löytämään sopivan juoksukilpailun.  Löydä unelmiesi juoksukilpailu ja osallistu!</p>
-
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Kaikki
-    <span id="race-cards-title-category"></span>
-    juoksukilpailu
-    <span id="race-cards-title-separator"
-      >None</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Suomi</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      Backyard Ultra juoksukilpailut Suomessa – löydä oma juoksutapahtumasi
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Suunnitteletko osallistumista Backyard Ultra juoksukilpailuun? Tämä sivu auttaa sinua löytämään täydellisen juoksukilpailun.  Voit suodattaa juoksutapahtumia kategorian mukaan (Kaikki kategoriat, kuten 5 km, 10 km, maraton jne.), valitsemalla haluamasi kilpailutyypin (Backyard Ultra) ja sijainnin (Kaikki läänit, esimerkiksi Uusimaa tai Pirkanmaa).  Käytä tätä juoksukalenteria ja kilpailukalenteria löytääksesi seuraavan juoksukilpailun ja kehittyäksesi nopeammaksi juoksijaksi.  Sivustomme auttaa sekä kokeneita juoksijoita että aloittelevia juoksijoita löytämään sopivan juoksukilpailun.  Löydä unelmiesi juoksukilpailu ja osallistu!</p>
 
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Kaikki
+      <span id="race-cards-title-category"></span>
+      juoksukilpailu
+      <span id="race-cards-title-separator"
+        >None</span
+      >
+      <span id="race-cards-title-region"
+        >Suomi</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -658,7 +668,7 @@
   data-longitude="21.854114"
   data-location="Ruosniemen kuntorata / laskettelukeskus"
   data-description="Ruosniemi Backyard Ultra 2024 järjestetään 29. maaliskuuta 2024 Ruosniemen kuntoradalla Poriissa. Tapahtumassa juostaan 6,706 km:n matka, jo"
-  data-image-path="/kilpailusivut/ruosniemen_backyard_ultra/ruosniemen_backyard_ultra"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fruosniemen_backyard_ultra%2Fruosniemen_backyard_ultra_1.webp?alt=media"
   data-type="backyard"
   data-type-display="Backyard Ultra"
   data-date-display="29 huhti."
@@ -667,7 +677,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/ruosniemen_backyard_ultra/ruosniemen_backyard_ultra_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fruosniemen_backyard_ultra%2Fruosniemen_backyard_ultra_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Ruosniemen Backyard Ultra"
@@ -739,7 +749,421 @@
     <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
 </a>
-     
+   
+<!-- Full card content for first 20 cards -->
+<a
+  href="/kilpailusivut/nubu_10_mini"
+  class="race-card"
+  data-name="NUBU 10 Mini"
+  data-date="20250517"
+  data-county="Uusimaa"
+  data-category=""
+  data-race-type="Backyard Ultra"
+  data-distance="4,5km"
+  data-latitude="60.3163539"
+  data-longitude="24.4417464"
+  data-location="Kurjolampi"
+  data-description="NUBU mini juostaan lauantaina 17.5.2025 klo 10-18 Nuuksiossa Kurjolammella. Tämä tapahtuma tarjoaa mahdollisuuden kokeilla backyard-konsepti"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fnubu_10_mini%2Fnubu_10_mini_1.webp?alt=media"
+  data-type="backyard"
+  data-type-display="Backyard Ultra"
+  data-date-display="17 tou"
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fnubu_10_mini%2Fnubu_10_mini_1.webp?alt=media"
+        width="600"
+        height="400"
+        alt="Kuva {x}NUBU 10 Mini"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          17 tou
+        </div>
+        <div class="race-location">
+          Uusimaa
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">NUBU 10 Mini</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Kurjolampi 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                4,5 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Backyard Ultra
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      NUBU mini juostaan lauantaina 17.5.2025 klo 10-18 Nuuksiossa Kurjolammella. Tämä tapahtuma tarjoaa mahdollisuuden kokeilla backyard-konsepti...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
+  </div>
+</a>
+   
+      <section class="section section-selected-races in-grid">
+        <div class="section-header-container">
+          <h2 class="section-header">Valitut Kilpailut</h2>
+          <div class="scroll-buttons">
+            <button class="scroll-button prev" aria-label="Previous" disabled>
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </button>
+            <button class="scroll-button next" aria-label="Next">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+        <div class="race-card-big-container right-scroller">
+              <a
+  href="/kilpailusivut/ruosniemen_backyard_ultra"
+  class="race-card-big race-card"
+  data-name="Ruosniemen Backyard Ultra"
+  data-date="20250429"
+  data-county="Satakunta"
+  data-category=""
+  data-race-type="Backyard Ultra"
+  data-distance="3km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fruosniemen_backyard_ultra%2Fruosniemen_backyard_ultra_1.webp?alt=media"
+        alt="Kuva {x}Ruosniemen Backyard Ultra"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          29 huhti.
+        </div>
+        <div class="race-location">
+          Satakunta
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Backyard Ultra
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                3 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Ruosniemen Backyard Ultra</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Siirry kilpailusivulle</div>
+    </div>
+  </div>
+</a>       <a
+  href="/kilpailusivut/nubu_10_mini"
+  class="race-card-big race-card"
+  data-name="NUBU 10 Mini"
+  data-date="20250517"
+  data-county="Uusimaa"
+  data-category=""
+  data-race-type="Backyard Ultra"
+  data-distance="4,5km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fnubu_10_mini%2Fnubu_10_mini_1.webp?alt=media"
+        alt="Kuva {x}NUBU 10 Mini"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          17 tou
+        </div>
+        <div class="race-location">
+          Uusimaa
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Backyard Ultra
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                4,5 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">NUBU 10 Mini</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Siirry kilpailusivulle</div>
+    </div>
+  </div>
+</a>       <a
+  href="/kilpailusivut/nummela_backyard_ultra"
+  class="race-card-big race-card"
+  data-name="Nummela Backyard Ultra"
+  data-date="20251011"
+  data-county="Uusimaa"
+  data-category=""
+  data-race-type="Backyard Ultra"
+  data-distance="3,4km, 6,7km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fnummela_backyard_ultra%2Fnummela_backyard_ultra_1.webp?alt=media"
+        alt="Kuva {x}Nummela Backyard Ultra"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          11 lok.
+        </div>
+        <div class="race-location">
+          Uusimaa
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Backyard Ultra
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                3,4 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                6,7 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Nummela Backyard Ultra</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Siirry kilpailusivulle</div>
+    </div>
+  </div>
+</a>   
+        </div>
+      </section>
+          
+      
+<!-- Full card content for first 20 cards -->
+<a
+  href="/kilpailusivut/nummela_backyard_ultra"
+  class="race-card"
+  data-name="Nummela Backyard Ultra"
+  data-date="20251011"
+  data-county="Uusimaa"
+  data-category=""
+  data-race-type="Backyard Ultra"
+  data-distance="3,4km, 6,7km"
+  data-latitude="60.3387557"
+  data-longitude="24.3096042"
+  data-location="Hiidenvedentie, 03100 Vihti"
+  data-description="Nummela Backyard Ultra on ultrajuoksukilpailu, joka järjestetään Nummelanharjulla 11.10.2025. Juoksu päättyy silloin, kun on enää yksi juoks"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fnummela_backyard_ultra%2Fnummela_backyard_ultra_1.webp?alt=media"
+  data-type="backyard"
+  data-type-display="Backyard Ultra"
+  data-date-display="11 lok."
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fnummela_backyard_ultra%2Fnummela_backyard_ultra_1.webp?alt=media"
+        width="600"
+        height="400"
+        alt="Kuva {x}Nummela Backyard Ultra"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          11 lok.
+        </div>
+        <div class="race-location">
+          Uusimaa
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Nummela Backyard Ultra</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Hiidenvedentie, 03100 Vihti 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                3,4 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                6,7 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Backyard Ultra
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Nummela Backyard Ultra on ultrajuoksukilpailu, joka järjestetään Nummelanharjulla 11.10.2025. Juoksu päättyy silloin, kun on enää yksi juoks...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
+  </div>
+</a>
+ 
 
       <!-- Pagination controls -->
       <div class="pagination-info">

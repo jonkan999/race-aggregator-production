@@ -23,6 +23,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Juoksukilpailut Kempeleessä: Maantiejuoksut Kaikille Tasoille</title>
+    <meta name="description" content="Löydä parhaat maantiejuoksukilpailut Kempeleessä!  Juoksukalenteri sisältää monia juoksutapahtumia eri etäisyyksiltä, 5 km:stä maratoniin.  Liity juoksijoiden joukkoon ja juokse nopeammaksi juoksijaksi!" />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -458,8 +459,16 @@
       10 km
     </button>
     
+    <button class="category-button" data-category="Halvmarathon">
+      Halvmarathon
+    </button>
+    
     <button class="category-button" data-category="Marathon">
       Marathon
+    </button>
+    
+    <button class="category-button" data-category="50 miles">
+      50 miles
     </button>
     
     <button class="category-button" data-category="50 km">
@@ -590,79 +599,80 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/juoksukalenteri">Juoksukalenteri</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/juoksukalenteri">Juoksukalenteri</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/juoksukalenteri/kaupungit/kempele">Kaupungit: Kempele</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/juoksukalenteri/kaupungit/kempele">Kaupungit: Kempele</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li aria-current="page" >
+          
+          <span>Maantie</span>
+          
+        </li>
         
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>Maantie</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    Maantiejuoksut Kempeleessä: Juoksukilpailut ja Juoksutapahtumat
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Etsitkö juoksukilpailua Kempeleessä? Tämä juoksukalenteri näyttää kaikki tulevat maantiejuoksut Kempeleessä.  Valitse itsellesi sopiva matka, olipa kyseessä sitten 5 km, 10 km, maraton tai pidempi juoksu.  Löydä täydellinen juoksukilpailu ja kehity nopeammaksi juoksijaksi.  Kilpailukalenteri tarjoaa laajan valikoiman juoksukilpailuja juoksijoille kaikilla tasoilla.  Juoksu rotusi ja juoksukokemuksesi ei ole este – tervetuloa mukaan!</p>
-
-  
-  <h3 class="race-type-list-title">Suositut alaluokat</h3>
-  <nav class="race-type-navigation" aria-label="race types and categories">
-    <ul class="race-type-list">
-      
-      <li>
-        <a href="/juoksukalenteri/kaupungit/kempele/maantie/5-km" class="race-type-link">
-          5 km (3)
-        </a>
-      </li>
-      
-      <li>
-        <a href="/juoksukalenteri/kaupungit/kempele/maantie/10-km" class="race-type-link">
-          10 km (3)
-        </a>
-      </li>
-      
-    </ul>
-  </nav>
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Kaikki
-    <span id="race-cards-title-category"></span>
-    juoksukilpailu
-    <span id="race-cards-title-separator"
-      >None</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Suomi</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      Maantiejuoksut Kempeleessä: Juoksukilpailut ja Juoksutapahtumat
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Etsitkö juoksukilpailua Kempeleessä? Tämä juoksukalenteri näyttää kaikki tulevat maantiejuoksut Kempeleessä.  Valitse itsellesi sopiva matka, olipa kyseessä sitten 5 km, 10 km, maraton tai pidempi juoksu.  Löydä täydellinen juoksukilpailu ja kehity nopeammaksi juoksijaksi.  Kilpailukalenteri tarjoaa laajan valikoiman juoksukilpailuja juoksijoille kaikilla tasoilla.  Juoksu rotusi ja juoksukokemuksesi ei ole este – tervetuloa mukaan!</p>
 
+    
+    <h3 class="race-type-list-title">Suositut alaluokat</h3>
+    <nav class="race-type-navigation" aria-label="race types and categories">
+      <ul class="race-type-list">
+        
+        <li>
+          <a href="/juoksukalenteri/kaupungit/kempele/maantie/5-km" class="race-type-link">
+            5 km (3)
+          </a>
+        </li>
+        
+        <li>
+          <a href="/juoksukalenteri/kaupungit/kempele/maantie/10-km" class="race-type-link">
+            10 km (3)
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Kaikki
+      <span id="race-cards-title-category"></span>
+      juoksukilpailu
+      <span id="race-cards-title-separator"
+        >None</span
+      >
+      <span id="race-cards-title-region"
+        >Suomi</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -686,7 +696,7 @@
   data-longitude="25.3889878"
   data-location="Iin Illinsaaren hiihtomaja"
   data-description="Yrityksen Testijuoksu järjestetään Iissä, Iin Illinsaaren hiihtomajalla. Kilpailut alkavat klo 11:00, ja tarjolla on maantiejuoksua eri matk"
-  data-image-path="/kilpailusivut/yrityksen_testijuoksu/yrityksen_testijuoksu"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fyrityksen_testijuoksu%2Fyrityksen_testijuoksu_1.webp?alt=media"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="27 helmi."
@@ -695,7 +705,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/yrityksen_testijuoksu/yrityksen_testijuoksu_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fyrityksen_testijuoksu%2Fyrityksen_testijuoksu_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Yrityksen Testijuoksu"
@@ -794,7 +804,7 @@
   data-longitude="25.3889878"
   data-location="Iin Illinsaaren hiihtomaja"
   data-description="Yrityksen Testijuoksu järjestetään 22.01.2011 Ii:ssä, ja kilpailut alkavat klo 11:00. Tänä kautena Testijuoksuja pidetään vain joka toinen k"
-  data-image-path="/kilpailusivut/yrityksen_testijuoksu_2/yrityksen_testijuoksu_2"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fyrityksen_testijuoksu_2%2Fyrityksen_testijuoksu_2_1.webp?alt=media"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="23 huhti."
@@ -803,7 +813,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/yrityksen_testijuoksu_2/yrityksen_testijuoksu_2_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fyrityksen_testijuoksu_2%2Fyrityksen_testijuoksu_2_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Yrityksen Testijuoksu"
@@ -915,11 +925,12 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/yrityksen_testijuoksu/yrityksen_testijuoksu_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fyrityksen_testijuoksu%2Fyrityksen_testijuoksu_1.webp?alt=media"
         alt="Kuva {x}Yrityksen Testijuoksu"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="overlay softer"></div>
@@ -990,11 +1001,12 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/yrityksen_testijuoksu_2/yrityksen_testijuoksu_2_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fyrityksen_testijuoksu_2%2Fyrityksen_testijuoksu_2_1.webp?alt=media"
         alt="Kuva {x}Yrityksen Testijuoksu"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="overlay softer"></div>
@@ -1065,11 +1077,12 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/terwaholkka_marathon/terwaholkka_marathon_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fterwaholkka_marathon%2Fterwaholkka_marathon_1.webp?alt=media"
         alt="Kuva {x}Terwahölkkä Marathon"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="overlay softer"></div>
@@ -1151,7 +1164,7 @@
   data-longitude="25.464392"
   data-location="Raatin stadion"
   data-description="Terwahölkkä ja -maraton juostaan lauantaina 24.5.2025 Oulun kaupungissa. Tapahtumassa on tarjolla useita matkoja: 5 km, 10 km, 21.1 km, 42.2"
-  data-image-path="/kilpailusivut/terwaholkka_marathon/terwaholkka_marathon"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fterwaholkka_marathon%2Fterwaholkka_marathon_1.webp?alt=media"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="24 tou"
@@ -1160,7 +1173,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/terwaholkka_marathon/terwaholkka_marathon_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fterwaholkka_marathon%2Fterwaholkka_marathon_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Terwahölkkä Marathon"

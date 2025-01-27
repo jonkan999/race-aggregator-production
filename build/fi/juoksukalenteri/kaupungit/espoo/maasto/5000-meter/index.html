@@ -19,6 +19,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>5000 metrin maastojukstus Espoossa - Löydä seuraava juoksukilpailusi</title>
+    <meta name="description" content="Etsi sopivia 5000 metrin maastojukstuskilpailuja Espoosta. Tutustu juoksukilpailuihin, juoksutapahtumiin ja päivitä juoksukalenteri.  Juoksu rotu ja juoksija löytävät täältä tapahtuman." />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -454,8 +455,16 @@
       10 km
     </button>
     
+    <button class="category-button" data-category="Halvmarathon">
+      Halvmarathon
+    </button>
+    
     <button class="category-button" data-category="Marathon">
       Marathon
+    </button>
+    
+    <button class="category-button" data-category="50 miles">
+      50 miles
     </button>
     
     <button class="category-button" data-category="50 km">
@@ -586,69 +595,70 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/juoksukalenteri">Juoksukalenteri</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/juoksukalenteri">Juoksukalenteri</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/juoksukalenteri/kaupungit/espoo">Kaupungit: Espoo</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/juoksukalenteri/kaupungit/espoo">Kaupungit: Espoo</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/juoksukalenteri/kaupungit/espoo/maasto">Maasto</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li aria-current="page" >
+          
+          <span>5000 meter</span>
+          
+        </li>
         
-        <a href="/juoksukalenteri/kaupungit/espoo/maasto">Maasto</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
-        
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>5000 meter</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    5000 Metrin Maastojukstus Espoossa: Löydä Täydellinen Juoksukilpailu
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Suunnitteletko osallistumista 5000 metrin maastojuksuun Espoossa? Tämä sivu auttaa sinua löytämään sopivan juoksukilpailun.  Tarjoamme kattavan listan juoksutapahtumista, jotka sopivat niin kokeneille juoksijoille kuin vasta-alkajillekin.  Paranna juoksuasi ja ryhdy nopeammaksi juoksijaksi!  Käytä suodattimia löytääksesi juuri sinulle sopivan juoksukilpailun.  Tarkista juoksukalenteri ja kilpailukalenteri ja löydä seuraava juoksukilpailu.</p>
-
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Kaikki
-    <span id="race-cards-title-category"></span>
-    juoksukilpailu
-    <span id="race-cards-title-separator"
-      >None</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Suomi</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      5000 Metrin Maastojukstus Espoossa: Löydä Täydellinen Juoksukilpailu
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Suunnitteletko osallistumista 5000 metrin maastojuksuun Espoossa? Tämä sivu auttaa sinua löytämään sopivan juoksukilpailun.  Tarjoamme kattavan listan juoksutapahtumista, jotka sopivat niin kokeneille juoksijoille kuin vasta-alkajillekin.  Paranna juoksuasi ja ryhdy nopeammaksi juoksijaksi!  Käytä suodattimia löytääksesi juuri sinulle sopivan juoksukilpailun.  Tarkista juoksukalenteri ja kilpailukalenteri ja löydä seuraava juoksukilpailu.</p>
 
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Kaikki
+      <span id="race-cards-title-category"></span>
+      juoksukilpailu
+      <span id="race-cards-title-separator"
+        >None</span
+      >
+      <span id="race-cards-title-region"
+        >Suomi</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -672,7 +682,7 @@
   data-longitude="24.4028823"
   data-location="Ojakkalan koulu, Nummitie 21, Ojakkala"
   data-description="Visahölkkä on urheilutapahtuma, joka järjestetään Ojakkalan kylässä lokakuun ensimmäisenä sunnuntaina. Hölkkä kuuluu Vihdin Hölkkäkunkkusarj"
-  data-image-path="/kilpailusivut/visaholkka/visaholkka"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fvisaholkka%2Fvisaholkka_1.webp?alt=media"
   data-type="terrain"
   data-type-display="Maasto"
   data-date-display="5 lok."
@@ -681,7 +691,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/visaholkka/visaholkka_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fvisaholkka%2Fvisaholkka_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Visahölkkä"
@@ -780,7 +790,7 @@
   data-longitude="24.3835548"
   data-location="Ojakkala"
   data-description="Visahölkkä on perinteikäs juoksutapahtuma, joka juostaan Ojakkalan maalaismaisemassa lokakuun ensimmäisenä sunnuntaina. Tapahtuma houkuttele"
-  data-image-path="/kilpailusivut/visaholkka_2/visaholkka_2"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fvisaholkka_2%2Fvisaholkka_2_1.webp?alt=media"
   data-type="terrain"
   data-type-display="Maasto"
   data-date-display="5 marr."
@@ -789,7 +799,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/visaholkka_2/visaholkka_2_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fvisaholkka_2%2Fvisaholkka_2_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Visahölkkä"

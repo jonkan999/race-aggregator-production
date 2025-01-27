@@ -23,6 +23,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Juoksukilpailut Ylivieskassa: Löydä seuraava juoksutapahtuma!</title>
+    <meta name="description" content="Hae ja löydä kaikki juoksukilpailut Ylivieskassa. Suodata kilpailuja matkan (esim. 5 km, maraton) ja juoksutyylin (esim. maantie, polku) mukaan. Löydä paras juoksukilpailu ja ryhdy nopeammaksi juoksijaksi!" />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -458,8 +459,16 @@
       10 km
     </button>
     
+    <button class="category-button" data-category="Halvmarathon">
+      Halvmarathon
+    </button>
+    
     <button class="category-button" data-category="Marathon">
       Marathon
+    </button>
+    
+    <button class="category-button" data-category="50 miles">
+      50 miles
     </button>
     
     <button class="category-button" data-category="50 km">
@@ -590,70 +599,71 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/juoksukalenteri">Juoksukalenteri</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/juoksukalenteri">Juoksukalenteri</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li aria-current="page" >
+        <li aria-current="page" >
+          
+          <span>Kaupungit: Ylivieska</span>
+          
+        </li>
         
-        <span>Kaupungit: Ylivieska</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    Juoksukilpailut Ylivieskassa: Juoksukalenteri ja -tapahtumat
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Etsitkö juoksukilpailua Ylivieskassa?  Tämä juoksukalenteri listaa kaikki alueen juoksukilpailut ja juoksutapahtumat.  Suodata tuloksia valitsemalla haluamasi kilpailun matka (Kaikki kategoriat, kuten 5 km, 10 km, maraton jne.) ja juoksutyyli (Kaikki juoksutyylit, kuten maantie, maasto, polku jne.). Löydä täydellinen juoksukilpailu kokemustasostasi riippumatta, olipa kyseessä sitten juoksu rotu tai rento lenkki.  Paranna juoksutaitojasi ja ryhdy nopeammaksi juoksijaksi!</p>
-
-  
-  <h3 class="race-type-list-title">Suositut alaluokat</h3>
-  <nav class="race-type-navigation" aria-label="race types and categories">
-    <ul class="race-type-list">
-      
-      <li>
-        <a href="/juoksukalenteri/kaupungit/ylivieska/muut" class="race-type-link">
-          Muut (2)
-        </a>
-      </li>
-      
-      <li>
-        <a href="/juoksukalenteri/kaupungit/ylivieska/kaikki-juoksutyylit/5-km" class="race-type-link">
-          5 km (2)
-        </a>
-      </li>
-      
-    </ul>
-  </nav>
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Kaikki
-    <span id="race-cards-title-category"></span>
-    juoksukilpailu
-    <span id="race-cards-title-separator"
-      >None</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Suomi</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      Juoksukilpailut Ylivieskassa: Juoksukalenteri ja -tapahtumat
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Etsitkö juoksukilpailua Ylivieskassa?  Tämä juoksukalenteri listaa kaikki alueen juoksukilpailut ja juoksutapahtumat.  Suodata tuloksia valitsemalla haluamasi kilpailun matka (Kaikki kategoriat, kuten 5 km, 10 km, maraton jne.) ja juoksutyyli (Kaikki juoksutyylit, kuten maantie, maasto, polku jne.). Löydä täydellinen juoksukilpailu kokemustasostasi riippumatta, olipa kyseessä sitten juoksu rotu tai rento lenkki.  Paranna juoksutaitojasi ja ryhdy nopeammaksi juoksijaksi!</p>
 
+    
+    <h3 class="race-type-list-title">Suositut alaluokat</h3>
+    <nav class="race-type-navigation" aria-label="race types and categories">
+      <ul class="race-type-list">
+        
+        <li>
+          <a href="/juoksukalenteri/kaupungit/ylivieska/muut" class="race-type-link">
+            Muut (2)
+          </a>
+        </li>
+        
+        <li>
+          <a href="/juoksukalenteri/kaupungit/ylivieska/kaikki-juoksutyylit/5-km" class="race-type-link">
+            5 km (2)
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Kaikki
+      <span id="race-cards-title-category"></span>
+      juoksukilpailu
+      <span id="race-cards-title-separator"
+        >None</span
+      >
+      <span id="race-cards-title-region"
+        >Suomi</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -677,7 +687,7 @@
   data-longitude="24.3213994"
   data-location="Parhalahden koulun pihapiirissä"
   data-description="Parhalahden Pinkaisu -kylähölkkätapahtuma kutsuu taas elokuussa niin aktiiveja, kuntoilijoita kuin pikku-pinkaisijoitakin liikkumaan keskell"
-  data-image-path="/kilpailusivut/parhalax_village_run/parhalax_village_run"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fparhalax_village_run%2Fparhalax_village_run_1.webp?alt=media"
   data-type="other"
   data-type-display="Muut"
   data-date-display="15 elo."
@@ -686,7 +696,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/parhalax_village_run/parhalax_village_run_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fparhalax_village_run%2Fparhalax_village_run_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Parhalax Village Run"
@@ -779,7 +789,7 @@
   data-longitude="24.3213994"
   data-location="Parhalahden koulun pihapiirissä"
   data-description="Parhalahden Pinkaisu -kylähölkkätapahtuma kutsuu taas elokuussa aktiiveja, kuntoilijoita ja pikku-pinkaisijoita liikkumaan keskelle pohjoisp"
-  data-image-path="/kilpailusivut/parhalax_village_run_2/parhalax_village_run_2"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fparhalax_village_run_2%2Fparhalax_village_run_2_1.webp?alt=media"
   data-type="other"
   data-type-display="Muut"
   data-date-display="15 syys."
@@ -788,7 +798,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/parhalax_village_run_2/parhalax_village_run_2_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fparhalax_village_run_2%2Fparhalax_village_run_2_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Parhalax Village Run"

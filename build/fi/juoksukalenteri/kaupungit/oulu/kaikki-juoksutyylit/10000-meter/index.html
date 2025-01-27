@@ -19,6 +19,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>10 000 metrin juoksukilpailut Oulussa - Löydä seuraava juoksutapahtuma</title>
+    <meta name="description" content="Hae 10 000 metrin juoksukilpailuja Oulusta. Löydä sopivat juoksutapahtumat, olipa kyseessä maantiejuoksu, maastojuoksu tai joku muu juoksutyyli. Tarkista juoksukalenteri ja löydä kilpailukalenteri parhaat juoksukilpailut." />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -454,8 +455,16 @@
       10 km
     </button>
     
+    <button class="category-button" data-category="Halvmarathon">
+      Halvmarathon
+    </button>
+    
     <button class="category-button" data-category="Marathon">
       Marathon
+    </button>
+    
+    <button class="category-button" data-category="50 miles">
+      50 miles
     </button>
     
     <button class="category-button" data-category="50 km">
@@ -586,60 +595,61 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/juoksukalenteri">Juoksukalenteri</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/juoksukalenteri">Juoksukalenteri</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/juoksukalenteri/kaupungit/oulu">Kaupungit: Oulu</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/juoksukalenteri/kaupungit/oulu">Kaupungit: Oulu</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li aria-current="page" >
+          
+          <span>10000 meter</span>
+          
+        </li>
         
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>10000 meter</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    10 000 metrin juoksukilpailut Oulussa
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Etsimässä 10 000 metrin juoksukilpailua Oulussa?  Tämä sivu listaa kaikki Oulussa järjestettävät 10 000 metrin juoksukilpailut.  Valittavana on monia juoksutyylejä, kuten maantiejuoksu, maastojuoksu ja polkujuoksu. Löydä itsellesi sopiva juoksukilpailu ja lähde parantamaan juoksutaitojasi, nopeammaksi juoksijaksi. Sivustomme toimii myös kätevänä juoksukalenterina ja kilpailukalenterina, josta löydät kaikki parhaat juoksukilpailut ja juoksutapahtumat.  Juoksu on loistava harrastus juoksijoille, ja tämä on täydellinen paikka löytää seuraava juoksukilpailusi.  Etsi itsellesi sopiva juoksu rotu ja lähde juoksuun!</p>
-
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Kaikki
-    <span id="race-cards-title-category"></span>
-    juoksukilpailu
-    <span id="race-cards-title-separator"
-      >None</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Suomi</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      10 000 metrin juoksukilpailut Oulussa
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Etsimässä 10 000 metrin juoksukilpailua Oulussa?  Tämä sivu listaa kaikki Oulussa järjestettävät 10 000 metrin juoksukilpailut.  Valittavana on monia juoksutyylejä, kuten maantiejuoksu, maastojuoksu ja polkujuoksu. Löydä itsellesi sopiva juoksukilpailu ja lähde parantamaan juoksutaitojasi, nopeammaksi juoksijaksi. Sivustomme toimii myös kätevänä juoksukalenterina ja kilpailukalenterina, josta löydät kaikki parhaat juoksukilpailut ja juoksutapahtumat.  Juoksu on loistava harrastus juoksijoille, ja tämä on täydellinen paikka löytää seuraava juoksukilpailusi.  Etsi itsellesi sopiva juoksu rotu ja lähde juoksuun!</p>
 
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Kaikki
+      <span id="race-cards-title-category"></span>
+      juoksukilpailu
+      <span id="race-cards-title-separator"
+        >None</span
+      >
+      <span id="race-cards-title-region"
+        >Suomi</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -663,7 +673,7 @@
   data-longitude="25.3889878"
   data-location="Iin Illinsaaren hiihtomaja"
   data-description="Yrityksen Testijuoksu järjestetään Iissä, Iin Illinsaaren hiihtomajalla. Kilpailut alkavat klo 11:00, ja tarjolla on maantiejuoksua eri matk"
-  data-image-path="/kilpailusivut/yrityksen_testijuoksu/yrityksen_testijuoksu"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fyrityksen_testijuoksu%2Fyrityksen_testijuoksu_1.webp?alt=media"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="27 helmi."
@@ -672,7 +682,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/yrityksen_testijuoksu/yrityksen_testijuoksu_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fyrityksen_testijuoksu%2Fyrityksen_testijuoksu_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Yrityksen Testijuoksu"
@@ -771,7 +781,7 @@
   data-longitude="25.3889878"
   data-location="Iin Illinsaaren hiihtomaja"
   data-description="Yrityksen Testijuoksu järjestetään 22.01.2011 Ii:ssä, ja kilpailut alkavat klo 11:00. Tänä kautena Testijuoksuja pidetään vain joka toinen k"
-  data-image-path="/kilpailusivut/yrityksen_testijuoksu_2/yrityksen_testijuoksu_2"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fyrityksen_testijuoksu_2%2Fyrityksen_testijuoksu_2_1.webp?alt=media"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="23 huhti."
@@ -780,7 +790,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/yrityksen_testijuoksu_2/yrityksen_testijuoksu_2_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fyrityksen_testijuoksu_2%2Fyrityksen_testijuoksu_2_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Yrityksen Testijuoksu"
@@ -892,11 +902,12 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/yrityksen_testijuoksu/yrityksen_testijuoksu_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fyrityksen_testijuoksu%2Fyrityksen_testijuoksu_1.webp?alt=media"
         alt="Kuva {x}Yrityksen Testijuoksu"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="overlay softer"></div>
@@ -967,11 +978,12 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/yrityksen_testijuoksu_2/yrityksen_testijuoksu_2_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fyrityksen_testijuoksu_2%2Fyrityksen_testijuoksu_2_1.webp?alt=media"
         alt="Kuva {x}Yrityksen Testijuoksu"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="overlay softer"></div>
@@ -1042,11 +1054,12 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/terwaholkka_marathon/terwaholkka_marathon_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fterwaholkka_marathon%2Fterwaholkka_marathon_1.webp?alt=media"
         alt="Kuva {x}Terwahölkkä Marathon"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
     <div class="overlay softer"></div>
@@ -1128,7 +1141,7 @@
   data-longitude="25.464392"
   data-location="Raatin stadion"
   data-description="Terwahölkkä ja -maraton juostaan lauantaina 24.5.2025 Oulun kaupungissa. Tapahtumassa on tarjolla useita matkoja: 5 km, 10 km, 21.1 km, 42.2"
-  data-image-path="/kilpailusivut/terwaholkka_marathon/terwaholkka_marathon"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fterwaholkka_marathon%2Fterwaholkka_marathon_1.webp?alt=media"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="24 tou"
@@ -1137,7 +1150,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/terwaholkka_marathon/terwaholkka_marathon_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fterwaholkka_marathon%2Fterwaholkka_marathon_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Terwahölkkä Marathon"

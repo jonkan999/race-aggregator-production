@@ -19,6 +19,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>10 000 metrin juoksukilpailut Kainuussa – Löydä juoksutapahtumat!</title>
+    <meta name="description" content="Etsi 10 000 metrin juoksukilpailuja Kainuun alueelta. Löydä sopivat juoksutapahtumat – maantiejuoksusta polkujuoksuun ja kaikkeen siltä väliltä. Juoksukalenteri ja kilpailukalenteri juoksijoille." />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -454,8 +455,16 @@
       10 km
     </button>
     
+    <button class="category-button" data-category="Halvmarathon">
+      Halvmarathon
+    </button>
+    
     <button class="category-button" data-category="Marathon">
       Marathon
+    </button>
+    
+    <button class="category-button" data-category="50 miles">
+      50 miles
     </button>
     
     <button class="category-button" data-category="50 km">
@@ -586,60 +595,61 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/juoksukalenteri">Juoksukalenteri</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/juoksukalenteri">Juoksukalenteri</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/juoksukalenteri/kainuu">Kainuu</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/juoksukalenteri/kainuu">Kainuu</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li aria-current="page" >
+          
+          <span>10000 meter</span>
+          
+        </li>
         
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>10000 meter</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    10 000 metrin juoksukilpailut Kainuussa
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Suunnitteletko osallistumista 10 000 metrin juoksukilpailuun Kainuussa? Tämä sivu auttaa sinua löytämään sopivat juoksutapahtumat.  Tarjolla on monipuolisesti erilaisia juoksutyylejä, kuten maantiejuoksu, maastojuoksu ja polkujuoksu.  Olipa tavoitteesi sitten nopeammaksi juoksijaksi kehittyminen tai uusi juoksukilpailu kokemus, löydät täältä varmasti itsellesi sopivan juoksukilpailun.  Tutustu juoksukalenteriimme ja kilpailukalenteriimme ja löydä seuraava juoksu rotusi!</p>
-
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Kaikki
-    <span id="race-cards-title-category"></span>
-    juoksukilpailu
-    <span id="race-cards-title-separator"
-      >None</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Suomi</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      10 000 metrin juoksukilpailut Kainuussa
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Suunnitteletko osallistumista 10 000 metrin juoksukilpailuun Kainuussa? Tämä sivu auttaa sinua löytämään sopivat juoksutapahtumat.  Tarjolla on monipuolisesti erilaisia juoksutyylejä, kuten maantiejuoksu, maastojuoksu ja polkujuoksu.  Olipa tavoitteesi sitten nopeammaksi juoksijaksi kehittyminen tai uusi juoksukilpailu kokemus, löydät täältä varmasti itsellesi sopivan juoksukilpailun.  Tutustu juoksukalenteriimme ja kilpailukalenteriimme ja löydä seuraava juoksu rotusi!</p>
 
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Kaikki
+      <span id="race-cards-title-category"></span>
+      juoksukilpailu
+      <span id="race-cards-title-separator"
+        >None</span
+      >
+      <span id="race-cards-title-region"
+        >Suomi</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -663,7 +673,7 @@
   data-longitude="27.843914"
   data-location="Kotolinna"
   data-description="Kolmatta kertaa järjestettävä Kiehimänjoen Juoksu juostaan Paltamossa 8.6. Tapahtuman lähtöpaikkana ja kisakeskuksena toimii Kotolinna, joss"
-  data-image-path="/kilpailusivut/kiehimanjoen_juoksu/kiehimanjoen_juoksu"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkiehimanjoen_juoksu%2Fkiehimanjoen_juoksu_1.webp?alt=media"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="12 huhti."
@@ -672,7 +682,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/kilpailusivut/kiehimanjoen_juoksu/kiehimanjoen_juoksu_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkiehimanjoen_juoksu%2Fkiehimanjoen_juoksu_1.webp?alt=media"
         width="600"
         height="400"
         alt="Kuva {x}Kiehimänjoen Juoksu"
