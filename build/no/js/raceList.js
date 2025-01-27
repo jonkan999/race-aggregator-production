@@ -62,6 +62,7 @@ async function initializeWhenReady() {
     console.log('🔍 Starting initialization');
     document.body.classList.add('loading');
     
+    // Wait for fonts and document
     await Promise.all([
       document.fonts.ready,
       new Promise(resolve => {
@@ -93,8 +94,32 @@ async function initializeWhenReady() {
       void raceCards.offsetHeight;
       void filters.offsetHeight;
 
-      // Wait a bit for layout to settle
-      await new Promise(resolve => setTimeout(resolve, 50));
+      // Only wait for truly above-fold images
+      const viewportHeight = window.innerHeight;
+      const visibleCards = Array.from(document.querySelectorAll('.race-card')).filter(card => {
+        const rect = card.getBoundingClientRect();
+        return rect.top < viewportHeight;
+      });
+
+      // Create promises for visible images and unpack remaining visible cards
+      const imagePromises = visibleCards.flatMap(card => {
+        if (!card.classList.contains('packed')) {
+          // Already unpacked card - just wait for its image
+          const images = [...card.querySelectorAll('img[data-src]')];
+          return images.map(img => createImageLoadPromise(img));
+        } else {
+          // Need to unpack this visible card
+          unpackRaceCard(card);
+          const images = [...card.querySelectorAll('img[data-src]')];
+          return images.map(img => createImageLoadPromise(img));
+        }
+      });
+
+      // Wait for visible images
+      await Promise.all([
+        Promise.all(imagePromises),
+        new Promise(resolve => setTimeout(resolve, 500))
+      ]);
 
       // Switch back to normal positioning
       raceCards.style.position = '';
@@ -124,7 +149,7 @@ async function initializeWhenReady() {
   }
 
   // Your existing initialization code
-  const distanceMapping = {"1,5km": ["1500 meter"], "10,2km": ["Mill\u00f8p", "10 km"], "10,3km": ["Mill\u00f8p", "10 km"], "100 miles": ["100 miles"], "100km": ["50 miles", "100 km"], "10km": ["10000 meter", "Mill\u00f8p", "10 km"], "11km": ["Mill\u00f8p", "10 km"], "150km": ["100 miles"], "20km": ["Halvmaraton"], "21,8km": ["Halvmaraton"], "22km": ["Halvmaraton"], "3km": ["3000 meter"], "4,1km": ["5 km"], "4,2km": ["5 km"], "4,3km": ["5 km"], "4,4km": ["5 km"], "4,5km": ["5 km"], "4,6km": ["5 km"], "4,8km": ["5 km"], "400km": ["200 miles"], "43,4km": ["Maraton"], "45km": ["50 km"], "48km": ["50 km"], "4km": ["5 km"], "5,2km": ["5 km"], "5,4km": ["5 km"], "5,5km": ["5 km"], "5,6km": ["5 km"], "5,7km": ["5 km"], "5,8km": ["5 km"], "50 miles": ["50 miles"], "50km": ["50 km"], "52,2km": ["50 km"], "52,5km": ["50 km"], "55km": ["50 km"], "5km": ["5000 meter", "5 km"], "6km": ["5 km"], "75km": ["50 miles"], "76km": ["50 miles"], "88km": ["50 miles"], "9,3km": ["Mill\u00f8p", "10 km"], "9,5km": ["Mill\u00f8p", "10 km"], "95km": ["50 miles", "100 km"], "9km": ["Mill\u00f8p", "10 km"], "half marathon": ["Halvmaraton"], "marathon": ["Maraton"]};
+  const distanceMapping = {"1,5km": ["1500 meter"], "10,2km": ["Mill\u00f8p", "10 km"], "10,3km": ["Mill\u00f8p", "10 km"], "100 miles": ["100 miles"], "100km": ["50 miles", "100 km"], "10km": ["Mill\u00f8p", "10000 meter", "10 km"], "11km": ["Mill\u00f8p", "10 km"], "150km": ["100 miles"], "20km": ["Halvmaraton"], "21,8km": ["Halvmaraton"], "22km": ["Halvmaraton"], "3km": ["3000 meter"], "4,1km": ["5 km"], "4,2km": ["5 km"], "4,3km": ["5 km"], "4,4km": ["5 km"], "4,5km": ["5 km"], "4,6km": ["5 km"], "4,8km": ["5 km"], "400km": ["200 miles"], "43,4km": ["Maraton"], "45km": ["50 km"], "48km": ["50 km"], "4km": ["5 km"], "5,2km": ["5 km"], "5,4km": ["5 km"], "5,5km": ["5 km"], "5,6km": ["5 km"], "5,7km": ["5 km"], "5,8km": ["5 km"], "50 miles": ["50 miles"], "50km": ["50 km"], "52,2km": ["50 km"], "52,5km": ["50 km"], "55km": ["50 km"], "5km": ["5 km", "5000 meter"], "6km": ["5 km"], "75km": ["50 miles"], "76km": ["50 miles"], "88km": ["50 miles"], "9,3km": ["Mill\u00f8p", "10 km"], "9,5km": ["Mill\u00f8p", "10 km"], "95km": ["50 miles", "100 km"], "9km": ["Mill\u00f8p", "10 km"], "half marathon": ["Halvmaraton"], "marathon": ["Maraton"]};
   const raceCards = document.querySelectorAll(".race-card");
   const itemsPerPage = 20;
   let currentPage = 1;
@@ -970,3 +995,25 @@ document.addEventListener('DOMContentLoaded', function() {
     updateButtons();
   });
 });
+
+// Helper function for image loading promise
+function createImageLoadPromise(img) {
+  return new Promise((resolve) => {
+    if (!img.dataset.src) {
+      resolve();
+      return;
+    }
+    const tempImg = new Image();
+    tempImg.onload = () => {
+      img.src = img.dataset.src;
+      delete img.dataset.src;
+      resolve();
+    };
+    tempImg.onerror = () => {
+      img.src = '/images/hero_small.webp';
+      delete img.dataset.src;
+      resolve();
+    };
+    tempImg.src = img.dataset.src;
+  });
+}

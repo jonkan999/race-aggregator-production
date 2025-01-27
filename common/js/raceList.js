@@ -62,6 +62,7 @@ async function initializeWhenReady() {
     console.log('🔍 Starting initialization');
     document.body.classList.add('loading');
     
+    // Wait for fonts and document
     await Promise.all([
       document.fonts.ready,
       new Promise(resolve => {
@@ -93,8 +94,32 @@ async function initializeWhenReady() {
       void raceCards.offsetHeight;
       void filters.offsetHeight;
 
-      // Wait a bit for layout to settle
-      await new Promise(resolve => setTimeout(resolve, 50));
+      // Only wait for truly above-fold images
+      const viewportHeight = window.innerHeight;
+      const visibleCards = Array.from(document.querySelectorAll('.race-card')).filter(card => {
+        const rect = card.getBoundingClientRect();
+        return rect.top < viewportHeight;
+      });
+
+      // Create promises for visible images and unpack remaining visible cards
+      const imagePromises = visibleCards.flatMap(card => {
+        if (!card.classList.contains('packed')) {
+          // Already unpacked card - just wait for its image
+          const images = [...card.querySelectorAll('img[data-src]')];
+          return images.map(img => createImageLoadPromise(img));
+        } else {
+          // Need to unpack this visible card
+          unpackRaceCard(card);
+          const images = [...card.querySelectorAll('img[data-src]')];
+          return images.map(img => createImageLoadPromise(img));
+        }
+      });
+
+      // Wait for visible images
+      await Promise.all([
+        Promise.all(imagePromises),
+        new Promise(resolve => setTimeout(resolve, 500))
+      ]);
 
       // Switch back to normal positioning
       raceCards.style.position = '';
@@ -970,4 +995,26 @@ document.addEventListener('DOMContentLoaded', function() {
     updateButtons();
   });
 });
+
+// Helper function for image loading promise
+function createImageLoadPromise(img) {
+  return new Promise((resolve) => {
+    if (!img.dataset.src) {
+      resolve();
+      return;
+    }
+    const tempImg = new Image();
+    tempImg.onload = () => {
+      img.src = img.dataset.src;
+      delete img.dataset.src;
+      resolve();
+    };
+    tempImg.onerror = () => {
+      img.src = '/images/hero_small.webp';
+      delete img.dataset.src;
+      resolve();
+    };
+    tempImg.src = img.dataset.src;
+  });
+}
 

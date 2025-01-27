@@ -23,6 +23,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Jooksuvõistlused Tartus: Leia parimad jooksuradad!</title>
+    <meta name="description" content="Otsi ja leia sobiv jooksuvõistlus Tartus!  Vali oma kategooria (nt 5 km, 10 km, Halvmarathon) ja registreeru jooksma jooksuradadel.  Jooksev kalender aitab sul saada kiiremaks jooksjaks!" />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -586,73 +587,74 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/jooksuvoistlused">Jooksuvõistlused</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/jooksuvoistlused">Jooksuvõistlused</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/jooksuvoistlused/linnad/tartu">Linnad: Tartu</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/jooksuvoistlused/linnad/tartu">Linnad: Tartu</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li aria-current="page" >
+          
+          <span>Jooksurada</span>
+          
+        </li>
         
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>Jooksurada</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    Jooksuradad Tartus: Jooksuvõistlused ja jooksuüritused
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Oled jooksja ja otsid Tartus toimuvaid jooksuvõistlusi?  Meie jooksev kalender pakub sulle valikut erinevaid jooksuvõistlusi, alates lühemaid distantse nagu 5 km ja 10 km kuni poolmaratonini ja pikema distantsi jooksudeni.  Leiad sobiva jooksuvõistluse oma tasemele ja eelistustele.  Kasuta filtreid, et leida ideaalne jooksuvõistlus, olgu selleks siis Jooksurada Tartu linnas.  Registreeru jooksma ja alusta teekonda saada kiiremaks jooksjaks!  Avasta parimad jooksuvõistlused ja jooksuüritused!  See on sinu võistluste kalender!</p>
-
-  
-  <h3 class="race-type-list-title">Populaarsed alajaotused</h3>
-  <nav class="race-type-navigation" aria-label="race types and categories">
-    <ul class="race-type-list">
-      
-      <li>
-        <a href="/jooksuvoistlused/linnad/tartu/jooksurada/10-km" class="race-type-link">
-          10 km (2)
-        </a>
-      </li>
-      
-    </ul>
-  </nav>
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Kõik
-    <span id="race-cards-title-category"></span>
-    lõpp
-    <span id="race-cards-title-separator"
-      >i</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Eesti</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      Jooksuradad Tartus: Jooksuvõistlused ja jooksuüritused
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Oled jooksja ja otsid Tartus toimuvaid jooksuvõistlusi?  Meie jooksev kalender pakub sulle valikut erinevaid jooksuvõistlusi, alates lühemaid distantse nagu 5 km ja 10 km kuni poolmaratonini ja pikema distantsi jooksudeni.  Leiad sobiva jooksuvõistluse oma tasemele ja eelistustele.  Kasuta filtreid, et leida ideaalne jooksuvõistlus, olgu selleks siis Jooksurada Tartu linnas.  Registreeru jooksma ja alusta teekonda saada kiiremaks jooksjaks!  Avasta parimad jooksuvõistlused ja jooksuüritused!  See on sinu võistluste kalender!</p>
 
+    
+    <h3 class="race-type-list-title">Populaarsed alajaotused</h3>
+    <nav class="race-type-navigation" aria-label="race types and categories">
+      <ul class="race-type-list">
+        
+        <li>
+          <a href="/jooksuvoistlused/linnad/tartu/jooksurada/10-km" class="race-type-link">
+            10 km (2)
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Kõik
+      <span id="race-cards-title-category"></span>
+      lõpp
+      <span id="race-cards-title-separator"
+        >i</span
+      >
+      <span id="race-cards-title-region"
+        >Eesti</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -676,7 +678,7 @@
   data-longitude="27.2388348"
   data-location="Elva Kultuurikeskuse parkla Kesk 30"
   data-description="Elva Südaööjooks, mida korraldab Elva Spordiliit, toimub 14. juunil 2024 Elvas. Programm sisaldab lastejooksusid (300 m ja 600 m) algusega k"
-  data-image-path="/jooksulehed/elva_sudaoojooks_etapp/elva_sudaoojooks_etapp"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Felva_sudaoojooks_etapp%2Felva_sudaoojooks_etapp_1.webp?alt=media"
   data-type="track"
   data-type-display="Jooksurada"
   data-date-display="13 juuni"
@@ -685,7 +687,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/jooksulehed/elva_sudaoojooks_etapp/elva_sudaoojooks_etapp_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Felva_sudaoojooks_etapp%2Felva_sudaoojooks_etapp_1.webp?alt=media"
         width="600"
         height="400"
         alt="Pilt {x} jaoksElva Südaööjooks Etapp"
@@ -757,7 +759,7 @@
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
-   
+    
 <!-- Full card content for first 20 cards -->
 <a
   href="/jooksulehed/puhajarve_jooks"
@@ -772,7 +774,7 @@
   data-longitude="26.4635365"
   data-location="Pühajärve Spa & Holiday Resort"
   data-description="43. jooks ümber Pühajärve toimub laupäeval, 13. juulil 2024. a. ja kuulub 2024 Maru Järvejooksude sarja, olles sarja 3. osavõistlus. Ajakava"
-  data-image-path="/jooksulehed/puhajarve_jooks/puhajarve_jooks"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fpuhajarve_jooks%2Fpuhajarve_jooks_1.webp?alt=media"
   data-type="track"
   data-type-display="Jooksurada"
   data-date-display="12 juuli"
@@ -781,7 +783,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/jooksulehed/puhajarve_jooks/puhajarve_jooks_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fpuhajarve_jooks%2Fpuhajarve_jooks_1.webp?alt=media"
         width="600"
         height="400"
         alt="Pilt {x} jaoksPühajärve Jooks"
@@ -853,217 +855,7 @@
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
-   
-      <section class="section section-selected-races in-grid">
-        <div class="section-header-container">
-          <h2 class="section-header">Valitud Võistlused</h2>
-          <div class="scroll-buttons">
-            <button class="scroll-button prev" aria-label="Previous" disabled>
-              <ion-icon name="chevron-back-outline"></ion-icon>
-            </button>
-            <button class="scroll-button next" aria-label="Next">
-              <ion-icon name="chevron-forward-outline"></ion-icon>
-            </button>
-          </div>
-        </div>
-        <div class="race-card-big-container right-scroller">
-              <a
-  href="/jooksulehed/elva_sudaoojooks_etapp"
-  class="race-card-big race-card"
-  data-name="Elva Südaööjooks Etapp"
-  data-date="20250613"
-  data-county="Tartu maakond"
-  data-category=""
-  data-race-type="Jooksurada"
-  data-distance="10km"
->
-  <div class="race-card-big-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/jooksulehed/elva_sudaoojooks_etapp/elva_sudaoojooks_etapp_1.webp"
-        alt="Pilt {x} jaoksElva Südaööjooks Etapp"
-        width="600"
-        height="400"
-        class="background-img selected-race-card-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="overlay softer"></div>
-
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          13 juuni
-        </div>
-        <div class="race-location">
-          Tartu maakond
-        </div>
-      </div>
-
-      <div class="race-info-bottom">
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Jooksurada
-        </div>
-        
-        <div class="race-distances">
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="race-card-bottom">
-    <h3 class="race-name">Elva Südaööjooks Etapp</h3>
-    <div class="cta-button">
-      <div class="more-info-button">Sõidulehe juurde</div>
-    </div>
-  </div>
-</a>       <a
-  href="/jooksulehed/puhajarve_jooks"
-  class="race-card-big race-card"
-  data-name="Pühajärve Jooks"
-  data-date="20250712"
-  data-county="Valga maakond"
-  data-category=""
-  data-race-type="Jooksurada"
-  data-distance="10,7km"
->
-  <div class="race-card-big-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/jooksulehed/puhajarve_jooks/puhajarve_jooks_1.webp"
-        alt="Pilt {x} jaoksPühajärve Jooks"
-        width="600"
-        height="400"
-        class="background-img selected-race-card-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="overlay softer"></div>
-
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          12 juuli
-        </div>
-        <div class="race-location">
-          Valga maakond
-        </div>
-      </div>
-
-      <div class="race-info-bottom">
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Jooksurada
-        </div>
-        
-        <div class="race-distances">
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                10,7 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="race-card-bottom">
-    <h3 class="race-name">Pühajärve Jooks</h3>
-    <div class="cta-button">
-      <div class="more-info-button">Sõidulehe juurde</div>
-    </div>
-  </div>
-</a>       <a
-  href="/jooksulehed/puhajarve_pargimiil"
-  class="race-card-big race-card"
-  data-name="Pühajärve Pargimiil"
-  data-date="20250712"
-  data-county="Valga maakond"
-  data-category=""
-  data-race-type="Jooksurada"
-  data-distance="1,6km"
->
-  <div class="race-card-big-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/jooksulehed/puhajarve_pargimiil/puhajarve_pargimiil_1.webp"
-        alt="Pilt {x} jaoksPühajärve Pargimiil"
-        width="600"
-        height="400"
-        class="background-img selected-race-card-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="overlay softer"></div>
-
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          12 juuli
-        </div>
-        <div class="race-location">
-          Valga maakond
-        </div>
-      </div>
-
-      <div class="race-info-bottom">
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Jooksurada
-        </div>
-        
-        <div class="race-distances">
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,6 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="race-card-bottom">
-    <h3 class="race-name">Pühajärve Pargimiil</h3>
-    <div class="cta-button">
-      <div class="more-info-button">Sõidulehe juurde</div>
-    </div>
-  </div>
-</a>   
-        </div>
-      </section>
-          
-      
+    
 <!-- Full card content for first 20 cards -->
 <a
   href="/jooksulehed/puhajarve_pargimiil"
@@ -1078,7 +870,7 @@
   data-longitude="26.4490863"
   data-location="Pühajärve Puhkekeskuse park"
   data-description="Pühajärve pargimiil toimub laupäeval, 13. juulil 2024. Võistluskeskus ning start ja finiš asuvad Pühajärve Puhkekeskuse pargis, kus start an"
-  data-image-path="/jooksulehed/puhajarve_pargimiil/puhajarve_pargimiil"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fpuhajarve_pargimiil%2Fpuhajarve_pargimiil_1.webp?alt=media"
   data-type="track"
   data-type-display="Jooksurada"
   data-date-display="12 juuli"
@@ -1087,7 +879,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/jooksulehed/puhajarve_pargimiil/puhajarve_pargimiil_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fpuhajarve_pargimiil%2Fpuhajarve_pargimiil_1.webp?alt=media"
         width="600"
         height="400"
         alt="Pilt {x} jaoksPühajärve Pargimiil"
@@ -1159,7 +951,216 @@
     <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
- 
+    
+      <section class="section section-selected-races in-grid">
+        <div class="section-header-container">
+          <h2 class="section-header">Valitud Võistlused</h2>
+          <div class="scroll-buttons">
+            <button class="scroll-button prev" aria-label="Previous" disabled>
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </button>
+            <button class="scroll-button next" aria-label="Next">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+        <div class="race-card-big-container right-scroller">
+              <a
+  href="/jooksulehed/elva_sudaoojooks_etapp"
+  class="race-card-big race-card"
+  data-name="Elva Südaööjooks Etapp"
+  data-date="20250613"
+  data-county="Tartu maakond"
+  data-category=""
+  data-race-type="Jooksurada"
+  data-distance="10km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Felva_sudaoojooks_etapp%2Felva_sudaoojooks_etapp_1.webp?alt=media"
+        alt="Pilt {x} jaoksElva Südaööjooks Etapp"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          13 juuni
+        </div>
+        <div class="race-location">
+          Tartu maakond
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Jooksurada
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Elva Südaööjooks Etapp</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Sõidulehe juurde</div>
+    </div>
+  </div>
+</a>       <a
+  href="/jooksulehed/puhajarve_jooks"
+  class="race-card-big race-card"
+  data-name="Pühajärve Jooks"
+  data-date="20250712"
+  data-county="Valga maakond"
+  data-category=""
+  data-race-type="Jooksurada"
+  data-distance="10,7km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fpuhajarve_jooks%2Fpuhajarve_jooks_1.webp?alt=media"
+        alt="Pilt {x} jaoksPühajärve Jooks"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          12 juuli
+        </div>
+        <div class="race-location">
+          Valga maakond
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Jooksurada
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                10,7 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Pühajärve Jooks</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Sõidulehe juurde</div>
+    </div>
+  </div>
+</a>       <a
+  href="/jooksulehed/puhajarve_pargimiil"
+  class="race-card-big race-card"
+  data-name="Pühajärve Pargimiil"
+  data-date="20250712"
+  data-county="Valga maakond"
+  data-category=""
+  data-race-type="Jooksurada"
+  data-distance="1,6km"
+>
+  <div class="race-card-big-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fpuhajarve_pargimiil%2Fpuhajarve_pargimiil_1.webp?alt=media"
+        alt="Pilt {x} jaoksPühajärve Pargimiil"
+        width="600"
+        height="400"
+        class="background-img selected-race-card-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="overlay softer"></div>
+
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          12 juuli
+        </div>
+        <div class="race-location">
+          Valga maakond
+        </div>
+      </div>
+
+      <div class="race-info-bottom">
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Jooksurada
+        </div>
+        
+        <div class="race-distances">
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                1,6 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="race-card-bottom">
+    <h3 class="race-name">Pühajärve Pargimiil</h3>
+    <div class="cta-button">
+      <div class="more-info-button">Sõidulehe juurde</div>
+    </div>
+  </div>
+</a>   
+        </div>
+      </section>
+        
 
       <!-- Pagination controls -->
       <div class="pagination-info">

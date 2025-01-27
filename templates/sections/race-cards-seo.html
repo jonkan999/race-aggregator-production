@@ -67,10 +67,10 @@
       endif
       %}
     >
-      {# First two race cards #} {% for race in races[:2] %} {% with unpack=true
-      %} {% include 'components/race-card.html' %} {% endwith %}{% endfor %} {#
-      Selected races section #} {% if races|length >= 3 and schema_data.raceList
-      and schema_data.raceList.itemListElement %}
+      {# First three race cards #} {% for race in races[:3] %} {% with
+      unpack=true %} {% include 'components/race-card.html' %} {% endwith %} {%
+      endfor %} {# Selected races section #} {% if races|length >= 3 and
+      schema_data.raceList and schema_data.raceList.itemListElement %}
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">{{ selected_races_title }}</h2>
@@ -91,9 +91,9 @@
           endwith %} {% endif %} {% endfor %}
         </div>
       </section>
-      {% endif %} {# Remaining race cards #} {% for race in races[2:] %} {% with
-      unpack=loop.index < 25 %} {# 1 because we already showed 2 cards above #}
-      {% include 'components/race-card.html' %} {% endwith %}{% endfor %}
+      {% endif %} {# Remaining race cards #} {% for race in races[3:] %} {% with
+      unpack=false %} {% include 'components/race-card.html' %} {% endwith %} {%
+      endfor %}
 
       <!-- Pagination controls -->
       <div class="pagination-info">

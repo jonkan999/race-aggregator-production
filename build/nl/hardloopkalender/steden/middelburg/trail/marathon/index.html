@@ -19,6 +19,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Marathon Trail Runs in Middelburg: Vind jouw volgende hardloopwedstrijd!</title>
+    <meta name="description" content="Ontdek alle Marathon Trail hardloop evenementen in Middelburg. Bekijk onze hardloopkalender en vind de perfecte wedstrijd voor lopers, of je nu een ervaren marathonloper bent of net begint met rennen." />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -454,8 +455,8 @@
       10 km
     </button>
     
-    <button class="category-button" data-category="Halvmarathon">
-      Halvmarathon
+    <button class="category-button" data-category="Halve marathon">
+      Halve marathon
     </button>
     
     <button class="category-button" data-category="Marathon">
@@ -476,10 +477,6 @@
     
     <button class="category-button" data-category="100 km">
       100 km
-    </button>
-    
-    <button class="category-button" data-category="Millopp">
-      Millopp
     </button>
     
     <button class="category-button" data-category="1500 meter">
@@ -588,69 +585,70 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/hardloopkalender">Hardloopkalender</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/hardloopkalender">Hardloopkalender</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/hardloopkalender/steden/middelburg">Steden: Middelburg</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/hardloopkalender/steden/middelburg">Steden: Middelburg</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/hardloopkalender/steden/middelburg/trail">Trail</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li aria-current="page" >
+          
+          <span>Marathon</span>
+          
+        </li>
         
-        <a href="/hardloopkalender/steden/middelburg/trail">Trail</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
-        
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>Marathon</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    Marathon Trail Runs in Middelburg: Hardloopkalender & Wedstrijden voor Lopers
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Zoek je een uitdagende marathon trail run?  Onze loopkalender toont alle loopevenementen in Middelburg, gefilterd op category: Marathon, race type: Trail en location: Middelburg.  Of je nu op zoek bent naar een specifieke hardloopwedstrijd of gewoon wilt bladeren door onze hardlooplijst met hardloop evenementen, je vindt hier zeker wat je zoekt.  Vind jouw volgende avontuur met deze selectie wedstrijden voor lopers. Gebruik de filters (bijvoorbeeld: afstand [5km, 10km, halve marathon], niveau [beginner, gevorderd]) om jouw perfecte hardloopwedstrijd te vinden.  Bekijk de hardloopkalender en start met rennen!</p>
-
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Alle
-    <span id="race-cards-title-category"></span>
-    wedstrijd
-    <span id="race-cards-title-separator"
-      >i</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Nederland</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      Marathon Trail Runs in Middelburg: Hardloopkalender & Wedstrijden voor Lopers
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Zoek je een uitdagende marathon trail run?  Onze loopkalender toont alle loopevenementen in Middelburg, gefilterd op category: Marathon, race type: Trail en location: Middelburg.  Of je nu op zoek bent naar een specifieke hardloopwedstrijd of gewoon wilt bladeren door onze hardlooplijst met hardloop evenementen, je vindt hier zeker wat je zoekt.  Vind jouw volgende avontuur met deze selectie wedstrijden voor lopers. Gebruik de filters (bijvoorbeeld: afstand [5km, 10km, halve marathon], niveau [beginner, gevorderd]) om jouw perfecte hardloopwedstrijd te vinden.  Bekijk de hardloopkalender en start met rennen!</p>
 
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Alle
+      <span id="race-cards-title-category"></span>
+      wedstrijd
+      <span id="race-cards-title-separator"
+        >i</span
+      >
+      <span id="race-cards-title-region"
+        >Nederland</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -674,7 +672,7 @@
   data-longitude="3.7379333"
   data-location="Burgh-Haamstede"
   data-description="De Bosbokken Trail is een leuke, afwisselende trail door duin-, strand- en bosgebied van Westenschouwen. Dit jaar vindt het plaats op Zaterd"
-  data-image-path="/looppaginas/bosbokken_trail/bosbokken_trail"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fnl%2Fbosbokken_trail%2Fbosbokken_trail_1.webp?alt=media"
   data-type="trail"
   data-type-display="Trail"
   data-date-display="23 feb."
@@ -683,7 +681,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/looppaginas/bosbokken_trail/bosbokken_trail_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fnl%2Fbosbokken_trail%2Fbosbokken_trail_1.webp?alt=media"
         width="600"
         height="400"
         alt="Afbeelding naarBosbokken Trail"
@@ -767,7 +765,7 @@
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
 </a>
-   
+    
 <!-- Full card content for first 20 cards -->
 <a
   href="/looppaginas/kustmarathon_zeeland_trailrun"
@@ -782,7 +780,7 @@
   data-longitude="3.483351"
   data-location="Langstraat, Zoutelande"
   data-description="De Kustmarathon Zeeland Trailrun is een uitdagende 16 kilometer lange trail over onverhard parcours, met avontuur over mul zand, modderige p"
-  data-image-path="/looppaginas/kustmarathon_zeeland_trailrun/kustmarathon_zeeland_trailrun"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fnl%2Fkustmarathon_zeeland_trailrun%2Fkustmarathon_zeeland_trailrun_1.webp?alt=media"
   data-type="trail"
   data-type-display="Trail"
   data-date-display="3 okt."
@@ -791,7 +789,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/looppaginas/kustmarathon_zeeland_trailrun/kustmarathon_zeeland_trailrun_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fnl%2Fkustmarathon_zeeland_trailrun%2Fkustmarathon_zeeland_trailrun_1.webp?alt=media"
         width="600"
         height="400"
         alt="Afbeelding naarKustmarathon Zeeland Trailrun"
@@ -875,7 +873,7 @@
     <div class="more-info-button">Meer info & aanmelding</div>
   </div>
 </a>
-     
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

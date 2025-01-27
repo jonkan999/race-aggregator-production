@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Herzlich Willkommen beim SPANDAU \u2013 WinterWald! Der famili\u00e4re Waldlauf f\u00fcr Jung und Alt findet in der 53. Auflage am 19. Januar 2025 statt. Der Lauf f\u00fchrt aussch", "distance": null, "eventStatus": "Standard", "identifier": "spandauer_winterwaldlauf", "image": "/Rennseiten/spandauer_winterwaldlauf/spandauer_winterwaldlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Pappel-/Merianweg", "addressRegion": "Bayern"}, "name": "Pappel-/Merianweg"}, "name": "Spandauer Winterwaldlauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250119"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Oberpfalzmeisterschaften Crosslauf 2024 finden am Sonntag, den 03. M\u00e4rz 2024, in Burglengenfeld statt. Diese Veranstaltung ist Teil der Bezirksmeisterschaft", "distance": "2km, 2,9km", "eventStatus": "Standard", "identifier": "oberpfalz_crosslauf", "image": "/Rennseiten/oberpfalz_crosslauf/oberpfalz_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Gymasiumsportplatz Burglengenfeld", "addressRegion": "Bayern"}, "name": "Gymasiumsportplatz Burglengenfeld"}, "name": "Oberpfalz Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250209"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Oberpfalzmeisterschaften Crosslauf 2024 finden am Sonntag, den 03. M\u00e4rz 2024, in Burglengenfeld statt. Diese Veranstaltung ist Teil der Bezirksmeisterschaft", "distance": "2km, 2,9km", "eventStatus": "Standard", "identifier": "oberpfalz_crosslauf", "image": "/Rennseiten/oberpfalz_crosslauf/oberpfalz_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Gymasiumsportplatz Burglengenfeld", "addressRegion": "Bayern"}, "name": "Gymasiumsportplatz Burglengenfeld"}, "name": "Oberpfalz Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250209"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Burgweintinger Nepal-Lauf findet alle zwei Jahre in Regensburg statt, mit dem Startschuss zur 11. Auflage am 23. April 2023. Der Erl\u00f6s des Benefizlaufes geh", "distance": "1km, 2,5km, 5km, 10km, half marathon", "eventStatus": "Standard", "identifier": "burgweintinger_nepal_lauf", "image": "/Rennseiten/burgweintinger_nepal_lauf/burgweintinger_nepal_lauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Bereich der Grundschule Burgweinting", "addressRegion": "Bayern"}, "name": "Bereich der Grundschule Burgweinting"}, "name": "Burgweintinger Nepal-Lauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250406"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -23,6 +23,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Laufwettbewerbe in Regensburg: Gelände-Läufe im Laufkalender</title>
+    <meta name="description" content="Finde deinen nächsten Geländelauf in Regensburg! Unser Laufkalender listet Laufwettbewerbe und Laufrennen verschiedener Distanzen (5km, 10km, Halbmarathon, Marathon uvm.).  Durchsuche unsere Rennliste und finde den perfekten Lauf für dich." />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -466,8 +467,16 @@
       Marathon
     </button>
     
+    <button class="category-button" data-category="50 miles">
+      50 miles
+    </button>
+    
     <button class="category-button" data-category="50 km">
       50 km
+    </button>
+    
+    <button class="category-button" data-category="100 km">
+      100 km
     </button>
     
     <button class="category-button" data-category="Millopp">
@@ -588,60 +597,61 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/laufkalender">Laufkalender</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/laufkalender">Laufkalender</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/laufkalender/staedte/regensburg">Städte: Regensburg</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/laufkalender/staedte/regensburg">Städte: Regensburg</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li aria-current="page" >
+          
+          <span>Gelände</span>
+          
+        </li>
         
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>Gelände</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    Gelände-Läufe in Regensburg: Laufwettkämpfe & Rennliste
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Entdecke die besten Gelände-Laufwettbewerbe in Regensburg!  Unser Laufkalender bietet eine umfassende Übersicht über alle Laufrennen und Laufwettkämpfe in der Region.  Wähle aus verschiedenen Kategorien, von 5km Läufen bis zum Marathon, und finde den perfekten Lauf für dein nächstes Abenteuer. Ob 10km, Halbmarathon oder ein anspruchsvollerer 50km Lauf – hier findest du die passende Rennliste für deine Suche.  Nutze unseren Laufkalender und unsere rennliste, um deinen nächsten Laufwettbewerb in Regensburg zu finden.</p>
-
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Alle
-    <span id="race-cards-title-category"></span>
-    Rennen
-    <span id="race-cards-title-separator"
-      >i</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Deutschland</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      Gelände-Läufe in Regensburg: Laufwettkämpfe & Rennliste
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Entdecke die besten Gelände-Laufwettbewerbe in Regensburg!  Unser Laufkalender bietet eine umfassende Übersicht über alle Laufrennen und Laufwettkämpfe in der Region.  Wähle aus verschiedenen Kategorien, von 5km Läufen bis zum Marathon, und finde den perfekten Lauf für dein nächstes Abenteuer. Ob 10km, Halbmarathon oder ein anspruchsvollerer 50km Lauf – hier findest du die passende Rennliste für deine Suche.  Nutze unseren Laufkalender und unsere rennliste, um deinen nächsten Laufwettbewerb in Regensburg zu finden.</p>
 
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Alle
+      <span id="race-cards-title-category"></span>
+      Rennen
+      <span id="race-cards-title-separator"
+        >i</span
+      >
+      <span id="race-cards-title-region"
+        >Deutschland</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -651,102 +661,6 @@
       
     >
          
-<!-- Full card content for first 20 cards -->
-<a
-  href="/Rennseiten/spandauer_winterwaldlauf"
-  class="race-card"
-  data-name="Spandauer Winterwaldlauf"
-  data-date="20250119"
-  data-county="Bayern"
-  data-category=""
-  data-race-type="Gelände"
-  data-distance=""
-  data-latitude="49.0052505"
-  data-longitude="12.0631053"
-  data-location="Pappel-/Merianweg"
-  data-description="Herzlich Willkommen beim SPANDAU – WinterWald! Der familiäre Waldlauf für Jung und Alt findet in der 53. Auflage am 19. Januar 2025 statt. D"
-  data-image-path="/Rennseiten/spandauer_winterwaldlauf/spandauer_winterwaldlauf"
-  data-type="terrain"
-  data-type-display="Gelände"
-  data-date-display="19 jan."
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/Rennseiten/spandauer_winterwaldlauf/spandauer_winterwaldlauf_1.webp"
-        width="600"
-        height="400"
-        alt="Bild zuSpandauer Winterwaldlauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          19 jan.
-        </div>
-        <div class="race-location">
-          Bayern
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Spandauer Winterwaldlauf</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Pappel-/Merianweg 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Gemischte Distanz
-              </span>
-            </div>
-            
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Herzlich Willkommen beim SPANDAU – WinterWald! Der familiäre Waldlauf für Jung und Alt findet in der 53. Auflage am 19. Januar 2025 statt. D...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
-  </div>
-</a>
-   
 <!-- Full card content for first 20 cards -->
 <a
   href="/Rennseiten/oberpfalz_crosslauf"
@@ -761,7 +675,7 @@
   data-longitude="12.0417131"
   data-location="Gymasiumsportplatz Burglengenfeld"
   data-description="Die Oberpfalzmeisterschaften Crosslauf 2024 finden am Sonntag, den 03. März 2024, in Burglengenfeld statt. Diese Veranstaltung ist Teil der "
-  data-image-path="/Rennseiten/oberpfalz_crosslauf/oberpfalz_crosslauf"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Foberpfalz_crosslauf%2Foberpfalz_crosslauf_1.webp?alt=media"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="9 Feb."
@@ -770,7 +684,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/Rennseiten/oberpfalz_crosslauf/oberpfalz_crosslauf_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Foberpfalz_crosslauf%2Foberpfalz_crosslauf_1.webp?alt=media"
         width="600"
         height="400"
         alt="Bild zuOberpfalz Crosslauf"
@@ -848,7 +762,125 @@
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-     
+    
+<!-- Full card content for first 20 cards -->
+<a
+  href="/Rennseiten/burgweintinger_nepal_lauf"
+  class="race-card"
+  data-name="Burgweintinger Nepal-Lauf"
+  data-date="20250406"
+  data-county="Bayern"
+  data-category=""
+  data-race-type="Gelände"
+  data-distance="1km, 2,5km, 5km, 10km, half marathon"
+  data-latitude="48.9923395"
+  data-longitude="12.1369756"
+  data-location="Bereich der Grundschule Burgweinting"
+  data-description="Der Burgweintinger Nepal-Lauf findet alle zwei Jahre in Regensburg statt, mit dem Startschuss zur 11. Auflage am 23. April 2023. Der Erlös d"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fburgweintinger_nepal_lauf%2Fburgweintinger_nepal_lauf_1.webp?alt=media"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="6 apr."
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fburgweintinger_nepal_lauf%2Fburgweintinger_nepal_lauf_1.webp?alt=media"
+        width="600"
+        height="400"
+        alt="Bild zuBurgweintinger Nepal-Lauf"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          6 apr.
+        </div>
+        <div class="race-location">
+          Bayern
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Burgweintinger Nepal-Lauf</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Bereich der Grundschule Burgweinting 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                1 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                2,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+             
+            <div class="distance-item">
+              <span class="race-distance">...</span>
+            </div>
+             
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Gelände
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Der Burgweintinger Nepal-Lauf findet alle zwei Jahre in Regensburg statt, mit dem Startschuss zur 11. Auflage am 23. April 2023. Der Erlös d...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
+  </div>
+</a>
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

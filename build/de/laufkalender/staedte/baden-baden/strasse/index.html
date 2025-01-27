@@ -8,11 +8,11 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [], "numberOfItems": 0}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "SiteNavigationElement", "description": "Visa 2 5 km Lauf", "name": "5 km", "numberOfItems": 2, "url": "https://laufrennen.de/laufkalender/staedte/baden-baden/strasse/5-km"}, {"@type": "SiteNavigationElement", "description": "Visa 2 10 km Lauf", "name": "10 km", "numberOfItems": 2, "url": "https://laufrennen.de/laufkalender/staedte/baden-baden/strasse/10-km"}], "numberOfItems": 2}
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die 40. Rheinzaberner Winterlaufserie umfasst eine Distanz von 15 km. Die Strecke f\u00fchrt durch malerische Landschaften und bietet sowohl f\u00fcr erfahrene L\u00e4ufer als", "distance": "15km", "eventStatus": "Standard", "identifier": "winterlaufserie_15_km", "image": "/Rennseiten/winterlaufserie_15_km/winterlaufserie_15_km_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Rheinzabern", "addressRegion": "Rheinland-Pfalz"}, "name": "Rheinzabern"}, "name": "Winterlaufserie 15 km", "sport": "Laufen, Stra\u00dfe", "startDate": "20250118"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Rheinzaberner Winterlaufserie 15 km ist eine beliebte Laufveranstaltung, die in der malerischen Umgebung von Rheinzabern stattfindet. Die Strecke f\u00fchrt durc", "distance": "15km", "eventStatus": "Standard", "identifier": "winterlaufserie_15_km_2", "image": "/Rennseiten/winterlaufserie_15_km_2/winterlaufserie_15_km_2_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Rheinzabern", "addressRegion": "Rheinland-Pfalz"}, "name": "Rheinzabern"}, "name": "Winterlaufserie 15 km", "sport": "Laufen, Stra\u00dfe", "startDate": "20250208"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Neureuter Volkslauf in Karlsruhe bietet eine aufregende Laufveranstaltung mit Distanzen von 10 km, 5 km, 800 m und 400 m. Die Anmeldung f\u00fcr die 36. Ausgabe ", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "neureuter_volkslauf", "image": "/Rennseiten/neureuter_volkslauf/neureuter_volkslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Karlsruhe", "addressRegion": "Baden-W\u00fcrttemberg"}, "name": "Karlsruhe"}, "name": "Neureuter Volkslauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250406"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der W\u00fcrmersheimer Speckk\u00e4lblelauf \u00fcber 5 und 10 Kilometer ist ein beliebtes Lauf-Event ohne Wettkampf-Charakter, das am Samstag, den 08. Juni 2024, stattfindet.", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "speckkalblelauf", "image": "/Rennseiten/speckkalblelauf/speckkalblelauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Durmersheim", "addressRegion": "Baden-W\u00fcrttemberg"}, "name": "Durmersheim"}, "name": "Speckk\u00e4lblelauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250531"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -23,6 +23,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Laufwettbewerbe in Baden-Baden: Straßenläufe – Laufkalender & Rennliste</title>
+    <meta name="description" content="Entdecke alle Straßenläufe in Baden-Baden! Finde deinen nächsten Laufwettkampf mit unserem Laufkalender – von 5 km bis Marathon und mehr.  Laufliste und Rennkalender für Läufer." />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -466,8 +467,16 @@
       Marathon
     </button>
     
+    <button class="category-button" data-category="50 miles">
+      50 miles
+    </button>
+    
     <button class="category-button" data-category="50 km">
       50 km
+    </button>
+    
+    <button class="category-button" data-category="100 km">
+      100 km
     </button>
     
     <button class="category-button" data-category="Millopp">
@@ -588,60 +597,80 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/laufkalender">Laufkalender</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/laufkalender">Laufkalender</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/laufkalender/staedte/baden-baden">Städte: Baden-Baden</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/laufkalender/staedte/baden-baden">Städte: Baden-Baden</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li aria-current="page" >
+          
+          <span>Straße</span>
+          
+        </li>
         
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>Straße</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    Straßenläufe in Baden-Baden: Dein Laufkalender für Laufwettbewerbe
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Suche nach deinem nächsten Laufrennen in Baden-Baden?  Unser Laufkalender und unsere Rennliste bieten eine Übersicht über alle Straßenläufe in der Region.  Wähle aus verschiedenen Kategorien, von 5 km-Läufen bis zum Marathon, und finde den perfekten Laufwettkampf für dich. Ob 10 km, Halvmarathon oder ein anspruchsvollerer 50 km-Lauf – hier findest du die passende Veranstaltung.  Durchsuche jetzt unseren Laufkalender und finde deinen nächsten Lauf!</p>
-
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Alle
-    <span id="race-cards-title-category"></span>
-    Rennen
-    <span id="race-cards-title-separator"
-      >i</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Deutschland</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      Straßenläufe in Baden-Baden: Dein Laufkalender für Laufwettbewerbe
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Suche nach deinem nächsten Laufrennen in Baden-Baden?  Unser Laufkalender und unsere Rennliste bieten eine Übersicht über alle Straßenläufe in der Region.  Wähle aus verschiedenen Kategorien, von 5 km-Läufen bis zum Marathon, und finde den perfekten Laufwettkampf für dich. Ob 10 km, Halvmarathon oder ein anspruchsvollerer 50 km-Lauf – hier findest du die passende Veranstaltung.  Durchsuche jetzt unseren Laufkalender und finde deinen nächsten Lauf!</p>
 
+    
+    <h3 class="race-type-list-title">Beliebte Unterkategorien</h3>
+    <nav class="race-type-navigation" aria-label="race types and categories">
+      <ul class="race-type-list">
+        
+        <li>
+          <a href="/laufkalender/staedte/baden-baden/strasse/5-km" class="race-type-link">
+            5 km (2)
+          </a>
+        </li>
+        
+        <li>
+          <a href="/laufkalender/staedte/baden-baden/strasse/10-km" class="race-type-link">
+            10 km (2)
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Alle
+      <span id="race-cards-title-category"></span>
+      Rennen
+      <span id="race-cards-title-separator"
+        >i</span
+      >
+      <span id="race-cards-title-region"
+        >Deutschland</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -653,31 +682,31 @@
          
 <!-- Full card content for first 20 cards -->
 <a
-  href="/Rennseiten/rheinzaberner_winterlauf_15_km"
+  href="/Rennseiten/neureuter_volkslauf"
   class="race-card"
-  data-name="Rheinzaberner Winterlauf 15 km"
-  data-date="20250112"
-  data-county="Rheinland-Pfalz"
+  data-name="Neureuter Volkslauf"
+  data-date="20250406"
+  data-county="Baden-Württemberg"
   data-category=""
   data-race-type="Straße"
-  data-distance="15km, 20km"
-  data-latitude="49.116328"
-  data-longitude="8.276516899999999"
-  data-location="Rheinzabern"
-  data-description="Der Rheinzaberner Winterlauf über 15 km ist eine beliebte Laufveranstaltung, die am 14. Januar 2024 in der malerischen Umgebung von Rheinzab"
-  data-image-path="/Rennseiten/rheinzaberner_winterlauf_15_km/rheinzaberner_winterlauf_15_km"
+  data-distance="5km, 10km"
+  data-latitude="49.0068901"
+  data-longitude="8.4036527"
+  data-location="Karlsruhe"
+  data-description="Der Neureuter Volkslauf in Karlsruhe bietet eine aufregende Laufveranstaltung mit Distanzen von 10 km, 5 km, 800 m und 400 m. Die Anmeldung "
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fneureuter_volkslauf%2Fneureuter_volkslauf_1.webp?alt=media"
   data-type="road"
   data-type-display="Straße"
-  data-date-display="12 jan."
+  data-date-display="6 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/Rennseiten/rheinzaberner_winterlauf_15_km/rheinzaberner_winterlauf_15_km_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fneureuter_volkslauf%2Fneureuter_volkslauf_1.webp?alt=media"
         width="600"
         height="400"
-        alt="Bild zuRheinzaberner Winterlauf 15 km"
+        alt="Bild zuNeureuter Volkslauf"
         class="background-img"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
@@ -685,10 +714,10 @@
     <div class="race-card-content">
       <div class="race-info-top">
         <div class="race-date">
-          12 jan.
+          6 apr.
         </div>
         <div class="race-location">
-          Rheinland-Pfalz
+          Baden-Württemberg
         </div>
       </div>
     </div>
@@ -698,7 +727,7 @@
   <div class="race-info-bottom">
     <div class="upper-container">
       <div class="left-container">
-        <h3 class="race-name">Rheinzaberner Winterlauf 15 km</h3>
+        <h3 class="race-name">Neureuter Volkslauf</h3>
         <div
           class="race-location with-spacing"
         >
@@ -706,7 +735,7 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Rheinzabern 
+          Karlsruhe 
         </div>
       </div>
       <div class="right-container">
@@ -720,13 +749,13 @@
               
             <div class="distance-item">
               <span class="race-distance">
-                15 km
+                5 km
               </span>
             </div>
             
             <div class="distance-item">
               <span class="race-distance">
-                20 km
+                10 km
               </span>
             </div>
               
@@ -743,7 +772,7 @@
       </div>
     </div>
     <div class="race-summary">
-      Der Rheinzaberner Winterlauf über 15 km ist eine beliebte Laufveranstaltung, die am 14. Januar 2024 in der malerischen Umgebung von Rheinzab...
+      Der Neureuter Volkslauf in Karlsruhe bietet eine aufregende Laufveranstaltung mit Distanzen von 10 km, 5 km, 800 m und 400 m. Die Anmeldung ...
     </div>
   </div>
   <div
@@ -752,34 +781,34 @@
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-   
+    
 <!-- Full card content for first 20 cards -->
 <a
-  href="/Rennseiten/winterlaufserie_15_km"
+  href="/Rennseiten/speckkalblelauf"
   class="race-card"
-  data-name="Winterlaufserie 15 km"
-  data-date="20250118"
-  data-county="Rheinland-Pfalz"
+  data-name="Speckkälblelauf"
+  data-date="20250531"
+  data-county="Baden-Württemberg"
   data-category=""
   data-race-type="Straße"
-  data-distance="15km"
-  data-latitude="49.116328"
-  data-longitude="8.276516899999999"
-  data-location="Rheinzabern"
-  data-description="Die 40. Rheinzaberner Winterlaufserie umfasst eine Distanz von 15 km. Die Strecke führt durch malerische Landschaften und bietet sowohl für "
-  data-image-path="/Rennseiten/winterlaufserie_15_km/winterlaufserie_15_km"
+  data-distance="5km, 10km"
+  data-latitude="48.9345829"
+  data-longitude="8.2733132"
+  data-location="Durmersheim"
+  data-description="Der Würmersheimer Speckkälblelauf über 5 und 10 Kilometer ist ein beliebtes Lauf-Event ohne Wettkampf-Charakter, das am Samstag, den 08. Jun"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fspeckkalblelauf%2Fspeckkalblelauf_1.webp?alt=media"
   data-type="road"
   data-type-display="Straße"
-  data-date-display="18 jan."
+  data-date-display="31 Mai"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/Rennseiten/winterlaufserie_15_km/winterlaufserie_15_km_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fspeckkalblelauf%2Fspeckkalblelauf_1.webp?alt=media"
         width="600"
         height="400"
-        alt="Bild zuWinterlaufserie 15 km"
+        alt="Bild zuSpeckkälblelauf"
         class="background-img"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
@@ -787,10 +816,10 @@
     <div class="race-card-content">
       <div class="race-info-top">
         <div class="race-date">
-          18 jan.
+          31 Mai
         </div>
         <div class="race-location">
-          Rheinland-Pfalz
+          Baden-Württemberg
         </div>
       </div>
     </div>
@@ -800,7 +829,7 @@
   <div class="race-info-bottom">
     <div class="upper-container">
       <div class="left-container">
-        <h3 class="race-name">Winterlaufserie 15 km</h3>
+        <h3 class="race-name">Speckkälblelauf</h3>
         <div
           class="race-location with-spacing"
         >
@@ -808,7 +837,7 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Rheinzabern 
+          Durmersheim 
         </div>
       </div>
       <div class="right-container">
@@ -822,7 +851,13 @@
               
             <div class="distance-item">
               <span class="race-distance">
-                15 km
+                5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
               </span>
             </div>
               
@@ -839,7 +874,7 @@
       </div>
     </div>
     <div class="race-summary">
-      Die 40. Rheinzaberner Winterlaufserie umfasst eine Distanz von 15 km. Die Strecke führt durch malerische Landschaften und bietet sowohl für ...
+      Der Würmersheimer Speckkälblelauf über 5 und 10 Kilometer ist ein beliebtes Lauf-Event ohne Wettkampf-Charakter, das am Samstag, den 08. Jun...
     </div>
   </div>
   <div
@@ -848,247 +883,7 @@
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-   
-      <section class="section section-selected-races in-grid">
-        <div class="section-header-container">
-          <h2 class="section-header">Ausgewählte Rennen</h2>
-          <div class="scroll-buttons">
-            <button class="scroll-button prev" aria-label="Previous" disabled>
-              <ion-icon name="chevron-back-outline"></ion-icon>
-            </button>
-            <button class="scroll-button next" aria-label="Next">
-              <ion-icon name="chevron-forward-outline"></ion-icon>
-            </button>
-          </div>
-        </div>
-        <div class="race-card-big-container right-scroller">
-              <a
-  href="/Rennseiten/winterlaufserie_15_km"
-  class="race-card-big race-card"
-  data-name="Winterlaufserie 15 km"
-  data-date="20250118"
-  data-county="Rheinland-Pfalz"
-  data-category=""
-  data-race-type="Straße"
-  data-distance="15km"
->
-  <div class="race-card-big-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/Rennseiten/winterlaufserie_15_km/winterlaufserie_15_km_1.webp"
-        alt="Bild zuWinterlaufserie 15 km"
-        width="600"
-        height="400"
-        class="background-img selected-race-card-img"
-      />
-    </picture>
-    <div class="overlay softer"></div>
-
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          18 jan.
-        </div>
-        <div class="race-location">
-          Rheinland-Pfalz
-        </div>
-      </div>
-
-      <div class="race-info-bottom">
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-        <div class="race-distances">
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                15 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="race-card-bottom">
-    <h3 class="race-name">Winterlaufserie 15 km</h3>
-    <div class="cta-button">
-      <div class="more-info-button">Zur Rennseite</div>
-    </div>
-  </div>
-</a>       <a
-  href="/Rennseiten/winterlaufserie_15_km_2"
-  class="race-card-big race-card"
-  data-name="Winterlaufserie 15 km"
-  data-date="20250208"
-  data-county="Rheinland-Pfalz"
-  data-category=""
-  data-race-type="Straße"
-  data-distance="15km"
->
-  <div class="race-card-big-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/Rennseiten/winterlaufserie_15_km_2/winterlaufserie_15_km_2_1.webp"
-        alt="Bild zuWinterlaufserie 15 km"
-        width="600"
-        height="400"
-        class="background-img selected-race-card-img"
-      />
-    </picture>
-    <div class="overlay softer"></div>
-
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          8 Feb.
-        </div>
-        <div class="race-location">
-          Rheinland-Pfalz
-        </div>
-      </div>
-
-      <div class="race-info-bottom">
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-        <div class="race-distances">
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                15 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="race-card-bottom">
-    <h3 class="race-name">Winterlaufserie 15 km</h3>
-    <div class="cta-button">
-      <div class="more-info-button">Zur Rennseite</div>
-    </div>
-  </div>
-</a>   
-        </div>
-      </section>
-          
       
-<!-- Full card content for first 20 cards -->
-<a
-  href="/Rennseiten/winterlaufserie_15_km_2"
-  class="race-card"
-  data-name="Winterlaufserie 15 km"
-  data-date="20250208"
-  data-county="Rheinland-Pfalz"
-  data-category=""
-  data-race-type="Straße"
-  data-distance="15km"
-  data-latitude="49.116328"
-  data-longitude="8.276516899999999"
-  data-location="Rheinzabern"
-  data-description="Der Rheinzaberner Winterlaufserie 15 km ist eine beliebte Laufveranstaltung, die in der malerischen Umgebung von Rheinzabern stattfindet. Di"
-  data-image-path="/Rennseiten/winterlaufserie_15_km_2/winterlaufserie_15_km_2"
-  data-type="road"
-  data-type-display="Straße"
-  data-date-display="8 Feb."
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/Rennseiten/winterlaufserie_15_km_2/winterlaufserie_15_km_2_1.webp"
-        width="600"
-        height="400"
-        alt="Bild zuWinterlaufserie 15 km"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          8 Feb.
-        </div>
-        <div class="race-location">
-          Rheinland-Pfalz
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Winterlaufserie 15 km</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Rheinzabern 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                15 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Rheinzaberner Winterlaufserie 15 km ist eine beliebte Laufveranstaltung, die in der malerischen Umgebung von Rheinzabern stattfindet. Di...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
-  </div>
-</a>
- 
 
       <!-- Pagination controls -->
       <div class="pagination-info">

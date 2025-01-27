@@ -54,10 +54,11 @@
       endif
       %}
     >
-      {# First page content #} {% for race in races[:2] %} {% with unpack=true
-      %} {% include 'components/race-card.html' %} {% endwith %} {% endfor %} {#
-      Selected races section #} {% set selected_races =
-      get_selected_races(races) %} {% if races|length >= 3 and selected_races %}
+      {# First page content - only unpack first 3 cards #} {% for race in
+      races[:3] %} {% with unpack=true %} {% include 'components/race-card.html'
+      %} {% endwith %} {% endfor %} {# Selected races section #} {% set
+      selected_races = get_selected_races(races) %} {% if races|length >= 3 and
+      selected_races %}
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">{{ selected_races_title }}</h2>
@@ -75,10 +76,9 @@
           'components/race-card-big.html' %} {% endfor %}
         </div>
       </section>
-      {% endif %} {# Remaining regular cards #} {% for race in races[2:] %} {%
-      with unpack=loop.index < 25 %} {# 1 because we already showed 2 cards
-      above #} {% include 'components/race-card.html' %} {% endwith %} {% endfor
-      %}
+      {% endif %} {# Remaining regular cards - all packed #} {% for race in
+      races[3:] %} {% with unpack=false %} {% include
+      'components/race-card.html' %} {% endwith %} {% endfor %}
 
       <!-- Add pagination controls -->
       <div class="pagination-info">

@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Herzlich willkommen zum 30. Energie Cross Neukirchen, der am 17. Februar 2024 in Grevenbroich-Neukirchen stattfindet. Die Veranstaltung ist als Cross-/Waldlauf ", "distance": "1,3km, 1,7km, 2,5km, 5,1km", "eventStatus": "Standard", "identifier": "energie_cross_neukirchen", "image": "/Rennseiten/energie_cross_neukirchen/energie_cross_neukirchen_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Grevenbroich - Neukirchen", "addressRegion": "Nordrhein-Westfalen"}, "name": "Grevenbroich - Neukirchen"}, "name": "Energie Cross Neukirchen", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250222"}, "position": 1}], "numberOfItems": 1}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Bereits zum 29. Mal fand der Energie Cross Neukirchen statt, zum zweiten Mal hat die Trainingsgruppe von Frank Hahn aus Meckenheim daran teilgenommen, und die B", "distance": "3km, 5km, trail", "eventStatus": "Standard", "identifier": "energie_cross_neukirchen", "image": "/Rennseiten/energie_cross_neukirchen/energie_cross_neukirchen_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Grevenbroich (Neukirchen)", "addressRegion": "Nordrhein-Westfalen"}, "name": "Grevenbroich (Neukirchen)"}, "name": "Energie Cross Neukirchen", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250222"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 23. Karl-Heinz-Hahn Walk findet am 05.04.2025 in D\u00fcsseldorf-Benrath statt und bietet Wettk\u00e4mpfe \u00fcber 7,5 km und 10 km Walking sowie Nordic Walking. Die Stre", "distance": "7,5km, 10km", "eventStatus": "Standard", "identifier": "karl_heinz_hahn_walk", "image": "/Rennseiten/karl_heinz_hahn_walk/karl_heinz_hahn_walk_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Paulsm\u00fchlenstra\u00dfe 118a, D\u00fcsseldorf-Benrath", "addressRegion": "Nordrhein-Westfalen"}, "name": "Paulsm\u00fchlenstra\u00dfe 118a, D\u00fcsseldorf-Benrath"}, "name": "Karl-Heinz-Hahn Walk", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250405"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -19,6 +19,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>5 km Geländelauf in Neuss: Finde deinen nächsten Laufwettbewerb im Laufkalender</title>
+    <meta name="description" content="Entdecke alle 5 km Geländeläufe in Neuss.  Finde deinen nächsten Laufwettkampf in unserer Rennliste und durchsuche unseren Laufkalender nach weiteren Laufrennen." />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -462,8 +463,16 @@
       Marathon
     </button>
     
+    <button class="category-button" data-category="50 miles">
+      50 miles
+    </button>
+    
     <button class="category-button" data-category="50 km">
       50 km
+    </button>
+    
+    <button class="category-button" data-category="100 km">
+      100 km
     </button>
     
     <button class="category-button" data-category="Millopp">
@@ -584,69 +593,70 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/laufkalender">Laufkalender</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/laufkalender">Laufkalender</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/laufkalender/staedte/neuss">Städte: Neuss</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/laufkalender/staedte/neuss">Städte: Neuss</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/laufkalender/staedte/neuss/gelaende">Gelände</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li aria-current="page" >
+          
+          <span>5 km</span>
+          
+        </li>
         
-        <a href="/laufkalender/staedte/neuss/gelaende">Gelände</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
-        
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>5 km</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    5 km Geländeläufe in Neuss: Laufwettbewerbe & Rennkalender
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Suchst du nach einem 5 km Geländelauf in Neuss?  Unser Laufkalender und unsere Laufliste helfen dir, den perfekten Laufwettkampf zu finden.  Filtere nach Kategorie (z.B. 5 km), Laufart (z.B. Gelände) und Ort (z.B. Neuss) und entdecke die besten Laufrennen in deiner Nähe.  Schau dir jetzt unsere Rennliste an und finde deinen nächsten Laufwettbewerb!</p>
-
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Alle
-    <span id="race-cards-title-category"></span>
-    Rennen
-    <span id="race-cards-title-separator"
-      >i</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Deutschland</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      5 km Geländeläufe in Neuss: Laufwettbewerbe & Rennkalender
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Suchst du nach einem 5 km Geländelauf in Neuss?  Unser Laufkalender und unsere Laufliste helfen dir, den perfekten Laufwettkampf zu finden.  Filtere nach Kategorie (z.B. 5 km), Laufart (z.B. Gelände) und Ort (z.B. Neuss) und entdecke die besten Laufrennen in deiner Nähe.  Schau dir jetzt unsere Rennliste an und finde deinen nächsten Laufwettbewerb!</p>
 
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Alle
+      <span id="race-cards-title-category"></span>
+      Rennen
+      <span id="race-cards-title-separator"
+        >i</span
+      >
+      <span id="race-cards-title-region"
+        >Deutschland</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -658,124 +668,6 @@
          
 <!-- Full card content for first 20 cards -->
 <a
-  href="/Rennseiten/gillrather_crosslauf"
-  class="race-card"
-  data-name="Gillrather Crosslauf"
-  data-date="20250111"
-  data-county="Nordrhein-Westfalen"
-  data-category=""
-  data-race-type="Gelände"
-  data-distance="0,6km, 1,3km, 2,6km, 4,6km, 9,2km"
-  data-latitude="50.9777147"
-  data-longitude="6.075950799999999"
-  data-location="Grundschule Gillrath, Bergstrasse 32, 52511 Geilenkirchen - Gillrath"
-  data-description="Der 48. Gillrather Crosslauf findet am Samstag, den 13. Januar 2024, im Waldgebiet Gillrath statt. Der Start und das Ziel befinden sich an e"
-  data-image-path="/Rennseiten/gillrather_crosslauf/gillrather_crosslauf"
-  data-type="terrain"
-  data-type-display="Gelände"
-  data-date-display="11 jan."
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/Rennseiten/gillrather_crosslauf/gillrather_crosslauf_1.webp"
-        width="600"
-        height="400"
-        alt="Bild zuGillrather Crosslauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          11 jan.
-        </div>
-        <div class="race-location">
-          Nordrhein-Westfalen
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Gillrather Crosslauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Grundschule Gillrath, Bergstrasse 32, 52511 Geilenkirchen - Gillrath 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                0,6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                1,3 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2,6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                4,6 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der 48. Gillrather Crosslauf findet am Samstag, den 13. Januar 2024, im Waldgebiet Gillrath statt. Der Start und das Ziel befinden sich an e...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
-  </div>
-</a>
-   
-<!-- Full card content for first 20 cards -->
-<a
   href="/Rennseiten/energie_cross_neukirchen"
   class="race-card"
   data-name="Energie Cross Neukirchen"
@@ -783,12 +675,12 @@
   data-county="Nordrhein-Westfalen"
   data-category=""
   data-race-type="Gelände"
-  data-distance="1,3km, 1,7km, 2,5km, 5,1km"
+  data-distance="3km, 5km, trail"
   data-latitude="51.1216342"
   data-longitude="6.6815511"
-  data-location="Grevenbroich - Neukirchen"
-  data-description="Herzlich willkommen zum 30. Energie Cross Neukirchen, der am 17. Februar 2024 in Grevenbroich-Neukirchen stattfindet. Die Veranstaltung ist "
-  data-image-path="/Rennseiten/energie_cross_neukirchen/energie_cross_neukirchen"
+  data-location="Grevenbroich (Neukirchen)"
+  data-description="Bereits zum 29. Mal fand der Energie Cross Neukirchen statt, zum zweiten Mal hat die Trainingsgruppe von Frank Hahn aus Meckenheim daran tei"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fenergie_cross_neukirchen%2Fenergie_cross_neukirchen_1.webp?alt=media"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="22 Feb."
@@ -797,7 +689,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/Rennseiten/energie_cross_neukirchen/energie_cross_neukirchen_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fenergie_cross_neukirchen%2Fenergie_cross_neukirchen_1.webp?alt=media"
         width="600"
         height="400"
         alt="Bild zuEnergie Cross Neukirchen"
@@ -829,7 +721,7 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Grevenbroich - Neukirchen 
+          Grevenbroich (Neukirchen) 
         </div>
       </div>
       <div class="right-container">
@@ -843,25 +735,19 @@
               
             <div class="distance-item">
               <span class="race-distance">
-                1,3 km
+                3 km
               </span>
             </div>
             
             <div class="distance-item">
               <span class="race-distance">
-                1,7 km
+                5 km
               </span>
             </div>
             
             <div class="distance-item">
               <span class="race-distance">
-                2,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5,1 km
+                trail
               </span>
             </div>
               
@@ -878,7 +764,7 @@
       </div>
     </div>
     <div class="race-summary">
-      Herzlich willkommen zum 30. Energie Cross Neukirchen, der am 17. Februar 2024 in Grevenbroich-Neukirchen stattfindet. Die Veranstaltung ist ...
+      Bereits zum 29. Mal fand der Energie Cross Neukirchen statt, zum zweiten Mal hat die Trainingsgruppe von Frank Hahn aus Meckenheim daran tei...
     </div>
   </div>
   <div
@@ -887,7 +773,109 @@
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-     
+    
+<!-- Full card content for first 20 cards -->
+<a
+  href="/Rennseiten/karl_heinz_hahn_walk"
+  class="race-card"
+  data-name="Karl-Heinz-Hahn Walk"
+  data-date="20250405"
+  data-county="Nordrhein-Westfalen"
+  data-category=""
+  data-race-type="Gelände"
+  data-distance="7,5km, 10km"
+  data-latitude="51.1648844"
+  data-longitude="6.8875398"
+  data-location="Paulsmühlenstraße 118a, Düsseldorf-Benrath"
+  data-description="Der 23. Karl-Heinz-Hahn Walk findet am 05.04.2025 in Düsseldorf-Benrath statt und bietet Wettkämpfe über 7,5 km und 10 km Walking sowie Nord"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fkarl_heinz_hahn_walk%2Fkarl_heinz_hahn_walk_1.webp?alt=media"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="5 apr."
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fkarl_heinz_hahn_walk%2Fkarl_heinz_hahn_walk_1.webp?alt=media"
+        width="600"
+        height="400"
+        alt="Bild zuKarl-Heinz-Hahn Walk"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          5 apr.
+        </div>
+        <div class="race-location">
+          Nordrhein-Westfalen
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Karl-Heinz-Hahn Walk</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Paulsmühlenstraße 118a, Düsseldorf-Benrath 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                7,5 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                10 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Gelände
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Der 23. Karl-Heinz-Hahn Walk findet am 05.04.2025 in Düsseldorf-Benrath statt und bietet Wettkämpfe über 7,5 km und 10 km Walking sowie Nord...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
+  </div>
+</a>
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

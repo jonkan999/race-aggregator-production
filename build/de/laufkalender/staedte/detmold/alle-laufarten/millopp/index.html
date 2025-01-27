@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [], "numberOfItems": 0}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Ple\u00df-Frankenburg-Ultra-Trail Veranstaltung bietet verschiedene Laufstrecken an, darunter den Ultra-Trail \u00fcber 50 Kilometer, den Trail \u00fcber 30 Kilometer und ", "distance": "15km, 30km, 50km", "eventStatus": "Standard", "identifier": "frankenburg_ultra_trail", "image": "/Rennseiten/frankenburg_ultra_trail/frankenburg_ultra_trail_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sporthalle am Riegelsweg", "addressRegion": "Niedersachsen"}, "name": "Sporthalle am Riegelsweg"}, "name": "Frankenburg Ultra Trail", "sport": "Laufen, Trail", "startDate": "20250413"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Geplant f\u00fcr den 19. April 2025, l\u00e4dt der Paderborner Osterlauf 10km L\u00e4ufer ein, eines der gesch\u00e4tztesten Stra\u00dfenrennen Deutschlands zu erleben. Organisiert von ", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "osterlauf_series", "image": "/Rennseiten/osterlauf_series/osterlauf_series_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Paderborn", "addressRegion": "Nordrhein-Westfalen"}, "name": "Paderborn"}, "name": "Osterlauf Series", "sport": "Laufen, Stra\u00dfe", "startDate": "20250419"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -19,6 +19,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Millopp in Detmold: Laufkalender & Laufwettbewerbe finden</title>
+    <meta name="description" content="Entdecke alle Millopps in Detmold! Finde deinen nächsten Laufwettkampf mit unserem Laufkalender – von Straßenläufen bis Trailruns. Lauflisten und Rennkalender für Läufer." />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -462,8 +463,16 @@
       Marathon
     </button>
     
+    <button class="category-button" data-category="50 miles">
+      50 miles
+    </button>
+    
     <button class="category-button" data-category="50 km">
       50 km
+    </button>
+    
+    <button class="category-button" data-category="100 km">
+      100 km
     </button>
     
     <button class="category-button" data-category="Millopp">
@@ -584,60 +593,61 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/laufkalender">Laufkalender</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/laufkalender">Laufkalender</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/laufkalender/staedte/detmold">Städte: Detmold</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/laufkalender/staedte/detmold">Städte: Detmold</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li aria-current="page" >
+          
+          <span>Millopp</span>
+          
+        </li>
         
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>Millopp</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    Millopps in Detmold: Dein Laufwettkampf wartet
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Suchst du nach Millopps in Detmold?  Unser Laufkalender bietet dir eine Übersicht über alle Laufwettbewerbe und laufrennen in der Region.  Wähle aus verschiedenen Laufarten wie Straße, Gelände oder Trail. Ob Laufbahn, Backyard Ultra oder Staffel –  finde den perfekten Laufwettkampf für dich in unserer laufliste und rennliste.  Mit unserem Laufkalender und den aktuellen rennkalendern findest du schnell und einfach den passenden Laufwettkampf.</p>
-
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Alle
-    <span id="race-cards-title-category"></span>
-    Rennen
-    <span id="race-cards-title-separator"
-      >i</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Deutschland</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      Millopps in Detmold: Dein Laufwettkampf wartet
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Suchst du nach Millopps in Detmold?  Unser Laufkalender bietet dir eine Übersicht über alle Laufwettbewerbe und laufrennen in der Region.  Wähle aus verschiedenen Laufarten wie Straße, Gelände oder Trail. Ob Laufbahn, Backyard Ultra oder Staffel –  finde den perfekten Laufwettkampf für dich in unserer laufliste und rennliste.  Mit unserem Laufkalender und den aktuellen rennkalendern findest du schnell und einfach den passenden Laufwettkampf.</p>
 
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Alle
+      <span id="race-cards-title-category"></span>
+      Rennen
+      <span id="race-cards-title-separator"
+        >i</span
+      >
+      <span id="race-cards-title-region"
+        >Deutschland</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -649,31 +659,31 @@
          
 <!-- Full card content for first 20 cards -->
 <a
-  href="/Rennseiten/winterlaufserie_lauf_38"
+  href="/Rennseiten/frankenburg_ultra_trail"
   class="race-card"
-  data-name="Winterlaufserie Lauf"
-  data-date="20241231"
+  data-name="Frankenburg Ultra Trail"
+  data-date="20250413"
   data-county="Niedersachsen"
   data-category=""
-  data-race-type="Straße"
-  data-distance="5km, 7km, 7,5km, 10km"
-  data-latitude="52.31044439999999"
-  data-longitude="9.2251409"
-  data-location="31655 Stadthagen"
-  data-description="Die WINTERLAUFSERIE 2025 findet vom 10. Januar bis 23. Februar statt und bietet dir die Möglichkeit, dich optimal auf das Lauf-Jahr 2025 vor"
-  data-image-path="/Rennseiten/winterlaufserie_lauf_38/winterlaufserie_lauf_38"
-  data-type="road"
-  data-type-display="Straße"
-  data-date-display="31 dez."
+  data-race-type="Trail"
+  data-distance="15km, 30km, 50km"
+  data-latitude="51.9597599"
+  data-longitude="9.2997135"
+  data-location="Sporthalle am Riegelsweg"
+  data-description="Die Pleß-Frankenburg-Ultra-Trail Veranstaltung bietet verschiedene Laufstrecken an, darunter den Ultra-Trail über 50 Kilometer, den Trail üb"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Ffrankenburg_ultra_trail%2Ffrankenburg_ultra_trail_1.webp?alt=media"
+  data-type="trail"
+  data-type-display="Trail"
+  data-date-display="13 apr."
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/Rennseiten/winterlaufserie_lauf_38/winterlaufserie_lauf_38_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Ffrankenburg_ultra_trail%2Ffrankenburg_ultra_trail_1.webp?alt=media"
         width="600"
         height="400"
-        alt="Bild zuWinterlaufserie Lauf"
+        alt="Bild zuFrankenburg Ultra Trail"
         class="background-img"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
@@ -681,7 +691,7 @@
     <div class="race-card-content">
       <div class="race-info-top">
         <div class="race-date">
-          31 dez.
+          13 apr.
         </div>
         <div class="race-location">
           Niedersachsen
@@ -694,7 +704,7 @@
   <div class="race-info-bottom">
     <div class="upper-container">
       <div class="left-container">
-        <h3 class="race-name">Winterlaufserie Lauf</h3>
+        <h3 class="race-name">Frankenburg Ultra Trail</h3>
         <div
           class="race-location with-spacing"
         >
@@ -702,7 +712,115 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          31655 Stadthagen 
+          Sporthalle am Riegelsweg 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                15 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                30 km
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                50 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Trail
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Die Pleß-Frankenburg-Ultra-Trail Veranstaltung bietet verschiedene Laufstrecken an, darunter den Ultra-Trail über 50 Kilometer, den Trail üb...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
+  </div>
+</a>
+    
+<!-- Full card content for first 20 cards -->
+<a
+  href="/Rennseiten/osterlauf_series"
+  class="race-card"
+  data-name="Osterlauf Series"
+  data-date="20250419"
+  data-county="Nordrhein-Westfalen"
+  data-category=""
+  data-race-type="Straße"
+  data-distance="5km, 10km"
+  data-latitude="51.7189205"
+  data-longitude="8.757509299999999"
+  data-location="Paderborn"
+  data-description="Geplant für den 19. April 2025, lädt der Paderborner Osterlauf 10km Läufer ein, eines der geschätztesten Straßenrennen Deutschlands zu erleb"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fosterlauf_series%2Fosterlauf_series_1.webp?alt=media"
+  data-type="road"
+  data-type-display="Straße"
+  data-date-display="19 apr."
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fosterlauf_series%2Fosterlauf_series_1.webp?alt=media"
+        width="600"
+        height="400"
+        alt="Bild zuOsterlauf Series"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          19 apr.
+        </div>
+        <div class="race-location">
+          Nordrhein-Westfalen
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Osterlauf Series</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Paderborn 
         </div>
       </div>
       <div class="right-container">
@@ -717,18 +835,6 @@
             <div class="distance-item">
               <span class="race-distance">
                 5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                7 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                7,5 km
               </span>
             </div>
             
@@ -751,7 +857,7 @@
       </div>
     </div>
     <div class="race-summary">
-      Die WINTERLAUFSERIE 2025 findet vom 10. Januar bis 23. Februar statt und bietet dir die Möglichkeit, dich optimal auf das Lauf-Jahr 2025 vor...
+      Geplant für den 19. April 2025, lädt der Paderborner Osterlauf 10km Läufer ein, eines der geschätztesten Straßenrennen Deutschlands zu erleb...
     </div>
   </div>
   <div
@@ -760,125 +866,7 @@
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-   
-<!-- Full card content for first 20 cards -->
-<a
-  href="/Rennseiten/bergedorfer_oelder_crosslauf"
-  class="race-card"
-  data-name="Bergedorfer Oelder Crosslauf"
-  data-date="20250105"
-  data-county="Nordrhein-Westfalen"
-  data-category=""
-  data-race-type="Gelände"
-  data-distance="0,7km, 1,4km, 2,1km, 4,2km, 8,3km"
-  data-latitude="51.8035068"
-  data-longitude="8.197300499999999"
-  data-location="Oelde-Stromberg am Freibad"
-  data-description="Der Bergedorfer Oelder Crosslauf bietet Schülern und Schülerinnen bis M/W 11 leicht wellige Strecken, die auf befestigten Wegen und Wiesen i"
-  data-image-path="/Rennseiten/bergedorfer_oelder_crosslauf/bergedorfer_oelder_crosslauf"
-  data-type="terrain"
-  data-type-display="Gelände"
-  data-date-display="5 jan."
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/Rennseiten/bergedorfer_oelder_crosslauf/bergedorfer_oelder_crosslauf_1.webp"
-        width="600"
-        height="400"
-        alt="Bild zuBergedorfer Oelder Crosslauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          5 jan.
-        </div>
-        <div class="race-location">
-          Nordrhein-Westfalen
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Bergedorfer Oelder Crosslauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Oelde-Stromberg am Freibad 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                0,7 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                1,4 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2,1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                4,2 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Bergedorfer Oelder Crosslauf bietet Schülern und Schülerinnen bis M/W 11 leicht wellige Strecken, die auf befestigten Wegen und Wiesen i...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
-  </div>
-</a>
-     
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

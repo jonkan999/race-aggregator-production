@@ -8,11 +8,11 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "SiteNavigationElement", "description": "Visa 2 5 km Lauf", "name": "5 km", "numberOfItems": 2, "url": "https://laufrennen.de/laufkalender/staedte/bergisch-gladbach/gelaende/5-km"}], "numberOfItems": 1}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [], "numberOfItems": 0}
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Beweist Euch bei MHEX 2025, einem der h\u00e4rtesten Crossl\u00e4ufe der Region. Der Meerhardt Extreme Lauf findet am 3. Februar 2024 in Gummersbach-Dieringhausen statt u", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "meerhardt_extreme", "image": "/Rennseiten/meerhardt_extreme/meerhardt_extreme_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Gummersbach-Dieringhausen", "addressRegion": "Nordrhein-Westfalen"}, "name": "Gummersbach-Dieringhausen"}, "name": "Meerhardt Extreme", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250208"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Herzlich willkommen zum 30. Energie Cross Neukirchen, der am 17. Februar 2024 in Grevenbroich-Neukirchen stattfindet. Die Veranstaltung ist als Cross-/Waldlauf ", "distance": "1,3km, 1,7km, 2,5km, 5,1km", "eventStatus": "Standard", "identifier": "energie_cross_neukirchen", "image": "/Rennseiten/energie_cross_neukirchen/energie_cross_neukirchen_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Grevenbroich - Neukirchen", "addressRegion": "Nordrhein-Westfalen"}, "name": "Grevenbroich - Neukirchen"}, "name": "Energie Cross Neukirchen", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250222"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der K\u00f6nigsforst-Marathon wird organisiert vom TVR running team und findet seit 1973 im Fr\u00fchjahr im K\u00f6nigsforst in Bensberg/Bergisch Gladbach bei K\u00f6ln statt. Die", "distance": "half marathon, marathon, 63,3km", "eventStatus": "Standard", "identifier": "konigsforst_marathon_mit_halbmarathon_und_ultramarathon", "image": "/Rennseiten/konigsforst_marathon_mit_halbmarathon_und_ultramarathon/konigsforst_marathon_mit_halbmarathon_und_ultramarathon_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Bensberg/Bergisch Gladbach", "addressRegion": "Nordrhein-Westfalen"}, "name": "Bensberg/Bergisch Gladbach"}, "name": "K\u00f6nigsforst-Marathon mit Halbmarathon und Ultramarathon", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250316"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 23. Karl-Heinz-Hahn Walk findet am 05.04.2025 in D\u00fcsseldorf-Benrath statt und bietet Wettk\u00e4mpfe \u00fcber 7,5 km und 10 km Walking sowie Nordic Walking. Die Stre", "distance": "7,5km, 10km", "eventStatus": "Standard", "identifier": "karl_heinz_hahn_walk", "image": "/Rennseiten/karl_heinz_hahn_walk/karl_heinz_hahn_walk_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Paulsm\u00fchlenstra\u00dfe 118a, D\u00fcsseldorf-Benrath", "addressRegion": "Nordrhein-Westfalen"}, "name": "Paulsm\u00fchlenstra\u00dfe 118a, D\u00fcsseldorf-Benrath"}, "name": "Karl-Heinz-Hahn Walk", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250405"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -23,6 +23,7 @@
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Gelände Laufwettbewerbe in Bergisch Gladbach: Laufkalender & Rennliste</title>
+    <meta name="description" content="Finde deinen nächsten Geländelauf in Bergisch Gladbach!  Unser Laufkalender listet Laufwettkämpfe von 1500 Metern bis Marathon auf.  Durchsuche unsere Rennliste nach der perfekten Distanz." />
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -466,8 +467,16 @@
       Marathon
     </button>
     
+    <button class="category-button" data-category="50 miles">
+      50 miles
+    </button>
+    
     <button class="category-button" data-category="50 km">
       50 km
+    </button>
+    
+    <button class="category-button" data-category="100 km">
+      100 km
     </button>
     
     <button class="category-button" data-category="Millopp">
@@ -588,73 +597,61 @@
     </div>
   </div>
 </section> <section class="section section-race-cards">
-  
-  <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
-    <ol>
-      
-      <li >
+  <div class="section-race-cards-header-container">
+    
+    <nav class="breadcrumbs above-h1" aria-label="breadcrumb">
+      <ol>
         
-        <a href="/laufkalender">Laufkalender</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li >
+          
+          <a href="/laufkalender">Laufkalender</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-      </li>
-      
-      <li >
+        <li >
+          
+          <a href="/laufkalender/staedte/bergisch-gladbach">Städte: Bergisch Gladbach</a>
+          <span class="separator"
+            ><ion-icon name="chevron-forward-outline"></ion-icon
+          ></span>
+          
+        </li>
         
-        <a href="/laufkalender/staedte/bergisch-gladbach">Städte: Bergisch Gladbach</a>
-        <span class="separator"
-          ><ion-icon name="chevron-forward-outline"></ion-icon
-        ></span>
+        <li aria-current="page" >
+          
+          <span>Gelände</span>
+          
+        </li>
         
-      </li>
-      
-      <li aria-current="page" >
-        
-        <span>Gelände</span>
-        
-      </li>
-      
-    </ol>
-  </nav>
-  
+      </ol>
+    </nav>
+    
 
-  <h1
-    class="section-header section-header-race-cards race-list-title no-padding-top"
-  >
-    Laufwettbewerbe Gelände in Bergisch Gladbach: Dein Laufkalender
-  </h1>
-  <p class="race-list-paragraph seo-paragraph">Suche jetzt nach deinem nächsten Laufrennen in Bergisch Gladbach!  Dieser Laufkalender bietet eine Übersicht über alle Geländeläufe in Bergisch Gladbach.  Ob 5 km, 10 km, Halvmarathon oder Marathon –  finde den passenden Laufwettkampf für dich.  Unsere Rennliste umfasst verschiedene Distanzen und Kategorien. Entdecke jetzt die perfekte Herausforderung!  Nutze unseren Laufkalender und unsere laufliste, um den idealen Laufwettkampf zu finden.</p>
-
-  
-  <h3 class="race-type-list-title">Beliebte Unterkategorien</h3>
-  <nav class="race-type-navigation" aria-label="race types and categories">
-    <ul class="race-type-list">
-      
-      <li>
-        <a href="/laufkalender/staedte/bergisch-gladbach/gelaende/5-km" class="race-type-link">
-          5 km (2)
-        </a>
-      </li>
-      
-    </ul>
-  </nav>
-  
-
-  <h2 class="section-header phone-min-height-51rem">
-    Alle
-    <span id="race-cards-title-category"></span>
-    Rennen
-    <span id="race-cards-title-separator"
-      >i</span
+    <h1
+      class="section-header section-header-race-cards race-list-title no-padding-top"
     >
-    <span id="race-cards-title-region"
-      >Deutschland</span
-    >
-    <span id="date-range"></span>
-  </h2>
+      Laufwettbewerbe Gelände in Bergisch Gladbach: Dein Laufkalender
+    </h1>
+    <p class="race-list-paragraph seo-paragraph">Suche jetzt nach deinem nächsten Laufrennen in Bergisch Gladbach!  Dieser Laufkalender bietet eine Übersicht über alle Geländeläufe in Bergisch Gladbach.  Ob 5 km, 10 km, Halvmarathon oder Marathon –  finde den passenden Laufwettkampf für dich.  Unsere Rennliste umfasst verschiedene Distanzen und Kategorien. Entdecke jetzt die perfekte Herausforderung!  Nutze unseren Laufkalender und unsere laufliste, um den idealen Laufwettkampf zu finden.</p>
 
+    
+
+    <h2 class="section-header phone-min-height-51rem">
+      Alle
+      <span id="race-cards-title-category"></span>
+      Rennen
+      <span id="race-cards-title-separator"
+        >i</span
+      >
+      <span id="race-cards-title-region"
+        >Deutschland</span
+      >
+      <span id="date-range"></span>
+    </h2>
+  </div>
   <div class="race-cards-selector">
     <div
       class="race-cards-grid"
@@ -666,31 +663,31 @@
          
 <!-- Full card content for first 20 cards -->
 <a
-  href="/Rennseiten/meerhardt_extreme"
+  href="/Rennseiten/konigsforst_marathon_mit_halbmarathon_und_ultramarathon"
   class="race-card"
-  data-name="Meerhardt Extreme"
-  data-date="20250208"
+  data-name="Königsforst-Marathon mit Halbmarathon und Ultramarathon"
+  data-date="20250316"
   data-county="Nordrhein-Westfalen"
   data-category=""
   data-race-type="Gelände"
-  data-distance="5km, 10km"
-  data-latitude="50.9829226"
-  data-longitude="7.526881899999999"
-  data-location="Gummersbach-Dieringhausen"
-  data-description="Beweist Euch bei MHEX 2025, einem der härtesten Crossläufe der Region. Der Meerhardt Extreme Lauf findet am 3. Februar 2024 in Gummersbach-D"
-  data-image-path="/Rennseiten/meerhardt_extreme/meerhardt_extreme"
+  data-distance="half marathon, marathon, 63,3km"
+  data-latitude="50.9647506"
+  data-longitude="7.1548209"
+  data-location="Bensberg/Bergisch Gladbach"
+  data-description="Der Königsforst-Marathon wird organisiert vom TVR running team und findet seit 1973 im Frühjahr im Königsforst in Bensberg/Bergisch Gladbach"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fkonigsforst_marathon_mit_halbmarathon_und_ultramarathon%2Fkonigsforst_marathon_mit_halbmarathon_und_ultramarathon_1.webp?alt=media"
   data-type="terrain"
   data-type-display="Gelände"
-  data-date-display="8 Feb."
+  data-date-display="16 März"
 >
   <div class="race-card-upper-box background-container">
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/Rennseiten/meerhardt_extreme/meerhardt_extreme_1.webp"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fkonigsforst_marathon_mit_halbmarathon_und_ultramarathon%2Fkonigsforst_marathon_mit_halbmarathon_und_ultramarathon_1.webp?alt=media"
         width="600"
         height="400"
-        alt="Bild zuMeerhardt Extreme"
+        alt="Bild zuKönigsforst-Marathon mit Halbmarathon und Ultramarathon"
         class="background-img"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
@@ -698,7 +695,7 @@
     <div class="race-card-content">
       <div class="race-info-top">
         <div class="race-date">
-          8 Feb.
+          16 März
         </div>
         <div class="race-location">
           Nordrhein-Westfalen
@@ -711,7 +708,7 @@
   <div class="race-info-bottom">
     <div class="upper-container">
       <div class="left-container">
-        <h3 class="race-name">Meerhardt Extreme</h3>
+        <h3 class="race-name">Königsforst-Marathon mit Halbmarathon und Ultramarathon</h3>
         <div
           class="race-location with-spacing"
         >
@@ -719,7 +716,7 @@
           <svg class="icon">
             <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
           </svg>
-          Gummersbach-Dieringhausen 
+          Bensberg/Bergisch Gladbach 
         </div>
       </div>
       <div class="right-container">
@@ -733,7 +730,115 @@
               
             <div class="distance-item">
               <span class="race-distance">
-                5 km
+                Halbmarathon
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                Marathon
+              </span>
+            </div>
+            
+            <div class="distance-item">
+              <span class="race-distance">
+                63,3 km
+              </span>
+            </div>
+              
+          </div>
+        </div>
+        
+        <div class="race-type">
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
+          </svg>
+          Gelände
+        </div>
+        
+      </div>
+    </div>
+    <div class="race-summary">
+      Der Königsforst-Marathon wird organisiert vom TVR running team und findet seit 1973 im Frühjahr im Königsforst in Bensberg/Bergisch Gladbach...
+    </div>
+  </div>
+  <div
+    class="cta-button with-spacing"
+  >
+    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
+  </div>
+</a>
+    
+<!-- Full card content for first 20 cards -->
+<a
+  href="/Rennseiten/karl_heinz_hahn_walk"
+  class="race-card"
+  data-name="Karl-Heinz-Hahn Walk"
+  data-date="20250405"
+  data-county="Nordrhein-Westfalen"
+  data-category=""
+  data-race-type="Gelände"
+  data-distance="7,5km, 10km"
+  data-latitude="51.1648844"
+  data-longitude="6.8875398"
+  data-location="Paulsmühlenstraße 118a, Düsseldorf-Benrath"
+  data-description="Der 23. Karl-Heinz-Hahn Walk findet am 05.04.2025 in Düsseldorf-Benrath statt und bietet Wettkämpfe über 7,5 km und 10 km Walking sowie Nord"
+  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fkarl_heinz_hahn_walk%2Fkarl_heinz_hahn_walk_1.webp?alt=media"
+  data-type="terrain"
+  data-type-display="Gelände"
+  data-date-display="5 apr."
+>
+  <div class="race-card-upper-box background-container">
+    <picture>
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fkarl_heinz_hahn_walk%2Fkarl_heinz_hahn_walk_1.webp?alt=media"
+        width="600"
+        height="400"
+        alt="Bild zuKarl-Heinz-Hahn Walk"
+        class="background-img"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+      />
+    </picture>
+    <div class="race-card-content">
+      <div class="race-info-top">
+        <div class="race-date">
+          5 apr.
+        </div>
+        <div class="race-location">
+          Nordrhein-Westfalen
+        </div>
+      </div>
+    </div>
+    <div class="overlay soft"></div>
+  </div>
+
+  <div class="race-info-bottom">
+    <div class="upper-container">
+      <div class="left-container">
+        <h3 class="race-name">Karl-Heinz-Hahn Walk</h3>
+        <div
+          class="race-location with-spacing"
+        >
+          
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
+          </svg>
+          Paulsmühlenstraße 118a, Düsseldorf-Benrath 
+        </div>
+      </div>
+      <div class="right-container">
+        <div
+          class="race-distances with-spacing"
+        >
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
+          </svg>
+          <div class="distance-container">
+              
+            <div class="distance-item">
+              <span class="race-distance">
+                7,5 km
               </span>
             </div>
             
@@ -756,7 +861,7 @@
       </div>
     </div>
     <div class="race-summary">
-      Beweist Euch bei MHEX 2025, einem der härtesten Crossläufe der Region. Der Meerhardt Extreme Lauf findet am 3. Februar 2024 in Gummersbach-D...
+      Der 23. Karl-Heinz-Hahn Walk findet am 05.04.2025 in Düsseldorf-Benrath statt und bietet Wettkämpfe über 7,5 km und 10 km Walking sowie Nord...
     </div>
   </div>
   <div
@@ -765,121 +870,7 @@
     <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-   
-<!-- Full card content for first 20 cards -->
-<a
-  href="/Rennseiten/energie_cross_neukirchen"
-  class="race-card"
-  data-name="Energie Cross Neukirchen"
-  data-date="20250222"
-  data-county="Nordrhein-Westfalen"
-  data-category=""
-  data-race-type="Gelände"
-  data-distance="1,3km, 1,7km, 2,5km, 5,1km"
-  data-latitude="51.1216342"
-  data-longitude="6.6815511"
-  data-location="Grevenbroich - Neukirchen"
-  data-description="Herzlich willkommen zum 30. Energie Cross Neukirchen, der am 17. Februar 2024 in Grevenbroich-Neukirchen stattfindet. Die Veranstaltung ist "
-  data-image-path="/Rennseiten/energie_cross_neukirchen/energie_cross_neukirchen"
-  data-type="terrain"
-  data-type-display="Gelände"
-  data-date-display="22 Feb."
->
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="/Rennseiten/energie_cross_neukirchen/energie_cross_neukirchen_1.webp"
-        width="600"
-        height="400"
-        alt="Bild zuEnergie Cross Neukirchen"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          22 Feb.
-        </div>
-        <div class="race-location">
-          Nordrhein-Westfalen
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Energie Cross Neukirchen</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Grevenbroich - Neukirchen 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,3 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                1,7 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5,1 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Herzlich willkommen zum 30. Energie Cross Neukirchen, der am 17. Februar 2024 in Grevenbroich-Neukirchen stattfindet. Die Veranstaltung ist ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
-  </div>
-</a>
-     
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

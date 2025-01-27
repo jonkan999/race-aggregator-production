@@ -62,6 +62,7 @@ async function initializeWhenReady() {
     console.log('🔍 Starting initialization');
     document.body.classList.add('loading');
     
+    // Wait for fonts and document
     await Promise.all([
       document.fonts.ready,
       new Promise(resolve => {
@@ -93,8 +94,32 @@ async function initializeWhenReady() {
       void raceCards.offsetHeight;
       void filters.offsetHeight;
 
-      // Wait a bit for layout to settle
-      await new Promise(resolve => setTimeout(resolve, 50));
+      // Only wait for truly above-fold images
+      const viewportHeight = window.innerHeight;
+      const visibleCards = Array.from(document.querySelectorAll('.race-card')).filter(card => {
+        const rect = card.getBoundingClientRect();
+        return rect.top < viewportHeight;
+      });
+
+      // Create promises for visible images and unpack remaining visible cards
+      const imagePromises = visibleCards.flatMap(card => {
+        if (!card.classList.contains('packed')) {
+          // Already unpacked card - just wait for its image
+          const images = [...card.querySelectorAll('img[data-src]')];
+          return images.map(img => createImageLoadPromise(img));
+        } else {
+          // Need to unpack this visible card
+          unpackRaceCard(card);
+          const images = [...card.querySelectorAll('img[data-src]')];
+          return images.map(img => createImageLoadPromise(img));
+        }
+      });
+
+      // Wait for visible images
+      await Promise.all([
+        Promise.all(imagePromises),
+        new Promise(resolve => setTimeout(resolve, 500))
+      ]);
 
       // Switch back to normal positioning
       raceCards.style.position = '';
@@ -124,7 +149,7 @@ async function initializeWhenReady() {
   }
 
   // Your existing initialization code
-  const distanceMapping = {"1,5km": ["1500 meter"], "10,2km": ["10 km", "Millopp"], "10,3km": ["10 km", "Millopp"], "10,4km": ["10 km", "Millopp"], "10,5km": ["10 km", "Millopp"], "10,6km": ["10 km", "Millopp"], "10,8km": ["10 km", "Millopp"], "10,9km": ["10 km", "Millopp"], "100km": ["50 miles", "100 km"], "10km": ["10 km", "Millopp", "10000 meter"], "11km": ["10 km", "Millopp"], "20,1km": ["Halvmarathon"], "20km": ["Halvmarathon"], "22km": ["Halvmarathon"], "3km": ["3000 meter"], "4,1km": ["5 km"], "4,2km": ["5 km"], "4,4km": ["5 km"], "4,5km": ["5 km"], "4,6km": ["5 km"], "4,7km": ["5 km"], "4,8km": ["5 km"], "4,9km": ["5 km"], "40km": ["Marathon"], "45km": ["50 km"], "47km": ["50 km"], "4km": ["5 km"], "5,0km": ["5 km", "5000 meter"], "5,1km": ["5 km"], "5,2km": ["5 km"], "5,3km": ["5 km"], "5,4km": ["5 km"], "5,5km": ["5 km"], "5,6km": ["5 km"], "5,7km": ["5 km"], "5,8km": ["5 km"], "5,9km": ["5 km"], "50km": ["50 km"], "54km": ["50 km"], "55km": ["50 km"], "5km": ["5 km", "5000 meter"], "6km": ["5 km"], "9,1km": ["10 km", "Millopp"], "9,2km": ["10 km", "Millopp"], "9,3km": ["10 km", "Millopp"], "9,5km": ["10 km", "Millopp"], "9,6km": ["10 km", "Millopp"], "9,7km": ["10 km", "Millopp"], "9,8km": ["10 km", "Millopp"], "9,9km": ["10 km", "Millopp"], "9km": ["10 km", "Millopp"], "marathon": ["Marathon"]};
+  const distanceMapping = {"1,5km": ["1500 meter"], "10,2km": ["Millopp", "10 km"], "10,3km": ["Millopp", "10 km"], "10,4km": ["Millopp", "10 km"], "10,5km": ["Millopp", "10 km"], "10,6km": ["Millopp", "10 km"], "10,8km": ["Millopp", "10 km"], "10,9km": ["Millopp", "10 km"], "100km": ["100 km", "50 miles"], "10km": ["Millopp", "10 km", "10000 meter"], "11km": ["Millopp", "10 km"], "20,1km": ["Halvmarathon"], "20km": ["Halvmarathon"], "22km": ["Halvmarathon"], "3km": ["3000 meter"], "4,1km": ["5 km"], "4,2km": ["5 km"], "4,3km": ["5 km"], "4,4km": ["5 km"], "4,5km": ["5 km"], "4,6km": ["5 km"], "4,7km": ["5 km"], "4,8km": ["5 km"], "4,9km": ["5 km"], "40km": ["Marathon"], "47km": ["50 km"], "4km": ["5 km"], "5,0km": ["5000 meter", "5 km"], "5,1km": ["5 km"], "5,2km": ["5 km"], "5,3km": ["5 km"], "5,4km": ["5 km"], "5,5km": ["5 km"], "5,6km": ["5 km"], "5,7km": ["5 km"], "5,8km": ["5 km"], "5,9km": ["5 km"], "50km": ["50 km"], "54km": ["50 km"], "55km": ["50 km"], "5km": ["5000 meter", "5 km"], "6,0km": ["5 km"], "6km": ["5 km"], "9,1km": ["Millopp", "10 km"], "9,2km": ["Millopp", "10 km"], "9,3km": ["Millopp", "10 km"], "9,5km": ["Millopp", "10 km"], "9,6km": ["Millopp", "10 km"], "9,7km": ["Millopp", "10 km"], "9,8km": ["Millopp", "10 km"], "9,9km": ["Millopp", "10 km"], "9km": ["Millopp", "10 km"], "marathon": ["Marathon"]};
   const raceCards = document.querySelectorAll(".race-card");
   const itemsPerPage = 20;
   let currentPage = 1;
@@ -970,3 +995,25 @@ document.addEventListener('DOMContentLoaded', function() {
     updateButtons();
   });
 });
+
+// Helper function for image loading promise
+function createImageLoadPromise(img) {
+  return new Promise((resolve) => {
+    if (!img.dataset.src) {
+      resolve();
+      return;
+    }
+    const tempImg = new Image();
+    tempImg.onload = () => {
+      img.src = img.dataset.src;
+      delete img.dataset.src;
+      resolve();
+    };
+    tempImg.onerror = () => {
+      img.src = '/images/hero_small.webp';
+      delete img.dataset.src;
+      resolve();
+    };
+    tempImg.src = img.dataset.src;
+  });
+}

@@ -62,6 +62,7 @@ async function initializeWhenReady() {
     console.log('🔍 Starting initialization');
     document.body.classList.add('loading');
     
+    // Wait for fonts and document
     await Promise.all([
       document.fonts.ready,
       new Promise(resolve => {
@@ -93,8 +94,32 @@ async function initializeWhenReady() {
       void raceCards.offsetHeight;
       void filters.offsetHeight;
 
-      // Wait a bit for layout to settle
-      await new Promise(resolve => setTimeout(resolve, 50));
+      // Only wait for truly above-fold images
+      const viewportHeight = window.innerHeight;
+      const visibleCards = Array.from(document.querySelectorAll('.race-card')).filter(card => {
+        const rect = card.getBoundingClientRect();
+        return rect.top < viewportHeight;
+      });
+
+      // Create promises for visible images and unpack remaining visible cards
+      const imagePromises = visibleCards.flatMap(card => {
+        if (!card.classList.contains('packed')) {
+          // Already unpacked card - just wait for its image
+          const images = [...card.querySelectorAll('img[data-src]')];
+          return images.map(img => createImageLoadPromise(img));
+        } else {
+          // Need to unpack this visible card
+          unpackRaceCard(card);
+          const images = [...card.querySelectorAll('img[data-src]')];
+          return images.map(img => createImageLoadPromise(img));
+        }
+      });
+
+      // Wait for visible images
+      await Promise.all([
+        Promise.all(imagePromises),
+        new Promise(resolve => setTimeout(resolve, 500))
+      ]);
 
       // Switch back to normal positioning
       raceCards.style.position = '';
@@ -124,7 +149,7 @@ async function initializeWhenReady() {
   }
 
   // Your existing initialization code
-  const distanceMapping = {"1,5km": ["1500 meter"], "100 miles": ["100 miles"], "100km": ["50 miles", "100 km"], "105km": ["100 km"], "10km": ["Millopp", "10 km", "10000 meter"], "11km": ["Millopp", "10 km"], "20km": ["Halvmarathon"], "21,6km": ["Halvmarathon"], "22km": ["Halvmarathon"], "321,9km": ["200 miles"], "3km": ["3000 meter"], "4,3km": ["5 km"], "4,8km": ["5 km"], "40km": ["Marathon"], "44km": ["Marathon"], "45km": ["50 km"], "46,2km": ["50 km"], "46km": ["50 km"], "47km": ["50 km"], "4km": ["5 km"], "5,5km": ["5 km"], "5,6km": ["5 km"], "50 miles": ["50 miles"], "50km": ["50 km"], "51km": ["50 km"], "5km": ["5000 meter", "5 km"], "6km": ["5 km"], "75km": ["50 miles"], "77km": ["50 miles"], "84km": ["50 miles"], "9,5km": ["Millopp", "10 km"], "90km": ["50 miles", "100 km"], "9km": ["Millopp", "10 km"], "half marathon": ["Halvmarathon"], "marathon": ["Marathon"]};
+  const distanceMapping = {"1,5km": ["1500 meter"], "100 miles": ["100 miles"], "100km": ["100 km", "50 miles"], "105km": ["100 km"], "10km": ["10 km", "10000 meter", "Millopp"], "11km": ["10 km", "Millopp"], "20km": ["Halvmarathon"], "21,6km": ["Halvmarathon"], "22km": ["Halvmarathon"], "321,9km": ["200 miles"], "3km": ["3000 meter"], "4,3km": ["5 km"], "4,8km": ["5 km"], "40km": ["Marathon"], "44km": ["Marathon"], "45km": ["50 km"], "46,2km": ["50 km"], "46km": ["50 km"], "47km": ["50 km"], "4km": ["5 km"], "5,5km": ["5 km"], "5,6km": ["5 km"], "50 miles": ["50 miles"], "50km": ["50 km"], "51km": ["50 km"], "5km": ["5 km", "5000 meter"], "6km": ["5 km"], "75km": ["50 miles"], "77km": ["50 miles"], "84km": ["50 miles"], "9,5km": ["10 km", "Millopp"], "90km": ["100 km", "50 miles"], "9km": ["10 km", "Millopp"], "half marathon": ["Halvmarathon"], "marathon": ["Marathon"]};
   const raceCards = document.querySelectorAll(".race-card");
   const itemsPerPage = 20;
   let currentPage = 1;
@@ -970,3 +995,25 @@ document.addEventListener('DOMContentLoaded', function() {
     updateButtons();
   });
 });
+
+// Helper function for image loading promise
+function createImageLoadPromise(img) {
+  return new Promise((resolve) => {
+    if (!img.dataset.src) {
+      resolve();
+      return;
+    }
+    const tempImg = new Image();
+    tempImg.onload = () => {
+      img.src = img.dataset.src;
+      delete img.dataset.src;
+      resolve();
+    };
+    tempImg.onerror = () => {
+      img.src = '/images/hero_small.webp';
+      delete img.dataset.src;
+      resolve();
+    };
+    tempImg.src = img.dataset.src;
+  });
+}
