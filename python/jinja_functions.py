@@ -206,7 +206,8 @@ def get_selected_races(races):
     return selected_races
 
 def get_image_path(country_code, domain_name, image_num=1):
-    """Generate the correct image path for Cloud Storage CDN."""
-    return f"https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/{country_code}/{domain_name}/{domain_name}_{image_num}.webp"
+    """Generate the correct image path with cache busting."""
+    base_url = f"https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/{country_code}/{domain_name}/{domain_name}_{image_num}.webp"
+    return f"{base_url}?v=1"  # Add version parameter for cache control
 
 
