@@ -54,11 +54,10 @@
       endif
       %}
     >
-      {# First page content - only unpack first 3 cards #} {% for race in
-      races[:3] %} {% with unpack=true %} {% include 'components/race-card.html'
-      %} {% endwith %} {% endfor %} {# Selected races section #} {% set
-      selected_races = get_selected_races(races) %} {% if races|length >= 3 and
-      selected_races %}
+      {# All regular cards - packed #} {% for race in races %} {% with
+      unpack=false %} {% include 'components/race-card.html' %} {% endwith %} {%
+      endfor %} {# Selected races section #} {% set selected_races =
+      get_selected_races(races) %} {% if races|length >= 3 and selected_races %}
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">{{ selected_races_title }}</h2>
@@ -76,11 +75,9 @@
           'components/race-card-big.html' %} {% endfor %}
         </div>
       </section>
-      {% endif %} {# Remaining regular cards - all packed #} {% for race in
-      races[3:] %} {% with unpack=false %} {% include
-      'components/race-card.html' %} {% endwith %} {% endfor %}
+      {% endif %}
 
-      <!-- Add pagination controls -->
+      <!-- Pagination controls -->
       <div class="pagination-info">
         <span id="event-range">{{ pagination.results_text }}</span>
         <span id="total-events">{{ pagination.events_text }}</span>
@@ -91,6 +88,8 @@
         <button id="next-page">{{ pagination.next_text }}</button>
       </div>
     </div>
+
+    <!-- Map placeholder -->
     <div
       class="map-placeholder"
       id="map-placeholder"
@@ -102,6 +101,8 @@
     </div>
   </div>
 </section>
+
+<!-- Mobile map toggle -->
 <button class="toggle-button mobile" id="toggleMapButtonMobile">
   <div class="icon-container">
     <ion-icon

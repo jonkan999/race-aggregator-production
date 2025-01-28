@@ -6,8 +6,18 @@ const observer = new IntersectionObserver(
         // Handle img elements
         const images = entry.target.querySelectorAll('img[data-src]');
         images.forEach((img) => {
-          img.src = img.dataset.src;
-          delete img.dataset.src;
+          // Create new image to test loading
+          const testImage = new Image();
+          testImage.onload = () => {
+            img.src = testImage.src;
+            delete img.dataset.src;
+          };
+          testImage.onerror = () => {
+            // Fallback if image fails to load
+            img.src = '/images/hero_small.webp';
+            delete img.dataset.src;
+          };
+          testImage.src = img.dataset.src;
         });
 
         // Handle source elements
@@ -62,7 +72,6 @@ async function initializeWhenReady() {
     console.log('🔍 Starting initialization');
     document.body.classList.add('loading');
     
-    // Wait for fonts and document
     await Promise.all([
       document.fonts.ready,
       new Promise(resolve => {
@@ -74,70 +83,50 @@ async function initializeWhenReady() {
       })
     ]);
 
-    const header = document.querySelector('.section-header-menu');
-    const raceCards = document.querySelector('.section-race-cards');
-    const filters = document.querySelector('.section-filters');
+    // Calculate viewport and initial visible cards
+    const viewportHeight = window.innerHeight;
+    const cards = document.querySelectorAll('.race-card');
+    const visibleCards = Array.from(cards).filter(card => {
+      const rect = card.getBoundingClientRect();
+      return rect.top < viewportHeight;
+    });
 
-    if (header && raceCards && filters) {
-      // Calculate and set header height explicitly
-      const headerHeight = header.offsetHeight;
-      const totalOffset = headerHeight + (18.5 * 16); // Convert rem to pixels
-      
-      // Set fixed positions while loading
-      document.documentElement.style.setProperty('--header-size', `${headerHeight}px`);
-      raceCards.style.position = 'absolute';
-      raceCards.style.top = `${totalOffset}px`;
-      filters.style.position = 'absolute';
-      filters.style.top = `${headerHeight}px`;
-      
-      // Force reflow
-      void raceCards.offsetHeight;
-      void filters.offsetHeight;
-
-      // Only wait for truly above-fold images
-      const viewportHeight = window.innerHeight;
-      const visibleCards = Array.from(document.querySelectorAll('.race-card')).filter(card => {
-        const rect = card.getBoundingClientRect();
-        return rect.top < viewportHeight;
-      });
-
-      // Create promises for visible images and unpack remaining visible cards
-      const imagePromises = visibleCards.flatMap(card => {
-        if (!card.classList.contains('packed')) {
-          // Already unpacked card - just wait for its image
-          const images = [...card.querySelectorAll('img[data-src]')];
-          return images.map(img => createImageLoadPromise(img));
-        } else {
-          // Need to unpack this visible card
-          unpackRaceCard(card);
-          const images = [...card.querySelectorAll('img[data-src]')];
-          return images.map(img => createImageLoadPromise(img));
-        }
-      });
-
-      // Wait for visible images
-      await Promise.all([
-        Promise.all(imagePromises),
-        new Promise(resolve => setTimeout(resolve, 500))
-      ]);
-
-      // Switch back to normal positioning
-      raceCards.style.position = '';
-      raceCards.style.top = '';
-      raceCards.style.marginTop = `calc(var(--header-size) + 18.5rem)`;
-      filters.style.position = '';
-      filters.style.top = '';
-      
-      // Remove loader
-      const loader = document.getElementById('initial-loader');
-      if (loader) {
-        loader.style.opacity = '0';
-        await new Promise(resolve => setTimeout(resolve, 50));
-        loader.remove();
-
-        document.body.classList.remove('loading');
-        document.body.classList.add('loaded');
+    // Only preload images for visible cards
+    const imagePromises = visibleCards.map(card => {
+      // Unpack the visible card
+      if (card.classList.contains('packed')) {
+        unpackRaceCard(card);
       }
+      
+      // Load its image
+      const img = card.querySelector('img[data-src]');
+      if (img) {
+        return createImageLoadPromise(img);
+      }
+      return Promise.resolve();
+    });
+
+    // Let Intersection Observer handle all other cards
+    cards.forEach(card => {
+      if (!visibleCards.includes(card)) {
+        observer.observe(card);
+      }
+    });
+
+    // Wait for visible images
+    await Promise.all([
+      Promise.all(imagePromises),
+      new Promise(resolve => setTimeout(resolve, 500))
+    ]);
+
+    // Remove loader
+    const loader = document.getElementById('initial-loader');
+    if (loader) {
+      loader.style.opacity = '0';
+      await new Promise(resolve => setTimeout(resolve, 50));
+      loader.remove();
+      document.body.classList.remove('loading');
+      document.body.classList.add('loaded');
     }
 
   } catch (error) {
