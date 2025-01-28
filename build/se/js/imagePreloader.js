@@ -107,9 +107,14 @@ function unpackRaceCard(card) {
 function startPreloader() {
   console.log('🚀 Starting image preloader');
 
-  // Get all cards and apply filters first
-  const cards = document.querySelectorAll('.race-card:not(.race-card-big)');
-  console.log(`📊 Found ${cards.length} regular race cards`);
+  // Get all regular cards and big cards
+  const regularCards = document.querySelectorAll(
+    '.race-card:not(.race-card-big)'
+  );
+  const bigCards = document.querySelectorAll('.race-card.race-card-big');
+  console.log(
+    `📊 Found ${regularCards.length} regular race cards and ${bigCards.length} big race cards`
+  );
 
   // Apply filters
   const urlParams = new URLSearchParams(window.location.search);
@@ -126,43 +131,62 @@ function startPreloader() {
   const toDate = nextYear.toISOString().split('T')[0].replace(/-/g, '');
 
   // First, apply all filters
-  const visibleCards = [];
-  cards.forEach((card) => {
-    let show = true;
+  const visibleRegularCards = [];
+  const visibleBigCards = [];
 
+  // Filter function to reuse logic
+  const shouldShowCard = (card) => {
     // URL filters
-    if (county && card.dataset.county !== county) show = false;
-    if (raceType && card.dataset.raceType !== raceType) show = false;
-    if (category && !card.dataset.distance?.includes(category)) show = false;
+    if (county && card.dataset.county !== county) return false;
+    if (raceType && card.dataset.raceType !== raceType) return false;
+    if (category && !card.dataset.distance?.includes(category)) return false;
 
     // Date filter
     const raceDate = card.dataset.date;
-    if (raceDate < fromDate || raceDate > toDate) show = false;
+    if (raceDate < fromDate || raceDate > toDate) return false;
 
-    if (!show) {
+    return true;
+  };
+
+  regularCards.forEach((card) => {
+    if (!shouldShowCard(card)) {
       card.classList.add('filtered-out');
-      console.log(`🚫 Filtered out: ${card.dataset.name}`);
+      console.log(`🚫 Filtered out regular: ${card.dataset.name}`);
       return;
     }
-
-    visibleCards.push(card);
+    visibleRegularCards.push(card);
   });
 
-  console.log(`✨ ${visibleCards.length} cards passed filtering`);
+  bigCards.forEach((card) => {
+    if (!shouldShowCard(card)) {
+      card.classList.add('filtered-out');
+      console.log(`🚫 Filtered out big: ${card.dataset.name}`);
+      return;
+    }
+    visibleBigCards.push(card);
+  });
 
-  // Unpack and load images for the first three visible cards
-  visibleCards.slice(0, 3).forEach((card) => {
-    console.log(`🎯 Unpacking one of first three cards: ${card.dataset.name}`);
+  console.log(
+    `✨ ${visibleRegularCards.length} regular cards and ${visibleBigCards.length} big cards passed filtering`
+  );
+
+  // Function to handle card unpacking and image loading
+  const processCard = (card) => {
+    console.log(`🎯 Unpacking card: ${card.dataset.name}`);
     unpackRaceCard(card);
 
-    // Load the image immediately for these first cards
+    // Load the image immediately
     const img = card.querySelector('img[data-src]');
     if (img && img.dataset.src) {
       console.log('🖼️ Loading image for:', card.dataset.name);
       img.src = img.dataset.src;
       delete img.dataset.src;
     }
-  });
+  };
+
+  // Process first three of each type
+  visibleRegularCards.slice(0, 3).forEach(processCard);
+  visibleBigCards.slice(0, 3).forEach(processCard);
 }
 
 // Run when DOM is ready
