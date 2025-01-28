@@ -1,25 +1,31 @@
+// Initialize intersection observer immediately
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        const card = entry.target;
-        if (card.classList.contains('packed')) {
-          unpackRaceCard(card);
-        } else {
-          // For already unpacked cards, load their images
-          const img = card.querySelector('img[data-src]');
-          if (img && img.dataset.src) {
-            console.log('🖼️ Loading image:', img.dataset.src);
-            img.src = img.dataset.src;
-            delete img.dataset.src;
-          }
-          observer.unobserve(card); // Stop observing once image is loaded
-        }
+        // Handle img elements
+        const images = entry.target.querySelectorAll('img[data-src]');
+        images.forEach((img) => {
+          img.src = img.dataset.src;
+          console.log('Loaded image:', img.dataset.src);
+          delete img.dataset.src;
+        });
+
+        // Handle source elements
+        const sources = entry.target.querySelectorAll('source[data-srcset]');
+        sources.forEach((source) => {
+          source.srcset = source.dataset.srcset;
+          console.log('Loaded source:', source.dataset.srcset);
+          delete source.dataset.srcset;
+        });
+
+        // Stop observing after loading
+        observer.unobserve(entry.target);
       }
     });
   },
   {
-    rootMargin: '100% 0px 100% 0px',
+    rootMargin: '100% 0px 100% 0px', // Preload images when they are 200px away from the viewport
     threshold: 0.1,
   }
 );
@@ -37,9 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
       // For cards above fold, load image immediately
       const img = card.querySelector('img[data-src]');
       if (img) {
-        console.log('🚀 Loading image:', img.dataset.src);
         img.src = img.dataset.src;
         delete img.dataset.src;
+      }
+      const source = card.querySelector('source[data-srcset]');
+      if (source) {
+        source.srcset = source.dataset.srcset;
+        delete source.dataset.srcset;
       }
     } else {
       // Let Intersection Observer handle these
@@ -54,7 +64,6 @@ async function initializeWhenReady() {
     console.log('🔍 Starting initialization');
     document.body.classList.add('loading');
     
-    // Wait for fonts and document
     await Promise.all([
       document.fonts.ready,
       new Promise(resolve => {
@@ -86,32 +95,8 @@ async function initializeWhenReady() {
       void raceCards.offsetHeight;
       void filters.offsetHeight;
 
-      // Only wait for truly above-fold images
-      const viewportHeight = window.innerHeight;
-      const visibleCards = Array.from(document.querySelectorAll('.race-card')).filter(card => {
-        const rect = card.getBoundingClientRect();
-        return rect.top < viewportHeight;
-      });
-
-      // Create promises for visible images and unpack remaining visible cards
-      const imagePromises = visibleCards.flatMap(card => {
-        if (!card.classList.contains('packed')) {
-          // Already unpacked card - just wait for its image
-          const images = [...card.querySelectorAll('img[data-src]')];
-          return images.map(img => createImageLoadPromise(img));
-        } else {
-          // Need to unpack this visible card
-          unpackRaceCard(card);
-          const images = [...card.querySelectorAll('img[data-src]')];
-          return images.map(img => createImageLoadPromise(img));
-        }
-      });
-
-      // Wait for visible images
-      await Promise.all([
-        Promise.all(imagePromises),
-        new Promise(resolve => setTimeout(resolve, 500))
-      ]);
+      // Wait a bit for layout to settle
+      await new Promise(resolve => setTimeout(resolve, 50));
 
       // Switch back to normal positioning
       raceCards.style.position = '';
@@ -373,10 +358,8 @@ async function initializeWhenReady() {
 
   function unpackRaceCard(card) {
     // Skip if card is already unpacked or is a selected race card
-    if (card.classList.contains('filtered-out')) return;
     if (!card.classList.contains('packed') || card.classList.contains('race-card-big')) return;
     console.log('Unpacking card:', card.dataset.name);
-    
     // Create full card HTML while preserving all data attributes
     const html = `
       <div class="race-card-upper-box background-container">
@@ -948,14 +931,14 @@ if (document.readyState === 'loading') {
   initializeWhenReady();
 }
 
-// Add fallback to show content after 4 seconds
+// Add fallback to show content after 5 seconds
 setTimeout(() => {
   if (!document.body.classList.contains('loaded')) {
     document.body.classList.add('loaded');
     const loader = document.getElementById('initial-loader');
     if (loader) loader.remove();
   }
-}, 4000);
+}, 5000);
 
 document.addEventListener('DOMContentLoaded', function() {
   const containers = document.querySelectorAll('.race-card-big-container');
@@ -989,26 +972,4 @@ document.addEventListener('DOMContentLoaded', function() {
     updateButtons();
   });
 });
-
-// Helper function for image loading promise
-function createImageLoadPromise(img) {
-  return new Promise((resolve) => {
-    if (!img.dataset.src) {
-      resolve();
-      return;
-    }
-    const tempImg = new Image();
-    tempImg.onload = () => {
-      img.src = img.dataset.src;
-      delete img.dataset.src;
-      resolve();
-    };
-    tempImg.onerror = () => {
-      img.src = '/images/hero_small.webp';
-      delete img.dataset.src;
-      resolve();
-    };
-    tempImg.src = img.dataset.src;
-  });
-}
 
