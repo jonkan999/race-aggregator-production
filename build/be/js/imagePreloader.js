@@ -107,9 +107,13 @@ function unpackRaceCard(card) {
 function startPreloader() {
   console.log('🚀 Starting image preloader');
 
-  // Get all cards and apply filters first
+  // Get all regular cards and apply filters first
   const cards = document.querySelectorAll('.race-card:not(.race-card-big)');
   console.log(`📊 Found ${cards.length} regular race cards`);
+
+  // Get featured cards
+  const bigCards = document.querySelectorAll('.race-card.race-card-big');
+  console.log(`📊 Found ${bigCards.length} featured race cards`);
 
   // Apply filters
   const urlParams = new URLSearchParams(window.location.search);
@@ -125,7 +129,7 @@ function startPreloader() {
   const fromDate = today.toISOString().split('T')[0].replace(/-/g, '');
   const toDate = nextYear.toISOString().split('T')[0].replace(/-/g, '');
 
-  // First, apply all filters
+  // First, apply all filters to regular cards
   const visibleCards = [];
   cards.forEach((card) => {
     let show = true;
@@ -141,24 +145,61 @@ function startPreloader() {
 
     if (!show) {
       card.classList.add('filtered-out');
-      console.log(`🚫 Filtered out: ${card.dataset.name}`);
+      console.log(`🚫 Filtered out regular card: ${card.dataset.name}`);
       return;
     }
 
     visibleCards.push(card);
   });
 
-  console.log(`✨ ${visibleCards.length} cards passed filtering`);
+  // Apply same filters to big cards
+  const visibleBigCards = [];
+  bigCards.forEach((card) => {
+    let show = true;
 
-  // Unpack and load images for the first three visible cards
+    // URL filters
+    if (county && card.dataset.county !== county) show = false;
+    if (raceType && card.dataset.raceType !== raceType) show = false;
+    if (category && !card.dataset.distance?.includes(category)) show = false;
+
+    // Date filter
+    const raceDate = card.dataset.date;
+    if (raceDate < fromDate || raceDate > toDate) show = false;
+
+    if (!show) {
+      card.classList.add('filtered-out');
+      console.log(`🚫 Filtered out featured card: ${card.dataset.name}`);
+      return;
+    }
+
+    visibleBigCards.push(card);
+  });
+
+  console.log(`✨ ${visibleCards.length} regular cards passed filtering`);
+  console.log(`✨ ${visibleBigCards.length} featured cards passed filtering`);
+
+  // Original logic for regular cards
   visibleCards.slice(0, 3).forEach((card) => {
-    console.log(`🎯 Unpacking one of first three cards: ${card.dataset.name}`);
+    console.log(
+      `🎯 Unpacking one of first three regular cards: ${card.dataset.name}`
+    );
     unpackRaceCard(card);
 
     // Load the image immediately for these first cards
     const img = card.querySelector('img[data-src]');
     if (img && img.dataset.src) {
-      console.log('🖼️ Loading image for:', card.dataset.name);
+      console.log('🖼️ Loading image for regular card:', card.dataset.name);
+      img.src = img.dataset.src;
+      delete img.dataset.src;
+    }
+  });
+
+  // Load first three visible big cards
+  visibleBigCards.slice(0, 3).forEach((card) => {
+    // Load the image immediately for big cards
+    const img = card.querySelector('img[data-src]');
+    if (img && img.dataset.src) {
+      console.log('🖼️ Loading image for featured card:', card.dataset.name);
       img.src = img.dataset.src;
       delete img.dataset.src;
     }
