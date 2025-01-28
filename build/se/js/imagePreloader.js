@@ -7,20 +7,70 @@
     const raceType = urlParams.get('race_type') || '';
     const category = urlParams.get('category') || '';
 
+    // Get date inputs
+    const dateFrom = document.getElementById('date-from');
+    const dateTo = document.getElementById('date-to');
+
+    // Set default date range if not set (today to next year)
+    if (!dateFrom.value || !dateTo.value) {
+      const today = new Date();
+      const nextYear = new Date(today);
+      nextYear.setFullYear(today.getFullYear() + 1);
+
+      dateFrom.valueAsDate = today;
+      dateTo.valueAsDate = nextYear;
+    }
+
+    const fromDate = dateFrom.value ? dateFrom.value.replace(/-/g, '') : null;
+    const toDate = dateTo.value ? dateTo.value.replace(/-/g, '') : null;
+
     // Get all race cards
     const cards = document.querySelectorAll('.race-card');
 
     cards.forEach((card) => {
       let show = true;
+      const raceDate = card.getAttribute('data-date');
+
+      // Apply date filters
+      if (fromDate && raceDate < fromDate) show = false;
+      if (toDate && raceDate > toDate) show = false;
 
       // Apply county filter
       if (county && card.dataset.county !== county) {
         show = false;
       }
 
-      // Apply race type filter
-      if (raceType && card.dataset.raceType !== raceType) {
-        show = false;
+      // Apply race type filter with backyard/frontyard handling
+      if (raceType) {
+        const raceTypeAttr = card.getAttribute('data-race-type');
+        const raceDistances = card.getAttribute('data-distance');
+
+        const normalizedRaceType = raceType.toLowerCase().replace(' ultra', '');
+        const normalizedRaceTypeAttr = raceTypeAttr
+          ? raceTypeAttr.toLowerCase().replace(' ultra', '')
+          : '';
+
+        const isBackyardOrFrontyard =
+          normalizedRaceType === 'backyard' ||
+          normalizedRaceType === 'frontyard';
+
+        if (isBackyardOrFrontyard) {
+          const distances = raceDistances ? raceDistances.split(', ') : [];
+          const matchesInDistances = distances.some((distance) =>
+            distance.toLowerCase().includes(normalizedRaceType)
+          );
+
+          if (
+            !(
+              normalizedRaceTypeAttr === normalizedRaceType ||
+              matchesInDistances
+            )
+          ) {
+            show = false;
+          }
+        } else {
+          if (normalizedRaceTypeAttr !== normalizedRaceType) show = false;
+        }
       }
 
       // Apply category filter
