@@ -25,6 +25,8 @@
     <title>Terrängloppkalender: Hitta löpartävlingar i hela Sverige</title>
     <meta name="description" content="Hitta terränglopp i Sverige med vår loppkalender. Sök efter lopp i olika kategorier, från 5 km till marathon, och välj din region för att hitta lopp nära dig." />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -703,14 +705,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: null, &quot;county&quot;: null, &quot;race_type&quot;: &quot;Terr\u00e4ng&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: null, \u0026quot;county\u0026quot;: null, \u0026quot;race_type\u0026quot;: \u0026quot;Terr\\u00e4ng\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/btr_winter_5_24_km"
-  class="race-card"
+  class="race-card packed"
   data-name="BTR WINTER 5-24 KM"
   data-date="20250201"
   data-county="Stockholm"
@@ -721,104 +723,24 @@
   data-longitude="18.643501"
   data-location="Öströö"
   data-description="Bocksten TrailRun Winter är en unik löparupplevelse mitt i vinterns hjärta. Detta spännande vinterlopp erbjuder distanser för alla smaker: 5"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/btr_winter_5_24_km/btr_winter_5_24_km_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/btr_winter_5_24_km/btr_winter_5_24_km_1.webp?v=1"
   data-type="terrain"
   data-type-display="Terräng"
   data-date-display="1 feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/btr_winter_5_24_km/btr_winter_5_24_km_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till BTR WINTER 5-24 KM"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          1 feb.
-        </div>
-        <div class="race-location">
-          Stockholm
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">BTR WINTER 5-24 KM</div>
+    <div class="race-date">
+      1 feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">BTR WINTER 5-24 KM</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Öströö 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                12 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                24 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Terräng
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Bocksten TrailRun Winter är en unik löparupplevelse mitt i vinterns hjärta. Detta spännande vinterlopp erbjuder distanser för alla smaker: 5...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/mossarun_vinter"
-  class="race-card"
+  class="race-card packed"
   data-name="Mossarun VINTER"
   data-date="20250208"
   data-county="Stockholm"
@@ -829,110 +751,24 @@
   data-longitude="18.643501"
   data-location="None"
   data-description="VINTER MOSSA är en vinterutgåva av Mossarun som går på en 20 km slinga (Mossa+WTF, 90% hård terräng). Det är en unsupported tävling utan tid"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/mossarun_vinter/mossarun_vinter_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/mossarun_vinter/mossarun_vinter_1.webp?v=1"
   data-type="terrain"
   data-type-display="Terräng"
   data-date-display="8 feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/mossarun_vinter/mossarun_vinter_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Mossarun VINTER"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          8 feb.
-        </div>
-        <div class="race-location">
-          Stockholm
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Mossarun VINTER</div>
+    <div class="race-date">
+      8 feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Mossarun VINTER</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                17 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                20 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                51 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Terräng
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      VINTER MOSSA är en vinterutgåva av Mossarun som går på en 20 km slinga (Mossa+WTF, 90% hård terräng). Det är en unsupported tävling utan tid...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/stavie_trail"
-  class="race-card"
+  class="race-card packed"
   data-name="Stävie Trail"
   data-date="20250302"
   data-county="Skåne"
@@ -943,103 +779,970 @@
   data-longitude="13.0752671"
   data-location="Södra Ljungvägen 33, Furulund"
   data-description="Stävie Trail bjuder på en fantastisk runda på slingrande stigar i småkuperad terräng med alla tänkbara underlag. Välj mellan 6,5 km, 13 km e"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/stavie_trail/stavie_trail_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/stavie_trail/stavie_trail_1.webp?v=1"
   data-type="terrain"
   data-type-display="Terräng"
   data-date-display="2 mars"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/stavie_trail/stavie_trail_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Stävie Trail"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          2 mars
-        </div>
-        <div class="race-location">
-          Skåne
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Stävie Trail</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Södra Ljungvägen 33, Furulund 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2,6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                6,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                13 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Halvmarathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Terräng
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Stävie Trail bjuder på en fantastisk runda på slingrande stigar i småkuperad terräng med alla tänkbara underlag. Välj mellan 6,5 km, 13 km e...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Stävie Trail</div>
+    <div class="race-date">
+      2 mars
     </div>
   </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/ursvik_ultra"
+  class="race-card packed"
+  data-name="Ursvik Ultra"
+  data-date="20250315"
+  data-county="Stockholm"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="15km, 45km, 75km"
+  data-latitude="59.3741861"
+  data-longitude="17.9631555"
+  data-location="Sundbybergs kommun"
+  data-description="Ursvik Ultra är ett ultramaratonlopp i terränglöpning som går av stapeln den tredje lördagen i mars. Huvudklassen är 75 km lång, och det fin"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/ursvik_ultra/ursvik_ultra_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="15 mars"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Ursvik Ultra</div>
+    <div class="race-date">
+      15 mars
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/edsvidsleden_trailrun"
+  class="race-card packed"
+  data-name="Edsvidsleden Trailrun"
+  data-date="20250316"
+  data-county="Gotland"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="14km, 28km, 56km"
+  data-latitude="57.32997399999999"
+  data-longitude="18.7089778"
+  data-location="Parkeringen mitt emot Olidastationen"
+  data-description="Edsvidsleden Trailrun går på den fina, klassiska Edsvidsleden i Trollhättan och är 14 km långt. Loppet äger rum söndagen den 17 mars 2024, m"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/edsvidsleden_trailrun/edsvidsleden_trailrun_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="16 mars"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Edsvidsleden Trailrun</div>
+    <div class="race-date">
+      16 mars
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/equinox_adventure_ultra"
+  class="race-card packed"
+  data-name="Equinox Adventure Ultra"
+  data-date="20250322"
+  data-county="Södermanland"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="50km, 100km"
+  data-latitude="58.7204062"
+  data-longitude="17.0910999"
+  data-location="Strandstuvikens Havsbad & Camping"
+  data-description="Equinox Adventure Ultra är en unik terränglöpning över långa distanser. Under helgen av vårdagjämningen måste varje team, bestående av två l"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/equinox_adventure_ultra/equinox_adventure_ultra_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="22 mars"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Equinox Adventure Ultra</div>
+    <div class="race-date">
+      22 mars
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/tjust_trail_run"
+  class="race-card packed"
+  data-name="Tjust Trail Run"
+  data-date="20250405"
+  data-county="Kalmar"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="5km, 10km, half marathon, marathon"
+  data-latitude="57.7451763"
+  data-longitude="16.6282224"
+  data-location="Baumansgatan 4, Västervik"
+  data-description="Den 5 april 2025 kommer Tjust Bike & Running Club att anordna den tionde upplagan av Tjust Trail Run. På härliga vårstigar kommer den smålän"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/tjust_trail_run/tjust_trail_run_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="5 apr."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Tjust Trail Run</div>
+    <div class="race-date">
+      5 apr.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/lidingoloppet_varmilen"
+  class="race-card packed"
+  data-name="Lidingöloppet Vårmilen"
+  data-date="20250426"
+  data-county="Stockholm"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="5km, 10km"
+  data-latitude="59.37011630000001"
+  data-longitude="18.1555268"
+  data-location="Lidingövallen"
+  data-description="Vårmilen är starten på terrängsäsongen och en möjlighet till en flygande start på löparåret. Loppet lockar varje år löpare att utmana Liding"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/lidingoloppet_varmilen/lidingoloppet_varmilen_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="26 apr."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Lidingöloppet Vårmilen</div>
+    <div class="race-date">
+      26 apr.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/billingen_trail_2"
+  class="race-card packed"
+  data-name="Billingen Trail"
+  data-date="20250426"
+  data-county="Västra Götaland"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="12km, half marathon, 47km"
+  data-latitude="58.40325300000001"
+  data-longitude="13.8181249"
+  data-location="Stadion, Billingens Fritidsområde Skövde"
+  data-description="Billingen Trail arrangeras den 26 april och erbjuder distanser på 47, 21 och 12 km. Långa banan är drygt 47 km med cirka 930 höjdmeter och g"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/billingen_trail_2/billingen_trail_2_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="26 apr."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Billingen Trail</div>
+    <div class="race-date">
+      26 apr.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/koster_trail"
+  class="race-card packed"
+  data-name="Koster Trail"
+  data-date="20250510"
+  data-county="Västra Götaland"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="15km"
+  data-latitude="58.89422769999999"
+  data-longitude="11.0066031"
+  data-location="Kosterhavets Ekobod nära Västra Bryggan"
+  data-description="Koster Trail är ett utmanande terränglopp i Kosterhavets nationalpark som går över bohuslänska klippor, på Nordkosters sandstränder, stigar "
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/koster_trail/koster_trail_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="10 maj"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Koster Trail</div>
+    <div class="race-date">
+      10 maj
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/oland_lighthouse_challenge"
+  class="race-card packed"
+  data-name="Öland Lighthouse Challenge"
+  data-date="20250531"
+  data-county="Kalmar"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="50 miles, 100 miles"
+  data-latitude="56.1960403"
+  data-longitude="16.3984891"
+  data-location="Fyren Långe Jan"
+  data-description="Öland Lighthouse Challenge är en fantastisk löpning i en natur som bara kan upplevas på Öland. Efter starten vid fyren Långe Jan får löparna"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/oland_lighthouse_challenge/oland_lighthouse_challenge_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="31 maj"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Öland Lighthouse Challenge</div>
+    <div class="race-date">
+      31 maj
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/halsoloppet_2025"
+  class="race-card packed"
+  data-name="Hälsoloppet 2025"
+  data-date="20250531"
+  data-county="Stockholm"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="5km"
+  data-latitude="59.237937006326696"
+  data-longitude="17.85396981237682"
+  data-location="Folkhälsoparken Alby"
+  data-description="Startplats och mål linje är Alby folkhälsopark (Alby IP). Hälsoloppet genomfördes för första gången 2023 och är en motionslopp i Alby. Du få"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/halsoloppet_2025/halsoloppet_2025_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="31 maj"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Hälsoloppet 2025</div>
+    <div class="race-date">
+      31 maj
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/eketanga_trail"
+  class="race-card packed"
+  data-name="Eketånga Trail"
+  data-date="20250606"
+  data-county="Halland"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="10km"
+  data-latitude="56.64099298839436"
+  data-longitude="12.77940746034626"
+  data-location="Wakeparken i Grötviks hamn"
+  data-description="Eketånga Trail är en spännande löptävling som äger rum den 6 juni 2025 i Halmstad. Deltagarna får uppleva en utmanande 10 km lång bana som s"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/eketanga_trail/eketanga_trail_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="6 juni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Eketånga Trail</div>
+    <div class="race-date">
+      6 juni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/bjornfrossa_ultra"
+  class="race-card packed"
+  data-name="Björnfrossa Ultra"
+  data-date="20250607"
+  data-county="Gävleborg"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="65km"
+  data-latitude="60.76405370000001"
+  data-longitude="16.4632614"
+  data-location="Kungsbergets Fritidsanläggning"
+  data-description="Björnfrossa ultramaraton är ett drygt 65 km långt löplopp som äger rum lördagen den 7 juni i vacker natur längs Gästrikeleden, Lenåsleden oc"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/bjornfrossa_ultra/bjornfrossa_ultra_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="7 juni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Björnfrossa Ultra</div>
+    <div class="race-date">
+      7 juni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/flosjon_edstjarn"
+  class="race-card packed"
+  data-name="Flosjön-Edstjärn"
+  data-date="20250614"
+  data-county="Dalarna"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="6km, 9,5km, 15,5km, half marathon"
+  data-latitude="60.53471860000001"
+  data-longitude="14.8322917"
+  data-location="Flosjön"
+  data-description="Flosjön-Edstjärn är en halvmarathon som anordnas av Edstjärns Idrottsklubb. Varje år tar löpare sig an den utmanande banan som snirklar sig "
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/flosjon_edstjarn/flosjon_edstjarn_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="14 juni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Flosjön-Edstjärn</div>
+    <div class="race-date">
+      14 juni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/ecotrail_stockholm"
+  class="race-card packed"
+  data-name="EcoTrail Stockholm"
+  data-date="20250614"
+  data-county="Stockholm"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="2km, 8km, 16km, 33km, 45km, 50 miles"
+  data-latitude="59.3327036"
+  data-longitude="18.0656255"
+  data-location="Stockholm"
+  data-description="Ecotrail Stockholm är ett lopp för alla som äger rum den 14 juni 2025. Det erbjuder olika distanser för deltagare i alla åldrar, inklusive b"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/ecotrail_stockholm/ecotrail_stockholm_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="14 juni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">EcoTrail Stockholm</div>
+    <div class="race-date">
+      14 juni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/jattelangt_70k_ultra"
+  class="race-card packed"
+  data-name="Jättelångt 70K Ultra"
+  data-date="20250614"
+  data-county="Stockholm"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="9km, 10km, 15km, half marathon, 70km, relay"
+  data-latitude="60.09608100000001"
+  data-longitude="18.8057521"
+  data-location="Grisslehamn"
+  data-description="Jättelångt 70 km är ett terrängultramarathon som går av stapeln den 15 juni varje år. Tävlingen följer den nya sträckningen av Roslagsleden "
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/jattelangt_70k_ultra/jattelangt_70k_ultra_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="14 juni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Jättelångt 70K Ultra</div>
+    <div class="race-date">
+      14 juni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/tjejmilen_salen"
+  class="race-card packed"
+  data-name="Tjejmilen Sälen"
+  data-date="20250614"
+  data-county="Dalarna"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="5km, 10km"
+  data-latitude="61.16037809999999"
+  data-longitude="13.1957967"
+  data-location="Lindvallen"
+  data-description="Tjejmilen Sälen by EQPE går den 14 juni 2025 på redan befintliga leder som till stor del är spångade på Mellanfjället och Hemfjället förbi H"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/tjejmilen_salen/tjejmilen_salen_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="14 juni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Tjejmilen Sälen</div>
+    <div class="race-date">
+      14 juni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/midsommarjoggen"
+  class="race-card packed"
+  data-name="Midsommarjoggen"
+  data-date="20250618"
+  data-county="Örebro"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="7,5km"
+  data-latitude="59.30230510000001"
+  data-longitude="15.2674132"
+  data-location="Stora Hjortstorps Gård"
+  data-description="Kom och var med på löparfest i Rynningeviken i Örebro! Samla gänget, familjen eller kollegorna och kom till Stora Hjortstorps Gård den 18 ju"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/midsommarjoggen/midsommarjoggen_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="18 juni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Midsommarjoggen</div>
+    <div class="race-date">
+      18 juni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/boda_beachrun"
+  class="race-card packed"
+  data-name="Böda Beachrun"
+  data-date="20250625"
+  data-county="Kalmar"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="2,5km, 5km, 10km"
+  data-latitude="57.2605471"
+  data-longitude="17.0351033"
+  data-location="Stranden, Böda Sand"
+  data-description="Böda Beach Run är ett lopp som sticker ut lite extra. En utmaning utöver det vanliga för hela familjen med banor från 500 m till 10 km. Tävl"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/boda_beachrun/boda_beachrun_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="25 juni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Böda Beachrun</div>
+    <div class="race-date">
+      25 juni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/high_coast_ultra_130_65"
+  class="race-card packed"
+  data-name="High Coast Ultra 130/65"
+  data-date="20250627"
+  data-county="Västernorrland"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="65km, 130km"
+  data-latitude="63.0562063"
+  data-longitude="18.328886"
+  data-location="Docksta"
+  data-description="High Coast Ultra är en fantastisk ultramaraton som går genom den vackra och dramatiska naturen i Höga Kusten. Loppet erbjuder två distanser:"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/high_coast_ultra_130_65/high_coast_ultra_130_65_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="27 juni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">High Coast Ultra 130/65</div>
+    <div class="race-date">
+      27 juni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/silverleden_ultra_64km"
+  class="race-card packed"
+  data-name="Silverleden Ultra 64km"
+  data-date="20250628"
+  data-county="Örebro"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="64km"
+  data-latitude="59.783688"
+  data-longitude="14.5225692"
+  data-location="Hällefors & fritidsområdet Hurtigtorpet"
+  data-description="Silverleden Ultra är en 64 km lång terränglöpning med 1400 hm i den magiska naturen i Bergslagen. Start och mål utgår från Hällefors och fri"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/silverleden_ultra_64km/silverleden_ultra_64km_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="28 juni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Silverleden Ultra 64km</div>
+    <div class="race-date">
+      28 juni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/boden_fortress"
+  class="race-card packed"
+  data-name="Boden Fortress"
+  data-date="20250628"
+  data-county="Stockholm"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="10km, 30km, 50km"
+  data-latitude="60.12816100000001"
+  data-longitude="18.643501"
+  data-location="gamla A8 kaserngården på Försvarsmuseums baksida"
+  data-description="Boden Fortress är en militär trailrun-äventyr som äger rum lördagen den 28 juni 2025. Deltagarna kan välja mellan tre distanser: BF.10K, BF."
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/boden_fortress/boden_fortress_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="28 juni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Boden Fortress</div>
+    <div class="race-date">
+      28 juni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/hornsjon_runt_11_km"
+  class="race-card packed"
+  data-name="Hornsjön Runt 11 km"
+  data-date="20250719"
+  data-county="Kalmar"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="1,5km, 1,6km, 2,9km, 5,5km, 11km"
+  data-latitude="57.2053533"
+  data-longitude="16.9615573"
+  data-location="Pensionat Hornsjön"
+  data-description="Gå, lunka, löp – runt Ölands enda insjö. I år går loppet för 48:e året! Upplev den fantastiska och varierande öländska naturen, med allt frå"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/hornsjon_runt_11_km/hornsjon_runt_11_km_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="19 juli"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Hornsjön Runt 11 km</div>
+    <div class="race-date">
+      19 juli
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/helags_fjallmara"
+  class="race-card packed"
+  data-name="Helags Fjällmara"
+  data-date="20250719"
+  data-county="Jämtland"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="5km, 12km, 23km"
+  data-latitude="62.85101"
+  data-longitude="12.80336"
+  data-location="Ljungdalen"
+  data-description="Helags Fjällmara är terrängloppet för dig som gillar utmaningar och vacker fjällnatur. Tävlingen bjuder på olika utmaningar på olika banor d"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/helags_fjallmara/helags_fjallmara_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="19 juli"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Helags Fjällmara</div>
+    <div class="race-date">
+      19 juli
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/lottorpsvarvet"
+  class="race-card packed"
+  data-name="Löttorpsvarvet"
+  data-date="20250723"
+  data-county="Kalmar"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="1,4km, 6,2km"
+  data-latitude="57.1816541"
+  data-longitude="17.0546607"
+  data-location="Löttorp Camping AB, Kesnäs Fiskarvägen 1, 387 73 Löttorp, Sweden"
+  data-description="Upplev spänningen av en strandlöpning vid Löttorp Campings årliga festligheter! Oavsett om du är en entusiastisk löpare eller bara tycker om"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/lottorpsvarvet/lottorpsvarvet_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="23 juli"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Löttorpsvarvet</div>
+    <div class="race-date">
+      23 juli
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/hamra_trail_run_25k"
+  class="race-card packed"
+  data-name="Hamra Trail Run 25k"
+  data-date="20250726"
+  data-county="Jämtland"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="25km, ultra"
+  data-latitude="62.54363840000001"
+  data-longitude="12.3325326"
+  data-location="Tänndalen"
+  data-description="Hamra Trail Run är ett traillopp som grundades 2022 och erbjuder distanserna Sprint, Distans och Ultra, med en maxgräns på 150 startplatser "
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/hamra_trail_run_25k/hamra_trail_run_25k_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="26 juli"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Hamra Trail Run 25k</div>
+    <div class="race-date">
+      26 juli
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/fjallmaraton_arefjallen"
+  class="race-card packed"
+  data-name="Fjällmaraton Årefjällen"
+  data-date="20250726"
+  data-county="Jämtland"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="5km, 8km, 12km, 27km, marathon, 45km, 100km"
+  data-latitude="63.14835660000001"
+  data-longitude="12.9663721"
+  data-location="Vålådalen"
+  data-description="Kia Fjällmaraton Årefjällen har utvecklats från ett lopp med 60 deltagare premiäråret 2005 till en hel fjällmaratonvecka med totalt 10 lopp "
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/fjallmaraton_arefjallen/fjallmaraton_arefjallen_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="26 juli"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Fjällmaraton Årefjällen</div>
+    <div class="race-date">
+      26 juli
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/halland_ultra_beach"
+  class="race-card packed"
+  data-name="Halland Ultra Beach"
+  data-date="20250731"
+  data-county="Skåne"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="40km, 46,2km, 50km, 60km, 72km, 100km, 100 miles, 321,9km"
+  data-latitude="56.4333027"
+  data-longitude="12.8353785"
+  data-location="Båstad"
+  data-description="Halland Ultra-Beach är en hyllning till naturen och den fria stiglöpningen i västkustens öppnaste landskap. Loppet sträcker sig över 200 mil"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/halland_ultra_beach/halland_ultra_beach_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="31 juli"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Halland Ultra Beach</div>
+    <div class="race-date">
+      31 juli
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/stora_stoten_run"
+  class="race-card packed"
+  data-name="Stora Stöten Run"
+  data-date="20250809"
+  data-county="Dalarna"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="5,6km, 13,6km, 21,6km"
+  data-latitude="60.6002216"
+  data-longitude="15.6165187"
+  data-location="Falu gruva"
+  data-description="Stora Stöten Run är ett fantastiskt löplopp i Falun, Dalarna, som erbjuder deltagarna en unik upplevelse i Världsarvet Falun. Banan är till "
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/stora_stoten_run/stora_stoten_run_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="9 aug."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Stora Stöten Run</div>
+    <div class="race-date">
+      9 aug.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/ultravasan_trail"
+  class="race-card packed"
+  data-name="Ultravasan Trail"
+  data-date="20250815"
+  data-county="Dalarna"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="30km, 45km, 90km"
+  data-latitude="61.1613853"
+  data-longitude="13.2630157"
+  data-location="Berga by, Sälen"
+  data-description="Upplev den magiska starten vid gryningen, 05:00 i Berga by, Sälen. Möt soluppgången på myrarna vid Smågan och fortsätt via alla klassiska Va"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/ultravasan_trail/ultravasan_trail_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="15 aug."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Ultravasan Trail</div>
+    <div class="race-date">
+      15 aug.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/taube_loppet_bohuslans_vackraste_lopp"
+  class="race-card packed"
+  data-name="Taube-loppet - Bohusläns vackraste lopp"
+  data-date="20250823"
+  data-county="Västra Götaland"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="0,5km, 5km, 10km, half marathon, 36km"
+  data-latitude="58.2239409929194"
+  data-longitude="11.51671886444092"
+  data-location="Flatön, Orust, Bohuslän"
+  data-description="Folk, löpning & gemenskap på underbara Flatön.
+Den 23 augusti 2025 genomför vi Taube-loppet för femte året i rad, och det kommer bli bästa å"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/taube_loppet_bohuslans_vackraste_lopp/taube_loppet_bohuslans_vackraste_lopp_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="23 aug."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Taube-loppet - Bohusläns vackraste lopp</div>
+    <div class="race-date">
+      23 aug.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/stockholm_trail"
+  class="race-card packed"
+  data-name="Stockholm Trail"
+  data-date="20250830"
+  data-county="Stockholm"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="5km, 10km"
+  data-latitude="59.296998"
+  data-longitude="18.1063742"
+  data-location="Hammarbyhöjdens IP"
+  data-description="Drömmer du om slingrande stigar, solbelysta berghällar och härliga sluttningar? Då kan Stockholm Trail vara loppet för dig. Vi erbjuder bano"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/stockholm_trail/stockholm_trail_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="30 aug."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Stockholm Trail</div>
+    <div class="race-date">
+      30 aug.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/mossarun"
+  class="race-card packed"
+  data-name="Mossarun"
+  data-date="20250906"
+  data-county="Stockholm"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="17km, 51km"
+  data-latitude="60.12816100000001"
+  data-longitude="18.643501"
+  data-location="None"
+  data-description="Mossarun är en utmanande löptävling som kopplar samman dussintals små, branta backar till en tekniskt krävande bana. Ditt benminne kommer de"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/mossarun/mossarun_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="6 sep."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Mossarun</div>
+    <div class="race-date">
+      6 sep.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/brottbyrundan"
+  class="race-card packed"
+  data-name="Brottbyrundan"
+  data-date="20250913"
+  data-county="Stockholm"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="3km, 10km, 20km"
+  data-latitude="60.12816100000001"
+  data-longitude="18.643501"
+  data-location="Össeby IP"
+  data-description="Brottbyrundan är ett av Stockholmsområdets klassiska terränglopp som erbjuder olika distanser för alla åldrar och förmågor - barn, ungdomar,"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/brottbyrundan/brottbyrundan_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="13 sep."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Brottbyrundan</div>
+    <div class="race-date">
+      13 sep.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/bergslagsleden_ultra"
+  class="race-card packed"
+  data-name="Bergslagsleden Ultra"
+  data-date="20250913"
+  data-county="Örebro"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="16km, 46km, 60km, 66km, 84km"
+  data-latitude="59.33772579999999"
+  data-longitude="14.9254037"
+  data-location="Ånnaboda"
+  data-description="Nu är det dags att anmäla sig till den elfte upplagan av Bergslagsleden Ultra som mestadels går längs Bergslagsleden underbara stigar. Antar"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/bergslagsleden_ultra/bergslagsleden_ultra_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="13 sep."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Bergslagsleden Ultra</div>
+    <div class="race-date">
+      13 sep.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/skrylle_challenge_26k_13k"
+  class="race-card packed"
+  data-name="Skrylle Challenge 26k/13k"
+  data-date="20251004"
+  data-county="Skåne"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="13km, 26km"
+  data-latitude="55.6925881"
+  data-longitude="13.360008"
+  data-location="Skrylle"
+  data-description="Skrylle Challenge 26k/13k är en utmanande löptävling som tar dig genom den natursköna Skrylle-området. Deltagarna kan välja mellan två dista"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/skrylle_challenge_26k_13k/skrylle_challenge_26k_13k_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="4 okt."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Skrylle Challenge 26k/13k</div>
+    <div class="race-date">
+      4 okt.
+    </div>
   </div>
 </a>
     
@@ -1056,7 +1759,11 @@
           </div>
         </div>
         <div class="race-card-big-container right-scroller">
-              <a
+          
+            
+            
+              
+                <a
   href="/loppsidor/halsoloppet_2025"
   class="race-card-big race-card"
   data-name="Hälsoloppet 2025"
@@ -1075,6 +1782,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1120,7 +1829,14 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/loppsidor/taube_loppet_bohuslans_vackraste_lopp"
   class="race-card-big race-card"
   data-name="Taube-loppet - Bohusläns vackraste lopp"
@@ -1139,6 +1855,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1208,7 +1926,14 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/loppsidor/btr_winter_5_24_km"
   class="race-card-big race-card"
   data-name="BTR WINTER 5-24 KM"
@@ -1227,6 +1952,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1284,7 +2011,14 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/loppsidor/stavie_trail"
   class="race-card-big race-card"
   data-name="Stävie Trail"
@@ -1303,6 +2037,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1366,7 +2102,14 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/loppsidor/ursvik_ultra"
   class="race-card-big race-card"
   data-name="Ursvik Ultra"
@@ -1385,6 +2128,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1442,963 +2187,13 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>   
+</a>
+              
+            
+          
         </div>
       </section>
-          
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/ursvik_ultra"
-  class="race-card packed"
-  data-name="Ursvik Ultra"
-  data-date="20250315"
-  data-county="Stockholm"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="15km, 45km, 75km"
-  data-latitude="59.3741861"
-  data-longitude="17.9631555"
-  data-location="Sundbybergs kommun"
-  data-description="Ursvik Ultra är ett ultramaratonlopp i terränglöpning som går av stapeln den tredje lördagen i mars. Huvudklassen är 75 km lång, och det fin"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/ursvik_ultra/ursvik_ultra_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="15 mars"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Ursvik Ultra</div>
-    <div class="race-date">
-      15 mars
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/edsvidsleden_trailrun"
-  class="race-card packed"
-  data-name="Edsvidsleden Trailrun"
-  data-date="20250316"
-  data-county="Gotland"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="14km, 28km, 56km"
-  data-latitude="57.32997399999999"
-  data-longitude="18.7089778"
-  data-location="Parkeringen mitt emot Olidastationen"
-  data-description="Edsvidsleden Trailrun går på den fina, klassiska Edsvidsleden i Trollhättan och är 14 km långt. Loppet äger rum söndagen den 17 mars 2024, m"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/edsvidsleden_trailrun/edsvidsleden_trailrun_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="16 mars"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Edsvidsleden Trailrun</div>
-    <div class="race-date">
-      16 mars
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/equinox_adventure_ultra"
-  class="race-card packed"
-  data-name="Equinox Adventure Ultra"
-  data-date="20250322"
-  data-county="Södermanland"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="50km, 100km"
-  data-latitude="58.7204062"
-  data-longitude="17.0910999"
-  data-location="Strandstuvikens Havsbad & Camping"
-  data-description="Equinox Adventure Ultra är en unik terränglöpning över långa distanser. Under helgen av vårdagjämningen måste varje team, bestående av två l"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/equinox_adventure_ultra/equinox_adventure_ultra_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="22 mars"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Equinox Adventure Ultra</div>
-    <div class="race-date">
-      22 mars
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/tjust_trail_run"
-  class="race-card packed"
-  data-name="Tjust Trail Run"
-  data-date="20250405"
-  data-county="Kalmar"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="5km, 10km, half marathon, marathon"
-  data-latitude="57.7451763"
-  data-longitude="16.6282224"
-  data-location="Baumansgatan 4, Västervik"
-  data-description="Den 5 april 2025 kommer Tjust Bike & Running Club att anordna den tionde upplagan av Tjust Trail Run. På härliga vårstigar kommer den smålän"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/tjust_trail_run/tjust_trail_run_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="5 apr."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Tjust Trail Run</div>
-    <div class="race-date">
-      5 apr.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/lidingoloppet_varmilen"
-  class="race-card packed"
-  data-name="Lidingöloppet Vårmilen"
-  data-date="20250426"
-  data-county="Stockholm"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="5km, 10km"
-  data-latitude="59.37011630000001"
-  data-longitude="18.1555268"
-  data-location="Lidingövallen"
-  data-description="Vårmilen är starten på terrängsäsongen och en möjlighet till en flygande start på löparåret. Loppet lockar varje år löpare att utmana Liding"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/lidingoloppet_varmilen/lidingoloppet_varmilen_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="26 apr."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Lidingöloppet Vårmilen</div>
-    <div class="race-date">
-      26 apr.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/billingen_trail_2"
-  class="race-card packed"
-  data-name="Billingen Trail"
-  data-date="20250426"
-  data-county="Västra Götaland"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="12km, half marathon, 47km"
-  data-latitude="58.40325300000001"
-  data-longitude="13.8181249"
-  data-location="Stadion, Billingens Fritidsområde Skövde"
-  data-description="Billingen Trail arrangeras den 26 april och erbjuder distanser på 47, 21 och 12 km. Långa banan är drygt 47 km med cirka 930 höjdmeter och g"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/billingen_trail_2/billingen_trail_2_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="26 apr."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Billingen Trail</div>
-    <div class="race-date">
-      26 apr.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/koster_trail"
-  class="race-card packed"
-  data-name="Koster Trail"
-  data-date="20250510"
-  data-county="Västra Götaland"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="15km"
-  data-latitude="58.89422769999999"
-  data-longitude="11.0066031"
-  data-location="Kosterhavets Ekobod nära Västra Bryggan"
-  data-description="Koster Trail är ett utmanande terränglopp i Kosterhavets nationalpark som går över bohuslänska klippor, på Nordkosters sandstränder, stigar "
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/koster_trail/koster_trail_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="10 maj"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Koster Trail</div>
-    <div class="race-date">
-      10 maj
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/oland_lighthouse_challenge"
-  class="race-card packed"
-  data-name="Öland Lighthouse Challenge"
-  data-date="20250531"
-  data-county="Kalmar"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="50 miles, 100 miles"
-  data-latitude="56.1960403"
-  data-longitude="16.3984891"
-  data-location="Fyren Långe Jan"
-  data-description="Öland Lighthouse Challenge är en fantastisk löpning i en natur som bara kan upplevas på Öland. Efter starten vid fyren Långe Jan får löparna"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/oland_lighthouse_challenge/oland_lighthouse_challenge_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="31 maj"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Öland Lighthouse Challenge</div>
-    <div class="race-date">
-      31 maj
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/halsoloppet_2025"
-  class="race-card packed"
-  data-name="Hälsoloppet 2025"
-  data-date="20250531"
-  data-county="Stockholm"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="5km"
-  data-latitude="59.237937006326696"
-  data-longitude="17.85396981237682"
-  data-location="Folkhälsoparken Alby"
-  data-description="Startplats och mål linje är Alby folkhälsopark (Alby IP). Hälsoloppet genomfördes för första gången 2023 och är en motionslopp i Alby. Du få"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/halsoloppet_2025/halsoloppet_2025_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="31 maj"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Hälsoloppet 2025</div>
-    <div class="race-date">
-      31 maj
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/eketanga_trail"
-  class="race-card packed"
-  data-name="Eketånga Trail"
-  data-date="20250606"
-  data-county="Halland"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="10km"
-  data-latitude="56.64099298839436"
-  data-longitude="12.77940746034626"
-  data-location="Wakeparken i Grötviks hamn"
-  data-description="Eketånga Trail är en spännande löptävling som äger rum den 6 juni 2025 i Halmstad. Deltagarna får uppleva en utmanande 10 km lång bana som s"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/eketanga_trail/eketanga_trail_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="6 juni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Eketånga Trail</div>
-    <div class="race-date">
-      6 juni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/bjornfrossa_ultra"
-  class="race-card packed"
-  data-name="Björnfrossa Ultra"
-  data-date="20250607"
-  data-county="Gävleborg"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="65km"
-  data-latitude="60.76405370000001"
-  data-longitude="16.4632614"
-  data-location="Kungsbergets Fritidsanläggning"
-  data-description="Björnfrossa ultramaraton är ett drygt 65 km långt löplopp som äger rum lördagen den 7 juni i vacker natur längs Gästrikeleden, Lenåsleden oc"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/bjornfrossa_ultra/bjornfrossa_ultra_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="7 juni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Björnfrossa Ultra</div>
-    <div class="race-date">
-      7 juni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/flosjon_edstjarn"
-  class="race-card packed"
-  data-name="Flosjön-Edstjärn"
-  data-date="20250614"
-  data-county="Dalarna"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="6km, 9,5km, 15,5km, half marathon"
-  data-latitude="60.53471860000001"
-  data-longitude="14.8322917"
-  data-location="Flosjön"
-  data-description="Flosjön-Edstjärn är en halvmarathon som anordnas av Edstjärns Idrottsklubb. Varje år tar löpare sig an den utmanande banan som snirklar sig "
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/flosjon_edstjarn/flosjon_edstjarn_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="14 juni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Flosjön-Edstjärn</div>
-    <div class="race-date">
-      14 juni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/ecotrail_stockholm"
-  class="race-card packed"
-  data-name="EcoTrail Stockholm"
-  data-date="20250614"
-  data-county="Stockholm"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="2km, 8km, 16km, 33km, 45km, 50 miles"
-  data-latitude="59.3327036"
-  data-longitude="18.0656255"
-  data-location="Stockholm"
-  data-description="Ecotrail Stockholm är ett lopp för alla som äger rum den 14 juni 2025. Det erbjuder olika distanser för deltagare i alla åldrar, inklusive b"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/ecotrail_stockholm/ecotrail_stockholm_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="14 juni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">EcoTrail Stockholm</div>
-    <div class="race-date">
-      14 juni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/jattelangt_70k_ultra"
-  class="race-card packed"
-  data-name="Jättelångt 70K Ultra"
-  data-date="20250614"
-  data-county="Stockholm"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="9km, 10km, 15km, half marathon, 70km, relay"
-  data-latitude="60.09608100000001"
-  data-longitude="18.8057521"
-  data-location="Grisslehamn"
-  data-description="Jättelångt 70 km är ett terrängultramarathon som går av stapeln den 15 juni varje år. Tävlingen följer den nya sträckningen av Roslagsleden "
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/jattelangt_70k_ultra/jattelangt_70k_ultra_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="14 juni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Jättelångt 70K Ultra</div>
-    <div class="race-date">
-      14 juni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/tjejmilen_salen"
-  class="race-card packed"
-  data-name="Tjejmilen Sälen"
-  data-date="20250614"
-  data-county="Dalarna"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="5km, 10km"
-  data-latitude="61.16037809999999"
-  data-longitude="13.1957967"
-  data-location="Lindvallen"
-  data-description="Tjejmilen Sälen by EQPE går den 14 juni 2025 på redan befintliga leder som till stor del är spångade på Mellanfjället och Hemfjället förbi H"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/tjejmilen_salen/tjejmilen_salen_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="14 juni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Tjejmilen Sälen</div>
-    <div class="race-date">
-      14 juni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/midsommarjoggen"
-  class="race-card packed"
-  data-name="Midsommarjoggen"
-  data-date="20250618"
-  data-county="Örebro"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="7,5km"
-  data-latitude="59.30230510000001"
-  data-longitude="15.2674132"
-  data-location="Stora Hjortstorps Gård"
-  data-description="Kom och var med på löparfest i Rynningeviken i Örebro! Samla gänget, familjen eller kollegorna och kom till Stora Hjortstorps Gård den 18 ju"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/midsommarjoggen/midsommarjoggen_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="18 juni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Midsommarjoggen</div>
-    <div class="race-date">
-      18 juni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/boda_beachrun"
-  class="race-card packed"
-  data-name="Böda Beachrun"
-  data-date="20250625"
-  data-county="Kalmar"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="2,5km, 5km, 10km"
-  data-latitude="57.2605471"
-  data-longitude="17.0351033"
-  data-location="Stranden, Böda Sand"
-  data-description="Böda Beach Run är ett lopp som sticker ut lite extra. En utmaning utöver det vanliga för hela familjen med banor från 500 m till 10 km. Tävl"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/boda_beachrun/boda_beachrun_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="25 juni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Böda Beachrun</div>
-    <div class="race-date">
-      25 juni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/high_coast_ultra_130_65"
-  class="race-card packed"
-  data-name="High Coast Ultra 130/65"
-  data-date="20250627"
-  data-county="Västernorrland"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="65km, 130km"
-  data-latitude="63.0562063"
-  data-longitude="18.328886"
-  data-location="Docksta"
-  data-description="High Coast Ultra är en fantastisk ultramaraton som går genom den vackra och dramatiska naturen i Höga Kusten. Loppet erbjuder två distanser:"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/high_coast_ultra_130_65/high_coast_ultra_130_65_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="27 juni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">High Coast Ultra 130/65</div>
-    <div class="race-date">
-      27 juni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/silverleden_ultra_64km"
-  class="race-card packed"
-  data-name="Silverleden Ultra 64km"
-  data-date="20250628"
-  data-county="Örebro"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="64km"
-  data-latitude="59.783688"
-  data-longitude="14.5225692"
-  data-location="Hällefors & fritidsområdet Hurtigtorpet"
-  data-description="Silverleden Ultra är en 64 km lång terränglöpning med 1400 hm i den magiska naturen i Bergslagen. Start och mål utgår från Hällefors och fri"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/silverleden_ultra_64km/silverleden_ultra_64km_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="28 juni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Silverleden Ultra 64km</div>
-    <div class="race-date">
-      28 juni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/boden_fortress"
-  class="race-card packed"
-  data-name="Boden Fortress"
-  data-date="20250628"
-  data-county="Stockholm"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="10km, 30km, 50km"
-  data-latitude="60.12816100000001"
-  data-longitude="18.643501"
-  data-location="gamla A8 kaserngården på Försvarsmuseums baksida"
-  data-description="Boden Fortress är en militär trailrun-äventyr som äger rum lördagen den 28 juni 2025. Deltagarna kan välja mellan tre distanser: BF.10K, BF."
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/boden_fortress/boden_fortress_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="28 juni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Boden Fortress</div>
-    <div class="race-date">
-      28 juni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/hornsjon_runt_11_km"
-  class="race-card packed"
-  data-name="Hornsjön Runt 11 km"
-  data-date="20250719"
-  data-county="Kalmar"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="1,5km, 1,6km, 2,9km, 5,5km, 11km"
-  data-latitude="57.2053533"
-  data-longitude="16.9615573"
-  data-location="Pensionat Hornsjön"
-  data-description="Gå, lunka, löp – runt Ölands enda insjö. I år går loppet för 48:e året! Upplev den fantastiska och varierande öländska naturen, med allt frå"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/hornsjon_runt_11_km/hornsjon_runt_11_km_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="19 juli"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Hornsjön Runt 11 km</div>
-    <div class="race-date">
-      19 juli
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/helags_fjallmara"
-  class="race-card packed"
-  data-name="Helags Fjällmara"
-  data-date="20250719"
-  data-county="Jämtland"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="5km, 12km, 23km"
-  data-latitude="62.85101"
-  data-longitude="12.80336"
-  data-location="Ljungdalen"
-  data-description="Helags Fjällmara är terrängloppet för dig som gillar utmaningar och vacker fjällnatur. Tävlingen bjuder på olika utmaningar på olika banor d"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/helags_fjallmara/helags_fjallmara_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="19 juli"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Helags Fjällmara</div>
-    <div class="race-date">
-      19 juli
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/lottorpsvarvet"
-  class="race-card packed"
-  data-name="Löttorpsvarvet"
-  data-date="20250723"
-  data-county="Kalmar"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="1,4km, 6,2km"
-  data-latitude="57.1816541"
-  data-longitude="17.0546607"
-  data-location="Löttorp Camping AB, Kesnäs Fiskarvägen 1, 387 73 Löttorp, Sweden"
-  data-description="Upplev spänningen av en strandlöpning vid Löttorp Campings årliga festligheter! Oavsett om du är en entusiastisk löpare eller bara tycker om"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/lottorpsvarvet/lottorpsvarvet_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="23 juli"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Löttorpsvarvet</div>
-    <div class="race-date">
-      23 juli
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/hamra_trail_run_25k"
-  class="race-card packed"
-  data-name="Hamra Trail Run 25k"
-  data-date="20250726"
-  data-county="Jämtland"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="25km, ultra"
-  data-latitude="62.54363840000001"
-  data-longitude="12.3325326"
-  data-location="Tänndalen"
-  data-description="Hamra Trail Run är ett traillopp som grundades 2022 och erbjuder distanserna Sprint, Distans och Ultra, med en maxgräns på 150 startplatser "
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/hamra_trail_run_25k/hamra_trail_run_25k_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="26 juli"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Hamra Trail Run 25k</div>
-    <div class="race-date">
-      26 juli
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/fjallmaraton_arefjallen"
-  class="race-card packed"
-  data-name="Fjällmaraton Årefjällen"
-  data-date="20250726"
-  data-county="Jämtland"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="5km, 8km, 12km, 27km, marathon, 45km, 100km"
-  data-latitude="63.14835660000001"
-  data-longitude="12.9663721"
-  data-location="Vålådalen"
-  data-description="Kia Fjällmaraton Årefjällen har utvecklats från ett lopp med 60 deltagare premiäråret 2005 till en hel fjällmaratonvecka med totalt 10 lopp "
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/fjallmaraton_arefjallen/fjallmaraton_arefjallen_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="26 juli"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Fjällmaraton Årefjällen</div>
-    <div class="race-date">
-      26 juli
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/halland_ultra_beach"
-  class="race-card packed"
-  data-name="Halland Ultra Beach"
-  data-date="20250731"
-  data-county="Skåne"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="40km, 46,2km, 50km, 60km, 72km, 100km, 100 miles, 321,9km"
-  data-latitude="56.4333027"
-  data-longitude="12.8353785"
-  data-location="Båstad"
-  data-description="Halland Ultra-Beach är en hyllning till naturen och den fria stiglöpningen i västkustens öppnaste landskap. Loppet sträcker sig över 200 mil"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/halland_ultra_beach/halland_ultra_beach_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="31 juli"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Halland Ultra Beach</div>
-    <div class="race-date">
-      31 juli
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/stora_stoten_run"
-  class="race-card packed"
-  data-name="Stora Stöten Run"
-  data-date="20250809"
-  data-county="Dalarna"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="5,6km, 13,6km, 21,6km"
-  data-latitude="60.6002216"
-  data-longitude="15.6165187"
-  data-location="Falu gruva"
-  data-description="Stora Stöten Run är ett fantastiskt löplopp i Falun, Dalarna, som erbjuder deltagarna en unik upplevelse i Världsarvet Falun. Banan är till "
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/stora_stoten_run/stora_stoten_run_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="9 aug."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Stora Stöten Run</div>
-    <div class="race-date">
-      9 aug.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/ultravasan_trail"
-  class="race-card packed"
-  data-name="Ultravasan Trail"
-  data-date="20250815"
-  data-county="Dalarna"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="30km, 45km, 90km"
-  data-latitude="61.1613853"
-  data-longitude="13.2630157"
-  data-location="Berga by, Sälen"
-  data-description="Upplev den magiska starten vid gryningen, 05:00 i Berga by, Sälen. Möt soluppgången på myrarna vid Smågan och fortsätt via alla klassiska Va"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/ultravasan_trail/ultravasan_trail_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="15 aug."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Ultravasan Trail</div>
-    <div class="race-date">
-      15 aug.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/taube_loppet_bohuslans_vackraste_lopp"
-  class="race-card packed"
-  data-name="Taube-loppet - Bohusläns vackraste lopp"
-  data-date="20250823"
-  data-county="Västra Götaland"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="0,5km, 5km, 10km, half marathon, 36km"
-  data-latitude="58.2239409929194"
-  data-longitude="11.51671886444092"
-  data-location="Flatön, Orust, Bohuslän"
-  data-description="Folk, löpning & gemenskap på underbara Flatön.
-Den 23 augusti 2025 genomför vi Taube-loppet för femte året i rad, och det kommer bli bästa å"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/taube_loppet_bohuslans_vackraste_lopp/taube_loppet_bohuslans_vackraste_lopp_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="23 aug."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Taube-loppet - Bohusläns vackraste lopp</div>
-    <div class="race-date">
-      23 aug.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/stockholm_trail"
-  class="race-card packed"
-  data-name="Stockholm Trail"
-  data-date="20250830"
-  data-county="Stockholm"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="5km, 10km"
-  data-latitude="59.296998"
-  data-longitude="18.1063742"
-  data-location="Hammarbyhöjdens IP"
-  data-description="Drömmer du om slingrande stigar, solbelysta berghällar och härliga sluttningar? Då kan Stockholm Trail vara loppet för dig. Vi erbjuder bano"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/stockholm_trail/stockholm_trail_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="30 aug."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Stockholm Trail</div>
-    <div class="race-date">
-      30 aug.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/mossarun"
-  class="race-card packed"
-  data-name="Mossarun"
-  data-date="20250906"
-  data-county="Stockholm"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="17km, 51km"
-  data-latitude="60.12816100000001"
-  data-longitude="18.643501"
-  data-location="None"
-  data-description="Mossarun är en utmanande löptävling som kopplar samman dussintals små, branta backar till en tekniskt krävande bana. Ditt benminne kommer de"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/mossarun/mossarun_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="6 sep."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Mossarun</div>
-    <div class="race-date">
-      6 sep.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/brottbyrundan"
-  class="race-card packed"
-  data-name="Brottbyrundan"
-  data-date="20250913"
-  data-county="Stockholm"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="3km, 10km, 20km"
-  data-latitude="60.12816100000001"
-  data-longitude="18.643501"
-  data-location="Össeby IP"
-  data-description="Brottbyrundan är ett av Stockholmsområdets klassiska terränglopp som erbjuder olika distanser för alla åldrar och förmågor - barn, ungdomar,"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/brottbyrundan/brottbyrundan_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="13 sep."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Brottbyrundan</div>
-    <div class="race-date">
-      13 sep.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/bergslagsleden_ultra"
-  class="race-card packed"
-  data-name="Bergslagsleden Ultra"
-  data-date="20250913"
-  data-county="Örebro"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="16km, 46km, 60km, 66km, 84km"
-  data-latitude="59.33772579999999"
-  data-longitude="14.9254037"
-  data-location="Ånnaboda"
-  data-description="Nu är det dags att anmäla sig till den elfte upplagan av Bergslagsleden Ultra som mestadels går längs Bergslagsleden underbara stigar. Antar"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/bergslagsleden_ultra/bergslagsleden_ultra_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="13 sep."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Bergslagsleden Ultra</div>
-    <div class="race-date">
-      13 sep.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/skrylle_challenge_26k_13k"
-  class="race-card packed"
-  data-name="Skrylle Challenge 26k/13k"
-  data-date="20251004"
-  data-county="Skåne"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="13km, 26km"
-  data-latitude="55.6925881"
-  data-longitude="13.360008"
-  data-location="Skrylle"
-  data-description="Skrylle Challenge 26k/13k är en utmanande löptävling som tar dig genom den natursköna Skrylle-området. Deltagarna kan välja mellan två dista"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/skrylle_challenge_26k_13k/skrylle_challenge_26k_13k_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="4 okt."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Skrylle Challenge 26k/13k</div>
-    <div class="race-date">
-      4 okt.
-    </div>
-  </div>
-</a>
-  
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

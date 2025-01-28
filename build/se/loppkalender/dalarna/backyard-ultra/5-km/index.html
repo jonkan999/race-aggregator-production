@@ -21,6 +21,8 @@
     <title>5 km Backyard Ultra lopp i Dalarna - Hitta ditt nästa lopp i vår loppkalender</title>
     <meta name="description" content="Hitta alla 5 km Backyard Ultra löpartävlingar i Dalarna. Använd vår löparkalender och lopplista för att planera din nästa löplopp.  Bläddra bland loppkalendern och hitta perfekt passande löpartävlingar." />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -680,14 +682,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: &quot;5 km&quot;, &quot;county&quot;: &quot;Dalarna&quot;, &quot;race_type&quot;: &quot;Backyard Ultra&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: \u0026quot;5 km\u0026quot;, \u0026quot;county\u0026quot;: \u0026quot;Dalarna\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Backyard Ultra\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/safsbygdens_bu"
-  class="race-card"
+  class="race-card packed"
   data-name="Säfsbygdens BU"
   data-date="20250529"
   data-county="Dalarna"
@@ -698,100 +700,20 @@
   data-longitude="14.6096294"
   data-location="Ulriksberg (SWE)"
   data-description="Säfsbygdens BU är ett vackert ultramaraton med fina stigar, beläget i Ulriksberg. Tävlingen är begränsad till 31 timmar, och den snabbaste l"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/safsbygdens_bu/safsbygdens_bu_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/safsbygdens_bu/safsbygdens_bu_1.webp?v=1"
   data-type="backyard"
   data-type-display="Backyard Ultra"
   data-date-display="29 maj"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/safsbygdens_bu/safsbygdens_bu_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Säfsbygdens BU"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          29 maj
-        </div>
-        <div class="race-location">
-          Dalarna
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Säfsbygdens BU</div>
+    <div class="race-date">
+      29 maj
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Säfsbygdens BU</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Ulriksberg (SWE) 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                31 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                backyard
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Backyard Ultra
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Säfsbygdens BU är ett vackert ultramaraton med fina stigar, beläget i Ulriksberg. Tävlingen är begränsad till 31 timmar, och den snabbaste l...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

@@ -25,6 +25,8 @@
     <title>Backyard Ultra Löpkalendern: Hitta Löpartävlingar & Lopplista</title>
     <meta name="description" content="Hitta Backyard Ultra löpartävlingar i Sverige med vår löparkalender. Bläddra i lopplistan efter kategori, läge och mer." />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -685,14 +687,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: null, &quot;county&quot;: null, &quot;race_type&quot;: &quot;Backyard Ultra&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: null, \u0026quot;county\u0026quot;: null, \u0026quot;race_type\u0026quot;: \u0026quot;Backyard Ultra\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/sorbyskogen_svartare"
-  class="race-card"
+  class="race-card packed"
   data-name="Sörbyskogen Svartare"
   data-date="20250125"
   data-county="Örebro"
@@ -703,114 +705,24 @@
   data-longitude="15.2190924"
   data-location="Café Skogen, Sörbyskogen, södra Örebro"
   data-description="Kom och spring in i mörkret den 25 januari 2025 i mysiga Sörbyskogen, där vinterns häftigaste trailupplevelse väntar. Vi kan inte lova hur u"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/sorbyskogen_svartare/sorbyskogen_svartare_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/sorbyskogen_svartare/sorbyskogen_svartare_1.webp?v=1"
   data-type="backyard"
   data-type-display="Backyard Ultra"
   data-date-display="25 jan."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/sorbyskogen_svartare/sorbyskogen_svartare_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Sörbyskogen Svartare"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          25 jan.
-        </div>
-        <div class="race-location">
-          Örebro
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Sörbyskogen Svartare</div>
+    <div class="race-date">
+      25 jan.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Sörbyskogen Svartare</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Café Skogen, Sörbyskogen, södra Örebro 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                3 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                4 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                8 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                18 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Backyard Ultra
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Kom och spring in i mörkret den 25 januari 2025 i mysiga Sörbyskogen, där vinterns häftigaste trailupplevelse väntar. Vi kan inte lova hur u...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/backyard_ultra"
-  class="race-card"
+  class="race-card packed"
   data-name="Backyard Ultra"
   data-date="20250405"
   data-county="Dalarna"
@@ -821,92 +733,24 @@
   data-longitude="14.0419871"
   data-location="Älvdalen"
   data-description="Backyard Ultra är en tävlingsform för ultralöpning där löparna springer en sträcka på 6706 meter (4,167 miles) varje timme, så många gånger "
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/backyard_ultra/backyard_ultra_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/backyard_ultra/backyard_ultra_1.webp?v=1"
   data-type="backyard"
   data-type-display="Backyard Ultra"
   data-date-display="5 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/backyard_ultra/backyard_ultra_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Backyard Ultra"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          5 apr.
-        </div>
-        <div class="race-location">
-          Dalarna
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Backyard Ultra</div>
+    <div class="race-date">
+      5 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Backyard Ultra</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Älvdalen 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                6,7 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Backyard Ultra
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Backyard Ultra är en tävlingsform för ultralöpning där löparna springer en sträcka på 6706 meter (4,167 miles) varje timme, så många gånger ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/kalmar_backyard_ultra"
-  class="race-card"
+  class="race-card packed"
   data-name="Kalmar Backyard Ultra"
   data-date="20250412"
   data-county="Gävleborg"
@@ -917,85 +761,213 @@
   data-longitude="17.3455559"
   data-location="Stensö"
   data-description="Kalmar Backyard Ultra är ett unikt ultralopp som ägde rum den 20 april 2024 på den pittoreska ön Stensö i Kalmar. Loppet börjar klockan 10:0"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/kalmar_backyard_ultra/kalmar_backyard_ultra_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/kalmar_backyard_ultra/kalmar_backyard_ultra_1.webp?v=1"
   data-type="backyard"
   data-type-display="Backyard Ultra"
   data-date-display="12 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/kalmar_backyard_ultra/kalmar_backyard_ultra_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Kalmar Backyard Ultra"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          12 apr.
-        </div>
-        <div class="race-location">
-          Gävleborg
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Kalmar Backyard Ultra</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Stensö 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                6 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Backyard Ultra
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Kalmar Backyard Ultra är ett unikt ultralopp som ägde rum den 20 april 2024 på den pittoreska ön Stensö i Kalmar. Loppet börjar klockan 10:0...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Kalmar Backyard Ultra</div>
+    <div class="race-date">
+      12 apr.
     </div>
   </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/winter_bay_backyard_ultra"
+  class="race-card packed"
+  data-name="WINTER BAY Backyard Ultra"
+  data-date="20250503"
+  data-county="Stockholm"
+  data-category=""
+  data-race-type="Backyard Ultra"
+  data-distance="6,7km"
+  data-latitude="59.31008800000001"
+  data-longitude="18.0256259"
+  data-location="Liljeholmen"
+  data-description="Välkommen till den 4:e upplagan av WINTER BAY Backyard Ultra i Stockholm, Sverige, som äger rum den 4-7 maj 2024. Loppet har en central plat"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/winter_bay_backyard_ultra/winter_bay_backyard_ultra_1.webp?v=1"
+  data-type="backyard"
+  data-type-display="Backyard Ultra"
+  data-date-display="3 maj"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">WINTER BAY Backyard Ultra</div>
+    <div class="race-date">
+      3 maj
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/altorp_ultra"
+  class="race-card packed"
+  data-name="Altorp Ultra"
+  data-date="20250510"
+  data-county="Södermanland"
+  data-category=""
+  data-race-type="Backyard Ultra"
+  data-distance="6,7km"
+  data-latitude="59.333333"
+  data-longitude="15.95"
+  data-location="Altorp"
+  data-description="Följ med oss för en episk dag på Altorp! Loppet går på en 6,7 km lång slinga - ‘Långa gula‘ - med cirka 120 meter höjdskillnad per varv. Den"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/altorp_ultra/altorp_ultra_1.webp?v=1"
+  data-type="backyard"
+  data-type-display="Backyard Ultra"
+  data-date-display="10 maj"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Altorp Ultra</div>
+    <div class="race-date">
+      10 maj
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/vange_back_yard_ultra"
+  class="race-card packed"
+  data-name="Vänge Back Yard Ultra"
+  data-date="20250524"
+  data-county="Stockholm"
+  data-category=""
+  data-race-type="Backyard Ultra"
+  data-distance=""
+  data-latitude="60.12816100000001"
+  data-longitude="18.643501"
+  data-location="High Chaparral parken"
+  data-description="Backyard Ultra Vänge 2024 är en unik löparupplevelse som utspelar sig i den idylliska byn Vänge, med start och mål i High Chaparral parken. "
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/vange_back_yard_ultra/vange_back_yard_ultra_1.webp?v=1"
+  data-type="backyard"
+  data-type-display="Backyard Ultra"
+  data-date-display="24 maj"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Vänge Back Yard Ultra</div>
+    <div class="race-date">
+      24 maj
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/safsbygdens_bu"
+  class="race-card packed"
+  data-name="Säfsbygdens BU"
+  data-date="20250529"
+  data-county="Dalarna"
+  data-category=""
+  data-race-type="Backyard Ultra"
+  data-distance="6km, 31km, backyard"
+  data-latitude="60.168632"
+  data-longitude="14.6096294"
+  data-location="Ulriksberg (SWE)"
+  data-description="Säfsbygdens BU är ett vackert ultramaraton med fina stigar, beläget i Ulriksberg. Tävlingen är begränsad till 31 timmar, och den snabbaste l"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/safsbygdens_bu/safsbygdens_bu_1.webp?v=1"
+  data-type="backyard"
+  data-type-display="Backyard Ultra"
+  data-date-display="29 maj"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Säfsbygdens BU</div>
+    <div class="race-date">
+      29 maj
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/jernbruket_backyard_ultra"
+  class="race-card packed"
+  data-name="Jernbruket Backyard Ultra"
+  data-date="20250606"
+  data-county="Västra Götaland"
+  data-category=""
+  data-race-type="Backyard Ultra"
+  data-distance="6,7km"
+  data-latitude="57.8086436"
+  data-longitude="12.3601529"
+  data-location="Restaurang Jernbruket, Floda"
+  data-description="Jernbrukets backyard ultra är en spännande tävling som kombinerar långa löppass med god öl, belägen i de fantastiska miljöerna runt Floda. T"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/jernbruket_backyard_ultra/jernbruket_backyard_ultra_1.webp?v=1"
+  data-type="backyard"
+  data-type-display="Backyard Ultra"
+  data-date-display="6 juni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Jernbruket Backyard Ultra</div>
+    <div class="race-date">
+      6 juni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/bunketorp_backyard_ultra_trail"
+  class="race-card packed"
+  data-name="Bunketorp Backyard Ultra Trail"
+  data-date="20250809"
+  data-county="Västra Götaland"
+  data-category=""
+  data-race-type="Backyard Ultra"
+  data-distance="6km"
+  data-latitude="57.5755218"
+  data-longitude="12.0783006"
+  data-location="Lindome"
+  data-description="Bunketorp Backyard Ultra Trail går i det natursköna Bunketorp (i Lindome söder om Göteborg) på sköna vältrampade stigar och motionsspår geno"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/bunketorp_backyard_ultra_trail/bunketorp_backyard_ultra_trail_1.webp?v=1"
+  data-type="backyard"
+  data-type-display="Backyard Ultra"
+  data-date-display="9 aug."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Bunketorp Backyard Ultra Trail</div>
+    <div class="race-date">
+      9 aug.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/bocksten_vineyard_ultra"
+  class="race-card packed"
+  data-name="Bocksten Vineyard Ultra"
+  data-date="20250906"
+  data-county="Halland"
+  data-category=""
+  data-race-type="Backyard Ultra"
+  data-distance="1km, half marathon, marathon, 44km, ultra"
+  data-latitude="57.0648899"
+  data-longitude="12.5573483"
+  data-location="Ästad Vingård"
+  data-description="Bocksten Vineyard Backyard Ultra äger rum den 6 september 2025 kl. 09:00 och är ett "Last One Standing"-lopp som erbjuder distanser av mil, "
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/bocksten_vineyard_ultra/bocksten_vineyard_ultra_1.webp?v=1"
+  data-type="backyard"
+  data-type-display="Backyard Ultra"
+  data-date-display="6 sep."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Bocksten Vineyard Ultra</div>
+    <div class="race-date">
+      6 sep.
+    </div>
   </div>
 </a>
     
@@ -1012,7 +984,11 @@
           </div>
         </div>
         <div class="race-card-big-container right-scroller">
-              <a
+          
+            
+            
+              
+                <a
   href="/loppsidor/backyard_ultra"
   class="race-card-big race-card"
   data-name="Backyard Ultra"
@@ -1031,6 +1007,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1076,7 +1054,14 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/loppsidor/kalmar_backyard_ultra"
   class="race-card-big race-card"
   data-name="Kalmar Backyard Ultra"
@@ -1095,6 +1080,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1140,7 +1127,14 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/loppsidor/winter_bay_backyard_ultra"
   class="race-card-big race-card"
   data-name="WINTER BAY Backyard Ultra"
@@ -1159,6 +1153,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1204,7 +1200,14 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/loppsidor/altorp_ultra"
   class="race-card-big race-card"
   data-name="Altorp Ultra"
@@ -1223,6 +1226,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1268,7 +1273,14 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/loppsidor/vange_back_yard_ultra"
   class="race-card-big race-card"
   data-name="Vänge Back Yard Ultra"
@@ -1287,6 +1299,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1332,206 +1346,13 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>   
+</a>
+              
+            
+          
         </div>
       </section>
-          
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/winter_bay_backyard_ultra"
-  class="race-card packed"
-  data-name="WINTER BAY Backyard Ultra"
-  data-date="20250503"
-  data-county="Stockholm"
-  data-category=""
-  data-race-type="Backyard Ultra"
-  data-distance="6,7km"
-  data-latitude="59.31008800000001"
-  data-longitude="18.0256259"
-  data-location="Liljeholmen"
-  data-description="Välkommen till den 4:e upplagan av WINTER BAY Backyard Ultra i Stockholm, Sverige, som äger rum den 4-7 maj 2024. Loppet har en central plat"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/winter_bay_backyard_ultra/winter_bay_backyard_ultra_1.webp?v=1"
-  data-type="backyard"
-  data-type-display="Backyard Ultra"
-  data-date-display="3 maj"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">WINTER BAY Backyard Ultra</div>
-    <div class="race-date">
-      3 maj
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/altorp_ultra"
-  class="race-card packed"
-  data-name="Altorp Ultra"
-  data-date="20250510"
-  data-county="Södermanland"
-  data-category=""
-  data-race-type="Backyard Ultra"
-  data-distance="6,7km"
-  data-latitude="59.333333"
-  data-longitude="15.95"
-  data-location="Altorp"
-  data-description="Följ med oss för en episk dag på Altorp! Loppet går på en 6,7 km lång slinga - ‘Långa gula‘ - med cirka 120 meter höjdskillnad per varv. Den"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/altorp_ultra/altorp_ultra_1.webp?v=1"
-  data-type="backyard"
-  data-type-display="Backyard Ultra"
-  data-date-display="10 maj"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Altorp Ultra</div>
-    <div class="race-date">
-      10 maj
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/vange_back_yard_ultra"
-  class="race-card packed"
-  data-name="Vänge Back Yard Ultra"
-  data-date="20250524"
-  data-county="Stockholm"
-  data-category=""
-  data-race-type="Backyard Ultra"
-  data-distance=""
-  data-latitude="60.12816100000001"
-  data-longitude="18.643501"
-  data-location="High Chaparral parken"
-  data-description="Backyard Ultra Vänge 2024 är en unik löparupplevelse som utspelar sig i den idylliska byn Vänge, med start och mål i High Chaparral parken. "
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/vange_back_yard_ultra/vange_back_yard_ultra_1.webp?v=1"
-  data-type="backyard"
-  data-type-display="Backyard Ultra"
-  data-date-display="24 maj"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Vänge Back Yard Ultra</div>
-    <div class="race-date">
-      24 maj
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/safsbygdens_bu"
-  class="race-card packed"
-  data-name="Säfsbygdens BU"
-  data-date="20250529"
-  data-county="Dalarna"
-  data-category=""
-  data-race-type="Backyard Ultra"
-  data-distance="6km, 31km, backyard"
-  data-latitude="60.168632"
-  data-longitude="14.6096294"
-  data-location="Ulriksberg (SWE)"
-  data-description="Säfsbygdens BU är ett vackert ultramaraton med fina stigar, beläget i Ulriksberg. Tävlingen är begränsad till 31 timmar, och den snabbaste l"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/safsbygdens_bu/safsbygdens_bu_1.webp?v=1"
-  data-type="backyard"
-  data-type-display="Backyard Ultra"
-  data-date-display="29 maj"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Säfsbygdens BU</div>
-    <div class="race-date">
-      29 maj
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/jernbruket_backyard_ultra"
-  class="race-card packed"
-  data-name="Jernbruket Backyard Ultra"
-  data-date="20250606"
-  data-county="Västra Götaland"
-  data-category=""
-  data-race-type="Backyard Ultra"
-  data-distance="6,7km"
-  data-latitude="57.8086436"
-  data-longitude="12.3601529"
-  data-location="Restaurang Jernbruket, Floda"
-  data-description="Jernbrukets backyard ultra är en spännande tävling som kombinerar långa löppass med god öl, belägen i de fantastiska miljöerna runt Floda. T"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/jernbruket_backyard_ultra/jernbruket_backyard_ultra_1.webp?v=1"
-  data-type="backyard"
-  data-type-display="Backyard Ultra"
-  data-date-display="6 juni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Jernbruket Backyard Ultra</div>
-    <div class="race-date">
-      6 juni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/bunketorp_backyard_ultra_trail"
-  class="race-card packed"
-  data-name="Bunketorp Backyard Ultra Trail"
-  data-date="20250809"
-  data-county="Västra Götaland"
-  data-category=""
-  data-race-type="Backyard Ultra"
-  data-distance="6km"
-  data-latitude="57.5755218"
-  data-longitude="12.0783006"
-  data-location="Lindome"
-  data-description="Bunketorp Backyard Ultra Trail går i det natursköna Bunketorp (i Lindome söder om Göteborg) på sköna vältrampade stigar och motionsspår geno"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/bunketorp_backyard_ultra_trail/bunketorp_backyard_ultra_trail_1.webp?v=1"
-  data-type="backyard"
-  data-type-display="Backyard Ultra"
-  data-date-display="9 aug."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Bunketorp Backyard Ultra Trail</div>
-    <div class="race-date">
-      9 aug.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/bocksten_vineyard_ultra"
-  class="race-card packed"
-  data-name="Bocksten Vineyard Ultra"
-  data-date="20250906"
-  data-county="Halland"
-  data-category=""
-  data-race-type="Backyard Ultra"
-  data-distance="1km, half marathon, marathon, 44km, ultra"
-  data-latitude="57.0648899"
-  data-longitude="12.5573483"
-  data-location="Ästad Vingård"
-  data-description="Bocksten Vineyard Backyard Ultra äger rum den 6 september 2025 kl. 09:00 och är ett "Last One Standing"-lopp som erbjuder distanser av mil, "
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/bocksten_vineyard_ultra/bocksten_vineyard_ultra_1.webp?v=1"
-  data-type="backyard"
-  data-type-display="Backyard Ultra"
-  data-date-display="6 sep."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Bocksten Vineyard Ultra</div>
-    <div class="race-date">
-      6 sep.
-    </div>
-  </div>
-</a>
-  
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

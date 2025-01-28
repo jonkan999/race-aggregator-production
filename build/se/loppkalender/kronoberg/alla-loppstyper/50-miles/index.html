@@ -21,6 +21,8 @@
     <title>50 miles Löpning i Kronoberg | Loppkalender & Löpartävlingar</title>
     <meta name="description" content="Hitta alla 50 miles löplopp och löpartävlingar i Kronoberg.  Bläddra i vår loppkalender och hitta ditt nästa äventyr. Alla loppstyper, inklusive Landsväg och Terränglopp, finns med.  Lopplista, löparkalender, löparkalendern." />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -671,14 +673,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: &quot;50 miles&quot;, &quot;county&quot;: &quot;Kronoberg&quot;, &quot;race_type&quot;: null}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: \u0026quot;50 miles\u0026quot;, \u0026quot;county\u0026quot;: \u0026quot;Kronoberg\u0026quot;, \u0026quot;race_type\u0026quot;: null}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/vxo_ultrafest_24h"
-  class="race-card"
+  class="race-card packed"
   data-name="VXO Ultrafest 24h"
   data-date="20250426"
   data-county="Kronoberg"
@@ -689,100 +691,20 @@
   data-longitude="14.8285587"
   data-location="Trummens södra strand"
   data-description="VXO Ultrafest - VXO24h är en ultramaraton som äger rum i Växjö, Sverige, den 26-27 april 2025. Tävlingen, som arrangeras av Växjö Löparklubb"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/vxo_ultrafest_24h/vxo_ultrafest_24h_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/vxo_ultrafest_24h/vxo_ultrafest_24h_1.webp?v=1"
   data-type="time"
   data-type-display="Tidslopp"
   data-date-display="26 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/vxo_ultrafest_24h/vxo_ultrafest_24h_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till VXO Ultrafest 24h"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          26 apr.
-        </div>
-        <div class="race-location">
-          Kronoberg
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">VXO Ultrafest 24h</div>
+    <div class="race-date">
+      26 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">VXO Ultrafest 24h</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Trummens södra strand 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                20 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                35 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                100 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Tidslopp
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      VXO Ultrafest - VXO24h är en ultramaraton som äger rum i Växjö, Sverige, den 26-27 april 2025. Tävlingen, som arrangeras av Växjö Löparklubb...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

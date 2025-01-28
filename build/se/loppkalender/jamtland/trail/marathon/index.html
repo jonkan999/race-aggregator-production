@@ -21,6 +21,8 @@
     <title>Marathon Trail-lopp i Jämtland | Loppkalender & Löparkalender</title>
     <meta name="description" content="Hitta ditt nästa marathon trail-lopp i Jämtland!  Bläddra i vår loppkalender och löparkalender för löpartävlingar och hitta perfekta loppet.  Lopplista med filter för kategori: Marathon, race type: Trail, location: Jämtland." />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -680,14 +682,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: &quot;Marathon&quot;, &quot;county&quot;: &quot;J\u00e4mtland&quot;, &quot;race_type&quot;: &quot;Trail&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: \u0026quot;Marathon\u0026quot;, \u0026quot;county\u0026quot;: \u0026quot;J\\u00e4mtland\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Trail\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/fjallmaraton_gastronomi"
-  class="race-card"
+  class="race-card packed"
   data-name="Fjällmaraton Gastronomi"
   data-date="20250628"
   data-county="Jämtland"
@@ -698,94 +700,20 @@
   data-longitude="13.0852665"
   data-location="Edsåsdalen"
   data-description="Fjällmaraton Gastronomi är en unik löptävling som kombinerar fantastisk natur med gastronomiska upplevelser. Deltagarna får njuta av lokalt "
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/fjallmaraton_gastronomi/fjallmaraton_gastronomi_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/fjallmaraton_gastronomi/fjallmaraton_gastronomi_1.webp?v=1"
   data-type="trail"
   data-type-display="Trail"
   data-date-display="28 juni"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/fjallmaraton_gastronomi/fjallmaraton_gastronomi_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Fjällmaraton Gastronomi"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          28 juni
-        </div>
-        <div class="race-location">
-          Jämtland
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Fjällmaraton Gastronomi</div>
+    <div class="race-date">
+      28 juni
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Fjällmaraton Gastronomi</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Edsåsdalen 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                27 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Marathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Trail
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Fjällmaraton Gastronomi är en unik löptävling som kombinerar fantastisk natur med gastronomiska upplevelser. Deltagarna får njuta av lokalt ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

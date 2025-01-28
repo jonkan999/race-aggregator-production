@@ -25,6 +25,8 @@
     <title>Terränglopp i Skåne | Loppkalender & Löpartävlingar</title>
     <meta name="description" content="Hitta alla terränglöp i Skåne!  Bläddra i vår loppkalender med löplopp av olika längder, från 5 km till marathon och längre.  Använd vår löparkalender för att hitta ditt nästa äventyr. Lopplista och löpartävlingar." />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -675,14 +677,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: null, &quot;county&quot;: &quot;Sk\u00e5ne&quot;, &quot;race_type&quot;: &quot;Terr\u00e4ng&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: null, \u0026quot;county\u0026quot;: \u0026quot;Sk\\u00e5ne\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Terr\\u00e4ng\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/stavie_trail"
-  class="race-card"
+  class="race-card packed"
   data-name="Stävie Trail"
   data-date="20250302"
   data-county="Skåne"
@@ -693,110 +695,24 @@
   data-longitude="13.0752671"
   data-location="Södra Ljungvägen 33, Furulund"
   data-description="Stävie Trail bjuder på en fantastisk runda på slingrande stigar i småkuperad terräng med alla tänkbara underlag. Välj mellan 6,5 km, 13 km e"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/stavie_trail/stavie_trail_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/stavie_trail/stavie_trail_1.webp?v=1"
   data-type="terrain"
   data-type-display="Terräng"
   data-date-display="2 mars"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/stavie_trail/stavie_trail_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Stävie Trail"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          2 mars
-        </div>
-        <div class="race-location">
-          Skåne
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Stävie Trail</div>
+    <div class="race-date">
+      2 mars
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Stävie Trail</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Södra Ljungvägen 33, Furulund 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2,6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                6,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                13 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Halvmarathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Terräng
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Stävie Trail bjuder på en fantastisk runda på slingrande stigar i småkuperad terräng med alla tänkbara underlag. Välj mellan 6,5 km, 13 km e...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/halland_ultra_beach"
-  class="race-card"
+  class="race-card packed"
   data-name="Halland Ultra Beach"
   data-date="20250731"
   data-county="Skåne"
@@ -807,114 +723,24 @@
   data-longitude="12.8353785"
   data-location="Båstad"
   data-description="Halland Ultra-Beach är en hyllning till naturen och den fria stiglöpningen i västkustens öppnaste landskap. Loppet sträcker sig över 200 mil"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/halland_ultra_beach/halland_ultra_beach_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/halland_ultra_beach/halland_ultra_beach_1.webp?v=1"
   data-type="terrain"
   data-type-display="Terräng"
   data-date-display="31 juli"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/halland_ultra_beach/halland_ultra_beach_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Halland Ultra Beach"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          31 juli
-        </div>
-        <div class="race-location">
-          Skåne
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Halland Ultra Beach</div>
+    <div class="race-date">
+      31 juli
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Halland Ultra Beach</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Båstad 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                40 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                46,2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                50 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                60 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Terräng
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Halland Ultra-Beach är en hyllning till naturen och den fria stiglöpningen i västkustens öppnaste landskap. Loppet sträcker sig över 200 mil...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/skrylle_challenge_26k_13k"
-  class="race-card"
+  class="race-card packed"
   data-name="Skrylle Challenge 26k/13k"
   data-date="20251004"
   data-county="Skåne"
@@ -925,91 +751,17 @@
   data-longitude="13.360008"
   data-location="Skrylle"
   data-description="Skrylle Challenge 26k/13k är en utmanande löptävling som tar dig genom den natursköna Skrylle-området. Deltagarna kan välja mellan två dista"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/skrylle_challenge_26k_13k/skrylle_challenge_26k_13k_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/skrylle_challenge_26k_13k/skrylle_challenge_26k_13k_1.webp?v=1"
   data-type="terrain"
   data-type-display="Terräng"
   data-date-display="4 okt."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/skrylle_challenge_26k_13k/skrylle_challenge_26k_13k_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Skrylle Challenge 26k/13k"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          4 okt.
-        </div>
-        <div class="race-location">
-          Skåne
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Skrylle Challenge 26k/13k</div>
+    <div class="race-date">
+      4 okt.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Skrylle Challenge 26k/13k</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Skrylle 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                13 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                26 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Terräng
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Skrylle Challenge 26k/13k är en utmanande löptävling som tar dig genom den natursköna Skrylle-området. Deltagarna kan välja mellan två dista...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
     
@@ -1026,7 +778,11 @@
           </div>
         </div>
         <div class="race-card-big-container right-scroller">
-              <a
+          
+            
+            
+              
+                <a
   href="/loppsidor/stavie_trail"
   class="race-card-big race-card"
   data-name="Stävie Trail"
@@ -1045,6 +801,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1108,7 +866,14 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/loppsidor/halland_ultra_beach"
   class="race-card-big race-card"
   data-name="Halland Ultra Beach"
@@ -1127,6 +892,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1200,7 +967,14 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/loppsidor/skrylle_challenge_26k_13k"
   class="race-card-big race-card"
   data-name="Skrylle Challenge 26k/13k"
@@ -1219,6 +993,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1270,10 +1046,13 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>   
+</a>
+              
+            
+          
         </div>
       </section>
-        
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

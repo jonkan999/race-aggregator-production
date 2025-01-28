@@ -21,6 +21,8 @@
     <title>5 km Tidslopp i Örebro - Hitta ditt nästa lopp i vår loppkalender</title>
     <meta name="description" content="Letar du efter ett 5 km Tidslopp i Örebro?  Hitta alla lopp i Örebro i vår löparkalender.  Använd våra filter för att hitta ditt perfekta löplopp! Lopplista och löpartävlingar." />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -680,14 +682,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: &quot;5 km&quot;, &quot;county&quot;: &quot;\u00d6rebro&quot;, &quot;race_type&quot;: &quot;Tidslopp&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: \u0026quot;5 km\u0026quot;, \u0026quot;county\u0026quot;: \u0026quot;\\u00d6rebro\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Tidslopp\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/rynningeviken_3_6_timm"
-  class="race-card"
+  class="race-card packed"
   data-name="Rynningeviken 3/6-timm"
   data-date="20250830"
   data-county="Örebro"
@@ -698,94 +700,20 @@
   data-longitude="15.2134105"
   data-location="Örebro"
   data-description="Rynningeviken 3/6-timm är en löpartävling som äger rum den 30 augusti 2025 i Örebro. Deltagarna kan välja mellan två distanser: tre timmar e"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/rynningeviken_3_6_timm/rynningeviken_3_6_timm_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/rynningeviken_3_6_timm/rynningeviken_3_6_timm_1.webp?v=1"
   data-type="time"
   data-type-display="Tidslopp"
   data-date-display="30 aug."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/rynningeviken_3_6_timm/rynningeviken_3_6_timm_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Rynningeviken 3/6-timm"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          30 aug.
-        </div>
-        <div class="race-location">
-          Örebro
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Rynningeviken 3/6-timm</div>
+    <div class="race-date">
+      30 aug.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Rynningeviken 3/6-timm</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Örebro 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                3 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                6 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Tidslopp
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Rynningeviken 3/6-timm är en löpartävling som äger rum den 30 augusti 2025 i Örebro. Deltagarna kan välja mellan två distanser: tre timmar e...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

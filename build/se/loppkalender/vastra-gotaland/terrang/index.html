@@ -25,6 +25,8 @@
     <title>Terränglopp i Västra Götaland - Loppkalender och Löpartävlingar</title>
     <meta name="description" content="Hitta ditt nästa terränglopp i Västra Götaland!  Bläddra i vår loppkalender med löpartävlingar i olika distanser, från 5 km till marathon och längre.  Använd vår lopplista för att hitta perfekt lopp." />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -688,14 +690,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: null, &quot;county&quot;: &quot;V\u00e4stra G\u00f6taland&quot;, &quot;race_type&quot;: &quot;Terr\u00e4ng&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: null, \u0026quot;county\u0026quot;: \u0026quot;V\\u00e4stra G\\u00f6taland\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Terr\\u00e4ng\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/billingen_trail_2"
-  class="race-card"
+  class="race-card packed"
   data-name="Billingen Trail"
   data-date="20250426"
   data-county="Västra Götaland"
@@ -706,104 +708,24 @@
   data-longitude="13.8181249"
   data-location="Stadion, Billingens Fritidsområde Skövde"
   data-description="Billingen Trail arrangeras den 26 april och erbjuder distanser på 47, 21 och 12 km. Långa banan är drygt 47 km med cirka 930 höjdmeter och g"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/billingen_trail_2/billingen_trail_2_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/billingen_trail_2/billingen_trail_2_1.webp?v=1"
   data-type="terrain"
   data-type-display="Terräng"
   data-date-display="26 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/billingen_trail_2/billingen_trail_2_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Billingen Trail"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          26 apr.
-        </div>
-        <div class="race-location">
-          Västra Götaland
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Billingen Trail</div>
+    <div class="race-date">
+      26 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Billingen Trail</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Stadion, Billingens Fritidsområde Skövde 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                12 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Halvmarathon
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                47 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Terräng
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Billingen Trail arrangeras den 26 april och erbjuder distanser på 47, 21 och 12 km. Långa banan är drygt 47 km med cirka 930 höjdmeter och g...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/koster_trail"
-  class="race-card"
+  class="race-card packed"
   data-name="Koster Trail"
   data-date="20250510"
   data-county="Västra Götaland"
@@ -814,92 +736,24 @@
   data-longitude="11.0066031"
   data-location="Kosterhavets Ekobod nära Västra Bryggan"
   data-description="Koster Trail är ett utmanande terränglopp i Kosterhavets nationalpark som går över bohuslänska klippor, på Nordkosters sandstränder, stigar "
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/koster_trail/koster_trail_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/koster_trail/koster_trail_1.webp?v=1"
   data-type="terrain"
   data-type-display="Terräng"
   data-date-display="10 maj"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/koster_trail/koster_trail_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Koster Trail"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          10 maj
-        </div>
-        <div class="race-location">
-          Västra Götaland
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Koster Trail</div>
+    <div class="race-date">
+      10 maj
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Koster Trail</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Kosterhavets Ekobod nära Västra Bryggan 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                15 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Terräng
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Koster Trail är ett utmanande terränglopp i Kosterhavets nationalpark som går över bohuslänska klippor, på Nordkosters sandstränder, stigar ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/taube_loppet_bohuslans_vackraste_lopp"
-  class="race-card"
+  class="race-card packed"
   data-name="Taube-loppet - Bohusläns vackraste lopp"
   data-date="20250823"
   data-county="Västra Götaland"
@@ -911,108 +765,17 @@
   data-location="Flatön, Orust, Bohuslän"
   data-description="Folk, löpning & gemenskap på underbara Flatön.
 Den 23 augusti 2025 genomför vi Taube-loppet för femte året i rad, och det kommer bli bästa å"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/taube_loppet_bohuslans_vackraste_lopp/taube_loppet_bohuslans_vackraste_lopp_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/taube_loppet_bohuslans_vackraste_lopp/taube_loppet_bohuslans_vackraste_lopp_1.webp?v=1"
   data-type="terrain"
   data-type-display="Terräng"
   data-date-display="23 aug."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/taube_loppet_bohuslans_vackraste_lopp/taube_loppet_bohuslans_vackraste_lopp_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Taube-loppet - Bohusläns vackraste lopp"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          23 aug.
-        </div>
-        <div class="race-location">
-          Västra Götaland
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Taube-loppet - Bohusläns vackraste lopp</div>
+    <div class="race-date">
+      23 aug.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Taube-loppet - Bohusläns vackraste lopp</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Flatön, Orust, Bohuslän 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                0,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Halvmarathon
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Terräng
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Folk, löpning & gemenskap på underbara Flatön.
-Den 23 augusti 2025 genomför vi Taube-loppet för femte året i rad, och det kommer bli bästa å...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
     
@@ -1029,7 +792,11 @@ Den 23 augusti 2025 genomför vi Taube-loppet för femte året i rad, och det ko
           </div>
         </div>
         <div class="race-card-big-container right-scroller">
-              <a
+          
+            
+            
+              
+                <a
   href="/loppsidor/taube_loppet_bohuslans_vackraste_lopp"
   class="race-card-big race-card"
   data-name="Taube-loppet - Bohusläns vackraste lopp"
@@ -1048,6 +815,8 @@ Den 23 augusti 2025 genomför vi Taube-loppet för femte året i rad, och det ko
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1117,7 +886,14 @@ Den 23 augusti 2025 genomför vi Taube-loppet för femte året i rad, och det ko
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/loppsidor/billingen_trail_2"
   class="race-card-big race-card"
   data-name="Billingen Trail"
@@ -1136,6 +912,8 @@ Den 23 augusti 2025 genomför vi Taube-loppet för femte året i rad, och det ko
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1193,7 +971,14 @@ Den 23 augusti 2025 genomför vi Taube-loppet för femte året i rad, och det ko
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/loppsidor/koster_trail"
   class="race-card-big race-card"
   data-name="Koster Trail"
@@ -1212,6 +997,8 @@ Den 23 augusti 2025 genomför vi Taube-loppet för femte året i rad, och det ko
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1257,10 +1044,13 @@ Den 23 augusti 2025 genomför vi Taube-loppet för femte året i rad, och det ko
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>   
+</a>
+              
+            
+          
         </div>
       </section>
-        
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">
