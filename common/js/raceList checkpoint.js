@@ -107,7 +107,7 @@ async function initializeWhenReady() {
   }
 
   // Your existing initialization code
-  const distanceMapping = {"1,5km": ["1500 meter"], "10,2km": ["Mill\u00f8p", "10 km"], "10,3km": ["Mill\u00f8p", "10 km"], "100 miles": ["100 miles"], "100km": ["50 miles", "100 km"], "10km": ["Mill\u00f8p", "10000 meter", "10 km"], "11km": ["Mill\u00f8p", "10 km"], "150km": ["100 miles"], "20km": ["Halvmaraton"], "21,8km": ["Halvmaraton"], "22km": ["Halvmaraton"], "3km": ["3000 meter"], "4,1km": ["5 km"], "4,2km": ["5 km"], "4,3km": ["5 km"], "4,4km": ["5 km"], "4,5km": ["5 km"], "4,6km": ["5 km"], "4,8km": ["5 km"], "400km": ["200 miles"], "43,4km": ["Maraton"], "45km": ["50 km"], "48km": ["50 km"], "4km": ["5 km"], "5,2km": ["5 km"], "5,4km": ["5 km"], "5,5km": ["5 km"], "5,6km": ["5 km"], "5,7km": ["5 km"], "5,8km": ["5 km"], "50 miles": ["50 miles"], "50km": ["50 km"], "52,2km": ["50 km"], "52,5km": ["50 km"], "55km": ["50 km"], "5km": ["5 km", "5000 meter"], "6km": ["5 km"], "75km": ["50 miles"], "76km": ["50 miles"], "88km": ["50 miles"], "9,3km": ["Mill\u00f8p", "10 km"], "9,5km": ["Mill\u00f8p", "10 km"], "95km": ["50 miles", "100 km"], "9km": ["Mill\u00f8p", "10 km"], "half marathon": ["Halvmaraton"], "marathon": ["Maraton"]};
+  const distanceMapping = {{ distance_filter.distance_mapping | tojson | safe }};
   const raceCards = document.querySelectorAll(".race-card");
   const itemsPerPage = 20;
   let currentPage = 1;
@@ -129,20 +129,20 @@ async function initializeWhenReady() {
   const dateRangeSpan = document.getElementById("date-range");
 
   // Jinja-inserted values
-  const dateRangeFrom = " fra ";
-  const dateRangeTo = " til ";
-  const dateRangeSingle = " i ";
+  const dateRangeFrom = " {{ section_race_card_header_date_range_from }}";
+  const dateRangeTo = " {{ section_race_card_header_date_range_to }}";
+  const dateRangeSingle = " {{ section_race_card_header_date_range_single }}";
 
   // Add these new elements
   const raceTitleCategory = document.getElementById("race-cards-title-category");
   const raceTitleRegion = document.getElementById("race-cards-title-region");
-  const defaultRegionText = "Norge";
-  const defaultCountyText = "Alle fylker";
+  const defaultRegionText = "{{ section_race_card_header_region_default }}";
+  const defaultCountyText = "{{ filter_county }}";
 
-  const country_code = "no";
-  const language_code = "no";
+  const country_code = "{{ country_code }}";
+  const language_code = "{{ country_language_code }}";
 
-  const categoryMapping = {"10 km": {"range": [9, 11]}, "100 km": {"range": [90, 110]}, "100 miles": {"range": [150, 170]}, "10000 meter": {"range": [10, 10]}, "1500 meter": {"range": [1.5, 1.5]}, "200 miles": {"range": [300, 500]}, "3000 meter": {"range": [3, 3]}, "5 km": {"range": [4, 6]}, "50 km": {"range": [45, 55]}, "50 miles": {"range": [75, 100]}, "5000 meter": {"range": [5, 5]}, "Backyard Ultra": "backyard", "Halvmaraton": {"range": [20, 22]}, "Maraton": {"range": [40, 44]}, "Mill\u00f8p": {"range": [9, 11]}};
+  const categoryMapping = {{ category_mapping | tojson | safe }};
 
   // Retrieve pre-selected filters from data attribute
   const preselectedFilters = JSON.parse(document.getElementById("race-cards-container").getAttribute("data-preselected-filters"));
@@ -196,7 +196,7 @@ async function initializeWhenReady() {
       console.log("Preselected filters were changed, redirecting...");
       
       // Construct the redirect URL
-      const redirectUrl = `/terminliste/?category=${encodeURIComponent(currentFilters.category)}&county=${encodeURIComponent(currentFilters.county)}&race_type=${encodeURIComponent(currentFilters.race_type)}`;
+      const redirectUrl = `/{{ navigation['race-list'] | slugify(country_code) }}/?category=${encodeURIComponent(currentFilters.category)}&county=${encodeURIComponent(currentFilters.county)}&race_type=${encodeURIComponent(currentFilters.race_type)}`;
       
       console.log(redirectUrl); // Log the redirect URL for debugging
       window.location.href = redirectUrl;
@@ -541,7 +541,7 @@ async function initializeWhenReady() {
     );
     const start = (currentPage - 1) * itemsPerPage + 1;
     const end = Math.min(currentPage * itemsPerPage, filteredCards.length);
-    eventRange.textContent = `${start}-${end} av ${filteredCards.length} `;
+    eventRange.textContent = `${start}-${end} {{ pagination.results_text }} ${filteredCards.length} `;
   }
 
   function updateURL(page) {
@@ -975,3 +975,4 @@ function createImageLoadPromise(img) {
     tempImg.src = img.dataset.src;
   });
 }
+
