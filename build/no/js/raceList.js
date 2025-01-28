@@ -931,14 +931,14 @@ if (document.readyState === 'loading') {
   initializeWhenReady();
 }
 
-// Add fallback to show content after 5 seconds
+// Add fallback to show content after 3.5 seconds
 setTimeout(() => {
   if (!document.body.classList.contains('loaded')) {
     document.body.classList.add('loaded');
     const loader = document.getElementById('initial-loader');
     if (loader) loader.remove();
   }
-}, 5000);
+}, 3500);
 
 document.addEventListener('DOMContentLoaded', function() {
   const containers = document.querySelectorAll('.race-card-big-container');
