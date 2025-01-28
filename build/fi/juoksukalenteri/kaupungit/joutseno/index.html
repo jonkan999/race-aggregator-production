@@ -25,6 +25,8 @@
     <title>Juoksukilpailut Joutsenossa: Löydä seuraava juoksutapahtuma</title>
     <meta name="description" content="Löydä kaikki Joutsenossa järjestettävät juoksukilpailut – Kaikki kategoriat (esim. 5 km, maraton) ja juoksutyylit (esim. maantiejuoksu, polkujuoksu) ovat mukana. Hae sopivin juoksukilpailu ja osallistu!" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -669,14 +671,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Joutseno&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Joutseno\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/kilpailusivut/lappeenranta_half"
-  class="race-card"
+  class="race-card packed"
   data-name="Lappeenranta Half"
   data-date="20250831"
   data-county="Etelä-Karjala"
@@ -687,92 +689,24 @@
   data-longitude="28.186444"
   data-location="Lappeenrannan Satamatori"
   data-description="Lappeenranta Half on ainutlaatuinen urheilutapahtuma, joka yhdistää kaksi perinteikästä Lappeenrantalaista urheiluseuraa. Kilpailu tarjoaa j"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Flappeenranta_half%2Flappeenranta_half_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/lappeenranta_half/lappeenranta_half_1.webp?v=1"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="31 elo."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Flappeenranta_half%2Flappeenranta_half_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Kuva {x}Lappeenranta Half"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          31 elo.
-        </div>
-        <div class="race-location">
-          Etelä-Karjala
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Lappeenranta Half</div>
+    <div class="race-date">
+      31 elo.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Lappeenranta Half</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Lappeenrannan Satamatori 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maantie
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Lappeenranta Half on ainutlaatuinen urheilutapahtuma, joka yhdistää kaksi perinteikästä Lappeenrantalaista urheiluseuraa. Kilpailu tarjoaa j...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/kilpailusivut/kullervo_marathon"
-  class="race-card"
+  class="race-card packed"
   data-name="Kullervo Marathon"
   data-date="20250921"
   data-county="Etelä-Karjala"
@@ -783,100 +717,20 @@
   data-longitude="28.506324"
   data-location="Joutsenon Urheilukeskus, Penttiläntie 17, 54100 Joutseno"
   data-description="Kullervo-maraton palaa Joutsenoon kuuden vuoden tauon jälkeen sunnuntaina 21.9.2025. Tapahtuman kilpailukeskus sijaitsee Joutsenon Urheiluke"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkullervo_marathon%2Fkullervo_marathon_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/kullervo_marathon/kullervo_marathon_1.webp?v=1"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="21 syys."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkullervo_marathon%2Fkullervo_marathon_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Kuva {x}Kullervo Marathon"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          21 syys.
-        </div>
-        <div class="race-location">
-          Etelä-Karjala
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Kullervo Marathon</div>
+    <div class="race-date">
+      21 syys.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Kullervo Marathon</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Joutsenon Urheilukeskus, Penttiläntie 17, 54100 Joutseno 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Puolimaraton
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Maraton
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maantie
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Kullervo-maraton palaa Joutsenoon kuuden vuoden tauon jälkeen sunnuntaina 21.9.2025. Tapahtuman kilpailukeskus sijaitsee Joutsenon Urheiluke...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

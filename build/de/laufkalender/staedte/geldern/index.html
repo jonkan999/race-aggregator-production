@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Wir freuen uns, euch beim Fr\u00fchjahrslauf der TG1881 am 14.04.24 im D\u00fcsseldorfer Volksgarten begr\u00fc\u00dfen zu d\u00fcrfen. Dieser Lauf ist der ideale Start in die Laufsaiso", "distance": null, "eventStatus": "Standard", "identifier": "fruhjahrslauf", "image": "/Rennseiten/fruhjahrslauf/fruhjahrslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Stoffeler Kapellenweg 65, 40225 D\u00fcsseldorf", "addressRegion": "Nordrhein-Westfalen"}, "name": "Stoffeler Kapellenweg 65, 40225 D\u00fcsseldorf"}, "name": "Fr\u00fchjahrslauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250301"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Bereits 1986 erblickte der \"kleine\" Bruder des Brunnenlaufs das Licht der Welt. Der Sonsbecker Fr\u00fchjahrscrosslauf hat sich schnell zu einem beliebten Event entw", "distance": "3,2km, 4,8km, 6,4km", "eventStatus": "Standard", "identifier": "sonsbecker_fruhjahrscrosslauf", "image": "/Rennseiten/sonsbecker_fruhjahrscrosslauf/sonsbecker_fruhjahrscrosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Willy-Lemkens-Sportpark", "addressRegion": "Nordrhein-Westfalen"}, "name": "Willy-Lemkens-Sportpark"}, "name": "Sonsbecker Fr\u00fchjahrscrosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250316"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Wir freuen uns, euch beim Fr\u00fchjahrslauf der TG1881 am 14.04.24 im D\u00fcsseldorfer Volksgarten begr\u00fc\u00dfen zu d\u00fcrfen. Dieser Lauf ist der ideale Start in die Laufsaiso", "distance": null, "eventStatus": "Standard", "identifier": "fruhjahrslauf", "image": "/rennseiten/fruhjahrslauf/fruhjahrslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Stoffeler Kapellenweg 65, 40225 D\u00fcsseldorf", "addressRegion": "Nordrhein-Westfalen"}, "name": "Stoffeler Kapellenweg 65, 40225 D\u00fcsseldorf"}, "name": "Fr\u00fchjahrslauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250301"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Bereits 1986 erblickte der \"kleine\" Bruder des Brunnenlaufs das Licht der Welt. Der Sonsbecker Fr\u00fchjahrscrosslauf hat sich schnell zu einem beliebten Event entw", "distance": "3,2km, 4,8km, 6,4km", "eventStatus": "Standard", "identifier": "sonsbecker_fruhjahrscrosslauf", "image": "/rennseiten/sonsbecker_fruhjahrscrosslauf/sonsbecker_fruhjahrscrosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Willy-Lemkens-Sportpark", "addressRegion": "Nordrhein-Westfalen"}, "name": "Willy-Lemkens-Sportpark"}, "name": "Sonsbecker Fr\u00fchjahrscrosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250316"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -24,6 +24,8 @@
     />
     <title>Laufwettbewerbe in Geldern: Finde dein nächstes Laufrennen</title>
     <meta name="description" content="Entdecke alle Laufwettkämpfe und Laufrennen in Geldern.  Unser Laufkalender listet Läufe aller Kategorien (z.B. 5 km, Marathon) und Laufarten (z.B. Straße, Trail) auf. Finde deinen nächsten Lauf!" />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -648,14 +650,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Geldern&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Geldern\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/fruhjahrslauf"
-  class="race-card"
+  href="/rennseiten/fruhjahrslauf"
+  class="race-card packed"
   data-name="Frühjahrslauf"
   data-date="20250301"
   data-county="Nordrhein-Westfalen"
@@ -666,92 +668,24 @@
   data-longitude="6.804107399999999"
   data-location="Stoffeler Kapellenweg 65, 40225 Düsseldorf"
   data-description="Wir freuen uns, euch beim Frühjahrslauf der TG1881 am 14.04.24 im Düsseldorfer Volksgarten begrüßen zu dürfen. Dieser Lauf ist der ideale St"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Ffruhjahrslauf%2Ffruhjahrslauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/fruhjahrslauf/fruhjahrslauf_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="1 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Ffruhjahrslauf%2Ffruhjahrslauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuFrühjahrslauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          1 März
-        </div>
-        <div class="race-location">
-          Nordrhein-Westfalen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Frühjahrslauf</div>
+    <div class="race-date">
+      1 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Frühjahrslauf</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Stoffeler Kapellenweg 65, 40225 Düsseldorf 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Gemischte Distanz
-              </span>
-            </div>
-            
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Wir freuen uns, euch beim Frühjahrslauf der TG1881 am 14.04.24 im Düsseldorfer Volksgarten begrüßen zu dürfen. Dieser Lauf ist der ideale St...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/sonsbecker_fruhjahrscrosslauf"
-  class="race-card"
+  href="/rennseiten/sonsbecker_fruhjahrscrosslauf"
+  class="race-card packed"
   data-name="Sonsbecker Frühjahrscrosslauf"
   data-date="20250316"
   data-county="Nordrhein-Westfalen"
@@ -762,100 +696,20 @@
   data-longitude="6.3692056"
   data-location="Willy-Lemkens-Sportpark"
   data-description="Bereits 1986 erblickte der "kleine" Bruder des Brunnenlaufs das Licht der Welt. Der Sonsbecker Frühjahrscrosslauf hat sich schnell zu einem "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fsonsbecker_fruhjahrscrosslauf%2Fsonsbecker_fruhjahrscrosslauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/sonsbecker_fruhjahrscrosslauf/sonsbecker_fruhjahrscrosslauf_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="16 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fsonsbecker_fruhjahrscrosslauf%2Fsonsbecker_fruhjahrscrosslauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuSonsbecker Frühjahrscrosslauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          16 März
-        </div>
-        <div class="race-location">
-          Nordrhein-Westfalen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Sonsbecker Frühjahrscrosslauf</div>
+    <div class="race-date">
+      16 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Sonsbecker Frühjahrscrosslauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Willy-Lemkens-Sportpark 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                3,2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                4,8 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                6,4 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Bereits 1986 erblickte der "kleine" Bruder des Brunnenlaufs das Licht der Welt. Der Sonsbecker Frühjahrscrosslauf hat sich schnell zu einem ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

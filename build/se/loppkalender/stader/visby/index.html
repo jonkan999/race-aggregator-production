@@ -25,6 +25,8 @@
     <title>Loppkalender Visby: Hitta Löpartävlingar i Visby</title>
     <meta name="description" content="Hitta alla löpartävlingar i Visby med vår loppkalender. Sök bland olika distanser, från 5 km till marathon, och lopptyper som Landsväg, Terräng och Trail.  Använd vår löparkalender för att planera din nästa löplopp!" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -666,14 +668,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Visby&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Visby\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/edsvidsleden_trailrun"
-  class="race-card"
+  class="race-card packed"
   data-name="Edsvidsleden Trailrun"
   data-date="20250316"
   data-county="Gotland"
@@ -684,104 +686,24 @@
   data-longitude="18.7089778"
   data-location="Parkeringen mitt emot Olidastationen"
   data-description="Edsvidsleden Trailrun går på den fina, klassiska Edsvidsleden i Trollhättan och är 14 km långt. Loppet äger rum söndagen den 17 mars 2024, m"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/edsvidsleden_trailrun/edsvidsleden_trailrun_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/edsvidsleden_trailrun/edsvidsleden_trailrun_1.webp?v=1"
   data-type="terrain"
   data-type-display="Terräng"
   data-date-display="16 mars"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/edsvidsleden_trailrun/edsvidsleden_trailrun_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Edsvidsleden Trailrun"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          16 mars
-        </div>
-        <div class="race-location">
-          Gotland
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Edsvidsleden Trailrun</div>
+    <div class="race-date">
+      16 mars
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Edsvidsleden Trailrun</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Parkeringen mitt emot Olidastationen 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                14 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                28 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                56 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Terräng
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Edsvidsleden Trailrun går på den fina, klassiska Edsvidsleden i Trollhättan och är 14 km långt. Loppet äger rum söndagen den 17 mars 2024, m...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/gotrun_trail_fest"
-  class="race-card"
+  class="race-card packed"
   data-name="GotRun Trail Fest"
   data-date="20250328"
   data-county="Gotland"
@@ -792,100 +714,20 @@
   data-longitude="18.7083941"
   data-location="Ljugarn"
   data-description="GotRun Trail Fest erbjuder tre distanser: "Korte" 36 km, "Enkle" 50 miles och "Dubble" 100 miles, som äger rum den 28-29 mars 2025. Deltagar"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/gotrun_trail_fest/gotrun_trail_fest_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/gotrun_trail_fest/gotrun_trail_fest_1.webp?v=1"
   data-type="trail"
   data-type-display="Trail"
   data-date-display="28 mars"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/gotrun_trail_fest/gotrun_trail_fest_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till GotRun Trail Fest"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          28 mars
-        </div>
-        <div class="race-location">
-          Gotland
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">GotRun Trail Fest</div>
+    <div class="race-date">
+      28 mars
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">GotRun Trail Fest</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Ljugarn 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                36 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                50 miles
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                100 miles
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Trail
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      GotRun Trail Fest erbjuder tre distanser: "Korte" 36 km, "Enkle" 50 miles och "Dubble" 100 miles, som äger rum den 28-29 mars 2025. Deltagar...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

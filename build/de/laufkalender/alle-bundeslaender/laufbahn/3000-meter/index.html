@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Fr\u00fchjahrslauf Kitzinger Zehner ist ein Laufevent f\u00fcr Jung und Alt, das am Sonntag, den 23. M\u00e4rz 2025, um 09:00 Uhr im Sportzentrum Sickergrund in Kitzingen ", "distance": "1km, 2,5km, 5km, 10km", "eventStatus": "Standard", "identifier": "fruhjahrslauf_zehner", "image": "/Rennseiten/fruhjahrslauf_zehner/fruhjahrslauf_zehner_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sickergrund Stadion Sickersh\u00e4user Strasse 97318 Kitzingen", "addressRegion": "Bayern"}, "name": "Sickergrund Stadion Sickersh\u00e4user Strasse 97318 Kitzingen"}, "name": "Fr\u00fchjahrslauf Zehner", "sport": "Laufen, Laufbahn", "startDate": "20250322"}, "position": 1}], "numberOfItems": 1}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Fr\u00fchjahrslauf Kitzinger Zehner ist ein Laufevent f\u00fcr Jung und Alt, das am Sonntag, den 23. M\u00e4rz 2025, um 09:00 Uhr im Sportzentrum Sickergrund in Kitzingen ", "distance": "1km, 2,5km, 5km, 10km", "eventStatus": "Standard", "identifier": "fruhjahrslauf_zehner", "image": "/rennseiten/fruhjahrslauf_zehner/fruhjahrslauf_zehner_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sickergrund Stadion Sickersh\u00e4user Strasse 97318 Kitzingen", "addressRegion": "Bayern"}, "name": "Sickergrund Stadion Sickersh\u00e4user Strasse 97318 Kitzingen"}, "name": "Fr\u00fchjahrslauf Zehner", "sport": "Laufen, Laufbahn", "startDate": "20250322"}, "position": 1}], "numberOfItems": 1}
     </script>
      
 
@@ -20,6 +20,8 @@
     />
     <title>3000 Meter Laufbahn Laufwettbewerbe | Laufkalender & Rennliste für alle Bundesländer</title>
     <meta name="description" content="Finde deinen nächsten 3000 Meter Laufbahn Laufwettkampf!  Unser Laufkalender listet Laufrennen in ganz Deutschland auf – von Baden-Württemberg bis Thüringen.  Sichere dir jetzt deinen Startplatz! Laufliste & Rennkalender." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -653,14 +655,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: &quot;3000 meter&quot;, &quot;county&quot;: null, &quot;race_type&quot;: &quot;Laufbahn&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: \u0026quot;3000 meter\u0026quot;, \u0026quot;county\u0026quot;: null, \u0026quot;race_type\u0026quot;: \u0026quot;Laufbahn\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/fruhjahrslauf_zehner"
-  class="race-card"
+  href="/rennseiten/fruhjahrslauf_zehner"
+  class="race-card packed"
   data-name="Frühjahrslauf Zehner"
   data-date="20250322"
   data-county="Bayern"
@@ -671,106 +673,20 @@
   data-longitude="10.17962"
   data-location="Sickergrund Stadion Sickershäuser Strasse 97318 Kitzingen"
   data-description="Der Frühjahrslauf Kitzinger Zehner ist ein Laufevent für Jung und Alt, das am Sonntag, den 23. März 2025, um 09:00 Uhr im Sportzentrum Sicke"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Ffruhjahrslauf_zehner%2Ffruhjahrslauf_zehner_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/fruhjahrslauf_zehner/fruhjahrslauf_zehner_1.webp?v=1"
   data-type="track"
   data-type-display="Laufbahn"
   data-date-display="22 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Ffruhjahrslauf_zehner%2Ffruhjahrslauf_zehner_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuFrühjahrslauf Zehner"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          22 März
-        </div>
-        <div class="race-location">
-          Bayern
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Frühjahrslauf Zehner</div>
+    <div class="race-date">
+      22 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Frühjahrslauf Zehner</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Sickergrund Stadion Sickershäuser Strasse 97318 Kitzingen 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Laufbahn
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Frühjahrslauf Kitzinger Zehner ist ein Laufevent für Jung und Alt, das am Sonntag, den 23. März 2025, um 09:00 Uhr im Sportzentrum Sicke...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

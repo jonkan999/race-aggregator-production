@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 38. RVB Harlingerland Cross-Waldlauf findet am 17. Februar 2024 im Schafhauser Wald nahe Esens statt. Aufgrund der Wetterlage musste die Streckenf\u00fchrung kur", "distance": "2,4km, 4,8km, 4,9km, 9,6km, 9,8km", "eventStatus": "Standard", "identifier": "harlingerland_cross_waldlauf", "image": "/Rennseiten/harlingerland_cross_waldlauf/harlingerland_cross_waldlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Moorweg/Esens", "addressRegion": "Niedersachsen"}, "name": "Moorweg/Esens"}, "name": "Harlingerland Cross-Waldlauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250215"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 44. Ostfriesland-Crosslauf findet am Samstag, dem 02. M\u00e4rz 2024, in Hesel statt und wird vom SV Holtland e.V. 1961 organisiert. Die Veranstaltung bietet ver", "distance": "1,5km, 2,6km, 5,8km, 11,4km", "eventStatus": "Standard", "identifier": "ostfriesland_crosslauf", "image": "/Rennseiten/ostfriesland_crosslauf/ostfriesland_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Silbersee im Heseler Wald", "addressRegion": "Niedersachsen"}, "name": "Silbersee im Heseler Wald"}, "name": "Ostfriesland Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250222"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 38. RVB Harlingerland Cross-Waldlauf findet am 17. Februar 2024 im Schafhauser Wald nahe Esens statt. Aufgrund der Wetterlage musste die Streckenf\u00fchrung kur", "distance": "2,4km, 4,8km, 4,9km, 9,6km, 9,8km", "eventStatus": "Standard", "identifier": "harlingerland_cross_waldlauf", "image": "/rennseiten/harlingerland_cross_waldlauf/harlingerland_cross_waldlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Moorweg/Esens", "addressRegion": "Niedersachsen"}, "name": "Moorweg/Esens"}, "name": "Harlingerland Cross-Waldlauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250215"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 44. Ostfriesland-Crosslauf findet am Samstag, dem 02. M\u00e4rz 2024, in Hesel statt und wird vom SV Holtland e.V. 1961 organisiert. Die Veranstaltung bietet ver", "distance": "1,5km, 2,6km, 5,8km, 11,4km", "eventStatus": "Standard", "identifier": "ostfriesland_crosslauf", "image": "/rennseiten/ostfriesland_crosslauf/ostfriesland_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Silbersee im Heseler Wald", "addressRegion": "Niedersachsen"}, "name": "Silbersee im Heseler Wald"}, "name": "Ostfriesland Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250222"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -20,6 +20,8 @@
     />
     <title>10 km Geländelauf in Wilhelmshaven: Laufwettbewerbe im Laufkalender finden</title>
     <meta name="description" content="Entdecke 10 km Geländeläufe in Wilhelmshaven. Finde deinen nächsten Laufwettkampf mit unserem Laufkalender – die umfassende rennliste für Laufrennen und Laufwettbewerbe." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -662,14 +664,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Wilhelmshaven&quot;, &quot;race_type&quot;: &quot;Gel\u00e4nde&quot;, &quot;category&quot;: &quot;10 km&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Wilhelmshaven\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Gel\\u00e4nde\u0026quot;, \u0026quot;category\u0026quot;: \u0026quot;10 km\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/harlingerland_cross_waldlauf"
-  class="race-card"
+  href="/rennseiten/harlingerland_cross_waldlauf"
+  class="race-card packed"
   data-name="Harlingerland Cross-Waldlauf"
   data-date="20250215"
   data-county="Niedersachsen"
@@ -680,114 +682,24 @@
   data-longitude="7.5870234"
   data-location="Moorweg/Esens"
   data-description="Der 38. RVB Harlingerland Cross-Waldlauf findet am 17. Februar 2024 im Schafhauser Wald nahe Esens statt. Aufgrund der Wetterlage musste die"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fharlingerland_cross_waldlauf%2Fharlingerland_cross_waldlauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/harlingerland_cross_waldlauf/harlingerland_cross_waldlauf_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="15 Feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fharlingerland_cross_waldlauf%2Fharlingerland_cross_waldlauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuHarlingerland Cross-Waldlauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          15 Feb.
-        </div>
-        <div class="race-location">
-          Niedersachsen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Harlingerland Cross-Waldlauf</div>
+    <div class="race-date">
+      15 Feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Harlingerland Cross-Waldlauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Moorweg/Esens 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2,4 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                4,8 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                4,9 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                9,6 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der 38. RVB Harlingerland Cross-Waldlauf findet am 17. Februar 2024 im Schafhauser Wald nahe Esens statt. Aufgrund der Wetterlage musste die...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/ostfriesland_crosslauf"
-  class="race-card"
+  href="/rennseiten/ostfriesland_crosslauf"
+  class="race-card packed"
   data-name="Ostfriesland Crosslauf"
   data-date="20250222"
   data-county="Niedersachsen"
@@ -798,106 +710,20 @@
   data-longitude="7.620229699999999"
   data-location="Silbersee im Heseler Wald"
   data-description="Der 44. Ostfriesland-Crosslauf findet am Samstag, dem 02. März 2024, in Hesel statt und wird vom SV Holtland e.V. 1961 organisiert. Die Vera"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fostfriesland_crosslauf%2Fostfriesland_crosslauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/ostfriesland_crosslauf/ostfriesland_crosslauf_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="22 Feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fostfriesland_crosslauf%2Fostfriesland_crosslauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuOstfriesland Crosslauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          22 Feb.
-        </div>
-        <div class="race-location">
-          Niedersachsen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Ostfriesland Crosslauf</div>
+    <div class="race-date">
+      22 Feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Ostfriesland Crosslauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Silbersee im Heseler Wald 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2,6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5,8 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                11,4 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der 44. Ostfriesland-Crosslauf findet am Samstag, dem 02. März 2024, in Hesel statt und wird vom SV Holtland e.V. 1961 organisiert. Die Vera...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

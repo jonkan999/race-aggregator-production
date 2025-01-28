@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der S\u00fcppling-Cross Demker findet am Sonntag, den 02. M\u00e4rz 2025, in Demker statt und markiert den Start in die neue Landescup- und Elbe-Ohre-Cup-Saison. Die Onli", "distance": "1,2km, 5km, 10km", "eventStatus": "Standard", "identifier": "suppling_cross", "image": "/Rennseiten/suppling_cross/suppling_cross_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sportplatz Wei\u00dfewarter Weg", "addressRegion": "Sachsen-Anhalt"}, "name": "Sportplatz Wei\u00dfewarter Weg"}, "name": "S\u00fcppling-Cross", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250302"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Tangerm\u00fcnder Elbdeichmarathon startet in eine neue Runde und ich freue mich sehr, Sie alle am 13. April 2025 im wundersch\u00f6nen Tangerm\u00fcnde begr\u00fc\u00dfen zu d\u00fcrfen", "distance": "10km, marathon", "eventStatus": "Standard", "identifier": "tangermunder_elbdeichmarathon", "image": "/Rennseiten/tangermunder_elbdeichmarathon/tangermunder_elbdeichmarathon_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Tangerm\u00fcnde", "addressRegion": "Sachsen-Anhalt"}, "name": "Tangerm\u00fcnde"}, "name": "Tangerm\u00fcnder Elbdeichmarathon", "sport": "Laufen, Stra\u00dfe", "startDate": "20250413"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der S\u00fcppling-Cross Demker findet am Sonntag, den 02. M\u00e4rz 2025, in Demker statt und markiert den Start in die neue Landescup- und Elbe-Ohre-Cup-Saison. Die Onli", "distance": "1,2km, 5km, 10km", "eventStatus": "Standard", "identifier": "suppling_cross", "image": "/rennseiten/suppling_cross/suppling_cross_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sportplatz Wei\u00dfewarter Weg", "addressRegion": "Sachsen-Anhalt"}, "name": "Sportplatz Wei\u00dfewarter Weg"}, "name": "S\u00fcppling-Cross", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250302"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Tangerm\u00fcnder Elbdeichmarathon startet in eine neue Runde und ich freue mich sehr, Sie alle am 13. April 2025 im wundersch\u00f6nen Tangerm\u00fcnde begr\u00fc\u00dfen zu d\u00fcrfen", "distance": "10km, marathon", "eventStatus": "Standard", "identifier": "tangermunder_elbdeichmarathon", "image": "/rennseiten/tangermunder_elbdeichmarathon/tangermunder_elbdeichmarathon_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Tangerm\u00fcnde", "addressRegion": "Sachsen-Anhalt"}, "name": "Tangerm\u00fcnde"}, "name": "Tangerm\u00fcnder Elbdeichmarathon", "sport": "Laufen, Stra\u00dfe", "startDate": "20250413"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -20,6 +20,8 @@
     />
     <title>Millopp Laufwettbewerbe in Stendal: Laufkalender & Rennliste</title>
     <meta name="description" content="Finde deinen nächsten Millopp Laufwettkampf in Stendal!  Unser Laufkalender zeigt dir alle Laufrennen, von Straßenläufen bis Trailruns.  Durchsuche unsere Rennliste und finde dein perfektes laufrennen." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -653,14 +655,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Stendal&quot;, &quot;race_type&quot;: null, &quot;category&quot;: &quot;Millopp&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Stendal\u0026quot;, \u0026quot;race_type\u0026quot;: null, \u0026quot;category\u0026quot;: \u0026quot;Millopp\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/suppling_cross"
-  class="race-card"
+  href="/rennseiten/suppling_cross"
+  class="race-card packed"
   data-name="Süppling-Cross"
   data-date="20250302"
   data-county="Sachsen-Anhalt"
@@ -671,104 +673,24 @@
   data-longitude="11.8572621"
   data-location="Sportplatz Weißewarter Weg"
   data-description="Der Süppling-Cross Demker findet am Sonntag, den 02. März 2025, in Demker statt und markiert den Start in die neue Landescup- und Elbe-Ohre-"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fsuppling_cross%2Fsuppling_cross_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/suppling_cross/suppling_cross_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="2 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fsuppling_cross%2Fsuppling_cross_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuSüppling-Cross"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          2 März
-        </div>
-        <div class="race-location">
-          Sachsen-Anhalt
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Süppling-Cross</div>
+    <div class="race-date">
+      2 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Süppling-Cross</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Sportplatz Weißewarter Weg 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Süppling-Cross Demker findet am Sonntag, den 02. März 2025, in Demker statt und markiert den Start in die neue Landescup- und Elbe-Ohre-...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/tangermunder_elbdeichmarathon"
-  class="race-card"
+  href="/rennseiten/tangermunder_elbdeichmarathon"
+  class="race-card packed"
   data-name="Tangermünder Elbdeichmarathon"
   data-date="20250413"
   data-county="Sachsen-Anhalt"
@@ -779,94 +701,20 @@
   data-longitude="11.9705061"
   data-location="Tangermünde"
   data-description="Der Tangermünder Elbdeichmarathon startet in eine neue Runde und ich freue mich sehr, Sie alle am 13. April 2025 im wunderschönen Tangermünd"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Ftangermunder_elbdeichmarathon%2Ftangermunder_elbdeichmarathon_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/tangermunder_elbdeichmarathon/tangermunder_elbdeichmarathon_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="13 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Ftangermunder_elbdeichmarathon%2Ftangermunder_elbdeichmarathon_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuTangermünder Elbdeichmarathon"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          13 apr.
-        </div>
-        <div class="race-location">
-          Sachsen-Anhalt
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Tangermünder Elbdeichmarathon</div>
+    <div class="race-date">
+      13 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Tangermünder Elbdeichmarathon</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Tangermünde 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Marathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Tangermünder Elbdeichmarathon startet in eine neue Runde und ich freue mich sehr, Sie alle am 13. April 2025 im wunderschönen Tangermünd...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

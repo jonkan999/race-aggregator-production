@@ -21,6 +21,8 @@
     <title>50 Miles Backyard Ultra Løp: Finn ditt neste løp i løpskalenderen!</title>
     <meta name="description" content="Søk i vår løpskalender og finn kommende 50 miles Backyard Ultra løp i hele Norge.  Løpekalenderen inkluderer løp i Oslo, Viken og mange flere fylker.  Finn ditt neste løpeløp!" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -651,14 +653,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: &quot;50 miles&quot;, &quot;county&quot;: null, &quot;race_type&quot;: &quot;Backyard Ultra&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: \u0026quot;50 miles\u0026quot;, \u0026quot;county\u0026quot;: null, \u0026quot;race_type\u0026quot;: \u0026quot;Backyard Ultra\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/løpssider/sandnes_backyard"
-  class="race-card"
+  class="race-card packed"
   data-name="Sandnes Backyard"
   data-date="20250315"
   data-county="Rogaland"
@@ -669,94 +671,20 @@
   data-longitude="5.7903974"
   data-location="Sandnes Arena (Melsheia)"
   data-description="Backyard konseptet går ut på å løpe en runde på 6,7 km, eller 4,167 miles, hver time. Sandnes Backyard er ment som et sosialt lavterskel løp"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fsandnes_backyard%2Fsandnes_backyard_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/sandnes_backyard/sandnes_backyard_1.webp?v=1"
   data-type="backyard"
   data-type-display="Backyard Ultra"
   data-date-display="15 mars"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fsandnes_backyard%2Fsandnes_backyard_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bilde til Sandnes Backyard"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          15 mars
-        </div>
-        <div class="race-location">
-          Rogaland
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Sandnes Backyard</div>
+    <div class="race-date">
+      15 mars
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Sandnes Backyard</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Sandnes Arena (Melsheia) 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                6,7 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                50 miles
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Backyard Ultra
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Backyard konseptet går ut på å løpe en runde på 6,7 km, eller 4,167 miles, hver time. Sandnes Backyard er ment som et sosialt lavterskel løp...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & påmelding</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

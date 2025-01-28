@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Luisenturmlauf in Borgholzhausen bietet verschiedene Distanzen f\u00fcr L\u00e4ufer an, darunter einen Halbmarathon mit 21,1 km und einen 12,5 km Lauf. Die Strecke f\u00fc", "distance": "12,5km, half marathon", "eventStatus": "Standard", "identifier": "luisenturmlauf", "image": "/Rennseiten/luisenturmlauf/luisenturmlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Ravensberger Stadion", "addressRegion": "Nordrhein-Westfalen"}, "name": "Ravensberger Stadion"}, "name": "Luisenturmlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250302"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Wiehenl\u00e4ufer Benefizlauf findet am 3. Oktober 2024 in H\u00fcllhorst statt und unterst\u00fctzt den Ambulanten Kinder- und Jugendhospizdienst Minden-L\u00fcbbecke. Die Ver", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "wiehenlaufer_benefizlauf", "image": "/Rennseiten/wiehenlaufer_benefizlauf/wiehenlaufer_benefizlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "H\u00fcllhorst", "addressRegion": "Nordrhein-Westfalen"}, "name": "H\u00fcllhorst"}, "name": "Wiehenl\u00e4ufer Benefizlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20251003"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Luisenturmlauf in Borgholzhausen bietet verschiedene Distanzen f\u00fcr L\u00e4ufer an, darunter einen Halbmarathon mit 21,1 km und einen 12,5 km Lauf. Die Strecke f\u00fc", "distance": "12,5km, half marathon", "eventStatus": "Standard", "identifier": "luisenturmlauf", "image": "/rennseiten/luisenturmlauf/luisenturmlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Ravensberger Stadion", "addressRegion": "Nordrhein-Westfalen"}, "name": "Ravensberger Stadion"}, "name": "Luisenturmlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250302"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Wiehenl\u00e4ufer Benefizlauf findet am 3. Oktober 2024 in H\u00fcllhorst statt und unterst\u00fctzt den Ambulanten Kinder- und Jugendhospizdienst Minden-L\u00fcbbecke. Die Ver", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "wiehenlaufer_benefizlauf", "image": "/rennseiten/wiehenlaufer_benefizlauf/wiehenlaufer_benefizlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "H\u00fcllhorst", "addressRegion": "Nordrhein-Westfalen"}, "name": "H\u00fcllhorst"}, "name": "Wiehenl\u00e4ufer Benefizlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20251003"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -24,6 +24,8 @@
     />
     <title>Laufwettbewerbe in Löhne: Straßenläufe & Rennkalender</title>
     <meta name="description" content="Entdecke alle Straßenläufe in Löhne! Finde deinen nächsten Laufwettkampf – von 5 km bis Marathon – in unserem Laufkalender.  Die perfekte Rennliste für Läufer!" />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -657,14 +659,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;L\u00f6hne&quot;, &quot;race_type&quot;: &quot;Stra\u00dfe&quot;, &quot;category&quot;: null}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;L\\u00f6hne\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Stra\\u00dfe\u0026quot;, \u0026quot;category\u0026quot;: null}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/luisenturmlauf"
-  class="race-card"
+  href="/rennseiten/luisenturmlauf"
+  class="race-card packed"
   data-name="Luisenturmlauf"
   data-date="20250302"
   data-county="Nordrhein-Westfalen"
@@ -675,98 +677,24 @@
   data-longitude="8.306277699999999"
   data-location="Ravensberger Stadion"
   data-description="Der Luisenturmlauf in Borgholzhausen bietet verschiedene Distanzen für Läufer an, darunter einen Halbmarathon mit 21,1 km und einen 12,5 km "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fluisenturmlauf%2Fluisenturmlauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/luisenturmlauf/luisenturmlauf_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="2 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fluisenturmlauf%2Fluisenturmlauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuLuisenturmlauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          2 März
-        </div>
-        <div class="race-location">
-          Nordrhein-Westfalen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Luisenturmlauf</div>
+    <div class="race-date">
+      2 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Luisenturmlauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Ravensberger Stadion 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                12,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Halbmarathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Luisenturmlauf in Borgholzhausen bietet verschiedene Distanzen für Läufer an, darunter einen Halbmarathon mit 21,1 km und einen 12,5 km ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/wiehenlaufer_benefizlauf"
-  class="race-card"
+  href="/rennseiten/wiehenlaufer_benefizlauf"
+  class="race-card packed"
   data-name="Wiehenläufer Benefizlauf"
   data-date="20251003"
   data-county="Nordrhein-Westfalen"
@@ -777,94 +705,20 @@
   data-longitude="8.669889"
   data-location="Hüllhorst"
   data-description="Der Wiehenläufer Benefizlauf findet am 3. Oktober 2024 in Hüllhorst statt und unterstützt den Ambulanten Kinder- und Jugendhospizdienst Mind"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fwiehenlaufer_benefizlauf%2Fwiehenlaufer_benefizlauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/wiehenlaufer_benefizlauf/wiehenlaufer_benefizlauf_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="3 okt."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fwiehenlaufer_benefizlauf%2Fwiehenlaufer_benefizlauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuWiehenläufer Benefizlauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          3 okt.
-        </div>
-        <div class="race-location">
-          Nordrhein-Westfalen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Wiehenläufer Benefizlauf</div>
+    <div class="race-date">
+      3 okt.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Wiehenläufer Benefizlauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Hüllhorst 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Wiehenläufer Benefizlauf findet am 3. Oktober 2024 in Hüllhorst statt und unterstützt den Ambulanten Kinder- und Jugendhospizdienst Mind...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

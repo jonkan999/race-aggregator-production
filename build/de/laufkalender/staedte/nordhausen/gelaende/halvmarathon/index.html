@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Ganz nach dem Motto: \u201eDer Berg ruft\u2026\u201c l\u00e4dt der SC Uchte am Sonntag, den 10.11.2024, zu einem gemeinsamen Lauf, dem Uchter Wald- und Crosslauf 2024, ein. Diese V", "distance": "1km, 5km, 7km, 10km", "eventStatus": "Standard", "identifier": "wald_und_crosslauf", "image": "/Rennseiten/wald_und_crosslauf/wald_und_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Schulsportplatz", "addressRegion": "Th\u00fcringen"}, "name": "Schulsportplatz"}, "name": "Wald- und Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250222"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Vogelberglauf in Bleicherode ist ein herausfordernder Lauf \u00fcber eine Distanz von 42 km, der Teilnehmer durch malerische Landschaften f\u00fchrt und eine Mischung", "distance": "2km, 5km, 10km, 20km, marathon", "eventStatus": "Standard", "identifier": "vogelberglauf_42_km", "image": "/Rennseiten/vogelberglauf_42_km/vogelberglauf_42_km_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Bleicherode", "addressRegion": "Th\u00fcringen"}, "name": "Bleicherode"}, "name": "Vogelberglauf 42 km", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250622"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Ganz nach dem Motto: \u201eDer Berg ruft\u2026\u201c l\u00e4dt der SC Uchte am Sonntag, den 10.11.2024, zu einem gemeinsamen Lauf, dem Uchter Wald- und Crosslauf 2024, ein. Diese V", "distance": "1km, 5km, 7km, 10km", "eventStatus": "Standard", "identifier": "wald_und_crosslauf", "image": "/rennseiten/wald_und_crosslauf/wald_und_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Schulsportplatz", "addressRegion": "Th\u00fcringen"}, "name": "Schulsportplatz"}, "name": "Wald- und Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250222"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Vogelberglauf in Bleicherode ist ein herausfordernder Lauf \u00fcber eine Distanz von 42 km, der Teilnehmer durch malerische Landschaften f\u00fchrt und eine Mischung", "distance": "2km, 5km, 10km, 20km, marathon", "eventStatus": "Standard", "identifier": "vogelberglauf_42_km", "image": "/rennseiten/vogelberglauf_42_km/vogelberglauf_42_km_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Bleicherode", "addressRegion": "Th\u00fcringen"}, "name": "Bleicherode"}, "name": "Vogelberglauf 42 km", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250622"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -20,6 +20,8 @@
     />
     <title>Halvmarathon Gelände Laufwettbewerbe in Nordhausen | Laufkalender & Rennliste</title>
     <meta name="description" content="Finde deinen nächsten Halvmarathon im Gelände in Nordhausen! Durchsuche unseren Laufkalender mit vielen Laufwettkämpfen und finde das perfekte laufrennen für dich.  Laufliste und Rennkalender für Gelände-Halbmarathons." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -662,14 +664,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Nordhausen&quot;, &quot;race_type&quot;: &quot;Gel\u00e4nde&quot;, &quot;category&quot;: &quot;Halvmarathon&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Nordhausen\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Gel\\u00e4nde\u0026quot;, \u0026quot;category\u0026quot;: \u0026quot;Halvmarathon\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/wald_und_crosslauf"
-  class="race-card"
+  href="/rennseiten/wald_und_crosslauf"
+  class="race-card packed"
   data-name="Wald- und Crosslauf"
   data-date="20250222"
   data-county="Thüringen"
@@ -680,110 +682,24 @@
   data-longitude="10.451526"
   data-location="Schulsportplatz"
   data-description="Ganz nach dem Motto: „Der Berg ruft…“ lädt der SC Uchte am Sonntag, den 10.11.2024, zu einem gemeinsamen Lauf, dem Uchter Wald- und Crosslau"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fwald_und_crosslauf%2Fwald_und_crosslauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/wald_und_crosslauf/wald_und_crosslauf_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="22 Feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fwald_und_crosslauf%2Fwald_und_crosslauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuWald- und Crosslauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          22 Feb.
-        </div>
-        <div class="race-location">
-          Thüringen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Wald- und Crosslauf</div>
+    <div class="race-date">
+      22 Feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Wald- und Crosslauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Schulsportplatz 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                7 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Ganz nach dem Motto: „Der Berg ruft…“ lädt der SC Uchte am Sonntag, den 10.11.2024, zu einem gemeinsamen Lauf, dem Uchter Wald- und Crosslau...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/vogelberglauf_42_km"
-  class="race-card"
+  href="/rennseiten/vogelberglauf_42_km"
+  class="race-card packed"
   data-name="Vogelberglauf 42 km"
   data-date="20250622"
   data-county="Thüringen"
@@ -794,110 +710,20 @@
   data-longitude="10.5723532"
   data-location="Bleicherode"
   data-description="Der Vogelberglauf in Bleicherode ist ein herausfordernder Lauf über eine Distanz von 42 km, der Teilnehmer durch malerische Landschaften füh"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fvogelberglauf_42_km%2Fvogelberglauf_42_km_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/vogelberglauf_42_km/vogelberglauf_42_km_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="22 Juni"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fvogelberglauf_42_km%2Fvogelberglauf_42_km_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuVogelberglauf 42 km"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          22 Juni
-        </div>
-        <div class="race-location">
-          Thüringen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Vogelberglauf 42 km</div>
+    <div class="race-date">
+      22 Juni
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Vogelberglauf 42 km</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Bleicherode 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                20 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Vogelberglauf in Bleicherode ist ein herausfordernder Lauf über eine Distanz von 42 km, der Teilnehmer durch malerische Landschaften füh...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

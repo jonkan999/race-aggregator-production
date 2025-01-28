@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Bereits 1986 erblickte der \"kleine\" Bruder des Brunnenlaufs das Licht der Welt. Der Sonsbecker Fr\u00fchjahrscrosslauf hat sich schnell zu einem beliebten Event entw", "distance": "3,2km, 4,8km, 6,4km", "eventStatus": "Standard", "identifier": "sonsbecker_fruhjahrscrosslauf", "image": "/Rennseiten/sonsbecker_fruhjahrscrosslauf/sonsbecker_fruhjahrscrosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Willy-Lemkens-Sportpark", "addressRegion": "Nordrhein-Westfalen"}, "name": "Willy-Lemkens-Sportpark"}, "name": "Sonsbecker Fr\u00fchjahrscrosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250316"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Winterlaufserie findet real und virtuell statt. Die L\u00e4ufe der virtuellen WLS finden eine Woche sp\u00e4ter als der jeweilige Lauf in Duisburg statt. Solltest du ", "distance": "1,5km, 3km, 5km, 7km, 7,5km, 10km", "eventStatus": "Standard", "identifier": "stadtlauf_series", "image": "/Rennseiten/stadtlauf_series/stadtlauf_series_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Duisburg", "addressRegion": "Nordrhein-Westfalen"}, "name": "Duisburg"}, "name": "Stadtlauf Series", "sport": "Laufen, Stra\u00dfe", "startDate": "20250517"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Bereits 1986 erblickte der \"kleine\" Bruder des Brunnenlaufs das Licht der Welt. Der Sonsbecker Fr\u00fchjahrscrosslauf hat sich schnell zu einem beliebten Event entw", "distance": "3,2km, 4,8km, 6,4km", "eventStatus": "Standard", "identifier": "sonsbecker_fruhjahrscrosslauf", "image": "/rennseiten/sonsbecker_fruhjahrscrosslauf/sonsbecker_fruhjahrscrosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Willy-Lemkens-Sportpark", "addressRegion": "Nordrhein-Westfalen"}, "name": "Willy-Lemkens-Sportpark"}, "name": "Sonsbecker Fr\u00fchjahrscrosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250316"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Winterlaufserie findet real und virtuell statt. Die L\u00e4ufe der virtuellen WLS finden eine Woche sp\u00e4ter als der jeweilige Lauf in Duisburg statt. Solltest du ", "distance": "1,5km, 3km, 5km, 7km, 7,5km, 10km", "eventStatus": "Standard", "identifier": "stadtlauf_series", "image": "/rennseiten/stadtlauf_series/stadtlauf_series_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Duisburg", "addressRegion": "Nordrhein-Westfalen"}, "name": "Duisburg"}, "name": "Stadtlauf Series", "sport": "Laufen, Stra\u00dfe", "startDate": "20250517"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -20,6 +20,8 @@
     />
     <title>10 km Laufwettbewerbe in Wesel: Finde dein nächstes Laufrennen im Laufkalender</title>
     <meta name="description" content="Suche nach 10 km Laufwettkämpfe in Wesel.  Unser Laufkalender bietet eine Übersicht über alle Laufarten, von Straßenläufen bis hin zu Trails. Finde dein nächstes laufrennen in unserer rennliste!" />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -653,14 +655,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Wesel&quot;, &quot;race_type&quot;: null, &quot;category&quot;: &quot;10 km&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Wesel\u0026quot;, \u0026quot;race_type\u0026quot;: null, \u0026quot;category\u0026quot;: \u0026quot;10 km\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/sonsbecker_fruhjahrscrosslauf"
-  class="race-card"
+  href="/rennseiten/sonsbecker_fruhjahrscrosslauf"
+  class="race-card packed"
   data-name="Sonsbecker Frühjahrscrosslauf"
   data-date="20250316"
   data-county="Nordrhein-Westfalen"
@@ -671,104 +673,24 @@
   data-longitude="6.3692056"
   data-location="Willy-Lemkens-Sportpark"
   data-description="Bereits 1986 erblickte der "kleine" Bruder des Brunnenlaufs das Licht der Welt. Der Sonsbecker Frühjahrscrosslauf hat sich schnell zu einem "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fsonsbecker_fruhjahrscrosslauf%2Fsonsbecker_fruhjahrscrosslauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/sonsbecker_fruhjahrscrosslauf/sonsbecker_fruhjahrscrosslauf_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="16 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fsonsbecker_fruhjahrscrosslauf%2Fsonsbecker_fruhjahrscrosslauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuSonsbecker Frühjahrscrosslauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          16 März
-        </div>
-        <div class="race-location">
-          Nordrhein-Westfalen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Sonsbecker Frühjahrscrosslauf</div>
+    <div class="race-date">
+      16 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Sonsbecker Frühjahrscrosslauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Willy-Lemkens-Sportpark 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                3,2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                4,8 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                6,4 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Bereits 1986 erblickte der "kleine" Bruder des Brunnenlaufs das Licht der Welt. Der Sonsbecker Frühjahrscrosslauf hat sich schnell zu einem ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/stadtlauf_series"
-  class="race-card"
+  href="/rennseiten/stadtlauf_series"
+  class="race-card packed"
   data-name="Stadtlauf Series"
   data-date="20250517"
   data-county="Nordrhein-Westfalen"
@@ -779,110 +701,20 @@
   data-longitude="6.762329299999999"
   data-location="Duisburg"
   data-description="Die Winterlaufserie findet real und virtuell statt. Die Läufe der virtuellen WLS finden eine Woche später als der jeweilige Lauf in Duisburg"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fstadtlauf_series%2Fstadtlauf_series_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/stadtlauf_series/stadtlauf_series_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="17 Mai"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fstadtlauf_series%2Fstadtlauf_series_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuStadtlauf Series"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          17 Mai
-        </div>
-        <div class="race-location">
-          Nordrhein-Westfalen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Stadtlauf Series</div>
+    <div class="race-date">
+      17 Mai
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Stadtlauf Series</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Duisburg 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                3 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                7 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Die Winterlaufserie findet real und virtuell statt. Die Läufe der virtuellen WLS finden eine Woche später als der jeweilige Lauf in Duisburg...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

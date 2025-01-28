@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Luisenturmlauf in Borgholzhausen bietet verschiedene Distanzen f\u00fcr L\u00e4ufer an, darunter einen Halbmarathon mit 21,1 km und einen 12,5 km Lauf. Die Strecke f\u00fc", "distance": "12,5km, half marathon", "eventStatus": "Standard", "identifier": "luisenturmlauf", "image": "/Rennseiten/luisenturmlauf/luisenturmlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Ravensberger Stadion", "addressRegion": "Nordrhein-Westfalen"}, "name": "Ravensberger Stadion"}, "name": "Luisenturmlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250302"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 33. Langenberger Volkslauf findet am Samstag, dem 08. M\u00e4rz 2025, statt und bietet verschiedene Strecken \u00fcber 1,1 km, 5 km und 11 km, die \u00fcber Wirtschaftsweg", "distance": "1,1km, 5km, 11km", "eventStatus": "Standard", "identifier": "langenberger_volkslauf", "image": "/Rennseiten/langenberger_volkslauf/langenberger_volkslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sportst\u00e4tte der Brinkmannschule, Brinkstra\u00dfe, Langenberg", "addressRegion": "Nordrhein-Westfalen"}, "name": "Sportst\u00e4tte der Brinkmannschule, Brinkstra\u00dfe, Langenberg"}, "name": "Langenberger Volkslauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250308"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Luisenturmlauf in Borgholzhausen bietet verschiedene Distanzen f\u00fcr L\u00e4ufer an, darunter einen Halbmarathon mit 21,1 km und einen 12,5 km Lauf. Die Strecke f\u00fc", "distance": "12,5km, half marathon", "eventStatus": "Standard", "identifier": "luisenturmlauf", "image": "/rennseiten/luisenturmlauf/luisenturmlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Ravensberger Stadion", "addressRegion": "Nordrhein-Westfalen"}, "name": "Ravensberger Stadion"}, "name": "Luisenturmlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250302"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 33. Langenberger Volkslauf findet am Samstag, dem 08. M\u00e4rz 2025, statt und bietet verschiedene Strecken \u00fcber 1,1 km, 5 km und 11 km, die \u00fcber Wirtschaftsweg", "distance": "1,1km, 5km, 11km", "eventStatus": "Standard", "identifier": "langenberger_volkslauf", "image": "/rennseiten/langenberger_volkslauf/langenberger_volkslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sportst\u00e4tte der Brinkmannschule, Brinkstra\u00dfe, Langenberg", "addressRegion": "Nordrhein-Westfalen"}, "name": "Sportst\u00e4tte der Brinkmannschule, Brinkstra\u00dfe, Langenberg"}, "name": "Langenberger Volkslauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250308"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -24,6 +24,8 @@
     />
     <title>Laufkalender Gütersloh: Laufwettbewerbe und Laufrennen in Gütersloh finden</title>
     <meta name="description" content="Finde deinen nächsten Lauf in Gütersloh!  Unser Laufkalender listet Laufwettbewerbe aller Kategorien (z.B. 5 km, Halvmarathon, Marathon) und Laufarten (Straße, Gelände, Trail) in Gütersloh auf.  Entdecke die perfekte Rennliste für dich!" />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -661,14 +663,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;G\u00fctersloh&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;G\\u00fctersloh\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/luisenturmlauf"
-  class="race-card"
+  href="/rennseiten/luisenturmlauf"
+  class="race-card packed"
   data-name="Luisenturmlauf"
   data-date="20250302"
   data-county="Nordrhein-Westfalen"
@@ -679,98 +681,24 @@
   data-longitude="8.306277699999999"
   data-location="Ravensberger Stadion"
   data-description="Der Luisenturmlauf in Borgholzhausen bietet verschiedene Distanzen für Läufer an, darunter einen Halbmarathon mit 21,1 km und einen 12,5 km "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fluisenturmlauf%2Fluisenturmlauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/luisenturmlauf/luisenturmlauf_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="2 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fluisenturmlauf%2Fluisenturmlauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuLuisenturmlauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          2 März
-        </div>
-        <div class="race-location">
-          Nordrhein-Westfalen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Luisenturmlauf</div>
+    <div class="race-date">
+      2 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Luisenturmlauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Ravensberger Stadion 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                12,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Halbmarathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Luisenturmlauf in Borgholzhausen bietet verschiedene Distanzen für Läufer an, darunter einen Halbmarathon mit 21,1 km und einen 12,5 km ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/langenberger_volkslauf"
-  class="race-card"
+  href="/rennseiten/langenberger_volkslauf"
+  class="race-card packed"
   data-name="Langenberger Volkslauf"
   data-date="20250308"
   data-county="Nordrhein-Westfalen"
@@ -781,100 +709,20 @@
   data-longitude="8.315594899999999"
   data-location="Sportstätte der Brinkmannschule, Brinkstraße, Langenberg"
   data-description="Der 33. Langenberger Volkslauf findet am Samstag, dem 08. März 2025, statt und bietet verschiedene Strecken über 1,1 km, 5 km und 11 km, die"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Flangenberger_volkslauf%2Flangenberger_volkslauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/langenberger_volkslauf/langenberger_volkslauf_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="8 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Flangenberger_volkslauf%2Flangenberger_volkslauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuLangenberger Volkslauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          8 März
-        </div>
-        <div class="race-location">
-          Nordrhein-Westfalen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Langenberger Volkslauf</div>
+    <div class="race-date">
+      8 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Langenberger Volkslauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Sportstätte der Brinkmannschule, Brinkstraße, Langenberg 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                11 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der 33. Langenberger Volkslauf findet am Samstag, dem 08. März 2025, statt und bietet verschiedene Strecken über 1,1 km, 5 km und 11 km, die...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

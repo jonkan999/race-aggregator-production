@@ -21,6 +21,8 @@
     <title>Halvmarathon Landsväg i Björlanda - Löparkalender & Lopplista</title>
     <meta name="description" content="Hitta alla halvmaratonlopp på landsväg i Björlanda. Använd vår löparkalender för att hitta ditt nästa löplopp!" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -680,14 +682,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Bj\u00f6rlanda&quot;, &quot;race_type&quot;: &quot;Landsv\u00e4g&quot;, &quot;category&quot;: &quot;Halvmarathon&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Bj\\u00f6rlanda\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Landsv\\u00e4g\u0026quot;, \u0026quot;category\u0026quot;: \u0026quot;Halvmarathon\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/goteborsvarvet"
-  class="race-card"
+  class="race-card packed"
   data-name="Göteborsvarvet"
   data-date="20250517"
   data-county="Västra Götaland"
@@ -698,114 +700,24 @@
   data-longitude="11.9367611"
   data-location="Göteborg"
   data-description="Göteborsvarvet är världens största halvmaraton och bjuder på en fantastisk folkfest genom ett pulserande Göteborg. Loppet sträcker sig över "
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/goteborsvarvet/goteborsvarvet_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/goteborsvarvet/goteborsvarvet_1.webp?v=1"
   data-type="road"
   data-type-display="Landsväg"
   data-date-display="17 maj"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/goteborsvarvet/goteborsvarvet_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Göteborsvarvet"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          17 maj
-        </div>
-        <div class="race-location">
-          Västra Götaland
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Göteborsvarvet</div>
+    <div class="race-date">
+      17 maj
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Göteborsvarvet</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Göteborg 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,4 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2,4 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                4,3 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                8 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Landsväg
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Göteborsvarvet är världens största halvmaraton och bjuder på en fantastisk folkfest genom ett pulserande Göteborg. Loppet sträcker sig över ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/midnattsloppet_goteborg_5_km"
-  class="race-card"
+  class="race-card packed"
   data-name="Midnattsloppet Göteborg 5 km"
   data-date="20250906"
   data-county="Västra Götaland"
@@ -816,94 +728,20 @@
   data-longitude="11.9672017"
   data-location="Gustaf Adolfs torg"
   data-description="Väntan är över! Äntligen är vi tillbaka i Göteborg, mitt i city där ett Midnattslopp hör hemma! Midnattsloppet Göteborg 5 km äger rum den 6 "
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/midnattsloppet_goteborg_5_km/midnattsloppet_goteborg_5_km_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/midnattsloppet_goteborg_5_km/midnattsloppet_goteborg_5_km_1.webp?v=1"
   data-type="road"
   data-type-display="Landsväg"
   data-date-display="6 sep."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/midnattsloppet_goteborg_5_km/midnattsloppet_goteborg_5_km_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Midnattsloppet Göteborg 5 km"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          6 sep.
-        </div>
-        <div class="race-location">
-          Västra Götaland
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Midnattsloppet Göteborg 5 km</div>
+    <div class="race-date">
+      6 sep.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Midnattsloppet Göteborg 5 km</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Gustaf Adolfs torg 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Landsväg
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Väntan är över! Äntligen är vi tillbaka i Göteborg, mitt i city där ett Midnattslopp hör hemma! Midnattsloppet Göteborg 5 km äger rum den 6 ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

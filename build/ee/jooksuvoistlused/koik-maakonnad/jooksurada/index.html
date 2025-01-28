@@ -25,6 +25,8 @@
     <title>Jooksurada Võistlused Eestis: Leia Sobiv Jooksuvõistlus!</title>
     <meta name="description" content="Leia parimad jooksuvõistlused Eestis! Otsi jooksurada võistlusi kategooria, asukoha ja vahemaa järgi. Jooksmine, jooksja, jooksma, jooksuvõistlused – kõik ühes kohas!" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -657,14 +659,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: null, &quot;county&quot;: null, &quot;race_type&quot;: &quot;Jooksurada&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: null, \u0026quot;county\u0026quot;: null, \u0026quot;race_type\u0026quot;: \u0026quot;Jooksurada\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/sportos_test"
-  class="race-card"
+  class="race-card packed"
   data-name="Sportos TEST"
   data-date="20250130"
   data-county="Harju maakond"
@@ -675,104 +677,24 @@
   data-longitude="24.7397778"
   data-location="Jalgpalli 1, 11312 Tallinn"
   data-description="Sportos TEST 2023 toimub jooksuvõistlusena, kus osalejad saavad valida erinevate distantside vahel. Esimene distants algab kell 10:00 ja on "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fsportos_test%2Fsportos_test_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/sportos_test/sportos_test_1.webp?v=1"
   data-type="track"
   data-type-display="Jooksurada"
   data-date-display="30 jaan."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fsportos_test%2Fsportos_test_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksSportos TEST"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          30 jaan.
-        </div>
-        <div class="race-location">
-          Harju maakond
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Sportos TEST</div>
+    <div class="race-date">
+      30 jaan.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Sportos TEST</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Jalgpalli 1, 11312 Tallinn 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                11 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Jooksurada
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Sportos TEST 2023 toimub jooksuvõistlusena, kus osalejad saavad valida erinevate distantside vahel. Esimene distants algab kell 10:00 ja on ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/tondiraba_sisekumme"
-  class="race-card"
+  class="race-card packed"
   data-name="Tondiraba Sisekümme"
   data-date="20250207"
   data-county="Harju maakond"
@@ -783,92 +705,24 @@
   data-longitude="24.8480556"
   data-location="Tondiraba Jäähall"
   data-description="Laupäeval, 8. veebruaril 2025 kell 10.00 toimub 11. Tondiraba Sisemaraton, mis joostakse 252,67 m pikkusel Tondiraba Jäähalli siseovaalil. K"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Ftondiraba_sisekumme%2Ftondiraba_sisekumme_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/tondiraba_sisekumme/tondiraba_sisekumme_1.webp?v=1"
   data-type="track"
   data-type-display="Jooksurada"
   data-date-display="7 veebr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Ftondiraba_sisekumme%2Ftondiraba_sisekumme_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksTondiraba Sisekümme"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          7 veebr.
-        </div>
-        <div class="race-location">
-          Harju maakond
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Tondiraba Sisekümme</div>
+    <div class="race-date">
+      7 veebr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Tondiraba Sisekümme</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Tondiraba Jäähall 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                Maraton
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Jooksurada
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Laupäeval, 8. veebruaril 2025 kell 10.00 toimub 11. Tondiraba Sisemaraton, mis joostakse 252,67 m pikkusel Tondiraba Jäähalli siseovaalil. K...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/tondiraba_sisemaraton"
-  class="race-card"
+  class="race-card packed"
   data-name="Tondiraba Sisemaraton"
   data-date="20250207"
   data-county="Harju maakond"
@@ -879,91 +733,353 @@
   data-longitude="24.8480556"
   data-location="Tondiraba Jäähall"
   data-description="Laupäeval, 8. veebruaril 2025 kell 10.00 toimub 11. Tondiraba Sisemaraton, mis joostakse 252,67 m pikkusel Tondiraba Jäähalli siseovaalil. K"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Ftondiraba_sisemaraton%2Ftondiraba_sisemaraton_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/tondiraba_sisemaraton/tondiraba_sisemaraton_1.webp?v=1"
   data-type="track"
   data-type-display="Jooksurada"
   data-date-display="7 veebr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Ftondiraba_sisemaraton%2Ftondiraba_sisemaraton_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksTondiraba Sisemaraton"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          7 veebr.
-        </div>
-        <div class="race-location">
-          Harju maakond
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Tondiraba Sisemaraton</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Tondiraba Jäähall 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Maraton
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Jooksurada
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Laupäeval, 8. veebruaril 2025 kell 10.00 toimub 11. Tondiraba Sisemaraton, mis joostakse 252,67 m pikkusel Tondiraba Jäähalli siseovaalil. K...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Tondiraba Sisemaraton</div>
+    <div class="race-date">
+      7 veebr.
     </div>
   </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/suurjooks_umber_viljandi_jarve"
+  class="race-card packed"
+  data-name="Suurjooks ümber Viljandi järve"
+  data-date="20250501"
+  data-county="Viljandi maakond"
+  data-category=""
+  data-race-type="Jooksurada"
+  data-distance="1km, 12km, 13km"
+  data-latitude="58.3610585"
+  data-longitude="25.6068511"
+  data-location="Viljandi linnastaadion"
+  data-description="Suurjooks ümber Viljandi järve on 1928. aastal alguse saanud vanim Eestis korraldatav jooksuüritus, mille rada teeb ringi Viljandi järve ümb"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/suurjooks_umber_viljandi_jarve/suurjooks_umber_viljandi_jarve_1.webp?v=1"
+  data-type="track"
+  data-type-display="Jooksurada"
+  data-date-display="1 mai"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Suurjooks ümber Viljandi järve</div>
+    <div class="race-date">
+      1 mai
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/kunda_linnajooks"
+  class="race-card packed"
+  data-name="Kunda Linnajooks"
+  data-date="20250525"
+  data-county="Lääne-Viru maakond"
+  data-category=""
+  data-race-type="Jooksurada"
+  data-distance="0,2km, 0,6km, 1,8km, 8,8km"
+  data-latitude="59.5006139"
+  data-longitude="26.5144401"
+  data-location="Kunda"
+  data-description="Kunda Linnajooks toimub 26. mail 2024. Korraldaja on Kunda Spordikeskus, kelle kontaktisik on Ainar Sepnik. Võistluse raames toimuvad erinev"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/kunda_linnajooks/kunda_linnajooks_1.webp?v=1"
+  data-type="track"
+  data-type-display="Jooksurada"
+  data-date-display="25 mai"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Kunda Linnajooks</div>
+    <div class="race-date">
+      25 mai
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/euroopa_spordipealinna_test"
+  class="race-card packed"
+  data-name="Euroopa spordipealinna test"
+  data-date="20250531"
+  data-county="Harju maakond"
+  data-category=""
+  data-race-type="Jooksurada"
+  data-distance="5km, 20km"
+  data-latitude="59.39652270000001"
+  data-longitude="24.6775487"
+  data-location="13414 Tallinn"
+  data-description="Euroopa spordipealinna võistluse test toimub 20.09.2024 Harju maakonnas, Tallinnas. Sündmus on jooksmise võistlus, mille osalejate arvu prog"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/euroopa_spordipealinna_test/euroopa_spordipealinna_test_1.webp?v=1"
+  data-type="track"
+  data-type-display="Jooksurada"
+  data-date-display="31 mai"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Euroopa spordipealinna test</div>
+    <div class="race-date">
+      31 mai
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/kehtna_moisa_jooks"
+  class="race-card packed"
+  data-name="Kehtna Mõisa Jooks"
+  data-date="20250601"
+  data-county="Rapla maakond"
+  data-category=""
+  data-race-type="Jooksurada"
+  data-distance="2,5km, 5km"
+  data-latitude="58.9227966"
+  data-longitude="24.8734746"
+  data-location="Kehtna mõisapark"
+  data-description="Kehtna Mõisa Jooks on spordisündmus, mis toimub Kehtna ja selle ümbruse mõisaparkides ning nende lähedastes piirkondades. Jooksusari sisalda"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/kehtna_moisa_jooks/kehtna_moisa_jooks_1.webp?v=1"
+  data-type="track"
+  data-type-display="Jooksurada"
+  data-date-display="1 juuni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Kehtna Mõisa Jooks</div>
+    <div class="race-date">
+      1 juuni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/elva_sudaoojooks_etapp"
+  class="race-card packed"
+  data-name="Elva Südaööjooks Etapp"
+  data-date="20250613"
+  data-county="Tartu maakond"
+  data-category=""
+  data-race-type="Jooksurada"
+  data-distance="10km"
+  data-latitude="58.4977699"
+  data-longitude="27.2388348"
+  data-location="Elva Kultuurikeskuse parkla Kesk 30"
+  data-description="Elva Südaööjooks, mida korraldab Elva Spordiliit, toimub 14. juunil 2024 Elvas. Programm sisaldab lastejooksusid (300 m ja 600 m) algusega k"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/elva_sudaoojooks_etapp/elva_sudaoojooks_etapp_1.webp?v=1"
+  data-type="track"
+  data-type-display="Jooksurada"
+  data-date-display="13 juuni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Elva Südaööjooks Etapp</div>
+    <div class="race-date">
+      13 juuni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/eidapere_moisa_jooks"
+  class="race-card packed"
+  data-name="Eidapere Mõisa Jooks"
+  data-date="20250622"
+  data-county="Rapla maakond"
+  data-category=""
+  data-race-type="Jooksurada"
+  data-distance="2,5km, 5km"
+  data-latitude="58.758475"
+  data-longitude="24.9478426"
+  data-location="Eidapere mõis"
+  data-description="Eidapere mõisa jooks 2024 toimub P 23.06.2024, algus kell 12:00. Võistlus hõlmab mitmeid distantside valikuid: Mamma lastejooks on 500m pikk"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/eidapere_moisa_jooks/eidapere_moisa_jooks_1.webp?v=1"
+  data-type="track"
+  data-type-display="Jooksurada"
+  data-date-display="22 juuni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Eidapere Mõisa Jooks</div>
+    <div class="race-date">
+      22 juuni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/puhajarve_jooks"
+  class="race-card packed"
+  data-name="Pühajärve Jooks"
+  data-date="20250712"
+  data-county="Valga maakond"
+  data-category=""
+  data-race-type="Jooksurada"
+  data-distance="10,7km"
+  data-latitude="58.0471719"
+  data-longitude="26.4635365"
+  data-location="Pühajärve Spa & Holiday Resort"
+  data-description="43. jooks ümber Pühajärve toimub laupäeval, 13. juulil 2024. a. ja kuulub 2024 Maru Järvejooksude sarja, olles sarja 3. osavõistlus. Ajakava"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/puhajarve_jooks/puhajarve_jooks_1.webp?v=1"
+  data-type="track"
+  data-type-display="Jooksurada"
+  data-date-display="12 juuli"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Pühajärve Jooks</div>
+    <div class="race-date">
+      12 juuli
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/puhajarve_pargimiil"
+  class="race-card packed"
+  data-name="Pühajärve Pargimiil"
+  data-date="20250712"
+  data-county="Valga maakond"
+  data-category=""
+  data-race-type="Jooksurada"
+  data-distance="1,6km"
+  data-latitude="58.0451398"
+  data-longitude="26.4490863"
+  data-location="Pühajärve Puhkekeskuse park"
+  data-description="Pühajärve pargimiil toimub laupäeval, 13. juulil 2024. Võistluskeskus ning start ja finiš asuvad Pühajärve Puhkekeskuse pargis, kus start an"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/puhajarve_pargimiil/puhajarve_pargimiil_1.webp?v=1"
+  data-type="track"
+  data-type-display="Jooksurada"
+  data-date-display="12 juuli"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Pühajärve Pargimiil</div>
+    <div class="race-date">
+      12 juuli
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/ingliste_moisa_jooks"
+  class="race-card packed"
+  data-name="Ingliste Mõisa Jooks"
+  data-date="20250713"
+  data-county="Rapla maakond"
+  data-category=""
+  data-race-type="Jooksurada"
+  data-distance="2,5km, 5km"
+  data-latitude="59.0180858"
+  data-longitude="24.9459802"
+  data-location="Ingliste mõis"
+  data-description="Ingliste mõisa jooks toimub 09. juunil 2024. Võistlusel on mitmeid distantside valikuid, sealhulgas Mamma lastejooks 500m (kuni 10-aastased "
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/ingliste_moisa_jooks/ingliste_moisa_jooks_1.webp?v=1"
+  data-type="track"
+  data-type-display="Jooksurada"
+  data-date-display="13 juuli"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Ingliste Mõisa Jooks</div>
+    <div class="race-date">
+      13 juuli
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/raikkula_moisa_jooks"
+  class="race-card packed"
+  data-name="Raikküla Mõisa Jooks"
+  data-date="20250810"
+  data-county="Rapla maakond"
+  data-category=""
+  data-race-type="Jooksurada"
+  data-distance=""
+  data-latitude="58.9350627"
+  data-longitude="24.7580196"
+  data-location="Raikküla mõis"
+  data-description="Raikküla mõisa jooks toimub pühapäeval, 13. oktoobril 2024. Võistluskeskus avatakse kell 11.00, kus kell 12.00 algab lastejooks ja kell 12.1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/raikkula_moisa_jooks/raikkula_moisa_jooks_1.webp?v=1"
+  data-type="track"
+  data-type-display="Jooksurada"
+  data-date-display="10 aug."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Raikküla Mõisa Jooks</div>
+    <div class="race-date">
+      10 aug.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/horeda_moisa_jooks"
+  class="race-card packed"
+  data-name="Hõreda Mõisa Jooks"
+  data-date="20250824"
+  data-county="Rapla maakond"
+  data-category=""
+  data-race-type="Jooksurada"
+  data-distance="2km, 2,5km, 5km"
+  data-latitude="59.0229"
+  data-longitude="24.922"
+  data-location="Hõreda mõis"
+  data-description="Hõreda mõisa jooks toimub 18. augustil 2024 Hõreda mõisas ja on Rapla mõisate jooksusarja teine osavõistlus. Võistluskeskus avatakse kell 11"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/horeda_moisa_jooks/horeda_moisa_jooks_1.webp?v=1"
+  data-type="track"
+  data-type-display="Jooksurada"
+  data-date-display="24 aug."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Hõreda Mõisa Jooks</div>
+    <div class="race-date">
+      24 aug.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/sillamae_ultra_100_km"
+  class="race-card packed"
+  data-name="Sillamäe Ultra 100 km"
+  data-date="20250830"
+  data-county="Ida-Viru maakond"
+  data-category=""
+  data-race-type="Jooksurada"
+  data-distance="50km, 100km"
+  data-latitude="59.39635799999999"
+  data-longitude="27.7789022"
+  data-location="Sillamäe terviserada"
+  data-description="Sillamäe Ultra 100 km toimub 21.09.2024 kell 10-22 Sillamäe terviseraja valgustatud 2 km pikkusel asfaldiringil. Võistlusel on IAU (Internat"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/sillamae_ultra_100_km/sillamae_ultra_100_km_1.webp?v=1"
+  data-type="track"
+  data-type-display="Jooksurada"
+  data-date-display="30 aug."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Sillamäe Ultra 100 km</div>
+    <div class="race-date">
+      30 aug.
+    </div>
   </div>
 </a>
     
@@ -980,7 +1096,11 @@
           </div>
         </div>
         <div class="race-card-big-container right-scroller">
-              <a
+          
+            
+            
+              
+                <a
   href="/jooksulehed/sportos_test"
   class="race-card-big race-card"
   data-name="Sportos TEST"
@@ -994,11 +1114,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fsportos_test%2Fsportos_test_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/sportos_test/sportos_test_1.webp?v=1"
         alt="Pilt {x} jaoksSportos TEST"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1056,7 +1178,14 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/jooksulehed/tondiraba_sisekumme"
   class="race-card-big race-card"
   data-name="Tondiraba Sisekümme"
@@ -1070,11 +1199,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Ftondiraba_sisekumme%2Ftondiraba_sisekumme_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/tondiraba_sisekumme/tondiraba_sisekumme_1.webp?v=1"
         alt="Pilt {x} jaoksTondiraba Sisekümme"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1120,7 +1251,14 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/jooksulehed/tondiraba_sisemaraton"
   class="race-card-big race-card"
   data-name="Tondiraba Sisemaraton"
@@ -1134,11 +1272,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Ftondiraba_sisemaraton%2Ftondiraba_sisemaraton_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/tondiraba_sisemaraton/tondiraba_sisemaraton_1.webp?v=1"
         alt="Pilt {x} jaoksTondiraba Sisemaraton"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1190,7 +1330,14 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/jooksulehed/suurjooks_umber_viljandi_jarve"
   class="race-card-big race-card"
   data-name="Suurjooks ümber Viljandi järve"
@@ -1204,11 +1351,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fsuurjooks_umber_viljandi_jarve%2Fsuurjooks_umber_viljandi_jarve_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/suurjooks_umber_viljandi_jarve/suurjooks_umber_viljandi_jarve_1.webp?v=1"
         alt="Pilt {x} jaoksSuurjooks ümber Viljandi järve"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1266,7 +1415,14 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/jooksulehed/kunda_linnajooks"
   class="race-card-big race-card"
   data-name="Kunda Linnajooks"
@@ -1280,11 +1436,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkunda_linnajooks%2Fkunda_linnajooks_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/kunda_linnajooks/kunda_linnajooks_1.webp?v=1"
         alt="Pilt {x} jaoksKunda Linnajooks"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1348,346 +1506,13 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>   
+</a>
+              
+            
+          
         </div>
       </section>
-          
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/suurjooks_umber_viljandi_jarve"
-  class="race-card packed"
-  data-name="Suurjooks ümber Viljandi järve"
-  data-date="20250501"
-  data-county="Viljandi maakond"
-  data-category=""
-  data-race-type="Jooksurada"
-  data-distance="1km, 12km, 13km"
-  data-latitude="58.3610585"
-  data-longitude="25.6068511"
-  data-location="Viljandi linnastaadion"
-  data-description="Suurjooks ümber Viljandi järve on 1928. aastal alguse saanud vanim Eestis korraldatav jooksuüritus, mille rada teeb ringi Viljandi järve ümb"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fsuurjooks_umber_viljandi_jarve%2Fsuurjooks_umber_viljandi_jarve_1.webp?alt=media"
-  data-type="track"
-  data-type-display="Jooksurada"
-  data-date-display="1 mai"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Suurjooks ümber Viljandi järve</div>
-    <div class="race-date">
-      1 mai
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/kunda_linnajooks"
-  class="race-card packed"
-  data-name="Kunda Linnajooks"
-  data-date="20250525"
-  data-county="Lääne-Viru maakond"
-  data-category=""
-  data-race-type="Jooksurada"
-  data-distance="0,2km, 0,6km, 1,8km, 8,8km"
-  data-latitude="59.5006139"
-  data-longitude="26.5144401"
-  data-location="Kunda"
-  data-description="Kunda Linnajooks toimub 26. mail 2024. Korraldaja on Kunda Spordikeskus, kelle kontaktisik on Ainar Sepnik. Võistluse raames toimuvad erinev"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkunda_linnajooks%2Fkunda_linnajooks_1.webp?alt=media"
-  data-type="track"
-  data-type-display="Jooksurada"
-  data-date-display="25 mai"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Kunda Linnajooks</div>
-    <div class="race-date">
-      25 mai
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/euroopa_spordipealinna_test"
-  class="race-card packed"
-  data-name="Euroopa spordipealinna test"
-  data-date="20250531"
-  data-county="Harju maakond"
-  data-category=""
-  data-race-type="Jooksurada"
-  data-distance="5km, 20km"
-  data-latitude="59.39652270000001"
-  data-longitude="24.6775487"
-  data-location="13414 Tallinn"
-  data-description="Euroopa spordipealinna võistluse test toimub 20.09.2024 Harju maakonnas, Tallinnas. Sündmus on jooksmise võistlus, mille osalejate arvu prog"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Feuroopa_spordipealinna_test%2Feuroopa_spordipealinna_test_1.webp?alt=media"
-  data-type="track"
-  data-type-display="Jooksurada"
-  data-date-display="31 mai"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Euroopa spordipealinna test</div>
-    <div class="race-date">
-      31 mai
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/kehtna_moisa_jooks"
-  class="race-card packed"
-  data-name="Kehtna Mõisa Jooks"
-  data-date="20250601"
-  data-county="Rapla maakond"
-  data-category=""
-  data-race-type="Jooksurada"
-  data-distance="2,5km, 5km"
-  data-latitude="58.9227966"
-  data-longitude="24.8734746"
-  data-location="Kehtna mõisapark"
-  data-description="Kehtna Mõisa Jooks on spordisündmus, mis toimub Kehtna ja selle ümbruse mõisaparkides ning nende lähedastes piirkondades. Jooksusari sisalda"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkehtna_moisa_jooks%2Fkehtna_moisa_jooks_1.webp?alt=media"
-  data-type="track"
-  data-type-display="Jooksurada"
-  data-date-display="1 juuni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Kehtna Mõisa Jooks</div>
-    <div class="race-date">
-      1 juuni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/elva_sudaoojooks_etapp"
-  class="race-card packed"
-  data-name="Elva Südaööjooks Etapp"
-  data-date="20250613"
-  data-county="Tartu maakond"
-  data-category=""
-  data-race-type="Jooksurada"
-  data-distance="10km"
-  data-latitude="58.4977699"
-  data-longitude="27.2388348"
-  data-location="Elva Kultuurikeskuse parkla Kesk 30"
-  data-description="Elva Südaööjooks, mida korraldab Elva Spordiliit, toimub 14. juunil 2024 Elvas. Programm sisaldab lastejooksusid (300 m ja 600 m) algusega k"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Felva_sudaoojooks_etapp%2Felva_sudaoojooks_etapp_1.webp?alt=media"
-  data-type="track"
-  data-type-display="Jooksurada"
-  data-date-display="13 juuni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Elva Südaööjooks Etapp</div>
-    <div class="race-date">
-      13 juuni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/eidapere_moisa_jooks"
-  class="race-card packed"
-  data-name="Eidapere Mõisa Jooks"
-  data-date="20250622"
-  data-county="Rapla maakond"
-  data-category=""
-  data-race-type="Jooksurada"
-  data-distance="2,5km, 5km"
-  data-latitude="58.758475"
-  data-longitude="24.9478426"
-  data-location="Eidapere mõis"
-  data-description="Eidapere mõisa jooks 2024 toimub P 23.06.2024, algus kell 12:00. Võistlus hõlmab mitmeid distantside valikuid: Mamma lastejooks on 500m pikk"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Feidapere_moisa_jooks%2Feidapere_moisa_jooks_1.webp?alt=media"
-  data-type="track"
-  data-type-display="Jooksurada"
-  data-date-display="22 juuni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Eidapere Mõisa Jooks</div>
-    <div class="race-date">
-      22 juuni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/puhajarve_jooks"
-  class="race-card packed"
-  data-name="Pühajärve Jooks"
-  data-date="20250712"
-  data-county="Valga maakond"
-  data-category=""
-  data-race-type="Jooksurada"
-  data-distance="10,7km"
-  data-latitude="58.0471719"
-  data-longitude="26.4635365"
-  data-location="Pühajärve Spa & Holiday Resort"
-  data-description="43. jooks ümber Pühajärve toimub laupäeval, 13. juulil 2024. a. ja kuulub 2024 Maru Järvejooksude sarja, olles sarja 3. osavõistlus. Ajakava"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fpuhajarve_jooks%2Fpuhajarve_jooks_1.webp?alt=media"
-  data-type="track"
-  data-type-display="Jooksurada"
-  data-date-display="12 juuli"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Pühajärve Jooks</div>
-    <div class="race-date">
-      12 juuli
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/puhajarve_pargimiil"
-  class="race-card packed"
-  data-name="Pühajärve Pargimiil"
-  data-date="20250712"
-  data-county="Valga maakond"
-  data-category=""
-  data-race-type="Jooksurada"
-  data-distance="1,6km"
-  data-latitude="58.0451398"
-  data-longitude="26.4490863"
-  data-location="Pühajärve Puhkekeskuse park"
-  data-description="Pühajärve pargimiil toimub laupäeval, 13. juulil 2024. Võistluskeskus ning start ja finiš asuvad Pühajärve Puhkekeskuse pargis, kus start an"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fpuhajarve_pargimiil%2Fpuhajarve_pargimiil_1.webp?alt=media"
-  data-type="track"
-  data-type-display="Jooksurada"
-  data-date-display="12 juuli"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Pühajärve Pargimiil</div>
-    <div class="race-date">
-      12 juuli
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/ingliste_moisa_jooks"
-  class="race-card packed"
-  data-name="Ingliste Mõisa Jooks"
-  data-date="20250713"
-  data-county="Rapla maakond"
-  data-category=""
-  data-race-type="Jooksurada"
-  data-distance="2,5km, 5km"
-  data-latitude="59.0180858"
-  data-longitude="24.9459802"
-  data-location="Ingliste mõis"
-  data-description="Ingliste mõisa jooks toimub 09. juunil 2024. Võistlusel on mitmeid distantside valikuid, sealhulgas Mamma lastejooks 500m (kuni 10-aastased "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fingliste_moisa_jooks%2Fingliste_moisa_jooks_1.webp?alt=media"
-  data-type="track"
-  data-type-display="Jooksurada"
-  data-date-display="13 juuli"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Ingliste Mõisa Jooks</div>
-    <div class="race-date">
-      13 juuli
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/raikkula_moisa_jooks"
-  class="race-card packed"
-  data-name="Raikküla Mõisa Jooks"
-  data-date="20250810"
-  data-county="Rapla maakond"
-  data-category=""
-  data-race-type="Jooksurada"
-  data-distance=""
-  data-latitude="58.9350627"
-  data-longitude="24.7580196"
-  data-location="Raikküla mõis"
-  data-description="Raikküla mõisa jooks toimub pühapäeval, 13. oktoobril 2024. Võistluskeskus avatakse kell 11.00, kus kell 12.00 algab lastejooks ja kell 12.1"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fraikkula_moisa_jooks%2Fraikkula_moisa_jooks_1.webp?alt=media"
-  data-type="track"
-  data-type-display="Jooksurada"
-  data-date-display="10 aug."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Raikküla Mõisa Jooks</div>
-    <div class="race-date">
-      10 aug.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/horeda_moisa_jooks"
-  class="race-card packed"
-  data-name="Hõreda Mõisa Jooks"
-  data-date="20250824"
-  data-county="Rapla maakond"
-  data-category=""
-  data-race-type="Jooksurada"
-  data-distance="2km, 2,5km, 5km"
-  data-latitude="59.0229"
-  data-longitude="24.922"
-  data-location="Hõreda mõis"
-  data-description="Hõreda mõisa jooks toimub 18. augustil 2024 Hõreda mõisas ja on Rapla mõisate jooksusarja teine osavõistlus. Võistluskeskus avatakse kell 11"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fhoreda_moisa_jooks%2Fhoreda_moisa_jooks_1.webp?alt=media"
-  data-type="track"
-  data-type-display="Jooksurada"
-  data-date-display="24 aug."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Hõreda Mõisa Jooks</div>
-    <div class="race-date">
-      24 aug.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/sillamae_ultra_100_km"
-  class="race-card packed"
-  data-name="Sillamäe Ultra 100 km"
-  data-date="20250830"
-  data-county="Ida-Viru maakond"
-  data-category=""
-  data-race-type="Jooksurada"
-  data-distance="50km, 100km"
-  data-latitude="59.39635799999999"
-  data-longitude="27.7789022"
-  data-location="Sillamäe terviserada"
-  data-description="Sillamäe Ultra 100 km toimub 21.09.2024 kell 10-22 Sillamäe terviseraja valgustatud 2 km pikkusel asfaldiringil. Võistlusel on IAU (Internat"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fsillamae_ultra_100_km%2Fsillamae_ultra_100_km_1.webp?alt=media"
-  data-type="track"
-  data-type-display="Jooksurada"
-  data-date-display="30 aug."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Sillamäe Ultra 100 km</div>
-    <div class="race-date">
-      30 aug.
-    </div>
-  </div>
-</a>
-  
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

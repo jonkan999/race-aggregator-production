@@ -21,6 +21,8 @@
     <title>5 km juoksukilpailut Laukaassa - Löydä seuraava juoksutapahtuma</title>
     <meta name="description" content="Etsi 5 km juoksukilpailuja Laukaasta. Löydä sopivat juoksukilpailut, olipa kyseessä maantiejuoksu, maastojuoksu tai jokin muu juoksutyyli. Tutustu juoksukalenteriin ja löydä seuraava juoksutapahtuma!" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -655,14 +657,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Laukaa&quot;, &quot;race_type&quot;: null, &quot;category&quot;: &quot;5 km&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Laukaa\u0026quot;, \u0026quot;race_type\u0026quot;: null, \u0026quot;category\u0026quot;: \u0026quot;5 km\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/kilpailusivut/forssan_puistojuoksu_10"
-  class="race-card"
+  class="race-card packed"
   data-name="Forssan Puistojuoksu"
   data-date="20250219"
   data-county="Keski-Suomi"
@@ -673,98 +675,24 @@
   data-longitude="25.7495941"
   data-location="Keskuskatu"
   data-description="Koko kaupungin kuntoa kohottava Forssan Puistojuoksu on kerännyt juoksijoita jo 30 vuoden ajan. Kerran kuukaudessa järjestettävässä puistoju"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fforssan_puistojuoksu_10%2Fforssan_puistojuoksu_10_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/forssan_puistojuoksu_10/forssan_puistojuoksu_10_1.webp?v=1"
   data-type="other"
   data-type-display="Muut"
   data-date-display="19 helmi."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fforssan_puistojuoksu_10%2Fforssan_puistojuoksu_10_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Kuva {x}Forssan Puistojuoksu"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          19 helmi.
-        </div>
-        <div class="race-location">
-          Keski-Suomi
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Forssan Puistojuoksu</div>
+    <div class="race-date">
+      19 helmi.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Forssan Puistojuoksu</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Keskuskatu 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5,8 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                11,2 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Muut
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Koko kaupungin kuntoa kohottava Forssan Puistojuoksu on kerännyt juoksijoita jo 30 vuoden ajan. Kerran kuukaudessa järjestettävässä puistoju...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/kilpailusivut/pentin_pinkaisu_xviii"
-  class="race-card"
+  class="race-card packed"
   data-name="Pentin Pinkaisu XVIII"
   data-date="20250412"
   data-county="Keski-Suomi"
@@ -775,104 +703,24 @@
   data-longitude="25.8701815"
   data-location="Vaajakosken Liikuntahalli"
   data-description="Pentin Pinkaisu XVIII järjestetään lauantaina 12.4.2025 klo 12:00 Vaajakosken Liikuntahallissa. Kilpasarjat sisältävät 10 km matkat miehille"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fpentin_pinkaisu_xviii%2Fpentin_pinkaisu_xviii_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/pentin_pinkaisu_xviii/pentin_pinkaisu_xviii_1.webp?v=1"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="12 huhti."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fpentin_pinkaisu_xviii%2Fpentin_pinkaisu_xviii_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Kuva {x}Pentin Pinkaisu XVIII"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          12 huhti.
-        </div>
-        <div class="race-location">
-          Keski-Suomi
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Pentin Pinkaisu XVIII</div>
+    <div class="race-date">
+      12 huhti.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Pentin Pinkaisu XVIII</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Vaajakosken Liikuntahalli 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                4,6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maantie
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Pentin Pinkaisu XVIII järjestetään lauantaina 12.4.2025 klo 12:00 Vaajakosken Liikuntahallissa. Kilpasarjat sisältävät 10 km matkat miehille...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/kilpailusivut/forssan_puistopuolikas"
-  class="race-card"
+  class="race-card packed"
   data-name="Forssan Puistopuolikas"
   data-date="20250504"
   data-county="Keski-Suomi"
@@ -883,107 +731,157 @@
   data-longitude="25.7495941"
   data-location="Keskuskatu"
   data-description="Toukokuun Forssan Lehden Puistojuoksun yhteydessä on mahdollisuus juosta normaalimatkojen (1 kierros, 5,8 km, 2 kierrosta 11,2 km) lisäksi t"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fforssan_puistopuolikas%2Fforssan_puistopuolikas_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/forssan_puistopuolikas/forssan_puistopuolikas_1.webp?v=1"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="4 tou"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fforssan_puistopuolikas%2Fforssan_puistopuolikas_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Kuva {x}Forssan Puistopuolikas"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          4 tou
-        </div>
-        <div class="race-location">
-          Keski-Suomi
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Forssan Puistopuolikas</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Keskuskatu 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5,8 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                11,2 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maantie
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Toukokuun Forssan Lehden Puistojuoksun yhteydessä on mahdollisuus juosta normaalimatkojen (1 kierros, 5,8 km, 2 kierrosta 11,2 km) lisäksi t...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Forssan Puistopuolikas</div>
+    <div class="race-date">
+      4 tou
     </div>
   </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/kilpailusivut/pentin_pinkaisu_xviii_2"
+  class="race-card packed"
+  data-name="Pentin Pinkaisu XVIII"
+  data-date="20250512"
+  data-county="Keski-Suomi"
+  data-category=""
+  data-race-type="Maantie"
+  data-distance="1,2km, 4,6km, 10km"
+  data-latitude="62.2488241"
+  data-longitude="25.8701815"
+  data-location="Vaajakosken Liikuntahalli"
+  data-description="Pentin Pinkaisu XVIII järjestetään lauantaina 12.4.2025 klo 12:00 Vaajakosken Liikuntahallista. Tapahtuma on saanut suuren merkityksen osall"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/pentin_pinkaisu_xviii_2/pentin_pinkaisu_xviii_2_1.webp?v=1"
+  data-type="road"
+  data-type-display="Maantie"
+  data-date-display="12 tou"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Pentin Pinkaisu XVIII</div>
+    <div class="race-date">
+      12 tou
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/kilpailusivut/forssan_puistojuoksu_6"
+  class="race-card packed"
+  data-name="Forssan Puistojuoksu"
+  data-date="20250604"
+  data-county="Keski-Suomi"
+  data-category=""
+  data-race-type="Muut"
+  data-distance="5,8km, 11,2km"
+  data-latitude="62.24167850000001"
+  data-longitude="25.7495941"
+  data-location="Keskuskatu"
+  data-description="Forssan Puistojuoksu on koko kaupungin kuntoa kohottava tapahtuma, joka on kerännyt juoksijoita jo 30 vuoden ajan. Kerran kuukaudessa järjes"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/forssan_puistojuoksu_6/forssan_puistojuoksu_6_1.webp?v=1"
+  data-type="other"
+  data-type-display="Muut"
+  data-date-display="4 kesä"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Forssan Puistojuoksu</div>
+    <div class="race-date">
+      4 kesä
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/kilpailusivut/sarkijarven_kesytys"
+  class="race-card packed"
+  data-name="Särkijärven Kesytys"
+  data-date="20250705"
+  data-county="Keski-Suomi"
+  data-category=""
+  data-race-type="Maantie"
+  data-distance="5km, half marathon"
+  data-latitude="62.1508789"
+  data-longitude="25.4757118"
+  data-location="Tikkalan koulu"
+  data-description="Liity mukaan jännittävään juoksutapahtumaan upean luonnon ympäröimänä! Särkijärven kesytys -juoksutapahtuma järjestetään jälleen kesällä 6.7"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/sarkijarven_kesytys/sarkijarven_kesytys_1.webp?v=1"
+  data-type="road"
+  data-type-display="Maantie"
+  data-date-display="5 heinä"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Särkijärven Kesytys</div>
+    <div class="race-date">
+      5 heinä
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/kilpailusivut/finlandia_vitonen"
+  class="race-card packed"
+  data-name="Finlandia Vitonen"
+  data-date="20250905"
+  data-county="Keski-Suomi"
+  data-category=""
+  data-race-type="Maantie"
+  data-distance="5km, half marathon, marathon"
+  data-latitude="62.2393614"
+  data-longitude="25.7552366"
+  data-location="Lutakon aukio"
+  data-description="Finlandia Marathon järjestetään Jyväskylässä 13.–14.9.2024 kaksipäiväisenä tapahtumana, jossa on mahdollista valita eri pituisista juoksumat"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/finlandia_vitonen/finlandia_vitonen_1.webp?v=1"
+  data-type="road"
+  data-type-display="Maantie"
+  data-date-display="5 syys."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Finlandia Vitonen</div>
+    <div class="race-date">
+      5 syys.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/kilpailusivut/valon_kymppi"
+  class="race-card packed"
+  data-name="Valon Kymppi"
+  data-date="20250905"
+  data-county="Keski-Suomi"
+  data-category=""
+  data-race-type="Maantie"
+  data-distance="5km, 10km, marathon"
+  data-latitude="62.2402271"
+  data-longitude="25.7577284"
+  data-location="Jyväskylän Paviljonki"
+  data-description="Valon Kymppi on 10 kilometrin juoksutapahtuma, joka järjestetään Jyväskylässä osana Finlandia Marathonia. Reitti kulkee Jyväskylän Rantarait"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/valon_kymppi/valon_kymppi_1.webp?v=1"
+  data-type="road"
+  data-type-display="Maantie"
+  data-date-display="5 syys."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Valon Kymppi</div>
+    <div class="race-date">
+      5 syys.
+    </div>
   </div>
 </a>
     
@@ -1000,7 +898,11 @@
           </div>
         </div>
         <div class="race-card-big-container right-scroller">
-              <a
+          
+            
+            
+              
+                <a
   href="/kilpailusivut/forssan_puistojuoksu_10"
   class="race-card-big race-card"
   data-name="Forssan Puistojuoksu"
@@ -1014,11 +916,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fforssan_puistojuoksu_10%2Fforssan_puistojuoksu_10_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/forssan_puistojuoksu_10/forssan_puistojuoksu_10_1.webp?v=1"
         alt="Kuva {x}Forssan Puistojuoksu"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1070,7 +974,14 @@
       <div class="more-info-button">Siirry kilpailusivulle</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/kilpailusivut/pentin_pinkaisu_xviii"
   class="race-card-big race-card"
   data-name="Pentin Pinkaisu XVIII"
@@ -1084,11 +995,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fpentin_pinkaisu_xviii%2Fpentin_pinkaisu_xviii_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/pentin_pinkaisu_xviii/pentin_pinkaisu_xviii_1.webp?v=1"
         alt="Kuva {x}Pentin Pinkaisu XVIII"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1146,7 +1059,14 @@
       <div class="more-info-button">Siirry kilpailusivulle</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/kilpailusivut/forssan_puistopuolikas"
   class="race-card-big race-card"
   data-name="Forssan Puistopuolikas"
@@ -1160,11 +1080,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fforssan_puistopuolikas%2Fforssan_puistopuolikas_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/forssan_puistopuolikas/forssan_puistopuolikas_1.webp?v=1"
         alt="Kuva {x}Forssan Puistopuolikas"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1234,7 +1156,14 @@
       <div class="more-info-button">Siirry kilpailusivulle</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/kilpailusivut/pentin_pinkaisu_xviii_2"
   class="race-card-big race-card"
   data-name="Pentin Pinkaisu XVIII"
@@ -1248,11 +1177,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fpentin_pinkaisu_xviii_2%2Fpentin_pinkaisu_xviii_2_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/pentin_pinkaisu_xviii_2/pentin_pinkaisu_xviii_2_1.webp?v=1"
         alt="Kuva {x}Pentin Pinkaisu XVIII"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1310,7 +1241,14 @@
       <div class="more-info-button">Siirry kilpailusivulle</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/kilpailusivut/forssan_puistojuoksu_6"
   class="race-card-big race-card"
   data-name="Forssan Puistojuoksu"
@@ -1324,11 +1262,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fforssan_puistojuoksu_6%2Fforssan_puistojuoksu_6_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/forssan_puistojuoksu_6/forssan_puistojuoksu_6_1.webp?v=1"
         alt="Kuva {x}Forssan Puistojuoksu"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1380,150 +1320,13 @@
       <div class="more-info-button">Siirry kilpailusivulle</div>
     </div>
   </div>
-</a>   
+</a>
+              
+            
+          
         </div>
       </section>
-          
-<!-- Packed version for remaining cards -->
-<a
-  href="/kilpailusivut/pentin_pinkaisu_xviii_2"
-  class="race-card packed"
-  data-name="Pentin Pinkaisu XVIII"
-  data-date="20250512"
-  data-county="Keski-Suomi"
-  data-category=""
-  data-race-type="Maantie"
-  data-distance="1,2km, 4,6km, 10km"
-  data-latitude="62.2488241"
-  data-longitude="25.8701815"
-  data-location="Vaajakosken Liikuntahalli"
-  data-description="Pentin Pinkaisu XVIII järjestetään lauantaina 12.4.2025 klo 12:00 Vaajakosken Liikuntahallista. Tapahtuma on saanut suuren merkityksen osall"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fpentin_pinkaisu_xviii_2%2Fpentin_pinkaisu_xviii_2_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Maantie"
-  data-date-display="12 tou"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Pentin Pinkaisu XVIII</div>
-    <div class="race-date">
-      12 tou
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/kilpailusivut/forssan_puistojuoksu_6"
-  class="race-card packed"
-  data-name="Forssan Puistojuoksu"
-  data-date="20250604"
-  data-county="Keski-Suomi"
-  data-category=""
-  data-race-type="Muut"
-  data-distance="5,8km, 11,2km"
-  data-latitude="62.24167850000001"
-  data-longitude="25.7495941"
-  data-location="Keskuskatu"
-  data-description="Forssan Puistojuoksu on koko kaupungin kuntoa kohottava tapahtuma, joka on kerännyt juoksijoita jo 30 vuoden ajan. Kerran kuukaudessa järjes"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fforssan_puistojuoksu_6%2Fforssan_puistojuoksu_6_1.webp?alt=media"
-  data-type="other"
-  data-type-display="Muut"
-  data-date-display="4 kesä"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Forssan Puistojuoksu</div>
-    <div class="race-date">
-      4 kesä
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/kilpailusivut/sarkijarven_kesytys"
-  class="race-card packed"
-  data-name="Särkijärven Kesytys"
-  data-date="20250705"
-  data-county="Keski-Suomi"
-  data-category=""
-  data-race-type="Maantie"
-  data-distance="5km, half marathon"
-  data-latitude="62.1508789"
-  data-longitude="25.4757118"
-  data-location="Tikkalan koulu"
-  data-description="Liity mukaan jännittävään juoksutapahtumaan upean luonnon ympäröimänä! Särkijärven kesytys -juoksutapahtuma järjestetään jälleen kesällä 6.7"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fsarkijarven_kesytys%2Fsarkijarven_kesytys_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Maantie"
-  data-date-display="5 heinä"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Särkijärven Kesytys</div>
-    <div class="race-date">
-      5 heinä
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/kilpailusivut/finlandia_vitonen"
-  class="race-card packed"
-  data-name="Finlandia Vitonen"
-  data-date="20250905"
-  data-county="Keski-Suomi"
-  data-category=""
-  data-race-type="Maantie"
-  data-distance="5km, half marathon, marathon"
-  data-latitude="62.2393614"
-  data-longitude="25.7552366"
-  data-location="Lutakon aukio"
-  data-description="Finlandia Marathon järjestetään Jyväskylässä 13.–14.9.2024 kaksipäiväisenä tapahtumana, jossa on mahdollista valita eri pituisista juoksumat"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Ffinlandia_vitonen%2Ffinlandia_vitonen_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Maantie"
-  data-date-display="5 syys."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Finlandia Vitonen</div>
-    <div class="race-date">
-      5 syys.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/kilpailusivut/valon_kymppi"
-  class="race-card packed"
-  data-name="Valon Kymppi"
-  data-date="20250905"
-  data-county="Keski-Suomi"
-  data-category=""
-  data-race-type="Maantie"
-  data-distance="5km, 10km, marathon"
-  data-latitude="62.2402271"
-  data-longitude="25.7577284"
-  data-location="Jyväskylän Paviljonki"
-  data-description="Valon Kymppi on 10 kilometrin juoksutapahtuma, joka järjestetään Jyväskylässä osana Finlandia Marathonia. Reitti kulkee Jyväskylän Rantarait"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fvalon_kymppi%2Fvalon_kymppi_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Maantie"
-  data-date-display="5 syys."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Valon Kymppi</div>
-    <div class="race-date">
-      5 syys.
-    </div>
-  </div>
-</a>
-  
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

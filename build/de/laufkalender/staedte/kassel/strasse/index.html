@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Gei\u00df-Nidda Dorflauf ist eine beliebte Laufveranstaltung, die im Rahmen des Oberhessen-Cups stattfindet und vom Turnverein 1907 e.V. Gei\u00df-Nidda organisiert w", "distance": "1,5km, 5km, 10km", "eventStatus": "Standard", "identifier": "geiss_nidda_dorflauf", "image": "/Rennseiten/geiss_nidda_dorflauf/geiss_nidda_dorflauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "An der Turnhalle", "addressRegion": "Hessen"}, "name": "An der Turnhalle"}, "name": "Gei\u00df-Nidda Dorflauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250330"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Am 25. August (Sonntag) ist es endlich wieder soweit: Der WVC Lauf entlang der Fulda und durch die BUGA findet statt. Im Rahmen des Nordhessen-Cups laden wir al", "distance": "5km, 10km, 20km", "eventStatus": "Standard", "identifier": "volkslauf_wvc_kassel", "image": "/Rennseiten/volkslauf_wvc_kassel/volkslauf_wvc_kassel_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "WVC Gel\u00e4nde - WVC Kassel e.V., 23, Auedamm, S\u00fcdstadt, Kassel, Hessen", "addressRegion": "Hessen"}, "name": "WVC Gel\u00e4nde - WVC Kassel e.V., 23, Auedamm, S\u00fcdstadt, Kassel, Hessen"}, "name": "Volkslauf WVC Kassel", "sport": "Laufen, Stra\u00dfe", "startDate": "20250412"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Gei\u00df-Nidda Dorflauf ist eine beliebte Laufveranstaltung, die im Rahmen des Oberhessen-Cups stattfindet und vom Turnverein 1907 e.V. Gei\u00df-Nidda organisiert w", "distance": "1,5km, 5km, 10km", "eventStatus": "Standard", "identifier": "geiss_nidda_dorflauf", "image": "/rennseiten/geiss_nidda_dorflauf/geiss_nidda_dorflauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "An der Turnhalle", "addressRegion": "Hessen"}, "name": "An der Turnhalle"}, "name": "Gei\u00df-Nidda Dorflauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250330"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Am 25. August (Sonntag) ist es endlich wieder soweit: Der WVC Lauf entlang der Fulda und durch die BUGA findet statt. Im Rahmen des Nordhessen-Cups laden wir al", "distance": "5km, 10km, 20km", "eventStatus": "Standard", "identifier": "volkslauf_wvc_kassel", "image": "/rennseiten/volkslauf_wvc_kassel/volkslauf_wvc_kassel_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "WVC Gel\u00e4nde - WVC Kassel e.V., 23, Auedamm, S\u00fcdstadt, Kassel, Hessen", "addressRegion": "Hessen"}, "name": "WVC Gel\u00e4nde - WVC Kassel e.V., 23, Auedamm, S\u00fcdstadt, Kassel, Hessen"}, "name": "Volkslauf WVC Kassel", "sport": "Laufen, Stra\u00dfe", "startDate": "20250412"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -24,6 +24,8 @@
     />
     <title>Laufwettbewerbe in Kassel: Straßenläufe – Dein Laufkalender für Kassel</title>
     <meta name="description" content="Finde deinen nächsten Straßenlauf in Kassel!  Unser Laufkalender listet Laufwettkämpfe aller Kategorien, von 5 km bis Marathon.  Schau dir die Rennliste an und finde dein nächstes laufrennen!" />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -676,14 +678,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Kassel&quot;, &quot;race_type&quot;: &quot;Stra\u00dfe&quot;, &quot;category&quot;: null}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Kassel\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Stra\\u00dfe\u0026quot;, \u0026quot;category\u0026quot;: null}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/geiss_nidda_dorflauf"
-  class="race-card"
+  href="/rennseiten/geiss_nidda_dorflauf"
+  class="race-card packed"
   data-name="Geiß-Nidda Dorflauf"
   data-date="20250330"
   data-county="Hessen"
@@ -694,104 +696,24 @@
   data-longitude="9.4543754"
   data-location="An der Turnhalle"
   data-description="Der Geiß-Nidda Dorflauf ist eine beliebte Laufveranstaltung, die im Rahmen des Oberhessen-Cups stattfindet und vom Turnverein 1907 e.V. Geiß"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fgeiss_nidda_dorflauf%2Fgeiss_nidda_dorflauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/geiss_nidda_dorflauf/geiss_nidda_dorflauf_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="30 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fgeiss_nidda_dorflauf%2Fgeiss_nidda_dorflauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuGeiß-Nidda Dorflauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          30 März
-        </div>
-        <div class="race-location">
-          Hessen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Geiß-Nidda Dorflauf</div>
+    <div class="race-date">
+      30 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Geiß-Nidda Dorflauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          An der Turnhalle 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Geiß-Nidda Dorflauf ist eine beliebte Laufveranstaltung, die im Rahmen des Oberhessen-Cups stattfindet und vom Turnverein 1907 e.V. Geiß...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/volkslauf_wvc_kassel"
-  class="race-card"
+  href="/rennseiten/volkslauf_wvc_kassel"
+  class="race-card packed"
   data-name="Volkslauf WVC Kassel"
   data-date="20250412"
   data-county="Hessen"
@@ -802,100 +724,20 @@
   data-longitude="9.5000327"
   data-location="WVC Gelände - WVC Kassel e.V., 23, Auedamm, Südstadt, Kassel, Hessen"
   data-description="Am 25. August (Sonntag) ist es endlich wieder soweit: Der WVC Lauf entlang der Fulda und durch die BUGA findet statt. Im Rahmen des Nordhess"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fvolkslauf_wvc_kassel%2Fvolkslauf_wvc_kassel_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/volkslauf_wvc_kassel/volkslauf_wvc_kassel_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="12 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fvolkslauf_wvc_kassel%2Fvolkslauf_wvc_kassel_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuVolkslauf WVC Kassel"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          12 apr.
-        </div>
-        <div class="race-location">
-          Hessen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Volkslauf WVC Kassel</div>
+    <div class="race-date">
+      12 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Volkslauf WVC Kassel</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          WVC Gelände - WVC Kassel e.V., 23, Auedamm, Südstadt, Kassel, Hessen 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                20 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Am 25. August (Sonntag) ist es endlich wieder soweit: Der WVC Lauf entlang der Fulda und durch die BUGA findet statt. Im Rahmen des Nordhess...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

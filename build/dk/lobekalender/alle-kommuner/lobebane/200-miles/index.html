@@ -21,6 +21,8 @@
     <title>200 Miles Løbebane Løb | Find dit næste løb i løbskalenderen</title>
     <meta name="description" content="Find 200 miles løbebane løbekonkurrencer i hele Danmark. Søg i vores løbskalender med filtre for region (København, Midtjylland, m.fl.) og find den perfekte løbekonkurrence for dig." />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -639,14 +641,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: &quot;200 miles&quot;, &quot;county&quot;: null, &quot;race_type&quot;: &quot;L\u00f8bebane&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: \u0026quot;200 miles\u0026quot;, \u0026quot;county\u0026quot;: null, \u0026quot;race_type\u0026quot;: \u0026quot;L\\u00f8bebane\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/løbsider/lobeband_verdensrekord"
-  class="race-card"
+  class="race-card packed"
   data-name="Løbebånd Verdensrekord"
   data-date="20250207"
   data-county="Nordjylland"
@@ -657,110 +659,20 @@
   data-longitude="9.934736"
   data-location="SKANSEN, Lerumbakken 11, 9400 Nørresundby"
   data-description="Ultra4Charity samler ind til Lykkeliga og udfordrer verdensrekorden i 48 timer på løbebånd. Kom og løb med os! Vi tilbyder børneløb, halvmar"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Flobeband_verdensrekord%2Flobeband_verdensrekord_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/lobeband_verdensrekord/lobeband_verdensrekord_1.webp?v=1"
   data-type="track"
   data-type-display="Løbebane"
   data-date-display="7 feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Flobeband_verdensrekord%2Flobeband_verdensrekord_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Billede tilLøbebånd Verdensrekord"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          7 feb.
-        </div>
-        <div class="race-location">
-          Nordjylland
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Løbebånd Verdensrekord</div>
+    <div class="race-date">
+      7 feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Løbebånd Verdensrekord</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          SKANSEN, Lerumbakken 11, 9400 Nørresundby 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Halvmarathon
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Maraton
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                48 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Løbebane
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Ultra4Charity samler ind til Lykkeliga og udfordrer verdensrekorden i 48 timer på løbebånd. Kom og løb med os! Vi tilbyder børneløb, halvmar...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mere info & tilmelding</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

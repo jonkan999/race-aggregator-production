@@ -21,6 +21,8 @@
     <title>10 km juoksukilpailut Kaarinassa - Löydä seuraava juoksutapahtuma</title>
     <meta name="description" content="Etsi kaikki 10 km juoksukilpailut Kaarinassa.  Juoksukalenteri sisältää maantie-, maasto- ja polkujuoksuja sekä muita juoksutyylejä. Löydä sopivin juoksukilpailu ja ryhdy nopeammaksi juoksijaksi!" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -655,14 +657,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Kaarina&quot;, &quot;race_type&quot;: null, &quot;category&quot;: &quot;10 km&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Kaarina\u0026quot;, \u0026quot;race_type\u0026quot;: null, \u0026quot;category\u0026quot;: \u0026quot;10 km\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/kilpailusivut/kaarinan_syysmaraton"
-  class="race-card"
+  class="race-card packed"
   data-name="Kaarinan Syysmaraton"
   data-date="20251018"
   data-county="Varsinais-Suomi"
@@ -673,98 +675,24 @@
   data-longitude="22.3844244"
   data-location="Kaarinan keskuskenttä"
   data-description="Kaarinan Syysmaraton juostaan 19. lokakuuta 2024 Kaarinassa, kauniissa ja tasaisessa maastossa, joka kulkee noin 10,5 kilometrin kierroksell"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkaarinan_syysmaraton%2Fkaarinan_syysmaraton_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/kaarinan_syysmaraton/kaarinan_syysmaraton_1.webp?v=1"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="18 lok."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkaarinan_syysmaraton%2Fkaarinan_syysmaraton_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Kuva {x}Kaarinan Syysmaraton"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          18 lok.
-        </div>
-        <div class="race-location">
-          Varsinais-Suomi
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Kaarinan Syysmaraton</div>
+    <div class="race-date">
+      18 lok.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Kaarinan Syysmaraton</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Kaarinan keskuskenttä 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Maraton
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maantie
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Kaarinan Syysmaraton juostaan 19. lokakuuta 2024 Kaarinassa, kauniissa ja tasaisessa maastossa, joka kulkee noin 10,5 kilometrin kierroksell...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/kilpailusivut/kaarinan_syysmaraton_2"
-  class="race-card"
+  class="race-card packed"
   data-name="Kaarinan Syysmaraton"
   data-date="20251118"
   data-county="Varsinais-Suomi"
@@ -775,94 +703,20 @@
   data-longitude="22.3844244"
   data-location="Kaarinan keskuskenttä"
   data-description="Kaarinan Syysmaraton juostaan 19. lokakuuta Kaarinassa ja Piikkiössä, kauniissa ja tasaisessa maastossa noin 10,5 kilometrin kierroksella. K"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkaarinan_syysmaraton_2%2Fkaarinan_syysmaraton_2_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/kaarinan_syysmaraton_2/kaarinan_syysmaraton_2_1.webp?v=1"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="18 marr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkaarinan_syysmaraton_2%2Fkaarinan_syysmaraton_2_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Kuva {x}Kaarinan Syysmaraton"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          18 marr.
-        </div>
-        <div class="race-location">
-          Varsinais-Suomi
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Kaarinan Syysmaraton</div>
+    <div class="race-date">
+      18 marr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Kaarinan Syysmaraton</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Kaarinan keskuskenttä 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Maraton
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maantie
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Kaarinan Syysmaraton juostaan 19. lokakuuta Kaarinassa ja Piikkiössä, kauniissa ja tasaisessa maastossa noin 10,5 kilometrin kierroksella. K...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

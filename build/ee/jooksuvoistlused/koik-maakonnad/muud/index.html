@@ -25,6 +25,8 @@
     <title>Jooksuvõistlused Eestis: Muud jooksud kõikides maakondades</title>
     <meta name="description" content="Leia endale sobiv jooksuvõistlus!  Broneeri koht jooksuvõistlustel üle Eesti – kõik kategooriad (5 km, 10 km, Halvmarathon jne) ja Muud tüüpi võistlused.  Jooksma, jooksja, jooksmine – jooksev kalender aitab sul saada kiiremaks jooksjaks!" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -638,14 +640,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: null, &quot;county&quot;: null, &quot;race_type&quot;: &quot;Muud&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: null, \u0026quot;county\u0026quot;: null, \u0026quot;race_type\u0026quot;: \u0026quot;Muud\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/tallinn_grit"
-  class="race-card"
+  class="race-card packed"
   data-name="Tallinn Grit"
   data-date="20250518"
   data-county="Harju maakond"
@@ -656,88 +658,20 @@
   data-longitude="24.7535746"
   data-location="Tallinn"
   data-description="NEPTUNAS Tallinn Grit 2024 toimub 04.08.2024 Tallinnas. Distantsid on 3H kestvusjooks/käimine/kepikõnd ja 6H kestvusjooks/käimine/kepikõnd, "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Ftallinn_grit%2Ftallinn_grit_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/tallinn_grit/tallinn_grit_1.webp?v=1"
   data-type="other"
   data-type-display="Muud"
   data-date-display="18 mai"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Ftallinn_grit%2Ftallinn_grit_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksTallinn Grit"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          18 mai
-        </div>
-        <div class="race-location">
-          Harju maakond
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Tallinn Grit</div>
+    <div class="race-date">
+      18 mai
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Tallinn Grit</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Tallinn 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Segatud kaugus
-              </span>
-            </div>
-            
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Muud
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      NEPTUNAS Tallinn Grit 2024 toimub 04.08.2024 Tallinnas. Distantsid on 3H kestvusjooks/käimine/kepikõnd ja 6H kestvusjooks/käimine/kepikõnd, ...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

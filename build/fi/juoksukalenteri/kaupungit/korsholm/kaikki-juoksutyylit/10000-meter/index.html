@@ -21,6 +21,8 @@
     <title>10000 metrin juoksukilpailut Korsholmissa - Löydä seuraava juoksutapahtuma</title>
     <meta name="description" content="Etsi 10000 metrin juoksukilpailuja Korsholmista. Löydä kaikki juoksutyylit, kuten maantiejuoksu, maastojuoksu ja paljon muuta. Täydellinen juoksukalenteri juoksijoille, jotka haluavat juosta nopeammaksi juoksijaksi." />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -655,14 +657,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Korsholm&quot;, &quot;race_type&quot;: null, &quot;category&quot;: &quot;10000 meter&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Korsholm\u0026quot;, \u0026quot;race_type\u0026quot;: null, \u0026quot;category\u0026quot;: \u0026quot;10000 meter\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/kilpailusivut/pohjalainen_hallimaraton_2"
-  class="race-card"
+  class="race-card packed"
   data-name="Pohjalainen Hallimaraton"
   data-date="20250301"
   data-county="Pohjanmaa"
@@ -673,98 +675,24 @@
   data-longitude="21.6822203"
   data-location="Mustasaari"
   data-description="Pohjalainen Hallimaraton on Suomen vanhin hallimaraton, joka järjestetään nyt 23. kertaa. Tapahtuma tarjoaa osallistujille mahdollisuuden ju"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fpohjalainen_hallimaraton_2%2Fpohjalainen_hallimaraton_2_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/pohjalainen_hallimaraton_2/pohjalainen_hallimaraton_2_1.webp?v=1"
   data-type="other"
   data-type-display="Muut"
   data-date-display="1 maalis"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fpohjalainen_hallimaraton_2%2Fpohjalainen_hallimaraton_2_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Kuva {x}Pohjalainen Hallimaraton"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          1 maalis
-        </div>
-        <div class="race-location">
-          Pohjanmaa
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Pohjalainen Hallimaraton</div>
+    <div class="race-date">
+      1 maalis
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Pohjalainen Hallimaraton</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Mustasaari 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Puolimaraton
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Muut
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Pohjalainen Hallimaraton on Suomen vanhin hallimaraton, joka järjestetään nyt 23. kertaa. Tapahtuma tarjoaa osallistujille mahdollisuuden ju...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/kilpailusivut/komian_holkka"
-  class="race-card"
+  class="race-card packed"
   data-name="Komian Hölkkä"
   data-date="20250330"
   data-county="Etelä-Pohjanmaa"
@@ -775,104 +703,24 @@
   data-longitude="22.5288031"
   data-location="Kirmaushalli"
   data-description="Komian kirkon hölkkä on juoksutapahtuma, joka järjestetään Ylistarossa 7. huhtikuuta 2024 klo 12:00–17:00. Kilpailun lähtöpaikka sijaitsee K"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkomian_holkka%2Fkomian_holkka_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/komian_holkka/komian_holkka_1.webp?v=1"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="30 maalis"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkomian_holkka%2Fkomian_holkka_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Kuva {x}Komian Hölkkä"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          30 maalis
-        </div>
-        <div class="race-location">
-          Etelä-Pohjanmaa
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Komian Hölkkä</div>
+    <div class="race-date">
+      30 maalis
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Komian Hölkkä</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Kirmaushalli 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Puolimaraton
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maantie
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Komian kirkon hölkkä on juoksutapahtuma, joka järjestetään Ylistarossa 7. huhtikuuta 2024 klo 12:00–17:00. Kilpailun lähtöpaikka sijaitsee K...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/kilpailusivut/pohjalainen_hallimaraton"
-  class="race-card"
+  class="race-card packed"
   data-name="Pohjalainen Hallimaraton"
   data-date="20250401"
   data-county="Pohjanmaa"
@@ -883,91 +731,45 @@
   data-longitude="21.6822203"
   data-location="Mustasaari"
   data-description="Pohjalainen Hallimaraton ja Puoliska on tapahtuma, joka järjestetään Botniahallissa, Mustasaaressa, Pohjanmaan maakunnassa. Tämä on aito ja "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fpohjalainen_hallimaraton%2Fpohjalainen_hallimaraton_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/pohjalainen_hallimaraton/pohjalainen_hallimaraton_1.webp?v=1"
   data-type="other"
   data-type-display="Muut"
   data-date-display="1 huhti."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fpohjalainen_hallimaraton%2Fpohjalainen_hallimaraton_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Kuva {x}Pohjalainen Hallimaraton"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          1 huhti.
-        </div>
-        <div class="race-location">
-          Pohjanmaa
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Pohjalainen Hallimaraton</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Mustasaari 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Puolimaraton
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Muut
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Pohjalainen Hallimaraton ja Puoliska on tapahtuma, joka järjestetään Botniahallissa, Mustasaaressa, Pohjanmaan maakunnassa. Tämä on aito ja ...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Pohjalainen Hallimaraton</div>
+    <div class="race-date">
+      1 huhti.
     </div>
   </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/kilpailusivut/komian_kirkon_holkka"
+  class="race-card packed"
+  data-name="Komian Kirkon Hölkkä"
+  data-date="20250430"
+  data-county="Etelä-Pohjanmaa"
+  data-category=""
+  data-race-type="Maantie"
+  data-distance="5km, 10km, half marathon"
+  data-latitude="62.95034279999999"
+  data-longitude="22.5288031"
+  data-location="Kirmaushalli, Kirkkokuja 20"
+  data-description="Sunnuntaina 7.4.2024 hölkätään jälleen Komian kirkon hölkkä Ylistarossa. Tapahtuma tarjoaa juoksijoille useita eri matkoja, mukaan lukien 5 "
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/komian_kirkon_holkka/komian_kirkon_holkka_1.webp?v=1"
+  data-type="road"
+  data-type-display="Maantie"
+  data-date-display="30 huhti."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Komian Kirkon Hölkkä</div>
+    <div class="race-date">
+      30 huhti.
+    </div>
   </div>
 </a>
     
@@ -984,7 +786,11 @@
           </div>
         </div>
         <div class="race-card-big-container right-scroller">
-              <a
+          
+            
+            
+              
+                <a
   href="/kilpailusivut/pohjalainen_hallimaraton_2"
   class="race-card-big race-card"
   data-name="Pohjalainen Hallimaraton"
@@ -998,11 +804,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fpohjalainen_hallimaraton_2%2Fpohjalainen_hallimaraton_2_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/pohjalainen_hallimaraton_2/pohjalainen_hallimaraton_2_1.webp?v=1"
         alt="Kuva {x}Pohjalainen Hallimaraton"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1054,7 +862,14 @@
       <div class="more-info-button">Siirry kilpailusivulle</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/kilpailusivut/komian_holkka"
   class="race-card-big race-card"
   data-name="Komian Hölkkä"
@@ -1068,11 +883,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkomian_holkka%2Fkomian_holkka_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/komian_holkka/komian_holkka_1.webp?v=1"
         alt="Kuva {x}Komian Hölkkä"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1130,7 +947,14 @@
       <div class="more-info-button">Siirry kilpailusivulle</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/kilpailusivut/pohjalainen_hallimaraton"
   class="race-card-big race-card"
   data-name="Pohjalainen Hallimaraton"
@@ -1144,11 +968,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fpohjalainen_hallimaraton%2Fpohjalainen_hallimaraton_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/pohjalainen_hallimaraton/pohjalainen_hallimaraton_1.webp?v=1"
         alt="Kuva {x}Pohjalainen Hallimaraton"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1200,7 +1026,14 @@
       <div class="more-info-button">Siirry kilpailusivulle</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/kilpailusivut/komian_kirkon_holkka"
   class="race-card-big race-card"
   data-name="Komian Kirkon Hölkkä"
@@ -1214,11 +1047,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkomian_kirkon_holkka%2Fkomian_kirkon_holkka_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/komian_kirkon_holkka/komian_kirkon_holkka_1.webp?v=1"
         alt="Kuva {x}Komian Kirkon Hölkkä"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1276,38 +1111,13 @@
       <div class="more-info-button">Siirry kilpailusivulle</div>
     </div>
   </div>
-</a>   
+</a>
+              
+            
+          
         </div>
       </section>
-          
-<!-- Packed version for remaining cards -->
-<a
-  href="/kilpailusivut/komian_kirkon_holkka"
-  class="race-card packed"
-  data-name="Komian Kirkon Hölkkä"
-  data-date="20250430"
-  data-county="Etelä-Pohjanmaa"
-  data-category=""
-  data-race-type="Maantie"
-  data-distance="5km, 10km, half marathon"
-  data-latitude="62.95034279999999"
-  data-longitude="22.5288031"
-  data-location="Kirmaushalli, Kirkkokuja 20"
-  data-description="Sunnuntaina 7.4.2024 hölkätään jälleen Komian kirkon hölkkä Ylistarossa. Tapahtuma tarjoaa juoksijoille useita eri matkoja, mukaan lukien 5 "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkomian_kirkon_holkka%2Fkomian_kirkon_holkka_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Maantie"
-  data-date-display="30 huhti."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Komian Kirkon Hölkkä</div>
-    <div class="race-date">
-      30 huhti.
-    </div>
-  </div>
-</a>
-  
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

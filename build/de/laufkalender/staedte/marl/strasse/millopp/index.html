@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der DO IT FAST \u2013 jetzt auch in der Winter-Edition \u2013 ist ein schneller 5-km und 10-km-Lauf in Dortmund, der auf einem DLV-vermessenen 2,5 km Rundkurs stattfindet", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "do_it_fast_winter", "image": "/Rennseiten/do_it_fast_winter/do_it_fast_winter_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Phoenix-West", "addressRegion": "Nordrhein-Westfalen"}, "name": "Phoenix-West"}, "name": "DO IT FAST - Winter", "sport": "Laufen, Stra\u00dfe", "startDate": "20250202"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Bei den traditionellen Bertlicher Stra\u00dfenl\u00e4ufen werden zwischen 5 km und Marathon nahezu alle in Deutschland \u00fcblichen Standarddistanzen angeboten. Die Starts be", "distance": "0,8km, 5km, 7km, 7,5km, 10km, 15km, half marathon, 30km, marathon", "eventStatus": "Standard", "identifier": "bertlicher_strassenlaufe_4", "image": "/Rennseiten/bertlicher_strassenlaufe_4/bertlicher_strassenlaufe_4_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Heinrich-Obenhaus-Stra\u00dfe, Herten-Bertlich", "addressRegion": "Nordrhein-Westfalen"}, "name": "Heinrich-Obenhaus-Stra\u00dfe, Herten-Bertlich"}, "name": "Bertlicher Stra\u00dfenl\u00e4ufe", "sport": "Laufen, Stra\u00dfe", "startDate": "20250216"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der DO IT FAST \u2013 jetzt auch in der Winter-Edition \u2013 ist ein schneller 5-km und 10-km-Lauf in Dortmund, der auf einem DLV-vermessenen 2,5 km Rundkurs stattfindet", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "do_it_fast_winter", "image": "/rennseiten/do_it_fast_winter/do_it_fast_winter_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Phoenix-West", "addressRegion": "Nordrhein-Westfalen"}, "name": "Phoenix-West"}, "name": "DO IT FAST - Winter", "sport": "Laufen, Stra\u00dfe", "startDate": "20250202"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Bei den traditionellen Bertlicher Stra\u00dfenl\u00e4ufen werden zwischen 5 km und Marathon nahezu alle in Deutschland \u00fcblichen Standarddistanzen angeboten. Die Starts be", "distance": "0,8km, 5km, 7km, 7,5km, 10km, 15km, half marathon, 30km, marathon", "eventStatus": "Standard", "identifier": "bertlicher_strassenlaufe_4", "image": "/rennseiten/bertlicher_strassenlaufe_4/bertlicher_strassenlaufe_4_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Heinrich-Obenhaus-Stra\u00dfe, Herten-Bertlich", "addressRegion": "Nordrhein-Westfalen"}, "name": "Heinrich-Obenhaus-Stra\u00dfe, Herten-Bertlich"}, "name": "Bertlicher Stra\u00dfenl\u00e4ufe", "sport": "Laufen, Stra\u00dfe", "startDate": "20250216"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -20,6 +20,8 @@
     />
     <title>Millopp Straße in Marl: Laufwettbewerbe & Laufkalender</title>
     <meta name="description" content="Finde deinen nächsten Millopp auf der Straße in Marl!  Durchsuche unseren Laufkalender und unsere Rennliste nach Laufwettkämpfen und Laufrennen." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -662,14 +664,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Marl&quot;, &quot;race_type&quot;: &quot;Stra\u00dfe&quot;, &quot;category&quot;: &quot;Millopp&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Marl\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Stra\\u00dfe\u0026quot;, \u0026quot;category\u0026quot;: \u0026quot;Millopp\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/do_it_fast_winter"
-  class="race-card"
+  href="/rennseiten/do_it_fast_winter"
+  class="race-card packed"
   data-name="DO IT FAST - Winter"
   data-date="20250202"
   data-county="Nordrhein-Westfalen"
@@ -680,98 +682,24 @@
   data-longitude="7.481278"
   data-location="Phoenix-West"
   data-description="Der DO IT FAST – jetzt auch in der Winter-Edition – ist ein schneller 5-km und 10-km-Lauf in Dortmund, der auf einem DLV-vermessenen 2,5 km "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fdo_it_fast_winter%2Fdo_it_fast_winter_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/do_it_fast_winter/do_it_fast_winter_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="2 Feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fdo_it_fast_winter%2Fdo_it_fast_winter_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuDO IT FAST - Winter"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          2 Feb.
-        </div>
-        <div class="race-location">
-          Nordrhein-Westfalen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">DO IT FAST - Winter</div>
+    <div class="race-date">
+      2 Feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">DO IT FAST - Winter</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Phoenix-West 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der DO IT FAST – jetzt auch in der Winter-Edition – ist ein schneller 5-km und 10-km-Lauf in Dortmund, der auf einem DLV-vermessenen 2,5 km ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/bertlicher_strassenlaufe_4"
-  class="race-card"
+  href="/rennseiten/bertlicher_strassenlaufe_4"
+  class="race-card packed"
   data-name="Bertlicher Straßenläufe"
   data-date="20250216"
   data-county="Nordrhein-Westfalen"
@@ -782,110 +710,20 @@
   data-longitude="7.0777531"
   data-location="Heinrich-Obenhaus-Straße, Herten-Bertlich"
   data-description="Bei den traditionellen Bertlicher Straßenläufen werden zwischen 5 km und Marathon nahezu alle in Deutschland üblichen Standarddistanzen ange"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fbertlicher_strassenlaufe_4%2Fbertlicher_strassenlaufe_4_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/bertlicher_strassenlaufe_4/bertlicher_strassenlaufe_4_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="16 Feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fbertlicher_strassenlaufe_4%2Fbertlicher_strassenlaufe_4_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuBertlicher Straßenläufe"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          16 Feb.
-        </div>
-        <div class="race-location">
-          Nordrhein-Westfalen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Bertlicher Straßenläufe</div>
+    <div class="race-date">
+      16 Feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Bertlicher Straßenläufe</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Heinrich-Obenhaus-Straße, Herten-Bertlich 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                0,8 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                7 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                7,5 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Bei den traditionellen Bertlicher Straßenläufen werden zwischen 5 km und Marathon nahezu alle in Deutschland üblichen Standarddistanzen ange...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

@@ -21,6 +21,8 @@
     <title>1500 meter Tidsløb: Find dit næste løb i løbskalenderen</title>
     <meta name="description" content="Søger du et 1500 meter Tidsløb? Find løbekonkurrencer og løbeløb i hele landet – København, Midtjylland, Nordjylland, Sjælland og Syddanmark – i vores løbskalender.  En komplet motionskalender for løb." />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -639,14 +641,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: &quot;1500 meter&quot;, &quot;county&quot;: null, &quot;race_type&quot;: &quot;Tidslopp&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: \u0026quot;1500 meter\u0026quot;, \u0026quot;county\u0026quot;: null, \u0026quot;race_type\u0026quot;: \u0026quot;Tidslopp\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/løbsider/24_timer_ved_havet_dm"
-  class="race-card"
+  class="race-card packed"
   data-name="24 Timer ved havet DM"
   data-date="20250531"
   data-county="Nordjylland"
@@ -657,110 +659,20 @@
   data-longitude="10.5166278"
   data-location="Paradisjorden, Sæby"
   data-description="Den 31. maj - 1. juni 2025 byder vi alle velkommen til Paradisjorden i Sæby, hvor 24 Timer ved Havet igen danner rammen for en fantastisk lø"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2F24_timer_ved_havet_dm%2F24_timer_ved_havet_dm_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/24_timer_ved_havet_dm/24_timer_ved_havet_dm_1.webp?v=1"
   data-type="time"
   data-type-display="Tidslopp"
   data-date-display="31 maj"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2F24_timer_ved_havet_dm%2F24_timer_ved_havet_dm_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Billede til24 Timer ved havet DM"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          31 maj
-        </div>
-        <div class="race-location">
-          Nordjylland
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">24 Timer ved havet DM</div>
+    <div class="race-date">
+      31 maj
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">24 Timer ved havet DM</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Paradisjorden, Sæby 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                3 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                12 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                24 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Tidslopp
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Den 31. maj - 1. juni 2025 byder vi alle velkommen til Paradisjorden i Sæby, hvor 24 Timer ved Havet igen danner rammen for en fantastisk lø...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mere info & tilmelding</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

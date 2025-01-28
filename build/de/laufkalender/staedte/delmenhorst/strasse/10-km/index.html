@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Werderseelauf ist eine beliebte Laufveranstaltung, die Teilnehmer aller Altersgruppen und Leistungsniveaus anzieht. Die Strecke f\u00fchrt entlang des malerische", "distance": "5km, 10km, 50km", "eventStatus": "Standard", "identifier": "werderseelauf", "image": "/Rennseiten/werderseelauf/werderseelauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Bremen", "addressRegion": "Bremen"}, "name": "Bremen"}, "name": "Werderseelauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250316"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Tauche ein in das maritime Flair mitten in der Stadt: Beim Bremer Br\u00fcckenlauf am 6. Juli 2024 erlebst du Bremen aus einer neuen Perspektive! Laufe \u00fcber f\u00fcnf Br\u00fc", "distance": "1,2km, 5km, 10km, 15km", "eventStatus": "Standard", "identifier": "bremer_bruckenlauf", "image": "/Rennseiten/bremer_bruckenlauf/bremer_bruckenlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "am Paulaner\u2018s im Wehrschloss, Hastedter Osterdeich 230, 28207 Bremen", "addressRegion": "Bremen"}, "name": "am Paulaner\u2018s im Wehrschloss, Hastedter Osterdeich 230, 28207 Bremen"}, "name": "Bremer Br\u00fcckenlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250705"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Werderseelauf ist eine beliebte Laufveranstaltung, die Teilnehmer aller Altersgruppen und Leistungsniveaus anzieht. Die Strecke f\u00fchrt entlang des malerische", "distance": "5km, 10km, 50km", "eventStatus": "Standard", "identifier": "werderseelauf", "image": "/rennseiten/werderseelauf/werderseelauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Bremen", "addressRegion": "Bremen"}, "name": "Bremen"}, "name": "Werderseelauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250316"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Tauche ein in das maritime Flair mitten in der Stadt: Beim Bremer Br\u00fcckenlauf am 6. Juli 2024 erlebst du Bremen aus einer neuen Perspektive! Laufe \u00fcber f\u00fcnf Br\u00fc", "distance": "1,2km, 5km, 10km, 15km", "eventStatus": "Standard", "identifier": "bremer_bruckenlauf", "image": "/rennseiten/bremer_bruckenlauf/bremer_bruckenlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "am Paulaner\u2018s im Wehrschloss, Hastedter Osterdeich 230, 28207 Bremen", "addressRegion": "Bremen"}, "name": "am Paulaner\u2018s im Wehrschloss, Hastedter Osterdeich 230, 28207 Bremen"}, "name": "Bremer Br\u00fcckenlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250705"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -20,6 +20,8 @@
     />
     <title>10 km Laufrennen in Delmenhorst: Straßenläufe im Laufkalender finden</title>
     <meta name="description" content="Entdecke alle 10 km Straßenläufe in Delmenhorst.  Finde deinen nächsten Laufwettbewerb mit unserem Laufkalender und Laufwettkämpfe Übersicht.  Rennkalender und Rennliste für Läufer." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -662,14 +664,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Delmenhorst&quot;, &quot;race_type&quot;: &quot;Stra\u00dfe&quot;, &quot;category&quot;: &quot;10 km&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Delmenhorst\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Stra\\u00dfe\u0026quot;, \u0026quot;category\u0026quot;: \u0026quot;10 km\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/werderseelauf"
-  class="race-card"
+  href="/rennseiten/werderseelauf"
+  class="race-card packed"
   data-name="Werderseelauf"
   data-date="20250316"
   data-county="Bremen"
@@ -680,104 +682,24 @@
   data-longitude="8.8016937"
   data-location="Bremen"
   data-description="Der Werderseelauf ist eine beliebte Laufveranstaltung, die Teilnehmer aller Altersgruppen und Leistungsniveaus anzieht. Die Strecke führt en"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fwerderseelauf%2Fwerderseelauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/werderseelauf/werderseelauf_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="16 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fwerderseelauf%2Fwerderseelauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuWerderseelauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          16 März
-        </div>
-        <div class="race-location">
-          Bremen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Werderseelauf</div>
+    <div class="race-date">
+      16 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Werderseelauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Bremen 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                50 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Werderseelauf ist eine beliebte Laufveranstaltung, die Teilnehmer aller Altersgruppen und Leistungsniveaus anzieht. Die Strecke führt en...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/bremer_bruckenlauf"
-  class="race-card"
+  href="/rennseiten/bremer_bruckenlauf"
+  class="race-card packed"
   data-name="Bremer Brückenlauf"
   data-date="20250705"
   data-county="Bremen"
@@ -788,106 +710,20 @@
   data-longitude="8.8661627"
   data-location="am Paulaner‘s im Wehrschloss, Hastedter Osterdeich 230, 28207 Bremen"
   data-description="Tauche ein in das maritime Flair mitten in der Stadt: Beim Bremer Brückenlauf am 6. Juli 2024 erlebst du Bremen aus einer neuen Perspektive!"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fbremer_bruckenlauf%2Fbremer_bruckenlauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/bremer_bruckenlauf/bremer_bruckenlauf_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="5 Juli"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fbremer_bruckenlauf%2Fbremer_bruckenlauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuBremer Brückenlauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          5 Juli
-        </div>
-        <div class="race-location">
-          Bremen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Bremer Brückenlauf</div>
+    <div class="race-date">
+      5 Juli
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Bremer Brückenlauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          am Paulaner‘s im Wehrschloss, Hastedter Osterdeich 230, 28207 Bremen 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                15 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Tauche ein in das maritime Flair mitten in der Stadt: Beim Bremer Brückenlauf am 6. Juli 2024 erlebst du Bremen aus einer neuen Perspektive!...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

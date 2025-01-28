@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Loppsida voor Summer Run</title>
+    <meta name="description" content="Zaterdagavond 5 juli 2025 is het weer tijd voor de 3e editie van de ‘RunX Summer Run’.  Lekker in de zomer een 10 of 5 km hardlopen op een snel en afgesloten parcours, het snelle Wheelerplanet parcours net buiten Spaarndam." />
+    <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header-menu.css" />
+    <link rel="stylesheet" href="/css/ads.css" />
+    <link rel="stylesheet" href="/css/race-page.css" />
+    <link rel="stylesheet" href="/css/forum.css" />
+
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/commonFunctions.js"></script>
+    <script type="module" src="/js/racePageMap.js"></script>
+    <script type="module" src="/js/racePageImageHandling.js"></script>
+    <script type="module" src="/js/racePageWallFirebase.js"></script>
+  </head>
+  <body>
+    <!-- Page content -->
+    <main> <section class="section-header-menu">
+  <div class="upper-header">
+    <a href="/" class="logo-container">
+      <img class="logo-image" src="/common_images/logo100px.jpg" alt="logo"
+    /></a>
+
+    <a class="home-link" href="/">
+      <h2 class="page-name new-amsterdam">Hardlooplijst</h2></a
+    >
+    <div class="login-container" id="login-container">
+      <div class="login-wrapper">
+        <ion-icon
+          class="login-icon"
+          name="person-circle-outline"
+          title="Login"
+          id="login-icon"
+        ></ion-icon>
+        <span id="loginText" class="user-display-name login-text">
+          Inloggen
+        </span>
+        <span id="currentUserDisplayName" class="user-display-name">
+          
+        </span>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav-container right-scroller">
+    
+    
+    
+    <a class="nav-container" href="/">
+      <span class="nav-item">Alles</span>
+    </a>
+    
+    
+    
+    <a class="nav-container" href="/hardloopkalender"
+      ><span class="nav-item">Hardloopkalender</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/voeg-race-toe"
+      ><span class="nav-item">Voeg race toe</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/forum"
+      ><span class="nav-item">Forum</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/meet-je-ronde"
+      ><span class="nav-item">Meet je ronde</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/trainingsprogramma"
+      ><span class="nav-item">Trainingsprogramma</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/snelheidsomzetter"
+      ><span class="nav-item">Snelheidsomzetter</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/schat-je-eindtijd-in"
+      ><span class="nav-item">Schat je eindtijd in</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/over-ons"
+      ><span class="nav-item">Over ons</span></a
+    >
+    
+    
+    
+    
+    <a class="nav-container" href="/neem-contact-met-ons-op"
+      ><span class="nav-item">Neem contact met ons op</span></a
+    >
+    
+    
+    
+    <a class="nav-container" href="/privacy"><span class="nav-item">Privacy</span></a>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="auth-modal-container" style="display: none">
+    <div class="auth-modal-backdrop"></div>
+    <div class="auth-modal">
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form-container">
+        <h2>Inloggen</h2>
+        <form id="authForm">
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Je e-mail"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Wachtwoord"
+            required
+          />
+          <div class="error-container">
+            <div id="loginError" class="error"></div>
+            <a href="#" id="errorResetLink" class="error-reset-link" style="display: none;">
+              Vergeten wachtwoord?
+            </a>
+            <a href="#" id="errorCreateLink" class="error-reset-link" style="display: none;">
+              Maak in plaats daarvan een account aan
+            </a>
+          </div>
+          <button type="submit">Inloggen</button>
+          <div class="auth-links">
+            <button type="button" id="showCreateAccount" class="link-button">
+              Maak account aan
+            </button>
+            <button type="button" id="showResetPassword" class="link-button">
+              Vergeten wachtwoord?
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Create Account Form -->
+      <div
+        id="createAccountForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Maak account</h2>
+        <form id="signupForm">
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Je naam"
+            required
+          />
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Je e-mail"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Wachtwoord"
+            required
+          />
+          <div class="error" id="signupError"></div>
+          <button type="submit">Maak account aan</button>
+          <div class="auth-links">
+            <button type="button" id="backToLogin" class="link-button">
+              Terug naar inloggen
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Password Reset Form -->
+      <div
+        id="resetPasswordForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Wachtwoord opnieuw instellen</h2>
+        <form id="resetForm">
+          <input
+            type="email"
+            id="resetEmail"
+            placeholder="Je e-mail"
+            required
+          />
+          <div class="error" id="resetError"></div>
+          <button type="submit">Verstuur herstel link</button>
+          <div class="auth-links">
+            <button type="button" id="backToLoginFromReset" class="link-button">
+              Terug naar inloggen
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged In User Modal -->
+      <div
+        id="loggedInUserForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Je bent al ingelogd als</h2>
+        <div class="logged-in-user-info">
+          <p><strong id="currentUserName"></strong></p>
+          <p id="currentUserEmail"></p>
+        </div>
+        <div class="auth-buttons">
+          <button type="button" id="continueAsUser" class="primary-button">
+            Ga verder als deze gebruiker
+          </button>
+          <button type="button" id="logoutAndSwitch" class="secondary-button">
+            Uitloggen en wissel gebruiker
+          </button>
+        </div>
+      </div>
+
+      <!-- Account Creation Success Message -->
+      <div
+        id="accountCreatedForm"
+        class="auth-form-container"
+        style="display: none"
+      >
+        <h2>Konto aangemaakt!</h2>
+        <div class="logged-in-user-info">
+          <p>Je bent nu ingelogd als</p>
+          <p><strong id="newUserName"></strong></p>
+          <p id="newUserEmail"></p>
+          <p class="verification-notice">
+            Een verificatielink is naar je e-mail gestuurd
+          </p>
+          <p class="verification-notice">Gelieve je e-mailadres te verifiëren</p>
+        </div>
+        <button type="button" class="primary-button" id="successContinue">
+          Ga verder als deze gebruiker
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </div>
+</section> <section class="section-race-page">
+  <div class="race-images">
+    <div class="main-image background-container">
+      <img
+        id="race-main-image"
+        src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/nl/summer_run/summer_run_1.webp?v=1"
+        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
+        alt="Silhouette van een hardloopster bij zonsondergang. Mooie zomerse sfeer."
+        class="background-img-nofilter"
+      />
+      <div class="overlay soft"></div>
+      <div class="race-card-content">
+        <div class="race-info-top">
+          <div id="race-date" class="race-date">5 juli</div>
+          <div id="race-location" class="race-location">Noord-Holland</div>
+        </div>
+        <div class="race-info-bottom">
+          <div id="race-type" class="race-type">Wegwedstrijd</div>
+          <div id="race-distances" class="race-distances">
+             
+            <div class="race-distance">
+              1 km
+            </div>
+            
+            <div class="race-distance">
+              5 km
+            </div>
+            
+            <div class="race-distance">
+              10 km
+            </div>
+             
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="thumbnail-images" id="race-thumbnails">
+      
+      <div class="thumbnail-container">
+        <img
+          src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/nl/summer_run/summer_run_1.webp?v=1"
+          alt="Silhouette van een hardloopster bij zonsondergang. Mooie zomerse sfeer."
+          class="thumbnail"
+        />
+        <div class="overlay soft"></div>
+      </div>
+      
+      <div class="thumbnail-container">
+        <img
+          src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/nl/summer_run/summer_run_2.webp?v=1"
+          alt="RunX Summer Run: De top 3 op het podium!"
+          class="thumbnail"
+        />
+        <div class="overlay soft"></div>
+      </div>
+      
+      <div class="thumbnail-container">
+        <img
+          src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/nl/summer_run/summer_run_3.webp?v=1"
+          alt="Hardlopers rusten na de RunX Summer Run."
+          class="thumbnail"
+        />
+        <div class="overlay soft"></div>
+      </div>
+      
+      <div class="thumbnail-container">
+        <img
+          src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/nl/summer_run/summer_run_4.webp?v=1"
+          alt="Lopers tijdens de RunX Summer Run. Goede sfeer!"
+          class="thumbnail"
+        />
+        <div class="overlay soft"></div>
+      </div>
+      
+    </div>
+  </div>
+
+  <h1 id="race-name" class="race-name">Summer Run</h1>
+
+  <div class="highlight-place-div">
+    <ion-icon
+      name="location-outline"
+      role="img"
+      aria-label="location outline"
+    ></ion-icon>
+    <p id="primary-highlight-race-location" class="highlight-place">
+      Spaarndam Gem. Haarlem, Noord-Holland
+    </p>
+  </div>
+
+  <ul class="highlights-container">
+    <div class="highlight-stars">
+      <ion-icon name="star" role="img" aria-label="star"></ion-icon>
+      <a id="race-website" href="https://runx.nl/runx-summer-run-2024/" target="_blank"
+        >Link naar aanmelding</a
+      >
+    </div>
+
+    <li class="highlight-info">
+      <ion-icon
+        name="analytics-outline"
+        role="img"
+        aria-label="analytics outline"
+      ></ion-icon>
+      <p>
+        <span>Afstanden:</span>
+        <span id="highlight-race-distances">
+           1 km,  5 km,  10 km  
+        </span>
+      </p>
+    </li>
+
+    <li class="highlight-info">
+      <ion-icon
+        name="shapes-outline"
+        role="img"
+        aria-label="shapes outline"
+      ></ion-icon>
+      <p>
+        <span>Ondergrond:</span>
+        <span id="highlight-race-type">Wegwedstrijd</span>
+      </p>
+    </li>
+
+    <li class="highlight-info">
+      <ion-icon
+        name="navigate-circle-outline"
+        role="img"
+        aria-label="navigate circle outline"
+      ></ion-icon>
+      <p>
+        <span>Plaats:</span>
+        <span id="highlight-race-location">Spaarndam Gem. Haarlem, Noord-Holland</span>
+      </p>
+    </li>
+
+    <li class="highlight-info">
+      <ion-icon
+        name="calendar-clear-outline"
+        role="img"
+        aria-label="calendar clear outline"
+      ></ion-icon>
+      <p>
+        <span>Datum:</span>
+        <span id="highlight-race-date">5 juli</span>
+      </p>
+    </li>
+  </ul>
+  <div class="race-content-container">
+    <div class="race-summary">
+      <h2>Beschrijving van de race</h2>
+      <!-- AI Disclaimer -->
+      <div class="ai-disclaimer" >
+        <p>
+          Alle info op deze pagina is gebaseerd op open keldat. We doen ons best om het up-to-date te houden, maar kunnen niet garanderen dat alles correct is. Zie je enige onjuistheden,
+          <a href="/neem-contact-met-ons-op.html"
+            >Neem contact met ons op</a
+          >
+          dus we corrigeren het zo snel mogelijk.
+        </p>
+      </div>
+      <p id="race-summary">Zaterdagavond 5 juli 2025 is het weer tijd voor de 3e editie van de ‘RunX Summer Run’. Lekker in de zomer een 10 of 5 km hardlopen op een snel en afgesloten parcours, het snelle Wheelerplanet parcours net buiten Spaarndam. Er is voldoende aanbod voor de inwendige mens rond de start/finish, met de Uiltje Bar, Deliber Tad Streetfood en Wheelerplanet, en muzikale ondersteuning wordt verzorgd door de Tijn House Band. Dit evenement is een uitstekende voorbereiding op de Dam tot Damloop en de Marathon van Amsterdam, met kleedkamers en douches aanwezig, maar zonder tassenafgifte.</p>
+    </div>
+
+    
+    <div class="race-highlights-section">
+      <h2>Hoogtepunten</h2>
+      <ul class="race-info-list course-highlights">
+        
+        <li style="display: list-item">De race biedt verschillende afstanden: 5 km, 10 km en 1 EM.</li>
+        
+        <li style="display: list-item">Naast een individueel klassement zal er op de 10 km ook een loopgroep-klassement worden opgemaakt voor teams van 5 lopers.</li>
+        
+        <li style="display: list-item">Deelnemers hebben de mogelijkheid om schoenen van ON Running uit te proberen.</li>
+        
+      </ul>
+      
+    </div>
+    <div class="race-forum-section">
+      <h2>Vragen & Antwoorden</h2>
+
+      <!-- Forum posts container -->
+      <div id="forum-posts" class="forum-posts">
+         
+        <div class="empty-state">Geen vragen nog. Wees de eerste om een vraag te stellen!</div>
+        
+      </div>
+
+      <!-- Input area -->
+      <div class="forum-input-container" id="forum-input-container">
+        <textarea
+          id="forum-input"
+          data-source="summer_run"
+          placeholder="Stel een vraag aan de organisator..."
+          rows="3"
+          disabled
+        ></textarea>
+
+        <button
+          id="forum-submit"
+          class="primary-button"
+          style="display: none;"
+          
+        >
+          Verzend vraag
+        </button>
+
+        <div
+          id="login-prompt"
+          class="login-prompt"
+          
+        >
+          Inloggen om een vraag te stellen
+        </div>
+      </div>
+    </div>
+    <div class="race-auxiliary-info">
+      <h2>Overige informatie</h2>
+      <p id="race-additional">
+        
+      </p>
+    </div>
+
+    <div class="race-details">
+      <h2>Gedetailleerde informatie</h2>
+      <ul class="race-info-list">
+         
+        <li id="detail-race-name" style="display: list-item">
+          <strong>Loppets naam:</strong>
+          
+          <span>Summer Run</span>
+          
+        </li>
+          
+        <li id="detail-race-location" style="display: list-item">
+          <strong>Naam van de locatie waar de race wordt georganiseerd:</strong>
+          
+          <span>Spaarndam Gem. Haarlem, Noord-Holland</span>
+          
+        </li>
+          
+        <li id="detail-race-distance" style="display: list-item">
+          <strong>Afstanden:</strong>
+          <span>
+             1 km,  5 km,  10 km  
+          </span>
+        </li>
+                
+        <li id="detail-race-website" style="display: list-item">
+          <strong>Arrangörswebsite:</strong>
+          
+          <a href="https://runx.nl/runx-summer-run-2024/" target="_blank" rel="noopener noreferrer"
+            >https://runx.nl/runx-summer-run-2024/</a
+          >
+          
+        </li>
+            
+        <li id="detail-race-type_local" style="display: list-item">
+          <strong>Type ondergrond / Type evenement</strong>
+          
+          <span>Wegwedstrijd</span>
+          
+        </li>
+         
+      </ul>
+    </div>
+    
+
+    <div
+      id="map-placeholder"
+      data-latitude="52.41564"
+      data-longitude="4.674156099999999"
+      data-zoom="6"
+      class="race-map"
+    ></div>
+  </div>
+  <div class="organizer-website-button-container">
+    <a
+      id="organizer-website-button"
+      href="https://runx.nl/runx-summer-run-2024/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="organizer-website-button"
+    >
+      Naar de organisatorspagina & aanmelding
+    </a>
+  </div>
+</section>
+</main>
+
+    
+  </body>
+</html>

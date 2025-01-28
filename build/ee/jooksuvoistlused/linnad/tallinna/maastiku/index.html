@@ -25,6 +25,8 @@
     <title>Tallinna Maastiku Jooksuvõistlused: Leia Oma Järgmine Jooks!</title>
     <meta name="description" content="Leia parimad Tallinna maastikujooksud! Vali oma kategooria (5 km, 10 km, Halvmarathon jne) ja registreeru jooksuvõistlusele. Jooksmine, jooksja, jooksma, jooksuvõistlused, jooksev kalender." />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -647,14 +649,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Tallinna&quot;, &quot;race_type&quot;: &quot;Maastiku&quot;, &quot;category&quot;: null}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Tallinna\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Maastiku\u0026quot;, \u0026quot;category\u0026quot;: null}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/icebug_kova_mehe_jooks"
-  class="race-card"
+  class="race-card packed"
   data-name="ICEBUG Kõva Mehe Jooks"
   data-date="20250523"
   data-county="Harju maakond"
@@ -665,98 +667,24 @@
   data-longitude="24.5857849"
   data-location="Saunapunkt"
   data-description="18. ICEBUG KÕVA MEHE JOOKS toimub 24. mail 2025. Ajakava kohaselt avatakse võistluskeskus kell 9.30, stardimaterjalide väljastamine algab sa"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Ficebug_kova_mehe_jooks%2Ficebug_kova_mehe_jooks_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/icebug_kova_mehe_jooks/icebug_kova_mehe_jooks_1.webp?v=1"
   data-type="terrain"
   data-type-display="Maastiku"
   data-date-display="23 mai"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Ficebug_kova_mehe_jooks%2Ficebug_kova_mehe_jooks_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksICEBUG Kõva Mehe Jooks"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          23 mai
-        </div>
-        <div class="race-location">
-          Harju maakond
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">ICEBUG Kõva Mehe Jooks</div>
+    <div class="race-date">
+      23 mai
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">ICEBUG Kõva Mehe Jooks</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Saunapunkt 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maastiku
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      18. ICEBUG KÕVA MEHE JOOKS toimub 24. mail 2025. Ajakava kohaselt avatakse võistluskeskus kell 9.30, stardimaterjalide väljastamine algab sa...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/rummu_vagilase_jooks"
-  class="race-card"
+  class="race-card packed"
   data-name="Rummu Vägilase Jooks"
   data-date="20250608"
   data-county="Harju maakond"
@@ -767,98 +695,24 @@
   data-longitude="24.2260113"
   data-location="Rummu karjäär"
   data-description="Rummu Vägilase Jooks on seikluslik jooksuvõistlus, kus põhisõit ulatub ligikaudu 7.5 km ja lühijooksu rada on ligikaudu 4 km. Rajal on nii t"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Frummu_vagilase_jooks%2Frummu_vagilase_jooks_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/rummu_vagilase_jooks/rummu_vagilase_jooks_1.webp?v=1"
   data-type="terrain"
   data-type-display="Maastiku"
   data-date-display="8 juuni"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Frummu_vagilase_jooks%2Frummu_vagilase_jooks_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksRummu Vägilase Jooks"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          8 juuni
-        </div>
-        <div class="race-location">
-          Harju maakond
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Rummu Vägilase Jooks</div>
+    <div class="race-date">
+      8 juuni
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Rummu Vägilase Jooks</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Rummu karjäär 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                4 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                7,5 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maastiku
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Rummu Vägilase Jooks on seikluslik jooksuvõistlus, kus põhisõit ulatub ligikaudu 7.5 km ja lühijooksu rada on ligikaudu 4 km. Rajal on nii t...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/ulemiste_metsajooks"
-  class="race-card"
+  class="race-card packed"
   data-name="Ülemiste Metsajooks"
   data-date="20250809"
   data-county="Harju maakond"
@@ -869,85 +723,45 @@
   data-longitude="24.7717795"
   data-location="Tallinna Veepuhastusjaam, Järvevana tee 3"
   data-description="19. Ülemiste metsajooks toimub laupäeval, 26. augustil 2023. Võistluskeskus ning start ja finiš asuvad Tallinna Veepuhastusjaamas, Järvevana"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fulemiste_metsajooks%2Fulemiste_metsajooks_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/ulemiste_metsajooks/ulemiste_metsajooks_1.webp?v=1"
   data-type="terrain"
   data-type-display="Maastiku"
   data-date-display="9 aug."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fulemiste_metsajooks%2Fulemiste_metsajooks_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksÜlemiste Metsajooks"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          9 aug.
-        </div>
-        <div class="race-location">
-          Harju maakond
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Ülemiste Metsajooks</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Tallinna Veepuhastusjaam, Järvevana tee 3 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                Poolmaraton
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maastiku
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      19. Ülemiste metsajooks toimub laupäeval, 26. augustil 2023. Võistluskeskus ning start ja finiš asuvad Tallinna Veepuhastusjaamas, Järvevana...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Ülemiste Metsajooks</div>
+    <div class="race-date">
+      9 aug.
     </div>
   </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/jarlepa_moisa_jooks"
+  class="race-card packed"
+  data-name="Järlepa Mõisa Jooks"
+  data-date="20250907"
+  data-county="Rapla maakond"
+  data-category=""
+  data-race-type="Maastiku"
+  data-distance=""
+  data-latitude="59.13790220000001"
+  data-longitude="24.9287623"
+  data-location="Järlepa mõis"
+  data-description="Järlepa mõisa jooks toimub 7. septembril 2025, algusega kell 12:00 ja lõppkuupäevaga 16:00. Üritus toimub Järlepa mõisa piirkonnas, kus rada"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/jarlepa_moisa_jooks/jarlepa_moisa_jooks_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Maastiku"
+  data-date-display="7 sept."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Järlepa Mõisa Jooks</div>
+    <div class="race-date">
+      7 sept.
+    </div>
   </div>
 </a>
     
@@ -964,7 +778,11 @@
           </div>
         </div>
         <div class="race-card-big-container right-scroller">
-              <a
+          
+            
+            
+              
+                <a
   href="/jooksulehed/icebug_kova_mehe_jooks"
   class="race-card-big race-card"
   data-name="ICEBUG Kõva Mehe Jooks"
@@ -978,11 +796,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Ficebug_kova_mehe_jooks%2Ficebug_kova_mehe_jooks_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/icebug_kova_mehe_jooks/icebug_kova_mehe_jooks_1.webp?v=1"
         alt="Pilt {x} jaoksICEBUG Kõva Mehe Jooks"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1034,7 +854,14 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/jooksulehed/rummu_vagilase_jooks"
   class="race-card-big race-card"
   data-name="Rummu Vägilase Jooks"
@@ -1048,11 +875,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Frummu_vagilase_jooks%2Frummu_vagilase_jooks_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/rummu_vagilase_jooks/rummu_vagilase_jooks_1.webp?v=1"
         alt="Pilt {x} jaoksRummu Vägilase Jooks"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1104,7 +933,14 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/jooksulehed/ulemiste_metsajooks"
   class="race-card-big race-card"
   data-name="Ülemiste Metsajooks"
@@ -1118,11 +954,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fulemiste_metsajooks%2Fulemiste_metsajooks_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/ulemiste_metsajooks/ulemiste_metsajooks_1.webp?v=1"
         alt="Pilt {x} jaoksÜlemiste Metsajooks"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1168,7 +1006,14 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/jooksulehed/jarlepa_moisa_jooks"
   class="race-card-big race-card"
   data-name="Järlepa Mõisa Jooks"
@@ -1182,11 +1027,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fjarlepa_moisa_jooks%2Fjarlepa_moisa_jooks_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/jarlepa_moisa_jooks/jarlepa_moisa_jooks_1.webp?v=1"
         alt="Pilt {x} jaoksJärlepa Mõisa Jooks"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1232,38 +1079,13 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>   
+</a>
+              
+            
+          
         </div>
       </section>
-          
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/jarlepa_moisa_jooks"
-  class="race-card packed"
-  data-name="Järlepa Mõisa Jooks"
-  data-date="20250907"
-  data-county="Rapla maakond"
-  data-category=""
-  data-race-type="Maastiku"
-  data-distance=""
-  data-latitude="59.13790220000001"
-  data-longitude="24.9287623"
-  data-location="Järlepa mõis"
-  data-description="Järlepa mõisa jooks toimub 7. septembril 2025, algusega kell 12:00 ja lõppkuupäevaga 16:00. Üritus toimub Järlepa mõisa piirkonnas, kus rada"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fjarlepa_moisa_jooks%2Fjarlepa_moisa_jooks_1.webp?alt=media"
-  data-type="terrain"
-  data-type-display="Maastiku"
-  data-date-display="7 sept."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Järlepa Mõisa Jooks</div>
-    <div class="race-date">
-      7 sept.
-    </div>
-  </div>
-</a>
-  
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

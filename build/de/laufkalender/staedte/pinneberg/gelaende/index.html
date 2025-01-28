@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der SVE Hamburg Halbmarathon findet am 25. Februar 2024 statt und bietet eine abwechslungsreiche Strecke, die \u00fcberwiegend durch das Niendorfer Gehege und die St", "distance": "half marathon", "eventStatus": "Standard", "identifier": "sve_hamburg_halbmarathon", "image": "/Rennseiten/sve_hamburg_halbmarathon/sve_hamburg_halbmarathon_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Stadion am Steinwiesenweg 30", "addressRegion": "Hamburg"}, "name": "Stadion am Steinwiesenweg 30"}, "name": "SVE Hamburg Halbmarathon", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250209"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Landesoffene Crosslauf KM findet am Samstag, den 08. M\u00e4rz 2025, in Bad Bramstedt statt und umfasst verschiedene Distanzen f\u00fcr verschiedene Altersklassen. De", "distance": null, "eventStatus": "Standard", "identifier": "landesoffene_crosslauf_km", "image": "/Rennseiten/landesoffene_crosslauf_km/landesoffene_crosslauf_km_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Bad Bramstedt", "addressRegion": "Schleswig-Holstein"}, "name": "Bad Bramstedt"}, "name": "Landesoffene Crosslauf KM", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250308"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der SVE Hamburg Halbmarathon findet am 25. Februar 2024 statt und bietet eine abwechslungsreiche Strecke, die \u00fcberwiegend durch das Niendorfer Gehege und die St", "distance": "half marathon", "eventStatus": "Standard", "identifier": "sve_hamburg_halbmarathon", "image": "/rennseiten/sve_hamburg_halbmarathon/sve_hamburg_halbmarathon_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Stadion am Steinwiesenweg 30", "addressRegion": "Hamburg"}, "name": "Stadion am Steinwiesenweg 30"}, "name": "SVE Hamburg Halbmarathon", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250209"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Landesoffene Crosslauf KM findet am Samstag, den 08. M\u00e4rz 2025, in Bad Bramstedt statt und umfasst verschiedene Distanzen f\u00fcr verschiedene Altersklassen. De", "distance": null, "eventStatus": "Standard", "identifier": "landesoffene_crosslauf_km", "image": "/rennseiten/landesoffene_crosslauf_km/landesoffene_crosslauf_km_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Bad Bramstedt", "addressRegion": "Schleswig-Holstein"}, "name": "Bad Bramstedt"}, "name": "Landesoffene Crosslauf KM", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250308"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -24,6 +24,8 @@
     />
     <title>Laufwettbewerbe in Pinneberg: Gelände-Läufe im Laufkalender</title>
     <meta name="description" content="Finde deinen nächsten Geländelauf in Pinneberg! Unser Laufkalender zeigt dir alle Laufwettkämpfe, von 5 km bis Marathon.  Durchsuche unsere rennliste und finde dein perfektes laufrennen." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -657,14 +659,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Pinneberg&quot;, &quot;race_type&quot;: &quot;Gel\u00e4nde&quot;, &quot;category&quot;: null}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Pinneberg\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Gel\\u00e4nde\u0026quot;, \u0026quot;category\u0026quot;: null}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/sve_hamburg_halbmarathon"
-  class="race-card"
+  href="/rennseiten/sve_hamburg_halbmarathon"
+  class="race-card packed"
   data-name="SVE Hamburg Halbmarathon"
   data-date="20250209"
   data-county="Hamburg"
@@ -675,92 +677,24 @@
   data-longitude="9.9150209"
   data-location="Stadion am Steinwiesenweg 30"
   data-description="Der SVE Hamburg Halbmarathon findet am 25. Februar 2024 statt und bietet eine abwechslungsreiche Strecke, die überwiegend durch das Niendorf"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fsve_hamburg_halbmarathon%2Fsve_hamburg_halbmarathon_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/sve_hamburg_halbmarathon/sve_hamburg_halbmarathon_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="9 Feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fsve_hamburg_halbmarathon%2Fsve_hamburg_halbmarathon_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuSVE Hamburg Halbmarathon"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          9 Feb.
-        </div>
-        <div class="race-location">
-          Hamburg
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">SVE Hamburg Halbmarathon</div>
+    <div class="race-date">
+      9 Feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">SVE Hamburg Halbmarathon</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Stadion am Steinwiesenweg 30 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                Halbmarathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der SVE Hamburg Halbmarathon findet am 25. Februar 2024 statt und bietet eine abwechslungsreiche Strecke, die überwiegend durch das Niendorf...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/landesoffene_crosslauf_km"
-  class="race-card"
+  href="/rennseiten/landesoffene_crosslauf_km"
+  class="race-card packed"
   data-name="Landesoffene Crosslauf KM"
   data-date="20250308"
   data-county="Schleswig-Holstein"
@@ -771,88 +705,20 @@
   data-longitude="9.882173"
   data-location="Bad Bramstedt"
   data-description="Die Landesoffene Crosslauf KM findet am Samstag, den 08. März 2025, in Bad Bramstedt statt und umfasst verschiedene Distanzen für verschiede"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Flandesoffene_crosslauf_km%2Flandesoffene_crosslauf_km_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/landesoffene_crosslauf_km/landesoffene_crosslauf_km_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="8 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Flandesoffene_crosslauf_km%2Flandesoffene_crosslauf_km_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuLandesoffene Crosslauf KM"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          8 März
-        </div>
-        <div class="race-location">
-          Schleswig-Holstein
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Landesoffene Crosslauf KM</div>
+    <div class="race-date">
+      8 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Landesoffene Crosslauf KM</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Bad Bramstedt 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Gemischte Distanz
-              </span>
-            </div>
-            
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Die Landesoffene Crosslauf KM findet am Samstag, den 08. März 2025, in Bad Bramstedt statt und umfasst verschiedene Distanzen für verschiede...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

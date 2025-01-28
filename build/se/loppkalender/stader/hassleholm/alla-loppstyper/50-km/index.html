@@ -21,6 +21,8 @@
     <title>50 km Löplopp i Hässleholm - Hitta Din Nästa Löpartävling</title>
     <meta name="description" content="Hitta alla 50 km löplopp i Hässleholm. Sök bland loppkalendern med olika lopptyper som Landsväg, Terräng, Trail och mer. Hitta din nästa löpartävling!" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -671,14 +673,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;H\u00e4ssleholm&quot;, &quot;race_type&quot;: null, &quot;category&quot;: &quot;50 km&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;H\\u00e4ssleholm\u0026quot;, \u0026quot;race_type\u0026quot;: null, \u0026quot;category\u0026quot;: \u0026quot;50 km\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/snapphanerace"
-  class="race-card"
+  class="race-card packed"
   data-name="Snapphanerace"
   data-date="20250215"
   data-county="Blekinge"
@@ -689,104 +691,24 @@
   data-longitude="14.5666667"
   data-location="Ryssberget"
   data-description="Snapphaneracet är ett traillopp som sträcker sig från 13 km till 50 km, med en mängd höjdmeter. Loppet äger rum på det underbara Ryssberget "
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/snapphanerace/snapphanerace_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/snapphanerace/snapphanerace_1.webp?v=1"
   data-type="trail"
   data-type-display="Trail"
   data-date-display="15 feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/snapphanerace/snapphanerace_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Snapphanerace"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          15 feb.
-        </div>
-        <div class="race-location">
-          Blekinge
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Snapphanerace</div>
+    <div class="race-date">
+      15 feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Snapphanerace</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Ryssberget 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                13 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                25 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                50 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Trail
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Snapphaneracet är ett traillopp som sträcker sig från 13 km till 50 km, med en mängd höjdmeter. Loppet äger rum på det underbara Ryssberget ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/osterlen_spring_trail"
-  class="race-card"
+  class="race-card packed"
   data-name="Österlen Spring Trail"
   data-date="20250412"
   data-county="Skåne"
@@ -797,104 +719,24 @@
   data-longitude="13.96091938018799"
   data-location="Andrarum"
   data-description="Österlen Spring Trail startades 2015 och kan beskrivas som ett motionslopp där naturen, gemenskapen och upplevelsen är i fokus, medan presta"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/osterlen_spring_trail/osterlen_spring_trail_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/osterlen_spring_trail/osterlen_spring_trail_1.webp?v=1"
   data-type="road"
   data-type-display="Landsväg"
   data-date-display="12 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/osterlen_spring_trail/osterlen_spring_trail_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Österlen Spring Trail"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          12 apr.
-        </div>
-        <div class="race-location">
-          Skåne
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Österlen Spring Trail</div>
+    <div class="race-date">
+      12 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Österlen Spring Trail</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Andrarum 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                22 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                30 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                60 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Landsväg
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Österlen Spring Trail startades 2015 och kan beskrivas som ett motionslopp där naturen, gemenskapen och upplevelsen är i fokus, medan presta...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/billingen_xtrail_challenge"
-  class="race-card"
+  class="race-card packed"
   data-name="Billingen Xtrail Challenge"
   data-date="20250510"
   data-county="Skåne"
@@ -905,97 +747,17 @@
   data-longitude="13.3334583"
   data-location="Toppen av Billingens slalombacke"
   data-description="Billingen X-trail är en krävande bana som erbjuder både 5 km och 12 km distanser på Berget Billingen i Skövde. 5 km-banan är perfekt för dig"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/billingen_xtrail_challenge/billingen_xtrail_challenge_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/billingen_xtrail_challenge/billingen_xtrail_challenge_1.webp?v=1"
   data-type="trail"
   data-type-display="Trail"
   data-date-display="10 maj"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/billingen_xtrail_challenge/billingen_xtrail_challenge_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Billingen Xtrail Challenge"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          10 maj
-        </div>
-        <div class="race-location">
-          Skåne
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Billingen Xtrail Challenge</div>
+    <div class="race-date">
+      10 maj
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Billingen Xtrail Challenge</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Toppen av Billingens slalombacke 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                12 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                35 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Trail
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Billingen X-trail är en krävande bana som erbjuder både 5 km och 12 km distanser på Berget Billingen i Skövde. 5 km-banan är perfekt för dig...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
     
@@ -1012,7 +774,11 @@
           </div>
         </div>
         <div class="race-card-big-container right-scroller">
-              <a
+          
+            
+            
+              
+                <a
   href="/loppsidor/osterlen_spring_trail"
   class="race-card-big race-card"
   data-name="Österlen Spring Trail"
@@ -1031,6 +797,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1088,7 +856,14 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/loppsidor/snapphanerace"
   class="race-card-big race-card"
   data-name="Snapphanerace"
@@ -1107,6 +882,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1164,7 +941,14 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/loppsidor/billingen_xtrail_challenge"
   class="race-card-big race-card"
   data-name="Billingen Xtrail Challenge"
@@ -1183,6 +967,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1240,10 +1026,13 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>   
+</a>
+              
+            
+          
         </div>
       </section>
-        
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

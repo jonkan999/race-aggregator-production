@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Unterfr\u00e4nkische Crosslaufmeisterschaft 2025 findet am Sonntag, den 09. Februar 2025 in R\u00f6delmaier statt. Die Veranstaltung wird vom LG Rh\u00f6n-Grabfeld organis", "distance": null, "eventStatus": "Standard", "identifier": "unterfrankische_crosslaufmeisterschaft", "image": "/Rennseiten/unterfrankische_crosslaufmeisterschaft/unterfrankische_crosslaufmeisterschaft_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "R\u00f6delmaier", "addressRegion": "Bayern"}, "name": "R\u00f6delmaier"}, "name": "Unterfr\u00e4nkische Crosslaufmeisterschaft", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250209"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Offene Kreis-Waldlaufmeisterschaften finden am Sonntag, den 14. April 2024 in Schweinfurt statt. Diese Veranstaltung wird vom BLV/Kreis Schweinfurt/Ha\u00dfberge", "distance": null, "eventStatus": "Standard", "identifier": "offene_kreis_waldlauf", "image": "/Rennseiten/offene_kreis_waldlauf/offene_kreis_waldlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Schweinfurt", "addressRegion": "Bayern"}, "name": "Schweinfurt"}, "name": "Offene Kreis-Waldlauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250406"}, "position": 2}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Melde dich jetzt zum 15. Saaletal Marathon am 12.04.2025 an und sei ein Teil des vielleicht sch\u00f6nsten Laufevents in Unterfranken! Der Marathon bietet verschiede", "distance": "1km, 2km, 3km, 4km, 10km, half marathon, marathon", "eventStatus": "Standard", "identifier": "saaletal_marathon", "image": "/Rennseiten/saaletal_marathon/saaletal_marathon_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Ramsthal", "addressRegion": "Bayern"}, "name": "Ramsthal"}, "name": "Saaletal Marathon", "sport": "Laufen, Stra\u00dfe", "startDate": "20250412"}, "position": 3}], "numberOfItems": 3}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Unterfr\u00e4nkische Crosslaufmeisterschaft 2025 findet am Sonntag, den 09. Februar 2025 in R\u00f6delmaier statt. Die Veranstaltung wird vom LG Rh\u00f6n-Grabfeld organis", "distance": null, "eventStatus": "Standard", "identifier": "unterfrankische_crosslaufmeisterschaft", "image": "/rennseiten/unterfrankische_crosslaufmeisterschaft/unterfrankische_crosslaufmeisterschaft_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "R\u00f6delmaier", "addressRegion": "Bayern"}, "name": "R\u00f6delmaier"}, "name": "Unterfr\u00e4nkische Crosslaufmeisterschaft", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250209"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Offene Kreis-Waldlaufmeisterschaften finden am Sonntag, den 14. April 2024 in Schweinfurt statt. Diese Veranstaltung wird vom BLV/Kreis Schweinfurt/Ha\u00dfberge", "distance": null, "eventStatus": "Standard", "identifier": "offene_kreis_waldlauf", "image": "/rennseiten/offene_kreis_waldlauf/offene_kreis_waldlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Schweinfurt", "addressRegion": "Bayern"}, "name": "Schweinfurt"}, "name": "Offene Kreis-Waldlauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250406"}, "position": 2}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Melde dich jetzt zum 15. Saaletal Marathon am 12.04.2025 an und sei ein Teil des vielleicht sch\u00f6nsten Laufevents in Unterfranken! Der Marathon bietet verschiede", "distance": "1km, 2km, 3km, 4km, 10km, half marathon, marathon", "eventStatus": "Standard", "identifier": "saaletal_marathon", "image": "/rennseiten/saaletal_marathon/saaletal_marathon_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Ramsthal", "addressRegion": "Bayern"}, "name": "Ramsthal"}, "name": "Saaletal Marathon", "sport": "Laufen, Stra\u00dfe", "startDate": "20250412"}, "position": 3}], "numberOfItems": 3}
     </script>
      
 
@@ -24,6 +24,8 @@
     />
     <title>Laufwettbewerbe in Schweinfurt: Finde dein nächstes Laufrennen!</title>
     <meta name="description" content="Entdecke die beste Auswahl an Laufwettbewerben in Schweinfurt.  Finde Läufe aller Kategorien, von 5 km bis Marathon, auf Straße, Gelände oder Trail.  Dein Laufkalender wartet!" />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -661,14 +663,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Schweinfurt&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Schweinfurt\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/unterfrankische_crosslaufmeisterschaft"
-  class="race-card"
+  href="/rennseiten/unterfrankische_crosslaufmeisterschaft"
+  class="race-card packed"
   data-name="Unterfränkische Crosslaufmeisterschaft"
   data-date="20250209"
   data-county="Bayern"
@@ -679,92 +681,24 @@
   data-longitude="10.277302"
   data-location="Rödelmaier"
   data-description="Die Unterfränkische Crosslaufmeisterschaft 2025 findet am Sonntag, den 09. Februar 2025 in Rödelmaier statt. Die Veranstaltung wird vom LG R"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Funterfrankische_crosslaufmeisterschaft%2Funterfrankische_crosslaufmeisterschaft_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/unterfrankische_crosslaufmeisterschaft/unterfrankische_crosslaufmeisterschaft_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="9 Feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Funterfrankische_crosslaufmeisterschaft%2Funterfrankische_crosslaufmeisterschaft_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuUnterfränkische Crosslaufmeisterschaft"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          9 Feb.
-        </div>
-        <div class="race-location">
-          Bayern
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Unterfränkische Crosslaufmeisterschaft</div>
+    <div class="race-date">
+      9 Feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Unterfränkische Crosslaufmeisterschaft</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Rödelmaier 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Gemischte Distanz
-              </span>
-            </div>
-            
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Die Unterfränkische Crosslaufmeisterschaft 2025 findet am Sonntag, den 09. Februar 2025 in Rödelmaier statt. Die Veranstaltung wird vom LG R...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/offene_kreis_waldlauf"
-  class="race-card"
+  href="/rennseiten/offene_kreis_waldlauf"
+  class="race-card packed"
   data-name="Offene Kreis-Waldlauf"
   data-date="20250406"
   data-county="Bayern"
@@ -775,92 +709,24 @@
   data-longitude="10.2200758"
   data-location="Schweinfurt"
   data-description="Die Offene Kreis-Waldlaufmeisterschaften finden am Sonntag, den 14. April 2024 in Schweinfurt statt. Diese Veranstaltung wird vom BLV/Kreis "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Foffene_kreis_waldlauf%2Foffene_kreis_waldlauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/offene_kreis_waldlauf/offene_kreis_waldlauf_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="6 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Foffene_kreis_waldlauf%2Foffene_kreis_waldlauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuOffene Kreis-Waldlauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          6 apr.
-        </div>
-        <div class="race-location">
-          Bayern
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Offene Kreis-Waldlauf</div>
+    <div class="race-date">
+      6 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Offene Kreis-Waldlauf</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Schweinfurt 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Gemischte Distanz
-              </span>
-            </div>
-            
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Die Offene Kreis-Waldlaufmeisterschaften finden am Sonntag, den 14. April 2024 in Schweinfurt statt. Diese Veranstaltung wird vom BLV/Kreis ...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/saaletal_marathon"
-  class="race-card"
+  href="/rennseiten/saaletal_marathon"
+  class="race-card packed"
   data-name="Saaletal Marathon"
   data-date="20250412"
   data-county="Bayern"
@@ -871,107 +737,17 @@
   data-longitude="10.0682943"
   data-location="Ramsthal"
   data-description="Melde dich jetzt zum 15. Saaletal Marathon am 12.04.2025 an und sei ein Teil des vielleicht schönsten Laufevents in Unterfranken! Der Marath"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fsaaletal_marathon%2Fsaaletal_marathon_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/saaletal_marathon/saaletal_marathon_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="12 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fsaaletal_marathon%2Fsaaletal_marathon_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuSaaletal Marathon"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          12 apr.
-        </div>
-        <div class="race-location">
-          Bayern
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Saaletal Marathon</div>
+    <div class="race-date">
+      12 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Saaletal Marathon</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Ramsthal 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                3 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                4 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Melde dich jetzt zum 15. Saaletal Marathon am 12.04.2025 an und sei ein Teil des vielleicht schönsten Laufevents in Unterfranken! Der Marath...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
@@ -988,8 +764,12 @@
           </div>
         </div>
         <div class="race-card-big-container right-scroller">
-              <a
-  href="/Rennseiten/unterfrankische_crosslaufmeisterschaft"
+          
+            
+            
+              
+                <a
+  href="/rennseiten/unterfrankische_crosslaufmeisterschaft"
   class="race-card-big race-card"
   data-name="Unterfränkische Crosslaufmeisterschaft"
   data-date="20250209"
@@ -1002,11 +782,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Funterfrankische_crosslaufmeisterschaft%2Funterfrankische_crosslaufmeisterschaft_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/unterfrankische_crosslaufmeisterschaft/unterfrankische_crosslaufmeisterschaft_1.webp?v=1"
         alt="Bild zuUnterfränkische Crosslaufmeisterschaft"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1052,8 +834,15 @@
       <div class="more-info-button">Zur Rennseite</div>
     </div>
   </div>
-</a>       <a
-  href="/Rennseiten/offene_kreis_waldlauf"
+</a>
+              
+            
+          
+            
+            
+              
+                <a
+  href="/rennseiten/offene_kreis_waldlauf"
   class="race-card-big race-card"
   data-name="Offene Kreis-Waldlauf"
   data-date="20250406"
@@ -1066,11 +855,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Foffene_kreis_waldlauf%2Foffene_kreis_waldlauf_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/offene_kreis_waldlauf/offene_kreis_waldlauf_1.webp?v=1"
         alt="Bild zuOffene Kreis-Waldlauf"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1116,8 +907,15 @@
       <div class="more-info-button">Zur Rennseite</div>
     </div>
   </div>
-</a>       <a
-  href="/Rennseiten/saaletal_marathon"
+</a>
+              
+            
+          
+            
+            
+              
+                <a
+  href="/rennseiten/saaletal_marathon"
   class="race-card-big race-card"
   data-name="Saaletal Marathon"
   data-date="20250412"
@@ -1130,11 +928,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fsaaletal_marathon%2Fsaaletal_marathon_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/saaletal_marathon/saaletal_marathon_1.webp?v=1"
         alt="Bild zuSaaletal Marathon"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1208,10 +1008,13 @@
       <div class="more-info-button">Zur Rennseite</div>
     </div>
   </div>
-</a>   
+</a>
+              
+            
+          
         </div>
       </section>
-        
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

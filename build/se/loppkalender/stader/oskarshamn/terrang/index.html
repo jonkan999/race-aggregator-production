@@ -25,6 +25,8 @@
     <title>Terränglopp i Oskarshamn - Hitta ditt nästa löplopp i vår loppkalender</title>
     <meta name="description" content="Letar du efter terränglöpning i Oskarshamn?  Hitta alla terränglöpartävlingar i Oskarshamn i vår löparkalender. Från korta lopp till långa utmaningar – hitta ditt perfekta lopp! Lopplista och loppkalendern för löpare." />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -694,14 +696,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Oskarshamn&quot;, &quot;race_type&quot;: &quot;Terr\u00e4ng&quot;, &quot;category&quot;: null}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Oskarshamn\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Terr\\u00e4ng\u0026quot;, \u0026quot;category\u0026quot;: null}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/tjust_trail_run"
-  class="race-card"
+  class="race-card packed"
   data-name="Tjust Trail Run"
   data-date="20250405"
   data-county="Kalmar"
@@ -712,110 +714,24 @@
   data-longitude="16.6282224"
   data-location="Baumansgatan 4, Västervik"
   data-description="Den 5 april 2025 kommer Tjust Bike & Running Club att anordna den tionde upplagan av Tjust Trail Run. På härliga vårstigar kommer den smålän"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/tjust_trail_run/tjust_trail_run_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/tjust_trail_run/tjust_trail_run_1.webp?v=1"
   data-type="terrain"
   data-type-display="Terräng"
   data-date-display="5 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/tjust_trail_run/tjust_trail_run_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Tjust Trail Run"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          5 apr.
-        </div>
-        <div class="race-location">
-          Kalmar
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Tjust Trail Run</div>
+    <div class="race-date">
+      5 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Tjust Trail Run</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Baumansgatan 4, Västervik 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Halvmarathon
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Marathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Terräng
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Den 5 april 2025 kommer Tjust Bike & Running Club att anordna den tionde upplagan av Tjust Trail Run. På härliga vårstigar kommer den smålän...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/boda_beachrun"
-  class="race-card"
+  class="race-card packed"
   data-name="Böda Beachrun"
   data-date="20250625"
   data-county="Kalmar"
@@ -826,104 +742,24 @@
   data-longitude="17.0351033"
   data-location="Stranden, Böda Sand"
   data-description="Böda Beach Run är ett lopp som sticker ut lite extra. En utmaning utöver det vanliga för hela familjen med banor från 500 m till 10 km. Tävl"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/boda_beachrun/boda_beachrun_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/boda_beachrun/boda_beachrun_1.webp?v=1"
   data-type="terrain"
   data-type-display="Terräng"
   data-date-display="25 juni"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/boda_beachrun/boda_beachrun_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Böda Beachrun"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          25 juni
-        </div>
-        <div class="race-location">
-          Kalmar
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Böda Beachrun</div>
+    <div class="race-date">
+      25 juni
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Böda Beachrun</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Stranden, Böda Sand 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Terräng
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Böda Beach Run är ett lopp som sticker ut lite extra. En utmaning utöver det vanliga för hela familjen med banor från 500 m till 10 km. Tävl...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/hornsjon_runt_11_km"
-  class="race-card"
+  class="race-card packed"
   data-name="Hornsjön Runt 11 km"
   data-date="20250719"
   data-county="Kalmar"
@@ -934,107 +770,45 @@
   data-longitude="16.9615573"
   data-location="Pensionat Hornsjön"
   data-description="Gå, lunka, löp – runt Ölands enda insjö. I år går loppet för 48:e året! Upplev den fantastiska och varierande öländska naturen, med allt frå"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/hornsjon_runt_11_km/hornsjon_runt_11_km_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/hornsjon_runt_11_km/hornsjon_runt_11_km_1.webp?v=1"
   data-type="terrain"
   data-type-display="Terräng"
   data-date-display="19 juli"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/hornsjon_runt_11_km/hornsjon_runt_11_km_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Hornsjön Runt 11 km"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          19 juli
-        </div>
-        <div class="race-location">
-          Kalmar
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Hornsjön Runt 11 km</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Pensionat Hornsjön 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                1,6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2,9 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5,5 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Terräng
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Gå, lunka, löp – runt Ölands enda insjö. I år går loppet för 48:e året! Upplev den fantastiska och varierande öländska naturen, med allt frå...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Hornsjön Runt 11 km</div>
+    <div class="race-date">
+      19 juli
     </div>
   </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/loppsidor/lottorpsvarvet"
+  class="race-card packed"
+  data-name="Löttorpsvarvet"
+  data-date="20250723"
+  data-county="Kalmar"
+  data-category=""
+  data-race-type="Terräng"
+  data-distance="1,4km, 6,2km"
+  data-latitude="57.1816541"
+  data-longitude="17.0546607"
+  data-location="Löttorp Camping AB, Kesnäs Fiskarvägen 1, 387 73 Löttorp, Sweden"
+  data-description="Upplev spänningen av en strandlöpning vid Löttorp Campings årliga festligheter! Oavsett om du är en entusiastisk löpare eller bara tycker om"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/lottorpsvarvet/lottorpsvarvet_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terräng"
+  data-date-display="23 juli"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Löttorpsvarvet</div>
+    <div class="race-date">
+      23 juli
+    </div>
   </div>
 </a>
     
@@ -1051,7 +825,11 @@
           </div>
         </div>
         <div class="race-card-big-container right-scroller">
-              <a
+          
+            
+            
+              
+                <a
   href="/loppsidor/tjust_trail_run"
   class="race-card-big race-card"
   data-name="Tjust Trail Run"
@@ -1070,6 +848,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1133,7 +913,14 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/loppsidor/boda_beachrun"
   class="race-card-big race-card"
   data-name="Böda Beachrun"
@@ -1152,6 +939,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1209,7 +998,14 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/loppsidor/hornsjon_runt_11_km"
   class="race-card-big race-card"
   data-name="Hornsjön Runt 11 km"
@@ -1228,6 +1024,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1297,7 +1095,14 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/loppsidor/lottorpsvarvet"
   class="race-card-big race-card"
   data-name="Löttorpsvarvet"
@@ -1316,6 +1121,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1367,38 +1174,13 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>   
+</a>
+              
+            
+          
         </div>
       </section>
-          
-<!-- Packed version for remaining cards -->
-<a
-  href="/loppsidor/lottorpsvarvet"
-  class="race-card packed"
-  data-name="Löttorpsvarvet"
-  data-date="20250723"
-  data-county="Kalmar"
-  data-category=""
-  data-race-type="Terräng"
-  data-distance="1,4km, 6,2km"
-  data-latitude="57.1816541"
-  data-longitude="17.0546607"
-  data-location="Löttorp Camping AB, Kesnäs Fiskarvägen 1, 387 73 Löttorp, Sweden"
-  data-description="Upplev spänningen av en strandlöpning vid Löttorp Campings årliga festligheter! Oavsett om du är en entusiastisk löpare eller bara tycker om"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/lottorpsvarvet/lottorpsvarvet_1.webp?v=1"
-  data-type="terrain"
-  data-type-display="Terräng"
-  data-date-display="23 juli"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Löttorpsvarvet</div>
-    <div class="race-date">
-      23 juli
-    </div>
-  </div>
-</a>
-  
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

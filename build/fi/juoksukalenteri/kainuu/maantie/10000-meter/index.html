@@ -21,6 +21,8 @@
     <title>10000 metrin maantiejuk­sukilpailut Kainuussa – Löydä juoksutapahtumat!</title>
     <meta name="description" content="Etsi 10000 metrin maantiejuoksukilpailuja Kainuusta. Löydä sopivat juoksukilpailut juoksijalle – täydellinen juoksukalenteri ja kilpailukalenteri juoksuun." />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -664,14 +666,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: &quot;10000 meter&quot;, &quot;county&quot;: &quot;Kainuu&quot;, &quot;race_type&quot;: &quot;Maantie&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: \u0026quot;10000 meter\u0026quot;, \u0026quot;county\u0026quot;: \u0026quot;Kainuu\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Maantie\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/kilpailusivut/kiehimanjoen_juoksu"
-  class="race-card"
+  class="race-card packed"
   data-name="Kiehimänjoen Juoksu"
   data-date="20250412"
   data-county="Kainuu"
@@ -682,100 +684,20 @@
   data-longitude="27.843914"
   data-location="Kotolinna"
   data-description="Kolmatta kertaa järjestettävä Kiehimänjoen Juoksu juostaan Paltamossa 8.6. Tapahtuman lähtöpaikkana ja kisakeskuksena toimii Kotolinna, joss"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkiehimanjoen_juoksu%2Fkiehimanjoen_juoksu_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/kiehimanjoen_juoksu/kiehimanjoen_juoksu_1.webp?v=1"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="12 huhti."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkiehimanjoen_juoksu%2Fkiehimanjoen_juoksu_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Kuva {x}Kiehimänjoen Juoksu"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          12 huhti.
-        </div>
-        <div class="race-location">
-          Kainuu
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Kiehimänjoen Juoksu</div>
+    <div class="race-date">
+      12 huhti.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Kiehimänjoen Juoksu</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Kotolinna 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Puolimaraton
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maantie
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Kolmatta kertaa järjestettävä Kiehimänjoen Juoksu juostaan Paltamossa 8.6. Tapahtuman lähtöpaikkana ja kisakeskuksena toimii Kotolinna, joss...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

@@ -25,6 +25,8 @@
     <title>Tänava Jooksuvõistlused Viljandi Maakonnas | Jooksuvõistluste Kalender</title>
     <meta name="description" content="Leia sobiv tänava jooksuvõistlus Viljandi maakonnas!  Avasta erinevaid distantse, alates 5 km-st kuni 100 km-ni ja registreeru jooksma! Jooksuvõistlused, jooksmine, jooksja, jooksev kalender. Saada kiiremaks jooksjaks!" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -647,14 +649,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: null, &quot;county&quot;: &quot;Viljandi maakond&quot;, &quot;race_type&quot;: &quot;T\u00e4nava&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: null, \u0026quot;county\u0026quot;: \u0026quot;Viljandi maakond\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;T\\u00e4nava\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/viljandi_linnajooks"
-  class="race-card"
+  class="race-card packed"
   data-name="Viljandi Linnajooks"
   data-date="20251012"
   data-county="Viljandi maakond"
@@ -665,88 +667,20 @@
   data-longitude="25.5945325"
   data-location="Viljandi spordihoone"
   data-description="Eesti vanim linnajooks kutsub sportlasi Viljandisse, kus stardipauk kõlab pühapäeva keskpäeval Viljandi spordihoone eest. 10,4-kilomeetrisel"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fviljandi_linnajooks%2Fviljandi_linnajooks_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/viljandi_linnajooks/viljandi_linnajooks_1.webp?v=1"
   data-type="road"
   data-type-display="Tänava"
   data-date-display="12 okt."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fviljandi_linnajooks%2Fviljandi_linnajooks_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksViljandi Linnajooks"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          12 okt.
-        </div>
-        <div class="race-location">
-          Viljandi maakond
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Viljandi Linnajooks</div>
+    <div class="race-date">
+      12 okt.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Viljandi Linnajooks</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Viljandi spordihoone 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                10,4 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Tänava
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Eesti vanim linnajooks kutsub sportlasi Viljandisse, kus stardipauk kõlab pühapäeva keskpäeval Viljandi spordihoone eest. 10,4-kilomeetrisel...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

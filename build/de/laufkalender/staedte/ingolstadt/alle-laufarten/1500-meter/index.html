@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Neuberglauf Kasing findet am Sonntag, den 23. M\u00e4rz 2025, statt und wird vom SV Kasing e. V. 1959 Abt. Leichtathletik organisiert. Die Strecke ist ein 8,8 km", "distance": "1km, 1,5km, 2,4km, 8,8km", "eventStatus": "Standard", "identifier": "neuberglauf", "image": "/Rennseiten/neuberglauf/neuberglauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sportplatz des SV Kasing am Neuberg", "addressRegion": "Bayern"}, "name": "Sportplatz des SV Kasing am Neuberg"}, "name": "Neuberglauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250323"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Retzbachlauf Gaimersheim findet am Freitag, den 27. Juni 2025, statt und wird vom TSV Gaimersheim e.V. \u2013 Abteilung Radsport veranstaltet. Die Veranstaltung ", "distance": "1km, 2km, 6km, 9km", "eventStatus": "Standard", "identifier": "retzbachlauf_gaimersheim", "image": "/Rennseiten/retzbachlauf_gaimersheim/retzbachlauf_gaimersheim_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Retzbachpark Gaimersheim, Am Steinbruck, N\u00e4he EDEKA", "addressRegion": "Bayern"}, "name": "Retzbachpark Gaimersheim, Am Steinbruck, N\u00e4he EDEKA"}, "name": "Retzbachlauf Gaimersheim", "sport": "Laufen, Stra\u00dfe", "startDate": "20250627"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Neuberglauf Kasing findet am Sonntag, den 23. M\u00e4rz 2025, statt und wird vom SV Kasing e. V. 1959 Abt. Leichtathletik organisiert. Die Strecke ist ein 8,8 km", "distance": "1km, 1,5km, 2,4km, 8,8km", "eventStatus": "Standard", "identifier": "neuberglauf", "image": "/rennseiten/neuberglauf/neuberglauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sportplatz des SV Kasing am Neuberg", "addressRegion": "Bayern"}, "name": "Sportplatz des SV Kasing am Neuberg"}, "name": "Neuberglauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250323"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Retzbachlauf Gaimersheim findet am Freitag, den 27. Juni 2025, statt und wird vom TSV Gaimersheim e.V. \u2013 Abteilung Radsport veranstaltet. Die Veranstaltung ", "distance": "1km, 2km, 6km, 9km", "eventStatus": "Standard", "identifier": "retzbachlauf_gaimersheim", "image": "/rennseiten/retzbachlauf_gaimersheim/retzbachlauf_gaimersheim_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Retzbachpark Gaimersheim, Am Steinbruck, N\u00e4he EDEKA", "addressRegion": "Bayern"}, "name": "Retzbachpark Gaimersheim, Am Steinbruck, N\u00e4he EDEKA"}, "name": "Retzbachlauf Gaimersheim", "sport": "Laufen, Stra\u00dfe", "startDate": "20250627"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -20,6 +20,8 @@
     />
     <title>1500 Meter Laufrennen in Ingolstadt: Laufkalender & Rennliste</title>
     <meta name="description" content="Finde alle 1500 Meter Laufwettbewerbe in Ingolstadt.  Unser Laufkalender zeigt dir Laufwettkämpfe, von Straßenläufen bis Trailruns.  Sichere dir jetzt deinen Startplatz!" />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -653,14 +655,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Ingolstadt&quot;, &quot;race_type&quot;: null, &quot;category&quot;: &quot;1500 meter&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Ingolstadt\u0026quot;, \u0026quot;race_type\u0026quot;: null, \u0026quot;category\u0026quot;: \u0026quot;1500 meter\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/neuberglauf"
-  class="race-card"
+  href="/rennseiten/neuberglauf"
+  class="race-card packed"
   data-name="Neuberglauf"
   data-date="20250323"
   data-county="Bayern"
@@ -671,110 +673,24 @@
   data-longitude="11.5439631"
   data-location="Sportplatz des SV Kasing am Neuberg"
   data-description="Der Neuberglauf Kasing findet am Sonntag, den 23. März 2025, statt und wird vom SV Kasing e. V. 1959 Abt. Leichtathletik organisiert. Die St"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fneuberglauf%2Fneuberglauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/neuberglauf/neuberglauf_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="23 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fneuberglauf%2Fneuberglauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuNeuberglauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          23 März
-        </div>
-        <div class="race-location">
-          Bayern
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Neuberglauf</div>
+    <div class="race-date">
+      23 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Neuberglauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Sportplatz des SV Kasing am Neuberg 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                1,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2,4 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                8,8 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Neuberglauf Kasing findet am Sonntag, den 23. März 2025, statt und wird vom SV Kasing e. V. 1959 Abt. Leichtathletik organisiert. Die St...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/retzbachlauf_gaimersheim"
-  class="race-card"
+  href="/rennseiten/retzbachlauf_gaimersheim"
+  class="race-card packed"
   data-name="Retzbachlauf Gaimersheim"
   data-date="20250627"
   data-county="Bayern"
@@ -785,106 +701,20 @@
   data-longitude="11.3699215"
   data-location="Retzbachpark Gaimersheim, Am Steinbruck, Nähe EDEKA"
   data-description="Der Retzbachlauf Gaimersheim findet am Freitag, den 27. Juni 2025, statt und wird vom TSV Gaimersheim e.V. – Abteilung Radsport veranstaltet"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fretzbachlauf_gaimersheim%2Fretzbachlauf_gaimersheim_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/retzbachlauf_gaimersheim/retzbachlauf_gaimersheim_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="27 Juni"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fretzbachlauf_gaimersheim%2Fretzbachlauf_gaimersheim_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuRetzbachlauf Gaimersheim"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          27 Juni
-        </div>
-        <div class="race-location">
-          Bayern
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Retzbachlauf Gaimersheim</div>
+    <div class="race-date">
+      27 Juni
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Retzbachlauf Gaimersheim</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Retzbachpark Gaimersheim, Am Steinbruck, Nähe EDEKA 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                9 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Retzbachlauf Gaimersheim findet am Freitag, den 27. Juni 2025, statt und wird vom TSV Gaimersheim e.V. – Abteilung Radsport veranstaltet...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

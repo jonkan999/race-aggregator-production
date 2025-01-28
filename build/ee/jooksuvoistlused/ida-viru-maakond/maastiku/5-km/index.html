@@ -21,6 +21,8 @@
     <title>5 km Maastiku Jooksuvõistlused Ida-Viru Maakonnas | Jooksuvõistluste Kalender</title>
     <meta name="description" content="Leia parimad 5 km maastikujooksud Ida-Viru maakonnas!  Jooksuvõistlused, jooksuüritused ja jooksev kalender jooksjatele, kes soovivad jooksma minna ja saada kiiremaks jooksjaks." />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -652,14 +654,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: &quot;5 km&quot;, &quot;county&quot;: &quot;Ida-Viru maakond&quot;, &quot;race_type&quot;: &quot;Maastiku&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: \u0026quot;5 km\u0026quot;, \u0026quot;county\u0026quot;: \u0026quot;Ida-Viru maakond\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Maastiku\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/kivioli_vagilase_jooks"
-  class="race-card"
+  class="race-card packed"
   data-name="Kiviõli Vägilase Jooks"
   data-date="20250504"
   data-county="Ida-Viru maakond"
@@ -670,94 +672,20 @@
   data-longitude="26.9530726"
   data-location="Kiviõli seikluskeskus"
   data-description="Kiviõli Vägilase Jooks on takistuskross, mis pakub osalejatele seikluslikku ja lõbusat kogemust mudas ja liivas. Võistlus toimub Kiviõli sei"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkivioli_vagilase_jooks%2Fkivioli_vagilase_jooks_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/kivioli_vagilase_jooks/kivioli_vagilase_jooks_1.webp?v=1"
   data-type="terrain"
   data-type-display="Maastiku"
   data-date-display="4 mai"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkivioli_vagilase_jooks%2Fkivioli_vagilase_jooks_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksKiviõli Vägilase Jooks"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          4 mai
-        </div>
-        <div class="race-location">
-          Ida-Viru maakond
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Kiviõli Vägilase Jooks</div>
+    <div class="race-date">
+      4 mai
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Kiviõli Vägilase Jooks</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Kiviõli seikluskeskus 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                4 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                8 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maastiku
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Kiviõli Vägilase Jooks on takistuskross, mis pakub osalejatele seikluslikku ja lõbusat kogemust mudas ja liivas. Võistlus toimub Kiviõli sei...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

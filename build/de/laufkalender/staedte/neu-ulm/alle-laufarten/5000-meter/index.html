@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der TSF-Silberwald-Lauf 2024 findet am 10. M\u00e4rz statt und bietet verschiedene Distanzen f\u00fcr Teilnehmer aller Altersgruppen. Die Strecken umfassen 650m f\u00fcr Kinde", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "silberwaldlauf", "image": "/Rennseiten/silberwaldlauf/silberwaldlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Neu-Ulm, Bayern, Deutschland", "addressRegion": "Bayern"}, "name": "Neu-Ulm, Bayern, Deutschland"}, "name": "Silberwaldlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250315"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 23. H\u00fcrbener H\u00f6hlenb\u00e4renlauf ist der traditionelle Start in die Laufveranstaltungen im Landkreis Heidenheim und bildet seit 2022 den Auftakt der HZ Landkrei", "distance": "5,2km, 10,4km", "eventStatus": "Standard", "identifier": "hohlenbarenlauf", "image": "/Rennseiten/hohlenbarenlauf/hohlenbarenlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Forststra\u00dfe 35, 89537 Giengen-H\u00fcrben", "addressRegion": "Baden-W\u00fcrttemberg"}, "name": "Forststra\u00dfe 35, 89537 Giengen-H\u00fcrben"}, "name": "H\u00f6hlenb\u00e4renlauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250412"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der TSF-Silberwald-Lauf 2024 findet am 10. M\u00e4rz statt und bietet verschiedene Distanzen f\u00fcr Teilnehmer aller Altersgruppen. Die Strecken umfassen 650m f\u00fcr Kinde", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "silberwaldlauf", "image": "/rennseiten/silberwaldlauf/silberwaldlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Neu-Ulm, Bayern, Deutschland", "addressRegion": "Bayern"}, "name": "Neu-Ulm, Bayern, Deutschland"}, "name": "Silberwaldlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250315"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 23. H\u00fcrbener H\u00f6hlenb\u00e4renlauf ist der traditionelle Start in die Laufveranstaltungen im Landkreis Heidenheim und bildet seit 2022 den Auftakt der HZ Landkrei", "distance": "5,2km, 10,4km", "eventStatus": "Standard", "identifier": "hohlenbarenlauf", "image": "/rennseiten/hohlenbarenlauf/hohlenbarenlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Forststra\u00dfe 35, 89537 Giengen-H\u00fcrben", "addressRegion": "Baden-W\u00fcrttemberg"}, "name": "Forststra\u00dfe 35, 89537 Giengen-H\u00fcrben"}, "name": "H\u00f6hlenb\u00e4renlauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250412"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -20,6 +20,8 @@
     />
     <title>5000 Meter Laufwettbewerbe in Neu-Ulm | Laufkalender & Rennliste</title>
     <meta name="description" content="Finde deinen nächsten 5000 Meter Lauf in Neu-Ulm!  Unser Laufkalender listet Laufwettkämpfe aller Arten auf, von Straßenläufen bis hin zu Trailruns.  Schau jetzt in unsere Rennliste!" />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -653,14 +655,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Neu-Ulm&quot;, &quot;race_type&quot;: null, &quot;category&quot;: &quot;5000 meter&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Neu-Ulm\u0026quot;, \u0026quot;race_type\u0026quot;: null, \u0026quot;category\u0026quot;: \u0026quot;5000 meter\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/silberwaldlauf"
-  class="race-card"
+  href="/rennseiten/silberwaldlauf"
+  class="race-card packed"
   data-name="Silberwaldlauf"
   data-date="20250315"
   data-county="Bayern"
@@ -671,98 +673,24 @@
   data-longitude="10.0054584"
   data-location="Neu-Ulm, Bayern, Deutschland"
   data-description="Der TSF-Silberwald-Lauf 2024 findet am 10. März statt und bietet verschiedene Distanzen für Teilnehmer aller Altersgruppen. Die Strecken umf"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fsilberwaldlauf%2Fsilberwaldlauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/silberwaldlauf/silberwaldlauf_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="15 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fsilberwaldlauf%2Fsilberwaldlauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuSilberwaldlauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          15 März
-        </div>
-        <div class="race-location">
-          Bayern
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Silberwaldlauf</div>
+    <div class="race-date">
+      15 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Silberwaldlauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Neu-Ulm, Bayern, Deutschland 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der TSF-Silberwald-Lauf 2024 findet am 10. März statt und bietet verschiedene Distanzen für Teilnehmer aller Altersgruppen. Die Strecken umf...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/hohlenbarenlauf"
-  class="race-card"
+  href="/rennseiten/hohlenbarenlauf"
+  class="race-card packed"
   data-name="Höhlenbärenlauf"
   data-date="20250412"
   data-county="Baden-Württemberg"
@@ -773,94 +701,20 @@
   data-longitude="10.2018006"
   data-location="Forststraße 35, 89537 Giengen-Hürben"
   data-description="Der 23. Hürbener Höhlenbärenlauf ist der traditionelle Start in die Laufveranstaltungen im Landkreis Heidenheim und bildet seit 2022 den Auf"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fhohlenbarenlauf%2Fhohlenbarenlauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/hohlenbarenlauf/hohlenbarenlauf_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="12 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fhohlenbarenlauf%2Fhohlenbarenlauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuHöhlenbärenlauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          12 apr.
-        </div>
-        <div class="race-location">
-          Baden-Württemberg
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Höhlenbärenlauf</div>
+    <div class="race-date">
+      12 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Höhlenbärenlauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Forststraße 35, 89537 Giengen-Hürben 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5,2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10,4 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der 23. Hürbener Höhlenbärenlauf ist der traditionelle Start in die Laufveranstaltungen im Landkreis Heidenheim und bildet seit 2022 den Auf...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

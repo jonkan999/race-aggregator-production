@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Am 16. Februar 2025 findet der Pellwormer Biike-Lauf statt, ein Laufereignis, das die Teilnehmer durch die malerische Umgebung von Pellworm f\u00fchrt. Dies ist Teil", "distance": "4,2km, 7,7km, 26,5km, 26,8km", "eventStatus": "Standard", "identifier": "pellwormer_biike_lauf", "image": "/Rennseiten/pellwormer_biike_lauf/pellwormer_biike_lauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Hafen", "addressRegion": "Th\u00fcringen"}, "name": "Hafen"}, "name": "Pellwormer Biike-Lauf", "sport": "Laufen, Sonstiges", "startDate": "20250216"}, "position": 1}], "numberOfItems": 1}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Am 16. Februar 2025 findet der Pellwormer Biike-Lauf statt, ein Laufereignis, das die Teilnehmer durch die malerische Umgebung von Pellworm f\u00fchrt. Dies ist Teil", "distance": "4,2km, 7,7km, 26,5km, 26,8km", "eventStatus": "Standard", "identifier": "pellwormer_biike_lauf", "image": "/rennseiten/pellwormer_biike_lauf/pellwormer_biike_lauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Hafen", "addressRegion": "Th\u00fcringen"}, "name": "Hafen"}, "name": "Pellwormer Biike-Lauf", "sport": "Laufen, Sonstiges", "startDate": "20250216"}, "position": 1}], "numberOfItems": 1}
     </script>
      
 
@@ -24,6 +24,8 @@
     />
     <title>Laufwettbewerbe in Thüringen: Rennkalender für Sonstiges Events</title>
     <meta name="description" content="Entdecke alle Laufwettkämpfe und Laufrennen in Thüringen. Finde deinen nächsten Lauf - von 5km bis Marathon und mehr!  Unser Laufkalender bietet eine umfassende Rennliste für Sonstiges Events." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -657,14 +659,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: null, &quot;county&quot;: &quot;Th\u00fcringen&quot;, &quot;race_type&quot;: &quot;Sonstiges&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: null, \u0026quot;county\u0026quot;: \u0026quot;Th\\u00fcringen\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Sonstiges\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/pellwormer_biike_lauf"
-  class="race-card"
+  href="/rennseiten/pellwormer_biike_lauf"
+  class="race-card packed"
   data-name="Pellwormer Biike-Lauf"
   data-date="20250216"
   data-county="Thüringen"
@@ -675,106 +677,20 @@
   data-longitude="10.451526"
   data-location="Hafen"
   data-description="Am 16. Februar 2025 findet der Pellwormer Biike-Lauf statt, ein Laufereignis, das die Teilnehmer durch die malerische Umgebung von Pellworm "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fpellwormer_biike_lauf%2Fpellwormer_biike_lauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/pellwormer_biike_lauf/pellwormer_biike_lauf_1.webp?v=1"
   data-type="other"
   data-type-display="Sonstiges"
   data-date-display="16 Feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fpellwormer_biike_lauf%2Fpellwormer_biike_lauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuPellwormer Biike-Lauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          16 Feb.
-        </div>
-        <div class="race-location">
-          Thüringen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Pellwormer Biike-Lauf</div>
+    <div class="race-date">
+      16 Feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Pellwormer Biike-Lauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Hafen 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                4,2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                7,7 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                26,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                26,8 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Sonstiges
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Am 16. Februar 2025 findet der Pellwormer Biike-Lauf statt, ein Laufereignis, das die Teilnehmer durch die malerische Umgebung von Pellworm ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

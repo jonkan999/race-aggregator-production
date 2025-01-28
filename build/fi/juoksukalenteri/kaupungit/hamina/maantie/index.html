@@ -25,6 +25,8 @@
     <title>Maantiejuoksukilpailut Haminassa - Löydä seuraava juoksutapahtuma!</title>
     <meta name="description" content="Hae ja löydä kaikki maantiejuoksukilpailut Haminassa.  Valitse matkasi (esim. 5 km, 10 km, maraton) ja löydä täydellinen juoksukilpailu juoksijalle. Juoksukalenteri ja kilpailukalenteri sinulle!" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -659,14 +661,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Hamina&quot;, &quot;race_type&quot;: &quot;Maantie&quot;, &quot;category&quot;: null}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Hamina\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Maantie\u0026quot;, \u0026quot;category\u0026quot;: null}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/kilpailusivut/voimantalon_juhlamaraton_puolimaraton"
-  class="race-card"
+  class="race-card packed"
   data-name="Voimantalon Juhlamaraton & Puolimaraton"
   data-date="20250607"
   data-county="Kymenlaakso"
@@ -677,92 +679,24 @@
   data-longitude="26.6546148"
   data-location="Västilän urheilukenttä / kisakeskus"
   data-description="Voimantalon Juhlamaraton & Puolimaraton järjestetään 10. kesäkuuta Västilän Voimantalosta, jossa lähtö tapahtuu klo 12:00. Tapahtumassa on t"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fvoimantalon_juhlamaraton_puolimaraton%2Fvoimantalon_juhlamaraton_puolimaraton_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/voimantalon_juhlamaraton_puolimaraton/voimantalon_juhlamaraton_puolimaraton_1.webp?v=1"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="7 kesä"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fvoimantalon_juhlamaraton_puolimaraton%2Fvoimantalon_juhlamaraton_puolimaraton_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Kuva {x}Voimantalon Juhlamaraton & Puolimaraton"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          7 kesä
-        </div>
-        <div class="race-location">
-          Kymenlaakso
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Voimantalon Juhlamaraton & Puolimaraton</div>
+    <div class="race-date">
+      7 kesä
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Voimantalon Juhlamaraton & Puolimaraton</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Västilän urheilukenttä / kisakeskus 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                Maraton
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maantie
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Voimantalon Juhlamaraton & Puolimaraton järjestetään 10. kesäkuuta Västilän Voimantalosta, jossa lähtö tapahtuu klo 12:00. Tapahtumassa on t...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/kilpailusivut/kuusaa_marathon"
-  class="race-card"
+  class="race-card packed"
   data-name="Kuusaa Marathon"
   data-date="20250726"
   data-county="Kymenlaakso"
@@ -773,88 +707,20 @@
   data-longitude="26.6243555"
   data-location="Kuusaan kylä"
   data-description="Kuusaa Maraton juostiin lauantaina 27.7.2024 Kuusaan kylässä Haapajärvellä. Tapahtuma on hyvässä maineessa ja tarjoaa mahdollisuuden osallis"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkuusaa_marathon%2Fkuusaa_marathon_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/kuusaa_marathon/kuusaa_marathon_1.webp?v=1"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="26 heinä"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fkuusaa_marathon%2Fkuusaa_marathon_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Kuva {x}Kuusaa Marathon"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          26 heinä
-        </div>
-        <div class="race-location">
-          Kymenlaakso
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Kuusaa Marathon</div>
+    <div class="race-date">
+      26 heinä
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Kuusaa Marathon</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Kuusaan kylä 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Sekoitettu etäisyys
-              </span>
-            </div>
-            
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maantie
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Kuusaa Maraton juostiin lauantaina 27.7.2024 Kuusaan kylässä Haapajärvellä. Tapahtuma on hyvässä maineessa ja tarjoaa mahdollisuuden osallis...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

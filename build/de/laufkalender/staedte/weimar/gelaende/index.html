@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 3. Flemminger Wintercross findet am 08. Februar 2025 in Naumburg OT Flemmingen statt und bietet einen 15 km Crosslauf f\u00fcr alle Altersklassen. Die Wettkampfs", "distance": "14km, 15km", "eventStatus": "Standard", "identifier": "flemminger_wintercross", "image": "/Rennseiten/flemminger_wintercross/flemminger_wintercross_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Naumburger Stahl- und Metallhandel GmbH, Dorfstra\u00dfe 3 (Flemmingen), 06618 Naumburg (Saale)", "addressRegion": "Sachsen-Anhalt"}, "name": "Naumburger Stahl- und Metallhandel GmbH, Dorfstra\u00dfe 3 (Flemmingen), 06618 Naumburg (Saale)"}, "name": "Flemminger Wintercross", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250208"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Fr\u00fchjahrscrosslauf im Steigerwald findet am Samstag, den 29. M\u00e4rz 2025, von 10:00 bis 13:00 Uhr in Erfurt statt und wird vom ASV Erfurt veranstaltet. Es ste", "distance": "1km, 2km, 3km, 8km", "eventStatus": "Standard", "identifier": "fruhjahrscrosslauf_steiger", "image": "/Rennseiten/fruhjahrscrosslauf_steiger/fruhjahrscrosslauf_steiger_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Erfurt, Arndtstra\u00dfe (gegen\u00fcber Tennispl\u00e4tzen/alte Rodelbahn)", "addressRegion": "Th\u00fcringen"}, "name": "Erfurt, Arndtstra\u00dfe (gegen\u00fcber Tennispl\u00e4tzen/alte Rodelbahn)"}, "name": "Fr\u00fchjahrscrosslauf Steiger", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250329"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 3. Flemminger Wintercross findet am 08. Februar 2025 in Naumburg OT Flemmingen statt und bietet einen 15 km Crosslauf f\u00fcr alle Altersklassen. Die Wettkampfs", "distance": "14km, 15km", "eventStatus": "Standard", "identifier": "flemminger_wintercross", "image": "/rennseiten/flemminger_wintercross/flemminger_wintercross_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Naumburger Stahl- und Metallhandel GmbH, Dorfstra\u00dfe 3 (Flemmingen), 06618 Naumburg (Saale)", "addressRegion": "Sachsen-Anhalt"}, "name": "Naumburger Stahl- und Metallhandel GmbH, Dorfstra\u00dfe 3 (Flemmingen), 06618 Naumburg (Saale)"}, "name": "Flemminger Wintercross", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250208"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Fr\u00fchjahrscrosslauf im Steigerwald findet am Samstag, den 29. M\u00e4rz 2025, von 10:00 bis 13:00 Uhr in Erfurt statt und wird vom ASV Erfurt veranstaltet. Es ste", "distance": "1km, 2km, 3km, 8km", "eventStatus": "Standard", "identifier": "fruhjahrscrosslauf_steiger", "image": "/rennseiten/fruhjahrscrosslauf_steiger/fruhjahrscrosslauf_steiger_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Erfurt, Arndtstra\u00dfe (gegen\u00fcber Tennispl\u00e4tzen/alte Rodelbahn)", "addressRegion": "Th\u00fcringen"}, "name": "Erfurt, Arndtstra\u00dfe (gegen\u00fcber Tennispl\u00e4tzen/alte Rodelbahn)"}, "name": "Fr\u00fchjahrscrosslauf Steiger", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250329"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -24,6 +24,8 @@
     />
     <title>Laufwettbewerbe in Weimar: Gelände-Läufe im Laufkalender finden</title>
     <meta name="description" content="Finde deinen nächsten Geländelauf in Weimar! Unser Laufkalender listet Laufwettkämpfe verschiedener Kategorien, von 5 km bis Marathon.  Durchsuche die Rennliste und finde dein perfektes laufrennen." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -657,14 +659,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Weimar&quot;, &quot;race_type&quot;: &quot;Gel\u00e4nde&quot;, &quot;category&quot;: null}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Weimar\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Gel\\u00e4nde\u0026quot;, \u0026quot;category\u0026quot;: null}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/flemminger_wintercross"
-  class="race-card"
+  href="/rennseiten/flemminger_wintercross"
+  class="race-card packed"
   data-name="Flemminger Wintercross"
   data-date="20250208"
   data-county="Sachsen-Anhalt"
@@ -675,98 +677,24 @@
   data-longitude="11.7711497"
   data-location="Naumburger Stahl- und Metallhandel GmbH, Dorfstraße 3 (Flemmingen), 06618 Naumburg (Saale)"
   data-description="Der 3. Flemminger Wintercross findet am 08. Februar 2025 in Naumburg OT Flemmingen statt und bietet einen 15 km Crosslauf für alle Alterskla"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fflemminger_wintercross%2Fflemminger_wintercross_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/flemminger_wintercross/flemminger_wintercross_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="8 Feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fflemminger_wintercross%2Fflemminger_wintercross_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuFlemminger Wintercross"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          8 Feb.
-        </div>
-        <div class="race-location">
-          Sachsen-Anhalt
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Flemminger Wintercross</div>
+    <div class="race-date">
+      8 Feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Flemminger Wintercross</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Naumburger Stahl- und Metallhandel GmbH, Dorfstraße 3 (Flemmingen), 06618 Naumburg (Saale) 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                14 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                15 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der 3. Flemminger Wintercross findet am 08. Februar 2025 in Naumburg OT Flemmingen statt und bietet einen 15 km Crosslauf für alle Alterskla...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/fruhjahrscrosslauf_steiger"
-  class="race-card"
+  href="/rennseiten/fruhjahrscrosslauf_steiger"
+  class="race-card packed"
   data-name="Frühjahrscrosslauf Steiger"
   data-date="20250329"
   data-county="Thüringen"
@@ -777,106 +705,20 @@
   data-longitude="11.0298799"
   data-location="Erfurt, Arndtstraße (gegenüber Tennisplätzen/alte Rodelbahn)"
   data-description="Der Frühjahrscrosslauf im Steigerwald findet am Samstag, den 29. März 2025, von 10:00 bis 13:00 Uhr in Erfurt statt und wird vom ASV Erfurt "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Ffruhjahrscrosslauf_steiger%2Ffruhjahrscrosslauf_steiger_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/fruhjahrscrosslauf_steiger/fruhjahrscrosslauf_steiger_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="29 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Ffruhjahrscrosslauf_steiger%2Ffruhjahrscrosslauf_steiger_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuFrühjahrscrosslauf Steiger"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          29 März
-        </div>
-        <div class="race-location">
-          Thüringen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Frühjahrscrosslauf Steiger</div>
+    <div class="race-date">
+      29 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Frühjahrscrosslauf Steiger</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Erfurt, Arndtstraße (gegenüber Tennisplätzen/alte Rodelbahn) 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                3 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                8 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Frühjahrscrosslauf im Steigerwald findet am Samstag, den 29. März 2025, von 10:00 bis 13:00 Uhr in Erfurt statt und wird vom ASV Erfurt ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

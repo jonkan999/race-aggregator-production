@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Saarl\u00e4ndischen Crossmeisterschaften 2024 finden am Sonntag, den 10. M\u00e4rz 2024 in Lebach statt. Die Veranstaltung wird vom Saarl\u00e4ndischen Leichtathletik-Bund", "distance": "4,5km, 6km", "eventStatus": "Standard", "identifier": "saarlandische_crossmeisterschaften", "image": "/Rennseiten/saarlandische_crossmeisterschaften/saarlandische_crossmeisterschaften_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Lebach", "addressRegion": "Saarland"}, "name": "Lebach"}, "name": "Saarl\u00e4ndische Crossmeisterschaften", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250309"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 24. Zwei-Seen-Panorama-Erlebnislauf findet am 14. April 2024 um 9:30 Uhr in der Gemeinde Nonnweiler statt. Die Veranstaltung bietet eine malerische Strecke ", "distance": "12km, 18km, 32km", "eventStatus": "Standard", "identifier": "zwei_seen_panorama_lauf", "image": "/Rennseiten/zwei_seen_panorama_lauf/zwei_seen_panorama_lauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Nonnweiler", "addressRegion": "Saarland"}, "name": "Nonnweiler"}, "name": "Zwei-Seen Panorama Lauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250413"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Saarl\u00e4ndischen Crossmeisterschaften 2024 finden am Sonntag, den 10. M\u00e4rz 2024 in Lebach statt. Die Veranstaltung wird vom Saarl\u00e4ndischen Leichtathletik-Bund", "distance": "4,5km, 6km", "eventStatus": "Standard", "identifier": "saarlandische_crossmeisterschaften", "image": "/rennseiten/saarlandische_crossmeisterschaften/saarlandische_crossmeisterschaften_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Lebach", "addressRegion": "Saarland"}, "name": "Lebach"}, "name": "Saarl\u00e4ndische Crossmeisterschaften", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250309"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 24. Zwei-Seen-Panorama-Erlebnislauf findet am 14. April 2024 um 9:30 Uhr in der Gemeinde Nonnweiler statt. Die Veranstaltung bietet eine malerische Strecke ", "distance": "12km, 18km, 32km", "eventStatus": "Standard", "identifier": "zwei_seen_panorama_lauf", "image": "/rennseiten/zwei_seen_panorama_lauf/zwei_seen_panorama_lauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Nonnweiler", "addressRegion": "Saarland"}, "name": "Nonnweiler"}, "name": "Zwei-Seen Panorama Lauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250413"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -24,6 +24,8 @@
     />
     <title>Laufwettbewerbe im Saarland: Gelände-Läufe im Laufkalender finden</title>
     <meta name="description" content="Entdecke die besten Gelände-Laufwettbewerbe im Saarland! Finde deinen nächsten Lauf im Laufkalender mit unserer Rennliste – von 5 km bis Marathon und mehr. Laufwettkämpfe & Laufrennen." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -670,14 +672,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: null, &quot;county&quot;: &quot;Saarland&quot;, &quot;race_type&quot;: &quot;Gel\u00e4nde&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: null, \u0026quot;county\u0026quot;: \u0026quot;Saarland\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Gel\\u00e4nde\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/saarlandische_crossmeisterschaften"
-  class="race-card"
+  href="/rennseiten/saarlandische_crossmeisterschaften"
+  class="race-card packed"
   data-name="Saarländische Crossmeisterschaften"
   data-date="20250309"
   data-county="Saarland"
@@ -688,98 +690,24 @@
   data-longitude="6.9045054"
   data-location="Lebach"
   data-description="Die Saarländischen Crossmeisterschaften 2024 finden am Sonntag, den 10. März 2024 in Lebach statt. Die Veranstaltung wird vom Saarländischen"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fsaarlandische_crossmeisterschaften%2Fsaarlandische_crossmeisterschaften_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/saarlandische_crossmeisterschaften/saarlandische_crossmeisterschaften_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="9 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fsaarlandische_crossmeisterschaften%2Fsaarlandische_crossmeisterschaften_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuSaarländische Crossmeisterschaften"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          9 März
-        </div>
-        <div class="race-location">
-          Saarland
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Saarländische Crossmeisterschaften</div>
+    <div class="race-date">
+      9 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Saarländische Crossmeisterschaften</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Lebach 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                4,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                6 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Die Saarländischen Crossmeisterschaften 2024 finden am Sonntag, den 10. März 2024 in Lebach statt. Die Veranstaltung wird vom Saarländischen...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/zwei_seen_panorama_lauf"
-  class="race-card"
+  href="/rennseiten/zwei_seen_panorama_lauf"
+  class="race-card packed"
   data-name="Zwei-Seen Panorama Lauf"
   data-date="20250413"
   data-county="Saarland"
@@ -790,100 +718,20 @@
   data-longitude="6.9635967"
   data-location="Nonnweiler"
   data-description="Der 24. Zwei-Seen-Panorama-Erlebnislauf findet am 14. April 2024 um 9:30 Uhr in der Gemeinde Nonnweiler statt. Die Veranstaltung bietet eine"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fzwei_seen_panorama_lauf%2Fzwei_seen_panorama_lauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/zwei_seen_panorama_lauf/zwei_seen_panorama_lauf_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="13 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fzwei_seen_panorama_lauf%2Fzwei_seen_panorama_lauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuZwei-Seen Panorama Lauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          13 apr.
-        </div>
-        <div class="race-location">
-          Saarland
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Zwei-Seen Panorama Lauf</div>
+    <div class="race-date">
+      13 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Zwei-Seen Panorama Lauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Nonnweiler 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                12 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                18 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                32 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der 24. Zwei-Seen-Panorama-Erlebnislauf findet am 14. April 2024 um 9:30 Uhr in der Gemeinde Nonnweiler statt. Die Veranstaltung bietet eine...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

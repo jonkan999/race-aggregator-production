@@ -25,6 +25,8 @@
     <title>Tänava Jooksuvõistlused Pärnu Maakonnas: Leia Oma Jooksuvõistlus</title>
     <meta name="description" content="Leia parimad tänava jooksuvõistlused Pärnu maakonnas.  Vali oma kategooria, alates 5 km jooksust kuni 100 km ultramaratonini. Jooksuvõistlused, jooksuüritused ja jooksev kalender ühes kohas! Saada kiiremaks jooksjaks!" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -666,14 +668,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: null, &quot;county&quot;: &quot;P\u00e4rnu maakond&quot;, &quot;race_type&quot;: &quot;T\u00e4nava&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: null, \u0026quot;county\u0026quot;: \u0026quot;P\\u00e4rnu maakond\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;T\\u00e4nava\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/narva_linna_jooks"
-  class="race-card"
+  class="race-card packed"
   data-name="Narva Linna Jooks"
   data-date="20250628"
   data-county="Pärnu maakond"
@@ -684,104 +686,24 @@
   data-longitude="25.013607"
   data-location="Joaorus"
   data-description="Narva Linna Jooks toimub 28.-29. juunil 2025. Võistluskeskus asub Joaorus, kus 1. juunil kell 10 antakse start poolmaratonile."
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fnarva_linna_jooks%2Fnarva_linna_jooks_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/narva_linna_jooks/narva_linna_jooks_1.webp?v=1"
   data-type="road"
   data-type-display="Tänava"
   data-date-display="28 juuni"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fnarva_linna_jooks%2Fnarva_linna_jooks_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksNarva Linna Jooks"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          28 juuni
-        </div>
-        <div class="race-location">
-          Pärnu maakond
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Narva Linna Jooks</div>
+    <div class="race-date">
+      28 juuni
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Narva Linna Jooks</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Joaorus 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Poolmaraton
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Tänava
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Narva Linna Jooks toimub 28.-29. juunil 2025. Võistluskeskus asub Joaorus, kus 1. juunil kell 10 antakse start poolmaratonile.
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/parnu_ohtujooks"
-  class="race-card"
+  class="race-card packed"
   data-name="Pärnu Õhtujooks"
   data-date="20250906"
   data-county="Pärnu maakond"
@@ -792,98 +714,24 @@
   data-longitude="24.5018839"
   data-location="Pärnu Keskuse võistluskeskus"
   data-description="Pärnu Õhtujooks ootab rajale kõiki aktiivseid jooksjaid. Stardipauk antakse kell 21.00, luues erilise atmosfääri õhtuhämaruses. Tervet nädal"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fparnu_ohtujooks%2Fparnu_ohtujooks_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/parnu_ohtujooks/parnu_ohtujooks_1.webp?v=1"
   data-type="road"
   data-type-display="Tänava"
   data-date-display="6 sept."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fparnu_ohtujooks%2Fparnu_ohtujooks_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksPärnu Õhtujooks"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          6 sept.
-        </div>
-        <div class="race-location">
-          Pärnu maakond
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Pärnu Õhtujooks</div>
+    <div class="race-date">
+      6 sept.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Pärnu Õhtujooks</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Pärnu Keskuse võistluskeskus 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                3 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Tänava
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Pärnu Õhtujooks ootab rajale kõiki aktiivseid jooksjaid. Stardipauk antakse kell 21.00, luues erilise atmosfääri õhtuhämaruses. Tervet nädal...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/parnu_rannajooks_2"
-  class="race-card"
+  class="race-card packed"
   data-name="Pärnu Rannajooks"
   data-date="20251026"
   data-county="Pärnu maakond"
@@ -894,91 +742,17 @@
   data-longitude="24.5029607"
   data-location="Pärnu Rannastaadion (Ranna pst 2)"
   data-description="Pärnu Rannajooks, mis toimub 27. oktoobril 2024 Pärnu Rannastaadionil, on suurepärane võimalus nautida jooksu, käimist või kepikõndi kaunite"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fparnu_rannajooks_2%2Fparnu_rannajooks_2_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/parnu_rannajooks_2/parnu_rannajooks_2_1.webp?v=1"
   data-type="road"
   data-type-display="Tänava"
   data-date-display="26 okt."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fparnu_rannajooks_2%2Fparnu_rannajooks_2_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksPärnu Rannajooks"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          26 okt.
-        </div>
-        <div class="race-location">
-          Pärnu maakond
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Pärnu Rannajooks</div>
+    <div class="race-date">
+      26 okt.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Pärnu Rannajooks</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Pärnu Rannastaadion (Ranna pst 2) 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Tänava
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Pärnu Rannajooks, mis toimub 27. oktoobril 2024 Pärnu Rannastaadionil, on suurepärane võimalus nautida jooksu, käimist või kepikõndi kaunite...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
     
@@ -995,7 +769,11 @@
           </div>
         </div>
         <div class="race-card-big-container right-scroller">
-              <a
+          
+            
+            
+              
+                <a
   href="/jooksulehed/narva_linna_jooks"
   class="race-card-big race-card"
   data-name="Narva Linna Jooks"
@@ -1009,11 +787,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fnarva_linna_jooks%2Fnarva_linna_jooks_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/narva_linna_jooks/narva_linna_jooks_1.webp?v=1"
         alt="Pilt {x} jaoksNarva Linna Jooks"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1071,7 +851,14 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/jooksulehed/parnu_ohtujooks"
   class="race-card-big race-card"
   data-name="Pärnu Õhtujooks"
@@ -1085,11 +872,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fparnu_ohtujooks%2Fparnu_ohtujooks_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/parnu_ohtujooks/parnu_ohtujooks_1.webp?v=1"
         alt="Pilt {x} jaoksPärnu Õhtujooks"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1141,7 +930,14 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/jooksulehed/parnu_rannajooks_2"
   class="race-card-big race-card"
   data-name="Pärnu Rannajooks"
@@ -1155,11 +951,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fparnu_rannajooks_2%2Fparnu_rannajooks_2_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/parnu_rannajooks_2/parnu_rannajooks_2_1.webp?v=1"
         alt="Pilt {x} jaoksPärnu Rannajooks"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1211,10 +1009,13 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>   
+</a>
+              
+            
+          
         </div>
       </section>
-        
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

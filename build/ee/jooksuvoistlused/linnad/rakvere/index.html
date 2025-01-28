@@ -25,6 +25,8 @@
     <title>Jooksuvõistlused Rakveres: Leia oma järgmine jooks!</title>
     <meta name="description" content="Avasta Rakvere jooksuvõistlused! Leia sobiv jooks Kõik kategooriad (näiteks 5 km, 10 km või Halvmarathon) ja Kõik jooksutüübid (näiteks Tänava, Maastiku või Trail) hulgast. Jooksma Rakveres!" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -669,14 +671,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Rakvere&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Rakvere\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/korvemaa_kevadjooks"
-  class="race-card"
+  class="race-card packed"
   data-name="Kõrvemaa Kevadjooks"
   data-date="20250427"
   data-county="Harju maakond"
@@ -687,104 +689,24 @@
   data-longitude="25.6437508"
   data-location="Oja talu, Pillapalu küla"
   data-description="Kevad piilub vaikselt uksevahelt ja meie saame suurtele ning väikestele jooksusõpradele häid uudiseid tuua! Sportland Kõrvemaa Kevadjooks to"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkorvemaa_kevadjooks%2Fkorvemaa_kevadjooks_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/korvemaa_kevadjooks/korvemaa_kevadjooks_1.webp?v=1"
   data-type="terrain"
   data-type-display="Maastiku"
   data-date-display="27 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkorvemaa_kevadjooks%2Fkorvemaa_kevadjooks_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksKõrvemaa Kevadjooks"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          27 apr.
-        </div>
-        <div class="race-location">
-          Harju maakond
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Kõrvemaa Kevadjooks</div>
+    <div class="race-date">
+      27 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Kõrvemaa Kevadjooks</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Oja talu, Pillapalu küla 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                16 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maastiku
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Kevad piilub vaikselt uksevahelt ja meie saame suurtele ning väikestele jooksusõpradele häid uudiseid tuua! Sportland Kõrvemaa Kevadjooks to...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/kivioli_vagilase_jooks"
-  class="race-card"
+  class="race-card packed"
   data-name="Kiviõli Vägilase Jooks"
   data-date="20250504"
   data-county="Ida-Viru maakond"
@@ -795,98 +717,24 @@
   data-longitude="26.9530726"
   data-location="Kiviõli seikluskeskus"
   data-description="Kiviõli Vägilase Jooks on takistuskross, mis pakub osalejatele seikluslikku ja lõbusat kogemust mudas ja liivas. Võistlus toimub Kiviõli sei"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkivioli_vagilase_jooks%2Fkivioli_vagilase_jooks_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/kivioli_vagilase_jooks/kivioli_vagilase_jooks_1.webp?v=1"
   data-type="terrain"
   data-type-display="Maastiku"
   data-date-display="4 mai"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkivioli_vagilase_jooks%2Fkivioli_vagilase_jooks_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksKiviõli Vägilase Jooks"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          4 mai
-        </div>
-        <div class="race-location">
-          Ida-Viru maakond
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Kiviõli Vägilase Jooks</div>
+    <div class="race-date">
+      4 mai
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Kiviõli Vägilase Jooks</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Kiviõli seikluskeskus 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                4 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                8 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maastiku
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Kiviõli Vägilase Jooks on takistuskross, mis pakub osalejatele seikluslikku ja lõbusat kogemust mudas ja liivas. Võistlus toimub Kiviõli sei...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/kunda_linnajooks"
-  class="race-card"
+  class="race-card packed"
   data-name="Kunda Linnajooks"
   data-date="20250525"
   data-county="Lääne-Viru maakond"
@@ -897,103 +745,185 @@
   data-longitude="26.5144401"
   data-location="Kunda"
   data-description="Kunda Linnajooks toimub 26. mail 2024. Korraldaja on Kunda Spordikeskus, kelle kontaktisik on Ainar Sepnik. Võistluse raames toimuvad erinev"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkunda_linnajooks%2Fkunda_linnajooks_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/kunda_linnajooks/kunda_linnajooks_1.webp?v=1"
   data-type="track"
   data-type-display="Jooksurada"
   data-date-display="25 mai"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkunda_linnajooks%2Fkunda_linnajooks_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksKunda Linnajooks"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          25 mai
-        </div>
-        <div class="race-location">
-          Lääne-Viru maakond
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Kunda Linnajooks</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Kunda 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                0,2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                0,6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                1,8 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                8,8 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Jooksurada
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Kunda Linnajooks toimub 26. mail 2024. Korraldaja on Kunda Spordikeskus, kelle kontaktisik on Ainar Sepnik. Võistluse raames toimuvad erinev...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Kunda Linnajooks</div>
+    <div class="race-date">
+      25 mai
     </div>
   </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/ida_virumaa_ultra"
+  class="race-card packed"
+  data-name="Ida-Virumaa Ultra"
+  data-date="20250607"
+  data-county="Ida-Viru maakond"
+  data-category=""
+  data-race-type="Aja jooksul"
+  data-distance="12km, 24km"
+  data-latitude="59.35694419999999"
+  data-longitude="27.1889301"
+  data-location="Kohtla-Nõmme"
+  data-description="Ida-Virumaa Ultra toimub 8.-9. juunil 2024 Kohtla-Nõmme staadionil, kus põhitegevuseks on 24 tunni jooks. Üritus pakub sportlastele mugavusi"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/ida_virumaa_ultra/ida_virumaa_ultra_1.webp?v=1"
+  data-type="time"
+  data-type-display="Aja jooksul"
+  data-date-display="7 juuni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Ida-Virumaa Ultra</div>
+    <div class="race-date">
+      7 juuni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/eesti_oojooks_rakvere"
+  class="race-card packed"
+  data-name="Eesti Ööjooks - Rakvere"
+  data-date="20250607"
+  data-county="Lääne-Viru maakond"
+  data-category=""
+  data-race-type="Tänava"
+  data-distance="5km, 10km"
+  data-latitude="59.34708469999999"
+  data-longitude="26.3593036"
+  data-location="Rakvere"
+  data-description="Eesti Ööjooks on osavõtjate arvult kolmas rahvaspordiüritus Eestis, mis toimub pimedal ajal. Üritust korraldatakse alates 2011. aasta juunis"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/eesti_oojooks_rakvere/eesti_oojooks_rakvere_1.webp?v=1"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="7 juuni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Eesti Ööjooks - Rakvere</div>
+    <div class="race-date">
+      7 juuni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/sudasuve_challenge_vosu"
+  class="race-card packed"
+  data-name="Südasuve Challenge - Võsu"
+  data-date="20250629"
+  data-county="Lääne-Viru maakond"
+  data-category=""
+  data-race-type="Tänava"
+  data-distance="0,2km, 4km, 10km"
+  data-latitude="59.5788124"
+  data-longitude="25.9610374"
+  data-location="Võsu rand"
+  data-description="Südasuve Challenge – Võsu on kuuendat korda Võsul läbiviidav liikumise sündmus, mis toimub 29. juunil 2025. Rada on avatud 4 ja 10 km distan"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/sudasuve_challenge_vosu/sudasuve_challenge_vosu_1.webp?v=1"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="29 juuni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Südasuve Challenge - Võsu</div>
+    <div class="race-date">
+      29 juuni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/korvemaa_triatlon"
+  class="race-card packed"
+  data-name="Kõrvemaa Triatlon"
+  data-date="20250712"
+  data-county="Harju maakond"
+  data-category=""
+  data-race-type="Maastiku"
+  data-distance="4km, 20km"
+  data-latitude="59.31758430000001"
+  data-longitude="25.6526681"
+  data-location="Sportland Kõrvemaa Matka- ja Suusakeskus"
+  data-description="Sportland Kõrvemaa Triatlon toimub 12. juulil 2025. Distantsiks on 350 m ujumist, 20 km ratast ja 4 km jooksu. Tegemist on kõige suurema maa"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/korvemaa_triatlon/korvemaa_triatlon_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Maastiku"
+  data-date-display="12 juuli"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Kõrvemaa Triatlon</div>
+    <div class="race-date">
+      12 juuli
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/sudasuve_challenge"
+  class="race-card packed"
+  data-name="Südasuve Challenge"
+  data-date="20250713"
+  data-county="Lääne-Viru maakond"
+  data-category=""
+  data-race-type="Tänava"
+  data-distance="0,2km, 4km, 10km"
+  data-latitude="59.574087"
+  data-longitude="25.9700427"
+  data-location="Võsu"
+  data-description="Südasuve Challenge on põnev jooksuvõistlus, mis toimub Võsul 29. juunil 2025. Võistlusel on mitmed distantsid, sealhulgas Cappy lastejooks 0"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/sudasuve_challenge/sudasuve_challenge_1.webp?v=1"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="13 juuli"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Südasuve Challenge</div>
+    <div class="race-date">
+      13 juuli
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/korvemaa_metsajooks"
+  class="race-card packed"
+  data-name="Kõrvemaa Metsajooks"
+  data-date="20250907"
+  data-county="Harju maakond"
+  data-category=""
+  data-race-type="Maastiku"
+  data-distance="1km, 5km, 10km, half marathon"
+  data-latitude="59.31758430000001"
+  data-longitude="25.6526681"
+  data-location="Sportland Kõrvemaa Matka- ja Suusakeskus"
+  data-description="Sportland Kõrvemaa Metsajooks toimub 2024. aastal 18. augustil. Osalejad saavad valida erinevate jooksudistantside vahel, sealhulgas 21 km, "
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/korvemaa_metsajooks/korvemaa_metsajooks_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Maastiku"
+  data-date-display="7 sept."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Kõrvemaa Metsajooks</div>
+    <div class="race-date">
+      7 sept.
+    </div>
   </div>
 </a>
     
@@ -1010,7 +940,11 @@
           </div>
         </div>
         <div class="race-card-big-container right-scroller">
-              <a
+          
+            
+            
+              
+                <a
   href="/jooksulehed/korvemaa_kevadjooks"
   class="race-card-big race-card"
   data-name="Kõrvemaa Kevadjooks"
@@ -1024,11 +958,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkorvemaa_kevadjooks%2Fkorvemaa_kevadjooks_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/korvemaa_kevadjooks/korvemaa_kevadjooks_1.webp?v=1"
         alt="Pilt {x} jaoksKõrvemaa Kevadjooks"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1086,7 +1022,14 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/jooksulehed/kivioli_vagilase_jooks"
   class="race-card-big race-card"
   data-name="Kiviõli Vägilase Jooks"
@@ -1100,11 +1043,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkivioli_vagilase_jooks%2Fkivioli_vagilase_jooks_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/kivioli_vagilase_jooks/kivioli_vagilase_jooks_1.webp?v=1"
         alt="Pilt {x} jaoksKiviõli Vägilase Jooks"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1156,7 +1101,14 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/jooksulehed/kunda_linnajooks"
   class="race-card-big race-card"
   data-name="Kunda Linnajooks"
@@ -1170,11 +1122,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkunda_linnajooks%2Fkunda_linnajooks_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/kunda_linnajooks/kunda_linnajooks_1.webp?v=1"
         alt="Pilt {x} jaoksKunda Linnajooks"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1238,7 +1192,14 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/jooksulehed/ida_virumaa_ultra"
   class="race-card-big race-card"
   data-name="Ida-Virumaa Ultra"
@@ -1252,11 +1213,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fida_virumaa_ultra%2Fida_virumaa_ultra_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/ida_virumaa_ultra/ida_virumaa_ultra_1.webp?v=1"
         alt="Pilt {x} jaoksIda-Virumaa Ultra"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1308,7 +1271,14 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/jooksulehed/eesti_oojooks_rakvere"
   class="race-card-big race-card"
   data-name="Eesti Ööjooks - Rakvere"
@@ -1322,11 +1292,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Feesti_oojooks_rakvere%2Feesti_oojooks_rakvere_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/eesti_oojooks_rakvere/eesti_oojooks_rakvere_1.webp?v=1"
         alt="Pilt {x} jaoksEesti Ööjooks - Rakvere"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1378,178 +1350,13 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>   
+</a>
+              
+            
+          
         </div>
       </section>
-          
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/ida_virumaa_ultra"
-  class="race-card packed"
-  data-name="Ida-Virumaa Ultra"
-  data-date="20250607"
-  data-county="Ida-Viru maakond"
-  data-category=""
-  data-race-type="Aja jooksul"
-  data-distance="12km, 24km"
-  data-latitude="59.35694419999999"
-  data-longitude="27.1889301"
-  data-location="Kohtla-Nõmme"
-  data-description="Ida-Virumaa Ultra toimub 8.-9. juunil 2024 Kohtla-Nõmme staadionil, kus põhitegevuseks on 24 tunni jooks. Üritus pakub sportlastele mugavusi"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fida_virumaa_ultra%2Fida_virumaa_ultra_1.webp?alt=media"
-  data-type="time"
-  data-type-display="Aja jooksul"
-  data-date-display="7 juuni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Ida-Virumaa Ultra</div>
-    <div class="race-date">
-      7 juuni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/eesti_oojooks_rakvere"
-  class="race-card packed"
-  data-name="Eesti Ööjooks - Rakvere"
-  data-date="20250607"
-  data-county="Lääne-Viru maakond"
-  data-category=""
-  data-race-type="Tänava"
-  data-distance="5km, 10km"
-  data-latitude="59.34708469999999"
-  data-longitude="26.3593036"
-  data-location="Rakvere"
-  data-description="Eesti Ööjooks on osavõtjate arvult kolmas rahvaspordiüritus Eestis, mis toimub pimedal ajal. Üritust korraldatakse alates 2011. aasta juunis"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Feesti_oojooks_rakvere%2Feesti_oojooks_rakvere_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Tänava"
-  data-date-display="7 juuni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Eesti Ööjooks - Rakvere</div>
-    <div class="race-date">
-      7 juuni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/sudasuve_challenge_vosu"
-  class="race-card packed"
-  data-name="Südasuve Challenge - Võsu"
-  data-date="20250629"
-  data-county="Lääne-Viru maakond"
-  data-category=""
-  data-race-type="Tänava"
-  data-distance="0,2km, 4km, 10km"
-  data-latitude="59.5788124"
-  data-longitude="25.9610374"
-  data-location="Võsu rand"
-  data-description="Südasuve Challenge – Võsu on kuuendat korda Võsul läbiviidav liikumise sündmus, mis toimub 29. juunil 2025. Rada on avatud 4 ja 10 km distan"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fsudasuve_challenge_vosu%2Fsudasuve_challenge_vosu_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Tänava"
-  data-date-display="29 juuni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Südasuve Challenge - Võsu</div>
-    <div class="race-date">
-      29 juuni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/korvemaa_triatlon"
-  class="race-card packed"
-  data-name="Kõrvemaa Triatlon"
-  data-date="20250712"
-  data-county="Harju maakond"
-  data-category=""
-  data-race-type="Maastiku"
-  data-distance="4km, 20km"
-  data-latitude="59.31758430000001"
-  data-longitude="25.6526681"
-  data-location="Sportland Kõrvemaa Matka- ja Suusakeskus"
-  data-description="Sportland Kõrvemaa Triatlon toimub 12. juulil 2025. Distantsiks on 350 m ujumist, 20 km ratast ja 4 km jooksu. Tegemist on kõige suurema maa"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkorvemaa_triatlon%2Fkorvemaa_triatlon_1.webp?alt=media"
-  data-type="terrain"
-  data-type-display="Maastiku"
-  data-date-display="12 juuli"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Kõrvemaa Triatlon</div>
-    <div class="race-date">
-      12 juuli
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/sudasuve_challenge"
-  class="race-card packed"
-  data-name="Südasuve Challenge"
-  data-date="20250713"
-  data-county="Lääne-Viru maakond"
-  data-category=""
-  data-race-type="Tänava"
-  data-distance="0,2km, 4km, 10km"
-  data-latitude="59.574087"
-  data-longitude="25.9700427"
-  data-location="Võsu"
-  data-description="Südasuve Challenge on põnev jooksuvõistlus, mis toimub Võsul 29. juunil 2025. Võistlusel on mitmed distantsid, sealhulgas Cappy lastejooks 0"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fsudasuve_challenge%2Fsudasuve_challenge_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Tänava"
-  data-date-display="13 juuli"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Südasuve Challenge</div>
-    <div class="race-date">
-      13 juuli
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/korvemaa_metsajooks"
-  class="race-card packed"
-  data-name="Kõrvemaa Metsajooks"
-  data-date="20250907"
-  data-county="Harju maakond"
-  data-category=""
-  data-race-type="Maastiku"
-  data-distance="1km, 5km, 10km, half marathon"
-  data-latitude="59.31758430000001"
-  data-longitude="25.6526681"
-  data-location="Sportland Kõrvemaa Matka- ja Suusakeskus"
-  data-description="Sportland Kõrvemaa Metsajooks toimub 2024. aastal 18. augustil. Osalejad saavad valida erinevate jooksudistantside vahel, sealhulgas 21 km, "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkorvemaa_metsajooks%2Fkorvemaa_metsajooks_1.webp?alt=media"
-  data-type="terrain"
-  data-type-display="Maastiku"
-  data-date-display="7 sept."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Kõrvemaa Metsajooks</div>
-    <div class="race-date">
-      7 sept.
-    </div>
-  </div>
-</a>
-  
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

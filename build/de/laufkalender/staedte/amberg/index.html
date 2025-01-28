@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Oberpfalzmeisterschaften Crosslauf 2024 finden am Sonntag, den 03. M\u00e4rz 2024, in Burglengenfeld statt. Diese Veranstaltung ist Teil der Bezirksmeisterschaft", "distance": "2km, 2,9km", "eventStatus": "Standard", "identifier": "oberpfalz_crosslauf", "image": "/Rennseiten/oberpfalz_crosslauf/oberpfalz_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Gymasiumsportplatz Burglengenfeld", "addressRegion": "Bayern"}, "name": "Gymasiumsportplatz Burglengenfeld"}, "name": "Oberpfalz Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250209"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 32. Wernberger Stra\u00dfenlauf mit Oberpfalzmeisterschaften 10 km ist eine j\u00e4hrliche Breitensportveranstaltung, die am 19. April 2024 in Wernberg-K\u00f6blitz, Deuts", "distance": "1,8km, 3,2km, 10km", "eventStatus": "Standard", "identifier": "wernberger_strassenlauf_10_km", "image": "/Rennseiten/wernberger_strassenlauf_10_km/wernberger_strassenlauf_10_km_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Kirchplatz Unterk\u00f6blitz, 92533 Wernberg-K\u00f6blitz", "addressRegion": "Bayern"}, "name": "Kirchplatz Unterk\u00f6blitz, 92533 Wernberg-K\u00f6blitz"}, "name": "Wernberger Stra\u00dfenlauf 10 km", "sport": "Laufen, Stra\u00dfe", "startDate": "20250411"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Oberpfalzmeisterschaften Crosslauf 2024 finden am Sonntag, den 03. M\u00e4rz 2024, in Burglengenfeld statt. Diese Veranstaltung ist Teil der Bezirksmeisterschaft", "distance": "2km, 2,9km", "eventStatus": "Standard", "identifier": "oberpfalz_crosslauf", "image": "/rennseiten/oberpfalz_crosslauf/oberpfalz_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Gymasiumsportplatz Burglengenfeld", "addressRegion": "Bayern"}, "name": "Gymasiumsportplatz Burglengenfeld"}, "name": "Oberpfalz Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250209"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 32. Wernberger Stra\u00dfenlauf mit Oberpfalzmeisterschaften 10 km ist eine j\u00e4hrliche Breitensportveranstaltung, die am 19. April 2024 in Wernberg-K\u00f6blitz, Deuts", "distance": "1,8km, 3,2km, 10km", "eventStatus": "Standard", "identifier": "wernberger_strassenlauf_10_km", "image": "/rennseiten/wernberger_strassenlauf_10_km/wernberger_strassenlauf_10_km_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Kirchplatz Unterk\u00f6blitz, 92533 Wernberg-K\u00f6blitz", "addressRegion": "Bayern"}, "name": "Kirchplatz Unterk\u00f6blitz, 92533 Wernberg-K\u00f6blitz"}, "name": "Wernberger Stra\u00dfenlauf 10 km", "sport": "Laufen, Stra\u00dfe", "startDate": "20250411"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -24,6 +24,8 @@
     />
     <title>Laufwettbewerbe in Amberg: Rennkalender & Laufliste für alle Distanzen</title>
     <meta name="description" content="Finde deinen nächsten Lauf in Amberg! Unser Laufkalender listet Laufwettkämpfe aller Arten und Distanzen auf – von 5 km bis Marathon, Straße, Trail und mehr. Jetzt entdecken!" />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -648,14 +650,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Amberg&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Amberg\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/oberpfalz_crosslauf"
-  class="race-card"
+  href="/rennseiten/oberpfalz_crosslauf"
+  class="race-card packed"
   data-name="Oberpfalz Crosslauf"
   data-date="20250209"
   data-county="Bayern"
@@ -666,98 +668,24 @@
   data-longitude="12.0417131"
   data-location="Gymasiumsportplatz Burglengenfeld"
   data-description="Die Oberpfalzmeisterschaften Crosslauf 2024 finden am Sonntag, den 03. März 2024, in Burglengenfeld statt. Diese Veranstaltung ist Teil der "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Foberpfalz_crosslauf%2Foberpfalz_crosslauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/oberpfalz_crosslauf/oberpfalz_crosslauf_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="9 Feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Foberpfalz_crosslauf%2Foberpfalz_crosslauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuOberpfalz Crosslauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          9 Feb.
-        </div>
-        <div class="race-location">
-          Bayern
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Oberpfalz Crosslauf</div>
+    <div class="race-date">
+      9 Feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Oberpfalz Crosslauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Gymasiumsportplatz Burglengenfeld 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2,9 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Die Oberpfalzmeisterschaften Crosslauf 2024 finden am Sonntag, den 03. März 2024, in Burglengenfeld statt. Diese Veranstaltung ist Teil der ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/wernberger_strassenlauf_10_km"
-  class="race-card"
+  href="/rennseiten/wernberger_strassenlauf_10_km"
+  class="race-card packed"
   data-name="Wernberger Straßenlauf 10 km"
   data-date="20250411"
   data-county="Bayern"
@@ -768,100 +696,20 @@
   data-longitude="12.1408577"
   data-location="Kirchplatz Unterköblitz, 92533 Wernberg-Köblitz"
   data-description="Der 32. Wernberger Straßenlauf mit Oberpfalzmeisterschaften 10 km ist eine jährliche Breitensportveranstaltung, die am 19. April 2024 in Wer"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fwernberger_strassenlauf_10_km%2Fwernberger_strassenlauf_10_km_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/wernberger_strassenlauf_10_km/wernberger_strassenlauf_10_km_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="11 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fwernberger_strassenlauf_10_km%2Fwernberger_strassenlauf_10_km_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuWernberger Straßenlauf 10 km"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          11 apr.
-        </div>
-        <div class="race-location">
-          Bayern
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Wernberger Straßenlauf 10 km</div>
+    <div class="race-date">
+      11 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Wernberger Straßenlauf 10 km</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Kirchplatz Unterköblitz, 92533 Wernberg-Köblitz 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,8 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                3,2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der 32. Wernberger Straßenlauf mit Oberpfalzmeisterschaften 10 km ist eine jährliche Breitensportveranstaltung, die am 19. April 2024 in Wer...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

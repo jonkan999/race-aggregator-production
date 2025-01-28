@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Gr\u00fcttlauf in L\u00f6rrach ist ein Benefizlauf zugunsten von Leben und Wohnen, der verschiedene Distanzen und Kategorien f\u00fcr L\u00e4ufer aller Altersgruppen bietet. Di", "distance": "2km, 2,5km, 5km, 10km", "eventStatus": "Standard", "identifier": "gruttlauf", "image": "/Rennseiten/gruttlauf/gruttlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Gr\u00fcttstadion, L\u00f6rrach", "addressRegion": "Baden-W\u00fcrttemberg"}, "name": "Gr\u00fcttstadion, L\u00f6rrach"}, "name": "Gr\u00fcttlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250323"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 19. Holzkirchner Marktlauf findet am Sonntag, den 27. Oktober 2024, in Holzkirchen statt und ist ein fester Bestandteil des Laufsports im M\u00fcnchner S\u00fcden. Di", "distance": "1,3km, 5km, 10km", "eventStatus": "Standard", "identifier": "holzkirchner_marktlauf", "image": "/Rennseiten/holzkirchner_marktlauf/holzkirchner_marktlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Marktplatz", "addressRegion": "Baden-W\u00fcrttemberg"}, "name": "Marktplatz"}, "name": "Holzkirchner Marktlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20251026"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Gr\u00fcttlauf in L\u00f6rrach ist ein Benefizlauf zugunsten von Leben und Wohnen, der verschiedene Distanzen und Kategorien f\u00fcr L\u00e4ufer aller Altersgruppen bietet. Di", "distance": "2km, 2,5km, 5km, 10km", "eventStatus": "Standard", "identifier": "gruttlauf", "image": "/rennseiten/gruttlauf/gruttlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Gr\u00fcttstadion, L\u00f6rrach", "addressRegion": "Baden-W\u00fcrttemberg"}, "name": "Gr\u00fcttstadion, L\u00f6rrach"}, "name": "Gr\u00fcttlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250323"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 19. Holzkirchner Marktlauf findet am Sonntag, den 27. Oktober 2024, in Holzkirchen statt und ist ein fester Bestandteil des Laufsports im M\u00fcnchner S\u00fcden. Di", "distance": "1,3km, 5km, 10km", "eventStatus": "Standard", "identifier": "holzkirchner_marktlauf", "image": "/rennseiten/holzkirchner_marktlauf/holzkirchner_marktlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Marktplatz", "addressRegion": "Baden-W\u00fcrttemberg"}, "name": "Marktplatz"}, "name": "Holzkirchner Marktlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20251026"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -20,6 +20,8 @@
     />
     <title>5 km Laufrennen in Lörrach: Straßenlauf Wettkämpfe im Laufkalender finden</title>
     <meta name="description" content="Finde deinen nächsten 5 km Straßenlauf in Lörrach!  Unser Laufkalender mit Laufwettbewerben und Laufwettkämpfen bietet eine übersichtliche Rennliste und Laufliste.  Suche jetzt nach deinem perfekten Laufrennen." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -662,14 +664,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;L\u00f6rrach&quot;, &quot;race_type&quot;: &quot;Stra\u00dfe&quot;, &quot;category&quot;: &quot;5 km&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;L\\u00f6rrach\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Stra\\u00dfe\u0026quot;, \u0026quot;category\u0026quot;: \u0026quot;5 km\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/gruttlauf"
-  class="race-card"
+  href="/rennseiten/gruttlauf"
+  class="race-card packed"
   data-name="Grüttlauf"
   data-date="20250323"
   data-county="Baden-Württemberg"
@@ -680,110 +682,24 @@
   data-longitude="7.663599100000001"
   data-location="Grüttstadion, Lörrach"
   data-description="Der Grüttlauf in Lörrach ist ein Benefizlauf zugunsten von Leben und Wohnen, der verschiedene Distanzen und Kategorien für Läufer aller Alte"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fgruttlauf%2Fgruttlauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/gruttlauf/gruttlauf_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="23 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fgruttlauf%2Fgruttlauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuGrüttlauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          23 März
-        </div>
-        <div class="race-location">
-          Baden-Württemberg
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Grüttlauf</div>
+    <div class="race-date">
+      23 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Grüttlauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Grüttstadion, Lörrach 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Grüttlauf in Lörrach ist ein Benefizlauf zugunsten von Leben und Wohnen, der verschiedene Distanzen und Kategorien für Läufer aller Alte...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/holzkirchner_marktlauf"
-  class="race-card"
+  href="/rennseiten/holzkirchner_marktlauf"
+  class="race-card packed"
   data-name="Holzkirchner Marktlauf"
   data-date="20251026"
   data-county="Baden-Württemberg"
@@ -794,100 +710,20 @@
   data-longitude="7.5812843"
   data-location="Marktplatz"
   data-description="Der 19. Holzkirchner Marktlauf findet am Sonntag, den 27. Oktober 2024, in Holzkirchen statt und ist ein fester Bestandteil des Laufsports i"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fholzkirchner_marktlauf%2Fholzkirchner_marktlauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/holzkirchner_marktlauf/holzkirchner_marktlauf_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="26 okt."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fholzkirchner_marktlauf%2Fholzkirchner_marktlauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuHolzkirchner Marktlauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          26 okt.
-        </div>
-        <div class="race-location">
-          Baden-Württemberg
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Holzkirchner Marktlauf</div>
+    <div class="race-date">
+      26 okt.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Holzkirchner Marktlauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Marktplatz 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,3 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der 19. Holzkirchner Marktlauf findet am Sonntag, den 27. Oktober 2024, in Holzkirchen statt und ist ein fester Bestandteil des Laufsports i...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

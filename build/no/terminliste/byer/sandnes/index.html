@@ -25,6 +25,8 @@
     <title>Løpskalender Sandnes: Finn ditt neste løp!</title>
     <meta name="description" content="Søk i vår løpskalender og finn løpekonkurranser i Sandnes.  Alle kategorier fra 5 km til maraton, ulike løpstyper som Landevei og Trail/Fjelløp, er inkludert.  Finn ditt neste løpeløp i Sandnes! Løpsliste, terminliste løping." />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -683,14 +685,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Sandnes&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Sandnes\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/løpssider/robust_lopet"
-  class="race-card"
+  class="race-card packed"
   data-name="Robust-løpet"
   data-date="20250215"
   data-county="Rogaland"
@@ -701,114 +703,24 @@
   data-longitude="5.6477347"
   data-location="Bryne sentrum"
   data-description="Robust-løpet er et lokalt, kjekt og inkluderende sentrumsløp i hjertet av Bryne, som finner sted lørdag 15. februar 2025. Deltakere kan velg"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Frobust_lopet%2Frobust_lopet_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/robust_lopet/robust_lopet_1.webp?v=1"
   data-type="road"
   data-type-display="Landevei"
   data-date-display="15 feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Frobust_lopet%2Frobust_lopet_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bilde til Robust-løpet"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          15 feb.
-        </div>
-        <div class="race-location">
-          Rogaland
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Robust-løpet</div>
+    <div class="race-date">
+      15 feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Robust-løpet</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Bryne sentrum 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                4 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Landevei
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Robust-løpet er et lokalt, kjekt og inkluderende sentrumsløp i hjertet av Bryne, som finner sted lørdag 15. februar 2025. Deltakere kan velg...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & påmelding</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/løpssider/orremila"
-  class="race-card"
+  class="race-card packed"
   data-name="Orremilå"
   data-date="20250308"
   data-county="Rogaland"
@@ -819,104 +731,24 @@
   data-longitude="5.735793699999999"
   data-location="Håland Kjøtt"
   data-description="Orre Idrettslag arrangerer Pølsemilå i samarbeid med Håland Kjøtt. Pølsemilå 2024 går av stabelen 7. september kl. 14.00, med turmarsjen og "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Forremila%2Forremila_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/orremila/orremila_1.webp?v=1"
   data-type="road"
   data-type-display="Landevei"
   data-date-display="8 mars"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Forremila%2Forremila_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bilde til Orremilå"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          8 mars
-        </div>
-        <div class="race-location">
-          Rogaland
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Orremilå</div>
+    <div class="race-date">
+      8 mars
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Orremilå</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Håland Kjøtt 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                0,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Landevei
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Orre Idrettslag arrangerer Pølsemilå i samarbeid med Håland Kjøtt. Pølsemilå 2024 går av stabelen 7. september kl. 14.00, med turmarsjen og ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & påmelding</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/løpssider/sandnes_backyard"
-  class="race-card"
+  class="race-card packed"
   data-name="Sandnes Backyard"
   data-date="20250315"
   data-county="Rogaland"
@@ -927,91 +759,577 @@
   data-longitude="5.7903974"
   data-location="Sandnes Arena (Melsheia)"
   data-description="Backyard konseptet går ut på å løpe en runde på 6,7 km, eller 4,167 miles, hver time. Sandnes Backyard er ment som et sosialt lavterskel løp"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fsandnes_backyard%2Fsandnes_backyard_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/sandnes_backyard/sandnes_backyard_1.webp?v=1"
   data-type="backyard"
   data-type-display="Backyard Ultra"
   data-date-display="15 mars"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fsandnes_backyard%2Fsandnes_backyard_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bilde til Sandnes Backyard"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          15 mars
-        </div>
-        <div class="race-location">
-          Rogaland
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Sandnes Backyard</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Sandnes Arena (Melsheia) 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                6,7 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                50 miles
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Backyard Ultra
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Backyard konseptet går ut på å løpe en runde på 6,7 km, eller 4,167 miles, hver time. Sandnes Backyard er ment som et sosialt lavterskel løp...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Sandnes Backyard</div>
+    <div class="race-date">
+      15 mars
     </div>
   </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & påmelding</div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løpssider/mortenlopene_terrenglop"
+  class="race-card packed"
+  data-name="Mortenløpene Terrengløp"
+  data-date="20250329"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Terreng"
+  data-distance="1km, 2km, 5km, 10km"
+  data-latitude="58.7520822"
+  data-longitude="5.6912682"
+  data-location="Njåskogen, Bryne"
+  data-description="Gjesdal idrettslag inviterer til Mortenløpene 2024 med innlagt Kretsmesterskap i Terrengløp. Løpet finner sted 6. april klokken 13:00 i Njås"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/mortenlopene_terrenglop/mortenlopene_terrenglop_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terreng"
+  data-date-display="29 mars"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Mortenløpene Terrengløp</div>
+    <div class="race-date">
+      29 mars
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løpssider/sandtangstafetten"
+  class="race-card packed"
+  data-name="Sandtangstafetten"
+  data-date="20250403"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Stafett"
+  data-distance="7km, 10km, 11km"
+  data-latitude="58.73579299999999"
+  data-longitude="5.6477347"
+  data-location="Bryne"
+  data-description="Årets Sandtangstafett går torsdag 4.4 kl 18:00 på Bryne. I 2023 var det 40 påmeldte lag, så det kan lønne seg å komme 45 minutter før start."
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/sandtangstafetten/sandtangstafetten_1.webp?v=1"
+  data-type="relay"
+  data-type-display="Stafett"
+  data-date-display="3 apr."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Sandtangstafetten</div>
+    <div class="race-date">
+      3 apr.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løpssider/parklopet"
+  class="race-card packed"
+  data-name="Parkløpet"
+  data-date="20250405"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Landevei"
+  data-distance="2,0km, 7km"
+  data-latitude="58.84138890000001"
+  data-longitude="5.73"
+  data-location="Sandvedparken"
+  data-description="Parkløpet er et tradisjonsrikt løp som arrangeres av Idrettslaget Skjalg, og finner sted i naturskjønne omgivelser i Sandvedparken. Løpet gi"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/parklopet/parklopet_1.webp?v=1"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="5 apr."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Parkløpet</div>
+    <div class="race-date">
+      5 apr.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løpssider/halandsvannet_halvmaraton"
+  class="race-card packed"
+  data-name="Hålandsvannet Halvmaraton"
+  data-date="20250412"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Landevei"
+  data-distance="7km, 14km, half marathon"
+  data-latitude="58.99967460000001"
+  data-longitude="5.6187068"
+  data-location="Randaberg"
+  data-description="Hålandsvannet Halvmaraton er et mosjonsløp for alle, hvor du kan velge å løpe én, to eller tre runder rundt det vakre Hålandsvannet. Arrange"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/halandsvannet_halvmaraton/halandsvannet_halvmaraton_1.webp?v=1"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="12 apr."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Hålandsvannet Halvmaraton</div>
+    <div class="race-date">
+      12 apr.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løpssider/algardstafetten"
+  class="race-card packed"
+  data-name="Ålgårdstafetten"
+  data-date="20250424"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Stafett"
+  data-distance="5,5km"
+  data-latitude="58.8353384"
+  data-longitude="6.312727199999999"
+  data-location="Gjesdal"
+  data-description="Ålgårdstafetten er en årlig stafett som arrangeres av Gjesdal Idrettslag. Løpet har en variert og spennende trase, som tar deltakerne gjenno"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/algardstafetten/algardstafetten_1.webp?v=1"
+  data-type="relay"
+  data-type-display="Stafett"
+  data-date-display="24 apr."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Ålgårdstafetten</div>
+    <div class="race-date">
+      24 apr.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løpssider/sandnes_ultratrail"
+  class="race-card packed"
+  data-name="Sandnes Ultratrail"
+  data-date="20250425"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Trail/Fjelløp"
+  data-distance="10km, 23km, marathon, 50 miles, 100 miles"
+  data-latitude="58.8568282"
+  data-longitude="5.8577941"
+  data-location="Alsvik Natursenter"
+  data-description="Sandnes Ultratrail ble startet i 2021 og tilbyr distanser på 100 miles, 50 miles, 43 km, 23 km, 10 km og barneløp. Løypene går gjennom vakke"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/sandnes_ultratrail/sandnes_ultratrail_1.webp?v=1"
+  data-type="trail"
+  data-type-display="Trail/Fjelløp"
+  data-date-display="25 apr."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Sandnes Ultratrail</div>
+    <div class="race-date">
+      25 apr.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løpssider/siddislopet_gule_banken"
+  class="race-card packed"
+  data-name="Siddisløpet - Gule Banken"
+  data-date="20250426"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Landevei"
+  data-distance="8,1km"
+  data-latitude="58.9640418"
+  data-longitude="5.6668891"
+  data-location="Stokkavannet"
+  data-description="Velkommen til Siddisløpet - Den Gule Banken Løpet, som finner sted lørdag 27. april 2024. Siddisløpet arrangeres av IL Skjalg og har blitt e"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/siddislopet_gule_banken/siddislopet_gule_banken_1.webp?v=1"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="26 apr."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Siddisløpet - Gule Banken</div>
+    <div class="race-date">
+      26 apr.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løpssider/berselopet"
+  class="race-card packed"
+  data-name="Berseløpet"
+  data-date="20250427"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Terreng"
+  data-distance=""
+  data-latitude="58.6383562"
+  data-longitude="6.089258900000001"
+  data-location="Bjerkreim"
+  data-description="Løpere fra Undheim og Egersund dominerte da det tradisjonsrike "Berseløpet" ble avviklet søndag i Bjerkreim. Rundt 100 deltakere deltok, og "
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/berselopet/berselopet_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terreng"
+  data-date-display="27 apr."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Berseløpet</div>
+    <div class="race-date">
+      27 apr.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løpssider/sabbalopet"
+  class="race-card packed"
+  data-name="Sabbaløpet"
+  data-date="20250501"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Landevei"
+  data-distance="8,3km"
+  data-latitude="59.2868091"
+  data-longitude="5.2458361"
+  data-location="Storhall Karmøy"
+  data-description="Sabbaløpet er et 8,3 km langt mosjonsløp gjennom Veavågen – med start og målgang i Storhall Karmøy. Dette løpet gir deltakerne muligheten ti"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/sabbalopet/sabbalopet_1.webp?v=1"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="1 mai"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Sabbaløpet</div>
+    <div class="race-date">
+      1 mai
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løpssider/strandamila"
+  class="race-card packed"
+  data-name="Strandamilå"
+  data-date="20250501"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Landevei"
+  data-distance="10km"
+  data-latitude="59.0274138"
+  data-longitude="6.0306975"
+  data-location="Jørpeland Flerbrukshall"
+  data-description="Strandamilå 1. mai 2024 er en 10 kilometer lang løpsbegivenhet som markerer den 44. gangen løpet blir arrangert. Siden 1980 har Strandamilå "
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/strandamila/strandamila_1.webp?v=1"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="1 mai"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Strandamilå</div>
+    <div class="race-date">
+      1 mai
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løpssider/lysefjorden_inn_ultra"
+  class="race-card packed"
+  data-name="Lysefjorden Inn Ultra"
+  data-date="20250607"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Terreng"
+  data-distance="62km"
+  data-latitude="58.9699756"
+  data-longitude="5.7331073"
+  data-location="Stavanger"
+  data-description="Lysefjorden Inn Ultramarathon ligger i Ryfylke i Rogaland, med Stavanger som nærmeste storby. Dette spektakulære ultramaratonet tar deg gjen"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/lysefjorden_inn_ultra/lysefjorden_inn_ultra_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terreng"
+  data-date-display="7 juni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Lysefjorden Inn Ultra</div>
+    <div class="race-date">
+      7 juni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løpssider/froylandsvatnet_rundt"
+  class="race-card packed"
+  data-name="Frøylandsvatnet Rundt"
+  data-date="20250614"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Landevei"
+  data-distance="10km, 16,5km"
+  data-latitude="58.77106859999999"
+  data-longitude="5.7242897"
+  data-location="Kvernaland"
+  data-description="Rundt Frøylandsvannet er en 16.54 km lang løperute som tilbyr en naturskjønn opplevelse. Ruten er perfekt for både trening og konkurranse, o"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/froylandsvatnet_rundt/froylandsvatnet_rundt_1.webp?v=1"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="14 juni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Frøylandsvatnet Rundt</div>
+    <div class="race-date">
+      14 juni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løpssider/trolljegerproven_sandnes"
+  class="race-card packed"
+  data-name="Trolljegerprøven Sandnes"
+  data-date="20250614"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Terreng"
+  data-distance="8km"
+  data-latitude="58.80402369999999"
+  data-longitude="5.7300865"
+  data-location="Kvernelandsveien 126, 4323 Sandnes"
+  data-description="Trolljegerprøven er Norges råeste terrenghinderløp med fokus på samarbeid og mestring, som hjelper deg å bli et sterkere og bedre menneske b"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/trolljegerproven_sandnes/trolljegerproven_sandnes_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terreng"
+  data-date-display="14 juni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Trolljegerprøven Sandnes</div>
+    <div class="race-date">
+      14 juni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løpssider/solnedgangen"
+  class="race-card packed"
+  data-name="Solnedgangen"
+  data-date="20250618"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Landevei"
+  data-distance="5km"
+  data-latitude="58.88498569999999"
+  data-longitude="5.6048442"
+  data-location="Sola Strand hotel"
+  data-description="Stavanger Sunset Marathon (Solnedgangen) er et løp som avholdes hvert år i september. Løpet inkluderer en rask 5 km løype og en turmarsj, me"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/solnedgangen/solnedgangen_1.webp?v=1"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="18 juni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Solnedgangen</div>
+    <div class="race-date">
+      18 juni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løpssider/solnedgangen_2"
+  class="race-card packed"
+  data-name="Solnedgangen"
+  data-date="20250628"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Landevei"
+  data-distance="5km"
+  data-latitude="58.88498569999999"
+  data-longitude="5.6048442"
+  data-location="Sola Strand Hotel"
+  data-description="Stavanger Sunset Marathon (Solnedgangen) er et løp som avholdes hvert år i september. Løpet tilbyr en rask 5 km-løype og en turmarsj, med st"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/solnedgangen_2/solnedgangen_2_1.webp?v=1"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="28 juni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Solnedgangen</div>
+    <div class="race-date">
+      28 juni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løpssider/preikestolen_trailrun"
+  class="race-card packed"
+  data-name="Preikestolen Trailrun"
+  data-date="20250725"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Terreng"
+  data-distance="9km, 20km"
+  data-latitude="59.0241523"
+  data-longitude="6.043277"
+  data-location="Jørpeland"
+  data-description="Gjør deg klar for et uforglemmelig eventyr på Preikestolen Trailrun, arrangert av Rockman lørdag 5. juli 2025, i den fantastiske lokasjonen "
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/preikestolen_trailrun/preikestolen_trailrun_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terreng"
+  data-date-display="25 juli"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Preikestolen Trailrun</div>
+    <div class="race-date">
+      25 juli
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løpssider/jordbaerdilten"
+  class="race-card packed"
+  data-name="Jordbærdilten"
+  data-date="20250726"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Annet"
+  data-distance="3,2km"
+  data-latitude="58.8468631"
+  data-longitude="5.7288222"
+  data-location="rådhusmarka"
+  data-description="Jordbærdilten og minidilten er to separate løp som finner sted i Valldal. Minidilten starter kl 14.45, mens Jordbærdilten starter kl 15.30. "
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/jordbaerdilten/jordbaerdilten_1.webp?v=1"
+  data-type="other"
+  data-type-display="Annet"
+  data-date-display="26 juli"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Jordbærdilten</div>
+    <div class="race-date">
+      26 juli
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løpssider/strandmila"
+  class="race-card packed"
+  data-name="Strandmila"
+  data-date="20250914"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Landevei"
+  data-distance="5km, 10km, half marathon"
+  data-latitude="59.0647006"
+  data-longitude="5.9223102"
+  data-location="4120 Tau"
+  data-description="Strandmila 1. mai 2024. Påmeldingen har åpnet! Sett av noen timer den 15. september til en flott opplevelse i Tau. Vi er utrolig fornøyd med"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/strandmila/strandmila_1.webp?v=1"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="14 sep."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Strandmila</div>
+    <div class="race-date">
+      14 sep.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løpssider/gjesdalmila"
+  class="race-card packed"
+  data-name="Gjesdalmilå"
+  data-date="20250921"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Landevei"
+  data-distance="5km, 10km"
+  data-latitude="58.77045399999999"
+  data-longitude="5.955948299999999"
+  data-location="Gjesdal IL sin friidrettsstadion"
+  data-description="Gjesdalmilå, Ålgård, er høstens vakreste eventyr! Løpet starter mellom Gjesdal IL sin friidrettsstadion og Ålgård Fotballklubb sitt trenings"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/gjesdalmila/gjesdalmila_1.webp?v=1"
+  data-type="road"
+  data-type-display="Landevei"
+  data-date-display="21 sep."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Gjesdalmilå</div>
+    <div class="race-date">
+      21 sep.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løpssider/gjesdal_trailrun"
+  class="race-card packed"
+  data-name="Gjesdal Trailrun"
+  data-date="20251019"
+  data-county="Rogaland"
+  data-category=""
+  data-race-type="Terreng"
+  data-distance="1km, 6km, 10km"
+  data-latitude="58.8887958"
+  data-longitude="5.6530475"
+  data-location="Gjesdal IL sitt friidrettsanlegg på Solås"
+  data-description="Gjesdal il inviterer til Gjesdal Trailrun, et ekte terrengløp/mosjonsløp med utgangspunkt fra Gjesdal IL sitt nye flotte friidrettsanlegg på"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/gjesdal_trailrun/gjesdal_trailrun_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terreng"
+  data-date-display="19 okt."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Gjesdal Trailrun</div>
+    <div class="race-date">
+      19 okt.
+    </div>
   </div>
 </a>
     
@@ -1028,7 +1346,11 @@
           </div>
         </div>
         <div class="race-card-big-container right-scroller">
-              <a
+          
+            
+            
+              
+                <a
   href="/løpssider/robust_lopet"
   class="race-card-big race-card"
   data-name="Robust-løpet"
@@ -1042,11 +1364,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Frobust_lopet%2Frobust_lopet_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/robust_lopet/robust_lopet_1.webp?v=1"
         alt="Bilde til Robust-løpet"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1120,7 +1444,14 @@
       <div class="more-info-button">Til løpssiden</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/løpssider/orremila"
   class="race-card-big race-card"
   data-name="Orremilå"
@@ -1134,11 +1465,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Forremila%2Forremila_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/orremila/orremila_1.webp?v=1"
         alt="Bilde til Orremilå"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1196,7 +1529,14 @@
       <div class="more-info-button">Til løpssiden</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/løpssider/sandnes_backyard"
   class="race-card-big race-card"
   data-name="Sandnes Backyard"
@@ -1210,11 +1550,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fsandnes_backyard%2Fsandnes_backyard_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/sandnes_backyard/sandnes_backyard_1.webp?v=1"
         alt="Bilde til Sandnes Backyard"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1266,7 +1608,14 @@
       <div class="more-info-button">Til løpssiden</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/løpssider/mortenlopene_terrenglop"
   class="race-card-big race-card"
   data-name="Mortenløpene Terrengløp"
@@ -1280,11 +1629,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fmortenlopene_terrenglop%2Fmortenlopene_terrenglop_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/mortenlopene_terrenglop/mortenlopene_terrenglop_1.webp?v=1"
         alt="Bilde til Mortenløpene Terrengløp"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1348,7 +1699,14 @@
       <div class="more-info-button">Til løpssiden</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/løpssider/sandtangstafetten"
   class="race-card-big race-card"
   data-name="Sandtangstafetten"
@@ -1362,11 +1720,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fsandtangstafetten%2Fsandtangstafetten_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/no/sandtangstafetten/sandtangstafetten_1.webp?v=1"
         alt="Bilde til Sandtangstafetten"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1424,570 +1784,13 @@
       <div class="more-info-button">Til løpssiden</div>
     </div>
   </div>
-</a>   
+</a>
+              
+            
+          
         </div>
       </section>
-          
-<!-- Packed version for remaining cards -->
-<a
-  href="/løpssider/mortenlopene_terrenglop"
-  class="race-card packed"
-  data-name="Mortenløpene Terrengløp"
-  data-date="20250329"
-  data-county="Rogaland"
-  data-category=""
-  data-race-type="Terreng"
-  data-distance="1km, 2km, 5km, 10km"
-  data-latitude="58.7520822"
-  data-longitude="5.6912682"
-  data-location="Njåskogen, Bryne"
-  data-description="Gjesdal idrettslag inviterer til Mortenløpene 2024 med innlagt Kretsmesterskap i Terrengløp. Løpet finner sted 6. april klokken 13:00 i Njås"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fmortenlopene_terrenglop%2Fmortenlopene_terrenglop_1.webp?alt=media"
-  data-type="terrain"
-  data-type-display="Terreng"
-  data-date-display="29 mars"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Mortenløpene Terrengløp</div>
-    <div class="race-date">
-      29 mars
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løpssider/sandtangstafetten"
-  class="race-card packed"
-  data-name="Sandtangstafetten"
-  data-date="20250403"
-  data-county="Rogaland"
-  data-category=""
-  data-race-type="Stafett"
-  data-distance="7km, 10km, 11km"
-  data-latitude="58.73579299999999"
-  data-longitude="5.6477347"
-  data-location="Bryne"
-  data-description="Årets Sandtangstafett går torsdag 4.4 kl 18:00 på Bryne. I 2023 var det 40 påmeldte lag, så det kan lønne seg å komme 45 minutter før start."
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fsandtangstafetten%2Fsandtangstafetten_1.webp?alt=media"
-  data-type="relay"
-  data-type-display="Stafett"
-  data-date-display="3 apr."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Sandtangstafetten</div>
-    <div class="race-date">
-      3 apr.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løpssider/parklopet"
-  class="race-card packed"
-  data-name="Parkløpet"
-  data-date="20250405"
-  data-county="Rogaland"
-  data-category=""
-  data-race-type="Landevei"
-  data-distance="2,0km, 7km"
-  data-latitude="58.84138890000001"
-  data-longitude="5.73"
-  data-location="Sandvedparken"
-  data-description="Parkløpet er et tradisjonsrikt løp som arrangeres av Idrettslaget Skjalg, og finner sted i naturskjønne omgivelser i Sandvedparken. Løpet gi"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fparklopet%2Fparklopet_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Landevei"
-  data-date-display="5 apr."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Parkløpet</div>
-    <div class="race-date">
-      5 apr.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løpssider/halandsvannet_halvmaraton"
-  class="race-card packed"
-  data-name="Hålandsvannet Halvmaraton"
-  data-date="20250412"
-  data-county="Rogaland"
-  data-category=""
-  data-race-type="Landevei"
-  data-distance="7km, 14km, half marathon"
-  data-latitude="58.99967460000001"
-  data-longitude="5.6187068"
-  data-location="Randaberg"
-  data-description="Hålandsvannet Halvmaraton er et mosjonsløp for alle, hvor du kan velge å løpe én, to eller tre runder rundt det vakre Hålandsvannet. Arrange"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fhalandsvannet_halvmaraton%2Fhalandsvannet_halvmaraton_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Landevei"
-  data-date-display="12 apr."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Hålandsvannet Halvmaraton</div>
-    <div class="race-date">
-      12 apr.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løpssider/algardstafetten"
-  class="race-card packed"
-  data-name="Ålgårdstafetten"
-  data-date="20250424"
-  data-county="Rogaland"
-  data-category=""
-  data-race-type="Stafett"
-  data-distance="5,5km"
-  data-latitude="58.8353384"
-  data-longitude="6.312727199999999"
-  data-location="Gjesdal"
-  data-description="Ålgårdstafetten er en årlig stafett som arrangeres av Gjesdal Idrettslag. Løpet har en variert og spennende trase, som tar deltakerne gjenno"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Falgardstafetten%2Falgardstafetten_1.webp?alt=media"
-  data-type="relay"
-  data-type-display="Stafett"
-  data-date-display="24 apr."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Ålgårdstafetten</div>
-    <div class="race-date">
-      24 apr.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løpssider/sandnes_ultratrail"
-  class="race-card packed"
-  data-name="Sandnes Ultratrail"
-  data-date="20250425"
-  data-county="Rogaland"
-  data-category=""
-  data-race-type="Trail/Fjelløp"
-  data-distance="10km, 23km, marathon, 50 miles, 100 miles"
-  data-latitude="58.8568282"
-  data-longitude="5.8577941"
-  data-location="Alsvik Natursenter"
-  data-description="Sandnes Ultratrail ble startet i 2021 og tilbyr distanser på 100 miles, 50 miles, 43 km, 23 km, 10 km og barneløp. Løypene går gjennom vakke"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fsandnes_ultratrail%2Fsandnes_ultratrail_1.webp?alt=media"
-  data-type="trail"
-  data-type-display="Trail/Fjelløp"
-  data-date-display="25 apr."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Sandnes Ultratrail</div>
-    <div class="race-date">
-      25 apr.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løpssider/siddislopet_gule_banken"
-  class="race-card packed"
-  data-name="Siddisløpet - Gule Banken"
-  data-date="20250426"
-  data-county="Rogaland"
-  data-category=""
-  data-race-type="Landevei"
-  data-distance="8,1km"
-  data-latitude="58.9640418"
-  data-longitude="5.6668891"
-  data-location="Stokkavannet"
-  data-description="Velkommen til Siddisløpet - Den Gule Banken Løpet, som finner sted lørdag 27. april 2024. Siddisløpet arrangeres av IL Skjalg og har blitt e"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fsiddislopet_gule_banken%2Fsiddislopet_gule_banken_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Landevei"
-  data-date-display="26 apr."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Siddisløpet - Gule Banken</div>
-    <div class="race-date">
-      26 apr.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løpssider/berselopet"
-  class="race-card packed"
-  data-name="Berseløpet"
-  data-date="20250427"
-  data-county="Rogaland"
-  data-category=""
-  data-race-type="Terreng"
-  data-distance=""
-  data-latitude="58.6383562"
-  data-longitude="6.089258900000001"
-  data-location="Bjerkreim"
-  data-description="Løpere fra Undheim og Egersund dominerte da det tradisjonsrike "Berseløpet" ble avviklet søndag i Bjerkreim. Rundt 100 deltakere deltok, og "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fberselopet%2Fberselopet_1.webp?alt=media"
-  data-type="terrain"
-  data-type-display="Terreng"
-  data-date-display="27 apr."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Berseløpet</div>
-    <div class="race-date">
-      27 apr.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løpssider/sabbalopet"
-  class="race-card packed"
-  data-name="Sabbaløpet"
-  data-date="20250501"
-  data-county="Rogaland"
-  data-category=""
-  data-race-type="Landevei"
-  data-distance="8,3km"
-  data-latitude="59.2868091"
-  data-longitude="5.2458361"
-  data-location="Storhall Karmøy"
-  data-description="Sabbaløpet er et 8,3 km langt mosjonsløp gjennom Veavågen – med start og målgang i Storhall Karmøy. Dette løpet gir deltakerne muligheten ti"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fsabbalopet%2Fsabbalopet_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Landevei"
-  data-date-display="1 mai"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Sabbaløpet</div>
-    <div class="race-date">
-      1 mai
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løpssider/strandamila"
-  class="race-card packed"
-  data-name="Strandamilå"
-  data-date="20250501"
-  data-county="Rogaland"
-  data-category=""
-  data-race-type="Landevei"
-  data-distance="10km"
-  data-latitude="59.0274138"
-  data-longitude="6.0306975"
-  data-location="Jørpeland Flerbrukshall"
-  data-description="Strandamilå 1. mai 2024 er en 10 kilometer lang løpsbegivenhet som markerer den 44. gangen løpet blir arrangert. Siden 1980 har Strandamilå "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fstrandamila%2Fstrandamila_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Landevei"
-  data-date-display="1 mai"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Strandamilå</div>
-    <div class="race-date">
-      1 mai
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løpssider/lysefjorden_inn_ultra"
-  class="race-card packed"
-  data-name="Lysefjorden Inn Ultra"
-  data-date="20250607"
-  data-county="Rogaland"
-  data-category=""
-  data-race-type="Terreng"
-  data-distance="62km"
-  data-latitude="58.9699756"
-  data-longitude="5.7331073"
-  data-location="Stavanger"
-  data-description="Lysefjorden Inn Ultramarathon ligger i Ryfylke i Rogaland, med Stavanger som nærmeste storby. Dette spektakulære ultramaratonet tar deg gjen"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Flysefjorden_inn_ultra%2Flysefjorden_inn_ultra_1.webp?alt=media"
-  data-type="terrain"
-  data-type-display="Terreng"
-  data-date-display="7 juni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Lysefjorden Inn Ultra</div>
-    <div class="race-date">
-      7 juni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løpssider/froylandsvatnet_rundt"
-  class="race-card packed"
-  data-name="Frøylandsvatnet Rundt"
-  data-date="20250614"
-  data-county="Rogaland"
-  data-category=""
-  data-race-type="Landevei"
-  data-distance="10km, 16,5km"
-  data-latitude="58.77106859999999"
-  data-longitude="5.7242897"
-  data-location="Kvernaland"
-  data-description="Rundt Frøylandsvannet er en 16.54 km lang løperute som tilbyr en naturskjønn opplevelse. Ruten er perfekt for både trening og konkurranse, o"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Ffroylandsvatnet_rundt%2Ffroylandsvatnet_rundt_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Landevei"
-  data-date-display="14 juni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Frøylandsvatnet Rundt</div>
-    <div class="race-date">
-      14 juni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løpssider/trolljegerproven_sandnes"
-  class="race-card packed"
-  data-name="Trolljegerprøven Sandnes"
-  data-date="20250614"
-  data-county="Rogaland"
-  data-category=""
-  data-race-type="Terreng"
-  data-distance="8km"
-  data-latitude="58.80402369999999"
-  data-longitude="5.7300865"
-  data-location="Kvernelandsveien 126, 4323 Sandnes"
-  data-description="Trolljegerprøven er Norges råeste terrenghinderløp med fokus på samarbeid og mestring, som hjelper deg å bli et sterkere og bedre menneske b"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Ftrolljegerproven_sandnes%2Ftrolljegerproven_sandnes_1.webp?alt=media"
-  data-type="terrain"
-  data-type-display="Terreng"
-  data-date-display="14 juni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Trolljegerprøven Sandnes</div>
-    <div class="race-date">
-      14 juni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løpssider/solnedgangen"
-  class="race-card packed"
-  data-name="Solnedgangen"
-  data-date="20250618"
-  data-county="Rogaland"
-  data-category=""
-  data-race-type="Landevei"
-  data-distance="5km"
-  data-latitude="58.88498569999999"
-  data-longitude="5.6048442"
-  data-location="Sola Strand hotel"
-  data-description="Stavanger Sunset Marathon (Solnedgangen) er et løp som avholdes hvert år i september. Løpet inkluderer en rask 5 km løype og en turmarsj, me"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fsolnedgangen%2Fsolnedgangen_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Landevei"
-  data-date-display="18 juni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Solnedgangen</div>
-    <div class="race-date">
-      18 juni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løpssider/solnedgangen_2"
-  class="race-card packed"
-  data-name="Solnedgangen"
-  data-date="20250628"
-  data-county="Rogaland"
-  data-category=""
-  data-race-type="Landevei"
-  data-distance="5km"
-  data-latitude="58.88498569999999"
-  data-longitude="5.6048442"
-  data-location="Sola Strand Hotel"
-  data-description="Stavanger Sunset Marathon (Solnedgangen) er et løp som avholdes hvert år i september. Løpet tilbyr en rask 5 km-løype og en turmarsj, med st"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fsolnedgangen_2%2Fsolnedgangen_2_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Landevei"
-  data-date-display="28 juni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Solnedgangen</div>
-    <div class="race-date">
-      28 juni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løpssider/preikestolen_trailrun"
-  class="race-card packed"
-  data-name="Preikestolen Trailrun"
-  data-date="20250725"
-  data-county="Rogaland"
-  data-category=""
-  data-race-type="Terreng"
-  data-distance="9km, 20km"
-  data-latitude="59.0241523"
-  data-longitude="6.043277"
-  data-location="Jørpeland"
-  data-description="Gjør deg klar for et uforglemmelig eventyr på Preikestolen Trailrun, arrangert av Rockman lørdag 5. juli 2025, i den fantastiske lokasjonen "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fpreikestolen_trailrun%2Fpreikestolen_trailrun_1.webp?alt=media"
-  data-type="terrain"
-  data-type-display="Terreng"
-  data-date-display="25 juli"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Preikestolen Trailrun</div>
-    <div class="race-date">
-      25 juli
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løpssider/jordbaerdilten"
-  class="race-card packed"
-  data-name="Jordbærdilten"
-  data-date="20250726"
-  data-county="Rogaland"
-  data-category=""
-  data-race-type="Annet"
-  data-distance="3,2km"
-  data-latitude="58.8468631"
-  data-longitude="5.7288222"
-  data-location="rådhusmarka"
-  data-description="Jordbærdilten og minidilten er to separate løp som finner sted i Valldal. Minidilten starter kl 14.45, mens Jordbærdilten starter kl 15.30. "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fjordbaerdilten%2Fjordbaerdilten_1.webp?alt=media"
-  data-type="other"
-  data-type-display="Annet"
-  data-date-display="26 juli"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Jordbærdilten</div>
-    <div class="race-date">
-      26 juli
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løpssider/strandmila"
-  class="race-card packed"
-  data-name="Strandmila"
-  data-date="20250914"
-  data-county="Rogaland"
-  data-category=""
-  data-race-type="Landevei"
-  data-distance="5km, 10km, half marathon"
-  data-latitude="59.0647006"
-  data-longitude="5.9223102"
-  data-location="4120 Tau"
-  data-description="Strandmila 1. mai 2024. Påmeldingen har åpnet! Sett av noen timer den 15. september til en flott opplevelse i Tau. Vi er utrolig fornøyd med"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fstrandmila%2Fstrandmila_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Landevei"
-  data-date-display="14 sep."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Strandmila</div>
-    <div class="race-date">
-      14 sep.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løpssider/gjesdalmila"
-  class="race-card packed"
-  data-name="Gjesdalmilå"
-  data-date="20250921"
-  data-county="Rogaland"
-  data-category=""
-  data-race-type="Landevei"
-  data-distance="5km, 10km"
-  data-latitude="58.77045399999999"
-  data-longitude="5.955948299999999"
-  data-location="Gjesdal IL sin friidrettsstadion"
-  data-description="Gjesdalmilå, Ålgård, er høstens vakreste eventyr! Løpet starter mellom Gjesdal IL sin friidrettsstadion og Ålgård Fotballklubb sitt trenings"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fgjesdalmila%2Fgjesdalmila_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Landevei"
-  data-date-display="21 sep."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Gjesdalmilå</div>
-    <div class="race-date">
-      21 sep.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løpssider/gjesdal_trailrun"
-  class="race-card packed"
-  data-name="Gjesdal Trailrun"
-  data-date="20251019"
-  data-county="Rogaland"
-  data-category=""
-  data-race-type="Terreng"
-  data-distance="1km, 6km, 10km"
-  data-latitude="58.8887958"
-  data-longitude="5.6530475"
-  data-location="Gjesdal IL sitt friidrettsanlegg på Solås"
-  data-description="Gjesdal il inviterer til Gjesdal Trailrun, et ekte terrengløp/mosjonsløp med utgangspunkt fra Gjesdal IL sitt nye flotte friidrettsanlegg på"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fno%2Fgjesdal_trailrun%2Fgjesdal_trailrun_1.webp?alt=media"
-  data-type="terrain"
-  data-type-display="Terreng"
-  data-date-display="19 okt."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Gjesdal Trailrun</div>
-    <div class="race-date">
-      19 okt.
-    </div>
-  </div>
-</a>
-  
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

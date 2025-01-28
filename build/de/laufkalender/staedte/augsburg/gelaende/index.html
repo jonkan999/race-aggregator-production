@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Bayerischen Kreiscrosslaufmeisterschaften finden am Sonntag, den 05. M\u00e4rz 2023, in Markt Indersdorf statt und werden vom Bayerischen Leichtathletik-Verband ", "distance": null, "eventStatus": "Standard", "identifier": "bayerische_kreiscrosslaufmeisterschaften", "image": "/Rennseiten/bayerische_kreiscrosslaufmeisterschaften/bayerische_kreiscrosslaufmeisterschaften_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Markt Indersdorf", "addressRegion": "Bayern"}, "name": "Markt Indersdorf"}, "name": "Bayerische Kreiscrosslaufmeisterschaften", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250223"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Am Sonntag, den 30. M\u00e4rz 2025, findet die n\u00e4chste Auflage des Altenm\u00fcnster Halbmarathons statt. Da an diesem Wochenende die Zeitumstellung ist, starten wir um 1", "distance": "5km, 10km, 10,5km, 15km, 15,5km, half marathon", "eventStatus": "Standard", "identifier": "altenmunster_halbmarathon", "image": "/Rennseiten/altenmunster_halbmarathon/altenmunster_halbmarathon_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sportheim Altenm\u00fcnster (Hennhofer Weg 3, 86450 Altenm\u00fcnster)", "addressRegion": "Bayern"}, "name": "Sportheim Altenm\u00fcnster (Hennhofer Weg 3, 86450 Altenm\u00fcnster)"}, "name": "Altenm\u00fcnster Halbmarathon", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250330"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Bayerischen Kreiscrosslaufmeisterschaften finden am Sonntag, den 05. M\u00e4rz 2023, in Markt Indersdorf statt und werden vom Bayerischen Leichtathletik-Verband ", "distance": null, "eventStatus": "Standard", "identifier": "bayerische_kreiscrosslaufmeisterschaften", "image": "/rennseiten/bayerische_kreiscrosslaufmeisterschaften/bayerische_kreiscrosslaufmeisterschaften_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Markt Indersdorf", "addressRegion": "Bayern"}, "name": "Markt Indersdorf"}, "name": "Bayerische Kreiscrosslaufmeisterschaften", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250223"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Am Sonntag, den 30. M\u00e4rz 2025, findet die n\u00e4chste Auflage des Altenm\u00fcnster Halbmarathons statt. Da an diesem Wochenende die Zeitumstellung ist, starten wir um 1", "distance": "5km, 10km, 10,5km, 15km, 15,5km, half marathon", "eventStatus": "Standard", "identifier": "altenmunster_halbmarathon", "image": "/rennseiten/altenmunster_halbmarathon/altenmunster_halbmarathon_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sportheim Altenm\u00fcnster (Hennhofer Weg 3, 86450 Altenm\u00fcnster)", "addressRegion": "Bayern"}, "name": "Sportheim Altenm\u00fcnster (Hennhofer Weg 3, 86450 Altenm\u00fcnster)"}, "name": "Altenm\u00fcnster Halbmarathon", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250330"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -24,6 +24,8 @@
     />
     <title>Laufwettbewerbe in Augsburg: Gelände-Läufe im Laufkalender finden</title>
     <meta name="description" content="Entdecke die besten Gelände-Laufwettkämpfe in Augsburg! Finde deinen nächsten Lauf im Laufkalender mit unserer Rennliste – von 5km bis Marathon und mehr.  Laufwettbewerbe, rennkalender, laufrennen, laufliste." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -670,14 +672,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Augsburg&quot;, &quot;race_type&quot;: &quot;Gel\u00e4nde&quot;, &quot;category&quot;: null}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Augsburg\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Gel\\u00e4nde\u0026quot;, \u0026quot;category\u0026quot;: null}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/bayerische_kreiscrosslaufmeisterschaften"
-  class="race-card"
+  href="/rennseiten/bayerische_kreiscrosslaufmeisterschaften"
+  class="race-card packed"
   data-name="Bayerische Kreiscrosslaufmeisterschaften"
   data-date="20250223"
   data-county="Bayern"
@@ -688,92 +690,24 @@
   data-longitude="11.3743045"
   data-location="Markt Indersdorf"
   data-description="Die Bayerischen Kreiscrosslaufmeisterschaften finden am Sonntag, den 05. März 2023, in Markt Indersdorf statt und werden vom Bayerischen Lei"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fbayerische_kreiscrosslaufmeisterschaften%2Fbayerische_kreiscrosslaufmeisterschaften_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/bayerische_kreiscrosslaufmeisterschaften/bayerische_kreiscrosslaufmeisterschaften_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="23 Feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fbayerische_kreiscrosslaufmeisterschaften%2Fbayerische_kreiscrosslaufmeisterschaften_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuBayerische Kreiscrosslaufmeisterschaften"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          23 Feb.
-        </div>
-        <div class="race-location">
-          Bayern
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Bayerische Kreiscrosslaufmeisterschaften</div>
+    <div class="race-date">
+      23 Feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Bayerische Kreiscrosslaufmeisterschaften</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Markt Indersdorf 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Gemischte Distanz
-              </span>
-            </div>
-            
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Die Bayerischen Kreiscrosslaufmeisterschaften finden am Sonntag, den 05. März 2023, in Markt Indersdorf statt und werden vom Bayerischen Lei...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/altenmunster_halbmarathon"
-  class="race-card"
+  href="/rennseiten/altenmunster_halbmarathon"
+  class="race-card packed"
   data-name="Altenmünster Halbmarathon"
   data-date="20250330"
   data-county="Bayern"
@@ -784,110 +718,20 @@
   data-longitude="10.59052"
   data-location="Sportheim Altenmünster (Hennhofer Weg 3, 86450 Altenmünster)"
   data-description="Am Sonntag, den 30. März 2025, findet die nächste Auflage des Altenmünster Halbmarathons statt. Da an diesem Wochenende die Zeitumstellung i"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Faltenmunster_halbmarathon%2Faltenmunster_halbmarathon_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/altenmunster_halbmarathon/altenmunster_halbmarathon_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="30 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Faltenmunster_halbmarathon%2Faltenmunster_halbmarathon_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuAltenmünster Halbmarathon"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          30 März
-        </div>
-        <div class="race-location">
-          Bayern
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Altenmünster Halbmarathon</div>
+    <div class="race-date">
+      30 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Altenmünster Halbmarathon</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Sportheim Altenmünster (Hennhofer Weg 3, 86450 Altenmünster) 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                15 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Am Sonntag, den 30. März 2025, findet die nächste Auflage des Altenmünster Halbmarathons statt. Da an diesem Wochenende die Zeitumstellung i...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

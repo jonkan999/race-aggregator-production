@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Kreismeisterschaften Waldlauf 2024 finden am 20. April 2024 in Temmenhausen statt und bieten eine R\u00fcckkehr der Waldlaufmeisterschaften im Kreis Esslingen, d", "distance": "1,2km, 1,6km, 2,4km", "eventStatus": "Standard", "identifier": "kreismeisterschaften_waldlauf_2", "image": "/Rennseiten/kreismeisterschaften_waldlauf_2/kreismeisterschaften_waldlauf_2_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sportplatz Temmenhausen, Schulstra\u00dfe, 89160 Dornstadt / OT Temmenhausen", "addressRegion": "Baden-W\u00fcrttemberg"}, "name": "Sportplatz Temmenhausen, Schulstra\u00dfe, 89160 Dornstadt / OT Temmenhausen"}, "name": "Kreismeisterschaften Waldlauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250315"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 23. H\u00fcrbener H\u00f6hlenb\u00e4renlauf ist der traditionelle Start in die Laufveranstaltungen im Landkreis Heidenheim und bildet seit 2022 den Auftakt der HZ Landkrei", "distance": "5,2km, 10,4km", "eventStatus": "Standard", "identifier": "hohlenbarenlauf", "image": "/Rennseiten/hohlenbarenlauf/hohlenbarenlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Forststra\u00dfe 35, 89537 Giengen-H\u00fcrben", "addressRegion": "Baden-W\u00fcrttemberg"}, "name": "Forststra\u00dfe 35, 89537 Giengen-H\u00fcrben"}, "name": "H\u00f6hlenb\u00e4renlauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250412"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Kreismeisterschaften Waldlauf 2024 finden am 20. April 2024 in Temmenhausen statt und bieten eine R\u00fcckkehr der Waldlaufmeisterschaften im Kreis Esslingen, d", "distance": "1,2km, 1,6km, 2,4km", "eventStatus": "Standard", "identifier": "kreismeisterschaften_waldlauf_2", "image": "/rennseiten/kreismeisterschaften_waldlauf_2/kreismeisterschaften_waldlauf_2_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sportplatz Temmenhausen, Schulstra\u00dfe, 89160 Dornstadt / OT Temmenhausen", "addressRegion": "Baden-W\u00fcrttemberg"}, "name": "Sportplatz Temmenhausen, Schulstra\u00dfe, 89160 Dornstadt / OT Temmenhausen"}, "name": "Kreismeisterschaften Waldlauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250315"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 23. H\u00fcrbener H\u00f6hlenb\u00e4renlauf ist der traditionelle Start in die Laufveranstaltungen im Landkreis Heidenheim und bildet seit 2022 den Auftakt der HZ Landkrei", "distance": "5,2km, 10,4km", "eventStatus": "Standard", "identifier": "hohlenbarenlauf", "image": "/rennseiten/hohlenbarenlauf/hohlenbarenlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Forststra\u00dfe 35, 89537 Giengen-H\u00fcrben", "addressRegion": "Baden-W\u00fcrttemberg"}, "name": "Forststra\u00dfe 35, 89537 Giengen-H\u00fcrben"}, "name": "H\u00f6hlenb\u00e4renlauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250412"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -24,6 +24,8 @@
     />
     <title>Laufwettbewerbe in Ulm: Gelände-Läufe im Laufkalender finden</title>
     <meta name="description" content="Entdecke die beste Auswahl an Gelände-Laufwettbewerben in Ulm. Finde deinen nächsten Lauf mit unserem Laufkalender – von 5 km bis Marathon und mehr!  Laufwettkämpfe, rennliste, laufliste." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -657,14 +659,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Ulm&quot;, &quot;race_type&quot;: &quot;Gel\u00e4nde&quot;, &quot;category&quot;: null}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Ulm\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Gel\\u00e4nde\u0026quot;, \u0026quot;category\u0026quot;: null}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/kreismeisterschaften_waldlauf_2"
-  class="race-card"
+  href="/rennseiten/kreismeisterschaften_waldlauf_2"
+  class="race-card packed"
   data-name="Kreismeisterschaften Waldlauf"
   data-date="20250315"
   data-county="Baden-Württemberg"
@@ -675,104 +677,24 @@
   data-longitude="9.8597866"
   data-location="Sportplatz Temmenhausen, Schulstraße, 89160 Dornstadt / OT Temmenhausen"
   data-description="Die Kreismeisterschaften Waldlauf 2024 finden am 20. April 2024 in Temmenhausen statt und bieten eine Rückkehr der Waldlaufmeisterschaften i"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fkreismeisterschaften_waldlauf_2%2Fkreismeisterschaften_waldlauf_2_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/kreismeisterschaften_waldlauf_2/kreismeisterschaften_waldlauf_2_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="15 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fkreismeisterschaften_waldlauf_2%2Fkreismeisterschaften_waldlauf_2_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuKreismeisterschaften Waldlauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          15 März
-        </div>
-        <div class="race-location">
-          Baden-Württemberg
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Kreismeisterschaften Waldlauf</div>
+    <div class="race-date">
+      15 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Kreismeisterschaften Waldlauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Sportplatz Temmenhausen, Schulstraße, 89160 Dornstadt / OT Temmenhausen 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                1,6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2,4 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Die Kreismeisterschaften Waldlauf 2024 finden am 20. April 2024 in Temmenhausen statt und bieten eine Rückkehr der Waldlaufmeisterschaften i...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/hohlenbarenlauf"
-  class="race-card"
+  href="/rennseiten/hohlenbarenlauf"
+  class="race-card packed"
   data-name="Höhlenbärenlauf"
   data-date="20250412"
   data-county="Baden-Württemberg"
@@ -783,94 +705,20 @@
   data-longitude="10.2018006"
   data-location="Forststraße 35, 89537 Giengen-Hürben"
   data-description="Der 23. Hürbener Höhlenbärenlauf ist der traditionelle Start in die Laufveranstaltungen im Landkreis Heidenheim und bildet seit 2022 den Auf"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fhohlenbarenlauf%2Fhohlenbarenlauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/hohlenbarenlauf/hohlenbarenlauf_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="12 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fhohlenbarenlauf%2Fhohlenbarenlauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuHöhlenbärenlauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          12 apr.
-        </div>
-        <div class="race-location">
-          Baden-Württemberg
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Höhlenbärenlauf</div>
+    <div class="race-date">
+      12 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Höhlenbärenlauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Forststraße 35, 89537 Giengen-Hürben 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5,2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10,4 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der 23. Hürbener Höhlenbärenlauf ist der traditionelle Start in die Laufveranstaltungen im Landkreis Heidenheim und bildet seit 2022 den Auf...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

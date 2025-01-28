@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Neureuter Volkslauf in Karlsruhe bietet eine aufregende Laufveranstaltung mit Distanzen von 10 km, 5 km, 800 m und 400 m. Die Anmeldung f\u00fcr die 36. Ausgabe ", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "neureuter_volkslauf", "image": "/Rennseiten/neureuter_volkslauf/neureuter_volkslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Karlsruhe", "addressRegion": "Baden-W\u00fcrttemberg"}, "name": "Karlsruhe"}, "name": "Neureuter Volkslauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250406"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der W\u00fcrmersheimer Speckk\u00e4lblelauf \u00fcber 5 und 10 Kilometer ist ein beliebtes Lauf-Event ohne Wettkampf-Charakter, das am Samstag, den 08. Juni 2024, stattfindet.", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "speckkalblelauf", "image": "/Rennseiten/speckkalblelauf/speckkalblelauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Durmersheim", "addressRegion": "Baden-W\u00fcrttemberg"}, "name": "Durmersheim"}, "name": "Speckk\u00e4lblelauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250531"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Neureuter Volkslauf in Karlsruhe bietet eine aufregende Laufveranstaltung mit Distanzen von 10 km, 5 km, 800 m und 400 m. Die Anmeldung f\u00fcr die 36. Ausgabe ", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "neureuter_volkslauf", "image": "/rennseiten/neureuter_volkslauf/neureuter_volkslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Karlsruhe", "addressRegion": "Baden-W\u00fcrttemberg"}, "name": "Karlsruhe"}, "name": "Neureuter Volkslauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250406"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der W\u00fcrmersheimer Speckk\u00e4lblelauf \u00fcber 5 und 10 Kilometer ist ein beliebtes Lauf-Event ohne Wettkampf-Charakter, das am Samstag, den 08. Juni 2024, stattfindet.", "distance": "5km, 10km", "eventStatus": "Standard", "identifier": "speckkalblelauf", "image": "/rennseiten/speckkalblelauf/speckkalblelauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Durmersheim", "addressRegion": "Baden-W\u00fcrttemberg"}, "name": "Durmersheim"}, "name": "Speckk\u00e4lblelauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250531"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -20,6 +20,8 @@
     />
     <title>50 km Straßenlauf in Baden-Baden: Laufwettbewerbe & Rennkalender finden</title>
     <meta name="description" content="Entdecke alle 50 km Straßenläufe in Baden-Baden. Finde deinen nächsten Laufwettkampf mit unserem Laufkalender – die umfassende Rennliste für Laufrennen." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -662,14 +664,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Baden-Baden&quot;, &quot;race_type&quot;: &quot;Stra\u00dfe&quot;, &quot;category&quot;: &quot;50 km&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Baden-Baden\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Stra\\u00dfe\u0026quot;, \u0026quot;category\u0026quot;: \u0026quot;50 km\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/neureuter_volkslauf"
-  class="race-card"
+  href="/rennseiten/neureuter_volkslauf"
+  class="race-card packed"
   data-name="Neureuter Volkslauf"
   data-date="20250406"
   data-county="Baden-Württemberg"
@@ -680,98 +682,24 @@
   data-longitude="8.4036527"
   data-location="Karlsruhe"
   data-description="Der Neureuter Volkslauf in Karlsruhe bietet eine aufregende Laufveranstaltung mit Distanzen von 10 km, 5 km, 800 m und 400 m. Die Anmeldung "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fneureuter_volkslauf%2Fneureuter_volkslauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/neureuter_volkslauf/neureuter_volkslauf_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="6 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fneureuter_volkslauf%2Fneureuter_volkslauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuNeureuter Volkslauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          6 apr.
-        </div>
-        <div class="race-location">
-          Baden-Württemberg
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Neureuter Volkslauf</div>
+    <div class="race-date">
+      6 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Neureuter Volkslauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Karlsruhe 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Neureuter Volkslauf in Karlsruhe bietet eine aufregende Laufveranstaltung mit Distanzen von 10 km, 5 km, 800 m und 400 m. Die Anmeldung ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/speckkalblelauf"
-  class="race-card"
+  href="/rennseiten/speckkalblelauf"
+  class="race-card packed"
   data-name="Speckkälblelauf"
   data-date="20250531"
   data-county="Baden-Württemberg"
@@ -782,94 +710,20 @@
   data-longitude="8.2733132"
   data-location="Durmersheim"
   data-description="Der Würmersheimer Speckkälblelauf über 5 und 10 Kilometer ist ein beliebtes Lauf-Event ohne Wettkampf-Charakter, das am Samstag, den 08. Jun"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fspeckkalblelauf%2Fspeckkalblelauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/speckkalblelauf/speckkalblelauf_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="31 Mai"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fspeckkalblelauf%2Fspeckkalblelauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuSpeckkälblelauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          31 Mai
-        </div>
-        <div class="race-location">
-          Baden-Württemberg
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Speckkälblelauf</div>
+    <div class="race-date">
+      31 Mai
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Speckkälblelauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Durmersheim 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Würmersheimer Speckkälblelauf über 5 und 10 Kilometer ist ein beliebtes Lauf-Event ohne Wettkampf-Charakter, das am Samstag, den 08. Jun...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

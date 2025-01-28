@@ -21,6 +21,8 @@
     <title>10 000 meetri jooksuvõistlused Kuressaares: Leia oma järgmine jooks</title>
     <meta name="description" content="Otsi 10 000 meetri jooksuvõistlusi Kuressaares. Leia tänava-, maastiku- või trail-jooksud ja palju muud! Jooksuvõistlused, jooksuüritused, jooksev kalender, võistluste kalender. Saada kiiremaks jooksjaks!" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -643,14 +645,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Kuressaare&quot;, &quot;race_type&quot;: null, &quot;category&quot;: &quot;10000 meter&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Kuressaare\u0026quot;, \u0026quot;race_type\u0026quot;: null, \u0026quot;category\u0026quot;: \u0026quot;10000 meter\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/kuressaare_linnajooks"
-  class="race-card"
+  class="race-card packed"
   data-name="Kuressaare Linnajooks"
   data-date="20250503"
   data-county="Saaremaa"
@@ -661,98 +663,24 @@
   data-longitude="22.4791437"
   data-location="Kuressaare linnastaadion"
   data-description="Kuressaare Linnajooks on traditsiooniline ja populaarne jooksuvõistlus, mis toimub igal aastal Kuressaare linnas. Jooksu rada kulgeb läbi li"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkuressaare_linnajooks%2Fkuressaare_linnajooks_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/kuressaare_linnajooks/kuressaare_linnajooks_1.webp?v=1"
   data-type="road"
   data-type-display="Tänava"
   data-date-display="3 mai"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkuressaare_linnajooks%2Fkuressaare_linnajooks_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksKuressaare Linnajooks"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          3 mai
-        </div>
-        <div class="race-location">
-          Saaremaa
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Kuressaare Linnajooks</div>
+    <div class="race-date">
+      3 mai
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Kuressaare Linnajooks</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Kuressaare linnastaadion 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Tänava
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Kuressaare Linnajooks on traditsiooniline ja populaarne jooksuvõistlus, mis toimub igal aastal Kuressaare linnas. Jooksu rada kulgeb läbi li...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/saaremaa_kolme_paeva_jooks"
-  class="race-card"
+  class="race-card packed"
   data-name="Saaremaa Kolme Päeva Jooks"
   data-date="20251017"
   data-county="Saaremaa"
@@ -763,110 +691,20 @@
   data-longitude="22.4918977"
   data-location="Kuressaare"
   data-description="51. Saaremaa Kolme Päeva Jooks toimub 18. - 20. oktoobril 2024 Saaremaal. See on mitme päeva jooksul toimuv jooksuvõistlus, kus osalejad saa"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fsaaremaa_kolme_paeva_jooks%2Fsaaremaa_kolme_paeva_jooks_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/saaremaa_kolme_paeva_jooks/saaremaa_kolme_paeva_jooks_1.webp?v=1"
   data-type="terrain"
   data-type-display="Maastiku"
   data-date-display="17 okt."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fsaaremaa_kolme_paeva_jooks%2Fsaaremaa_kolme_paeva_jooks_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksSaaremaa Kolme Päeva Jooks"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          17 okt.
-        </div>
-        <div class="race-location">
-          Saaremaa
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Saaremaa Kolme Päeva Jooks</div>
+    <div class="race-date">
+      17 okt.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Saaremaa Kolme Päeva Jooks</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Kuressaare 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                3 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                3,2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                3,2 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maastiku
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      51. Saaremaa Kolme Päeva Jooks toimub 18. - 20. oktoobril 2024 Saaremaal. See on mitme päeva jooksul toimuv jooksuvõistlus, kus osalejad saa...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

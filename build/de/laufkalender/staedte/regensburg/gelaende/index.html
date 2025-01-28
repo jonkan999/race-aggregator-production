@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Oberpfalzmeisterschaften Crosslauf 2024 finden am Sonntag, den 03. M\u00e4rz 2024, in Burglengenfeld statt. Diese Veranstaltung ist Teil der Bezirksmeisterschaft", "distance": "2km, 2,9km", "eventStatus": "Standard", "identifier": "oberpfalz_crosslauf", "image": "/Rennseiten/oberpfalz_crosslauf/oberpfalz_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Gymasiumsportplatz Burglengenfeld", "addressRegion": "Bayern"}, "name": "Gymasiumsportplatz Burglengenfeld"}, "name": "Oberpfalz Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250209"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Burgweintinger Nepal-Lauf findet alle zwei Jahre in Regensburg statt, mit dem Startschuss zur 11. Auflage am 23. April 2023. Der Erl\u00f6s des Benefizlaufes geh", "distance": "1km, 2,5km, 5km, 10km, half marathon", "eventStatus": "Standard", "identifier": "burgweintinger_nepal_lauf", "image": "/Rennseiten/burgweintinger_nepal_lauf/burgweintinger_nepal_lauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Bereich der Grundschule Burgweinting", "addressRegion": "Bayern"}, "name": "Bereich der Grundschule Burgweinting"}, "name": "Burgweintinger Nepal-Lauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250406"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Oberpfalzmeisterschaften Crosslauf 2024 finden am Sonntag, den 03. M\u00e4rz 2024, in Burglengenfeld statt. Diese Veranstaltung ist Teil der Bezirksmeisterschaft", "distance": "2km, 2,9km", "eventStatus": "Standard", "identifier": "oberpfalz_crosslauf", "image": "/rennseiten/oberpfalz_crosslauf/oberpfalz_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Gymasiumsportplatz Burglengenfeld", "addressRegion": "Bayern"}, "name": "Gymasiumsportplatz Burglengenfeld"}, "name": "Oberpfalz Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250209"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Burgweintinger Nepal-Lauf findet alle zwei Jahre in Regensburg statt, mit dem Startschuss zur 11. Auflage am 23. April 2023. Der Erl\u00f6s des Benefizlaufes geh", "distance": "1km, 2,5km, 5km, 10km, half marathon", "eventStatus": "Standard", "identifier": "burgweintinger_nepal_lauf", "image": "/rennseiten/burgweintinger_nepal_lauf/burgweintinger_nepal_lauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Bereich der Grundschule Burgweinting", "addressRegion": "Bayern"}, "name": "Bereich der Grundschule Burgweinting"}, "name": "Burgweintinger Nepal-Lauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250406"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -24,6 +24,8 @@
     />
     <title>Laufwettbewerbe in Regensburg: Gelände-Läufe im Laufkalender</title>
     <meta name="description" content="Finde deinen nächsten Geländelauf in Regensburg! Unser Laufkalender listet Laufwettbewerbe und Laufrennen verschiedener Distanzen (5km, 10km, Halbmarathon, Marathon uvm.).  Durchsuche unsere Rennliste und finde den perfekten Lauf für dich." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -657,14 +659,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Regensburg&quot;, &quot;race_type&quot;: &quot;Gel\u00e4nde&quot;, &quot;category&quot;: null}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Regensburg\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Gel\\u00e4nde\u0026quot;, \u0026quot;category\u0026quot;: null}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/oberpfalz_crosslauf"
-  class="race-card"
+  href="/rennseiten/oberpfalz_crosslauf"
+  class="race-card packed"
   data-name="Oberpfalz Crosslauf"
   data-date="20250209"
   data-county="Bayern"
@@ -675,98 +677,24 @@
   data-longitude="12.0417131"
   data-location="Gymasiumsportplatz Burglengenfeld"
   data-description="Die Oberpfalzmeisterschaften Crosslauf 2024 finden am Sonntag, den 03. März 2024, in Burglengenfeld statt. Diese Veranstaltung ist Teil der "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Foberpfalz_crosslauf%2Foberpfalz_crosslauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/oberpfalz_crosslauf/oberpfalz_crosslauf_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="9 Feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Foberpfalz_crosslauf%2Foberpfalz_crosslauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuOberpfalz Crosslauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          9 Feb.
-        </div>
-        <div class="race-location">
-          Bayern
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Oberpfalz Crosslauf</div>
+    <div class="race-date">
+      9 Feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Oberpfalz Crosslauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Gymasiumsportplatz Burglengenfeld 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2,9 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Die Oberpfalzmeisterschaften Crosslauf 2024 finden am Sonntag, den 03. März 2024, in Burglengenfeld statt. Diese Veranstaltung ist Teil der ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/burgweintinger_nepal_lauf"
-  class="race-card"
+  href="/rennseiten/burgweintinger_nepal_lauf"
+  class="race-card packed"
   data-name="Burgweintinger Nepal-Lauf"
   data-date="20250406"
   data-county="Bayern"
@@ -777,110 +705,20 @@
   data-longitude="12.1369756"
   data-location="Bereich der Grundschule Burgweinting"
   data-description="Der Burgweintinger Nepal-Lauf findet alle zwei Jahre in Regensburg statt, mit dem Startschuss zur 11. Auflage am 23. April 2023. Der Erlös d"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fburgweintinger_nepal_lauf%2Fburgweintinger_nepal_lauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/burgweintinger_nepal_lauf/burgweintinger_nepal_lauf_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="6 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fburgweintinger_nepal_lauf%2Fburgweintinger_nepal_lauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuBurgweintinger Nepal-Lauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          6 apr.
-        </div>
-        <div class="race-location">
-          Bayern
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Burgweintinger Nepal-Lauf</div>
+    <div class="race-date">
+      6 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Burgweintinger Nepal-Lauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Bereich der Grundschule Burgweinting 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Burgweintinger Nepal-Lauf findet alle zwei Jahre in Regensburg statt, mit dem Startschuss zur 11. Auflage am 23. April 2023. Der Erlös d...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

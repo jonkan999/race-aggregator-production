@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Regions- und Kreis Crossmeisterschaft 2025 findet am Sonntag, den 02. M\u00e4rz 2025, in Delmenhorst, Niedersachsen, statt. Die Veranstaltung umfasst Distanzen v", "distance": "0,8km, 5km", "eventStatus": "Standard", "identifier": "regions_und_kreis_crossmeisterschaft", "image": "/Rennseiten/regions_und_kreis_crossmeisterschaft/regions_und_kreis_crossmeisterschaft_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Delmenhorst", "addressRegion": "Niedersachsen"}, "name": "Delmenhorst"}, "name": "Regions- und Kreis Crossmeisterschaft", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250302"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Crow Mountain Survival ist ein citynaher Extrem-Hindernislauf in Bremen, der seinen Namen dem nahe gelegenen Kr\u00e4henberg verdankt. Er findet auf und neben de", "distance": "2,5km, 5km, 10km", "eventStatus": "Standard", "identifier": "crow_mountain_survival", "image": "/Rennseiten/crow_mountain_survival/crow_mountain_survival_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sportanlage Kuhhirten/Stadtwerder, Bremen", "addressRegion": "Bremen"}, "name": "Sportanlage Kuhhirten/Stadtwerder, Bremen"}, "name": "Crow Mountain Survival", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250914"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Regions- und Kreis Crossmeisterschaft 2025 findet am Sonntag, den 02. M\u00e4rz 2025, in Delmenhorst, Niedersachsen, statt. Die Veranstaltung umfasst Distanzen v", "distance": "0,8km, 5km", "eventStatus": "Standard", "identifier": "regions_und_kreis_crossmeisterschaft", "image": "/rennseiten/regions_und_kreis_crossmeisterschaft/regions_und_kreis_crossmeisterschaft_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Delmenhorst", "addressRegion": "Niedersachsen"}, "name": "Delmenhorst"}, "name": "Regions- und Kreis Crossmeisterschaft", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250302"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Crow Mountain Survival ist ein citynaher Extrem-Hindernislauf in Bremen, der seinen Namen dem nahe gelegenen Kr\u00e4henberg verdankt. Er findet auf und neben de", "distance": "2,5km, 5km, 10km", "eventStatus": "Standard", "identifier": "crow_mountain_survival", "image": "/rennseiten/crow_mountain_survival/crow_mountain_survival_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sportanlage Kuhhirten/Stadtwerder, Bremen", "addressRegion": "Bremen"}, "name": "Sportanlage Kuhhirten/Stadtwerder, Bremen"}, "name": "Crow Mountain Survival", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250914"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -20,6 +20,8 @@
     />
     <title>10 km Geländelauf in Bremen: Finde deinen nächsten Laufwettbewerb im Laufkalender</title>
     <meta name="description" content="Entdecke alle 10 km Geländeläufe in Bremen.  Finde deinen nächsten Laufwettkampf mit unserem Laufkalender und Laufliste.  Perfekte Laufwettbewerbe und laufrennen für dich!" />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -662,14 +664,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Bremen&quot;, &quot;race_type&quot;: &quot;Gel\u00e4nde&quot;, &quot;category&quot;: &quot;10 km&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Bremen\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Gel\\u00e4nde\u0026quot;, \u0026quot;category\u0026quot;: \u0026quot;10 km\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/regions_und_kreis_crossmeisterschaft"
-  class="race-card"
+  href="/rennseiten/regions_und_kreis_crossmeisterschaft"
+  class="race-card packed"
   data-name="Regions- und Kreis Crossmeisterschaft"
   data-date="20250302"
   data-county="Niedersachsen"
@@ -680,98 +682,24 @@
   data-longitude="8.6254748"
   data-location="Delmenhorst"
   data-description="Die Regions- und Kreis Crossmeisterschaft 2025 findet am Sonntag, den 02. März 2025, in Delmenhorst, Niedersachsen, statt. Die Veranstaltung"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fregions_und_kreis_crossmeisterschaft%2Fregions_und_kreis_crossmeisterschaft_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/regions_und_kreis_crossmeisterschaft/regions_und_kreis_crossmeisterschaft_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="2 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fregions_und_kreis_crossmeisterschaft%2Fregions_und_kreis_crossmeisterschaft_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuRegions- und Kreis Crossmeisterschaft"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          2 März
-        </div>
-        <div class="race-location">
-          Niedersachsen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Regions- und Kreis Crossmeisterschaft</div>
+    <div class="race-date">
+      2 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Regions- und Kreis Crossmeisterschaft</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Delmenhorst 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                0,8 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Die Regions- und Kreis Crossmeisterschaft 2025 findet am Sonntag, den 02. März 2025, in Delmenhorst, Niedersachsen, statt. Die Veranstaltung...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/crow_mountain_survival"
-  class="race-card"
+  href="/rennseiten/crow_mountain_survival"
+  class="race-card packed"
   data-name="Crow Mountain Survival"
   data-date="20250914"
   data-county="Bremen"
@@ -782,100 +710,20 @@
   data-longitude="8.812078399999999"
   data-location="Sportanlage Kuhhirten/Stadtwerder, Bremen"
   data-description="Der Crow Mountain Survival ist ein citynaher Extrem-Hindernislauf in Bremen, der seinen Namen dem nahe gelegenen Krähenberg verdankt. Er fin"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fcrow_mountain_survival%2Fcrow_mountain_survival_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/crow_mountain_survival/crow_mountain_survival_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="14 sep."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fcrow_mountain_survival%2Fcrow_mountain_survival_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuCrow Mountain Survival"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          14 sep.
-        </div>
-        <div class="race-location">
-          Bremen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Crow Mountain Survival</div>
+    <div class="race-date">
+      14 sep.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Crow Mountain Survival</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Sportanlage Kuhhirten/Stadtwerder, Bremen 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Crow Mountain Survival ist ein citynaher Extrem-Hindernislauf in Bremen, der seinen Namen dem nahe gelegenen Krähenberg verdankt. Er fin...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

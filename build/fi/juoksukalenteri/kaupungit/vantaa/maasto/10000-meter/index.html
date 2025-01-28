@@ -21,6 +21,8 @@
     <title>10000 metrin maastojuoksukilpailut Vantaalla - Löydä seuraava juoksutapahtuma</title>
     <meta name="description" content="Etsimässä 10000 metrin maastojuoksukilpailua Vantaalla? Löydä sopivat juoksukilpailut ja juoksutapahtumat helppokäyttöisestä kilpailukalenteristamme.  Juoksu rotu, juoksija, nopeammaksi juoksijaksi." />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -664,14 +666,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Vantaa&quot;, &quot;race_type&quot;: &quot;Maasto&quot;, &quot;category&quot;: &quot;10000 meter&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Vantaa\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Maasto\u0026quot;, \u0026quot;category\u0026quot;: \u0026quot;10000 meter\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/kilpailusivut/visaholkka"
-  class="race-card"
+  class="race-card packed"
   data-name="Visahölkkä"
   data-date="20251005"
   data-county="Uusimaa"
@@ -682,104 +684,24 @@
   data-longitude="24.4028823"
   data-location="Ojakkalan koulu, Nummitie 21, Ojakkala"
   data-description="Visahölkkä on urheilutapahtuma, joka järjestetään Ojakkalan kylässä lokakuun ensimmäisenä sunnuntaina. Hölkkä kuuluu Vihdin Hölkkäkunkkusarj"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fvisaholkka%2Fvisaholkka_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/visaholkka/visaholkka_1.webp?v=1"
   data-type="terrain"
   data-type-display="Maasto"
   data-date-display="5 lok."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fvisaholkka%2Fvisaholkka_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Kuva {x}Visahölkkä"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          5 lok.
-        </div>
-        <div class="race-location">
-          Uusimaa
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Visahölkkä</div>
+    <div class="race-date">
+      5 lok.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Visahölkkä</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Ojakkalan koulu, Nummitie 21, Ojakkala 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2,7 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                4,6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                8,6 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maasto
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Visahölkkä on urheilutapahtuma, joka järjestetään Ojakkalan kylässä lokakuun ensimmäisenä sunnuntaina. Hölkkä kuuluu Vihdin Hölkkäkunkkusarj...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/kilpailusivut/visaholkka_2"
-  class="race-card"
+  class="race-card packed"
   data-name="Visahölkkä"
   data-date="20251105"
   data-county="Uusimaa"
@@ -790,106 +712,20 @@
   data-longitude="24.3835548"
   data-location="Ojakkala"
   data-description="Visahölkkä on perinteikäs juoksutapahtuma, joka juostaan Ojakkalan maalaismaisemassa lokakuun ensimmäisenä sunnuntaina. Tapahtuma houkuttele"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fvisaholkka_2%2Fvisaholkka_2_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/visaholkka_2/visaholkka_2_1.webp?v=1"
   data-type="terrain"
   data-type-display="Maasto"
   data-date-display="5 marr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fvisaholkka_2%2Fvisaholkka_2_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Kuva {x}Visahölkkä"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          5 marr.
-        </div>
-        <div class="race-location">
-          Uusimaa
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Visahölkkä</div>
+    <div class="race-date">
+      5 marr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Visahölkkä</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Ojakkala 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2,7 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                4,6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maasto
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Visahölkkä on perinteikäs juoksutapahtuma, joka juostaan Ojakkalan maalaismaisemassa lokakuun ensimmäisenä sunnuntaina. Tapahtuma houkuttele...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

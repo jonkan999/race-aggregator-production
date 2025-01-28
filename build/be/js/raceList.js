@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
 async function initializeWhenReady() {
   try {
     console.log('🔍 Starting initialization');
+    document.body.classList.add('loading');
     
     // Wait for fonts and document
     await Promise.all([
@@ -85,20 +86,62 @@ async function initializeWhenReady() {
       void raceCards.offsetHeight;
       void filters.offsetHeight;
 
+      // Only wait for truly above-fold images
+      const viewportHeight = window.innerHeight;
+      const visibleCards = Array.from(document.querySelectorAll('.race-card')).filter(card => {
+        const rect = card.getBoundingClientRect();
+        return rect.top < viewportHeight;
+      });
+
+      // Create promises for visible images and unpack remaining visible cards
+      const imagePromises = visibleCards.flatMap(card => {
+        if (!card.classList.contains('packed')) {
+          // Already unpacked card - just wait for its image
+          const images = [...card.querySelectorAll('img[data-src]')];
+          return images.map(img => createImageLoadPromise(img));
+        } else {
+          // Need to unpack this visible card
+          unpackRaceCard(card);
+          const images = [...card.querySelectorAll('img[data-src]')];
+          return images.map(img => createImageLoadPromise(img));
+        }
+      });
+
+      // Wait for visible images
+      await Promise.all([
+        Promise.all(imagePromises),
+        new Promise(resolve => setTimeout(resolve, 500))
+      ]);
+
       // Switch back to normal positioning
       raceCards.style.position = '';
       raceCards.style.top = '';
       raceCards.style.marginTop = `calc(var(--header-size) + 18.5rem)`;
       filters.style.position = '';
       filters.style.top = '';
+      
+      // Remove loader
+      const loader = document.getElementById('initial-loader');
+      if (loader) {
+        loader.style.opacity = '0';
+        await new Promise(resolve => setTimeout(resolve, 50));
+        loader.remove();
+
+        document.body.classList.remove('loading');
+        document.body.classList.add('loaded');
+      }
     }
 
   } catch (error) {
     console.error('❌ Error:', error);
+    document.body.classList.remove('loading');
+    document.body.classList.add('loaded');
+    const loader = document.getElementById('initial-loader');
+    if (loader) loader.remove();
   }
 
   // Your existing initialization code
-  const distanceMapping = {"1,5km": ["1500 meter"], "10,5km": ["Millopp", "10 km"], "10,7km": ["Millopp", "10 km"], "10,9km": ["Millopp", "10 km"], "100 miles": ["100 miles"], "100km": ["50 miles", "100 km"], "101km": ["100 km"], "102,2km": ["100 km"], "10km": ["10000 meter", "Millopp", "10 km"], "110km": ["100 km"], "11km": ["Millopp", "10 km"], "169km": ["100 miles"], "20,1km": ["Halvmarathon"], "20,4km": ["Halvmarathon"], "20km": ["Halvmarathon"], "22km": ["Halvmarathon"], "3km": ["3000 meter"], "4,2km": ["5 km"], "4,5km": ["5 km"], "40km": ["Marathon"], "44km": ["Marathon"], "45km": ["50 km"], "47km": ["50 km"], "48km": ["50 km"], "49km": ["50 km"], "4km": ["5 km"], "5,2km": ["5 km"], "5,3km": ["5 km"], "5,4km": ["5 km"], "5,5km": ["5 km"], "5,6km": ["5 km"], "5,7km": ["5 km"], "5,8km": ["5 km"], "50 miles": ["50 miles"], "50km": ["50 km"], "52km": ["50 km"], "53km": ["50 km"], "54km": ["50 km"], "55km": ["50 km"], "5km": ["5000 meter", "5 km"], "6km": ["5 km"], "75km": ["50 miles"], "83km": ["50 miles"], "85km": ["50 miles"], "9,5km": ["Millopp", "10 km"], "9,8km": ["Millopp", "10 km"], "9,9km": ["Millopp", "10 km"], "90km": ["50 miles", "100 km"], "9km": ["Millopp", "10 km"], "marathon": ["Marathon"]};
+  const distanceMapping = {"1,5km": ["1500 meter"], "10,5km": ["10 km", "Millopp"], "10,7km": ["10 km", "Millopp"], "10,9km": ["10 km", "Millopp"], "100 miles": ["100 miles"], "100km": ["100 km", "50 miles"], "101km": ["100 km"], "102,2km": ["100 km"], "10km": ["10 km", "10000 meter", "Millopp"], "110km": ["100 km"], "11km": ["10 km", "Millopp"], "169km": ["100 miles"], "20,1km": ["Halvmarathon"], "20,4km": ["Halvmarathon"], "20km": ["Halvmarathon"], "22km": ["Halvmarathon"], "3km": ["3000 meter"], "4,2km": ["5 km"], "4,5km": ["5 km"], "40km": ["Marathon"], "44km": ["Marathon"], "45km": ["50 km"], "47km": ["50 km"], "48km": ["50 km"], "49km": ["50 km"], "4km": ["5 km"], "5,2km": ["5 km"], "5,3km": ["5 km"], "5,4km": ["5 km"], "5,5km": ["5 km"], "5,6km": ["5 km"], "5,7km": ["5 km"], "5,8km": ["5 km"], "50 miles": ["50 miles"], "50km": ["50 km"], "52km": ["50 km"], "53km": ["50 km"], "54km": ["50 km"], "55km": ["50 km"], "5km": ["5000 meter", "5 km"], "6km": ["5 km"], "75km": ["50 miles"], "83km": ["50 miles"], "85km": ["50 miles"], "9,5km": ["10 km", "Millopp"], "9,8km": ["10 km", "Millopp"], "9,9km": ["10 km", "Millopp"], "90km": ["100 km", "50 miles"], "9km": ["10 km", "Millopp"], "marathon": ["Marathon"]};
   const raceCards = document.querySelectorAll(".race-card");
   const itemsPerPage = 20;
   let currentPage = 1;
@@ -859,8 +902,8 @@ async function initializeWhenReady() {
     }
   }
 
-  // Function to mark elements for lazy loading
-  function setupLazyLoading() {
+  // Function to mark above-fold elements
+  function markAboveFoldElements() {
     const viewportHeight = window.innerHeight;
     const cards = document.querySelectorAll('.race-card');
     
@@ -868,8 +911,14 @@ async function initializeWhenReady() {
       const rect = card.getBoundingClientRect();
       const isAboveFold = rect.top < viewportHeight;
       
-      // Skip cards that are above fold as they're handled by imagePreloader
-      if (!isAboveFold) {
+      if (isAboveFold) {
+        // For cards above fold, load image immediately
+        const img = card.querySelector('img[data-src]');
+        if (img) {
+          img.src = img.dataset.src;
+          delete img.dataset.src;
+        }
+      } else {
         // Let Intersection Observer handle these
         observer.observe(card);
       }
@@ -880,7 +929,7 @@ async function initializeWhenReady() {
   document.addEventListener('DOMContentLoaded', () => {
     // Wait for layout to settle
     requestAnimationFrame(() => {
-      setupLazyLoading();
+      markAboveFoldElements();
     });
   });
 
@@ -888,7 +937,7 @@ async function initializeWhenReady() {
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(setupLazyLoading, 50);
+    resizeTimer = setTimeout(markAboveFoldElements, 50);
   });
 }
 
@@ -898,6 +947,15 @@ if (document.readyState === 'loading') {
 } else {
   initializeWhenReady();
 }
+
+// Add fallback to show content after 3 seconds
+setTimeout(() => {
+  if (!document.body.classList.contains('loaded')) {
+    document.body.classList.add('loaded');
+    const loader = document.getElementById('initial-loader');
+    if (loader) loader.remove();
+  }
+}, 2000);
 
 document.addEventListener('DOMContentLoaded', function() {
   const containers = document.querySelectorAll('.race-card-big-container');

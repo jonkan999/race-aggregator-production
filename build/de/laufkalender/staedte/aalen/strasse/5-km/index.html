@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Am 15. M\u00e4rz 2025 findet bereits der 39. Stadtlauf in Schw\u00e4bisch Gm\u00fcnd statt. Jedes Jahr lockt dieser hunderte L\u00e4ufer*innen aller Alters- und Schwierigkeitsstufe", "distance": "1,2km, 1,9km, 5km, 10km, half marathon", "eventStatus": "Standard", "identifier": "gmunder_stadtlauf", "image": "/Rennseiten/gmunder_stadtlauf/gmunder_stadtlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Gro\u00dfsporthalle, Schw\u00e4bisch Gm\u00fcnd", "addressRegion": "Baden-W\u00fcrttemberg"}, "name": "Gro\u00dfsporthalle, Schw\u00e4bisch Gm\u00fcnd"}, "name": "Gm\u00fcnder Stadtlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250315"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Ellwanger Sparkassen-Lauf in den Fr\u00fchling findet 2025 bereits zum 11. Mal statt und bietet eine perfekt organisierte Veranstaltung f\u00fcr Teilnehmer aller Alte", "distance": "0,8km, 5km, 10km", "eventStatus": "Standard", "identifier": "fruhling_lauf_ellwangen", "image": "/Rennseiten/fruhling_lauf_ellwangen/fruhling_lauf_ellwangen_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Rundsporthalle", "addressRegion": "Baden-W\u00fcrttemberg"}, "name": "Rundsporthalle"}, "name": "Fr\u00fchling Lauf Ellwangen", "sport": "Laufen, Stra\u00dfe", "startDate": "20250319"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Am 15. M\u00e4rz 2025 findet bereits der 39. Stadtlauf in Schw\u00e4bisch Gm\u00fcnd statt. Jedes Jahr lockt dieser hunderte L\u00e4ufer*innen aller Alters- und Schwierigkeitsstufe", "distance": "1,2km, 1,9km, 5km, 10km, half marathon", "eventStatus": "Standard", "identifier": "gmunder_stadtlauf", "image": "/rennseiten/gmunder_stadtlauf/gmunder_stadtlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Gro\u00dfsporthalle, Schw\u00e4bisch Gm\u00fcnd", "addressRegion": "Baden-W\u00fcrttemberg"}, "name": "Gro\u00dfsporthalle, Schw\u00e4bisch Gm\u00fcnd"}, "name": "Gm\u00fcnder Stadtlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250315"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Ellwanger Sparkassen-Lauf in den Fr\u00fchling findet 2025 bereits zum 11. Mal statt und bietet eine perfekt organisierte Veranstaltung f\u00fcr Teilnehmer aller Alte", "distance": "0,8km, 5km, 10km", "eventStatus": "Standard", "identifier": "fruhling_lauf_ellwangen", "image": "/rennseiten/fruhling_lauf_ellwangen/fruhling_lauf_ellwangen_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Rundsporthalle", "addressRegion": "Baden-W\u00fcrttemberg"}, "name": "Rundsporthalle"}, "name": "Fr\u00fchling Lauf Ellwangen", "sport": "Laufen, Stra\u00dfe", "startDate": "20250319"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -20,6 +20,8 @@
     />
     <title>5 km Straßenlauf in Aalen: Laufwettbewerbe im Laufkalender finden</title>
     <meta name="description" content="Finde deinen nächsten 5 km Straßenlauf in Aalen!  Durchsuche unseren Laufkalender mit Laufwettbewerben und Laufwettkämpfen.  Hier findest du die perfekte Rennliste für dein nächstes laufrennen." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -662,14 +664,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Aalen&quot;, &quot;race_type&quot;: &quot;Stra\u00dfe&quot;, &quot;category&quot;: &quot;5 km&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Aalen\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Stra\\u00dfe\u0026quot;, \u0026quot;category\u0026quot;: \u0026quot;5 km\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/gmunder_stadtlauf"
-  class="race-card"
+  href="/rennseiten/gmunder_stadtlauf"
+  class="race-card packed"
   data-name="Gmünder Stadtlauf"
   data-date="20250315"
   data-county="Baden-Württemberg"
@@ -680,114 +682,24 @@
   data-longitude="9.8045704"
   data-location="Großsporthalle, Schwäbisch Gmünd"
   data-description="Am 15. März 2025 findet bereits der 39. Stadtlauf in Schwäbisch Gmünd statt. Jedes Jahr lockt dieser hunderte Läufer*innen aller Alters- und"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fgmunder_stadtlauf%2Fgmunder_stadtlauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/gmunder_stadtlauf/gmunder_stadtlauf_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="15 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fgmunder_stadtlauf%2Fgmunder_stadtlauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuGmünder Stadtlauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          15 März
-        </div>
-        <div class="race-location">
-          Baden-Württemberg
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Gmünder Stadtlauf</div>
+    <div class="race-date">
+      15 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Gmünder Stadtlauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Großsporthalle, Schwäbisch Gmünd 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                1,9 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Am 15. März 2025 findet bereits der 39. Stadtlauf in Schwäbisch Gmünd statt. Jedes Jahr lockt dieser hunderte Läufer*innen aller Alters- und...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/fruhling_lauf_ellwangen"
-  class="race-card"
+  href="/rennseiten/fruhling_lauf_ellwangen"
+  class="race-card packed"
   data-name="Frühling Lauf Ellwangen"
   data-date="20250319"
   data-county="Baden-Württemberg"
@@ -798,100 +710,20 @@
   data-longitude="10.1128845"
   data-location="Rundsporthalle"
   data-description="Der Ellwanger Sparkassen-Lauf in den Frühling findet 2025 bereits zum 11. Mal statt und bietet eine perfekt organisierte Veranstaltung für T"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Ffruhling_lauf_ellwangen%2Ffruhling_lauf_ellwangen_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/fruhling_lauf_ellwangen/fruhling_lauf_ellwangen_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="19 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Ffruhling_lauf_ellwangen%2Ffruhling_lauf_ellwangen_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuFrühling Lauf Ellwangen"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          19 März
-        </div>
-        <div class="race-location">
-          Baden-Württemberg
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Frühling Lauf Ellwangen</div>
+    <div class="race-date">
+      19 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Frühling Lauf Ellwangen</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Rundsporthalle 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                0,8 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Ellwanger Sparkassen-Lauf in den Frühling findet 2025 bereits zum 11. Mal statt und bietet eine perfekt organisierte Veranstaltung für T...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

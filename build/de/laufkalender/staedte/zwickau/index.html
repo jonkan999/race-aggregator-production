@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 11. Altenburger Sparkassen-Crosslauf findet am 13. April 2024 in Altenburg statt und l\u00e4dt alle Interessierten zu einem Lauf mit einem interessanten Strecken", "distance": "1km, 2km, 3,4km", "eventStatus": "Standard", "identifier": "altenburger_crosslauf", "image": "/Rennseiten/altenburger_crosslauf/altenburger_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Altenburger Skatbank-Arena in der Zwickauer Stra\u00dfe", "addressRegion": "Th\u00fcringen"}, "name": "Altenburger Skatbank-Arena in der Zwickauer Stra\u00dfe"}, "name": "Altenburger Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250329"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der G\u00f6ltzschtal Marathon LM findet seit vielen Jahren in Lengenfeld statt und ist Teil der Landesmeisterschaft in der Halbmarathon-Distanz. Die Strecke ist nich", "distance": "marathon", "eventStatus": "Standard", "identifier": "goltzschtal_marathon_lm", "image": "/Rennseiten/goltzschtal_marathon_lm/goltzschtal_marathon_lm_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Lengenfeld", "addressRegion": "Sachsen"}, "name": "Lengenfeld"}, "name": "G\u00f6ltzschtal Marathon LM", "sport": "Laufen, Stra\u00dfe", "startDate": "20250405"}, "position": 2}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Skatstadtmarathon findet am 14. Juni 2025 in Altenburg statt und bietet eine anspruchsvolle Herausforderung f\u00fcr L\u00e4ufer aller Altersgruppen und Leistungsnive", "distance": "3,6km, 5,4km, 13,3km, marathon", "eventStatus": "Standard", "identifier": "skatstadtmarathon", "image": "/Rennseiten/skatstadtmarathon/skatstadtmarathon_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Altenburg", "addressRegion": "Th\u00fcringen"}, "name": "Altenburg"}, "name": "Skatstadtmarathon", "sport": "Laufen, Stra\u00dfe", "startDate": "20250614"}, "position": 3}], "numberOfItems": 3}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 11. Altenburger Sparkassen-Crosslauf findet am 13. April 2024 in Altenburg statt und l\u00e4dt alle Interessierten zu einem Lauf mit einem interessanten Strecken", "distance": "1km, 2km, 3,4km", "eventStatus": "Standard", "identifier": "altenburger_crosslauf", "image": "/rennseiten/altenburger_crosslauf/altenburger_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Altenburger Skatbank-Arena in der Zwickauer Stra\u00dfe", "addressRegion": "Th\u00fcringen"}, "name": "Altenburger Skatbank-Arena in der Zwickauer Stra\u00dfe"}, "name": "Altenburger Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250329"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der G\u00f6ltzschtal Marathon LM findet seit vielen Jahren in Lengenfeld statt und ist Teil der Landesmeisterschaft in der Halbmarathon-Distanz. Die Strecke ist nich", "distance": "marathon", "eventStatus": "Standard", "identifier": "goltzschtal_marathon_lm", "image": "/rennseiten/goltzschtal_marathon_lm/goltzschtal_marathon_lm_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Lengenfeld", "addressRegion": "Sachsen"}, "name": "Lengenfeld"}, "name": "G\u00f6ltzschtal Marathon LM", "sport": "Laufen, Stra\u00dfe", "startDate": "20250405"}, "position": 2}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Skatstadtmarathon findet am 14. Juni 2025 in Altenburg statt und bietet eine anspruchsvolle Herausforderung f\u00fcr L\u00e4ufer aller Altersgruppen und Leistungsnive", "distance": "3,6km, 5,4km, 13,3km, marathon", "eventStatus": "Standard", "identifier": "skatstadtmarathon", "image": "/rennseiten/skatstadtmarathon/skatstadtmarathon_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Altenburg", "addressRegion": "Th\u00fcringen"}, "name": "Altenburg"}, "name": "Skatstadtmarathon", "sport": "Laufen, Stra\u00dfe", "startDate": "20250614"}, "position": 3}], "numberOfItems": 3}
     </script>
      
 
@@ -24,6 +24,8 @@
     />
     <title>Laufwettbewerbe in Zwickau: Rennliste & Laufkalender für alle Laufarten</title>
     <meta name="description" content="Finde deinen nächsten Lauf in Zwickau! Unser Laufkalender listet Laufwettkämpfe aller Kategorien – von 5 km bis Marathon – auf Straßen, im Gelände oder auf der Laufbahn.  Durchsuche unsere rennliste jetzt!" />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -667,14 +669,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Zwickau&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Zwickau\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/altenburger_crosslauf"
-  class="race-card"
+  href="/rennseiten/altenburger_crosslauf"
+  class="race-card packed"
   data-name="Altenburger Crosslauf"
   data-date="20250329"
   data-county="Thüringen"
@@ -685,104 +687,24 @@
   data-longitude="12.4352714"
   data-location="Altenburger Skatbank-Arena in der Zwickauer Straße"
   data-description="Der 11. Altenburger Sparkassen-Crosslauf findet am 13. April 2024 in Altenburg statt und lädt alle Interessierten zu einem Lauf mit einem in"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Faltenburger_crosslauf%2Faltenburger_crosslauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/altenburger_crosslauf/altenburger_crosslauf_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="29 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Faltenburger_crosslauf%2Faltenburger_crosslauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuAltenburger Crosslauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          29 März
-        </div>
-        <div class="race-location">
-          Thüringen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Altenburger Crosslauf</div>
+    <div class="race-date">
+      29 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Altenburger Crosslauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Altenburger Skatbank-Arena in der Zwickauer Straße 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                3,4 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der 11. Altenburger Sparkassen-Crosslauf findet am 13. April 2024 in Altenburg statt und lädt alle Interessierten zu einem Lauf mit einem in...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/goltzschtal_marathon_lm"
-  class="race-card"
+  href="/rennseiten/goltzschtal_marathon_lm"
+  class="race-card packed"
   data-name="Göltzschtal Marathon LM"
   data-date="20250405"
   data-county="Sachsen"
@@ -793,92 +715,24 @@
   data-longitude="12.3709924"
   data-location="Lengenfeld"
   data-description="Der Göltzschtal Marathon LM findet seit vielen Jahren in Lengenfeld statt und ist Teil der Landesmeisterschaft in der Halbmarathon-Distanz. "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fgoltzschtal_marathon_lm%2Fgoltzschtal_marathon_lm_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/goltzschtal_marathon_lm/goltzschtal_marathon_lm_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="5 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fgoltzschtal_marathon_lm%2Fgoltzschtal_marathon_lm_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuGöltzschtal Marathon LM"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          5 apr.
-        </div>
-        <div class="race-location">
-          Sachsen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Göltzschtal Marathon LM</div>
+    <div class="race-date">
+      5 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Göltzschtal Marathon LM</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Lengenfeld 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                Marathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Göltzschtal Marathon LM findet seit vielen Jahren in Lengenfeld statt und ist Teil der Landesmeisterschaft in der Halbmarathon-Distanz. ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/skatstadtmarathon"
-  class="race-card"
+  href="/rennseiten/skatstadtmarathon"
+  class="race-card packed"
   data-name="Skatstadtmarathon"
   data-date="20250614"
   data-county="Thüringen"
@@ -889,103 +743,17 @@
   data-longitude="12.4366572"
   data-location="Altenburg"
   data-description="Der Skatstadtmarathon findet am 14. Juni 2025 in Altenburg statt und bietet eine anspruchsvolle Herausforderung für Läufer aller Altersgrupp"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fskatstadtmarathon%2Fskatstadtmarathon_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/skatstadtmarathon/skatstadtmarathon_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="14 Juni"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fskatstadtmarathon%2Fskatstadtmarathon_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuSkatstadtmarathon"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          14 Juni
-        </div>
-        <div class="race-location">
-          Thüringen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Skatstadtmarathon</div>
+    <div class="race-date">
+      14 Juni
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Skatstadtmarathon</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Altenburg 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                3,6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5,4 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                13,3 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Marathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Skatstadtmarathon findet am 14. Juni 2025 in Altenburg statt und bietet eine anspruchsvolle Herausforderung für Läufer aller Altersgrupp...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
@@ -1002,8 +770,12 @@
           </div>
         </div>
         <div class="race-card-big-container right-scroller">
-              <a
-  href="/Rennseiten/altenburger_crosslauf"
+          
+            
+            
+              
+                <a
+  href="/rennseiten/altenburger_crosslauf"
   class="race-card-big race-card"
   data-name="Altenburger Crosslauf"
   data-date="20250329"
@@ -1016,11 +788,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Faltenburger_crosslauf%2Faltenburger_crosslauf_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/altenburger_crosslauf/altenburger_crosslauf_1.webp?v=1"
         alt="Bild zuAltenburger Crosslauf"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1078,8 +852,15 @@
       <div class="more-info-button">Zur Rennseite</div>
     </div>
   </div>
-</a>       <a
-  href="/Rennseiten/goltzschtal_marathon_lm"
+</a>
+              
+            
+          
+            
+            
+              
+                <a
+  href="/rennseiten/goltzschtal_marathon_lm"
   class="race-card-big race-card"
   data-name="Göltzschtal Marathon LM"
   data-date="20250405"
@@ -1092,11 +873,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fgoltzschtal_marathon_lm%2Fgoltzschtal_marathon_lm_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/goltzschtal_marathon_lm/goltzschtal_marathon_lm_1.webp?v=1"
         alt="Bild zuGöltzschtal Marathon LM"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1142,8 +925,15 @@
       <div class="more-info-button">Zur Rennseite</div>
     </div>
   </div>
-</a>       <a
-  href="/Rennseiten/skatstadtmarathon"
+</a>
+              
+            
+          
+            
+            
+              
+                <a
+  href="/rennseiten/skatstadtmarathon"
   class="race-card-big race-card"
   data-name="Skatstadtmarathon"
   data-date="20250614"
@@ -1156,11 +946,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fskatstadtmarathon%2Fskatstadtmarathon_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/skatstadtmarathon/skatstadtmarathon_1.webp?v=1"
         alt="Bild zuSkatstadtmarathon"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1224,10 +1016,13 @@
       <div class="more-info-button">Zur Rennseite</div>
     </div>
   </div>
-</a>   
+</a>
+              
+            
+          
         </div>
       </section>
-        
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

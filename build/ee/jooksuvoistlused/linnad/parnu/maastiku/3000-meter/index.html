@@ -21,6 +21,8 @@
     <title>3000 meetri Maastiku jooksuvõistlused Pärnus - Leia oma järgmine jooks!</title>
     <meta name="description" content="Otsi 3000 meetri Maastiku jooksuvõistlusi Pärnus. Leia sobiv jooksuvõistlus ja saa kiiremaks jooksjaks! Jooksuvõistlused, jooksuüritused, jooksev kalender." />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -652,14 +654,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;P\u00e4rnu&quot;, &quot;race_type&quot;: &quot;Maastiku&quot;, &quot;category&quot;: &quot;3000 meter&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;P\\u00e4rnu\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Maastiku\u0026quot;, \u0026quot;category\u0026quot;: \u0026quot;3000 meter\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/luitejooks"
-  class="race-card"
+  class="race-card packed"
   data-name="Luitejooks"
   data-date="20250420"
   data-county="Pärnu maakond"
@@ -670,104 +672,24 @@
   data-longitude="24.5158201"
   data-location="Jõulumäe"
   data-description="Luitejooks on igakevadine jooksuvõistlus, mis toimub 2025. aastal Jõulumäel, tähistades Pärnu Kahe Silla Klubiliikumishooaja algust. Rada ku"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fluitejooks%2Fluitejooks_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/luitejooks/luitejooks_1.webp?v=1"
   data-type="terrain"
   data-type-display="Maastiku"
   data-date-display="20 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fluitejooks%2Fluitejooks_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksLuitejooks"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          20 apr.
-        </div>
-        <div class="race-location">
-          Pärnu maakond
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Luitejooks</div>
+    <div class="race-date">
+      20 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Luitejooks</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Jõulumäe 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5,4 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                8,3 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maastiku
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Luitejooks on igakevadine jooksuvõistlus, mis toimub 2025. aastal Jõulumäel, tähistades Pärnu Kahe Silla Klubiliikumishooaja algust. Rada ku...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/lelle_moisa_jooks_2"
-  class="race-card"
+  class="race-card packed"
   data-name="Lelle Mõisa Jooks"
   data-date="20250727"
   data-county="Rapla maakond"
@@ -778,94 +700,20 @@
   data-longitude="24.9557307"
   data-location="Lelle mõis"
   data-description="Lelle Mõisa Jooks 2024 toimub 19. mail 2024 Kehtna vallas, Lelle mõisapargis ja selle lähiümbruses maastikurajal. Võistlusel on kolm distant"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Flelle_moisa_jooks_2%2Flelle_moisa_jooks_2_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/lelle_moisa_jooks_2/lelle_moisa_jooks_2_1.webp?v=1"
   data-type="terrain"
   data-type-display="Maastiku"
   data-date-display="27 juuli"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Flelle_moisa_jooks_2%2Flelle_moisa_jooks_2_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksLelle Mõisa Jooks"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          27 juuli
-        </div>
-        <div class="race-location">
-          Rapla maakond
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Lelle Mõisa Jooks</div>
+    <div class="race-date">
+      27 juuli
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Lelle Mõisa Jooks</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Lelle mõis 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maastiku
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Lelle Mõisa Jooks 2024 toimub 19. mail 2024 Kehtna vallas, Lelle mõisapargis ja selle lähiümbruses maastikurajal. Võistlusel on kolm distant...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

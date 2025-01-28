@@ -25,6 +25,8 @@
     <title>Løbekonkurrencer i Aalborg: Find dit næste løb i løbskalenderen</title>
     <meta name="description" content="Søger du løb i Aalborg? Find dit næste løbeløb, fra 5 km til marathon, på vores løbskalender.  Alle løbstyper, inkl. Trailløb og Landsvej, er inkluderet.  Find din perfekte løbekonkurrence!" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -671,14 +673,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Aalborg&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Aalborg\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/løbsider/lobeband_verdensrekord"
-  class="race-card"
+  class="race-card packed"
   data-name="Løbebånd Verdensrekord"
   data-date="20250207"
   data-county="Nordjylland"
@@ -689,114 +691,24 @@
   data-longitude="9.934736"
   data-location="SKANSEN, Lerumbakken 11, 9400 Nørresundby"
   data-description="Ultra4Charity samler ind til Lykkeliga og udfordrer verdensrekorden i 48 timer på løbebånd. Kom og løb med os! Vi tilbyder børneløb, halvmar"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Flobeband_verdensrekord%2Flobeband_verdensrekord_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/lobeband_verdensrekord/lobeband_verdensrekord_1.webp?v=1"
   data-type="track"
   data-type-display="Løbebane"
   data-date-display="7 feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Flobeband_verdensrekord%2Flobeband_verdensrekord_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Billede tilLøbebånd Verdensrekord"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          7 feb.
-        </div>
-        <div class="race-location">
-          Nordjylland
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Løbebånd Verdensrekord</div>
+    <div class="race-date">
+      7 feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Løbebånd Verdensrekord</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          SKANSEN, Lerumbakken 11, 9400 Nørresundby 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Halvmarathon
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Maraton
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                48 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Løbebane
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Ultra4Charity samler ind til Lykkeliga og udfordrer verdensrekorden i 48 timer på løbebånd. Kom og løb med os! Vi tilbyder børneløb, halvmar...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mere info & tilmelding</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/løbsider/valentine_s_run_aalborg"
-  class="race-card"
+  class="race-card packed"
   data-name="Valentine's Run Aalborg"
   data-date="20250215"
   data-county="Nordjylland"
@@ -807,92 +719,24 @@
   data-longitude="9.916637"
   data-location="Aalborg Vesterbro 74, 9000 Aalborg, Danmark"
   data-description="Kom og vær med til en sjov dag i romatikkens tegn ved fjorden i Aalborg den 15. februar 2025, hvor vi fejrer kærligheden med Valentine's Run"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fvalentine_s_run_aalborg%2Fvalentine_s_run_aalborg_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/valentine_s_run_aalborg/valentine_s_run_aalborg_1.webp?v=1"
   data-type="other"
   data-type-display="Andet"
   data-date-display="15 feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fvalentine_s_run_aalborg%2Fvalentine_s_run_aalborg_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Billede tilValentine's Run Aalborg"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          15 feb.
-        </div>
-        <div class="race-location">
-          Nordjylland
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Valentine's Run Aalborg</div>
+    <div class="race-date">
+      15 feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Valentine's Run Aalborg</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Aalborg Vesterbro 74, 9000 Aalborg, Danmark 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Blandet afstand
-              </span>
-            </div>
-            
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Andet
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Kom og vær med til en sjov dag i romatikkens tegn ved fjorden i Aalborg den 15. februar 2025, hvor vi fejrer kærligheden med Valentine's Run...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Mere info & tilmelding</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/løbsider/gudumholm_vintermaraton"
-  class="race-card"
+  class="race-card packed"
   data-name="Gudumholm Vintermaraton"
   data-date="20250215"
   data-county="Nordjylland"
@@ -903,97 +747,325 @@
   data-longitude="10.101901"
   data-location="Gudumholm klubhus"
   data-description="Lørdag d. 17. februar 2024 fra kl. 9.00 afholder vi Vintermaraton, et arrangement for alle interesserede – også for gængere og for løbere, d"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fgudumholm_vintermaraton%2Fgudumholm_vintermaraton_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/gudumholm_vintermaraton/gudumholm_vintermaraton_1.webp?v=1"
   data-type="road"
   data-type-display="Landsvej"
   data-date-display="15 feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fgudumholm_vintermaraton%2Fgudumholm_vintermaraton_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Billede tilGudumholm Vintermaraton"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          15 feb.
-        </div>
-        <div class="race-location">
-          Nordjylland
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Gudumholm Vintermaraton</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Gudumholm klubhus 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5,3 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Halvmarathon
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Maraton
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Landsvej
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Lørdag d. 17. februar 2024 fra kl. 9.00 afholder vi Vintermaraton, et arrangement for alle interesserede – også for gængere og for løbere, d...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Gudumholm Vintermaraton</div>
+    <div class="race-date">
+      15 feb.
     </div>
   </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mere info & tilmelding</div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løbsider/eegholm_triplen"
+  class="race-card packed"
+  data-name="Eegholm Triplen"
+  data-date="20250405"
+  data-county="Nordjylland"
+  data-category=""
+  data-race-type="Andet"
+  data-distance="73,8km"
+  data-latitude="57.0620321"
+  data-longitude="9.8430749"
+  data-location="Dronninglund"
+  data-description="Håber vi ses til dette nye løbekoncept, hvor deltagerne har mulighed for at komme lidt længere ud end man ellers har løbet før. EEGHOLM TRIP"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/eegholm_triplen/eegholm_triplen_1.webp?v=1"
+  data-type="other"
+  data-type-display="Andet"
+  data-date-display="5 apr."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Eegholm Triplen</div>
+    <div class="race-date">
+      5 apr.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løbsider/vester_aslund_backyard_ultra"
+  class="race-card packed"
+  data-name="Vester Aslund Backyard Ultra"
+  data-date="20250503"
+  data-county="Nordjylland"
+  data-category=""
+  data-race-type="Backyard Ultra"
+  data-distance="6,7km"
+  data-latitude="57.0898628"
+  data-longitude="10.1518811"
+  data-location="Vester Aslund plantage"
+  data-description="Vester Aslund Backyard Ultra 2025 er et last man standing event, der tilbyder en ekstrem, men samtidig social og afslappet løbsform, hvor al"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/vester_aslund_backyard_ultra/vester_aslund_backyard_ultra_1.webp?v=1"
+  data-type="backyard"
+  data-type-display="Backyard Ultra"
+  data-date-display="3 maj"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Vester Aslund Backyard Ultra</div>
+    <div class="race-date">
+      3 maj
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løbsider/mindernes_arena_451"
+  class="race-card packed"
+  data-name="Mindernes Arena 451"
+  data-date="20250518"
+  data-county="Nordjylland"
+  data-category=""
+  data-race-type="Andet"
+  data-distance=""
+  data-latitude="57.0316857"
+  data-longitude="9.9383617"
+  data-location="Kridtsløjfen 50, Aalborg"
+  data-description="Mindernes Arena er et Fahrenheit 451 inspireret løb, der finder sted i Aalborg. Dette unikke løb kombinerer litterær inspiration med en udfo"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/mindernes_arena_451/mindernes_arena_451_1.webp?v=1"
+  data-type="other"
+  data-type-display="Andet"
+  data-date-display="18 maj"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Mindernes Arena 451</div>
+    <div class="race-date">
+      18 maj
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løbsider/spar_nord_ultra"
+  class="race-card packed"
+  data-name="Spar Nord Ultra"
+  data-date="20250524"
+  data-county="Nordjylland"
+  data-category=""
+  data-race-type="Terræn"
+  data-distance=""
+  data-latitude="57.268592"
+  data-longitude="9.9655799"
+  data-location="Brønderslev svømmehal"
+  data-description="Kom med til en fantastisk – og social – ultraløbsoplevelse, når Spar Nord og PSI Serritslev Idrætsforening inviterer til Spar Nord Ultra. Al"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/spar_nord_ultra/spar_nord_ultra_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="24 maj"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Spar Nord Ultra</div>
+    <div class="race-date">
+      24 maj
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løbsider/aalborg_marathon"
+  class="race-card packed"
+  data-name="Aalborg Marathon"
+  data-date="20250816"
+  data-county="Nordjylland"
+  data-category=""
+  data-race-type="Terræn"
+  data-distance="5km, 10km, half marathon, marathon"
+  data-latitude="57.0643839"
+  data-longitude="9.934736"
+  data-location="Skansen Idrætscenter, Nørresundby"
+  data-description="Aalborg Marathon, et af Danmarks ældste og hårdeste marathonløb, byder alle velkommen til at deltage i denne udfordrende begivenhed. Løbet s"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/aalborg_marathon/aalborg_marathon_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="16 aug."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Aalborg Marathon</div>
+    <div class="race-date">
+      16 aug.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løbsider/run_o_clock_backyard_ultra"
+  class="race-card packed"
+  data-name="Run O'Clock Backyard Ultra"
+  data-date="20250816"
+  data-county="Nordjylland"
+  data-category=""
+  data-race-type="Backyard Ultra"
+  data-distance="6,7km, 6,7km"
+  data-latitude="56.8377151"
+  data-longitude="9.8563151"
+  data-location="Vedstedskovhus"
+  data-description="Run O’Clock Backyard Ultra er tilbage! Den fantastiske natur omkring nationalparken Rebild Bakker danner rammen om dette hyggelige, men udfo"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/run_o_clock_backyard_ultra/run_o_clock_backyard_ultra_1.webp?v=1"
+  data-type="backyard"
+  data-type-display="Backyard Ultra"
+  data-date-display="16 aug."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Run O'Clock Backyard Ultra</div>
+    <div class="race-date">
+      16 aug.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løbsider/guglobet"
+  class="race-card packed"
+  data-name="GUGLØBET"
+  data-date="20250823"
+  data-county="Nordjylland"
+  data-category=""
+  data-race-type="Andet"
+  data-distance="1km, 2km, 5km, 10km, marathon"
+  data-latitude="57.0050544"
+  data-longitude="9.9225665"
+  data-location="Gug Boldklub, Gl. Vissevej 269, 210 Aalborg SØ"
+  data-description="Gugløbet er på kort tid blevet en stor succes med masser af deltagere, store som små. Det er helt sikkert Aalborgs hyggeligste motionsløb fo"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/guglobet/guglobet_1.webp?v=1"
+  data-type="other"
+  data-type-display="Andet"
+  data-date-display="23 aug."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">GUGLØBET</div>
+    <div class="race-date">
+      23 aug.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løbsider/kymi_rens_techpartners_lobet"
+  class="race-card packed"
+  data-name="Kymi Rens Techpartners Løbet"
+  data-date="20250823"
+  data-county="Nordjylland"
+  data-category=""
+  data-race-type="Landsvej"
+  data-distance="5km, half marathon, marathon"
+  data-latitude="57.0077098"
+  data-longitude="9.9187244"
+  data-location="Kymi Rens Indkildevej 10, 9210 Aalborg"
+  data-description="Kymi Rens og Techpartners inviterer til en spændende løbeoplevelse lørdag den 14. oktober, hvor fart og teknik mødes. Deltagerne kan vælge a"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/kymi_rens_techpartners_lobet/kymi_rens_techpartners_lobet_1.webp?v=1"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="23 aug."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Kymi Rens Techpartners Løbet</div>
+    <div class="race-date">
+      23 aug.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løbsider/ptsd_lobet_aalborg"
+  class="race-card packed"
+  data-name="PTSD Løbet Aalborg"
+  data-date="20250830"
+  data-county="Nordjylland"
+  data-category=""
+  data-race-type="Terræn"
+  data-distance="5,3km, half marathon"
+  data-latitude="57.198006"
+  data-longitude="9.670631"
+  data-location="Aalborg Kaserne"
+  data-description="PTSD Løbet er et velgørenhedsløb, der finder sted den 23. september 2023 kl. 12.00 i Aalborg, med det formål at indsamle penge til Landsfore"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/ptsd_lobet_aalborg/ptsd_lobet_aalborg_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="30 aug."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">PTSD Løbet Aalborg</div>
+    <div class="race-date">
+      30 aug.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løbsider/rebild_kalkminelob"
+  class="race-card packed"
+  data-name="Rebild Kalkmineløb"
+  data-date="20250920"
+  data-county="Nordjylland"
+  data-category=""
+  data-race-type="Terræn"
+  data-distance="3km, 4km, 10,5km, half marathon"
+  data-latitude="56.8319541"
+  data-longitude="9.8119675"
+  data-location="Røde Møllevej 4, 9520 Skørping"
+  data-description="Rebild Kalkmineløb er en årlig løbeevent, der finder sted i de naturskønne omgivelser omkring Tingbæk Kalkminer, Rebild Bakker og Rold skov."
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/rebild_kalkminelob/rebild_kalkminelob_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="20 sep."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Rebild Kalkmineløb</div>
+    <div class="race-date">
+      20 sep.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løbsider/mud_race_aalborg"
+  class="race-card packed"
+  data-name="Mud Race Aalborg"
+  data-date="20251003"
+  data-county="Nordjylland"
+  data-category=""
+  data-race-type="Terræn"
+  data-distance="5km"
+  data-latitude="57.0488195"
+  data-longitude="9.921747"
+  data-location="Aalborg"
+  data-description="Velkommen til Ladies Mud Race Aalborg! Er du klar til et løb, der vil påvirke alle dine sanser? Deltagerne vil navigere stier og off track i"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/mud_race_aalborg/mud_race_aalborg_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Terræn"
+  data-date-display="3 okt."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Mud Race Aalborg</div>
+    <div class="race-date">
+      3 okt.
+    </div>
   </div>
 </a>
     
@@ -1010,7 +1082,11 @@
           </div>
         </div>
         <div class="race-card-big-container right-scroller">
-              <a
+          
+            
+            
+              
+                <a
   href="/løbsider/lobeband_verdensrekord"
   class="race-card-big race-card"
   data-name="Løbebånd Verdensrekord"
@@ -1024,11 +1100,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Flobeband_verdensrekord%2Flobeband_verdensrekord_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/lobeband_verdensrekord/lobeband_verdensrekord_1.webp?v=1"
         alt="Billede tilLøbebånd Verdensrekord"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1098,7 +1176,14 @@
       <div class="more-info-button">Til løbsiden</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/løbsider/valentine_s_run_aalborg"
   class="race-card-big race-card"
   data-name="Valentine's Run Aalborg"
@@ -1112,11 +1197,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fvalentine_s_run_aalborg%2Fvalentine_s_run_aalborg_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/valentine_s_run_aalborg/valentine_s_run_aalborg_1.webp?v=1"
         alt="Billede tilValentine's Run Aalborg"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1162,7 +1249,14 @@
       <div class="more-info-button">Til løbsiden</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/løbsider/gudumholm_vintermaraton"
   class="race-card-big race-card"
   data-name="Gudumholm Vintermaraton"
@@ -1176,11 +1270,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fgudumholm_vintermaraton%2Fgudumholm_vintermaraton_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/gudumholm_vintermaraton/gudumholm_vintermaraton_1.webp?v=1"
         alt="Billede tilGudumholm Vintermaraton"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1238,7 +1334,14 @@
       <div class="more-info-button">Til løbsiden</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/løbsider/eegholm_triplen"
   class="race-card-big race-card"
   data-name="Eegholm Triplen"
@@ -1252,11 +1355,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Feegholm_triplen%2Feegholm_triplen_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/eegholm_triplen/eegholm_triplen_1.webp?v=1"
         alt="Billede tilEegholm Triplen"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1302,7 +1407,14 @@
       <div class="more-info-button">Til løbsiden</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/løbsider/vester_aslund_backyard_ultra"
   class="race-card-big race-card"
   data-name="Vester Aslund Backyard Ultra"
@@ -1316,11 +1428,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fvester_aslund_backyard_ultra%2Fvester_aslund_backyard_ultra_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/vester_aslund_backyard_ultra/vester_aslund_backyard_ultra_1.webp?v=1"
         alt="Billede tilVester Aslund Backyard Ultra"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1366,318 +1480,13 @@
       <div class="more-info-button">Til løbsiden</div>
     </div>
   </div>
-</a>   
+</a>
+              
+            
+          
         </div>
       </section>
-          
-<!-- Packed version for remaining cards -->
-<a
-  href="/løbsider/eegholm_triplen"
-  class="race-card packed"
-  data-name="Eegholm Triplen"
-  data-date="20250405"
-  data-county="Nordjylland"
-  data-category=""
-  data-race-type="Andet"
-  data-distance="73,8km"
-  data-latitude="57.0620321"
-  data-longitude="9.8430749"
-  data-location="Dronninglund"
-  data-description="Håber vi ses til dette nye løbekoncept, hvor deltagerne har mulighed for at komme lidt længere ud end man ellers har løbet før. EEGHOLM TRIP"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Feegholm_triplen%2Feegholm_triplen_1.webp?alt=media"
-  data-type="other"
-  data-type-display="Andet"
-  data-date-display="5 apr."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Eegholm Triplen</div>
-    <div class="race-date">
-      5 apr.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løbsider/vester_aslund_backyard_ultra"
-  class="race-card packed"
-  data-name="Vester Aslund Backyard Ultra"
-  data-date="20250503"
-  data-county="Nordjylland"
-  data-category=""
-  data-race-type="Backyard Ultra"
-  data-distance="6,7km"
-  data-latitude="57.0898628"
-  data-longitude="10.1518811"
-  data-location="Vester Aslund plantage"
-  data-description="Vester Aslund Backyard Ultra 2025 er et last man standing event, der tilbyder en ekstrem, men samtidig social og afslappet løbsform, hvor al"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fvester_aslund_backyard_ultra%2Fvester_aslund_backyard_ultra_1.webp?alt=media"
-  data-type="backyard"
-  data-type-display="Backyard Ultra"
-  data-date-display="3 maj"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Vester Aslund Backyard Ultra</div>
-    <div class="race-date">
-      3 maj
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løbsider/mindernes_arena_451"
-  class="race-card packed"
-  data-name="Mindernes Arena 451"
-  data-date="20250518"
-  data-county="Nordjylland"
-  data-category=""
-  data-race-type="Andet"
-  data-distance=""
-  data-latitude="57.0316857"
-  data-longitude="9.9383617"
-  data-location="Kridtsløjfen 50, Aalborg"
-  data-description="Mindernes Arena er et Fahrenheit 451 inspireret løb, der finder sted i Aalborg. Dette unikke løb kombinerer litterær inspiration med en udfo"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fmindernes_arena_451%2Fmindernes_arena_451_1.webp?alt=media"
-  data-type="other"
-  data-type-display="Andet"
-  data-date-display="18 maj"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Mindernes Arena 451</div>
-    <div class="race-date">
-      18 maj
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løbsider/spar_nord_ultra"
-  class="race-card packed"
-  data-name="Spar Nord Ultra"
-  data-date="20250524"
-  data-county="Nordjylland"
-  data-category=""
-  data-race-type="Terræn"
-  data-distance=""
-  data-latitude="57.268592"
-  data-longitude="9.9655799"
-  data-location="Brønderslev svømmehal"
-  data-description="Kom med til en fantastisk – og social – ultraløbsoplevelse, når Spar Nord og PSI Serritslev Idrætsforening inviterer til Spar Nord Ultra. Al"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fspar_nord_ultra%2Fspar_nord_ultra_1.webp?alt=media"
-  data-type="terrain"
-  data-type-display="Terræn"
-  data-date-display="24 maj"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Spar Nord Ultra</div>
-    <div class="race-date">
-      24 maj
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løbsider/aalborg_marathon"
-  class="race-card packed"
-  data-name="Aalborg Marathon"
-  data-date="20250816"
-  data-county="Nordjylland"
-  data-category=""
-  data-race-type="Terræn"
-  data-distance="5km, 10km, half marathon, marathon"
-  data-latitude="57.0643839"
-  data-longitude="9.934736"
-  data-location="Skansen Idrætscenter, Nørresundby"
-  data-description="Aalborg Marathon, et af Danmarks ældste og hårdeste marathonløb, byder alle velkommen til at deltage i denne udfordrende begivenhed. Løbet s"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Faalborg_marathon%2Faalborg_marathon_1.webp?alt=media"
-  data-type="terrain"
-  data-type-display="Terræn"
-  data-date-display="16 aug."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Aalborg Marathon</div>
-    <div class="race-date">
-      16 aug.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løbsider/run_o_clock_backyard_ultra"
-  class="race-card packed"
-  data-name="Run O'Clock Backyard Ultra"
-  data-date="20250816"
-  data-county="Nordjylland"
-  data-category=""
-  data-race-type="Backyard Ultra"
-  data-distance="6,7km, 6,7km"
-  data-latitude="56.8377151"
-  data-longitude="9.8563151"
-  data-location="Vedstedskovhus"
-  data-description="Run O’Clock Backyard Ultra er tilbage! Den fantastiske natur omkring nationalparken Rebild Bakker danner rammen om dette hyggelige, men udfo"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Frun_o_clock_backyard_ultra%2Frun_o_clock_backyard_ultra_1.webp?alt=media"
-  data-type="backyard"
-  data-type-display="Backyard Ultra"
-  data-date-display="16 aug."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Run O'Clock Backyard Ultra</div>
-    <div class="race-date">
-      16 aug.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løbsider/guglobet"
-  class="race-card packed"
-  data-name="GUGLØBET"
-  data-date="20250823"
-  data-county="Nordjylland"
-  data-category=""
-  data-race-type="Andet"
-  data-distance="1km, 2km, 5km, 10km, marathon"
-  data-latitude="57.0050544"
-  data-longitude="9.9225665"
-  data-location="Gug Boldklub, Gl. Vissevej 269, 210 Aalborg SØ"
-  data-description="Gugløbet er på kort tid blevet en stor succes med masser af deltagere, store som små. Det er helt sikkert Aalborgs hyggeligste motionsløb fo"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fguglobet%2Fguglobet_1.webp?alt=media"
-  data-type="other"
-  data-type-display="Andet"
-  data-date-display="23 aug."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">GUGLØBET</div>
-    <div class="race-date">
-      23 aug.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løbsider/kymi_rens_techpartners_lobet"
-  class="race-card packed"
-  data-name="Kymi Rens Techpartners Løbet"
-  data-date="20250823"
-  data-county="Nordjylland"
-  data-category=""
-  data-race-type="Landsvej"
-  data-distance="5km, half marathon, marathon"
-  data-latitude="57.0077098"
-  data-longitude="9.9187244"
-  data-location="Kymi Rens Indkildevej 10, 9210 Aalborg"
-  data-description="Kymi Rens og Techpartners inviterer til en spændende løbeoplevelse lørdag den 14. oktober, hvor fart og teknik mødes. Deltagerne kan vælge a"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fkymi_rens_techpartners_lobet%2Fkymi_rens_techpartners_lobet_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Landsvej"
-  data-date-display="23 aug."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Kymi Rens Techpartners Løbet</div>
-    <div class="race-date">
-      23 aug.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løbsider/ptsd_lobet_aalborg"
-  class="race-card packed"
-  data-name="PTSD Løbet Aalborg"
-  data-date="20250830"
-  data-county="Nordjylland"
-  data-category=""
-  data-race-type="Terræn"
-  data-distance="5,3km, half marathon"
-  data-latitude="57.198006"
-  data-longitude="9.670631"
-  data-location="Aalborg Kaserne"
-  data-description="PTSD Løbet er et velgørenhedsløb, der finder sted den 23. september 2023 kl. 12.00 i Aalborg, med det formål at indsamle penge til Landsfore"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fptsd_lobet_aalborg%2Fptsd_lobet_aalborg_1.webp?alt=media"
-  data-type="terrain"
-  data-type-display="Terræn"
-  data-date-display="30 aug."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">PTSD Løbet Aalborg</div>
-    <div class="race-date">
-      30 aug.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løbsider/rebild_kalkminelob"
-  class="race-card packed"
-  data-name="Rebild Kalkmineløb"
-  data-date="20250920"
-  data-county="Nordjylland"
-  data-category=""
-  data-race-type="Terræn"
-  data-distance="3km, 4km, 10,5km, half marathon"
-  data-latitude="56.8319541"
-  data-longitude="9.8119675"
-  data-location="Røde Møllevej 4, 9520 Skørping"
-  data-description="Rebild Kalkmineløb er en årlig løbeevent, der finder sted i de naturskønne omgivelser omkring Tingbæk Kalkminer, Rebild Bakker og Rold skov."
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Frebild_kalkminelob%2Frebild_kalkminelob_1.webp?alt=media"
-  data-type="terrain"
-  data-type-display="Terræn"
-  data-date-display="20 sep."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Rebild Kalkmineløb</div>
-    <div class="race-date">
-      20 sep.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løbsider/mud_race_aalborg"
-  class="race-card packed"
-  data-name="Mud Race Aalborg"
-  data-date="20251003"
-  data-county="Nordjylland"
-  data-category=""
-  data-race-type="Terræn"
-  data-distance="5km"
-  data-latitude="57.0488195"
-  data-longitude="9.921747"
-  data-location="Aalborg"
-  data-description="Velkommen til Ladies Mud Race Aalborg! Er du klar til et løb, der vil påvirke alle dine sanser? Deltagerne vil navigere stier og off track i"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fmud_race_aalborg%2Fmud_race_aalborg_1.webp?alt=media"
-  data-type="terrain"
-  data-type-display="Terræn"
-  data-date-display="3 okt."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Mud Race Aalborg</div>
-    <div class="race-date">
-      3 okt.
-    </div>
-  </div>
-</a>
-  
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

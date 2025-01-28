@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Arnsberger Eichholzcup ist der 1. Wertungslauf des Volksbank Sauerland Laufcups 2024, der am 2. M\u00e4rz 2024 in Arnsberg, Deutschland, stattfindet. Die Teilneh", "distance": "1,0km, 1,1km, 4,2km, 5,6km, 9,2km", "eventStatus": "Standard", "identifier": "eichholzcup_arnsberger", "image": "/Rennseiten/eichholzcup_arnsberger/eichholzcup_arnsberger_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sportplatz im Eichholz, Sportplatzweg 1, 59823 Arnsberg", "addressRegion": "Nordrhein-Westfalen"}, "name": "Sportplatz im Eichholz, Sportplatzweg 1, 59823 Arnsberg"}, "name": "Eichholzcup Arnsberger", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250301"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Gau\u00dfturm Cross findet am Gau\u00dfturm auf dem Hohen Hagen bei Dransfeld statt und bietet eine abwechslungsreiche Laufstrecke durch einen alten Steinbruch sowie ", "distance": "2,5km, 5km, 10km, trail", "eventStatus": "Standard", "identifier": "gaussturm_cross", "image": "/Rennseiten/gaussturm_cross/gaussturm_cross_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Am Gau\u00dfturm auf dem Hohen Hagen", "addressRegion": "Nordrhein-Westfalen"}, "name": "Am Gau\u00dfturm auf dem Hohen Hagen"}, "name": "Gau\u00dfturm Cross", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250301"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Arnsberger Eichholzcup ist der 1. Wertungslauf des Volksbank Sauerland Laufcups 2024, der am 2. M\u00e4rz 2024 in Arnsberg, Deutschland, stattfindet. Die Teilneh", "distance": "1,0km, 1,1km, 4,2km, 5,6km, 9,2km", "eventStatus": "Standard", "identifier": "eichholzcup_arnsberger", "image": "/rennseiten/eichholzcup_arnsberger/eichholzcup_arnsberger_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sportplatz im Eichholz, Sportplatzweg 1, 59823 Arnsberg", "addressRegion": "Nordrhein-Westfalen"}, "name": "Sportplatz im Eichholz, Sportplatzweg 1, 59823 Arnsberg"}, "name": "Eichholzcup Arnsberger", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250301"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Gau\u00dfturm Cross findet am Gau\u00dfturm auf dem Hohen Hagen bei Dransfeld statt und bietet eine abwechslungsreiche Laufstrecke durch einen alten Steinbruch sowie ", "distance": "2,5km, 5km, 10km, trail", "eventStatus": "Standard", "identifier": "gaussturm_cross", "image": "/rennseiten/gaussturm_cross/gaussturm_cross_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Am Gau\u00dfturm auf dem Hohen Hagen", "addressRegion": "Nordrhein-Westfalen"}, "name": "Am Gau\u00dfturm auf dem Hohen Hagen"}, "name": "Gau\u00dfturm Cross", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250301"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -24,6 +24,8 @@
     />
     <title>Laufwettbewerbe in Unna: Gelände-Läufe im Laufkalender finden</title>
     <meta name="description" content="Entdecke die besten Gelände-Laufwettkämpfe in Unna! Finde dein nächstes laufrennen in unserer Laufliste.  Alle Kategorien von 5km bis Marathon.  Dein Laufkalender für Unna." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -676,14 +678,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Unna&quot;, &quot;race_type&quot;: &quot;Gel\u00e4nde&quot;, &quot;category&quot;: null}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Unna\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Gel\\u00e4nde\u0026quot;, \u0026quot;category\u0026quot;: null}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/eichholzcup_arnsberger"
-  class="race-card"
+  href="/rennseiten/eichholzcup_arnsberger"
+  class="race-card packed"
   data-name="Eichholzcup Arnsberger"
   data-date="20250301"
   data-county="Nordrhein-Westfalen"
@@ -694,114 +696,24 @@
   data-longitude="8.045328099999999"
   data-location="Sportplatz im Eichholz, Sportplatzweg 1, 59823 Arnsberg"
   data-description="Der Arnsberger Eichholzcup ist der 1. Wertungslauf des Volksbank Sauerland Laufcups 2024, der am 2. März 2024 in Arnsberg, Deutschland, stat"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Feichholzcup_arnsberger%2Feichholzcup_arnsberger_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/eichholzcup_arnsberger/eichholzcup_arnsberger_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="1 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Feichholzcup_arnsberger%2Feichholzcup_arnsberger_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuEichholzcup Arnsberger"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          1 März
-        </div>
-        <div class="race-location">
-          Nordrhein-Westfalen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Eichholzcup Arnsberger</div>
+    <div class="race-date">
+      1 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Eichholzcup Arnsberger</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Sportplatz im Eichholz, Sportplatzweg 1, 59823 Arnsberg 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,0 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                1,1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                4,2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5,6 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Arnsberger Eichholzcup ist der 1. Wertungslauf des Volksbank Sauerland Laufcups 2024, der am 2. März 2024 in Arnsberg, Deutschland, stat...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/gaussturm_cross"
-  class="race-card"
+  href="/rennseiten/gaussturm_cross"
+  class="race-card packed"
   data-name="Gaußturm Cross"
   data-date="20250301"
   data-county="Nordrhein-Westfalen"
@@ -812,106 +724,20 @@
   data-longitude="7.463638599999999"
   data-location="Am Gaußturm auf dem Hohen Hagen"
   data-description="Der Gaußturm Cross findet am Gaußturm auf dem Hohen Hagen bei Dransfeld statt und bietet eine abwechslungsreiche Laufstrecke durch einen alt"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fgaussturm_cross%2Fgaussturm_cross_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/gaussturm_cross/gaussturm_cross_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="1 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fgaussturm_cross%2Fgaussturm_cross_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuGaußturm Cross"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          1 März
-        </div>
-        <div class="race-location">
-          Nordrhein-Westfalen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Gaußturm Cross</div>
+    <div class="race-date">
+      1 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Gaußturm Cross</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Am Gaußturm auf dem Hohen Hagen 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                trail
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Gaußturm Cross findet am Gaußturm auf dem Hohen Hagen bei Dransfeld statt und bietet eine abwechslungsreiche Laufstrecke durch einen alt...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 16. M\u00fcnchner Stadioncross findet am 16. Februar 2025 in M\u00fcnchen statt und umfasst die Oberbayerischen Crosslaufmeisterschaften in verschiedenen Altersklasse", "distance": "7km, trail", "eventStatus": "Standard", "identifier": "stadioncross_xanten_munchen", "image": "/Rennseiten/stadioncross_xanten_munchen/stadioncross_xanten_munchen_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "M\u00fcnchen", "addressRegion": "Bayern"}, "name": "M\u00fcnchen"}, "name": "Stadioncross Xanten M\u00fcnchen", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250216"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Bayerischen Kreiscrosslaufmeisterschaften finden am Sonntag, den 05. M\u00e4rz 2023, in Markt Indersdorf statt und werden vom Bayerischen Leichtathletik-Verband ", "distance": null, "eventStatus": "Standard", "identifier": "bayerische_kreiscrosslaufmeisterschaften", "image": "/Rennseiten/bayerische_kreiscrosslaufmeisterschaften/bayerische_kreiscrosslaufmeisterschaften_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Markt Indersdorf", "addressRegion": "Bayern"}, "name": "Markt Indersdorf"}, "name": "Bayerische Kreiscrosslaufmeisterschaften", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250223"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 16. M\u00fcnchner Stadioncross findet am 16. Februar 2025 in M\u00fcnchen statt und umfasst die Oberbayerischen Crosslaufmeisterschaften in verschiedenen Altersklasse", "distance": "7km, trail", "eventStatus": "Standard", "identifier": "stadioncross_xanten_munchen", "image": "/rennseiten/stadioncross_xanten_munchen/stadioncross_xanten_munchen_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "M\u00fcnchen", "addressRegion": "Bayern"}, "name": "M\u00fcnchen"}, "name": "Stadioncross Xanten M\u00fcnchen", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250216"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Bayerischen Kreiscrosslaufmeisterschaften finden am Sonntag, den 05. M\u00e4rz 2023, in Markt Indersdorf statt und werden vom Bayerischen Leichtathletik-Verband ", "distance": null, "eventStatus": "Standard", "identifier": "bayerische_kreiscrosslaufmeisterschaften", "image": "/rennseiten/bayerische_kreiscrosslaufmeisterschaften/bayerische_kreiscrosslaufmeisterschaften_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Markt Indersdorf", "addressRegion": "Bayern"}, "name": "Markt Indersdorf"}, "name": "Bayerische Kreiscrosslaufmeisterschaften", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250223"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -24,6 +24,8 @@
     />
     <title>Laufwettbewerbe in Dachau: Gelände-Läufe im Laufkalender finden</title>
     <meta name="description" content="Entdecke Gelände-Laufwettbewerbe in Dachau! Finde dein nächstes Laufrennen mit unserem Laufkalender.  Von 5 km bis Marathon – Alle Kategorien verfügbar.  Laufliste und Rennkalender für Dachau." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -657,14 +659,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Dachau&quot;, &quot;race_type&quot;: &quot;Gel\u00e4nde&quot;, &quot;category&quot;: null}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Dachau\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Gel\\u00e4nde\u0026quot;, \u0026quot;category\u0026quot;: null}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/stadioncross_xanten_munchen"
-  class="race-card"
+  href="/rennseiten/stadioncross_xanten_munchen"
+  class="race-card packed"
   data-name="Stadioncross Xanten München"
   data-date="20250216"
   data-county="Bayern"
@@ -675,98 +677,24 @@
   data-longitude="11.5819806"
   data-location="München"
   data-description="Der 16. Münchner Stadioncross findet am 16. Februar 2025 in München statt und umfasst die Oberbayerischen Crosslaufmeisterschaften in versch"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fstadioncross_xanten_munchen%2Fstadioncross_xanten_munchen_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/stadioncross_xanten_munchen/stadioncross_xanten_munchen_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="16 Feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fstadioncross_xanten_munchen%2Fstadioncross_xanten_munchen_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuStadioncross Xanten München"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          16 Feb.
-        </div>
-        <div class="race-location">
-          Bayern
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Stadioncross Xanten München</div>
+    <div class="race-date">
+      16 Feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Stadioncross Xanten München</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          München 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                7 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                trail
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der 16. Münchner Stadioncross findet am 16. Februar 2025 in München statt und umfasst die Oberbayerischen Crosslaufmeisterschaften in versch...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/bayerische_kreiscrosslaufmeisterschaften"
-  class="race-card"
+  href="/rennseiten/bayerische_kreiscrosslaufmeisterschaften"
+  class="race-card packed"
   data-name="Bayerische Kreiscrosslaufmeisterschaften"
   data-date="20250223"
   data-county="Bayern"
@@ -777,88 +705,20 @@
   data-longitude="11.3743045"
   data-location="Markt Indersdorf"
   data-description="Die Bayerischen Kreiscrosslaufmeisterschaften finden am Sonntag, den 05. März 2023, in Markt Indersdorf statt und werden vom Bayerischen Lei"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fbayerische_kreiscrosslaufmeisterschaften%2Fbayerische_kreiscrosslaufmeisterschaften_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/bayerische_kreiscrosslaufmeisterschaften/bayerische_kreiscrosslaufmeisterschaften_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="23 Feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fbayerische_kreiscrosslaufmeisterschaften%2Fbayerische_kreiscrosslaufmeisterschaften_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuBayerische Kreiscrosslaufmeisterschaften"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          23 Feb.
-        </div>
-        <div class="race-location">
-          Bayern
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Bayerische Kreiscrosslaufmeisterschaften</div>
+    <div class="race-date">
+      23 Feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Bayerische Kreiscrosslaufmeisterschaften</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Markt Indersdorf 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Gemischte Distanz
-              </span>
-            </div>
-            
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Die Bayerischen Kreiscrosslaufmeisterschaften finden am Sonntag, den 05. März 2023, in Markt Indersdorf statt und werden vom Bayerischen Lei...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

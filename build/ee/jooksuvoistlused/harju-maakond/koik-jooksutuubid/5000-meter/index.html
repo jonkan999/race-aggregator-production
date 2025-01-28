@@ -21,6 +21,8 @@
     <title>5000 meetri jooksuvõistlused Harju maakonnas | Jooksuvõistluste kalender</title>
     <meta name="description" content="Leia kõik 5000 meetri jooksuvõistlused Harju maakonnas.  Avasta erinevaid jooksutüüpe, alates tänavajooksust kuni trail-jooksuni. Jooksuvõistlused, jooksuüritused, jooksev kalender – kõik ühes kohas! Saada kiiremaks jooksjaks!" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -643,14 +645,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: &quot;5000 meter&quot;, &quot;county&quot;: &quot;Harju maakond&quot;, &quot;race_type&quot;: null}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: \u0026quot;5000 meter\u0026quot;, \u0026quot;county\u0026quot;: \u0026quot;Harju maakond\u0026quot;, \u0026quot;race_type\u0026quot;: null}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/sportos_test"
-  class="race-card"
+  class="race-card packed"
   data-name="Sportos TEST"
   data-date="20250130"
   data-county="Harju maakond"
@@ -661,104 +663,24 @@
   data-longitude="24.7397778"
   data-location="Jalgpalli 1, 11312 Tallinn"
   data-description="Sportos TEST 2023 toimub jooksuvõistlusena, kus osalejad saavad valida erinevate distantside vahel. Esimene distants algab kell 10:00 ja on "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fsportos_test%2Fsportos_test_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/sportos_test/sportos_test_1.webp?v=1"
   data-type="track"
   data-type-display="Jooksurada"
   data-date-display="30 jaan."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fsportos_test%2Fsportos_test_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksSportos TEST"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          30 jaan.
-        </div>
-        <div class="race-location">
-          Harju maakond
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Sportos TEST</div>
+    <div class="race-date">
+      30 jaan.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Sportos TEST</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Jalgpalli 1, 11312 Tallinn 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                11 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Jooksurada
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Sportos TEST 2023 toimub jooksuvõistlusena, kus osalejad saavad valida erinevate distantside vahel. Esimene distants algab kell 10:00 ja on ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/tondiraba_sisemaraton"
-  class="race-card"
+  class="race-card packed"
   data-name="Tondiraba Sisemaraton"
   data-date="20250207"
   data-county="Harju maakond"
@@ -769,98 +691,24 @@
   data-longitude="24.8480556"
   data-location="Tondiraba Jäähall"
   data-description="Laupäeval, 8. veebruaril 2025 kell 10.00 toimub 11. Tondiraba Sisemaraton, mis joostakse 252,67 m pikkusel Tondiraba Jäähalli siseovaalil. K"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Ftondiraba_sisemaraton%2Ftondiraba_sisemaraton_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/tondiraba_sisemaraton/tondiraba_sisemaraton_1.webp?v=1"
   data-type="track"
   data-type-display="Jooksurada"
   data-date-display="7 veebr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Ftondiraba_sisemaraton%2Ftondiraba_sisemaraton_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksTondiraba Sisemaraton"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          7 veebr.
-        </div>
-        <div class="race-location">
-          Harju maakond
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Tondiraba Sisemaraton</div>
+    <div class="race-date">
+      7 veebr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Tondiraba Sisemaraton</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Tondiraba Jäähall 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Maraton
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Jooksurada
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Laupäeval, 8. veebruaril 2025 kell 10.00 toimub 11. Tondiraba Sisemaraton, mis joostakse 252,67 m pikkusel Tondiraba Jäähalli siseovaalil. K...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/paunkula_veehoidla_jooks"
-  class="race-card"
+  class="race-card packed"
   data-name="Paunküla Veehoidla Jooks"
   data-date="20250426"
   data-county="Harju maakond"
@@ -871,85 +719,493 @@
   data-longitude="25.380985"
   data-location="Paunküla Heaolukeskus"
   data-description="Laupäeval, 26. aprillil 2025 toimub 3. jooks ümber Paunküla veehoidla, mis kuulub 2025 Maru Järvejooksude sarja ja on sarja 1. osavõistlus. "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fpaunkula_veehoidla_jooks%2Fpaunkula_veehoidla_jooks_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/paunkula_veehoidla_jooks/paunkula_veehoidla_jooks_1.webp?v=1"
   data-type="terrain"
   data-type-display="Maastiku"
   data-date-display="26 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fpaunkula_veehoidla_jooks%2Fpaunkula_veehoidla_jooks_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksPaunküla Veehoidla Jooks"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          26 apr.
-        </div>
-        <div class="race-location">
-          Harju maakond
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Paunküla Veehoidla Jooks</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Paunküla Heaolukeskus 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                10,5 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maastiku
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Laupäeval, 26. aprillil 2025 toimub 3. jooks ümber Paunküla veehoidla, mis kuulub 2025 Maru Järvejooksude sarja ja on sarja 1. osavõistlus. ...
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Paunküla Veehoidla Jooks</div>
+    <div class="race-date">
+      26 apr.
     </div>
   </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/paunkula_metsamiil"
+  class="race-card packed"
+  data-name="Paunküla Metsamiil"
+  data-date="20250426"
+  data-county="Harju maakond"
+  data-category=""
+  data-race-type="Maastiku"
+  data-distance="1,6km, 10,5km"
+  data-latitude="59.114573"
+  data-longitude="25.380985"
+  data-location="Paunküla Heaolukeskus"
+  data-description="Laupäeval, 26. aprillil 2025 toimub 3. jooks ümber Paunküla veehoidla, mis kuulub 2025 Maru Järvejooksude sarja ja on sarja 1. osavõistlus. "
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/paunkula_metsamiil/paunkula_metsamiil_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Maastiku"
+  data-date-display="26 apr."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Paunküla Metsamiil</div>
+    <div class="race-date">
+      26 apr.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/korvemaa_kevadjooks"
+  class="race-card packed"
+  data-name="Kõrvemaa Kevadjooks"
+  data-date="20250427"
+  data-county="Harju maakond"
+  data-category=""
+  data-race-type="Maastiku"
+  data-distance="1km, 6km, 16km"
+  data-latitude="59.3368939"
+  data-longitude="25.6437508"
+  data-location="Oja talu, Pillapalu küla"
+  data-description="Kevad piilub vaikselt uksevahelt ja meie saame suurtele ning väikestele jooksusõpradele häid uudiseid tuua! Sportland Kõrvemaa Kevadjooks to"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/korvemaa_kevadjooks/korvemaa_kevadjooks_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Maastiku"
+  data-date-display="27 apr."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Kõrvemaa Kevadjooks</div>
+    <div class="race-date">
+      27 apr.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/icebug_kova_mehe_jooks"
+  class="race-card packed"
+  data-name="ICEBUG Kõva Mehe Jooks"
+  data-date="20250523"
+  data-county="Harju maakond"
+  data-category=""
+  data-race-type="Maastiku"
+  data-distance="2,5km, 10km"
+  data-latitude="59.33702849999999"
+  data-longitude="24.5857849"
+  data-location="Saunapunkt"
+  data-description="18. ICEBUG KÕVA MEHE JOOKS toimub 24. mail 2025. Ajakava kohaselt avatakse võistluskeskus kell 9.30, stardimaterjalide väljastamine algab sa"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/icebug_kova_mehe_jooks/icebug_kova_mehe_jooks_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Maastiku"
+  data-date-display="23 mai"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">ICEBUG Kõva Mehe Jooks</div>
+    <div class="race-date">
+      23 mai
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/euroopa_spordipealinna_test"
+  class="race-card packed"
+  data-name="Euroopa spordipealinna test"
+  data-date="20250531"
+  data-county="Harju maakond"
+  data-category=""
+  data-race-type="Jooksurada"
+  data-distance="5km, 20km"
+  data-latitude="59.39652270000001"
+  data-longitude="24.6775487"
+  data-location="13414 Tallinn"
+  data-description="Euroopa spordipealinna võistluse test toimub 20.09.2024 Harju maakonnas, Tallinnas. Sündmus on jooksmise võistlus, mille osalejate arvu prog"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/euroopa_spordipealinna_test/euroopa_spordipealinna_test_1.webp?v=1"
+  data-type="track"
+  data-type-display="Jooksurada"
+  data-date-display="31 mai"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Euroopa spordipealinna test</div>
+    <div class="race-date">
+      31 mai
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/e_lux_peetri_jooks"
+  class="race-card packed"
+  data-name="E-Lux Peetri Jooks"
+  data-date="20250601"
+  data-county="Harju maakond"
+  data-category=""
+  data-race-type="Tänava"
+  data-distance="5km, 10km"
+  data-latitude="59.39476870000001"
+  data-longitude="24.8117749"
+  data-location="Peetri"
+  data-description="E-Lux Peetri Jooks toimub pühapäeval, 1. juunil 2025 Peetris ning on Eesti meeleolukaim jooksu- ja laadapidu, mis propageerib jooksmist ja a"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/e_lux_peetri_jooks/e_lux_peetri_jooks_1.webp?v=1"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="1 juuni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">E-Lux Peetri Jooks</div>
+    <div class="race-date">
+      1 juuni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/rummu_vagilase_jooks"
+  class="race-card packed"
+  data-name="Rummu Vägilase Jooks"
+  data-date="20250608"
+  data-county="Harju maakond"
+  data-category=""
+  data-race-type="Maastiku"
+  data-distance="4km, 7,5km"
+  data-latitude="59.22831219999999"
+  data-longitude="24.2260113"
+  data-location="Rummu karjäär"
+  data-description="Rummu Vägilase Jooks on seikluslik jooksuvõistlus, kus põhisõit ulatub ligikaudu 7.5 km ja lühijooksu rada on ligikaudu 4 km. Rajal on nii t"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/rummu_vagilase_jooks/rummu_vagilase_jooks_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Maastiku"
+  data-date-display="8 juuni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Rummu Vägilase Jooks</div>
+    <div class="race-date">
+      8 juuni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/korvemaa_triatlon"
+  class="race-card packed"
+  data-name="Kõrvemaa Triatlon"
+  data-date="20250712"
+  data-county="Harju maakond"
+  data-category=""
+  data-race-type="Maastiku"
+  data-distance="4km, 20km"
+  data-latitude="59.31758430000001"
+  data-longitude="25.6526681"
+  data-location="Sportland Kõrvemaa Matka- ja Suusakeskus"
+  data-description="Sportland Kõrvemaa Triatlon toimub 12. juulil 2025. Distantsiks on 350 m ujumist, 20 km ratast ja 4 km jooksu. Tegemist on kõige suurema maa"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/korvemaa_triatlon/korvemaa_triatlon_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Maastiku"
+  data-date-display="12 juuli"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Kõrvemaa Triatlon</div>
+    <div class="race-date">
+      12 juuli
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/ulemiste_oojooks"
+  class="race-card packed"
+  data-name="Ülemiste Ööjooks"
+  data-date="20250815"
+  data-county="Harju maakond"
+  data-category=""
+  data-race-type="Tänava"
+  data-distance="0,2km, 5km, 5,3km, 10km, half marathon"
+  data-latitude="59.4219391"
+  data-longitude="24.793867"
+  data-location="Ülemiste Keskus"
+  data-description="Ülemiste Ööjooks on Tallinnas toimuv jooksuvõistlus, kus osalejad saavad valida erinevate distantside vahel, sealhulgas 5 km ja 10 km jooksu"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/ulemiste_oojooks/ulemiste_oojooks_1.webp?v=1"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="15 aug."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Ülemiste Ööjooks</div>
+    <div class="race-date">
+      15 aug.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/maardu_city_run"
+  class="race-card packed"
+  data-name="Maardu City Run"
+  data-date="20250824"
+  data-county="Harju maakond"
+  data-category=""
+  data-race-type="Tänava"
+  data-distance="0,2km, 5km, 10km"
+  data-latitude="59.4771113"
+  data-longitude="25.0186855"
+  data-location="Maardu Vaba Aja Keskus (Keemikute 12b)"
+  data-description="Maardu City Run 2024 toimub 25. augustil Maardus, pakkudes osalejatele mitmeid distantsivalikuid: Cappy lastejooks 0.2 km, Stebby 5 km ajavõ"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/maardu_city_run/maardu_city_run_1.webp?v=1"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="24 aug."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Maardu City Run</div>
+    <div class="race-date">
+      24 aug.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/tallinna_maraton"
+  class="race-card packed"
+  data-name="Tallinna Maraton"
+  data-date="20250901"
+  data-county="Harju maakond"
+  data-category=""
+  data-race-type="Tänava"
+  data-distance="10km, half marathon, marathon"
+  data-latitude="59.4342074"
+  data-longitude="24.7446464"
+  data-location="Vabaduse väljak"
+  data-description="Swedbanki Tallinna Maraton on üks suurimaid ja populaarsemaid jooksuvõistlusi Eestis, mis toimub 14. septembril 2025. Maraton pakub osalejat"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/tallinna_maraton/tallinna_maraton_1.webp?v=1"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="1 sept."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Tallinna Maraton</div>
+    <div class="race-date">
+      1 sept.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/elke_tallinn_run"
+  class="race-card packed"
+  data-name="ELKE Tallinn Run"
+  data-date="20250906"
+  data-county="Harju maakond"
+  data-category=""
+  data-race-type="Tänava"
+  data-distance="0,2km, 5km, 10km"
+  data-latitude="59.43830219999999"
+  data-longitude="24.7027847"
+  data-location="Põhja-Tallinna linnaosa"
+  data-description="ELKE Tallinn Run - Noblessner toimub Põhja-Tallinna linnaosas, kus osaleda saab nii joostes, jalutades kui ka kepikõndides. Ülimalt kaunis j"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/elke_tallinn_run/elke_tallinn_run_1.webp?v=1"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="6 sept."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">ELKE Tallinn Run</div>
+    <div class="race-date">
+      6 sept.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/korvemaa_metsajooks"
+  class="race-card packed"
+  data-name="Kõrvemaa Metsajooks"
+  data-date="20250907"
+  data-county="Harju maakond"
+  data-category=""
+  data-race-type="Maastiku"
+  data-distance="1km, 5km, 10km, half marathon"
+  data-latitude="59.31758430000001"
+  data-longitude="25.6526681"
+  data-location="Sportland Kõrvemaa Matka- ja Suusakeskus"
+  data-description="Sportland Kõrvemaa Metsajooks toimub 2024. aastal 18. augustil. Osalejad saavad valida erinevate jooksudistantside vahel, sealhulgas 21 km, "
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/korvemaa_metsajooks/korvemaa_metsajooks_1.webp?v=1"
+  data-type="terrain"
+  data-type-display="Maastiku"
+  data-date-display="7 sept."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Kõrvemaa Metsajooks</div>
+    <div class="race-date">
+      7 sept.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/tallinna_sugisjooks"
+  class="race-card packed"
+  data-name="Tallinna Sügisjooks"
+  data-date="20250913"
+  data-county="Harju maakond"
+  data-category=""
+  data-race-type="Tänava"
+  data-distance="5km, 10km, half marathon"
+  data-latitude="59.4348432"
+  data-longitude="24.7356304"
+  data-location="Tallinn - Falgi tee"
+  data-description="Tallinna Sügisjooks toimub 13. septembril 2025. Esimene Tallinna sügisjooks toimus 2000. aastal ja see on igal aastal septembris toimuv jook"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/tallinna_sugisjooks/tallinna_sugisjooks_1.webp?v=1"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="13 sept."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Tallinna Sügisjooks</div>
+    <div class="race-date">
+      13 sept.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/tallinna_maraton_2"
+  class="race-card packed"
+  data-name="Tallinna Maraton"
+  data-date="20250913"
+  data-county="Harju maakond"
+  data-category=""
+  data-race-type="Tänava"
+  data-distance="5km, 10km, half marathon, marathon"
+  data-latitude="59.43696079999999"
+  data-longitude="24.7535746"
+  data-location="Tallinn"
+  data-description="Swedbanki Tallinna Maraton on iga-aastane jooksuvõistlus, mis toimub Tallinna linnas 12.-14. septembril 2025. Maraton on tuntud oma kauni ra"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/tallinna_maraton_2/tallinna_maraton_2_1.webp?v=1"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="13 sept."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Tallinna Maraton</div>
+    <div class="race-date">
+      13 sept.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/nike_noortejooks"
+  class="race-card packed"
+  data-name="Nike Noortejooks"
+  data-date="20250913"
+  data-county="Harju maakond"
+  data-category=""
+  data-race-type="Tänava"
+  data-distance="5km"
+  data-latitude="59.4336232"
+  data-longitude="24.7440994"
+  data-location="Vabaduse väljak, Harju maakond, Eesti"
+  data-description="Nike Noortejooks toimub 13. septembril 2025 Tallinna tänavatel ning kergliiklusteedel, Swedbanki Tallinna Maratoni raames. Osavõtutasud vari"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/nike_noortejooks/nike_noortejooks_1.webp?v=1"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="13 sept."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Nike Noortejooks</div>
+    <div class="race-date">
+      13 sept.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/friday_night_run"
+  class="race-card packed"
+  data-name="Friday Night Run"
+  data-date="20251003"
+  data-county="Harju maakond"
+  data-category=""
+  data-race-type="Tänava"
+  data-distance="4km"
+  data-latitude="59.4371575"
+  data-longitude="24.7450067"
+  data-location="Raekoja plats"
+  data-description="Friday Night Run toimub 4. oktoobril 2024 kell 21.00, alustades Raekoja platsilt Tartu vanalinnas. Jooksusündmus on eriline, kuna start anta"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/friday_night_run/friday_night_run_1.webp?v=1"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="3 okt."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Friday Night Run</div>
+    <div class="race-date">
+      3 okt.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/jooksulehed/raimo_testib"
+  class="race-card packed"
+  data-name="Raimo Testib"
+  data-date="20251201"
+  data-county="Harju maakond"
+  data-category=""
+  data-race-type="Tänava"
+  data-distance="5km, 20km"
+  data-latitude="59.41899189999999"
+  data-longitude="24.7397778"
+  data-location="Jalgpalli 1, 11312 Tallinn"
+  data-description="Raimo Testib 11111 toimub 15.09.2024 Tallinnas, Jalgpalli 1. Spordialadeks on jooksmine ja kepikõnd. Korraldajaks on BestIT OÜ, kes toob kok"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/raimo_testib/raimo_testib_1.webp?v=1"
+  data-type="road"
+  data-type-display="Tänava"
+  data-date-display="1 dets."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Raimo Testib</div>
+    <div class="race-date">
+      1 dets.
+    </div>
   </div>
 </a>
     
@@ -966,7 +1222,11 @@
           </div>
         </div>
         <div class="race-card-big-container right-scroller">
-              <a
+          
+            
+            
+              
+                <a
   href="/jooksulehed/sportos_test"
   class="race-card-big race-card"
   data-name="Sportos TEST"
@@ -980,11 +1240,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fsportos_test%2Fsportos_test_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/sportos_test/sportos_test_1.webp?v=1"
         alt="Pilt {x} jaoksSportos TEST"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1042,7 +1304,14 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/jooksulehed/tondiraba_sisemaraton"
   class="race-card-big race-card"
   data-name="Tondiraba Sisemaraton"
@@ -1056,11 +1325,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Ftondiraba_sisemaraton%2Ftondiraba_sisemaraton_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/tondiraba_sisemaraton/tondiraba_sisemaraton_1.webp?v=1"
         alt="Pilt {x} jaoksTondiraba Sisemaraton"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1112,7 +1383,14 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/jooksulehed/paunkula_veehoidla_jooks"
   class="race-card-big race-card"
   data-name="Paunküla Veehoidla Jooks"
@@ -1126,11 +1404,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fpaunkula_veehoidla_jooks%2Fpaunkula_veehoidla_jooks_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/paunkula_veehoidla_jooks/paunkula_veehoidla_jooks_1.webp?v=1"
         alt="Pilt {x} jaoksPaunküla Veehoidla Jooks"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1176,7 +1456,14 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/jooksulehed/paunkula_metsamiil"
   class="race-card-big race-card"
   data-name="Paunküla Metsamiil"
@@ -1190,11 +1477,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fpaunkula_metsamiil%2Fpaunkula_metsamiil_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/paunkula_metsamiil/paunkula_metsamiil_1.webp?v=1"
         alt="Pilt {x} jaoksPaunküla Metsamiil"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1246,7 +1535,14 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/jooksulehed/korvemaa_kevadjooks"
   class="race-card-big race-card"
   data-name="Kõrvemaa Kevadjooks"
@@ -1260,11 +1556,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkorvemaa_kevadjooks%2Fkorvemaa_kevadjooks_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/korvemaa_kevadjooks/korvemaa_kevadjooks_1.webp?v=1"
         alt="Pilt {x} jaoksKõrvemaa Kevadjooks"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1322,486 +1620,13 @@
       <div class="more-info-button">Sõidulehe juurde</div>
     </div>
   </div>
-</a>   
+</a>
+              
+            
+          
         </div>
       </section>
-          
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/paunkula_metsamiil"
-  class="race-card packed"
-  data-name="Paunküla Metsamiil"
-  data-date="20250426"
-  data-county="Harju maakond"
-  data-category=""
-  data-race-type="Maastiku"
-  data-distance="1,6km, 10,5km"
-  data-latitude="59.114573"
-  data-longitude="25.380985"
-  data-location="Paunküla Heaolukeskus"
-  data-description="Laupäeval, 26. aprillil 2025 toimub 3. jooks ümber Paunküla veehoidla, mis kuulub 2025 Maru Järvejooksude sarja ja on sarja 1. osavõistlus. "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fpaunkula_metsamiil%2Fpaunkula_metsamiil_1.webp?alt=media"
-  data-type="terrain"
-  data-type-display="Maastiku"
-  data-date-display="26 apr."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Paunküla Metsamiil</div>
-    <div class="race-date">
-      26 apr.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/korvemaa_kevadjooks"
-  class="race-card packed"
-  data-name="Kõrvemaa Kevadjooks"
-  data-date="20250427"
-  data-county="Harju maakond"
-  data-category=""
-  data-race-type="Maastiku"
-  data-distance="1km, 6km, 16km"
-  data-latitude="59.3368939"
-  data-longitude="25.6437508"
-  data-location="Oja talu, Pillapalu küla"
-  data-description="Kevad piilub vaikselt uksevahelt ja meie saame suurtele ning väikestele jooksusõpradele häid uudiseid tuua! Sportland Kõrvemaa Kevadjooks to"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkorvemaa_kevadjooks%2Fkorvemaa_kevadjooks_1.webp?alt=media"
-  data-type="terrain"
-  data-type-display="Maastiku"
-  data-date-display="27 apr."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Kõrvemaa Kevadjooks</div>
-    <div class="race-date">
-      27 apr.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/icebug_kova_mehe_jooks"
-  class="race-card packed"
-  data-name="ICEBUG Kõva Mehe Jooks"
-  data-date="20250523"
-  data-county="Harju maakond"
-  data-category=""
-  data-race-type="Maastiku"
-  data-distance="2,5km, 10km"
-  data-latitude="59.33702849999999"
-  data-longitude="24.5857849"
-  data-location="Saunapunkt"
-  data-description="18. ICEBUG KÕVA MEHE JOOKS toimub 24. mail 2025. Ajakava kohaselt avatakse võistluskeskus kell 9.30, stardimaterjalide väljastamine algab sa"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Ficebug_kova_mehe_jooks%2Ficebug_kova_mehe_jooks_1.webp?alt=media"
-  data-type="terrain"
-  data-type-display="Maastiku"
-  data-date-display="23 mai"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">ICEBUG Kõva Mehe Jooks</div>
-    <div class="race-date">
-      23 mai
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/euroopa_spordipealinna_test"
-  class="race-card packed"
-  data-name="Euroopa spordipealinna test"
-  data-date="20250531"
-  data-county="Harju maakond"
-  data-category=""
-  data-race-type="Jooksurada"
-  data-distance="5km, 20km"
-  data-latitude="59.39652270000001"
-  data-longitude="24.6775487"
-  data-location="13414 Tallinn"
-  data-description="Euroopa spordipealinna võistluse test toimub 20.09.2024 Harju maakonnas, Tallinnas. Sündmus on jooksmise võistlus, mille osalejate arvu prog"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Feuroopa_spordipealinna_test%2Feuroopa_spordipealinna_test_1.webp?alt=media"
-  data-type="track"
-  data-type-display="Jooksurada"
-  data-date-display="31 mai"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Euroopa spordipealinna test</div>
-    <div class="race-date">
-      31 mai
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/e_lux_peetri_jooks"
-  class="race-card packed"
-  data-name="E-Lux Peetri Jooks"
-  data-date="20250601"
-  data-county="Harju maakond"
-  data-category=""
-  data-race-type="Tänava"
-  data-distance="5km, 10km"
-  data-latitude="59.39476870000001"
-  data-longitude="24.8117749"
-  data-location="Peetri"
-  data-description="E-Lux Peetri Jooks toimub pühapäeval, 1. juunil 2025 Peetris ning on Eesti meeleolukaim jooksu- ja laadapidu, mis propageerib jooksmist ja a"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fe_lux_peetri_jooks%2Fe_lux_peetri_jooks_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Tänava"
-  data-date-display="1 juuni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">E-Lux Peetri Jooks</div>
-    <div class="race-date">
-      1 juuni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/rummu_vagilase_jooks"
-  class="race-card packed"
-  data-name="Rummu Vägilase Jooks"
-  data-date="20250608"
-  data-county="Harju maakond"
-  data-category=""
-  data-race-type="Maastiku"
-  data-distance="4km, 7,5km"
-  data-latitude="59.22831219999999"
-  data-longitude="24.2260113"
-  data-location="Rummu karjäär"
-  data-description="Rummu Vägilase Jooks on seikluslik jooksuvõistlus, kus põhisõit ulatub ligikaudu 7.5 km ja lühijooksu rada on ligikaudu 4 km. Rajal on nii t"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Frummu_vagilase_jooks%2Frummu_vagilase_jooks_1.webp?alt=media"
-  data-type="terrain"
-  data-type-display="Maastiku"
-  data-date-display="8 juuni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Rummu Vägilase Jooks</div>
-    <div class="race-date">
-      8 juuni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/korvemaa_triatlon"
-  class="race-card packed"
-  data-name="Kõrvemaa Triatlon"
-  data-date="20250712"
-  data-county="Harju maakond"
-  data-category=""
-  data-race-type="Maastiku"
-  data-distance="4km, 20km"
-  data-latitude="59.31758430000001"
-  data-longitude="25.6526681"
-  data-location="Sportland Kõrvemaa Matka- ja Suusakeskus"
-  data-description="Sportland Kõrvemaa Triatlon toimub 12. juulil 2025. Distantsiks on 350 m ujumist, 20 km ratast ja 4 km jooksu. Tegemist on kõige suurema maa"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkorvemaa_triatlon%2Fkorvemaa_triatlon_1.webp?alt=media"
-  data-type="terrain"
-  data-type-display="Maastiku"
-  data-date-display="12 juuli"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Kõrvemaa Triatlon</div>
-    <div class="race-date">
-      12 juuli
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/ulemiste_oojooks"
-  class="race-card packed"
-  data-name="Ülemiste Ööjooks"
-  data-date="20250815"
-  data-county="Harju maakond"
-  data-category=""
-  data-race-type="Tänava"
-  data-distance="0,2km, 5km, 5,3km, 10km, half marathon"
-  data-latitude="59.4219391"
-  data-longitude="24.793867"
-  data-location="Ülemiste Keskus"
-  data-description="Ülemiste Ööjooks on Tallinnas toimuv jooksuvõistlus, kus osalejad saavad valida erinevate distantside vahel, sealhulgas 5 km ja 10 km jooksu"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fulemiste_oojooks%2Fulemiste_oojooks_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Tänava"
-  data-date-display="15 aug."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Ülemiste Ööjooks</div>
-    <div class="race-date">
-      15 aug.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/maardu_city_run"
-  class="race-card packed"
-  data-name="Maardu City Run"
-  data-date="20250824"
-  data-county="Harju maakond"
-  data-category=""
-  data-race-type="Tänava"
-  data-distance="0,2km, 5km, 10km"
-  data-latitude="59.4771113"
-  data-longitude="25.0186855"
-  data-location="Maardu Vaba Aja Keskus (Keemikute 12b)"
-  data-description="Maardu City Run 2024 toimub 25. augustil Maardus, pakkudes osalejatele mitmeid distantsivalikuid: Cappy lastejooks 0.2 km, Stebby 5 km ajavõ"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fmaardu_city_run%2Fmaardu_city_run_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Tänava"
-  data-date-display="24 aug."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Maardu City Run</div>
-    <div class="race-date">
-      24 aug.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/tallinna_maraton"
-  class="race-card packed"
-  data-name="Tallinna Maraton"
-  data-date="20250901"
-  data-county="Harju maakond"
-  data-category=""
-  data-race-type="Tänava"
-  data-distance="10km, half marathon, marathon"
-  data-latitude="59.4342074"
-  data-longitude="24.7446464"
-  data-location="Vabaduse väljak"
-  data-description="Swedbanki Tallinna Maraton on üks suurimaid ja populaarsemaid jooksuvõistlusi Eestis, mis toimub 14. septembril 2025. Maraton pakub osalejat"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Ftallinna_maraton%2Ftallinna_maraton_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Tänava"
-  data-date-display="1 sept."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Tallinna Maraton</div>
-    <div class="race-date">
-      1 sept.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/elke_tallinn_run"
-  class="race-card packed"
-  data-name="ELKE Tallinn Run"
-  data-date="20250906"
-  data-county="Harju maakond"
-  data-category=""
-  data-race-type="Tänava"
-  data-distance="0,2km, 5km, 10km"
-  data-latitude="59.43830219999999"
-  data-longitude="24.7027847"
-  data-location="Põhja-Tallinna linnaosa"
-  data-description="ELKE Tallinn Run - Noblessner toimub Põhja-Tallinna linnaosas, kus osaleda saab nii joostes, jalutades kui ka kepikõndides. Ülimalt kaunis j"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Felke_tallinn_run%2Felke_tallinn_run_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Tänava"
-  data-date-display="6 sept."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">ELKE Tallinn Run</div>
-    <div class="race-date">
-      6 sept.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/korvemaa_metsajooks"
-  class="race-card packed"
-  data-name="Kõrvemaa Metsajooks"
-  data-date="20250907"
-  data-county="Harju maakond"
-  data-category=""
-  data-race-type="Maastiku"
-  data-distance="1km, 5km, 10km, half marathon"
-  data-latitude="59.31758430000001"
-  data-longitude="25.6526681"
-  data-location="Sportland Kõrvemaa Matka- ja Suusakeskus"
-  data-description="Sportland Kõrvemaa Metsajooks toimub 2024. aastal 18. augustil. Osalejad saavad valida erinevate jooksudistantside vahel, sealhulgas 21 km, "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fkorvemaa_metsajooks%2Fkorvemaa_metsajooks_1.webp?alt=media"
-  data-type="terrain"
-  data-type-display="Maastiku"
-  data-date-display="7 sept."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Kõrvemaa Metsajooks</div>
-    <div class="race-date">
-      7 sept.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/tallinna_sugisjooks"
-  class="race-card packed"
-  data-name="Tallinna Sügisjooks"
-  data-date="20250913"
-  data-county="Harju maakond"
-  data-category=""
-  data-race-type="Tänava"
-  data-distance="5km, 10km, half marathon"
-  data-latitude="59.4348432"
-  data-longitude="24.7356304"
-  data-location="Tallinn - Falgi tee"
-  data-description="Tallinna Sügisjooks toimub 13. septembril 2025. Esimene Tallinna sügisjooks toimus 2000. aastal ja see on igal aastal septembris toimuv jook"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Ftallinna_sugisjooks%2Ftallinna_sugisjooks_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Tänava"
-  data-date-display="13 sept."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Tallinna Sügisjooks</div>
-    <div class="race-date">
-      13 sept.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/tallinna_maraton_2"
-  class="race-card packed"
-  data-name="Tallinna Maraton"
-  data-date="20250913"
-  data-county="Harju maakond"
-  data-category=""
-  data-race-type="Tänava"
-  data-distance="5km, 10km, half marathon, marathon"
-  data-latitude="59.43696079999999"
-  data-longitude="24.7535746"
-  data-location="Tallinn"
-  data-description="Swedbanki Tallinna Maraton on iga-aastane jooksuvõistlus, mis toimub Tallinna linnas 12.-14. septembril 2025. Maraton on tuntud oma kauni ra"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Ftallinna_maraton_2%2Ftallinna_maraton_2_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Tänava"
-  data-date-display="13 sept."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Tallinna Maraton</div>
-    <div class="race-date">
-      13 sept.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/nike_noortejooks"
-  class="race-card packed"
-  data-name="Nike Noortejooks"
-  data-date="20250913"
-  data-county="Harju maakond"
-  data-category=""
-  data-race-type="Tänava"
-  data-distance="5km"
-  data-latitude="59.4336232"
-  data-longitude="24.7440994"
-  data-location="Vabaduse väljak, Harju maakond, Eesti"
-  data-description="Nike Noortejooks toimub 13. septembril 2025 Tallinna tänavatel ning kergliiklusteedel, Swedbanki Tallinna Maratoni raames. Osavõtutasud vari"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fnike_noortejooks%2Fnike_noortejooks_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Tänava"
-  data-date-display="13 sept."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Nike Noortejooks</div>
-    <div class="race-date">
-      13 sept.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/friday_night_run"
-  class="race-card packed"
-  data-name="Friday Night Run"
-  data-date="20251003"
-  data-county="Harju maakond"
-  data-category=""
-  data-race-type="Tänava"
-  data-distance="4km"
-  data-latitude="59.4371575"
-  data-longitude="24.7450067"
-  data-location="Raekoja plats"
-  data-description="Friday Night Run toimub 4. oktoobril 2024 kell 21.00, alustades Raekoja platsilt Tartu vanalinnas. Jooksusündmus on eriline, kuna start anta"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Ffriday_night_run%2Ffriday_night_run_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Tänava"
-  data-date-display="3 okt."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Friday Night Run</div>
-    <div class="race-date">
-      3 okt.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/jooksulehed/raimo_testib"
-  class="race-card packed"
-  data-name="Raimo Testib"
-  data-date="20251201"
-  data-county="Harju maakond"
-  data-category=""
-  data-race-type="Tänava"
-  data-distance="5km, 20km"
-  data-latitude="59.41899189999999"
-  data-longitude="24.7397778"
-  data-location="Jalgpalli 1, 11312 Tallinn"
-  data-description="Raimo Testib 11111 toimub 15.09.2024 Tallinnas, Jalgpalli 1. Spordialadeks on jooksmine ja kepikõnd. Korraldajaks on BestIT OÜ, kes toob kok"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fraimo_testib%2Fraimo_testib_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Tänava"
-  data-date-display="1 dets."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Raimo Testib</div>
-    <div class="race-date">
-      1 dets.
-    </div>
-  </div>
-</a>
-  
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

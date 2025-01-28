@@ -25,6 +25,8 @@
     <title>Juoksukilpailut Kotkassa: Löydä seuraava juoksutapahtuma!</title>
     <meta name="description" content="Etsi täydellinen juoksukilpailu Kotkassa! Suodata kilpailuja matkan (5 km, 10 km, maraton jne.) ja juoksutyylin (maantie, maasto, polku jne.) mukaan. Löydä juoksukalenterista seuraava juoksukilpailu ja hanki nopeammaksi juoksijaksi!" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -650,14 +652,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Kotka&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Kotka\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/kilpailusivut/brannin_trail_run"
-  class="race-card"
+  class="race-card packed"
   data-name="Brannin Trail Run"
   data-date="20250510"
   data-county="Uusimaa"
@@ -668,98 +670,24 @@
   data-longitude="26.4637073"
   data-location="Strömfors"
   data-description="Brannin Trail Run kutsuu sinut mukaansa ainutlaatuiselle reitille Strömforsin upeisiin maisemiin 10.5.2025! Tapahtuma tarjoaa huolellisesti "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fbrannin_trail_run%2Fbrannin_trail_run_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/brannin_trail_run/brannin_trail_run_1.webp?v=1"
   data-type="trail"
   data-type-display="Polku"
   data-date-display="10 tou"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fbrannin_trail_run%2Fbrannin_trail_run_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Kuva {x}Brannin Trail Run"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          10 tou
-        </div>
-        <div class="race-location">
-          Uusimaa
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Brannin Trail Run</div>
+    <div class="race-date">
+      10 tou
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Brannin Trail Run</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Strömfors 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                8,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Polku
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Brannin Trail Run kutsuu sinut mukaansa ainutlaatuiselle reitille Strömforsin upeisiin maisemiin 10.5.2025! Tapahtuma tarjoaa huolellisesti ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/kilpailusivut/voimantalon_juhlamaraton_puolimaraton"
-  class="race-card"
+  class="race-card packed"
   data-name="Voimantalon Juhlamaraton & Puolimaraton"
   data-date="20250607"
   data-county="Kymenlaakso"
@@ -770,88 +698,20 @@
   data-longitude="26.6546148"
   data-location="Västilän urheilukenttä / kisakeskus"
   data-description="Voimantalon Juhlamaraton & Puolimaraton järjestetään 10. kesäkuuta Västilän Voimantalosta, jossa lähtö tapahtuu klo 12:00. Tapahtumassa on t"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fvoimantalon_juhlamaraton_puolimaraton%2Fvoimantalon_juhlamaraton_puolimaraton_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/voimantalon_juhlamaraton_puolimaraton/voimantalon_juhlamaraton_puolimaraton_1.webp?v=1"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="7 kesä"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Fvoimantalon_juhlamaraton_puolimaraton%2Fvoimantalon_juhlamaraton_puolimaraton_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Kuva {x}Voimantalon Juhlamaraton & Puolimaraton"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          7 kesä
-        </div>
-        <div class="race-location">
-          Kymenlaakso
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Voimantalon Juhlamaraton & Puolimaraton</div>
+    <div class="race-date">
+      7 kesä
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Voimantalon Juhlamaraton & Puolimaraton</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Västilän urheilukenttä / kisakeskus 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                Maraton
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maantie
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Voimantalon Juhlamaraton & Puolimaraton järjestetään 10. kesäkuuta Västilän Voimantalosta, jossa lähtö tapahtuu klo 12:00. Tapahtumassa on t...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

@@ -104,132 +104,66 @@ function unpackRaceCard(card) {
   console.log('📦 Unpacked card:', card.dataset.name);
 }
 
-async function startPreloader() {
-  try {
-    console.log('🚀 Starting image preloader');
+function startPreloader() {
+  console.log('🚀 Starting image preloader');
 
-    // Get all cards and apply filters first
-    const regularCards = document.querySelectorAll(
-      '.race-card:not(.race-card-big)'
-    );
-    const bigCards = document.querySelectorAll('.race-card.race-card-big');
-    console.log(
-      `📊 Found ${regularCards.length} regular race cards and ${bigCards.length} big cards`
-    );
+  // Get all cards and apply filters first
+  const cards = document.querySelectorAll('.race-card:not(.race-card-big)');
+  console.log(`📊 Found ${cards.length} regular race cards`);
 
-    // Apply filters
-    const urlParams = new URLSearchParams(window.location.search);
-    const county = urlParams.get('county') || '';
-    const raceType = urlParams.get('race_type') || '';
-    const category = urlParams.get('category') || '';
+  // Apply filters
+  const urlParams = new URLSearchParams(window.location.search);
+  const county = urlParams.get('county') || '';
+  const raceType = urlParams.get('race_type') || '';
+  const category = urlParams.get('category') || '';
 
-    // Get date range with defaults
-    const today = new Date();
-    const nextYear = new Date(today);
-    nextYear.setFullYear(today.getFullYear() + 1);
+  // Get date range with defaults
+  const today = new Date();
+  const nextYear = new Date(today);
+  nextYear.setFullYear(today.getFullYear() + 1);
 
-    const fromDate = today.toISOString().split('T')[0].replace(/-/g, '');
-    const toDate = nextYear.toISOString().split('T')[0].replace(/-/g, '');
+  const fromDate = today.toISOString().split('T')[0].replace(/-/g, '');
+  const toDate = nextYear.toISOString().split('T')[0].replace(/-/g, '');
 
-    // First, apply all filters
-    const visibleCards = [];
-    regularCards.forEach((card) => {
-      let show = true;
+  // First, apply all filters
+  const visibleCards = [];
+  cards.forEach((card) => {
+    let show = true;
 
-      // URL filters
-      if (county && card.dataset.county !== county) show = false;
-      if (raceType && card.dataset.raceType !== raceType) show = false;
-      if (category && !card.dataset.distance?.includes(category)) show = false;
+    // URL filters
+    if (county && card.dataset.county !== county) show = false;
+    if (raceType && card.dataset.raceType !== raceType) show = false;
+    if (category && !card.dataset.distance?.includes(category)) show = false;
 
-      // Date filter
-      const raceDate = card.dataset.date;
-      if (raceDate < fromDate || raceDate > toDate) show = false;
+    // Date filter
+    const raceDate = card.dataset.date;
+    if (raceDate < fromDate || raceDate > toDate) show = false;
 
-      if (!show) {
-        card.classList.add('filtered-out');
-        console.log(`🚫 Filtered out: ${card.dataset.name}`);
-        return;
-      }
-
-      visibleCards.push(card);
-    });
-
-    console.log(`✨ ${visibleCards.length} cards passed filtering`);
-
-    // Create promises for all initial card loads
-    const loadPromises = [];
-
-    // Handle regular cards
-    visibleCards.slice(0, 3).forEach((card) => {
-      console.log(`🎯 Unpacking regular card: ${card.dataset.name}`);
-      unpackRaceCard(card);
-
-      // Create promise for image load
-      const img = card.querySelector('img[data-src]');
-      if (img && img.dataset.src) {
-        loadPromises.push(
-          new Promise((resolve) => {
-            img.onload = resolve;
-            img.onerror = resolve; // Resolve even on error to prevent hanging
-            console.log('🖼️ Loading image for:', card.dataset.name);
-            img.src = img.dataset.src;
-            delete img.dataset.src;
-          })
-        );
-      }
-    });
-
-    // Handle big cards
-    bigCards.forEach((card) => {
-      const img = card.querySelector('img[data-src]');
-      if (img && img.dataset.src) {
-        loadPromises.push(
-          new Promise((resolve) => {
-            img.onload = resolve;
-            img.onerror = resolve;
-            console.log('🖼️ Loading big card image for:', card.dataset.name);
-            img.src = img.dataset.src;
-            delete img.dataset.src;
-          })
-        );
-      }
-    });
-
-    // Wait for all initial images to load
-    await Promise.all([
-      Promise.all(loadPromises),
-      new Promise((resolve) => setTimeout(resolve, 500)), // Minimum time to prevent flash
-    ]);
-
-    // Remove loader
-    console.log('🎉 Initial loading complete');
-    const loader = document.getElementById('initial-loader');
-    if (loader) {
-      loader.style.opacity = '0';
-      await new Promise((resolve) => setTimeout(resolve, 50));
-      loader.remove();
+    if (!show) {
+      card.classList.add('filtered-out');
+      console.log(`🚫 Filtered out: ${card.dataset.name}`);
+      return;
     }
-    document.body.classList.remove('loading');
-    document.body.classList.add('loaded');
-  } catch (error) {
-    console.error('❌ Error in preloader:', error);
-    // Ensure loader is removed even if there's an error
-    document.body.classList.remove('loading');
-    document.body.classList.add('loaded');
-    const loader = document.getElementById('initial-loader');
-    if (loader) loader.remove();
-  }
-}
 
-// Keep the fallback timeout
-setTimeout(() => {
-  if (!document.body.classList.contains('loaded')) {
-    console.warn('⚠️ Fallback loader removal triggered');
-    document.body.classList.add('loaded');
-    const loader = document.getElementById('initial-loader');
-    if (loader) loader.remove();
-  }
-}, 2000);
+    visibleCards.push(card);
+  });
+
+  console.log(`✨ ${visibleCards.length} cards passed filtering`);
+
+  // Unpack and load images for the first three visible cards
+  visibleCards.slice(0, 3).forEach((card) => {
+    console.log(`🎯 Unpacking one of first three cards: ${card.dataset.name}`);
+    unpackRaceCard(card);
+
+    // Load the image immediately for these first cards
+    const img = card.querySelector('img[data-src]');
+    if (img && img.dataset.src) {
+      console.log('🖼️ Loading image for:', card.dataset.name);
+      img.src = img.dataset.src;
+      delete img.dataset.src;
+    }
+  });
+}
 
 // Run when DOM is ready
 if (document.readyState === 'loading') {

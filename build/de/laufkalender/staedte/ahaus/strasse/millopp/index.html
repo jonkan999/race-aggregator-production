@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Winter Volkslauf Vreden findet am 22.02.2025 statt und zieht Teilnehmer aus der Region und dar\u00fcber hinaus an. Die flache asphaltierte Wendepunktstrecke f\u00fchr", "distance": "1km, 2km, 5km, 10km", "eventStatus": "Standard", "identifier": "winter_volkslauf_vreden", "image": "/Rennseiten/winter_volkslauf_vreden/winter_volkslauf_vreden_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Widukindstadion", "addressRegion": "Nordrhein-Westfalen"}, "name": "Widukindstadion"}, "name": "Winter Volkslauf Vreden", "sport": "Laufen, Stra\u00dfe", "startDate": "20250222"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 7. Alst\u00e4tter Sandhasenlauf findet am 03.03.2024 in Ahaus-Alst\u00e4tte statt. Die Strecken f\u00fchren durch den Dorfkern, direkt an der Kirche. Der Bambinilauf umfas", "distance": "2km, 5km, 10km", "eventStatus": "Standard", "identifier": "alstatter_sandhasenlauf", "image": "/Rennseiten/alstatter_sandhasenlauf/alstatter_sandhasenlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Kirchstra\u00dfe, 48683 Ahaus-Alst\u00e4tte", "addressRegion": "Nordrhein-Westfalen"}, "name": "Kirchstra\u00dfe, 48683 Ahaus-Alst\u00e4tte"}, "name": "Alst\u00e4tter Sandhasenlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250309"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Winter Volkslauf Vreden findet am 22.02.2025 statt und zieht Teilnehmer aus der Region und dar\u00fcber hinaus an. Die flache asphaltierte Wendepunktstrecke f\u00fchr", "distance": "1km, 2km, 5km, 10km", "eventStatus": "Standard", "identifier": "winter_volkslauf_vreden", "image": "/rennseiten/winter_volkslauf_vreden/winter_volkslauf_vreden_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Widukindstadion", "addressRegion": "Nordrhein-Westfalen"}, "name": "Widukindstadion"}, "name": "Winter Volkslauf Vreden", "sport": "Laufen, Stra\u00dfe", "startDate": "20250222"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 7. Alst\u00e4tter Sandhasenlauf findet am 03.03.2024 in Ahaus-Alst\u00e4tte statt. Die Strecken f\u00fchren durch den Dorfkern, direkt an der Kirche. Der Bambinilauf umfas", "distance": "2km, 5km, 10km", "eventStatus": "Standard", "identifier": "alstatter_sandhasenlauf", "image": "/rennseiten/alstatter_sandhasenlauf/alstatter_sandhasenlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Kirchstra\u00dfe, 48683 Ahaus-Alst\u00e4tte", "addressRegion": "Nordrhein-Westfalen"}, "name": "Kirchstra\u00dfe, 48683 Ahaus-Alst\u00e4tte"}, "name": "Alst\u00e4tter Sandhasenlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250309"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -20,6 +20,8 @@
     />
     <title>Millopp Straßenläufe in Ahaus: Laufkalender & Rennliste</title>
     <meta name="description" content="Finde deinen nächsten Millopp Straßenlauf in Ahaus! Durchsuche unseren Laufkalender mit Laufwettbewerben und Laufwettkämpfen.  Lauflisten und Rennkalender für Läufer." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -662,14 +664,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Ahaus&quot;, &quot;race_type&quot;: &quot;Stra\u00dfe&quot;, &quot;category&quot;: &quot;Millopp&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Ahaus\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Stra\\u00dfe\u0026quot;, \u0026quot;category\u0026quot;: \u0026quot;Millopp\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/winter_volkslauf_vreden"
-  class="race-card"
+  href="/rennseiten/winter_volkslauf_vreden"
+  class="race-card packed"
   data-name="Winter Volkslauf Vreden"
   data-date="20250222"
   data-county="Nordrhein-Westfalen"
@@ -680,110 +682,24 @@
   data-longitude="6.8141126"
   data-location="Widukindstadion"
   data-description="Der Winter Volkslauf Vreden findet am 22.02.2025 statt und zieht Teilnehmer aus der Region und darüber hinaus an. Die flache asphaltierte We"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fwinter_volkslauf_vreden%2Fwinter_volkslauf_vreden_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/winter_volkslauf_vreden/winter_volkslauf_vreden_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="22 Feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fwinter_volkslauf_vreden%2Fwinter_volkslauf_vreden_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuWinter Volkslauf Vreden"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          22 Feb.
-        </div>
-        <div class="race-location">
-          Nordrhein-Westfalen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Winter Volkslauf Vreden</div>
+    <div class="race-date">
+      22 Feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Winter Volkslauf Vreden</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Widukindstadion 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Winter Volkslauf Vreden findet am 22.02.2025 statt und zieht Teilnehmer aus der Region und darüber hinaus an. Die flache asphaltierte We...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/alstatter_sandhasenlauf"
-  class="race-card"
+  href="/rennseiten/alstatter_sandhasenlauf"
+  class="race-card packed"
   data-name="Alstätter Sandhasenlauf"
   data-date="20250309"
   data-county="Nordrhein-Westfalen"
@@ -794,100 +710,20 @@
   data-longitude="6.9143072"
   data-location="Kirchstraße, 48683 Ahaus-Alstätte"
   data-description="Der 7. Alstätter Sandhasenlauf findet am 03.03.2024 in Ahaus-Alstätte statt. Die Strecken führen durch den Dorfkern, direkt an der Kirche. D"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Falstatter_sandhasenlauf%2Falstatter_sandhasenlauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/alstatter_sandhasenlauf/alstatter_sandhasenlauf_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="9 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Falstatter_sandhasenlauf%2Falstatter_sandhasenlauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuAlstätter Sandhasenlauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          9 März
-        </div>
-        <div class="race-location">
-          Nordrhein-Westfalen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Alstätter Sandhasenlauf</div>
+    <div class="race-date">
+      9 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Alstätter Sandhasenlauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Kirchstraße, 48683 Ahaus-Alstätte 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der 7. Alstätter Sandhasenlauf findet am 03.03.2024 in Ahaus-Alstätte statt. Die Strecken führen durch den Dorfkern, direkt an der Kirche. D...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

@@ -21,6 +21,8 @@
     <title>5 km Maantiejuoksukilpailut Etelä-Savossa - Löydä oma juoksutapahtumasi</title>
     <meta name="description" content="Etsi sopivia 5 km maantiejuoksukilpailuja Etelä-Savosta. Löydä juoksukilpailut, juoksukalenteri ja paljon muuta juoksijoille.  Tavoitteena nopeammaksi juoksijaksi?" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -664,14 +666,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: &quot;5 km&quot;, &quot;county&quot;: &quot;Etel\u00e4-Savo&quot;, &quot;race_type&quot;: &quot;Maantie&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: \u0026quot;5 km\u0026quot;, \u0026quot;county\u0026quot;: \u0026quot;Etel\\u00e4-Savo\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Maantie\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/kilpailusivut/talvijuoksusarja_5_6"
-  class="race-card"
+  class="race-card packed"
   data-name="Talvijuoksusarja 5/6"
   data-date="20250408"
   data-county="Etelä-Savo"
@@ -682,106 +684,20 @@
   data-longitude="27.2722598"
   data-location="Mikkeli"
   data-description="Mikkelin Talvijuoksusarja 5/6 järjestetään 9.3.2024 Mikkelissä. Tapahtumassa on virallisesti mitatut reitit, jotka tarjoavat juoksijoille ma"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Ftalvijuoksusarja_5_6%2Ftalvijuoksusarja_5_6_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/fi/talvijuoksusarja_5_6/talvijuoksusarja_5_6_1.webp?v=1"
   data-type="road"
   data-type-display="Maantie"
   data-date-display="8 huhti."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Ffi%2Ftalvijuoksusarja_5_6%2Ftalvijuoksusarja_5_6_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Kuva {x}Talvijuoksusarja 5/6"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          8 huhti.
-        </div>
-        <div class="race-location">
-          Etelä-Savo
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Talvijuoksusarja 5/6</div>
+    <div class="race-date">
+      8 huhti.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Talvijuoksusarja 5/6</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Mikkeli 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                3 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Maantie
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Mikkelin Talvijuoksusarja 5/6 järjestetään 9.3.2024 Mikkelissä. Tapahtumassa on virallisesti mitatut reitit, jotka tarjoavat juoksijoille ma...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Lisätietoja & ilmoittautuminen</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

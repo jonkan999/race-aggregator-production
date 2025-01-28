@@ -25,6 +25,8 @@
     <title>Løbekonkurrencer i Odder: Find Landsvej løb i vores løbskalender</title>
     <meta name="description" content="Søger du efter Landsvej løb i Odder? Find dit næste løb i vores løbskalender med løb i forskellige kategorier, fra 5 km til marathon og længere.  Se alle løbekonkurrencer og motionsløb her!" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -662,14 +664,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Odder&quot;, &quot;race_type&quot;: &quot;Landsvej&quot;, &quot;category&quot;: null}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Odder\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Landsvej\u0026quot;, \u0026quot;category\u0026quot;: null}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/løbsider/brabrand_so_halvmarthon"
-  class="race-card"
+  class="race-card packed"
   data-name="Brabrand Sø Halvmarthon"
   data-date="20250416"
   data-county="Midtjylland"
@@ -680,104 +682,24 @@
   data-longitude="10.1940413"
   data-location="Parkeringsplasen SÃ¸holmvej 80, 8260 Viby J."
   data-description="Brabrand Sø Halvmarathon er et spændende halvmarathonløb, der foregår rundt om den smukke Brabrand Sø ved Aarhus. Deltagerne løber to runder"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fbrabrand_so_halvmarthon%2Fbrabrand_so_halvmarthon_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/brabrand_so_halvmarthon/brabrand_so_halvmarthon_1.webp?v=1"
   data-type="road"
   data-type-display="Landsvej"
   data-date-display="16 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fbrabrand_so_halvmarthon%2Fbrabrand_so_halvmarthon_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Billede tilBrabrand Sø Halvmarthon"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          16 apr.
-        </div>
-        <div class="race-location">
-          Midtjylland
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Brabrand Sø Halvmarthon</div>
+    <div class="race-date">
+      16 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Brabrand Sø Halvmarthon</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Parkeringsplasen SÃ¸holmvej 80, 8260 Viby J. 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                10,1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                11,1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Halvmarathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Landsvej
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Brabrand Sø Halvmarathon er et spændende halvmarathonløb, der foregår rundt om den smukke Brabrand Sø ved Aarhus. Deltagerne løber to runder...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mere info & tilmelding</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/løbsider/royal_run_horsens_korsor_ribe_viborg"
-  class="race-card"
+  class="race-card packed"
   data-name="Royal Run Horsens, Korsør, Ribe, Viborg"
   data-date="20250609"
   data-county="Midtjylland"
@@ -788,104 +710,24 @@
   data-longitude="9.8475881"
   data-location="Horsens"
   data-description="Royal Run 2025 er mere end blot et løb; det er Kongens møde med danskerne og en fest for fællesskabet. Den 9. juni 2025 vil Horsens, med sin"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Froyal_run_horsens_korsor_ribe_viborg%2Froyal_run_horsens_korsor_ribe_viborg_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/royal_run_horsens_korsor_ribe_viborg/royal_run_horsens_korsor_ribe_viborg_1.webp?v=1"
   data-type="road"
   data-type-display="Landsvej"
   data-date-display="9 juni"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Froyal_run_horsens_korsor_ribe_viborg%2Froyal_run_horsens_korsor_ribe_viborg_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Billede tilRoyal Run Horsens, Korsør, Ribe, Viborg"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          9 juni
-        </div>
-        <div class="race-location">
-          Midtjylland
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Royal Run Horsens, Korsør, Ribe, Viborg</div>
+    <div class="race-date">
+      9 juni
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Royal Run Horsens, Korsør, Ribe, Viborg</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Horsens 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Landsvej
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Royal Run 2025 er mere end blot et løb; det er Kongens møde med danskerne og en fest for fællesskabet. Den 9. juni 2025 vil Horsens, med sin...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mere info & tilmelding</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/løbsider/name_it_kids_run"
-  class="race-card"
+  class="race-card packed"
   data-name="Name It Kids Run"
   data-date="20250614"
   data-county="Midtjylland"
@@ -896,85 +738,129 @@
   data-longitude="10.2015481"
   data-location="Rådhusparken/Musikhusparken"
   data-description="Lørdag d. 14. juni afholdes det traditionsrige og enormt populære børneløb, Name It Kids Run, i forbindelse med BESTSELLER Aarhus City Half."
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fname_it_kids_run%2Fname_it_kids_run_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/name_it_kids_run/name_it_kids_run_1.webp?v=1"
   data-type="road"
   data-type-display="Landsvej"
   data-date-display="14 juni"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fname_it_kids_run%2Fname_it_kids_run_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Billede tilName It Kids Run"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          14 juni
-        </div>
-        <div class="race-location">
-          Midtjylland
-        </div>
-      </div>
-    </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Name It Kids Run</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Rådhusparken/Musikhusparken 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,6 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Landsvej
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Lørdag d. 14. juni afholdes det traditionsrige og enormt populære børneløb, Name It Kids Run, i forbindelse med BESTSELLER Aarhus City Half....
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Name It Kids Run</div>
+    <div class="race-date">
+      14 juni
     </div>
   </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mere info & tilmelding</div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løbsider/bestseller_aarhus_half"
+  class="race-card packed"
+  data-name="BESTSELLER Aarhus Half"
+  data-date="20250615"
+  data-county="Midtjylland"
+  data-category=""
+  data-race-type="Landsvej"
+  data-distance="11,5km, half marathon"
+  data-latitude="56.1516094"
+  data-longitude="10.2015481"
+  data-location="Rådhusparken/Musikhusparken"
+  data-description="BESTSELLER Aarhus City Half 2025 er udsolgt, men du kan tilmelde dig ventelisten! Dette event byder på en 100% afspærret rute, hvor du løber"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/bestseller_aarhus_half/bestseller_aarhus_half_1.webp?v=1"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="15 juni"
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">BESTSELLER Aarhus Half</div>
+    <div class="race-date">
+      15 juni
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løbsider/brabrand_so_halvmarathon"
+  class="race-card packed"
+  data-name="Brabrand Sø Halvmarathon"
+  data-date="20250830"
+  data-county="Midtjylland"
+  data-category=""
+  data-race-type="Landsvej"
+  data-distance="half marathon"
+  data-latitude="56.142002"
+  data-longitude="10.0928152"
+  data-location="Parkeringspladsen Søholmvej 80, 8260 Viby J."
+  data-description="Brabrand Sø Halvmarathon er et spændende halvmarathonløb, der foregår rundt om den smukke Brabrand Sø ved Aarhus. Deltagerne løber to runder"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/brabrand_so_halvmarathon/brabrand_so_halvmarathon_1.webp?v=1"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="30 aug."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Brabrand Sø Halvmarathon</div>
+    <div class="race-date">
+      30 aug.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løbsider/halvmaraton_den_genfundne_bro"
+  class="race-card packed"
+  data-name="Halvmaraton Den Genfundne Bro"
+  data-date="20250913"
+  data-county="Midtjylland"
+  data-category=""
+  data-race-type="Landsvej"
+  data-distance="half marathon"
+  data-latitude="55.972889"
+  data-longitude="9.6896718"
+  data-location=" Brædstrup"
+  data-description="Canonball Halvmaraton Den Genfundne Bro Løbet finder sted lørdag den 26. november 2023 kl. 10.00 i Brædstrup, Central Jylland. Deltagerne ka"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/halvmaraton_den_genfundne_bro/halvmaraton_den_genfundne_bro_1.webp?v=1"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="13 sep."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Halvmaraton Den Genfundne Bro</div>
+    <div class="race-date">
+      13 sep.
+    </div>
+  </div>
+</a>
+    
+<!-- Packed version for remaining cards -->
+<a
+  href="/løbsider/brabrand_so_halvmarathon_2"
+  class="race-card packed"
+  data-name="Brabrand Sø Halvmarathon"
+  data-date="20251018"
+  data-county="Midtjylland"
+  data-category=""
+  data-race-type="Landsvej"
+  data-distance="half marathon"
+  data-latitude="56.142002"
+  data-longitude="10.0928152"
+  data-location="Parkeringsplasen Søholmvej 80, 8260 Viby J"
+  data-description="Brabrand Sø Halvmarathon byder på en smuk rute rundt om Brabrand Søen med start ved Parkeringspladsen Søholmvej 80 i Viby J. Løbet består af"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/brabrand_so_halvmarathon_2/brabrand_so_halvmarathon_2_1.webp?v=1"
+  data-type="road"
+  data-type-display="Landsvej"
+  data-date-display="18 okt."
+>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Brabrand Sø Halvmarathon</div>
+    <div class="race-date">
+      18 okt.
+    </div>
   </div>
 </a>
     
@@ -991,7 +877,11 @@
           </div>
         </div>
         <div class="race-card-big-container right-scroller">
-              <a
+          
+            
+            
+              
+                <a
   href="/løbsider/brabrand_so_halvmarthon"
   class="race-card-big race-card"
   data-name="Brabrand Sø Halvmarthon"
@@ -1005,11 +895,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fbrabrand_so_halvmarthon%2Fbrabrand_so_halvmarthon_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/brabrand_so_halvmarthon/brabrand_so_halvmarthon_1.webp?v=1"
         alt="Billede tilBrabrand Sø Halvmarthon"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1067,7 +959,14 @@
       <div class="more-info-button">Til løbsiden</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/løbsider/royal_run_horsens_korsor_ribe_viborg"
   class="race-card-big race-card"
   data-name="Royal Run Horsens, Korsør, Ribe, Viborg"
@@ -1081,11 +980,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Froyal_run_horsens_korsor_ribe_viborg%2Froyal_run_horsens_korsor_ribe_viborg_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/royal_run_horsens_korsor_ribe_viborg/royal_run_horsens_korsor_ribe_viborg_1.webp?v=1"
         alt="Billede tilRoyal Run Horsens, Korsør, Ribe, Viborg"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1143,7 +1044,14 @@
       <div class="more-info-button">Til løbsiden</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/løbsider/name_it_kids_run"
   class="race-card-big race-card"
   data-name="Name It Kids Run"
@@ -1157,11 +1065,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fname_it_kids_run%2Fname_it_kids_run_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/name_it_kids_run/name_it_kids_run_1.webp?v=1"
         alt="Billede tilName It Kids Run"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1207,7 +1117,14 @@
       <div class="more-info-button">Til løbsiden</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/løbsider/bestseller_aarhus_half"
   class="race-card-big race-card"
   data-name="BESTSELLER Aarhus Half"
@@ -1221,11 +1138,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fbestseller_aarhus_half%2Fbestseller_aarhus_half_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/bestseller_aarhus_half/bestseller_aarhus_half_1.webp?v=1"
         alt="Billede tilBESTSELLER Aarhus Half"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1277,7 +1196,14 @@
       <div class="more-info-button">Til løbsiden</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/løbsider/brabrand_so_halvmarathon"
   class="race-card-big race-card"
   data-name="Brabrand Sø Halvmarathon"
@@ -1291,11 +1217,13 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fbrabrand_so_halvmarathon%2Fbrabrand_so_halvmarathon_1.webp?alt=media"
+        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/dk/brabrand_so_halvmarathon/brabrand_so_halvmarathon_1.webp?v=1"
         alt="Billede tilBrabrand Sø Halvmarathon"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1341,122 +1269,13 @@
       <div class="more-info-button">Til løbsiden</div>
     </div>
   </div>
-</a>   
+</a>
+              
+            
+          
         </div>
       </section>
-          
-<!-- Packed version for remaining cards -->
-<a
-  href="/løbsider/bestseller_aarhus_half"
-  class="race-card packed"
-  data-name="BESTSELLER Aarhus Half"
-  data-date="20250615"
-  data-county="Midtjylland"
-  data-category=""
-  data-race-type="Landsvej"
-  data-distance="11,5km, half marathon"
-  data-latitude="56.1516094"
-  data-longitude="10.2015481"
-  data-location="Rådhusparken/Musikhusparken"
-  data-description="BESTSELLER Aarhus City Half 2025 er udsolgt, men du kan tilmelde dig ventelisten! Dette event byder på en 100% afspærret rute, hvor du løber"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fbestseller_aarhus_half%2Fbestseller_aarhus_half_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Landsvej"
-  data-date-display="15 juni"
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">BESTSELLER Aarhus Half</div>
-    <div class="race-date">
-      15 juni
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løbsider/brabrand_so_halvmarathon"
-  class="race-card packed"
-  data-name="Brabrand Sø Halvmarathon"
-  data-date="20250830"
-  data-county="Midtjylland"
-  data-category=""
-  data-race-type="Landsvej"
-  data-distance="half marathon"
-  data-latitude="56.142002"
-  data-longitude="10.0928152"
-  data-location="Parkeringspladsen Søholmvej 80, 8260 Viby J."
-  data-description="Brabrand Sø Halvmarathon er et spændende halvmarathonløb, der foregår rundt om den smukke Brabrand Sø ved Aarhus. Deltagerne løber to runder"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fbrabrand_so_halvmarathon%2Fbrabrand_so_halvmarathon_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Landsvej"
-  data-date-display="30 aug."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Brabrand Sø Halvmarathon</div>
-    <div class="race-date">
-      30 aug.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løbsider/halvmaraton_den_genfundne_bro"
-  class="race-card packed"
-  data-name="Halvmaraton Den Genfundne Bro"
-  data-date="20250913"
-  data-county="Midtjylland"
-  data-category=""
-  data-race-type="Landsvej"
-  data-distance="half marathon"
-  data-latitude="55.972889"
-  data-longitude="9.6896718"
-  data-location=" Brædstrup"
-  data-description="Canonball Halvmaraton Den Genfundne Bro Løbet finder sted lørdag den 26. november 2023 kl. 10.00 i Brædstrup, Central Jylland. Deltagerne ka"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fhalvmaraton_den_genfundne_bro%2Fhalvmaraton_den_genfundne_bro_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Landsvej"
-  data-date-display="13 sep."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Halvmaraton Den Genfundne Bro</div>
-    <div class="race-date">
-      13 sep.
-    </div>
-  </div>
-</a>
-    
-<!-- Packed version for remaining cards -->
-<a
-  href="/løbsider/brabrand_so_halvmarathon_2"
-  class="race-card packed"
-  data-name="Brabrand Sø Halvmarathon"
-  data-date="20251018"
-  data-county="Midtjylland"
-  data-category=""
-  data-race-type="Landsvej"
-  data-distance="half marathon"
-  data-latitude="56.142002"
-  data-longitude="10.0928152"
-  data-location="Parkeringsplasen Søholmvej 80, 8260 Viby J"
-  data-description="Brabrand Sø Halvmarathon byder på en smuk rute rundt om Brabrand Søen med start ved Parkeringspladsen Søholmvej 80 i Viby J. Løbet består af"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fdk%2Fbrabrand_so_halvmarathon_2%2Fbrabrand_so_halvmarathon_2_1.webp?alt=media"
-  data-type="road"
-  data-type-display="Landsvej"
-  data-date-display="18 okt."
->
-  <!-- Placeholder content while packed -->
-  <div class="race-card-placeholder">
-    <div class="race-name">Brabrand Sø Halvmarathon</div>
-    <div class="race-date">
-      18 okt.
-    </div>
-  </div>
-</a>
-  
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Am 19.03.2023 fand der 25. Vorsfelder Stadtlauf als Auftakt des Laufcups Gifhorn Wolfsburg 2023 statt. Die L\u00e4ufer mussten viermal einen Rundkurs zu je 2,5 Kilom", "distance": "2,5km", "eventStatus": "Standard", "identifier": "vorsfelder_stadtlauf", "image": "/Rennseiten/vorsfelder_stadtlauf/vorsfelder_stadtlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Rathaus in Vorsfelde, Lange Str. 21, 38448 Wolfsburg", "addressRegion": "Niedersachsen"}, "name": "Rathaus in Vorsfelde, Lange Str. 21, 38448 Wolfsburg"}, "name": "Vorsfelder Stadtlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250316"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Offenen Kreismeisterschaften Crosslauf finden am Samstag, den 08. Februar 2025 in Braunschweig statt. Veranstaltet wird die Veranstaltung vom NLV Kreis Brau", "distance": "4km, 5km, 6km, trail", "eventStatus": "Standard", "identifier": "offene_kreismeisterschaften_crosslauf", "image": "/Rennseiten/offene_kreismeisterschaften_crosslauf/offene_kreismeisterschaften_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sportplatz Rote Wiese, Rote Wiese 9, 38124 BS", "addressRegion": "Niedersachsen"}, "name": "Sportplatz Rote Wiese, Rote Wiese 9, 38124 BS"}, "name": "Offene Kreismeisterschaften Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250330"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Am 19.03.2023 fand der 25. Vorsfelder Stadtlauf als Auftakt des Laufcups Gifhorn Wolfsburg 2023 statt. Die L\u00e4ufer mussten viermal einen Rundkurs zu je 2,5 Kilom", "distance": "2,5km", "eventStatus": "Standard", "identifier": "vorsfelder_stadtlauf", "image": "/rennseiten/vorsfelder_stadtlauf/vorsfelder_stadtlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Rathaus in Vorsfelde, Lange Str. 21, 38448 Wolfsburg", "addressRegion": "Niedersachsen"}, "name": "Rathaus in Vorsfelde, Lange Str. 21, 38448 Wolfsburg"}, "name": "Vorsfelder Stadtlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250316"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Die Offenen Kreismeisterschaften Crosslauf finden am Samstag, den 08. Februar 2025 in Braunschweig statt. Veranstaltet wird die Veranstaltung vom NLV Kreis Brau", "distance": "4km, 5km, 6km, trail", "eventStatus": "Standard", "identifier": "offene_kreismeisterschaften_crosslauf", "image": "/rennseiten/offene_kreismeisterschaften_crosslauf/offene_kreismeisterschaften_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sportplatz Rote Wiese, Rote Wiese 9, 38124 BS", "addressRegion": "Niedersachsen"}, "name": "Sportplatz Rote Wiese, Rote Wiese 9, 38124 BS"}, "name": "Offene Kreismeisterschaften Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250330"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -24,6 +24,8 @@
     />
     <title>Laufwettbewerbe in Wolfsburg: Finde dein nächstes Laufrennen</title>
     <meta name="description" content="Entdecke die beste Auswahl an Laufwettkämpfen in Wolfsburg.  Finde deinen perfekten Lauf, egal ob 5 km, Marathon oder Trail, mit unserem Laufkalender und der aktuellen Rennliste." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -661,14 +663,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Wolfsburg&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Wolfsburg\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/vorsfelder_stadtlauf"
-  class="race-card"
+  href="/rennseiten/vorsfelder_stadtlauf"
+  class="race-card packed"
   data-name="Vorsfelder Stadtlauf"
   data-date="20250316"
   data-county="Niedersachsen"
@@ -679,92 +681,24 @@
   data-longitude="10.8380712"
   data-location="Rathaus in Vorsfelde, Lange Str. 21, 38448 Wolfsburg"
   data-description="Am 19.03.2023 fand der 25. Vorsfelder Stadtlauf als Auftakt des Laufcups Gifhorn Wolfsburg 2023 statt. Die Läufer mussten viermal einen Rund"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fvorsfelder_stadtlauf%2Fvorsfelder_stadtlauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/vorsfelder_stadtlauf/vorsfelder_stadtlauf_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="16 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fvorsfelder_stadtlauf%2Fvorsfelder_stadtlauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuVorsfelder Stadtlauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          16 März
-        </div>
-        <div class="race-location">
-          Niedersachsen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Vorsfelder Stadtlauf</div>
+    <div class="race-date">
+      16 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Vorsfelder Stadtlauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Rathaus in Vorsfelde, Lange Str. 21, 38448 Wolfsburg 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2,5 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Am 19.03.2023 fand der 25. Vorsfelder Stadtlauf als Auftakt des Laufcups Gifhorn Wolfsburg 2023 statt. Die Läufer mussten viermal einen Rund...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/offene_kreismeisterschaften_crosslauf"
-  class="race-card"
+  href="/rennseiten/offene_kreismeisterschaften_crosslauf"
+  class="race-card packed"
   data-name="Offene Kreismeisterschaften Crosslauf"
   data-date="20250330"
   data-county="Niedersachsen"
@@ -775,106 +709,20 @@
   data-longitude="10.5356595"
   data-location="Sportplatz Rote Wiese, Rote Wiese 9, 38124 BS"
   data-description="Die Offenen Kreismeisterschaften Crosslauf finden am Samstag, den 08. Februar 2025 in Braunschweig statt. Veranstaltet wird die Veranstaltun"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Foffene_kreismeisterschaften_crosslauf%2Foffene_kreismeisterschaften_crosslauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/offene_kreismeisterschaften_crosslauf/offene_kreismeisterschaften_crosslauf_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="30 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Foffene_kreismeisterschaften_crosslauf%2Foffene_kreismeisterschaften_crosslauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuOffene Kreismeisterschaften Crosslauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          30 März
-        </div>
-        <div class="race-location">
-          Niedersachsen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Offene Kreismeisterschaften Crosslauf</div>
+    <div class="race-date">
+      30 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Offene Kreismeisterschaften Crosslauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Sportplatz Rote Wiese, Rote Wiese 9, 38124 BS 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                4 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                trail
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Die Offenen Kreismeisterschaften Crosslauf finden am Samstag, den 08. Februar 2025 in Braunschweig statt. Veranstaltet wird die Veranstaltun...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

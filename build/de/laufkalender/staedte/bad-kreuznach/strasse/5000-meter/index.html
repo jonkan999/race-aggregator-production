@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Lorsbacher Winterlauf- und Walkingserie 2024 findet am Sonntag, den 15. Dezember 2024, in Hofheim am Taunus, Deutschland (Hessen) statt. Die Veranstaltung b", "distance": "3km, 10km, 20km", "eventStatus": "Standard", "identifier": "lorsbacher_winterlauf", "image": "/Rennseiten/lorsbacher_winterlauf/lorsbacher_winterlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Hofheim am Taunus", "addressRegion": "Hessen"}, "name": "Hofheim am Taunus"}, "name": "Lorsbacher Winterlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250202"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Naheland-Lauf, ehemals Seppel-Kiefer-Ged\u00e4chtnislauf, findet am 16. M\u00e4rz 2025 in Bad Kreuznach statt und ist der zweite Lauf des Wingertscup 2025, veranstalt", "distance": "5km, 10km, half marathon", "eventStatus": "Standard", "identifier": "naheland_lauf_bad_kreuznach", "image": "/Rennseiten/naheland_lauf_bad_kreuznach/naheland_lauf_bad_kreuznach_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Stadion Salinental", "addressRegion": "Rheinland-Pfalz"}, "name": "Stadion Salinental"}, "name": "Naheland-Lauf Bad Kreuznach", "sport": "Laufen, Stra\u00dfe", "startDate": "20250316"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Lorsbacher Winterlauf- und Walkingserie 2024 findet am Sonntag, den 15. Dezember 2024, in Hofheim am Taunus, Deutschland (Hessen) statt. Die Veranstaltung b", "distance": "3km, 10km, 20km", "eventStatus": "Standard", "identifier": "lorsbacher_winterlauf", "image": "/rennseiten/lorsbacher_winterlauf/lorsbacher_winterlauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Hofheim am Taunus", "addressRegion": "Hessen"}, "name": "Hofheim am Taunus"}, "name": "Lorsbacher Winterlauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250202"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Naheland-Lauf, ehemals Seppel-Kiefer-Ged\u00e4chtnislauf, findet am 16. M\u00e4rz 2025 in Bad Kreuznach statt und ist der zweite Lauf des Wingertscup 2025, veranstalt", "distance": "5km, 10km, half marathon", "eventStatus": "Standard", "identifier": "naheland_lauf_bad_kreuznach", "image": "/rennseiten/naheland_lauf_bad_kreuznach/naheland_lauf_bad_kreuznach_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Stadion Salinental", "addressRegion": "Rheinland-Pfalz"}, "name": "Stadion Salinental"}, "name": "Naheland-Lauf Bad Kreuznach", "sport": "Laufen, Stra\u00dfe", "startDate": "20250316"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -20,6 +20,8 @@
     />
     <title>5000 Meter Laufrennen in Bad Kreuznach: Laufwettbewerbe auf der Straße finden</title>
     <meta name="description" content="Finde deinen nächsten 5000 Meter Laufwettbewerb in Bad Kreuznach!  Unser Laufkalender listet alle Straßenläufe in Bad Kreuznach auf.  Durchsuche unsere rennliste und finde den perfekten Lauf für dich." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -662,14 +664,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Bad Kreuznach&quot;, &quot;race_type&quot;: &quot;Stra\u00dfe&quot;, &quot;category&quot;: &quot;5000 meter&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Bad Kreuznach\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Stra\\u00dfe\u0026quot;, \u0026quot;category\u0026quot;: \u0026quot;5000 meter\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/lorsbacher_winterlauf"
-  class="race-card"
+  href="/rennseiten/lorsbacher_winterlauf"
+  class="race-card packed"
   data-name="Lorsbacher Winterlauf"
   data-date="20250202"
   data-county="Hessen"
@@ -680,104 +682,24 @@
   data-longitude="8.4432295"
   data-location="Hofheim am Taunus"
   data-description="Der Lorsbacher Winterlauf- und Walkingserie 2024 findet am Sonntag, den 15. Dezember 2024, in Hofheim am Taunus, Deutschland (Hessen) statt."
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Florsbacher_winterlauf%2Florsbacher_winterlauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/lorsbacher_winterlauf/lorsbacher_winterlauf_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="2 Feb."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Florsbacher_winterlauf%2Florsbacher_winterlauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuLorsbacher Winterlauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          2 Feb.
-        </div>
-        <div class="race-location">
-          Hessen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Lorsbacher Winterlauf</div>
+    <div class="race-date">
+      2 Feb.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Lorsbacher Winterlauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Hofheim am Taunus 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                3 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                20 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Lorsbacher Winterlauf- und Walkingserie 2024 findet am Sonntag, den 15. Dezember 2024, in Hofheim am Taunus, Deutschland (Hessen) statt....
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/naheland_lauf_bad_kreuznach"
-  class="race-card"
+  href="/rennseiten/naheland_lauf_bad_kreuznach"
+  class="race-card packed"
   data-name="Naheland-Lauf Bad Kreuznach"
   data-date="20250316"
   data-county="Rheinland-Pfalz"
@@ -788,100 +710,20 @@
   data-longitude="7.854634"
   data-location="Stadion Salinental"
   data-description="Der Naheland-Lauf, ehemals Seppel-Kiefer-Gedächtnislauf, findet am 16. März 2025 in Bad Kreuznach statt und ist der zweite Lauf des Wingerts"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fnaheland_lauf_bad_kreuznach%2Fnaheland_lauf_bad_kreuznach_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/naheland_lauf_bad_kreuznach/naheland_lauf_bad_kreuznach_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="16 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fnaheland_lauf_bad_kreuznach%2Fnaheland_lauf_bad_kreuznach_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuNaheland-Lauf Bad Kreuznach"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          16 März
-        </div>
-        <div class="race-location">
-          Rheinland-Pfalz
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Naheland-Lauf Bad Kreuznach</div>
+    <div class="race-date">
+      16 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Naheland-Lauf Bad Kreuznach</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Stadion Salinental 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Halbmarathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Naheland-Lauf, ehemals Seppel-Kiefer-Gedächtnislauf, findet am 16. März 2025 in Bad Kreuznach statt und ist der zweite Lauf des Wingerts...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

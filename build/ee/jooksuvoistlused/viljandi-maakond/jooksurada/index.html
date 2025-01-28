@@ -25,6 +25,8 @@
     <title>Jooksuvõistlused Viljandi maakonnas: Jooksurada võistlused</title>
     <meta name="description" content="Leia parimad jooksuvõistlused Viljandi maakonnas! Jooksurada võistlused erinevate distantsidega, alates 5 km-st kuni 100 km-ni. Jooksmine, jooksja, jooksma – registreeru jooksuvõistlusele ja saa kiiremaks jooksjaks!" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -647,14 +649,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;category&quot;: null, &quot;county&quot;: &quot;Viljandi maakond&quot;, &quot;race_type&quot;: &quot;Jooksurada&quot;}"
+      data-preselected-filters=""{\u0026quot;category\u0026quot;: null, \u0026quot;county\u0026quot;: \u0026quot;Viljandi maakond\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Jooksurada\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/jooksulehed/suurjooks_umber_viljandi_jarve"
-  class="race-card"
+  class="race-card packed"
   data-name="Suurjooks ümber Viljandi järve"
   data-date="20250501"
   data-county="Viljandi maakond"
@@ -665,100 +667,20 @@
   data-longitude="25.6068511"
   data-location="Viljandi linnastaadion"
   data-description="Suurjooks ümber Viljandi järve on 1928. aastal alguse saanud vanim Eestis korraldatav jooksuüritus, mille rada teeb ringi Viljandi järve ümb"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fsuurjooks_umber_viljandi_jarve%2Fsuurjooks_umber_viljandi_jarve_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/ee/suurjooks_umber_viljandi_jarve/suurjooks_umber_viljandi_jarve_1.webp?v=1"
   data-type="track"
   data-type-display="Jooksurada"
   data-date-display="1 mai"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fee%2Fsuurjooks_umber_viljandi_jarve%2Fsuurjooks_umber_viljandi_jarve_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Pilt {x} jaoksSuurjooks ümber Viljandi järve"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          1 mai
-        </div>
-        <div class="race-location">
-          Viljandi maakond
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Suurjooks ümber Viljandi järve</div>
+    <div class="race-date">
+      1 mai
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Suurjooks ümber Viljandi järve</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Viljandi linnastaadion 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                12 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                13 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Jooksurada
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Suurjooks ümber Viljandi järve on 1928. aastal alguse saanud vanim Eestis korraldatav jooksuüritus, mille rada teeb ringi Viljandi järve ümb...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Rohkem teavet ja registreerimine</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

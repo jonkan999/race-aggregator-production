@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 45. Crosslauf Rund um den Herthasee findet am Sonntag, den 10. M\u00e4rz 2024 in Holzappel statt. Die Veranstaltung wird vom VfL Holzappel ausgerichtet und ist T", "distance": null, "eventStatus": "Standard", "identifier": "herthasee_crosslauf", "image": "/Rennseiten/herthasee_crosslauf/herthasee_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Herthasee an der B417 Richtung Hirschberg", "addressRegion": "Rheinland-Pfalz"}, "name": "Herthasee an der B417 Richtung Hirschberg"}, "name": "Herthasee Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250309"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Am 6. April 2025 kehrt der Miehlener Schinderhanneslauf zur\u00fcck! Der beliebte Lauf, der die Herzen der L\u00e4ufer und L\u00e4uferinnen h\u00f6her schlagen l\u00e4sst, startet am Sp", "distance": null, "eventStatus": "Standard", "identifier": "schinderhanneslauf", "image": "/Rennseiten/schinderhanneslauf/schinderhanneslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sportplatz in Miehlen", "addressRegion": "Rheinland-Pfalz"}, "name": "Sportplatz in Miehlen"}, "name": "Schinderhanneslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250406"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 45. Crosslauf Rund um den Herthasee findet am Sonntag, den 10. M\u00e4rz 2024 in Holzappel statt. Die Veranstaltung wird vom VfL Holzappel ausgerichtet und ist T", "distance": null, "eventStatus": "Standard", "identifier": "herthasee_crosslauf", "image": "/rennseiten/herthasee_crosslauf/herthasee_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Herthasee an der B417 Richtung Hirschberg", "addressRegion": "Rheinland-Pfalz"}, "name": "Herthasee an der B417 Richtung Hirschberg"}, "name": "Herthasee Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250309"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Am 6. April 2025 kehrt der Miehlener Schinderhanneslauf zur\u00fcck! Der beliebte Lauf, der die Herzen der L\u00e4ufer und L\u00e4uferinnen h\u00f6her schlagen l\u00e4sst, startet am Sp", "distance": null, "eventStatus": "Standard", "identifier": "schinderhanneslauf", "image": "/rennseiten/schinderhanneslauf/schinderhanneslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Sportplatz in Miehlen", "addressRegion": "Rheinland-Pfalz"}, "name": "Sportplatz in Miehlen"}, "name": "Schinderhanneslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250406"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -24,6 +24,8 @@
     />
     <title>Laufwettbewerbe in Koblenz: Gelände-Läufe im Laufkalender finden</title>
     <meta name="description" content="Entdecke die beste Auswahl an Gelände-Laufwettbewerben in Koblenz. Finde deinen nächsten Lauf mit unserem Laufkalender und Rennliste – von 5 km bis Marathon und mehr!" />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -657,14 +659,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Koblenz&quot;, &quot;race_type&quot;: &quot;Gel\u00e4nde&quot;, &quot;category&quot;: null}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Koblenz\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Gel\\u00e4nde\u0026quot;, \u0026quot;category\u0026quot;: null}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/herthasee_crosslauf"
-  class="race-card"
+  href="/rennseiten/herthasee_crosslauf"
+  class="race-card packed"
   data-name="Herthasee Crosslauf"
   data-date="20250309"
   data-county="Rheinland-Pfalz"
@@ -675,92 +677,24 @@
   data-longitude="7.900002400000001"
   data-location="Herthasee an der B417 Richtung Hirschberg"
   data-description="Der 45. Crosslauf Rund um den Herthasee findet am Sonntag, den 10. März 2024 in Holzappel statt. Die Veranstaltung wird vom VfL Holzappel au"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fherthasee_crosslauf%2Fherthasee_crosslauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/herthasee_crosslauf/herthasee_crosslauf_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="9 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fherthasee_crosslauf%2Fherthasee_crosslauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuHerthasee Crosslauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          9 März
-        </div>
-        <div class="race-location">
-          Rheinland-Pfalz
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Herthasee Crosslauf</div>
+    <div class="race-date">
+      9 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Herthasee Crosslauf</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Herthasee an der B417 Richtung Hirschberg 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Gemischte Distanz
-              </span>
-            </div>
-            
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der 45. Crosslauf Rund um den Herthasee findet am Sonntag, den 10. März 2024 in Holzappel statt. Die Veranstaltung wird vom VfL Holzappel au...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/schinderhanneslauf"
-  class="race-card"
+  href="/rennseiten/schinderhanneslauf"
+  class="race-card packed"
   data-name="Schinderhanneslauf"
   data-date="20250406"
   data-county="Rheinland-Pfalz"
@@ -771,88 +705,20 @@
   data-longitude="7.8312229"
   data-location="Sportplatz in Miehlen"
   data-description="Am 6. April 2025 kehrt der Miehlener Schinderhanneslauf zurück! Der beliebte Lauf, der die Herzen der Läufer und Läuferinnen höher schlagen "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fschinderhanneslauf%2Fschinderhanneslauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/schinderhanneslauf/schinderhanneslauf_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="6 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fschinderhanneslauf%2Fschinderhanneslauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuSchinderhanneslauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          6 apr.
-        </div>
-        <div class="race-location">
-          Rheinland-Pfalz
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Schinderhanneslauf</div>
+    <div class="race-date">
+      6 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Schinderhanneslauf</h3>
-        <div
-          class="race-location "
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Sportplatz in Miehlen 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances "
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Gemischte Distanz
-              </span>
-            </div>
-            
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Am 6. April 2025 kehrt der Miehlener Schinderhanneslauf zurück! Der beliebte Lauf, der die Herzen der Läufer und Läuferinnen höher schlagen ...
-    </div>
-  </div>
-  <div
-    class="cta-button "
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

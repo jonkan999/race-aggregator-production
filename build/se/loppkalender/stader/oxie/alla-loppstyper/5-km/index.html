@@ -21,6 +21,8 @@
     <title>5 km Löplopp i Oxie - Loppkalender & Löparkalender</title>
     <meta name="description" content="Hitta alla 5 km löplopp i Oxie i vår loppkalender. Sök bland alla lopptyper, inklusive Landsväg, Terräng, Trail och mer. Hitta ditt nästa löplopp!" />
 
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -671,14 +673,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Oxie&quot;, &quot;race_type&quot;: null, &quot;category&quot;: &quot;5 km&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Oxie\u0026quot;, \u0026quot;race_type\u0026quot;: null, \u0026quot;category\u0026quot;: \u0026quot;5 km\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/stavie_trail"
-  class="race-card"
+  class="race-card packed"
   data-name="Stävie Trail"
   data-date="20250302"
   data-county="Skåne"
@@ -689,110 +691,24 @@
   data-longitude="13.0752671"
   data-location="Södra Ljungvägen 33, Furulund"
   data-description="Stävie Trail bjuder på en fantastisk runda på slingrande stigar i småkuperad terräng med alla tänkbara underlag. Välj mellan 6,5 km, 13 km e"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/stavie_trail/stavie_trail_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/stavie_trail/stavie_trail_1.webp?v=1"
   data-type="terrain"
   data-type-display="Terräng"
   data-date-display="2 mars"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/stavie_trail/stavie_trail_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Stävie Trail"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          2 mars
-        </div>
-        <div class="race-location">
-          Skåne
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Stävie Trail</div>
+    <div class="race-date">
+      2 mars
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Stävie Trail</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Södra Ljungvägen 33, Furulund 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2,6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                6,5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                13 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Halvmarathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Terräng
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Stävie Trail bjuder på en fantastisk runda på slingrande stigar i småkuperad terräng med alla tänkbara underlag. Välj mellan 6,5 km, 13 km e...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/osterlen_spring_trail"
-  class="race-card"
+  class="race-card packed"
   data-name="Österlen Spring Trail"
   data-date="20250412"
   data-county="Skåne"
@@ -803,104 +719,24 @@
   data-longitude="13.96091938018799"
   data-location="Andrarum"
   data-description="Österlen Spring Trail startades 2015 och kan beskrivas som ett motionslopp där naturen, gemenskapen och upplevelsen är i fokus, medan presta"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/osterlen_spring_trail/osterlen_spring_trail_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/osterlen_spring_trail/osterlen_spring_trail_1.webp?v=1"
   data-type="road"
   data-type-display="Landsväg"
   data-date-display="12 apr."
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/osterlen_spring_trail/osterlen_spring_trail_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Österlen Spring Trail"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          12 apr.
-        </div>
-        <div class="race-location">
-          Skåne
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Österlen Spring Trail</div>
+    <div class="race-date">
+      12 apr.
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Österlen Spring Trail</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Andrarum 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                22 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                30 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                60 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Landsväg
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Österlen Spring Trail startades 2015 och kan beskrivas som ett motionslopp där naturen, gemenskapen och upplevelsen är i fokus, medan presta...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
   href="/loppsidor/billingen_xtrail_challenge"
-  class="race-card"
+  class="race-card packed"
   data-name="Billingen Xtrail Challenge"
   data-date="20250510"
   data-county="Skåne"
@@ -911,97 +747,17 @@
   data-longitude="13.3334583"
   data-location="Toppen av Billingens slalombacke"
   data-description="Billingen X-trail är en krävande bana som erbjuder både 5 km och 12 km distanser på Berget Billingen i Skövde. 5 km-banan är perfekt för dig"
-  data-image-path="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/billingen_xtrail_challenge/billingen_xtrail_challenge_1.webp?v=1"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/billingen_xtrail_challenge/billingen_xtrail_challenge_1.webp?v=1"
   data-type="trail"
   data-type-display="Trail"
   data-date-display="10 maj"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/se/billingen_xtrail_challenge/billingen_xtrail_challenge_1.webp?v=1"
-        width="600"
-        height="400"
-        alt="Bild till Billingen Xtrail Challenge"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          10 maj
-        </div>
-        <div class="race-location">
-          Skåne
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Billingen Xtrail Challenge</div>
+    <div class="race-date">
+      10 maj
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Billingen Xtrail Challenge</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Toppen av Billingens slalombacke 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                12 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                35 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Trail
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Billingen X-trail är en krävande bana som erbjuder både 5 km och 12 km distanser på Berget Billingen i Skövde. 5 km-banan är perfekt för dig...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mer info & anmälan</div>
   </div>
 </a>
     
@@ -1018,7 +774,11 @@
           </div>
         </div>
         <div class="race-card-big-container right-scroller">
-              <a
+          
+            
+            
+              
+                <a
   href="/loppsidor/osterlen_spring_trail"
   class="race-card-big race-card"
   data-name="Österlen Spring Trail"
@@ -1037,6 +797,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1094,7 +856,14 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/loppsidor/stavie_trail"
   class="race-card-big race-card"
   data-name="Stävie Trail"
@@ -1113,6 +882,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1176,7 +947,14 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>       <a
+</a>
+              
+            
+          
+            
+            
+              
+                <a
   href="/loppsidor/billingen_xtrail_challenge"
   class="race-card-big race-card"
   data-name="Billingen Xtrail Challenge"
@@ -1195,6 +973,8 @@
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -1252,10 +1032,13 @@
       <div class="more-info-button">Till loppsida</div>
     </div>
   </div>
-</a>   
+</a>
+              
+            
+          
         </div>
       </section>
-        
+      
 
       <!-- Pagination controls -->
       <div class="pagination-info">

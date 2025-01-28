@@ -8,7 +8,7 @@
     </script>
         
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Im Jahr 2025 richtet der TuS Bothfeld seinen 10. Bothfelder Crosslauf aus! Die L\u00e4ufe beginnen in der N\u00e4he des Sportplatzes und enden auf dem Sportplatz. Die Wet", "distance": "1,6km, 1,8km, 3,3km, 4,6km, 8,5km, 9,2km", "eventStatus": "Standard", "identifier": "bothfelder_crosslauf", "image": "/Rennseiten/bothfelder_crosslauf/bothfelder_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Bezirkssportplatz Bothfeld", "addressRegion": "Niedersachsen"}, "name": "Bezirkssportplatz Bothfeld"}, "name": "Bothfelder Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250301"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Never Give Up Hindernislauf 2025 findet am Samstag, den 21.06.2025 in Heinum statt. Der Hauptlauf der Erwachsenen bietet eine fordernde und abwechslungsreic", "distance": "2km, 5km, 12km", "eventStatus": "Standard", "identifier": "never_give_up_lauf", "image": "/Rennseiten/never_give_up_lauf/never_give_up_lauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Heinum", "addressRegion": "Niedersachsen"}, "name": "Heinum"}, "name": "Never Give Up Lauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250621"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Im Jahr 2025 richtet der TuS Bothfeld seinen 10. Bothfelder Crosslauf aus! Die L\u00e4ufe beginnen in der N\u00e4he des Sportplatzes und enden auf dem Sportplatz. Die Wet", "distance": "1,6km, 1,8km, 3,3km, 4,6km, 8,5km, 9,2km", "eventStatus": "Standard", "identifier": "bothfelder_crosslauf", "image": "/rennseiten/bothfelder_crosslauf/bothfelder_crosslauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Bezirkssportplatz Bothfeld", "addressRegion": "Niedersachsen"}, "name": "Bezirkssportplatz Bothfeld"}, "name": "Bothfelder Crosslauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250301"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Never Give Up Hindernislauf 2025 findet am Samstag, den 21.06.2025 in Heinum statt. Der Hauptlauf der Erwachsenen bietet eine fordernde und abwechslungsreic", "distance": "2km, 5km, 12km", "eventStatus": "Standard", "identifier": "never_give_up_lauf", "image": "/rennseiten/never_give_up_lauf/never_give_up_lauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Heinum", "addressRegion": "Niedersachsen"}, "name": "Heinum"}, "name": "Never Give Up Lauf", "sport": "Laufen, Gel\u00e4nde", "startDate": "20250621"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -20,6 +20,8 @@
     />
     <title>5 km Gelände Laufwettbewerbe in Laatzen | Laufkalender & Rennliste</title>
     <meta name="description" content="Entdecke 5 km Geländeläufe in Laatzen. Finde deinen nächsten Laufwettkampf in unserer Rennliste und Laufkalender.  Laufrennen und Laufwettbewerbe übersichtlich aufgelistet." />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -662,14 +664,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Laatzen&quot;, &quot;race_type&quot;: &quot;Gel\u00e4nde&quot;, &quot;category&quot;: &quot;5 km&quot;}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Laatzen\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Gel\\u00e4nde\u0026quot;, \u0026quot;category\u0026quot;: \u0026quot;5 km\u0026quot;}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/bothfelder_crosslauf"
-  class="race-card"
+  href="/rennseiten/bothfelder_crosslauf"
+  class="race-card packed"
   data-name="Bothfelder Crosslauf"
   data-date="20250301"
   data-county="Niedersachsen"
@@ -680,114 +682,24 @@
   data-longitude="9.7936143"
   data-location="Bezirkssportplatz Bothfeld"
   data-description="Im Jahr 2025 richtet der TuS Bothfeld seinen 10. Bothfelder Crosslauf aus! Die Läufe beginnen in der Nähe des Sportplatzes und enden auf dem"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fbothfelder_crosslauf%2Fbothfelder_crosslauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/bothfelder_crosslauf/bothfelder_crosslauf_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="1 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fbothfelder_crosslauf%2Fbothfelder_crosslauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuBothfelder Crosslauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          1 März
-        </div>
-        <div class="race-location">
-          Niedersachsen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Bothfelder Crosslauf</div>
+    <div class="race-date">
+      1 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Bothfelder Crosslauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Bezirkssportplatz Bothfeld 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                1,6 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                1,8 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                3,3 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                4,6 km
-              </span>
-            </div>
-             
-            <div class="distance-item">
-              <span class="race-distance">...</span>
-            </div>
-             
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Im Jahr 2025 richtet der TuS Bothfeld seinen 10. Bothfelder Crosslauf aus! Die Läufe beginnen in der Nähe des Sportplatzes und enden auf dem...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/never_give_up_lauf"
-  class="race-card"
+  href="/rennseiten/never_give_up_lauf"
+  class="race-card packed"
   data-name="Never Give Up Lauf"
   data-date="20250621"
   data-county="Niedersachsen"
@@ -798,100 +710,20 @@
   data-longitude="9.8267382"
   data-location="Heinum"
   data-description="Der Never Give Up Hindernislauf 2025 findet am Samstag, den 21.06.2025 in Heinum statt. Der Hauptlauf der Erwachsenen bietet eine fordernde "
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fnever_give_up_lauf%2Fnever_give_up_lauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/never_give_up_lauf/never_give_up_lauf_1.webp?v=1"
   data-type="terrain"
   data-type-display="Gelände"
   data-date-display="21 Juni"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fnever_give_up_lauf%2Fnever_give_up_lauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuNever Give Up Lauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          21 Juni
-        </div>
-        <div class="race-location">
-          Niedersachsen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Never Give Up Lauf</div>
+    <div class="race-date">
+      21 Juni
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Never Give Up Lauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Heinum 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                2 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                12 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Gelände
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Never Give Up Hindernislauf 2025 findet am Samstag, den 21.06.2025 in Heinum statt. Der Hauptlauf der Erwachsenen bietet eine fordernde ...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">

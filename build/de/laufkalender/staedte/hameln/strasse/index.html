@@ -12,7 +12,7 @@
     </script>
       
     <script type="application/ld+json">
-      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Springe-Deister-Marathon verl\u00e4uft auf einem Rundkurs am Fu\u00dfe des Kleinen Deisters und bietet eine malerische Aussicht auf den H\u00f6henzug Deister. Die Strecke ", "distance": "5km, 10km, marathon", "eventStatus": "Standard", "identifier": "springe_deister_marathon", "image": "/Rennseiten/springe_deister_marathon/springe_deister_marathon_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Springe", "addressRegion": "Niedersachsen"}, "name": "Springe"}, "name": "Springe-Deister Marathon", "sport": "Laufen, Stra\u00dfe", "startDate": "20250322"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 35. Hamelner STADT-GALERIE-Lauf findet am Samstag, den 29. M\u00e4rz 2025, in Hameln statt und wird vom ESV Eintracht Hameln e.V. veranstaltet. Der Rundkurs f\u00fchr", "distance": "5km", "eventStatus": "Standard", "identifier": "hameln_stadtgalerielauf", "image": "/Rennseiten/hameln_stadtgalerielauf/hameln_stadtgalerielauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "STADT-GALERIE, Hamelner Hochzeitshaus / Pferdemarkt", "addressRegion": "Niedersachsen"}, "name": "STADT-GALERIE, Hamelner Hochzeitshaus / Pferdemarkt"}, "name": "Hameln Stadtgalerielauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250329"}, "position": 2}], "numberOfItems": 2}
+      {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der Springe-Deister-Marathon verl\u00e4uft auf einem Rundkurs am Fu\u00dfe des Kleinen Deisters und bietet eine malerische Aussicht auf den H\u00f6henzug Deister. Die Strecke ", "distance": "5km, 10km, marathon", "eventStatus": "Standard", "identifier": "springe_deister_marathon", "image": "/rennseiten/springe_deister_marathon/springe_deister_marathon_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "Springe", "addressRegion": "Niedersachsen"}, "name": "Springe"}, "name": "Springe-Deister Marathon", "sport": "Laufen, Stra\u00dfe", "startDate": "20250322"}, "position": 1}, {"@type": "ListItem", "item": {"@type": "SportsEvent", "description": "Der 35. Hamelner STADT-GALERIE-Lauf findet am Samstag, den 29. M\u00e4rz 2025, in Hameln statt und wird vom ESV Eintracht Hameln e.V. veranstaltet. Der Rundkurs f\u00fchr", "distance": "5km", "eventStatus": "Standard", "identifier": "hameln_stadtgalerielauf", "image": "/rennseiten/hameln_stadtgalerielauf/hameln_stadtgalerielauf_1.webp", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "de", "addressLocality": "STADT-GALERIE, Hamelner Hochzeitshaus / Pferdemarkt", "addressRegion": "Niedersachsen"}, "name": "STADT-GALERIE, Hamelner Hochzeitshaus / Pferdemarkt"}, "name": "Hameln Stadtgalerielauf", "sport": "Laufen, Stra\u00dfe", "startDate": "20250329"}, "position": 2}], "numberOfItems": 2}
     </script>
      
 
@@ -24,6 +24,8 @@
     />
     <title>Laufwettbewerbe in Hameln: Straßenläufe – Finde dein nächstes Laufrennen</title>
     <meta name="description" content="Entdecke die besten Straßenläufe in Hameln!  Unser Laufkalender bietet eine Übersicht über Laufwettkämpfe verschiedener Distanzen, von 5 km bis Marathon. Finde dein nächstes Laufrennen jetzt!" />
+
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -670,14 +672,14 @@
       class="race-cards-grid"
       id="race-cards-container"
       
-      data-preselected-filters="{&quot;county&quot;: &quot;Hameln&quot;, &quot;race_type&quot;: &quot;Stra\u00dfe&quot;, &quot;category&quot;: null}"
+      data-preselected-filters=""{\u0026quot;county\u0026quot;: \u0026quot;Hameln\u0026quot;, \u0026quot;race_type\u0026quot;: \u0026quot;Stra\\u00dfe\u0026quot;, \u0026quot;category\u0026quot;: null}""
       
     >
          
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/springe_deister_marathon"
-  class="race-card"
+  href="/rennseiten/springe_deister_marathon"
+  class="race-card packed"
   data-name="Springe-Deister Marathon"
   data-date="20250322"
   data-county="Niedersachsen"
@@ -688,104 +690,24 @@
   data-longitude="9.555078499999999"
   data-location="Springe"
   data-description="Der Springe-Deister-Marathon verläuft auf einem Rundkurs am Fuße des Kleinen Deisters und bietet eine malerische Aussicht auf den Höhenzug D"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fspringe_deister_marathon%2Fspringe_deister_marathon_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/springe_deister_marathon/springe_deister_marathon_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="22 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fspringe_deister_marathon%2Fspringe_deister_marathon_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuSpringe-Deister Marathon"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          22 März
-        </div>
-        <div class="race-location">
-          Niedersachsen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Springe-Deister Marathon</div>
+    <div class="race-date">
+      22 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Springe-Deister Marathon</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          Springe 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                10 km
-              </span>
-            </div>
-            
-            <div class="distance-item">
-              <span class="race-distance">
-                Marathon
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der Springe-Deister-Marathon verläuft auf einem Rundkurs am Fuße des Kleinen Deisters und bietet eine malerische Aussicht auf den Höhenzug D...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
     
-<!-- Full card content for first 20 cards -->
+<!-- Packed version for remaining cards -->
 <a
-  href="/Rennseiten/hameln_stadtgalerielauf"
-  class="race-card"
+  href="/rennseiten/hameln_stadtgalerielauf"
+  class="race-card packed"
   data-name="Hameln Stadtgalerielauf"
   data-date="20250329"
   data-county="Niedersachsen"
@@ -796,88 +718,20 @@
   data-longitude="9.355504999999999"
   data-location="STADT-GALERIE, Hamelner Hochzeitshaus / Pferdemarkt"
   data-description="Der 35. Hamelner STADT-GALERIE-Lauf findet am Samstag, den 29. März 2025, in Hameln statt und wird vom ESV Eintracht Hameln e.V. veranstalte"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fhameln_stadtgalerielauf%2Fhameln_stadtgalerielauf_1.webp?alt=media"
+  data-src="https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/de/hameln_stadtgalerielauf/hameln_stadtgalerielauf_1.webp?v=1"
   data-type="road"
   data-type-display="Straße"
   data-date-display="29 März"
 >
-  <div class="race-card-upper-box background-container">
-    <picture>
-      <img
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2Fde%2Fhameln_stadtgalerielauf%2Fhameln_stadtgalerielauf_1.webp?alt=media"
-        width="600"
-        height="400"
-        alt="Bild zuHameln Stadtgalerielauf"
-        class="background-img"
-        onerror="this.onerror=null; this.src='/images/hero_small.webp';"
-      />
-    </picture>
-    <div class="race-card-content">
-      <div class="race-info-top">
-        <div class="race-date">
-          29 März
-        </div>
-        <div class="race-location">
-          Niedersachsen
-        </div>
-      </div>
+  <!-- Placeholder content while packed -->
+  <div class="race-card-placeholder">
+    <div class="race-name">Hameln Stadtgalerielauf</div>
+    <div class="race-date">
+      29 März
     </div>
-    <div class="overlay soft"></div>
-  </div>
-
-  <div class="race-info-bottom">
-    <div class="upper-container">
-      <div class="left-container">
-        <h3 class="race-name">Hameln Stadtgalerielauf</h3>
-        <div
-          class="race-location with-spacing"
-        >
-          
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#location-icon"></use>
-          </svg>
-          STADT-GALERIE, Hamelner Hochzeitshaus / Pferdemarkt 
-        </div>
-      </div>
-      <div class="right-container">
-        <div
-          class="race-distances with-spacing"
-        >
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#flag-icon"></use>
-          </svg>
-          <div class="distance-container">
-              
-            <div class="distance-item">
-              <span class="race-distance">
-                5 km
-              </span>
-            </div>
-              
-          </div>
-        </div>
-        
-        <div class="race-type">
-          <svg class="icon">
-            <use xlink:href="/icons/svg-sprite.svg#footsteps-icon"></use>
-          </svg>
-          Straße
-        </div>
-        
-      </div>
-    </div>
-    <div class="race-summary">
-      Der 35. Hamelner STADT-GALERIE-Lauf findet am Samstag, den 29. März 2025, in Hameln statt und wird vom ESV Eintracht Hameln e.V. veranstalte...
-    </div>
-  </div>
-  <div
-    class="cta-button with-spacing"
-  >
-    <div class="more-info-button">Mehr Informationen & Anmeldung</div>
   </div>
 </a>
-      
+    
 
       <!-- Pagination controls -->
       <div class="pagination-info">
