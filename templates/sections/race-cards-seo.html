@@ -62,14 +62,15 @@
       if
       preselected_filters
       %}
-      data-preselected-filters="{{ preselected_filters|tojson }}"
+      data-preselected-filters="{{ preselected_filters }}"
       {%
       endif
       %}
     >
       {# All regular cards - packed #} {% for race in races %} {% with
       unpack=false %} {% include 'components/race-card.html' %} {% endwith %} {%
-      endfor %} {# Selected races section #} {% if races|length >= 3 and schema_data.raceList and schema_data.raceList.itemListElement %}
+      endfor %} {# Selected races section #} {% if races|length >= 3 and
+      schema_data.raceList and schema_data.raceList.itemListElement %}
       <section class="section section-selected-races in-grid">
         <div class="section-header-container">
           <h2 class="section-header">{{ selected_races_title }}</h2>
@@ -83,14 +84,11 @@
           </div>
         </div>
         <div class="race-card-big-container right-scroller">
-          {% for item in schema_data.raceList.itemListElement %}
-            {% set featured_race = races|selectattr('domain_name', 'eq', item.item.identifier)|first %}
-            {% if featured_race %}
-              {% with race=featured_race %}
-                {% include 'components/race-card-big.html' %}
-              {% endwith %}
-            {% endif %}
-          {% endfor %}
+          {% for item in schema_data.raceList.itemListElement %} {% set
+          featured_race = races|selectattr('domain_name', 'eq',
+          item.item.identifier)|first %} {% if featured_race %} {% with
+          race=featured_race %} {% include 'components/race-card-big.html' %} {%
+          endwith %} {% endif %} {% endfor %}
         </div>
       </section>
       {% endif %}

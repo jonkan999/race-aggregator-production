@@ -25,7 +25,7 @@ const observer = new IntersectionObserver(
     });
   },
   {
-    rootMargin: '100% 0px 100% 0px', // Preload images when they are 200px away from the viewport
+    rootMargin: '100% 0px 100% 100px', // Preload images when they are 200px away from the viewport and 100px to the right
     threshold: 0.1,
   }
 );
@@ -126,7 +126,7 @@ async function initializeWhenReady() {
   }
 
   // Your existing initialization code
-  const distanceMapping = {"1,5km": ["1500 meter"], "10,1km": ["10 km"], "10,2km": ["10 km"], "10,3km": ["10 km"], "10,4km": ["10 km"], "10,5km": ["10 km"], "10,6km": ["10 km"], "10,7km": ["10 km"], "10,9km": ["10 km"], "100 miles": ["100 miles"], "100km": ["50 miles", "100 km"], "109km": ["100 km"], "10km": ["10 km", "10000 meter"], "11km": ["10 km"], "20,5km": ["Halve marathon"], "20km": ["Halve marathon"], "22km": ["Halve marathon"], "3km": ["3000 meter"], "4,2km": ["5 km"], "4,4km": ["5 km"], "4,5km": ["5 km"], "4,6km": ["5 km"], "4,7km": ["5 km"], "4,9km": ["5 km"], "40km": ["Marathon"], "41km": ["Marathon"], "44km": ["Marathon"], "45km": ["50 km"], "47km": ["50 km"], "48km": ["50 km"], "4km": ["5 km"], "5,0km": ["5 km", "5000 meter"], "5,2km": ["5 km"], "5,3km": ["5 km"], "5,4km": ["5 km"], "5,5km": ["5 km"], "5,6km": ["5 km"], "5,7km": ["5 km"], "5,8km": ["5 km"], "5,9km": ["5 km"], "50 miles": ["50 miles"], "50km": ["50 km"], "55km": ["50 km"], "5km": ["5 km", "5000 meter"], "6km": ["5 km"], "75km": ["50 miles"], "85km": ["50 miles"], "9,1km": ["10 km"], "9,2km": ["10 km"], "9,3km": ["10 km"], "9,4km": ["10 km"], "9,5km": ["10 km"], "9,7km": ["10 km"], "9,8km": ["10 km"], "9,9km": ["10 km"], "90km": ["50 miles", "100 km"], "92km": ["50 miles", "100 km"], "9km": ["10 km"], "half marathon": ["Halve marathon"], "marathon": ["Marathon"]};
+  const distanceMapping = {"1,5km": ["1500 meter"], "10,1km": ["10 km"], "10,2km": ["10 km"], "10,3km": ["10 km"], "10,4km": ["10 km"], "10,5km": ["10 km"], "10,6km": ["10 km"], "10,7km": ["10 km"], "10,9km": ["10 km"], "100 miles": ["100 miles"], "100km": ["50 miles", "100 km"], "109km": ["100 km"], "10km": ["10 km", "10000 meter"], "11km": ["10 km"], "20,5km": ["Halve marathon"], "20km": ["Halve marathon"], "22km": ["Halve marathon"], "3km": ["3000 meter"], "4,2km": ["5 km"], "4,4km": ["5 km"], "4,5km": ["5 km"], "4,6km": ["5 km"], "4,7km": ["5 km"], "4,9km": ["5 km"], "40km": ["Marathon"], "41km": ["Marathon"], "44km": ["Marathon"], "45km": ["50 km"], "47km": ["50 km"], "48km": ["50 km"], "4km": ["5 km"], "5,0km": ["5000 meter", "5 km"], "5,2km": ["5 km"], "5,3km": ["5 km"], "5,4km": ["5 km"], "5,5km": ["5 km"], "5,6km": ["5 km"], "5,7km": ["5 km"], "5,8km": ["5 km"], "5,9km": ["5 km"], "50 miles": ["50 miles"], "50km": ["50 km"], "55km": ["50 km"], "5km": ["5000 meter", "5 km"], "6km": ["5 km"], "75km": ["50 miles"], "85km": ["50 miles"], "9,1km": ["10 km"], "9,2km": ["10 km"], "9,3km": ["10 km"], "9,4km": ["10 km"], "9,5km": ["10 km"], "9,7km": ["10 km"], "9,8km": ["10 km"], "9,9km": ["10 km"], "90km": ["50 miles", "100 km"], "92km": ["50 miles", "100 km"], "9km": ["10 km"], "half marathon": ["Halve marathon"], "marathon": ["Marathon"]};
   const raceCards = document.querySelectorAll(".race-card");
   const itemsPerPage = 20;
   let currentPage = 1;

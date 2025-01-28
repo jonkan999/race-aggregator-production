@@ -25,7 +25,7 @@ const observer = new IntersectionObserver(
     });
   },
   {
-    rootMargin: '100% 0px 100% 0px', // Preload images when they are 200px away from the viewport
+    rootMargin: '100% 0px 100% 100px', // Preload images when they are 200px away from the viewport and 100px to the right
     threshold: 0.1,
   }
 );
