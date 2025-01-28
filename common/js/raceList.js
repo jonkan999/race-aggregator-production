@@ -1,3 +1,26 @@
+// Preload above-fold images immediately
+(() => {
+    const viewportHeight = window.innerHeight;
+    const cards = document.querySelectorAll('.race-card');
+    const visibleCards = Array.from(cards).filter(card => {
+        const rect = card.getBoundingClientRect();
+        return rect.top < viewportHeight;
+    });
+
+    // Create preload links
+    visibleCards.forEach(card => {
+        const imagePath = card.dataset.imagePath;
+        if (imagePath) {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = imagePath;
+            link.fetchPriority = 'high';
+            document.head.appendChild(link);
+        }
+    });
+})();
+
 // Initialize intersection observer immediately
 const observer = new IntersectionObserver(
   (entries) => {
@@ -33,7 +56,7 @@ const observer = new IntersectionObserver(
     });
   },
   {
-    rootMargin: '200px 0px', // Preload images when they are 200px away from the viewport
+    rootMargin: '100% 0px 100% 0px', // Preload images when they are 200px away from the viewport
     threshold: 0.1,
   }
 );

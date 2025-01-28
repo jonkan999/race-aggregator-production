@@ -26,6 +26,9 @@
       content="Här hittar du alla löpartävlingar och lopp i Sverige 2025 ✔️Största löparkalendern ✔️Trail, Backyard, eller Maraton ✔️Lopp från hela Sverige"
     />
 
+    <!-- Move raceList.js up and make it high priority -->
+    <script src="/js/raceList.js" fetchpriority="high"></script>
+
     <!-- Preload critical assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -104,9 +107,8 @@
     <!-- Critical Scripts -->
     <script type="module" src="/js/commonFunctions.js"></script>
 
-    <!-- Deferred Scripts -->
-    <script defer src="/js/raceList.js"></script>
-    <script defer type="module" src="/js/raceListMap.js"></script>
+    <!-- Move other race-related scripts up but keep them deferred -->
+    <script defer src="/js/raceListMap.js"></script>
     <script defer src="/js/raceListDisengeageFilters.js"></script>
     <script defer src="/js/raceListToggleButton.js"></script>
     <script defer src="/js/raceListToggleMap.js"></script>
@@ -4835,6 +4837,8 @@ Längs banan passerar du stora d"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -4905,6 +4909,8 @@ Längs banan passerar du stora d"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -4981,6 +4987,8 @@ Längs banan passerar du stora d"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -5057,6 +5065,8 @@ Längs banan passerar du stora d"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -5121,6 +5131,8 @@ Längs banan passerar du stora d"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -5197,6 +5209,8 @@ Längs banan passerar du stora d"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -5267,6 +5281,8 @@ Längs banan passerar du stora d"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -5355,6 +5371,8 @@ Längs banan passerar du stora d"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -5419,6 +5437,8 @@ Längs banan passerar du stora d"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>
@@ -5489,6 +5509,8 @@ Längs banan passerar du stora d"
         width="600"
         height="400"
         class="background-img selected-race-card-img"
+        fetchpriority="high"
+        decoding="sync"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
       />
     </picture>

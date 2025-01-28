@@ -26,6 +26,9 @@
       content="Her finder du alle løb og konkurrencer i Danmark 2025 ✔️Danmarks største løbskalender ✔️Trail, Backyard eller Maraton ✔️Løb fra hele Danmark"
     />
 
+    <!-- Move raceList.js up and make it high priority -->
+    <script src="/js/raceList.js" fetchpriority="high"></script>
+
     <!-- Preload critical assets -->
     <link rel="preload" href="/css/general.css" as="style" />
     <link rel="preload" href="/css/header-menu.css" as="style" />
@@ -104,9 +107,8 @@
     <!-- Critical Scripts -->
     <script type="module" src="/js/commonFunctions.js"></script>
 
-    <!-- Deferred Scripts -->
-    <script defer src="/js/raceList.js"></script>
-    <script defer type="module" src="/js/raceListMap.js"></script>
+    <!-- Move other race-related scripts up but keep them deferred -->
+    <script defer src="/js/raceListMap.js"></script>
     <script defer src="/js/raceListDisengeageFilters.js"></script>
     <script defer src="/js/raceListToggleButton.js"></script>
     <script defer src="/js/raceListToggleMap.js"></script>
