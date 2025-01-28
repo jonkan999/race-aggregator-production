@@ -19,8 +19,8 @@
       content="{{ race_list_meta_description_1 }} {{ '' | get_years }} {{ race_list_meta_description_2 }}"
     />
 
-    <!-- Move raceList.js up and make it high priority -->
-    <script src="/js/raceList.js" fetchpriority="high"></script>
+    <!-- Load preloader first -->
+    <script src="/js/imagePreloader.js" fetchpriority="high"></script>
 
     <!-- Preload critical assets -->
     <link rel="preload" href="/css/general.css" as="style" />
@@ -101,6 +101,7 @@
     <script type="module" src="/js/commonFunctions.js"></script>
 
     <!-- Move other race-related scripts up but keep them deferred -->
+    <script src="/js/raceList.js"></script>
     <script defer src="/js/raceListMap.js"></script>
     <script defer src="/js/raceListDisengeageFilters.js"></script>
     <script defer src="/js/raceListToggleButton.js"></script>
