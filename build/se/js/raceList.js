@@ -1,24 +1,45 @@
 // Preload above-fold images immediately
 (() => {
-    const viewportHeight = window.innerHeight;
-    const cards = document.querySelectorAll('.race-card');
-    const visibleCards = Array.from(cards).filter(card => {
-        const rect = card.getBoundingClientRect();
-        return rect.top < viewportHeight;
-    });
+    // Run this before DOMContentLoaded to get earliest possible execution
+    if (document.readyState === 'loading') {
+        // If DOM isn't ready, wait for it but with high priority
+        document.addEventListener('DOMContentLoaded', preloadVisibleImages, {priority: 'high'});
+    } else {
+        // DOM is already ready, run immediately
+        preloadVisibleImages();
+    }
 
-    // Create preload links
-    visibleCards.forEach(card => {
-        const imagePath = card.dataset.imagePath;
-        if (imagePath) {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.as = 'image';
-            link.href = imagePath;
-            link.fetchPriority = 'high';
-            document.head.appendChild(link);
-        }
-    });
+    function preloadVisibleImages() {
+        const viewportHeight = window.innerHeight;
+        const cards = document.querySelectorAll('.race-card');
+        
+        // Find all cards that are visible in viewport
+        const visibleCards = Array.from(cards).filter(card => {
+            const rect = card.getBoundingClientRect();
+            // Consider cards that are slightly below viewport too
+            return rect.top < (viewportHeight + 100);
+        });
+
+        // Create a document fragment to batch DOM operations
+        const fragment = document.createDocumentFragment();
+        
+        // Create preload links
+        visibleCards.forEach(card => {
+            const imagePath = card.dataset.imagePath;
+            if (imagePath) {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'image';
+                link.href = imagePath;
+                link.type = 'image/webp';
+                link.fetchPriority = 'high';
+                fragment.appendChild(link);
+            }
+        });
+
+        // Batch append all preload links to head
+        document.head.appendChild(fragment);
+    }
 })();
 
 // Initialize intersection observer immediately
