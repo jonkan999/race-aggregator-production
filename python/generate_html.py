@@ -9,7 +9,7 @@ import subprocess
 from pathlib import Path
 
 # Import the custom timeago function from jinja_functions.py
-from jinja_functions import timeago, convert_date, slugify, get_display_values, map_verbose_distance, get_years, get_selected_races
+from jinja_functions import timeago, convert_date, slugify, get_display_values, map_verbose_distance, get_years, get_selected_races, get_image_path
 
 # Paths
 template_dir = 'templates'
@@ -148,7 +148,8 @@ def generate_country(country_code):
         'race_type': index_content.get('race_type', 'Other'),
         'race_page_folder_name': index_content.get('race_page_folder_name'),
         'distance_filter': distance_filter,
-        'schema_data': schema_data,  # Add the race list schema to the content
+        'schema_data': schema_data,
+        'get_image_path': get_image_path
     }
 
     # Add responsive image sizes from config

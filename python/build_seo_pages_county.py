@@ -12,7 +12,7 @@ import os
 import shutil
 from jinja2 import Environment, FileSystemLoader
 from pathlib import Path
-from jinja_functions import slugify, convert_date, map_verbose_distance  # Import the function
+from jinja_functions import slugify, convert_date, map_verbose_distance,get_image_path  # Import the function
 import yaml
 import json
 from datetime import datetime
@@ -470,7 +470,8 @@ def generate_seo_pages(races, template_dir, output_dir, verbose_mapping, country
             'navigation': navigation,
             'month_mapping': month_mapping,
             'breadcrumbs': schema_data['breadcrumbs'],
-            'schema_data': schema_data
+            'schema_data': schema_data,
+            'get_image_path': get_image_path
         }
         
         # Write file

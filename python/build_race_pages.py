@@ -13,7 +13,7 @@ from datetime import datetime
 import subprocess
 
 # Import the custom functions from jinja_functions.py
-from jinja_functions import timeago, convert_date, slugify, get_display_values, map_verbose_distance
+from jinja_functions import timeago, convert_date, slugify, get_display_values, map_verbose_distance, get_image_path
 
 # Import the generate_sitemap function from generate_sitemap.py
 from generate_sitemap import generate_sitemap_for_country
@@ -224,58 +224,6 @@ def generate_distance_filter(country_code):
     
     print(f"Distance filter generated successfully for {country_code}!")
 
-def process_race_image(img, race_dir, base_filename, max_file_size_kb=500):
-    """
-    Process and save race image in webp format with optimization if needed.
-    Only saves one optimized base image.
-    """
-    # Convert to RGB if RGBA
-    if img.mode == 'RGBA':
-        background = Image.new('RGB', img.size, (255, 255, 255))
-        background.paste(img, mask=img.split()[3])
-        img = background
-    
-    # Apply some initial optimizations
-    img = ImageOps.autocontrast(img, cutoff=0.5)  # Improve contrast
-    
-    output_path = os.path.join(race_dir, f"{base_filename}.webp")
-    
-    # First try saving at maximum quality
-    buffer = io.BytesIO()
-    img.save(buffer, format='WEBP', 
-            quality=100,
-            method=6,  # Highest compression method
-            lossless=False,  # Use lossy compression
-            exact=True,  # Preserve color accuracy
-            minimize_size=True)  # Additional compression
-    
-    # If file is already under max size, save it directly
-    if buffer.tell() <= max_file_size_kb * 1024:
-        with open(output_path, 'wb') as f:
-            f.write(buffer.getvalue())
-        return
-    
-    # If we need to optimize, start with high quality and work down
-    quality = 95
-    min_quality = 60  # Minimum quality to maintain decent images
-    
-    while buffer.tell() > max_file_size_kb * 1024 and quality > min_quality:
-        buffer.seek(0)
-        buffer.truncate()
-        
-        img.save(buffer, format='WEBP',
-                quality=quality,
-                method=6,
-                lossless=False,
-                exact=True,
-                minimize_size=True)
-        
-        quality -= 5
-    
-    # Save the optimized image
-    with open(output_path, 'wb') as f:
-        f.write(buffer.getvalue())
-
 def should_rebuild_race(race_dir, race):
     """
     Determine if a race page needs to be rebuilt by checking:
@@ -460,7 +408,8 @@ def generate_race_pages(country_code, domain_name=None, rebuild_all=False):
             'race_date': convert_date(race['date'], content['month_mapping_short']),
             'mapbox_zoom': content['mapbox_zoom'],
             'race_wall_posts': race_wall_posts,
-            'meta_description': meta_description
+            'meta_description': meta_description,
+            'get_image_path': get_image_path
         }
 
         # Render the race page content

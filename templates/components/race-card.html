@@ -13,7 +13,7 @@
   data-longitude="{{ race.longitude|default('') }}"
   data-location="{{ race.location }}"
   data-description="{{ race.description[:140] }}"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2F{{ country_code }}%2F{{ race.domain_name }}%2F{{ race.domain_name }}_1.webp?alt=media"
+  data-image-path="{{ get_image_path(country_code, race.domain_name) }}"
   data-type="{{ race.type }}"
   data-type-display="{{ type_options[race.type]|default(race.type) }}"
   data-date-display="{{ race.date | convert_date(month_mapping_short) }}"
@@ -22,7 +22,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2F{{ country_code }}%2F{{ race.domain_name }}%2F{{ race.domain_name }}_1.webp?alt=media"
+        data-src="{{ get_image_path(country_code, race.domain_name) }}"
         width="600"
         height="400"
         alt="{{ alt_prefix }}{{ race.name }}"
@@ -123,7 +123,7 @@
   data-longitude="{{ race.longitude|default('') }}"
   data-location="{{ race.location }}"
   data-description="{{ race.description[:140] }}"
-  data-image-path="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2F{{ country_code }}%2F{{ race.domain_name }}%2F{{ race.domain_name }}_1.webp?alt=media"
+  data-image-path="{{ get_image_path(country_code, race.domain_name) }}"
   data-type="{{ race.type }}"
   data-type-display="{{ type_options[race.type]|default(race.type) }}"
   data-date-display="{{ race.date | convert_date(month_mapping_short) }}"

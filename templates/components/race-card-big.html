@@ -12,7 +12,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="https://firebasestorage.googleapis.com/v0/b/aggregatory-440306.firebasestorage.app/o/race-images%2F{{ country_code }}%2F{{ race.domain_name }}%2F{{ race.domain_name }}_1.webp?alt=media"
+        data-src="{{ get_image_path(country_code, race.domain_name) }}"
         alt="{{ alt_prefix }}{{ race.name }}"
         width="600"
         height="400"

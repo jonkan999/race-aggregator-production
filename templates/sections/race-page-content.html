@@ -3,7 +3,7 @@
     <div class="main-image background-container">
       <img
         id="race-main-image"
-        src="{{ images[0].firebase_url if images else '' }}"
+        src="{{ get_image_path(country_code, race.domain_name) if images else '' }}"
         onerror="this.onerror=null; this.src='/images/hero_small.webp';"
         alt="{{ images[0].alt if images else 'Main race image' }}"
         class="background-img-nofilter"
@@ -32,7 +32,7 @@
       {% for image in images[0:] %}
       <div class="thumbnail-container">
         <img
-          src="{{ image.firebase_url }}"
+          src="{{ get_image_path(country_code, race.domain_name, loop.index0 + 1) }}"
           alt="{{ image.alt }}"
           class="thumbnail"
         />
