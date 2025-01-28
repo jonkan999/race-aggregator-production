@@ -1,20 +1,57 @@
 // Immediate executing preloader
 (() => {
-  function preloadVisibleImages() {
-    const viewportHeight = window.innerHeight;
+  function applyInitialFilters() {
+    // Get filter values from URL or defaults
+    const urlParams = new URLSearchParams(window.location.search);
+    const county = urlParams.get('county') || '';
+    const raceType = urlParams.get('race_type') || '';
+    const category = urlParams.get('category') || '';
+
+    // Get all race cards
     const cards = document.querySelectorAll('.race-card');
 
-    // Find all cards that are visible in viewport
-    const visibleCards = Array.from(cards).filter((card) => {
+    cards.forEach((card) => {
+      let show = true;
+
+      // Apply county filter
+      if (county && card.dataset.county !== county) {
+        show = false;
+      }
+
+      // Apply race type filter
+      if (raceType && card.dataset.raceType !== raceType) {
+        show = false;
+      }
+
+      // Apply category filter
+      if (category && !card.dataset.distance?.includes(category)) {
+        show = false;
+      }
+
+      if (!show) {
+        card.classList.add('filtered-out');
+      }
+    });
+
+    return Array.from(cards).filter(
+      (card) => !card.classList.contains('filtered-out')
+    );
+  }
+
+  function preloadVisibleImages() {
+    // First apply filters
+    const visibleCards = applyInitialFilters();
+
+    // Then find which filtered cards are above the fold
+    const viewportHeight = window.innerHeight;
+    const aboveFoldCards = visibleCards.filter((card) => {
       const rect = card.getBoundingClientRect();
       return rect.top < viewportHeight + 100;
     });
 
-    // Create a document fragment to batch DOM operations
+    // Create preload links for above-fold cards
     const fragment = document.createDocumentFragment();
-
-    // Create preload links
-    visibleCards.forEach((card) => {
+    aboveFoldCards.forEach((card) => {
       const imagePath = card.dataset.imagePath;
       if (imagePath) {
         const link = document.createElement('link');
@@ -27,7 +64,7 @@
       }
     });
 
-    // Insert preload links as early as possible in head
+    // Insert preload links as early as possible
     const head = document.head || document.getElementsByTagName('head')[0];
     if (head.firstChild) {
       head.insertBefore(fragment, head.firstChild);
@@ -36,7 +73,7 @@
     }
   }
 
-  // Run as soon as DOM has basic structure
+  // Run as soon as possible
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', preloadVisibleImages, {
       priority: 'high',
